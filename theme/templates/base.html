@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+  <head>
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="{{ SITENAME }}, {{ ABOUT }}" />
+    <meta name="keywords" content="pub/sub, DDS, IoT" />
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/ato.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/syntax.css">
+    {% endblock head %}
+  </head>
+
+  <body>
+    {% include 'partials/header.html' %}
+    {% block content %}{% endblock %}
+    {% include 'partials/footer.html' %}
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/tether.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+    <script src="{{ SITEURL }}/theme/js/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+      apiKey: 'd7b5b785798fe748621bcaa8301a2201',
+      indexName: 'zenoh',
+      inputSelector: '#search-input',
+      debug: false // Set debug to true if you want to inspect the dropdown
+    });
+    </script>
+  </body>
+</html>

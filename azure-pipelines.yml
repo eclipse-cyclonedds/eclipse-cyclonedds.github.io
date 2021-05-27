@@ -1,0 +1,43 @@
+#
+# Copyright(c) 2021 ADLINK Technology Limited and others
+#
+# This program and the accompanying materials are made available under the
+# terms of the Eclipse Public License v. 2.0 which is available at
+# http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+# v. 1.0 which is available at
+# http://www.eclipse.org/org/documents/edl-v10.php.
+#
+# SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+#
+
+#
+# Azure Pipeline specifically for building and publishing documentation
+#
+
+trigger:
+  tags:
+    include:
+    - '*'
+  branches:
+    include:
+    - 'master'
+    - 'releases/*'
+
+pool:
+  vmImage: ubuntu-20.04
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.9'
+    name: install_python
+  - bash: |
+      set -e -x
+      mkdir -p build/docs
+      echo "Date: $(date)" >> build/docs/date
+    name: build_documentation
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathToPublish: build/docs
+      ArtifactName: 'foobaz_artifact_$(Build.BuildId)'
+      publishLocation: Container
