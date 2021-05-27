@@ -1,0 +1,45 @@
+    <footer class="ato-footer text-muted">
+      <div class="container-fluid p-6 p-md-5">
+        <div class="row">
+          <div class="col-md-2">
+            <h5>Eclipse Incubation</h5>
+            <p><img src="{{ SITEURL }}/images/eclipse-incubation.png" style="width:100px;"></p>
+            <p>Eclipse Cyclone DDS &trade; is an incubating project under the Eclipse Foundation.</p>
+          </div>
+
+          {% if INFORMATION %}
+          <div class="col-md-2">
+            <h5>More Information</h5>
+              {% for name, link in INFORMATION %}
+              <p><a href="{{ link }}" target="_blank">{{ name }}</a></p>
+              {% endfor %}
+          </div>
+          {% endif  %}
+
+          {% if SPONSORS %}
+          <div class="col-md-2">
+            <h5>Sponsored by:</h5>
+            {% for name, link, logo in SPONSORS %}
+            <p><a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}"></a></p>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if SOCIAL %}
+          <div class="col-md-2">
+            <h5>Follow us</h5>
+            {% for name, link, type in SOCIAL %}
+            <p><a href="{{ link }}"><i class="fa {{ type }}"></i>&nbsp;{{ name }}</a></p>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="col-md-2">
+            <p>Eclipse Cyclone DDS &trade; is free, open source and always will be.</p>
+            <p>Copyright &copy; 2021 Eclipse Foundation</p>
+            <p>Build with <a href="https://blog.getpelican.com/" target="_blank">Pelican</a></p>
+            <p>Theme inspired by: <a href="https://tokio.rs/" target="_blank">Tokio website theme</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
