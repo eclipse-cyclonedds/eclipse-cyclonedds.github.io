@@ -5,9 +5,7 @@
 
 import os
 import re
-import hashlib
-import urllib.request
-import base64
+
 
 ABOUT = 'High performant and robust open source OMG DDS implementation'
 AUTHOR = 'Eclipse Cyclone DDS committers'
@@ -33,9 +31,9 @@ AUTHOR_FEED_RSS = None
 LINKS = (('GitHub', 'https://github.com/eclipse-cyclonedds/cyclonedds', 'images/github.svg'),)
 
 # Social widget
-SOCIAL = (('GitHub', 'https://github.com/eclipse-cyclonedds/cyclonedds', 'fa-github'),
-          ('Gitter', 'https://gitter.im/atolab/cyclone-dds', 'fa-comments'),
-          ('About', 'docs/overview', 'fa-info-circle'),)
+SOCIAL = (('GitHub', 'https://github.com/eclipse-cyclonedds/cyclonedds', 'fab fa-github'),
+          ('Gitter', 'https://gitter.im/atolab/cyclone-dds', 'fa fa-comments'),
+          ('About', 'docs/overview', 'fa fa-info-circle'),)
 
 INFORMATION = (('Legal', 'https://www.eclipse.org/legal'),
                ('Privacy policy', 'https://www.eclipse.org/legal/privacy.php'),
@@ -48,7 +46,7 @@ INFORMATION = (('Legal', 'https://www.eclipse.org/legal'),
 
 #### SPONSORS ####
 SPONSORS = (('Eclipse Foundation', 'https://www.eclipse.org', 'images/eclipse-foundation.svg'),
-            ('ADLINK Technology', 'https://www.adlinktech.com', 'images/adlink.png'),)
+            ('ADLINK Technology', 'https://www.adlinktech.com', 'images/company_logo.png'),)
 
 DEFAULT_PAGINATION = False
 
@@ -84,11 +82,11 @@ PROJECTS = {
 
 # Retrieve documentation for all releases of all projects
 for project in PROJECTS:
-  path = 'docs/' + project
-  if not os.path.isdir(path):
-    continue
-  entries = os.listdir(path)
-  for entry in entries:
-    # version must either be "latest" or "x.x.x"
-    if re.match('^((?i:latest)|\d+\.\d+\.\d+)$', entry):
-      PROJECTS[project]['releases'].append(entry)
+    path = 'docs/' + project
+    if not os.path.isdir(path):
+        continue
+    entries = os.listdir(path)
+    for entry in entries:
+        # version must either be "latest" or "x.x.x"
+        if re.match('^((?i:latest)|\d+\.\d+\.\d+)$', entry):
+            PROJECTS[project]['releases'].append(entry)
