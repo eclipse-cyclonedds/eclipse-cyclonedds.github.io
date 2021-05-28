@@ -1,5 +1,5 @@
-    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar">
-      <a class="navbar-brand mx-3" href="/">
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
+      <a class="navbar-brand" href="/">
         <img src="/images/cyclonedds-white.svg" class="align-middle" alt="">
       </a>
 
@@ -25,11 +25,9 @@
         {% for name, link, logo in LINKS %}
         <li class="nav-item">
           <a class="nav-link p-2" href="{{ link }}" target="_blank" rel="noopener" aria-label="{{ name }}">
-            {% if icon %}
-            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/s" viewbox="0 0 512 499.36" focusable="false">
-              <image xlink:href="{{ logo }}" fill="currentColor">
-            </svg>
-            {% endif %}<title>{{ name }}</title>
+            {% if logo %}
+            <span class="{{ logo }} fa-lg"></span>
+            {% else %}{{ name }}{% endif %}
            </a>
         </li>
         {% endfor %}
