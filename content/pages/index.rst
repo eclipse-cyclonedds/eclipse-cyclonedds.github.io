@@ -17,7 +17,7 @@ Home
 Summary
 #######
 
-.. class:: hide-heading row align-items-center
+.. class:: hide-heading row align-items-center my-5 py-5
 
 Row
 ===
@@ -26,7 +26,7 @@ Row
 
 .. figure:: /images/cyclonedds.svg
 
-.. class:: col-md-7 order-md-1 text-center text-md-left pr-md-5
+.. class:: col-md-7 order-md-1 text-center text-md-start pr-md-5
 
 Cyclone DDS
 -----------
@@ -35,6 +35,10 @@ High performant and robust open source OMG DDS implementation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Brief summary of what makes Eclipse Cyclone DDS unique.
+
+.. class:: ato-button
+
+`Get Started <https://github.com/eclipse-cyclonedds/cyclonedds>`_
 
 
 .. class:: container-fluid hide-heading
