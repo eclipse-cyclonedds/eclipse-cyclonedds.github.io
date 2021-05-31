@@ -11,17 +11,21 @@
 #
 
 #
-# Azure Pipeline specifically for building and publishing documentation
+# Specify a pipeline resource trigger so that the page is refreshed if new
+# documentation is available.
 #
+resources:
+  pipelines:
+  - pipeline: cyclonedds
+    source: 'Publish documentation'
+    project: cyclonedds
+    trigger: true
 
-trigger:
-  tags:
-    include:
-    - '*'
-  branches:
-    include:
-    - 'master'
-    - 'releases/*'
+#
+# Specify a branch trigger so that the page is refreshed if new content is
+# being added.
+#
+trigger: [ 'master' ]
 
 pool:
   vmImage: ubuntu-20.04
@@ -31,13 +35,79 @@ steps:
     inputs:
       versionSpec: '3.9'
     name: install_python
+  # Download documentation if triggered by a pipeline
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: specific
+      project: cyclonedds
+      definition: 'Publish documentation'
+      downloadType: all
+      downloadPath: $(Agent.TempDirectory)/docs
+    condition: eq(variables['Resources.TriggeringAlias'], 'cyclonedds')
+    name: get_cyclonedds_documentation
+  - task: InstallSSHKey@0
+    inputs:
+      knownHostsEntry: $(known_hosts_entry)
+      sshKeySecureFile: deploy_key
+    name: get_deploy_key
   - bash: |
       set -e -x
-      mkdir -p build/docs
-      echo "Date: $(date)" >> build/docs/date
-    name: build_documentation
-  - task: PublishBuildArtifacts@1
-    inputs:
-      PathToPublish: build/docs
-      ArtifactName: 'foobaz_artifact_$(Build.BuildId)'
-      publishLocation: Container
+      pip install pelican --user --upgrade
+    name: install_pelican
+  # Clone gh-pages version of the repository
+  - bash: |
+      set -e -x
+      git clone --branch gh-pages "git@github.com:k0ekk0ek/eclipse-cyclonedds.github.io" gh-pages
+      cd gh-pages
+      ( [ "$(git branch --show-current)" = "gh-pages" ] ) || exit 1
+    name: checkout_pages
+  # Retain existing documentation for all product versions
+  - bash: |
+      cp -a gh-pages/docs "output/docs"
+      mkdir -p "output/docs"
+    name: save_guides
+  # Replace documentation for specific product version (if applicable)
+  - bash: |
+      set -e -x
+      case "${RESOURCES_TRIGGERINGALIAS}" in
+        cyclonedds)
+          project="cyclonedds"
+          ;;
+        cyclonedds_cxx)
+          project="cyclonedds-cxx"
+          ;;
+      esac
+      project="cyclonedds"
+      variable="RESOURCES_PIPELINE_${RESOURCES_TRIGGERINGALIAS^^}_SOURCEBRANCH"
+      branch="${!variable}"
+      if [[ -z "${branch}" || "${branch}" =~ ^refs/heads/(master|main)$ ]]; then
+        version="latest"
+      else
+        version="$(echo ${branch} | sed -n -E 's#^.*[vV]?([0-9]+\.[0-9]+)\.[0-9]+((alpha|beta|rc)[0-9]*)?$#\1#p')"
+      fi
+      ( [ "${project}" != "" ] && [ "${version}" != "" ] ) || exit 1
+      mkdir -p "output/docs/${project}"
+      rm -rvf "output/docs/${project}/${version}"
+      directory="$(find "${AGENT_TEMPDIRECTORY}/docs" -type d -name "${project}-docs-*" | head -1)"
+      ( [ "${directory}" != "" ] ) || exit 1
+      cp -vR "${directory}" "output/docs/${project}/${version}"
+    condition: ne(variables['Resources.TriggeringAlias'], '')
+    name: update_guide
+  - bash: |
+      set -e -x
+      make html
+    name: generate_site
+  - bash: |
+      set -e -x
+      cd gh-pages
+      git rm -rf *
+      rm -rf *
+      cp -a ../output/* ./
+      git add *
+      git config --local user.name "Azure Pipelines"
+      git config --local user.email "azuredevops@microsoft.com"
+      git commit --amend \
+                 --message "Publish site from Azure Pipelines (${BUILD_BUILDNUMBER})" \
+                 --date="$(date)"
+      git push --force origin gh-pages
+    name: commit_site

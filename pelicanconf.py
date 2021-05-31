@@ -47,7 +47,7 @@ INFORMATION = (('Legal', 'https://www.eclipse.org/legal'),
                ('Eclipse Districution License 1.0', 'https://www.eclipse.org/org/documents/edl-v10.php'),
                ('Eclipse Foundation', 'https://www.eclipse.org/'),)
 
-#### SPONSORS ####
+# Sponsors
 SPONSORS = (('Eclipse Foundation', 'https://www.eclipse.org', 'images/eclipse-foundation.svg'),
             ('ADLINK Technology', 'https://www.adlinktech.com', 'images/company_logo.svg'),)
 
