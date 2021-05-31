@@ -31,7 +31,6 @@ if __name__ == "__main__":
             digest = hash_file(path)
 
             if digest == data["sha512"]:
-                print(f"Resource {file} is already available.")
                 continue
 
         print(f"Downloading {file}")
@@ -40,5 +39,6 @@ if __name__ == "__main__":
 
         if digest != data["sha512"]:
             print(f"Invalid checksum for resource {file}")
+            print(f"Got {digest} but expected {data['sha512']}")
             os.unlink(path)
             sys.exit(1)
