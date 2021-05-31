@@ -57,18 +57,12 @@ DEFAULT_PAGINATION = False
 RELATIVE_URLS = True
 
 # custom Jinja2 filter
-def page_with_slug_index(pages):
-    for page in pages:
-        if page.slug == "index":
-            return page
-
 def page_with_slug(pages, slug):
     for page in pages:
         if page.slug == slug:
             return page
 
 JINJA_FILTERS = {
-    'page_with_slug_index': page_with_slug_index,
     'page_with_slug': page_with_slug
 }
 
