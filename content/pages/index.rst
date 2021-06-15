@@ -10,8 +10,7 @@ Home
 :save_as: index.html
 :sortorder: 1
 
-
-.. class:: container hide-heading
+.. class:: container-fluid hide-heading
 
 #######
 Summary
@@ -22,24 +21,20 @@ Summary
 Row
 ===
 
-.. class:: col-5 mx-auto col-md-5 order-md-2
+.. class:: col-12 col-md-5 mx-auto order-md-1
 
 .. figure:: /images/cyclonedds.svg
 
-.. class:: col-md-7 order-md-1 text-center text-md-start pr-md-5
+.. class:: col-12 col-md-7 order-md-2 text-center text-md-start pr-md-5
 
-Cyclone DDS
------------
 
-High performant and robust open source OMG DDS implementation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Brief summary of what makes Eclipse Cyclone DDS unique.
+Building Portable & Interoperable Distributed Datacentric Systems
+-----------------------------------------------------------------
+Cyclone DDS is a high performing, OMG-DDS standard based data sharing technology which allows system designers to create digital twins of their systems’ entities to share their states, events, data-streams and messages on the network in real-time and fault-tolerant way
 
 .. class:: ato-button
 
 `Get Started <https://github.com/eclipse-cyclonedds/cyclonedds>`_
-
 
 .. class:: container-fluid hide-heading
 
@@ -54,35 +49,35 @@ Row
 
 .. class:: col-12 col-md-4 p-3 p-md-5 bg-light border border-white
 
-Column 1
---------
+Fast & Dependable
+-----------------
 
-**feature 1**
-Description for feature 1
+Cyclone DDS has an extremely low latency and high throughput, especially in rush environments and noisy networks where error transmission rates are relatively high.​
+Performance variability and jitters are minimum which make it suitable for real-time and mission critical applications.​
+Cyclone DDS also has a low footprint making it suitable for both enterprise and embedded systems.​
 
-**feature 2**
-Description for feature 2
-
-
-.. class:: col-12 col-md-4 p-3 p-md-5 bg-light border border-white
-
-Column 2
---------
-
-**feature 3**
-Description for feature 3
-
-**feature 4**
-Description for feature 4
-
+Capitalizing on our lengthy experience developing data-centric middleware in real-time distributed systems,​
+the Cyclone DDS development team and community are fulfilling stringent software development processes with certifiability of the technology mind to be deployed where safety is mandated.​
 
 .. class:: col-12 col-md-4 p-3 p-md-5 bg-light border border-white
 
-Column 3
---------
+Consistent & Scalable
+---------------------
 
-**feature 5**
-Description for feature 5
+Cyclone DDS minimizes the DDS automatic discovery protocol overhead by aggregating the number of applications' representatives in the DDS network.​
+It scales out, both in Edge based peer-to-peer or in large-scale IoT deployments.​
+To rationalize the network resources in use, it can spread data on different multicast and unicast groups to confine it physically to where it is needed.​
 
-**feature 6**
-Description for feature  6
+The Cyclone DDS design maintains data distribution integrity and consistency between all applications that need it.​
+Data consistency is guaranteed, even when the system topology changes due to application disconnections and reconnections or, transient infrastructure failure.​
+
+.. class:: col-12 col-md-4 p-3 p-md-5 bg-light border border-white
+
+Secure & Interoperable
+----------------------
+
+To secure data exchanges, pre-built or user-defined plug-ins for applications Authentication, Authorization and data Encryption are supported.​
+Authentication uses the pre-built plugins with RSA, key exchange uses Diffie-Hellman.​ Authorization uses a permissions document signed by shared Certificate Authority.​ Cryptography uses AES-GCM and AES-GMAC for message authentication.​
+
+As a smart implementation of the DDSi-RTPS and the DDS-Security protocols Cyclone DDS interoperates with any other DDS vendor compliant implementation.​
+Interworking with non-DDS technologies is possible through other mediating technologies such as Zenoh or Camel-Apache.​
