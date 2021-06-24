@@ -48,8 +48,8 @@ INFORMATION = (('Legal', 'https://www.eclipse.org/legal'),
                ('Eclipse Foundation', 'https://www.eclipse.org/'),)
 
 # Sponsors
-SPONSORS = (('Eclipse Foundation', 'https://www.eclipse.org', 'images/eclipse-foundation.svg'),
-            ('ADLINK Technology', 'https://www.adlinktech.com', 'images/company_logo.svg'),)
+SPONSORS = (('Eclipse Foundation', 'https://www.eclipse.org', '/images/eclipse-foundation.svg'),
+            ('ADLINK Technology', 'https://www.adlinktech.com', '/images/company_logo.svg'),)
 
 DEFAULT_PAGINATION = False
 
