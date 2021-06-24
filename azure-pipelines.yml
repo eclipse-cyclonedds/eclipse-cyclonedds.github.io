@@ -57,7 +57,8 @@ steps:
   # Clone gh-pages version of the repository
   - bash: |
       set -e -x
-      git clone --branch gh-pages "git@github.com:k0ekk0ek/eclipse-cyclonedds.github.io" gh-pages
+      account=$(echo "${BUILD_REPOSITORY_URI}" | sed -n -E 's#^.*/([^/]+)/eclipse-cyclonedds.github.io(/.*)?$#\1#p')
+      git clone --branch gh-pages "git@github.com:${account}/eclipse-cyclonedds.github.io" gh-pages
       cd gh-pages
       ( [ "$(git branch --show-current)" = "gh-pages" ] ) || exit 1
     name: checkout_pages
