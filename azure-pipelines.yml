@@ -18,7 +18,11 @@ resources:
   pipelines:
   - pipeline: cyclonedds
     source: 'Publish documentation'
-    project: cyclonedds
+    project: 'cyclonedds'
+    trigger: true
+  - pipeline: cyclonedds_cxx
+    source: 'Publish documentation'
+    project: 'cyclonedds-cxx'
     trigger: true
 
 #
@@ -46,6 +50,15 @@ steps:
       downloadPath: $(Agent.TempDirectory)/docs
     condition: eq(variables['Resources.TriggeringAlias'], 'cyclonedds')
     name: get_cyclonedds_documentation
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: specific
+      project: 'cyclonedds-cxx'
+      definition: 'Publish documentation'
+      downloadType: all
+      downloadPath: $(Agent.TempDirectory)/docs
+    condition: eq(variables['Resources.TriggeringAlias'], 'cyclonedds_cxx')
+    name: get_cyclonedds_cxx_documentation
   - task: InstallSSHKey@0
     inputs:
       knownHostsEntry: $(known_hosts_entry)
@@ -65,8 +78,8 @@ steps:
     name: checkout_pages
   # Retain existing documentation for all product versions
   - bash: |
-      cp -a gh-pages/docs "output/docs"
-      mkdir -p "output/docs"
+      mkdir -p output/docs
+      cp -a gh-pages/docs/* output/docs/
     name: save_guides
   # Replace documentation for specific product version (if applicable)
   - bash: |
@@ -78,8 +91,10 @@ steps:
         cyclonedds_cxx)
           project="cyclonedds-cxx"
           ;;
+        cyclonedds-python)
+          project="cyclonedds-python"
+          ;;
       esac
-      project="cyclonedds"
       variable="RESOURCES_PIPELINE_${RESOURCES_TRIGGERINGALIAS^^}_SOURCEBRANCH"
       branch="${!variable}"
       if [[ -z "${branch}" || "${branch}" =~ ^refs/heads/(master|main)$ ]]; then
