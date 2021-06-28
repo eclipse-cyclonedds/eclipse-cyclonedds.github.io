@@ -86,7 +86,7 @@ PROJECTS = {
 
 # Retrieve documentation for all releases of all projects
 for project in PROJECTS:
-    path = 'docs/' + project
+    path = os.path.join("output", "docs", project)
     if not os.path.isdir(path):
         continue
     entries = os.listdir(path)
