@@ -118,7 +118,6 @@ steps:
       set -e -x
       cd gh-pages
       git rm -rf *
-      git reset $(git rev-list --max-parents=0 --abbrev-commit HEAD)
       rm -rf *
       cp -a ../output/* ./
       cp -a ../CNAME ./
@@ -130,9 +129,5 @@ steps:
                  --message "Publish site from Azure Pipelines (${BUILD_BUILDNUMBER})" \
                  --author "Azure Pipelines <azuredevops@microsoft.com>" \
                  --date="$(date)"
-      git commit --message "Rebuild pages" \
-                 --author "Azure Pipelines <azuredevops@microsoft.com>" \
-                 --date="$(date)" \
-                 --allow-empty
       git push --force origin gh-pages
     name: commit_site
