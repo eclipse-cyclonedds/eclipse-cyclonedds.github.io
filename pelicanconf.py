@@ -5,18 +5,23 @@
 
 import os
 import re
+import pytz
+import datetime
 
+def timestamp():
+    timezone = pytz.timezone(TIMEZONE)
+    return timezone.localize(datetime.datetime.now())
 
 ABOUT = 'High performant and robust open source OMG DDS implementation'
 AUTHOR = 'Eclipse Cyclone DDS committers'
 SITENAME = 'Eclipse Cyclone DDS'
 SITEURL = 'https://cyclonedds.io'
+TIMEZONE = 'Europe/Paris'
+TIMESTAMP = timestamp()
 
 THEME = 'theme'
 PATH = 'content'
 STATIC_PATHS = [ 'images' ]
-
-TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = 'en'
 
