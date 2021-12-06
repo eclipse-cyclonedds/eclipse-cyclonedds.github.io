@@ -96,6 +96,4 @@ for project in PROJECTS:
         continue
     entries = os.listdir(path)
     for entry in entries:
-        # version must either be "latest" or "x.x.x"
-        if re.match('^((?i:latest)|\d+\.\d+\.\d+)$', entry):
-            PROJECTS[project]['releases'].append(entry)
+        PROJECTS[project]['releases'].append(entry)
