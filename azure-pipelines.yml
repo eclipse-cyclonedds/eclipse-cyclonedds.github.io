@@ -1,5 +1,5 @@
 #
-# Copyright(c) 2021 ADLINK Technology Limited and others
+# Copyright(c) 2022 ZettaScale Technology and others
 #
 # This program and the accompanying materials are made available under the
 # terms of the Eclipse Public License v. 2.0 which is available at
@@ -10,27 +10,15 @@
 # SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
 #
 
-#
-# Specify a pipeline resource trigger so that the page is refreshed if new
-# documentation is available.
-#
-resources:
-  pipelines:
-  - pipeline: cyclonedds
-    source: 'Publish documentation'
-    project: 'cyclonedds'
-    trigger: true
-  - pipeline: cyclonedds_cxx
-    source: 'Publish documentation'
-    project: 'cyclonedds-cxx'
-    trigger: true
-
-#
-# Specify a branch trigger so that the page is refreshed if new content is
-# being added.
-#
-trigger: [ 'master' ]
+trigger: none
 pr: none
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: Midnight Refresh
+  branches:
+    include:
+    - master
 
 pool:
   vmImage: ubuntu-20.04
@@ -38,97 +26,28 @@ pool:
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.9'
+      versionSpec: '3.10'
     name: install_python
-  # Download documentation if triggered by a pipeline
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      buildType: specific
-      project: cyclonedds
-      definition: 'Publish documentation'
-      downloadType: all
-      downloadPath: $(Agent.TempDirectory)/docs
-    condition: eq(variables['Resources.TriggeringAlias'], 'cyclonedds')
-    name: get_cyclonedds_documentation
-  - task: DownloadBuildArtifacts@0
-    inputs:
-      buildType: specific
-      project: 'cyclonedds-cxx'
-      definition: 'Publish documentation'
-      downloadType: all
-      downloadPath: $(Agent.TempDirectory)/docs
-    condition: eq(variables['Resources.TriggeringAlias'], 'cyclonedds_cxx')
-    name: get_cyclonedds_cxx_documentation
-  - task: InstallSSHKey@0
-    inputs:
-      knownHostsEntry: $(known_hosts_entry)
-      sshKeySecureFile: deploy_key
-    name: get_deploy_key
+    displayName: Install Python
   - bash: |
-      set -e -x
-      pip install pelican --user --upgrade
-    name: install_pelican
-  # Clone gh-pages version of the repository
+      set -ex
+      pip install poetry --user --upgrade
+      poetry install
+    name: install_project_deps
+    displayName: Install project dependencies
   - bash: |
-      set -e -x
-      account=$(echo "${BUILD_REPOSITORY_URI}" | sed -n -E 's#^.*/([^/]+)/eclipse-cyclonedds.github.io(/.*)?$#\1#p')
-      git clone --branch gh-pages "git@github.com:${account}/eclipse-cyclonedds.github.io" gh-pages
-      cd gh-pages
-      ( [ "$(git branch --show-current)" = "gh-pages" ] ) || exit 1
-    name: checkout_pages
-  # Retain existing documentation for all product versions
+      set -ex
+      python -m builder --commit-if-updated
+    name: run_site_builder
+    displayName: Run site build
   - bash: |
-      mkdir -p output/docs
-      cp -a gh-pages/docs/* output/docs/
-    name: save_guides
-  # Replace documentation for specific product version (if applicable)
-  - bash: |
-      set -e -x
-      case "${RESOURCES_TRIGGERINGALIAS}" in
-        cyclonedds)
-          project="cyclonedds"
-          ;;
-        cyclonedds_cxx)
-          project="cyclonedds-cxx"
-          ;;
-        cyclonedds-python)
-          project="cyclonedds-python"
-          ;;
-      esac
-      variable="RESOURCES_PIPELINE_${RESOURCES_TRIGGERINGALIAS^^}_SOURCEBRANCH"
-      branch="${!variable}"
-      if [[ -z "${branch}" || "${branch}" =~ ^refs/heads/(master|main)$ ]]; then
-        version="latest"
-      else
-        version="$(echo ${branch} | sed -n -E 's#^.*[vV]?([0-9]+\.[0-9]+)\.[0-9]+((alpha|beta|rc)[0-9]*)?$#\1#p')"
+      set -ex
+      # was-updated is written by the builder if there are updates
+      if [[ -f "was-updated"]]; then
+        # push builders commit
+        git push
+        # Let python tool handle the gh-pages sync
+        ghp-import --no-jekyll --cname=cyclonedds.io --message="Azure build ${BUILD_BUILDNUMBER} for commit $(git rev-parse --verify HEAD)" --no-history --push --force --shell pages/
       fi
-      ( [ "${project}" != "" ] && [ "${version}" != "" ] ) || exit 1
-      mkdir -p "output/docs/${project}"
-      rm -rvf "output/docs/${project}/${version}"
-      directory="$(find "${AGENT_TEMPDIRECTORY}/docs" -type d -name "${project}-docs-*" | head -1)"
-      ( [ "${directory}" != "" ] ) || exit 1
-      cp -vR "${directory}" "output/docs/${project}/${version}"
-    condition: ne(variables['Resources.TriggeringAlias'], '')
-    name: update_guide
-  - bash: |
-      set -e -x
-      make html
-    name: generate_site
-  - bash: |
-      set -e -x
-      cd gh-pages
-      cp -a README.md ../output/
-      git rm -rf *
-      rm -rf *
-      cp -a ../output/* ./
-      cp -a ../CNAME ./
-      cp -a ../.nojekyll ./
-      git add .
-      git config --local user.name "Azure Pipelines"
-      git config --local user.email "azuredevops@microsoft.com"
-      git commit --amend \
-                 --message "Publish site from Azure Pipelines (${BUILD_BUILDNUMBER})" \
-                 --author "Azure Pipelines <azuredevops@microsoft.com>" \
-                 --date="$(date)"
-      git push --force origin gh-pages
-    name: commit_site
+    name: publish
+    displayName: Publish
