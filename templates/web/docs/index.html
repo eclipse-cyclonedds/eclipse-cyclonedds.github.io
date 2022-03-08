@@ -1,0 +1,72 @@
+{% set page = "docs" %}
+{% set title = "Eclipse Cyclone DDS - Documentation" %}
+{% extends "_base.html" %}
+
+{% block content %}
+    <main>
+      <div class="container">
+        <div class="row my-1">
+          <h1>Documentation</h1>
+          Here you can find the documentation of all Eclipse Cyclone DDS Projects.
+        </div>
+
+        <div class="row">
+          <div class="col-12 rounded border bg-light my-2 py-2">
+            <h2 class="mb-2">Latest (master branch)</h2>
+            <div class="row my-2">
+              <hr class="my-2"/>
+
+              {%- for name, version_db in projects.items() %}
+              <div class="col-6 col-md-1 mb-1"><strong>{{ config.projects[name].short }}</strong></div>
+              <div class="col-6 col-md-5 mb-1">
+                <div class="btn-group">
+                  <a class="btn btn-outline-primary btn-sm" href="/docs/{{ name }}/latest">Documentation</a>
+                  <a class="btn btn-outline-primary btn-sm"  href="{{ config.projects[name].repository }}/tree/{{ version_db.master_commit }}">Code</a>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mb-1">
+                <span class="text-muted">{{ version_db.master_commit }}</span>
+              </div>
+              {%- endfor %}
+            </div>
+          </div>
+        </div>
+
+        {% for release, tags in releases.items() %}
+        <div class="row">
+          <div class="col-12 rounded border bg-light my-2 py-2">
+            <h2 class="mb-2">{{ config.releases.get(release, "Unknown") }} ({{ release }})</h2>
+            <div class="row my-2">
+              {%- for (tag, is_prerelease) in tags %}
+              <hr class="my-2"/>
+              <div class="col-12">
+                {% if is_prerelease %}
+                <h4 class="text-secondary">{{ tag }}</h4>
+                {% else %}
+                <h4 class="text-primary">{{ tag }}</h4>
+                {% endif %}
+              </div>
+
+              {%- for name, version_db in projects.items() %}
+              <div class="col-6 col-md-1 mb-1"><strong>{{ config.projects[name].short }}</strong></div>
+              {% if tag in version_db.tags %}
+              <div class="col-6 col-md-3 mb-1">
+                <div class="btn-group">
+                  <a class="btn btn-outline-primary btn-sm" href="/docs/{{ name }}/{{ tag }}">Documentation</a>
+                  <a class="btn btn-outline-primary btn-sm"  href="{{ config.projects[name].repository }}/tree/{{ tag }}">Code</a>
+                  <a class="btn btn-outline-primary btn-sm"  href="{{ config.projects[name].repository }}/releases/tag/{{ tag }}">Notes</a>
+                </div>
+              </div>
+              {% else %}
+                <div class="col-6 col-md-3 mb-1"></div>
+              {% endif %}
+              {%- endfor %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </main>
+{% endblock content %}

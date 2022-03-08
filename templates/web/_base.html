@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
+    <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
+    <meta name="author" content="Eclipse Cyclone DDS Committers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    {% endblock head %}
+  </head>
+
+  <body>
+    {% include '_header.html' %}
+    {% block content %}{% endblock %}
+    {% include '_footer.html' %}
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+  </body>
+</html>
