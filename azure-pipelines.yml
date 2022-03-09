@@ -31,20 +31,25 @@ steps:
     displayName: Install Python
   - bash: |
       set -ex
+      sudo apt-get install -y doxygen
+      git fetch origin ${BUILD_SOURCEBRANCHNAME}
+      git checkout ${BUILD_SOURCEBRANCHNAME}
       pip install poetry --user --upgrade
       poetry install
     name: install_project_deps
     displayName: Install project dependencies
   - bash: |
       set -ex
-      python -m builder --commit-if-updated
+      poetry run python -m builder --commit-if-updated
     name: run_site_builder
     displayName: Run site build
   - bash: |
       set -ex
       # was-updated is written by the builder if there are updates
-      if [[ -f "was-updated"]]; then
+      if [[ -f "was-updated" ]]; then
         # push builders commit
+        git config --local user.name "Azure Pipelines"
+        git config --local user.email "azuredevops@microsoft.com"
         git push
         # Let python tool handle the gh-pages sync
         ghp-import --no-jekyll --cname=cyclonedds.io --message="Azure build ${BUILD_BUILDNUMBER} for commit $(git rev-parse --verify HEAD)" --no-history --push --force --shell pages/
