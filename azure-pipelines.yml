@@ -50,6 +50,7 @@ steps:
         # push builders commit
         git config --local user.name "Azure Pipelines"
         git config --local user.email "azuredevops@microsoft.com"
+        git config --global --add url."git@github.com:".insteadOf "https://github.com/"
         git push
         # Let python tool handle the gh-pages sync
         ghp-import --no-jekyll --cname=cyclonedds.io --message="Azure build ${BUILD_BUILDNUMBER} for commit $(git rev-parse --verify HEAD)" --no-history --push --force --shell pages/
