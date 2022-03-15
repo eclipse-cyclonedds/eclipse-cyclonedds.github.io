@@ -335,6 +335,23 @@
 <span class="n">TEST_F</span><span class="p">(</span><span class="n">Regression</span><span class="p">,</span><span class="w"> </span><span class="n">union_duplicate_types</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="n">duplicate_types_union</span><span class="w"> </span><span class="n">d_t</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">d_t</span><span class="p">.</span><span class="n">l_1</span><span class="p">(</span><span class="mi">456789</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">duplicate_sequences_union</span><span class="w"> </span><span class="n">d_s</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">d_s</span><span class="p">.</span><span class="n">c_1</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">});</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST_F</span><span class="p">(</span><span class="n">Regression</span><span class="p">,</span><span class="w"> </span><span class="n">delimiters_bitmask</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">bytes</span><span class="w"> </span><span class="n">s_bm1_bytes</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mh">0x06</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w">  </span><span class="c1">//s_bm1.dheader(6)</span>
+<span class="w">    </span><span class="mh">0x03</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0x06</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0x05</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="w"> </span><span class="c1">//s_bm1.c</span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">s_bm1</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">s</span><span class="p">.</span><span class="n">c</span><span class="p">({</span><span class="n">b_0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b_1</span><span class="p">,</span><span class="w"> </span><span class="n">b_1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b_2</span><span class="p">,</span><span class="w"> </span><span class="n">b_2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b_0</span><span class="p">});</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">readwrite_test</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">s_bm1_bytes</span><span class="p">,</span><span class="w"> </span><span class="n">xcdr_v2_stream</span><span class="p">(</span><span class="n">endianness</span><span class="o">::</span><span class="n">little_endian</span><span class="p">));</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>

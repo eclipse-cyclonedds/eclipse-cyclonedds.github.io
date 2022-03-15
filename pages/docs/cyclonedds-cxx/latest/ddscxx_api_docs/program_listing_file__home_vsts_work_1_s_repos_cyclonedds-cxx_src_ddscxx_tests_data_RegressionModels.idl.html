@@ -205,6 +205,26 @@ union duplicate_types_union <span class="k">switch</span>(<span class="nb">long<
     td_d d_2;  <span class="o">//</span>should be the same as d_1;
 };
 
+<span class="o">/*</span>this model is to check whether is_same_type sees <span class="s2">&quot;through&quot;</span> sequences correctly<span class="o">*/</span>
+typedef unsigned <span class="nb">long</span> ulong_arr[<span class="mi">4</span>];
+typedef sequence<span class="o">&lt;</span>ulong_arr<span class="o">&gt;</span> seq_ulong_arr;
+typedef sequence<span class="o">&lt;</span>unsigned <span class="nb">long</span><span class="o">&gt;</span> seq_ulong;
+
+union duplicate_sequences_union <span class="k">switch</span> (unsigned <span class="nb">long</span>) {
+  <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+    seq_ulong_arr c_0;
+  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+    seq_ulong c_1;
+};
+
+@bit_bound(<span class="mi">16</span>) bitmask bm1 {
+b_0, b_1, b_2
+};
+
+struct s_bm1 {
+bm1 c[<span class="mi">3</span>];
+};
+
 };
 </pre></div>
 </div>

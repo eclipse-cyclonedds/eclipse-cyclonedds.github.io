@@ -310,6 +310,37 @@
   struct union_struct_k {
     @key un_k c;
   };
+
+  @bit_bound(<span class="mi">15</span>) bitmask bm1 {
+    @position(<span class="mi">2</span>) bm_2,
+    bm_3,
+    @position(<span class="mi">5</span>) bm_5,
+    bm_6
+  };
+
+  @bit_bound(<span class="mi">15</span>) bitmask bm2 {
+    @position(<span class="mi">0</span>) bm_0,
+    bm_1,
+    @position(<span class="mi">7</span>) bm_7,
+    bm_8
+  };
+
+  struct bitmask_struct {
+    @key bm1 c;
+    bm2 d;
+  };
+
+  <span class="o">/*</span> this should also check the deduplication <span class="k">for</span> the variant container
+     as both bitmasks <span class="nb">map</span> to the same type as unsigned short <span class="o">*/</span>
+  union bitmask_union <span class="k">switch</span>(@key <span class="nb">long</span>) {
+    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+        bm1 c;
+    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+        bm2 d;
+    <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+        unsigned short s;
+  };
+
 };
 </pre></div>
 </div>
