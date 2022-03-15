@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Shared Memory &#8212; Eclipse Cyclone DDS 0.9.0a1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Eclipse Cyclone DDS C API Reference" href="ddsc.html" />
+    <link rel="prev" title="DDS Security" href="security.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/installation.html">Installing Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/helloworld_indepth.html">Hello World! in more detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/next_steps.html">What’s next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">DDS Security</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddsc.html">Eclipse Cyclone DDS C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="shared-memory">
+<span id="id1"></span><h1>Shared Memory<a class="headerlink" href="#shared-memory" title="Permalink to this headline">¶</a></h1>
+<p>This documentation is intended to describe the details of supporting shared memory exchange in Cyclone DDS, which is based on <a class="reference external" href="https://projects.eclipse.org/proposals/eclipse-iceoryx">Eclipse iceoryx</a>.</p>
+<section id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>The following steps were done on Ubuntu 20.04.</p>
+<p>Before compiling iceoryx, a number of packages which it depends on (cmake, libacl1, libncurses5, pkgconfig and maven) must be installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install cmake libacl1-dev libncurses5-dev pkg-config maven
+</pre></div>
+</div>
+<p>Next you will need to get and build iceoryx (all of this is assumed to occur in your home directory):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-iceoryx/iceoryx.git -b master
+<span class="nb">cd</span> iceoryx
+cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_SHARED_LIBS<span class="o">=</span>ON -Hiceoryx_meta
+cmake --build build --config Debug --target install
+</pre></div>
+</div>
+<p>After that, get Cyclone DDS (currently its iceoryx branch) and build it with shared memory support:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds.git -b iceoryx
+<span class="nb">cd</span> cyclonedds
+cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_EXAMPLES<span class="o">=</span>On -DCMAKE_PREFIX_PATH<span class="o">=</span>~/iceoryx/install/
+cmake --build build --config Debug --target install
+</pre></div>
+</div>
+<p>When the compiler has finished, you should have built both iceoryx and Cyclone DDS. Their respective files can be found in the install directories which were created in the directories git has made for you.</p>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>There are two levels of configuration for Cyclone DDS with shared memory support, the shared memory service (iceoryx) level, and the Cyclone DDS level.</p>
+<p>The performance of the shared memory service is strongly dependent on how well its configuration matches up with the use cases it will be asked to support, and large gains in performance can be made by configuring it correctly.</p>
+<p>The memory of iceoryx is layed out as numbers of fixed-size segments, which taken together are iceoryx’s memory pool. When a subscriber requests a block of memory from iceoryx, the smallest block which will fit the requested size and is available is provided to the subscriber from the pool. If no blocks can be found which satisfy these requirements, the publisher requesting the block will give an error, and abort the process.</p>
+<p>For testing, the default memory configuration usually suffices. The default configuration has blocks in varying numbers and sizes up to 4MiB, and iceoryx falls back to this configuration when it is not supplied with a suitable configuration file or cannot find one at the default location.</p>
+<p>To ensure the best performance with the smallest footprint, the user is advised to configure iceoryx in such a manner that the memory pool only consists of blocks which will be useful to the exchanges to be done. Additionally, due to header information being sent along with the sample, the block size required from the pool is 64 bytes larger than the data type being exchanged. Lastly, iceoryx requires that the blocks be aligned to 4 bytes.</p>
+<p>Below follows an example of an iceoryx configuration file which has a memory pool of 2^15 blocks which can store data types of 16384 bytes (+ 64 byte header = 16448 byte block):</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[general]</span><span class="w"></span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="k">[[segment]]</span><span class="w"></span>
+
+<span class="k">[[segment.mempool]]</span><span class="w"></span>
+<span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16448</span><span class="w"></span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32768</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The configuration file used is supplied to iceoryx using the -c parameter. Please save this file as <em>iox_config.toml</em> in your home directory for future use in the <a class="reference internal" href="#run">Run</a> section.
+For detailed shared memory service documentation, the user is referred to <a class="reference external" href="https://github.com/eclipse-iceoryx/iceoryx">the iceoryx website</a>.</p>
+<p>Cyclone DDS also needs to be configured correctly, to allow it to use shared memory exchange.</p>
+<p>The location where Cyclone DDS looks for the config file is set through the environment variable CYCLONEDDS_URI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>file://cyclonedds.xml
+</pre></div>
+</div>
+<p>The following optional configuration parameters in SharedMemory govern how Cyclone DDS treats shared memory:</p>
+<ul class="simple">
+<li><p>Enable</p>
+<ul>
+<li><p>when set to <em>true</em> enables cyclonedds to use shared memory for local data exchange</p></li>
+<li><p>defaults to <em>false</em></p></li>
+</ul>
+</li>
+<li><p>SubQueueCapacity</p>
+<ul>
+<li><p>controls how many samples a reader using shared memory can hold before the least recent is discarded</p></li>
+<li><p>defaults to <em>256</em></p></li>
+</ul>
+</li>
+<li><p>PubHistoryCapacity</p>
+<ul>
+<li><p>defines how many samples a shared memory writer will keep to send to late-joining subscribers</p></li>
+<li><p>defaults to <em>16</em></p></li>
+</ul>
+</li>
+<li><p>SubHistoryRequest</p>
+<ul>
+<li><p>the number of samples a late-joining reader will request from a writer</p></li>
+<li><p>this can only be as many as were sent and at most PubHistoryCapacity</p></li>
+<li><p>defaults to <em>16</em></p></li>
+</ul>
+</li>
+<li><p>LogLevel</p>
+<ul>
+<li><p>controls the output of the iceoryx runtime and can be set to, in order of decreasing output:</p>
+<ul>
+<li><p><em>verbose</em></p></li>
+<li><p><em>debug</em></p></li>
+<li><p><em>info</em> (default)</p></li>
+<li><p><em>warn</em></p></li>
+<li><p><em>error</em></p></li>
+<li><p><em>fatal</em></p></li>
+<li><p><em>off</em></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Below follows an example of a Cyclone DDS configuration file supporting shared memory exchange:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;CycloneDDS</span> <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+            <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+            <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/iceoryx/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Domain</span> <span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;SharedMemory&gt;</span>
+            <span class="nt">&lt;Enable&gt;</span>true<span class="nt">&lt;/Enable&gt;</span>
+            <span class="nt">&lt;SubQueueCapacity&gt;</span>256<span class="nt">&lt;/SubQueueCapacity&gt;</span>
+            <span class="nt">&lt;SubHistoryRequest&gt;</span>16<span class="nt">&lt;/SubHistoryRequest&gt;</span>
+            <span class="nt">&lt;PubHistoryCapacity&gt;</span>16<span class="nt">&lt;/PubHistoryCapacity&gt;</span>
+            <span class="nt">&lt;LogLevel&gt;</span>info<span class="nt">&lt;/LogLevel&gt;</span>
+        <span class="nt">&lt;/SharedMemory&gt;</span>
+    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+<p>Please save the above example as <em>cyclonedds.xml</em> in your home directory for future use in the <a class="reference internal" href="#run">Run</a> section.</p>
+</section>
+<section id="run">
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p>The configuration files from <a class="reference internal" href="#configuration">Configuration</a> are a prerequisite for the correct functioning of the below examples.</p>
+<p>Now, to start running Cyclone DDS with shared memory exchange.</p>
+<p>In the 1st terminal we will start RouDi.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~/iceoryx/build/iox-roudi -c iox_config.toml
+</pre></div>
+</div>
+<p>The 2nd terminal will run the publisher.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>~/iceoryx/install/lib/<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="si">}</span>
+<span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>file://cyclonedds.xml
+~/cyclonedds/build/bin/ShmThroughputPublisher <span class="m">16384</span> <span class="m">0</span> <span class="m">1</span> <span class="m">10</span> <span class="s2">&quot;Throughput example&quot;</span>
+</pre></div>
+</div>
+<p>The 3rd terminal will run the subscriber.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>~/iceoryx/install/lib/<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="si">}</span>
+<span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>file://cyclonedds.xml
+~/cyclonedds/build/bin/ShmThroughputSubscriber <span class="m">10</span> <span class="m">0</span> <span class="s2">&quot;Throughput example&quot;</span> <span class="m">16384</span>
+</pre></div>
+</div>
+<p><strong>N.B.</strong>: for this example to run correctly, both the publisher and subscriber need to be given the same message type, which in this case is 16384 (the number of bytes in the message sent).</p>
+<p>A typical result on the subscriber side will look something like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cycles: <span class="m">10</span> <span class="p">|</span> PollingDelay: <span class="m">0</span> <span class="p">|</span> Partition: Throughput <span class="nv">example</span>
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> Waiting <span class="k">for</span> samples...
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">26587</span> samples, <span class="m">435601408</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">26586</span>.48 samples/s, <span class="m">3484</span>.74 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">51764</span> samples, <span class="m">848101376</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25176</span>.43 samples/s, <span class="m">3299</span>.92 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">77666</span> samples, <span class="m">1272479744</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25901</span>.57 samples/s, <span class="m">3394</span>.97 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">103328</span> samples, <span class="m">1692925952</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25661</span>.24 samples/s, <span class="m">3363</span>.47 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">127267</span> samples, <span class="m">2085142528</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">23938</span>.74 samples/s, <span class="m">3137</span>.70 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">151643</span> samples, <span class="m">2484518912</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">24375</span>.11 samples/s, <span class="m">3194</span>.89 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">176542</span> samples, <span class="m">2892464128</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">24898</span>.70 samples/s, <span class="m">3263</span>.52 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">201916</span> samples, <span class="m">3308191744</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25373</span>.31 samples/s, <span class="m">3325</span>.73 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">228113</span> samples, <span class="m">3737403392</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">26196</span>.68 samples/s, <span class="m">3433</span>.65 Mbit/s
+<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">254555</span> samples, <span class="m">4170629120</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">26441</span>.99 samples/s, <span class="m">3465</span>.80 Mbit/s
+
+Total received: <span class="m">254555</span> samples, <span class="m">4170629120</span> bytes
+Out of order: <span class="m">0</span> samples
+Average transfer rate: <span class="m">25455</span>.50 samples/s, Maximum transfer rate: <span class="m">26586</span>.48 samples/s, Average throughput : <span class="m">3336</span>.50 Mbit/s
+Maximum throughput : <span class="m">3484</span>.74 Mbit/s
+</pre></div>
+</div>
+<p>Shared memory is especially suited for exchanging large messages:</p>
+<a class="reference internal image-reference" href="_images/iox_comp.png"><img alt="Comparison between networked (lo) and shared memory (iox) exchange" src="_images/iox_comp.png" style="width: 1000px;" /></a>
+<p>The relative performances are dependant on a large number of factors such as message size, iceoryx memory pool configuration, number of other exchanges taking place, and many others. Individual results may therefore differ.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>Due to the manner in which the shared memory exchange functions, some limitations to the types of data and delivery are required to ensure their correct functioning.</p>
+<p>First, the data types to be exchanged need to have a fixed size. This precludes the use of strings and sequences at any level in the data type, though this does not prevent the use of arrays, as their size is fixed at compile time. If any of these types of member variables are encountered in the IDL code generating the data types, shared memory exchange is disabled.</p>
+<p>A possible workaround for this limitation is using fixed size arrays of chars in stead of strings, and arrays of other types in stead of sequences, and take any overhead for granted.</p>
+<p>Second, the manner in which the iceoryx memory pool keeps track of exchanged data puts a number of limitations on the QoS settings.
+For writers, the following QoS settings are prerequisites for shared memory exchange:</p>
+<ul class="simple">
+<li><p>Liveliness</p>
+<ul>
+<li><p>DDS_LIVELINESS_AUTOMATIC</p></li>
+</ul>
+</li>
+<li><p>Deadline</p>
+<ul>
+<li><p>DDS_INFINITY</p></li>
+</ul>
+</li>
+<li><p>Reliability</p>
+<ul>
+<li><p>DDS_RELIABILITY_RELIABLE</p></li>
+</ul>
+</li>
+<li><p>Durability</p>
+<ul>
+<li><p>DDS_DURABILITY_VOLATILE</p></li>
+</ul>
+</li>
+<li><p>History</p>
+<ul>
+<li><p>DDS_HISTORY_KEEP_LAST</p></li>
+<li><p>with depth no larger than the publisher history capacity as set in the configuration file</p></li>
+</ul>
+</li>
+</ul>
+<p>Whereas for readers, the following QoS settings are prerequisites for shared memory exchange:</p>
+<ul class="simple">
+<li><p>Liveliness</p>
+<ul>
+<li><p>DDS_LIVELINESS_AUTOMATIC</p></li>
+</ul>
+</li>
+<li><p>Deadline</p>
+<ul>
+<li><p>DDS_INFINITY</p></li>
+</ul>
+</li>
+<li><p>Reliability</p>
+<ul>
+<li><p>DDS_RELIABILITY_RELIABLE</p></li>
+</ul>
+</li>
+<li><p>Durability</p>
+<ul>
+<li><p>DDS_DURABILITY_VOLATILE</p></li>
+</ul>
+</li>
+<li><p>History</p>
+<ul>
+<li><p>DDS_HISTORY_KEEP_LAST</p></li>
+<li><p>with depth no larger than the subscriber history request as set in the configuration file</p></li>
+</ul>
+</li>
+</ul>
+<p>If any of these prerequisites are not satisfied, shared memory exchange will be disabled and data transfer will fall back to the network interface.</p>
+<p>A further limitation is the maximum number of subscriptions per process for the iceoryx service, which is 127.</p>
+<p>Lastly, there is the limit on the operating system. Iceoryx currently has no functioning implementation for the Windows operating system, this is <a class="reference external" href="https://github.com/eclipse/iceoryx/issues/33">under development</a>.</p>
+</section>
+<section id="loan-mechanism">
+<h2>Loan Mechanism<a class="headerlink" href="#loan-mechanism" title="Permalink to this headline">¶</a></h2>
+<p>If the choice to use shared memory exchange is made, additional performance gains can be made by using the loan mechanism on the writer side.
+The loan mechanism directly allocates memory from the iceoryx shared memory pool, and provides this to the user in the shape of the message data type.
+Thereby eliminating a copy step in the publication process.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">message_type</span><span class="w"> </span><span class="o">*</span><span class="n">loaned_sample</span><span class="p">;</span><span class="w"></span>
+<span class="n">dds_return_t</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_loan_sample</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">loaned_sample</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If <em>status</em> returns <strong>DDS_RETCODE_OK</strong>, then <em>loaned_sample</em> will contain a pointer to the memory pool object, in all other cases, <em>loaned_sample</em> should not be dereferenced.
+For requesting loaned samples, the writer used to request the loaned sample should be of the same data type as the sample that you are writing in it, since necessary information about the data type is supplied by the writer.</p>
+<p>The user is limited in this case by the maximum number of outstanding loans, defined by <strong>MAX_PUB_LOANS</strong> (default set to 8). This is the maximum number of loaned samples that each publisher can have outstanding from the shared memory, before some must be returned (handed back to the publisher through <em>dds_write</em>) before requesting new loaned samples.</p>
+<p>After a loaned sample has been returned to the shared memory pool (at the moment, this can only be done by invoking <em>dds_write</em>), dereferencing the pointer is undefined behaviour.</p>
+<p>If the user is not able to use the loan mechanism, a <em>dds_write</em> will still write to the shared memory service if Cyclone DDS is configured to use shared memory. Though in this case, the overhead of an additional copy step in publication is incurred, since a block for publishing to the shared memory will be requested and the data of the published sample copied into it.</p>
+</section>
+<section id="developer-hints">
+<h2>Developer Hints<a class="headerlink" href="#developer-hints" title="Permalink to this headline">¶</a></h2>
+<p>The initial implementation is from <a class="reference external" href="https://github.com/adlink-ROS/">ADLINK Advanced Robotics Platform Group</a>.
+Contributions were made by <a class="reference external" href="https://www.apex.ai/">Apex.AI</a> in order to integrate the latest iceoryx C-API to support zero copy data transfer.
+Further contributions and feedback from the community are very welcome.</p>
+<p>Below are some tips for you to get started:</p>
+<ul>
+<li><p>Most of the shared memory modification is under the define <strong>DDS_HAS_SHM</strong>, you can search the define to have a quick scan</p></li>
+<li><p>If you are curious about the internal happenings of the iceoryx service, there is a useful tool from iceoryx called iceoryx_introspection_client:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~/iceoryx/build/iox-introspection-client --all
+</pre></div>
+</div>
+</li>
+<li><p>CycloneDDS can be configured to show logging information from shared memory.</p>
+<ul class="simple">
+<li><p>Setting Tracing::Category to <em>shm</em> shows the Cyclone DDS log related to shared memory, while SharedMemory::LogLevel decides which log level iceoryx shows:</p></li>
+</ul>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;CycloneDDS</span> <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+            <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+            <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/iceoryx/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Domain</span> <span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Tracing&gt;</span>
+            <span class="nt">&lt;Category&gt;</span>shm<span class="nt">&lt;/Category&gt;</span>
+            <span class="nt">&lt;OutputFile&gt;</span>stdout<span class="nt">&lt;/OutputFile&gt;</span>
+        <span class="nt">&lt;/Tracing&gt;</span>
+        <span class="nt">&lt;SharedMemory&gt;</span>
+            <span class="nt">&lt;Enable&gt;</span>true<span class="nt">&lt;/Enable&gt;</span>
+            <span class="nt">&lt;LogLevel&gt;</span>info<span class="nt">&lt;/LogLevel&gt;</span>
+        <span class="nt">&lt;/SharedMemory&gt;</span>
+    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="todo-list">
+<h2>TODO List<a class="headerlink" href="#todo-list" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Extend configuration options for Shared Memory</p></li>
+<li><p>Remove superfluous copy steps due to publishing returning ownership of shared memory blocks to iceoryx</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Shared Memory</a><ul>
+<li><a class="reference internal" href="#build">Build</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#run">Run</a></li>
+<li><a class="reference internal" href="#limitations">Limitations</a></li>
+<li><a class="reference internal" href="#loan-mechanism">Loan Mechanism</a></li>
+<li><a class="reference internal" href="#developer-hints">Developer Hints</a></li>
+<li><a class="reference internal" href="#todo-list">TODO List</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="security.html">
+                <span><</span> DDS Security</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="ddsc.html">Eclipse Cyclone DDS C API Reference <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

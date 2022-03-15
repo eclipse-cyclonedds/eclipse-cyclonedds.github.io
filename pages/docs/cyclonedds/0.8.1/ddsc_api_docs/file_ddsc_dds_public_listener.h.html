@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>File dds_public_listener.h &#8212; Eclipse Cyclone DDS 0.8.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/installation.html">Installing Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/helloworld_indepth.html">Hello World! in more detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/next_steps.html">What’s next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="file-dds-public-listener-h">
+<span id="file-ddsc-dds-public-listener-h"></span><h1>File dds_public_listener.h<a class="headerlink" href="#file-dds-public-listener-h" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="dir_ddsc.html#dir-ddsc"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">ddsc</span></code>)</p>
+<p>DDS C Listener API.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-ddsc-dds-public-listener-h" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">ddsc/dds_public_listener.h</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#detailed-description" id="id2">Detailed Description</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id3">Includes</a></p></li>
+<li><p><a class="reference internal" href="#included-by" id="id4">Included By</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id5">Functions</a></p></li>
+<li><p><a class="reference internal" href="#defines" id="id6">Defines</a></p></li>
+<li><p><a class="reference internal" href="#typedefs" id="id7">Typedefs</a></p></li>
+</ul>
+</div>
+<section id="definition-ddsc-dds-public-listener-h">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">ddsc/dds_public_listener.h</span></code>)<a class="headerlink" href="#definition-ddsc-dds-public-listener-h" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_ddsc_dds_public_listener.h.html">Program Listing for File dds_public_listener.h</a></li>
+</ul>
+</div>
+</section>
+<section id="detailed-description">
+<h2>Detailed Description<a class="headerlink" href="#detailed-description" title="Permalink to this headline">¶</a></h2>
+<p>This header file defines the public API of listeners in the Eclipse Cyclone DDS C language binding.</p>
+</section>
+<section id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dds/ddsc/dds_public_impl.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dds/ddsc/dds_public_status.h</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dds/export.h</span></code></p></li>
+</ul>
+</section>
+<section id="included-by">
+<h2>Included By<a class="headerlink" href="#included-by" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="file_dds.h.html#file-dds-h"><span class="std std-ref">File dds.h</span></a></p></li>
+</ul>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a190627416dd470f921d2be4a40bb6352.html#exhale-function-dds-public-listener-8h-1a190627416dd470f921d2be4a40bb6352"><span class="std std-ref">Function dds_copy_listener</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ad0efe47c590bb71dc3a29b7aa5eb8890.html#exhale-function-dds-public-listener-8h-1ad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">Function dds_create_listener</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a5ada2f32f0b9453591dad29cbdc0db4d.html#exhale-function-dds-public-listener-8h-1a5ada2f32f0b9453591dad29cbdc0db4d"><span class="std std-ref">Function dds_delete_listener</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a2c63f65c60bc89509496c20d05ac8823.html#exhale-function-dds-public-listener-8h-1a2c63f65c60bc89509496c20d05ac8823"><span class="std std-ref">Function dds_lget_data_available</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a4f3b01327cb53013f09cb9a2485a0dd0.html#exhale-function-dds-public-listener-8h-1a4f3b01327cb53013f09cb9a2485a0dd0"><span class="std std-ref">Function dds_lget_data_available_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ad0c8d43df295f822a9ffacde0be9be32.html#exhale-function-dds-public-listener-8h-1ad0c8d43df295f822a9ffacde0be9be32"><span class="std std-ref">Function dds_lget_data_on_readers</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a943cc25866e47ecafadf314c8ad9a304.html#exhale-function-dds-public-listener-8h-1a943cc25866e47ecafadf314c8ad9a304"><span class="std std-ref">Function dds_lget_data_on_readers_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a68ce58a47ce5a9058c9fb9d20febfb87.html#exhale-function-dds-public-listener-8h-1a68ce58a47ce5a9058c9fb9d20febfb87"><span class="std std-ref">Function dds_lget_inconsistent_topic</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a14225ab2ad4cae231aee3695959cb81c.html#exhale-function-dds-public-listener-8h-1a14225ab2ad4cae231aee3695959cb81c"><span class="std std-ref">Function dds_lget_inconsistent_topic_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1aaee5881bd26b9b2afd61691ff7fcdb73.html#exhale-function-dds-public-listener-8h-1aaee5881bd26b9b2afd61691ff7fcdb73"><span class="std std-ref">Function dds_lget_liveliness_changed</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a1475f5578927b8231620ad0cbe92e760.html#exhale-function-dds-public-listener-8h-1a1475f5578927b8231620ad0cbe92e760"><span class="std std-ref">Function dds_lget_liveliness_changed_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a1bc086763e7db7dc549feb53fdefcc89.html#exhale-function-dds-public-listener-8h-1a1bc086763e7db7dc549feb53fdefcc89"><span class="std std-ref">Function dds_lget_liveliness_lost</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a20640835f6362736000bd2ca227bf7e3.html#exhale-function-dds-public-listener-8h-1a20640835f6362736000bd2ca227bf7e3"><span class="std std-ref">Function dds_lget_liveliness_lost_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1af2887fd39903a1fd6f56cfc9bfda6269.html#exhale-function-dds-public-listener-8h-1af2887fd39903a1fd6f56cfc9bfda6269"><span class="std std-ref">Function dds_lget_offered_deadline_missed</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ac37c7cda6eec01aaefe8455e137ffacf.html#exhale-function-dds-public-listener-8h-1ac37c7cda6eec01aaefe8455e137ffacf"><span class="std std-ref">Function dds_lget_offered_deadline_missed_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a2eaf807529469eb81981262138315c09.html#exhale-function-dds-public-listener-8h-1a2eaf807529469eb81981262138315c09"><span class="std std-ref">Function dds_lget_offered_incompatible_qos</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a155992f4f7785a07418cbced2372a107.html#exhale-function-dds-public-listener-8h-1a155992f4f7785a07418cbced2372a107"><span class="std std-ref">Function dds_lget_offered_incompatible_qos_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ae7fe17a2bed5cf3625b9c36594d49e3f.html#exhale-function-dds-public-listener-8h-1ae7fe17a2bed5cf3625b9c36594d49e3f"><span class="std std-ref">Function dds_lget_publication_matched</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ae35a1c67d3d7df512ef10fefe419baee.html#exhale-function-dds-public-listener-8h-1ae35a1c67d3d7df512ef10fefe419baee"><span class="std std-ref">Function dds_lget_publication_matched_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a5962ae973b19c4a904480dfbb5c1f9b1.html#exhale-function-dds-public-listener-8h-1a5962ae973b19c4a904480dfbb5c1f9b1"><span class="std std-ref">Function dds_lget_requested_deadline_missed</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ab8cceedbaa4a6a0aa68f0af63dae165d.html#exhale-function-dds-public-listener-8h-1ab8cceedbaa4a6a0aa68f0af63dae165d"><span class="std std-ref">Function dds_lget_requested_deadline_missed_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a11028cdb8e7354166ba6cbd1e99869d4.html#exhale-function-dds-public-listener-8h-1a11028cdb8e7354166ba6cbd1e99869d4"><span class="std std-ref">Function dds_lget_requested_incompatible_qos</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a9bcd79b111f6310a1d036b0efe719c44.html#exhale-function-dds-public-listener-8h-1a9bcd79b111f6310a1d036b0efe719c44"><span class="std std-ref">Function dds_lget_requested_incompatible_qos_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a4db6f20ec836a745759761a46c1d580b.html#exhale-function-dds-public-listener-8h-1a4db6f20ec836a745759761a46c1d580b"><span class="std std-ref">Function dds_lget_sample_lost</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1af6d95a412a03b3c452cff9711655c56b.html#exhale-function-dds-public-listener-8h-1af6d95a412a03b3c452cff9711655c56b"><span class="std std-ref">Function dds_lget_sample_lost_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a1700dfc356aa81c6a84e4e4f98d293c0.html#exhale-function-dds-public-listener-8h-1a1700dfc356aa81c6a84e4e4f98d293c0"><span class="std std-ref">Function dds_lget_sample_rejected</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a0cbd64f6e9205e34b71609f0ded1bc13.html#exhale-function-dds-public-listener-8h-1a0cbd64f6e9205e34b71609f0ded1bc13"><span class="std std-ref">Function dds_lget_sample_rejected_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ab8c99bf61fe111bfb954a8d07eacb8ce.html#exhale-function-dds-public-listener-8h-1ab8c99bf61fe111bfb954a8d07eacb8ce"><span class="std std-ref">Function dds_lget_subscription_matched</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1accc5c41a6707676b026e6c347cd51b86.html#exhale-function-dds-public-listener-8h-1accc5c41a6707676b026e6c347cd51b86"><span class="std std-ref">Function dds_lget_subscription_matched_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1abbaa2e08ba38c8e658eca1a158d20afe.html#exhale-function-dds-public-listener-8h-1abbaa2e08ba38c8e658eca1a158d20afe"><span class="std std-ref">Function dds_listener_copy</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1adb8c5c97304cc06f6202b6ed88081623.html#exhale-function-dds-public-listener-8h-1adb8c5c97304cc06f6202b6ed88081623"><span class="std std-ref">Function dds_listener_create</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ae34bc6171528d10f1a12803f6a2e8969.html#exhale-function-dds-public-listener-8h-1ae34bc6171528d10f1a12803f6a2e8969"><span class="std std-ref">Function dds_listener_delete</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ace90fe5fab60e6eb95d458b16b2faac8.html#exhale-function-dds-public-listener-8h-1ace90fe5fab60e6eb95d458b16b2faac8"><span class="std std-ref">Function dds_listener_merge</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a42b6450e2d0511504a2a9fb6caa1b1b7.html#exhale-function-dds-public-listener-8h-1a42b6450e2d0511504a2a9fb6caa1b1b7"><span class="std std-ref">Function dds_listener_reset</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1add64bb8e641bcb8646e055dfa56f6465.html#exhale-function-dds-public-listener-8h-1add64bb8e641bcb8646e055dfa56f6465"><span class="std std-ref">Function dds_lset_data_available</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a34c65e0e15fb3ebed55edf361dd543f5.html#exhale-function-dds-public-listener-8h-1a34c65e0e15fb3ebed55edf361dd543f5"><span class="std std-ref">Function dds_lset_data_available_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ab4ee39a2a3a59adc93046e39a215e07a.html#exhale-function-dds-public-listener-8h-1ab4ee39a2a3a59adc93046e39a215e07a"><span class="std std-ref">Function dds_lset_data_on_readers</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a466699bb6b4c010d473d364a6813a856.html#exhale-function-dds-public-listener-8h-1a466699bb6b4c010d473d364a6813a856"><span class="std std-ref">Function dds_lset_data_on_readers_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a18f0d9b311cf6f6a7ccba178d829cc95.html#exhale-function-dds-public-listener-8h-1a18f0d9b311cf6f6a7ccba178d829cc95"><span class="std std-ref">Function dds_lset_inconsistent_topic</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a75686fd95dccf505625c4e044ae4ef8f.html#exhale-function-dds-public-listener-8h-1a75686fd95dccf505625c4e044ae4ef8f"><span class="std std-ref">Function dds_lset_inconsistent_topic_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a2ac51b8bb489af65680e729217b42cdd.html#exhale-function-dds-public-listener-8h-1a2ac51b8bb489af65680e729217b42cdd"><span class="std std-ref">Function dds_lset_liveliness_changed</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a3d7a2f4ebebc6016684dbf4a256a7239.html#exhale-function-dds-public-listener-8h-1a3d7a2f4ebebc6016684dbf4a256a7239"><span class="std std-ref">Function dds_lset_liveliness_changed_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a7e3006a78ba9823c5612e1a25da2d249.html#exhale-function-dds-public-listener-8h-1a7e3006a78ba9823c5612e1a25da2d249"><span class="std std-ref">Function dds_lset_liveliness_lost</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1af73b0fb66ca66e2d6b8009b5cd23cd65.html#exhale-function-dds-public-listener-8h-1af73b0fb66ca66e2d6b8009b5cd23cd65"><span class="std std-ref">Function dds_lset_liveliness_lost_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a9a19bf717d285e80c63ff30bbda37179.html#exhale-function-dds-public-listener-8h-1a9a19bf717d285e80c63ff30bbda37179"><span class="std std-ref">Function dds_lset_offered_deadline_missed</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a81d1a3fb182eddf30b100e2d2e8abb25.html#exhale-function-dds-public-listener-8h-1a81d1a3fb182eddf30b100e2d2e8abb25"><span class="std std-ref">Function dds_lset_offered_deadline_missed_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a1c4be441ebe0b11c1229f1b3b099a721.html#exhale-function-dds-public-listener-8h-1a1c4be441ebe0b11c1229f1b3b099a721"><span class="std std-ref">Function dds_lset_offered_incompatible_qos</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a51980d3e9cc69a6a8ab8495018890bd3.html#exhale-function-dds-public-listener-8h-1a51980d3e9cc69a6a8ab8495018890bd3"><span class="std std-ref">Function dds_lset_offered_incompatible_qos_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1af39b079bda5562569ac5dada6ce1d9fd.html#exhale-function-dds-public-listener-8h-1af39b079bda5562569ac5dada6ce1d9fd"><span class="std std-ref">Function dds_lset_publication_matched</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a3e4547991e8d9f3b023a9213171a9a43.html#exhale-function-dds-public-listener-8h-1a3e4547991e8d9f3b023a9213171a9a43"><span class="std std-ref">Function dds_lset_publication_matched_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a1ef0813c147c40fc96101a2af6e6d8aa.html#exhale-function-dds-public-listener-8h-1a1ef0813c147c40fc96101a2af6e6d8aa"><span class="std std-ref">Function dds_lset_requested_deadline_missed</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a50aff815d5efed4c6ac9c9c55519f131.html#exhale-function-dds-public-listener-8h-1a50aff815d5efed4c6ac9c9c55519f131"><span class="std std-ref">Function dds_lset_requested_deadline_missed_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a21139cb76cb7db787563f25ac2a66954.html#exhale-function-dds-public-listener-8h-1a21139cb76cb7db787563f25ac2a66954"><span class="std std-ref">Function dds_lset_requested_incompatible_qos</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a97a3cc045035c23d07de4e7ccc63ae1b.html#exhale-function-dds-public-listener-8h-1a97a3cc045035c23d07de4e7ccc63ae1b"><span class="std std-ref">Function dds_lset_requested_incompatible_qos_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a8b06ca85d07cae2771682c17fc75a2d1.html#exhale-function-dds-public-listener-8h-1a8b06ca85d07cae2771682c17fc75a2d1"><span class="std std-ref">Function dds_lset_sample_lost</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ae37e3c8129927c89796d71b5e869f852.html#exhale-function-dds-public-listener-8h-1ae37e3c8129927c89796d71b5e869f852"><span class="std std-ref">Function dds_lset_sample_lost_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a149bf5942ba405d3984b46d0fb4d8c85.html#exhale-function-dds-public-listener-8h-1a149bf5942ba405d3984b46d0fb4d8c85"><span class="std std-ref">Function dds_lset_sample_rejected</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ab4d9914fe8ffd7f0e8a5c9465b4a9869.html#exhale-function-dds-public-listener-8h-1ab4d9914fe8ffd7f0e8a5c9465b4a9869"><span class="std std-ref">Function dds_lset_sample_rejected_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1ab6a44853577486cd0d226ada18c35201.html#exhale-function-dds-public-listener-8h-1ab6a44853577486cd0d226ada18c35201"><span class="std std-ref">Function dds_lset_subscription_matched</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a0760184671692f4cd3cad4213bb58d61.html#exhale-function-dds-public-listener-8h-1a0760184671692f4cd3cad4213bb58d61"><span class="std std-ref">Function dds_lset_subscription_matched_arg</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1af96d05a4f6cce39a03fbefc88828aacd.html#exhale-function-dds-public-listener-8h-1af96d05a4f6cce39a03fbefc88828aacd"><span class="std std-ref">Function dds_merge_listener</span></a></p></li>
+<li><p><a class="reference internal" href="function_dds__public__listener_8h_1a63df5d862c81b8a7c146107d6db7ebd7.html#exhale-function-dds-public-listener-8h-1a63df5d862c81b8a7c146107d6db7ebd7"><span class="std std-ref">Function dds_reset_listener</span></a></p></li>
+</ul>
+</section>
+<section id="defines">
+<h2>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="define_dds__public__listener_8h_1a1eff6d9d09533882ff2a2703541d6d27.html#exhale-define-dds-public-listener-8h-1a1eff6d9d09533882ff2a2703541d6d27"><span class="std std-ref">Define DDS_LUNSET</span></a></p></li>
+</ul>
+</section>
+<section id="typedefs">
+<h2>Typedefs<a class="headerlink" href="#typedefs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1abea4a7f035d91f86e036ed764f7b3731.html#exhale-typedef-dds-public-listener-8h-1abea4a7f035d91f86e036ed764f7b3731"><span class="std std-ref">Typedef dds_listener_t</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1aeb5c8ba1049b18649094d936587b4e73.html#exhale-typedef-dds-public-listener-8h-1aeb5c8ba1049b18649094d936587b4e73"><span class="std std-ref">Typedef dds_on_data_available_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1aa0b50b63ef62e8f7a79ed82cd23a051b.html#exhale-typedef-dds-public-listener-8h-1aa0b50b63ef62e8f7a79ed82cd23a051b"><span class="std std-ref">Typedef dds_on_data_on_readers_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a5f20136551064e5931afc10b82f2ead1.html#exhale-typedef-dds-public-listener-8h-1a5f20136551064e5931afc10b82f2ead1"><span class="std std-ref">Typedef dds_on_inconsistent_topic_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1aa5d7a2b5886f7a1fcfde4b4d00f83ef2.html#exhale-typedef-dds-public-listener-8h-1aa5d7a2b5886f7a1fcfde4b4d00f83ef2"><span class="std std-ref">Typedef dds_on_liveliness_changed_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a72aba521896da3193ff2433ce651a469.html#exhale-typedef-dds-public-listener-8h-1a72aba521896da3193ff2433ce651a469"><span class="std std-ref">Typedef dds_on_liveliness_lost_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a16a1ae82a17371bcfba8279207ac6b8c.html#exhale-typedef-dds-public-listener-8h-1a16a1ae82a17371bcfba8279207ac6b8c"><span class="std std-ref">Typedef dds_on_offered_deadline_missed_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a02cc1c0344ea0f2592d3524770c7f399.html#exhale-typedef-dds-public-listener-8h-1a02cc1c0344ea0f2592d3524770c7f399"><span class="std std-ref">Typedef dds_on_offered_incompatible_qos_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a5ed7ab3913b8f1ba752ad98010a65919.html#exhale-typedef-dds-public-listener-8h-1a5ed7ab3913b8f1ba752ad98010a65919"><span class="std std-ref">Typedef dds_on_publication_matched_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a6a07756f06d5b4f8890ca1c1854935ad.html#exhale-typedef-dds-public-listener-8h-1a6a07756f06d5b4f8890ca1c1854935ad"><span class="std std-ref">Typedef dds_on_requested_deadline_missed_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a3b4ad9e7b28f6b26dcd23e3fb2c14be1.html#exhale-typedef-dds-public-listener-8h-1a3b4ad9e7b28f6b26dcd23e3fb2c14be1"><span class="std std-ref">Typedef dds_on_requested_incompatible_qos_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1ac9d86c16b835bbb9a456872cbf9e93c3.html#exhale-typedef-dds-public-listener-8h-1ac9d86c16b835bbb9a456872cbf9e93c3"><span class="std std-ref">Typedef dds_on_sample_lost_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a800f2c90fed43dcd50c704a66e74dbda.html#exhale-typedef-dds-public-listener-8h-1a800f2c90fed43dcd50c704a66e74dbda"><span class="std std-ref">Typedef dds_on_sample_rejected_fn</span></a></p></li>
+<li><p><a class="reference internal" href="typedef_dds__public__listener_8h_1a66f527e7292c35bd9d18eef2ccb2b001.html#exhale-typedef-dds-public-listener-8h-1a66f527e7292c35bd9d18eef2ccb2b001"><span class="std std-ref">Typedef dds_on_subscription_matched_fn</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">File dds_public_listener.h</a><ul>
+<li><a class="reference internal" href="#definition-ddsc-dds-public-listener-h">Definition (<code class="docutils literal notranslate"><span class="pre">ddsc/dds_public_listener.h</span></code>)</a></li>
+<li><a class="reference internal" href="#detailed-description">Detailed Description</a></li>
+<li><a class="reference internal" href="#includes">Includes</a></li>
+<li><a class="reference internal" href="#included-by">Included By</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#defines">Defines</a></li>
+<li><a class="reference internal" href="#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+        </div>
+
+        <div class="right">
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

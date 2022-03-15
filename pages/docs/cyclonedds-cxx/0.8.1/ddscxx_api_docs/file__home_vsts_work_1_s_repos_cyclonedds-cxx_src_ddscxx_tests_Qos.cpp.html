@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>File Qos.cpp &#8212; Eclipse Cyclone DDS C++ 0.8.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS C++</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ddscxx.html">Eclipse Cyclone DDS C++ API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../idlcxx.html">Custom Containers</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="file-qos-cpp">
+<span id="file-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-qos-cpp"></span><h1>File Qos.cpp<a class="headerlink" href="#file-qos-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="dir__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests.html#dir-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests</span></code>)</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-qos-cpp" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/Qos.cpp</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
+<li><p><a class="reference internal" href="#namespaces" id="id3">Namespaces</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id4">Functions</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id5">Variables</a></p></li>
+</ul>
+</div>
+<section id="definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-qos-cpp">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/Qos.cpp</span></code>)<a class="headerlink" href="#definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-qos-cpp" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_Qos.cpp.html">Program Listing for File Qos.cpp</a></li>
+</ul>
+</div>
+</section>
+<section id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dds/dds.hpp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gtest/gtest.h</span></code></p></li>
+</ul>
+</section>
+<section id="namespaces">
+<h2>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="namespace_dds__core__policy.html#namespace-dds-core-policy"><span class="std std-ref">Namespace dds::core::policy</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_dds__domain__qos.html#namespace-dds-domain-qos"><span class="std std-ref">Namespace dds::domain::qos</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_dds__pub__qos.html#namespace-dds-pub-qos"><span class="std std-ref">Namespace dds::pub::qos</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_dds__sub__qos.html#namespace-dds-sub-qos"><span class="std std-ref">Namespace dds::sub::qos</span></a></p></li>
+<li><p><a class="reference internal" href="namespace_dds__topic__qos.html#namespace-dds-topic-qos"><span class="std std-ref">Namespace dds::topic::qos</span></a></p></li>
+</ul>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a2107b65e6a3b0656e0263f48e57cd3be.html#exhale-function-qos-8cpp-1a2107b65e6a3b0656e0263f48e57cd3be"><span class="std std-ref">Function nonDefaultBudget</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a1a6c126172eb1ba2302e2b5bcc5fc781.html#exhale-function-qos-8cpp-1a1a6c126172eb1ba2302e2b5bcc5fc781"><span class="std std-ref">Function nonDefaultByteSeq</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1aadf91140e77bc417cb1e08839b50cb53.html#exhale-function-qos-8cpp-1aadf91140e77bc417cb1e08839b50cb53"><span class="std std-ref">Function nonDefaultDeadline</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1ab793f6e0f12b5bf8449629792d852e7e.html#exhale-function-qos-8cpp-1ab793f6e0f12b5bf8449629792d852e7e"><span class="std std-ref">Function nonDefaultDurability</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a7c5f715545597a82229f86224425d4ea.html#exhale-function-qos-8cpp-1a7c5f715545597a82229f86224425d4ea"><span class="std std-ref">Function nonDefaultEntityFactory</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a496a2b82701e5e001010bd97c7e20aa6.html#exhale-function-qos-8cpp-1a496a2b82701e5e001010bd97c7e20aa6"><span class="std std-ref">Function nonDefaultGdata</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a0452d3319a2b4539c8387462fd0a376e.html#exhale-function-qos-8cpp-1a0452d3319a2b4539c8387462fd0a376e"><span class="std std-ref">Function nonDefaultHistory</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a50354f979f1547017bc07d6e877d9de0.html#exhale-function-qos-8cpp-1a50354f979f1547017bc07d6e877d9de0"><span class="std std-ref">Function nonDefaultLifespan</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a7487170ea0582dd53eaecd0ff130a21d.html#exhale-function-qos-8cpp-1a7487170ea0582dd53eaecd0ff130a21d"><span class="std std-ref">Function nonDefaultLiveliness</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a22e9024bddcf02f940677d1589f88508.html#exhale-function-qos-8cpp-1a22e9024bddcf02f940677d1589f88508"><span class="std std-ref">Function nonDefaultOrder</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a29687025b44acd45eb7d704838a08564.html#exhale-function-qos-8cpp-1a29687025b44acd45eb7d704838a08564"><span class="std std-ref">Function nonDefaultOwnership</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a9a52fdb8102cf2d79efc06e0aa795a22.html#exhale-function-qos-8cpp-1a9a52fdb8102cf2d79efc06e0aa795a22"><span class="std std-ref">Function nonDefaultPartition</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a6903dbdadf19b0955cc66c29b58a3581.html#exhale-function-qos-8cpp-1a6903dbdadf19b0955cc66c29b58a3581"><span class="std std-ref">Function nonDefaultPresentation</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a0ebfec92efd4f2fdb974d79a8ba136cd.html#exhale-function-qos-8cpp-1a0ebfec92efd4f2fdb974d79a8ba136cd"><span class="std std-ref">Function nonDefaultPriority</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a66701dcd9012901e8b46f4c8d54b5dc2.html#exhale-function-qos-8cpp-1a66701dcd9012901e8b46f4c8d54b5dc2"><span class="std std-ref">Function nonDefaultRdLifecycle</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a1a7e817e46436ce8e5ad514b45b06ad6.html#exhale-function-qos-8cpp-1a1a7e817e46436ce8e5ad514b45b06ad6"><span class="std std-ref">Function nonDefaultReliability</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a1a3e2308fb1a05146f9b806ebc497de8.html#exhale-function-qos-8cpp-1a1a3e2308fb1a05146f9b806ebc497de8"><span class="std std-ref">Function nonDefaultResources</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1af6a323469fa9d8e99016d6ea930de9fd.html#exhale-function-qos-8cpp-1af6a323469fa9d8e99016d6ea930de9fd"><span class="std std-ref">Function nonDefaultTbFilter</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a7a40109d903fa18238a4f1a752d30666.html#exhale-function-qos-8cpp-1a7a40109d903fa18238a4f1a752d30666"><span class="std std-ref">Function nonDefaultTopicData</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1ac8c9fce89cd3ab61ef71f7822c76e120.html#exhale-function-qos-8cpp-1ac8c9fce89cd3ab61ef71f7822c76e120"><span class="std std-ref">Function nonDefaultUserData</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1aacdd2e36ffe3dd3dada7793eaab165d9.html#exhale-function-qos-8cpp-1aacdd2e36ffe3dd3dada7793eaab165d9"><span class="std std-ref">Function nonDefaultWdLifecycle</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a03be68bf9478f524e060fdb87824a6ca.html#exhale-function-qos-8cpp-1a03be68bf9478f524e060fdb87824a6ca"><span class="std std-ref">Function TEST(Qos, DomainParticipant)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a2309a4ef195d19e7895fbbd9115b7c20.html#exhale-function-qos-8cpp-1a2309a4ef195d19e7895fbbd9115b7c20"><span class="std std-ref">Function TEST(Qos, Topic)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a6ff024c25659c2cd82b6d8e8d6adb612.html#exhale-function-qos-8cpp-1a6ff024c25659c2cd82b6d8e8d6adb612"><span class="std std-ref">Function TEST(Qos, Publisher)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a0636d9790d6cc48c1694f6409a1322e8.html#exhale-function-qos-8cpp-1a0636d9790d6cc48c1694f6409a1322e8"><span class="std std-ref">Function TEST(Qos, Subscriber)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a66c57d0e9263ecf4aeb66e6f0081c2ae.html#exhale-function-qos-8cpp-1a66c57d0e9263ecf4aeb66e6f0081c2ae"><span class="std std-ref">Function TEST(Qos, DataWriter)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a78108fb1956e12b2e724fa228abba728.html#exhale-function-qos-8cpp-1a78108fb1956e12b2e724fa228abba728"><span class="std std-ref">Function TEST(Qos, DataReader)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a64d9f906fdd10035cd0f935fed2430fe.html#exhale-function-qos-8cpp-1a64d9f906fdd10035cd0f935fed2430fe"><span class="std std-ref">Function TEST(Qos, invalid_values)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a3d935d4545c8f2b42dc2347550ba01d1.html#exhale-function-qos-8cpp-1a3d935d4545c8f2b42dc2347550ba01d1"><span class="std std-ref">Function TEST(Qos, invalid_policies)</span></a></p></li>
+<li><p><a class="reference internal" href="function_Qos_8cpp_1a3d3c048c8f141517bc93b360f189c8d3.html#exhale-function-qos-8cpp-1a3d3c048c8f141517bc93b360f189c8d3"><span class="std std-ref">Function TEST(Qos, policy_name)</span></a></p></li>
+</ul>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a7574f766413f8f9db7ee0f33bd44fe42.html#exhale-variable-qos-8cpp-1a7574f766413f8f9db7ee0f33bd44fe42"><span class="std std-ref">Variable tmpBudget</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1ab8a7996a3bdcee5ed046ddb6563b93a5.html#exhale-variable-qos-8cpp-1ab8a7996a3bdcee5ed046ddb6563b93a5"><span class="std std-ref">Variable tmpDeadline</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1ac881ac6d032708abca9d5fe21f767788.html#exhale-variable-qos-8cpp-1ac881ac6d032708abca9d5fe21f767788"><span class="std std-ref">Variable tmpDurability</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a660b0de9883827e4bcc934a2e0e3081f.html#exhale-variable-qos-8cpp-1a660b0de9883827e4bcc934a2e0e3081f"><span class="std std-ref">Variable tmpEntityFactory</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a994135a0498f97ccf617f4f35ab6059a.html#exhale-variable-qos-8cpp-1a994135a0498f97ccf617f4f35ab6059a"><span class="std std-ref">Variable tmpGdata</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a8a34da91dfe28016f949f0f7c01955fb.html#exhale-variable-qos-8cpp-1a8a34da91dfe28016f949f0f7c01955fb"><span class="std std-ref">Variable tmpHistory</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1aa2fb9d36928c808a9ad7246845eead92.html#exhale-variable-qos-8cpp-1aa2fb9d36928c808a9ad7246845eead92"><span class="std std-ref">Variable tmpLifespan</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1aa7d95bcfca552b7eadbb801d516350ac.html#exhale-variable-qos-8cpp-1aa7d95bcfca552b7eadbb801d516350ac"><span class="std std-ref">Variable tmpLiveliness</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1ad945dfe1e1b21159c11e189cd298ed83.html#exhale-variable-qos-8cpp-1ad945dfe1e1b21159c11e189cd298ed83"><span class="std std-ref">Variable tmpOrder</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a7025c93faa55d115ddac10130eb311e7.html#exhale-variable-qos-8cpp-1a7025c93faa55d115ddac10130eb311e7"><span class="std std-ref">Variable tmpOwnership</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1ad5b9a3c2388d1a2b810012f016aa3848.html#exhale-variable-qos-8cpp-1ad5b9a3c2388d1a2b810012f016aa3848"><span class="std std-ref">Variable tmpPartition</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a8a6220592e1dd59b47fa698d31a6f811.html#exhale-variable-qos-8cpp-1a8a6220592e1dd59b47fa698d31a6f811"><span class="std std-ref">Variable tmpPresentation</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a60e7861cc258a4e0e1ad513e27d84dab.html#exhale-variable-qos-8cpp-1a60e7861cc258a4e0e1ad513e27d84dab"><span class="std std-ref">Variable tmpPriority</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a98df0e242f1c253642adc7d152af6d0e.html#exhale-variable-qos-8cpp-1a98df0e242f1c253642adc7d152af6d0e"><span class="std std-ref">Variable tmpRdLifecycle</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a74b3c14569574f3baff05b07ca0d6ea4.html#exhale-variable-qos-8cpp-1a74b3c14569574f3baff05b07ca0d6ea4"><span class="std std-ref">Variable tmpReliability</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1aabd394dde51959c1a2443e6c05dfaaec.html#exhale-variable-qos-8cpp-1aabd394dde51959c1a2443e6c05dfaaec"><span class="std std-ref">Variable tmpResources</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1abd97aa0a6ff98bc941ca0c2e535c9707.html#exhale-variable-qos-8cpp-1abd97aa0a6ff98bc941ca0c2e535c9707"><span class="std std-ref">Variable tmpTbFilter</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a80929ea8c9d5e24caf9cd26b3e8bc815.html#exhale-variable-qos-8cpp-1a80929ea8c9d5e24caf9cd26b3e8bc815"><span class="std std-ref">Variable tmpTopicData</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1a8b8db554381691f6a1355b1072eb1924.html#exhale-variable-qos-8cpp-1a8b8db554381691f6a1355b1072eb1924"><span class="std std-ref">Variable tmpUserData</span></a></p></li>
+<li><p><a class="reference internal" href="variable_Qos_8cpp_1ac6bad389b3f0992caa95b9f5b83f9dd7.html#exhale-variable-qos-8cpp-1ac6bad389b3f0992caa95b9f5b83f9dd7"><span class="std std-ref">Variable tmpWdLifecycle</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">File Qos.cpp</a><ul>
+<li><a class="reference internal" href="#definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-qos-cpp">Definition (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/Qos.cpp</span></code>)</a></li>
+<li><a class="reference internal" href="#includes">Includes</a></li>
+<li><a class="reference internal" href="#namespaces">Namespaces</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+        </div>
+
+        <div class="right">
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>
