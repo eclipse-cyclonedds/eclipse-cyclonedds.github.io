@@ -43,6 +43,10 @@ steps:
       poetry run python -m builder --commit-if-updated
     name: run_site_builder
     displayName: Run site build
+  - task: InstallSSHKey@0
+    inputs:
+      knownHostsEntry: $(known_hosts_entry)
+      sshKeySecureFile: deploy_key
   - bash: |
       set -ex
       # was-updated is written by the builder if there are updates
