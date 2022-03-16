@@ -57,7 +57,8 @@ steps:
         git config --global --add url."git@github.com:".insteadOf "https://github.com/"
         git push
         # Let python tool handle the gh-pages sync
-        poetry run ghp-import --no-jekyll --cname=cyclonedds.io --message="Azure build ${BUILD_BUILDNUMBER} for commit $(git rev-parse --verify HEAD)" --no-history --push --force --shell pages/
+        poetry run ghp-import --no-jekyll --cname=cyclonedds.io --message="Azure build ${BUILD_BUILDNUMBER} for commit $(git rev-parse --verify HEAD)" --no-history pages/
+        git push -f origin gh-pages
       fi
     name: publish
     displayName: Publish
