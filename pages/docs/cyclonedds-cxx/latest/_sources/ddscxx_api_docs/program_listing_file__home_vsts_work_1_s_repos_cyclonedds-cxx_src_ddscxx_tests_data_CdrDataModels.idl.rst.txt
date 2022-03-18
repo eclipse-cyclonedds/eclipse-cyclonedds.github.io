@@ -220,3 +220,40 @@ Program Listing for File CdrDataModels.idl
      };
    
    };
+   
+   module DataModels_testing {
+   
+     enum test_enum {
+       e_0,
+       e_1,
+       e_2
+     };
+   
+     bitmask test_bitmask {
+       f_0,
+       f_1,
+       f_2
+     };
+   
+     struct explicit_defaults_struct {
+       @default(123) long l;
+       @default(.456) double d;
+       @default('a') char c;
+       @default("def") string s;
+       /*
+       the idl parser does not yet support enumerator values as annotation parameters
+       @default(e_0) test_enum e;
+       */
+       @default(5) test_bitmask b; /*currently you need to set the bitmask defaults as integers*/
+     };
+   
+     struct implicit_defaults_struct {
+       long l;
+       double d;
+       char c;
+       string s;
+       test_enum e;
+       test_bitmask b;
+     };
+   
+   };

@@ -342,6 +342,43 @@
   };
 
 };
+
+module DataModels_testing {
+
+  enum test_enum {
+    e_0,
+    e_1,
+    e_2
+  };
+
+  bitmask test_bitmask {
+    f_0,
+    f_1,
+    f_2
+  };
+
+  struct explicit_defaults_struct {
+    @default(<span class="mi">123</span>) <span class="nb">long</span> l;
+    @default(.<span class="mi">456</span>) <span class="nb">double</span> d;
+    @default(<span class="s1">&#39;a&#39;</span>) char c;
+    @default(<span class="s2">&quot;def&quot;</span>) <span class="nb">string</span> s;
+    <span class="o">/*</span>
+    the idl parser does <span class="k">not</span> yet support enumerator values as annotation parameters
+    @default(e_0) test_enum e;
+    <span class="o">*/</span>
+    @default(<span class="mi">5</span>) test_bitmask b; <span class="o">/*</span>currently you need to set the bitmask defaults as integers<span class="o">*/</span>
+  };
+
+  struct implicit_defaults_struct {
+    <span class="nb">long</span> l;
+    <span class="nb">double</span> d;
+    char c;
+    <span class="nb">string</span> s;
+    test_enum e;
+    test_bitmask b;
+  };
+
+};
 </pre></div>
 </div>
 </section>
