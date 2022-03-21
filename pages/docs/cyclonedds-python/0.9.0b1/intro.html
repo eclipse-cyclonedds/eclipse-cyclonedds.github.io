@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction &#8212; Eclipse Cyclone DDS Python  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Working with idl" href="idl.html" />
+    <link rel="prev" title="CycloneDDS Python" href="index.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="index.html" title="Go to homepage">Eclipse Cyclone DDS Python</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idl.html">Working with idl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dds.html">General information about DDS</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="introduction">
+<span id="intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>This is the documentation for Eclipse Cyclone DDS Python, wrapping the <a class="reference external" href="https://github.com/eclipse-cyclonedds/cyclonedds/">Eclipse Cyclone DDS</a> C-API for easy creation of DDS applications.</p>
+<section id="prerequisites">
+<span id="installing"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>CycloneDDS Python requires Python version 3.7 or higher, with 3.11 support provisional. When CycloneDDS Python gets an official release the wheels on Pypi will contain a pre-built binary of the CycloneDDS C library and IDL compiler. These have a couple of caveats. The pre-built package:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>has no support for DDS Security,</p></li>
+<li><p>has no support for shared memory via Iceoryx,</p></li>
+<li><p>comes with generic Cyclone DDS binaries that are not optimized per-platform.</p></li>
+</ul>
+</div></blockquote>
+<p>As long as it is not fully released you will have to build from source, requiring your own CycloneDDS installation. While installing the CycloneDDS Python library you need to set the environment variable <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> to allow the installer to locate the CycloneDDS C library if it is on a non-standard path, as with all CMake projects. At runtime we leverage several mechanisms to locate the library that are appropriate for the platform, such as <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> on linux and the Windows Registry CMake registry. If you get an exception about non-locatable libraries or wish to manage multiple CycloneDDS installations you can use the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to override the load location.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Pre-built binary installation from Pypi will be possible once released:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install cyclonedds
+</pre></div>
+</div>
+<p>Right now you will need to install from source. You can install from the github link directly:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="s2">&quot;/path/to/cyclonedds&quot;</span> pip install https://github.com/eclipse-cyclonedds/cyclonedds-python
+</pre></div>
+</div>
+<p>If you wish to run the testsuite or build the documentation you will need additional dependencies. These can be installed by means of Python installation optional components:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds-python
+<span class="nb">cd</span> cyclonedds-python
+
+<span class="c1"># Testsuite:</span>
+pip install .<span class="o">[</span>dev<span class="o">]</span>
+pytest
+
+<span class="c1"># Documentation</span>
+pip install .<span class="o">[</span>docs<span class="o">]</span>
+<span class="nb">cd</span> docs
+sphinx-build ./source ./build
+python -m http.server --directory build
+</pre></div>
+</div>
+<p>If you get permission errors you are using your system python. This is not recommended, we recommend using <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">a virtual environment</a>, <a class="reference external" href="https://python-poetry.org/">poetry</a>, <a class="reference external" href="https://pipenv.pypa.io/en/latest/">pipenv</a> or <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>. If you <em>just</em> want to get going, you can add <code class="docutils literal notranslate"><span class="pre">--user</span></code> to your pip command to install for the current user. See the <a class="reference external" href="https://docs.python.org/3/installing/index.html">Installing Python Modules</a> documentation.</p>
+</section>
+<section id="your-first-python-dds-application">
+<span id="first-app"></span><h2>Your first Python DDS application<a class="headerlink" href="#your-first-python-dds-application" title="Permalink to this headline">¶</a></h2>
+<p>Let’s make our entry into the world of DDS by making our presence known. We will not worry about configuration or what DDS does under the hood but just write a single message. To publish anything to DDS we need to define the type of message first. If you are worried about talking to other applications that are not necessarily running Python you would use the CycloneDDS IDL compiler, but for now we will just manually define our message type directly in Python using the <code class="docutils literal notranslate"><span class="pre">cyclonedds.idl</span></code> tools:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="nd">@dataclass</span>
+<span class="linenos"> 5</span><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos"> 6</span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is your name? &quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has started his first DDS Python application!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">cyclonedds.idl</span></code> we write typed classes with the standard library module <cite>dataclasses &lt;python:dataclasses&gt;</cite>. For this simple application we just put in a piece of text, but this system has the same expressive power as the OMG IDL specification, allowing you to use almost any complex datastructure you can think of.</p>
+<p>Now to send our message over DDS we need to perform a few steps:
+* Join the DDS network using a DomainParticipant
+* Define which datatype and under what name we will publish our message as a Topic
+* Make the DataWriter that publishes that Topic
+* And finally publish the message.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.topic</span> <span class="kn">import</span> <span class="n">Topic</span>
+<span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.pub</span> <span class="kn">import</span> <span class="n">DataWriter</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
+<span class="linenos">6</span><span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">Message</span><span class="p">,</span> <span class="s2">&quot;Announcements&quot;</span><span class="p">)</span>
+<span class="linenos">7</span><span class="n">writer</span> <span class="o">=</span> <span class="n">DataWriter</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+<span class="linenos">8</span>
+<span class="linenos">9</span><span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hurray, we have published are first message! However, it is hard to tell if that actually did anything, since we don’t have anything set up that is listening. Let’s make a second script that takes messages from DDS and prints them to the terminal:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">cyclonedds.topic</span> <span class="kn">import</span> <span class="n">Topic</span>
+<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">cyclonedds.sub</span> <span class="kn">import</span> <span class="n">DataReader</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">cyclonedds.util</span> <span class="kn">import</span> <span class="n">duration</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="nd">@dataclass</span>
+<span class="linenos"> 9</span><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
+<span class="linenos">13</span><span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">Message</span><span class="p">,</span> <span class="s2">&quot;Announcements&quot;</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">reader</span> <span class="o">=</span> <span class="n">DataReader</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># If we don&#39;t receive a single announcement for five minutes we want the script to exit.</span>
+<span class="linenos">17</span><span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">take_iter</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">duration</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">)):</span>
+<span class="linenos">18</span>    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now with this script running in a secondary terminal you should see the message pop up when you run the first script again.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#your-first-python-dds-application">Your first Python DDS application</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="index.html">
+                <span><</span> CycloneDDS Python</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="idl.html">Working with idl <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Eclipse Cyclone DDS Python Committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

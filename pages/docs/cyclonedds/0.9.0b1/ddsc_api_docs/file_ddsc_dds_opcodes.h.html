@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>File dds_opcodes.h &#8212; Eclipse Cyclone DDS 0.9.0b1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/installation.html">Installing Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/helloworld_indepth.html">Hello World! in more detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/next_steps.html">What’s next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="file-dds-opcodes-h">
+<span id="file-ddsc-dds-opcodes-h"></span><h1>File dds_opcodes.h<a class="headerlink" href="#file-dds-opcodes-h" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="dir_ddsc.html#dir-ddsc"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">ddsc</span></code>)</p>
+<p>DDS C (de)serialization opcodes.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-ddsc-dds-opcodes-h" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">ddsc/dds_opcodes.h</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#detailed-description" id="id2">Detailed Description</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id3">Includes</a></p></li>
+<li><p><a class="reference internal" href="#included-by" id="id4">Included By</a></p></li>
+<li><p><a class="reference internal" href="#enums" id="id5">Enums</a></p></li>
+<li><p><a class="reference internal" href="#defines" id="id6">Defines</a></p></li>
+</ul>
+</div>
+<section id="definition-ddsc-dds-opcodes-h">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">ddsc/dds_opcodes.h</span></code>)<a class="headerlink" href="#definition-ddsc-dds-opcodes-h" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file_ddsc_dds_opcodes.h.html">Program Listing for File dds_opcodes.h</a></li>
+</ul>
+</div>
+</section>
+<section id="detailed-description">
+<h2>Detailed Description<a class="headerlink" href="#detailed-description" title="Permalink to this headline">¶</a></h2>
+<p>Opcodes for (de)serialization of types generated by idlc. Isolated in a separate header to share with idlc without the need to pull in the entire Eclipse Cyclone DDS C language binding.</p>
+</section>
+<section id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dds/ddsrt/static_assert.h</span></code></p></li>
+</ul>
+</section>
+<section id="included-by">
+<h2>Included By<a class="headerlink" href="#included-by" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="file_ddsc_dds_public_impl.h.html#file-ddsc-dds-public-impl-h"><span class="std std-ref">File dds_public_impl.h</span></a></p></li>
+</ul>
+</section>
+<section id="enums">
+<h2>Enums<a class="headerlink" href="#enums" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="enum_dds__opcodes_8h_1a3408a192a4fba825f21d27a5a0fe0bb1.html#exhale-enum-dds-opcodes-8h-1a3408a192a4fba825f21d27a5a0fe0bb1"><span class="std std-ref">Enum dds_stream_opcode</span></a></p></li>
+<li><p><a class="reference internal" href="enum_dds__opcodes_8h_1ab19b84d834bb7c98851067947cd23f0b.html#exhale-enum-dds-opcodes-8h-1ab19b84d834bb7c98851067947cd23f0b"><span class="std std-ref">Enum dds_stream_typecode</span></a></p></li>
+<li><p><a class="reference internal" href="enum_dds__opcodes_8h_1ae71ade828fcfb6d53a96b2aa5f29463f.html#exhale-enum-dds-opcodes-8h-1ae71ade828fcfb6d53a96b2aa5f29463f"><span class="std std-ref">Enum dds_stream_typecode_primary</span></a></p></li>
+<li><p><a class="reference internal" href="enum_dds__opcodes_8h_1a3faf85df9d59249c7b31fddded55d277.html#exhale-enum-dds-opcodes-8h-1a3faf85df9d59249c7b31fddded55d277"><span class="std std-ref">Enum dds_stream_typecode_subtype</span></a></p></li>
+</ul>
+</section>
+<section id="defines">
+<h2>Defines<a class="headerlink" href="#defines" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1af8e59c6bd27d2e84cf721ea30dee7160.html#exhale-define-dds-opcodes-8h-1af8e59c6bd27d2e84cf721ea30dee7160"><span class="std std-ref">Define DDS_FIXED_KEY_MAX_SIZE</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a8e4e54d228098312e6f51ca82b72354d.html#exhale-define-dds-opcodes-8h-1a8e4e54d228098312e6f51ca82b72354d"><span class="std std-ref">Define DDS_JEQ_TYPE</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ab64c9f774b38c456117d6ca62b0cc5da.html#exhale-define-dds-opcodes-8h-1ab64c9f774b38c456117d6ca62b0cc5da"><span class="std std-ref">Define DDS_JEQ_TYPE_FLAGS</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1aed90c65a201deb1935a31ae6bc5d4cc7.html#exhale-define-dds-opcodes-8h-1aed90c65a201deb1935a31ae6bc5d4cc7"><span class="std std-ref">Define DDS_JEQ_TYPE_FLAGS_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a46084f000e5446921421c32f69823903.html#exhale-define-dds-opcodes-8h-1a46084f000e5446921421c32f69823903"><span class="std std-ref">Define DDS_JEQ_TYPE_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a464725d29098f0062b67ecfaa65e8ae7.html#exhale-define-dds-opcodes-8h-1a464725d29098f0062b67ecfaa65e8ae7"><span class="std std-ref">Define DDS_KOF_OFFSET_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a3087efb4dd1d58a61a3155f0e0d6bbdd.html#exhale-define-dds-opcodes-8h-1a3087efb4dd1d58a61a3155f0e0d6bbdd"><span class="std std-ref">Define DDS_OP</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1aacb0cb4eab972dc0299635c6b5acbd67.html#exhale-define-dds-opcodes-8h-1aacb0cb4eab972dc0299635c6b5acbd67"><span class="std std-ref">Define DDS_OP_ADR_JMP</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a5410c8ea44893b4d595aed6632892d88.html#exhale-define-dds-opcodes-8h-1a5410c8ea44893b4d595aed6632892d88"><span class="std std-ref">Define DDS_OP_ADR_JSR</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ac0992e3e92a0f6f878d7453b3b52bfbe.html#exhale-define-dds-opcodes-8h-1ac0992e3e92a0f6f878d7453b3b52bfbe"><span class="std std-ref">Define DDS_OP_ADR_PLM</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a6b7efe18a2b31328fb1052116c2f7d8e.html#exhale-define-dds-opcodes-8h-1a6b7efe18a2b31328fb1052116c2f7d8e"><span class="std std-ref">Define DDS_OP_FLAG_BASE</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a4a84fbcad72f522504d69d434a738ea9.html#exhale-define-dds-opcodes-8h-1a4a84fbcad72f522504d69d434a738ea9"><span class="std std-ref">Define DDS_OP_FLAG_DEF</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a7a7752dadb8e7a511022fc88f4c4d234.html#exhale-define-dds-opcodes-8h-1a7a7752dadb8e7a511022fc88f4c4d234"><span class="std std-ref">Define DDS_OP_FLAG_EXT</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ad19c5a08c2ef8dc5b5ef027b349948e3.html#exhale-define-dds-opcodes-8h-1ad19c5a08c2ef8dc5b5ef027b349948e3"><span class="std std-ref">Define DDS_OP_FLAG_FP</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a760ca205c759e43609eccc88415e6dcb.html#exhale-define-dds-opcodes-8h-1a760ca205c759e43609eccc88415e6dcb"><span class="std std-ref">Define DDS_OP_FLAG_KEY</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ae869a85c3484bce8820368edb00ead39.html#exhale-define-dds-opcodes-8h-1ae869a85c3484bce8820368edb00ead39"><span class="std std-ref">Define DDS_OP_FLAG_MU</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a9e33c94b81971f9fb2ae2d198680ae69.html#exhale-define-dds-opcodes-8h-1a9e33c94b81971f9fb2ae2d198680ae69"><span class="std std-ref">Define DDS_OP_FLAG_OPT</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ae91d07f3c6d96a96ca9165cc54b92e60.html#exhale-define-dds-opcodes-8h-1ae91d07f3c6d96a96ca9165cc54b92e60"><span class="std std-ref">Define DDS_OP_FLAG_SGN</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a8cf41e8652cff65f526a47022b4fb0a2.html#exhale-define-dds-opcodes-8h-1a8cf41e8652cff65f526a47022b4fb0a2"><span class="std std-ref">Define DDS_OP_FLAG_SZ_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1adc9038a02b33658ee88f6e7f3a620ce4.html#exhale-define-dds-opcodes-8h-1adc9038a02b33658ee88f6e7f3a620ce4"><span class="std std-ref">Define DDS_OP_FLAG_SZ_SHIFT</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1af0a471c36177a82c59b02cb11844e778.html#exhale-define-dds-opcodes-8h-1af0a471c36177a82c59b02cb11844e778"><span class="std std-ref">Define DDS_OP_FLAGS</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a2f9fdc3d50446ed54f4ce2af194cfdea.html#exhale-define-dds-opcodes-8h-1a2f9fdc3d50446ed54f4ce2af194cfdea"><span class="std std-ref">Define DDS_OP_FLAGS_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ae595d45c2d8285aab1caacd2d9634265.html#exhale-define-dds-opcodes-8h-1ae595d45c2d8285aab1caacd2d9634265"><span class="std std-ref">Define DDS_OP_FLAGS_SZ</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1af2bf231dd2acd64f63b26638d475c48a.html#exhale-define-dds-opcodes-8h-1af2bf231dd2acd64f63b26638d475c48a"><span class="std std-ref">Define DDS_OP_JMP_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1aac4258cbb9076592363f9947cf5dd233.html#exhale-define-dds-opcodes-8h-1aac4258cbb9076592363f9947cf5dd233"><span class="std std-ref">Define DDS_OP_JUMP</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a88d3f21d8cff3564bc91fe2f5d2638f0.html#exhale-define-dds-opcodes-8h-1a88d3f21d8cff3564bc91fe2f5d2638f0"><span class="std std-ref">Define DDS_OP_LENGTH</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a2c8f81b90dfd47f69f07ab6f464b95c7.html#exhale-define-dds-opcodes-8h-1a2c8f81b90dfd47f69f07ab6f464b95c7"><span class="std std-ref">Define DDS_OP_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a856cc9aa7e842232eb0f2834a5d220c6.html#exhale-define-dds-opcodes-8h-1a856cc9aa7e842232eb0f2834a5d220c6"><span class="std std-ref">Define DDS_OP_SUBTYPE</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a4c7d9a9cfba6feaabeda5db3c20eeb95.html#exhale-define-dds-opcodes-8h-1a4c7d9a9cfba6feaabeda5db3c20eeb95"><span class="std std-ref">Define DDS_OP_SUBTYPE_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ab07d66c4c0f91c5912ed8ba1803aef35.html#exhale-define-dds-opcodes-8h-1ab07d66c4c0f91c5912ed8ba1803aef35"><span class="std std-ref">Define DDS_OP_TYPE</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1aa2392bf2b06a3c3ca67d6c318b33310d.html#exhale-define-dds-opcodes-8h-1aa2392bf2b06a3c3ca67d6c318b33310d"><span class="std std-ref">Define DDS_OP_TYPE_BOO</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a0be83b7633ba2db294f15bd7dbbd92a8.html#exhale-define-dds-opcodes-8h-1a0be83b7633ba2db294f15bd7dbbd92a8"><span class="std std-ref">Define DDS_OP_TYPE_FLAGS</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a287c68c4969b41255c49eab286099442.html#exhale-define-dds-opcodes-8h-1a287c68c4969b41255c49eab286099442"><span class="std std-ref">Define DDS_OP_TYPE_FLAGS_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a8b893fb6d53abd6172491d90812862a3.html#exhale-define-dds-opcodes-8h-1a8b893fb6d53abd6172491d90812862a3"><span class="std std-ref">Define DDS_OP_TYPE_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a339709c57c6484e92ade1cae69899cb0.html#exhale-define-dds-opcodes-8h-1a339709c57c6484e92ade1cae69899cb0"><span class="std std-ref">Define DDS_OP_TYPE_SZ</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ac1ebdbebc844fa7df8150fc0cf1fbe92.html#exhale-define-dds-opcodes-8h-1ac1ebdbebc844fa7df8150fc0cf1fbe92"><span class="std std-ref">Define DDS_PLM_FLAGS</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1abbff0d64396f0f99a7491d56b24e1225.html#exhale-define-dds-opcodes-8h-1abbff0d64396f0f99a7491d56b24e1225"><span class="std std-ref">Define DDS_PLM_FLAGS_MASK</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a5c3d78742cc81008a866254d50f66f4c.html#exhale-define-dds-opcodes-8h-1a5c3d78742cc81008a866254d50f66f4c"><span class="std std-ref">Define DDS_TOPIC_CONTAINS_UNION</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a944a56d726a95d52e6db182bb24debdd.html#exhale-define-dds-opcodes-8h-1a944a56d726a95d52e6db182bb24debdd"><span class="std std-ref">Define DDS_TOPIC_FIXED_KEY</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1ac0c4c02ce34c9da87526bd374b3cee0d.html#exhale-define-dds-opcodes-8h-1ac0c4c02ce34c9da87526bd374b3cee0d"><span class="std std-ref">Define DDS_TOPIC_FIXED_KEY_XCDR2</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1a845240e87c0d57ecf4dac746f91569c4.html#exhale-define-dds-opcodes-8h-1a845240e87c0d57ecf4dac746f91569c4"><span class="std std-ref">Define DDS_TOPIC_FIXED_SIZE</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1af3dfc8c311c9acda1a7baac9f9812d22.html#exhale-define-dds-opcodes-8h-1af3dfc8c311c9acda1a7baac9f9812d22"><span class="std std-ref">Define DDS_TOPIC_NO_OPTIMIZE</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1aedc8c8fcb98faeb167ca8ec13c9db31b.html#exhale-define-dds-opcodes-8h-1aedc8c8fcb98faeb167ca8ec13c9db31b"><span class="std std-ref">Define DDS_TOPIC_RESTRICT_DATA_REPRESENTATION</span></a></p></li>
+<li><p><a class="reference internal" href="define_dds__opcodes_8h_1aec695c9813257904a2e5586b86de06fb.html#exhale-define-dds-opcodes-8h-1aec695c9813257904a2e5586b86de06fb"><span class="std std-ref">Define DDS_TOPIC_XTYPES_METADATA</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">File dds_opcodes.h</a><ul>
+<li><a class="reference internal" href="#definition-ddsc-dds-opcodes-h">Definition (<code class="docutils literal notranslate"><span class="pre">ddsc/dds_opcodes.h</span></code>)</a></li>
+<li><a class="reference internal" href="#detailed-description">Detailed Description</a></li>
+<li><a class="reference internal" href="#includes">Includes</a></li>
+<li><a class="reference internal" href="#included-by">Included By</a></li>
+<li><a class="reference internal" href="#enums">Enums</a></li>
+<li><a class="reference internal" href="#defines">Defines</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+        </div>
+
+        <div class="right">
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>
