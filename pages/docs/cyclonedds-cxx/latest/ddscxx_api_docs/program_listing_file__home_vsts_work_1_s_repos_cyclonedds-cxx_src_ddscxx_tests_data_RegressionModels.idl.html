@@ -270,6 +270,30 @@ struct s_bm1 {
 bm1 c[<span class="mi">3</span>];
 };
 
+typedef boolean td_bool;
+typedef sequence<span class="o">&lt;</span>td_bool<span class="o">&gt;</span> td_bool_seq_arr;
+
+struct s_td_bool_seq_arr {
+td_bool_seq_arr c;
+};
+
+struct s_inner {
+  char ch;
+};
+typedef s_inner td_s_inner;
+typedef td_s_inner td_td_s_inner;
+typedef sequence<span class="o">&lt;</span>td_s_inner<span class="o">&gt;</span> seq_td_s_inner;
+
+union u_s_inner <span class="k">switch</span> (char) {
+  <span class="k">case</span> <span class="s1">&#39;a&#39;</span><span class="o">:</span>     seq_td_s_inner c;
+  <span class="k">case</span> <span class="s1">&#39;b&#39;</span><span class="o">:</span>     td_td_s_inner d;
+};
+
+typedef sequence<span class="o">&lt;</span>e1, <span class="mi">3</span><span class="o">&gt;</span> seq_e1;
+@appendable struct struct_seq_e1 {
+  @optional seq_e1 c;
+};
+
 };
 </pre></div>
 </div>
