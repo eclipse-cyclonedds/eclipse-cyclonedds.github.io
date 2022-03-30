@@ -233,6 +233,11 @@ Program Listing for File dds_public_qos.h
      uint32_t n,
      const dds_data_representation_id_t *values);
    
+   DDS_EXPORT void
+   dds_qset_entity_name (
+     dds_qos_t * __restrict qos,
+     const char * name);
+   
    DDS_EXPORT bool dds_qget_userdata (const dds_qos_t * __restrict qos, void **value, size_t *sz);
    
    DDS_EXPORT bool dds_qget_topicdata (const dds_qos_t * __restrict qos, void **value, size_t *sz);
@@ -381,6 +386,8 @@ Program Listing for File dds_public_qos.h
      const dds_qos_t * __restrict qos,
      uint32_t *n,
      dds_data_representation_id_t **values);
+   
+   DDS_EXPORT bool dds_qget_entity_name (const dds_qos_t * __restrict qos, char **name);
    
    #if defined (__cplusplus)
    }
