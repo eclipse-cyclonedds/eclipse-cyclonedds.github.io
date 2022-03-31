@@ -725,7 +725,13 @@
         <span class="sd">&quot;&quot;&quot;The DataRepresentation Qos Policy&quot;&quot;&quot;</span>
         <span class="n">__scope__</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;DataRepresentation&quot;</span>
         <span class="n">use_cdrv0_representation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="n">use_xcdrv2_representation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div></div>
+        <span class="n">use_xcdrv2_representation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Policy.EntityName"><a class="viewcode-back" href="../../cyclonedds.qos.html#cyclonedds.core.Policy.EntityName">[docs]</a>    <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">EntityName</span><span class="p">(</span><span class="n">BasePolicy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The EntityName Qos Policy&quot;&quot;&quot;</span>
+        <span class="n">__scope__</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;EntityName&quot;</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span></div></div>
 
 
 <div class="viewcode-block" id="Qos"><a class="viewcode-back" href="../../cyclonedds.qos.html#cyclonedds.core.Qos">[docs]</a><span class="k">class</span> <span class="nc">Qos</span><span class="p">:</span>
@@ -811,7 +817,8 @@
         <span class="s2">&quot;Policy.BinaryProperty&quot;</span><span class="p">:</span> <span class="n">Policy</span><span class="o">.</span><span class="n">BinaryProperty</span><span class="p">,</span>
         <span class="s2">&quot;Policy.TypeConsistency.DisallowTypeCoercion&quot;</span><span class="p">:</span> <span class="n">Policy</span><span class="o">.</span><span class="n">TypeConsistency</span><span class="o">.</span><span class="n">DisallowTypeCoercion</span><span class="p">,</span>
         <span class="s2">&quot;Policy.TypeConsistency.AllowTypeCoercion&quot;</span><span class="p">:</span> <span class="n">Policy</span><span class="o">.</span><span class="n">TypeConsistency</span><span class="o">.</span><span class="n">AllowTypeCoercion</span><span class="p">,</span>
-        <span class="s2">&quot;Policy.DataRepresentation&quot;</span><span class="p">:</span> <span class="n">Policy</span><span class="o">.</span><span class="n">DataRepresentation</span>
+        <span class="s2">&quot;Policy.DataRepresentation&quot;</span><span class="p">:</span> <span class="n">Policy</span><span class="o">.</span><span class="n">DataRepresentation</span><span class="p">,</span>
+        <span class="s2">&quot;Policy.EntityName&quot;</span><span class="p">:</span> <span class="n">Policy</span><span class="o">.</span><span class="n">EntityName</span>
     <span class="p">}</span>
 
 <div class="viewcode-block" id="Qos.__init__"><a class="viewcode-back" href="../../cyclonedds.qos.html#cyclonedds.core.Qos.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">policies</span><span class="p">,</span> <span class="n">base</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;Qos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
@@ -1052,12 +1059,13 @@
 
 <span class="k">class</span> <span class="nc">DomainParticipantQos</span><span class="p">(</span><span class="n">LimitedScopeQos</span><span class="p">):</span>
     <span class="n">for_entity</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;DomainParticipant&quot;</span>
-    <span class="n">supported_scopes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;Userdata&quot;</span><span class="p">,</span> <span class="s2">&quot;IgnoreLocal&quot;</span><span class="p">}</span>
+    <span class="n">supported_scopes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;EntityName&quot;</span><span class="p">,</span> <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span> <span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;Userdata&quot;</span><span class="p">,</span> <span class="s2">&quot;IgnoreLocal&quot;</span><span class="p">}</span>
 
 
 <span class="k">class</span> <span class="nc">TopicQos</span><span class="p">(</span><span class="n">LimitedScopeQos</span><span class="p">):</span>
     <span class="n">for_entity</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Topic&quot;</span>
     <span class="n">supported_scopes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;EntityName&quot;</span><span class="p">,</span>
         <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Deadline&quot;</span><span class="p">,</span>
         <span class="s2">&quot;DestinationOrder&quot;</span><span class="p">,</span>
@@ -1082,6 +1090,7 @@
 <span class="k">class</span> <span class="nc">PublisherQos</span><span class="p">(</span><span class="n">LimitedScopeQos</span><span class="p">):</span>
     <span class="n">for_entity</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Publisher&quot;</span>
     <span class="n">supported_scopes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;EntityName&quot;</span><span class="p">,</span>
         <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Groupdata&quot;</span><span class="p">,</span>
         <span class="s2">&quot;IgnoreLocal&quot;</span><span class="p">,</span>
@@ -1094,6 +1103,7 @@
 <span class="k">class</span> <span class="nc">SubscriberQos</span><span class="p">(</span><span class="n">LimitedScopeQos</span><span class="p">):</span>
     <span class="n">for_entity</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Subscriber&quot;</span>
     <span class="n">supported_scopes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;EntityName&quot;</span><span class="p">,</span>
         <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Groupdata&quot;</span><span class="p">,</span>
         <span class="s2">&quot;IgnoreLocal&quot;</span><span class="p">,</span>
@@ -1106,6 +1116,7 @@
 <span class="k">class</span> <span class="nc">DataWriterQos</span><span class="p">(</span><span class="n">LimitedScopeQos</span><span class="p">):</span>
     <span class="n">for_entity</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;DataWriter&quot;</span>
     <span class="n">supported_scopes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;EntityName&quot;</span><span class="p">,</span>
         <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Deadline&quot;</span><span class="p">,</span>
         <span class="s2">&quot;DestinationOrder&quot;</span><span class="p">,</span>
@@ -1132,6 +1143,7 @@
 <span class="k">class</span> <span class="nc">DataReaderQos</span><span class="p">(</span><span class="n">LimitedScopeQos</span><span class="p">):</span>
     <span class="n">for_entity</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;DataReader&quot;</span>
     <span class="n">supported_scopes</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;EntityName&quot;</span><span class="p">,</span>
         <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Deadline&quot;</span><span class="p">,</span>
         <span class="s2">&quot;DestinationOrder&quot;</span><span class="p">,</span>
@@ -1164,7 +1176,8 @@
         <span class="s2">&quot;Liveliness&quot;</span><span class="p">,</span> <span class="s2">&quot;TimeBasedFilter&quot;</span><span class="p">,</span> <span class="s2">&quot;Partition&quot;</span><span class="p">,</span> <span class="s2">&quot;TransportPriority&quot;</span><span class="p">,</span>
         <span class="s2">&quot;DestinationOrder&quot;</span><span class="p">,</span> <span class="s2">&quot;WriterDataLifecycle&quot;</span><span class="p">,</span> <span class="s2">&quot;ReaderDataLifecycle&quot;</span><span class="p">,</span>
         <span class="s2">&quot;DurabilityService&quot;</span><span class="p">,</span> <span class="s2">&quot;IgnoreLocal&quot;</span><span class="p">,</span> <span class="s2">&quot;Userdata&quot;</span><span class="p">,</span> <span class="s2">&quot;Groupdata&quot;</span><span class="p">,</span> <span class="s2">&quot;Topicdata&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span> <span class="s2">&quot;TypeConsistency&quot;</span><span class="p">,</span> <span class="s2">&quot;DataRepresentation&quot;</span>
+        <span class="s2">&quot;Property&quot;</span><span class="p">,</span> <span class="s2">&quot;BinaryProperty&quot;</span><span class="p">,</span> <span class="s2">&quot;TypeConsistency&quot;</span><span class="p">,</span> <span class="s2">&quot;DataRepresentation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;EntityName&quot;</span>
     <span class="p">)</span>
 
     <span class="nd">@classmethod</span>
@@ -1541,6 +1554,16 @@
     <span class="nd">@static_c_call</span><span class="p">(</span><span class="s2">&quot;dds_qset_data_representation&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_set_data_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qos</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">qos_p</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint32</span><span class="p">,</span>
                                  <span class="n">values</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">data_representation_id</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># Entity Name</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_set_p_entityname</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">qos</span><span class="p">,</span> <span class="n">policy</span><span class="p">:</span> <span class="n">Policy</span><span class="o">.</span><span class="n">EntityName</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_set_entity_name</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span> <span class="n">policy</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
+
+    <span class="nd">@static_c_call</span><span class="p">(</span><span class="s2">&quot;dds_qset_entity_name&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_set_entity_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qos</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">qos_p</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
     <span class="c1"># END OF SETTERS, START OF GETTERS #</span>
@@ -2100,6 +2123,22 @@
     <span class="nd">@static_c_call</span><span class="p">(</span><span class="s2">&quot;dds_qget_data_representation&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_get_data_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qos</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">qos_p</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">c_uint32</span><span class="p">),</span>
                                  <span class="n">values</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">data_representation_id</span><span class="p">)))</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="c1"># Entity Name</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_get_p_entityname</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">qos</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_entity_name</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">free</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Policy</span><span class="o">.</span><span class="n">EntityName</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="nd">@static_c_call</span><span class="p">(</span><span class="s2">&quot;dds_qget_entity_name&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_get_entity_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qos</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">qos_p</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
