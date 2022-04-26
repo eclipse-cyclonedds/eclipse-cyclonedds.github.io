@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Serialization &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Internal functionality" href="internal.html" />
+    <link rel="prev" title="Data Allocator" href="alloc.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="serialization">
+<h1>Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__serialization"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">serialization</span></span></dt>
+<dd><p>Opcodes for (de)serialization of types generated by idlc. Isolated in a separate header to share with idlc without the need to pull in the entire Eclipse Cyclone DDS C language binding.</p>
+<p>One opcode is a uint32 and depending on which code it is can contain several uint32 arguments. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_MASK">
+<span class="target" id="group__serialization_1ga2c8f81b90dfd47f69f07ab6f464b95c7"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_MASK</span></span></span><a class="headerlink" href="#c.DDS_OP_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the OP. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_TYPE_FLAGS_MASK">
+<span class="target" id="group__serialization_1ga287c68c4969b41255c49eab286099442"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_FLAGS_MASK</span></span></span><a class="headerlink" href="#c.DDS_OP_TYPE_FLAGS_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the OP type flags. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_TYPE_FLAGS_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_TYPE_MASK">
+<span class="target" id="group__serialization_1ga8b893fb6d53abd6172491d90812862a3"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_MASK</span></span></span><a class="headerlink" href="#c.DDS_OP_TYPE_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the OP type. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_TYPE_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_SUBTYPE_MASK">
+<span class="target" id="group__serialization_1ga4c7d9a9cfba6feaabeda5db3c20eeb95"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_MASK</span></span></span><a class="headerlink" href="#c.DDS_OP_SUBTYPE_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the OP subtype. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_SUBTYPE_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_JMP_MASK">
+<span class="target" id="group__serialization_1gaf2bf231dd2acd64f63b26638d475c48a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_JMP_MASK</span></span></span><a class="headerlink" href="#c.DDS_OP_JMP_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the OP jump. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_JMP_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAGS_MASK">
+<span class="target" id="group__serialization_1ga2f9fdc3d50446ed54f4ce2af194cfdea"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAGS_MASK</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAGS_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the OP flags. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAGS_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_JEQ_TYPE_FLAGS_MASK">
+<span class="target" id="group__serialization_1gaed90c65a201deb1935a31ae6bc5d4cc7"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_JEQ_TYPE_FLAGS_MASK</span></span></span><a class="headerlink" href="#c.DDS_JEQ_TYPE_FLAGS_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the JEQ type flags. </p>
+<p><span class="target" id="group__serialization_1DDS_JEQ_TYPE_FLAGS_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_JEQ_TYPE_MASK">
+<span class="target" id="group__serialization_1ga46084f000e5446921421c32f69823903"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_JEQ_TYPE_MASK</span></span></span><a class="headerlink" href="#c.DDS_JEQ_TYPE_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the JEQ type. </p>
+<p><span class="target" id="group__serialization_1DDS_JEQ_TYPE_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_PLM_FLAGS_MASK">
+<span class="target" id="group__serialization_1gabbff0d64396f0f99a7491d56b24e1225"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PLM_FLAGS_MASK</span></span></span><a class="headerlink" href="#c.DDS_PLM_FLAGS_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the PLM flags. </p>
+<p><span class="target" id="group__serialization_1DDS_PLM_FLAGS_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_KOF_OFFSET_MASK">
+<span class="target" id="group__serialization_1ga464725d29098f0062b67ecfaa65e8ae7"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KOF_OFFSET_MASK</span></span></span><a class="headerlink" href="#c.DDS_KOF_OFFSET_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mask for the KOF offset. </p>
+<p><span class="target" id="group__serialization_1DDS_KOF_OFFSET_MASK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP">
+<span class="target" id="group__serialization_1ga3087efb4dd1d58a61a3155f0e0d6bbdd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the DDS OP from a uint32 as a <a class="reference internal" href="#group__serialization_1ga3408a192a4fba825f21d27a5a0fe0bb1"><span class="std std-ref">dds_stream_opcode</span></a>. </p>
+<p><span class="target" id="group__serialization_1DDS_OP"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_TYPE">
+<span class="target" id="group__serialization_1gab07d66c4c0f91c5912ed8ba1803aef35"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_TYPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the DDS OP_TYPE from a uint32 as a <a class="reference internal" href="#group__serialization_1gab19b84d834bb7c98851067947cd23f0b"><span class="std std-ref">dds_stream_typecode</span></a>. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_TYPE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_TYPE_FLAGS">
+<span class="target" id="group__serialization_1ga0be83b7633ba2db294f15bd7dbbd92a8"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_FLAGS</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_TYPE_FLAGS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the DDS OP_TYPE_FLAGS from a uint32 DOC_TODO: possible values? </p>
+<p><span class="target" id="group__serialization_1DDS_OP_TYPE_FLAGS"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_SUBTYPE">
+<span class="target" id="group__serialization_1ga856cc9aa7e842232eb0f2834a5d220c6"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_SUBTYPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the DDS OP_SUBTYPE from a uint32 as a <a class="reference internal" href="#group__serialization_1gab19b84d834bb7c98851067947cd23f0b"><span class="std std-ref">dds_stream_typecode</span></a> Used for collections, the OP_TYPE is array/sequence. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_SUBTYPE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAGS">
+<span class="target" id="group__serialization_1gaf0a471c36177a82c59b02cb11844e778"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAGS</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_FLAGS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the DDS OP_FLAGS from a uint32 DOC_TODO: possible values? </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAGS"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_ADR_JSR">
+<span class="target" id="group__serialization_1ga5410c8ea44893b4d595aed6632892d88"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_ADR_JSR</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_ADR_JSR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the ADR JSR from a uint32 DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_OP_ADR_JSR"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_ADR_PLM">
+<span class="target" id="group__serialization_1gac0992e3e92a0f6f878d7453b3b52bfbe"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_ADR_PLM</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_ADR_PLM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the ADR PLM from a uint32 DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_OP_ADR_PLM"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_LENGTH">
+<span class="target" id="group__serialization_1ga88d3f21d8cff3564bc91fe2f5d2638f0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_LENGTH</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_LENGTH" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the LENGTH from a uint32 DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_OP_LENGTH"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_JUMP">
+<span class="target" id="group__serialization_1gaac4258cbb9076592363f9947cf5dd233"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_JUMP</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_JUMP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the JUMP from a uint32 DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_OP_JUMP"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_ADR_JMP">
+<span class="target" id="group__serialization_1gaacb0cb4eab972dc0299635c6b5acbd67"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_ADR_JMP</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_ADR_JMP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the ADR_JMP from a uint32 DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_OP_ADR_JMP"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_JEQ_TYPE">
+<span class="target" id="group__serialization_1ga8e4e54d228098312e6f51ca82b72354d"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_JEQ_TYPE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_JEQ_TYPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the JEQ_TYPE from a uint32 as a <a class="reference internal" href="#group__serialization_1gab19b84d834bb7c98851067947cd23f0b"><span class="std std-ref">dds_stream_typecode</span></a> DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_JEQ_TYPE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_JEQ_TYPE_FLAGS">
+<span class="target" id="group__serialization_1gab64c9f774b38c456117d6ca62b0cc5da"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_JEQ_TYPE_FLAGS</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_JEQ_TYPE_FLAGS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the JEQ_TYPE_FLAGS from a uint32 DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_JEQ_TYPE_FLAGS"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_PLM_FLAGS">
+<span class="target" id="group__serialization_1gac1ebdbebc844fa7df8150fc0cf1fbe92"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PLM_FLAGS</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_PLM_FLAGS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the PLM_FLAGS from a uint32 as a <a class="reference internal" href="#group__serialization_1gab19b84d834bb7c98851067947cd23f0b"><span class="std std-ref">dds_stream_typecode</span></a> DOC_TODO: meaning? </p>
+<p><span class="target" id="group__serialization_1DDS_PLM_FLAGS"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_EXT">
+<span class="target" id="group__serialization_1ga7a7752dadb8e7a511022fc88f4c4d234"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_EXT</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_EXT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This flag indicates that the type has external data (i.e. a mapped to a pointer type), which can be the case because of (1) the &#64;external annotation in idl or (2) the &#64;optional annotation (optional fields are also mapped to pointer types as described in the XTypes spec). This flag is stored in the most-significant bit of the ‘type’ part of the serializer instruction. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_EXT"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_KEY">
+<span class="target" id="group__serialization_1ga760ca205c759e43609eccc88415e6dcb"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_KEY</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_KEY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>mark field as key applicable to {1,2,4,8}BY, STR, BST, ARR-of-{1,2,4,8}BY. Note that when defining keys in nested types, the key flag should be set on both the field(s) in the subtype and on the enclosing STU/EXT field. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_KEY"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_DEF">
+<span class="target" id="group__serialization_1ga4a84fbcad72f522504d69d434a738ea9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_DEF</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_DEF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>For a union: </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_DEF"></span><ol class="loweralpha simple">
+<li><p>the discriminator may be a key field;<ol class="lowerroman simple">
+<li><p>there may be a default value;</p></li>
+<li><p>and the discriminator can be an integral type (or enumerated - here treated as equivalent). What it can’t be is a floating-point type. So DEF and FP need never be set at the same time. There are only a few flag bits, so saving one is not such a bad idea.</p></li>
+</ol>
+</p></li>
+</ol>
+</p>
+<p>union has a default case (for DDS_OP_ADR | DDS_OP_TYPE_UNI) </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_FP">
+<span class="target" id="group__serialization_1gad19c5a08c2ef8dc5b5ef027b349948e3"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_FP</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_FP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>floating-point, applicable to {4,8}BY and arrays, sequences of them </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_FP"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_SGN">
+<span class="target" id="group__serialization_1gae91d07f3c6d96a96ca9165cc54b92e60"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_SGN</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_SGN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>signed, applicable to {1,2,4,8}BY and arrays, sequences of them </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_SGN"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_MU">
+<span class="target" id="group__serialization_1gae869a85c3484bce8820368edb00ead39"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_MU</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_MU" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>must-understand flag, as defined by the XTypes spec. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_MU"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_BASE">
+<span class="target" id="group__serialization_1ga6b7efe18a2b31328fb1052116c2f7d8e"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_BASE</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_BASE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>jump to base type, used with PLM in mutable types and for the TYPE_EXT ‘parent’ member in final and appendable types </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_BASE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_OPT">
+<span class="target" id="group__serialization_1ga9e33c94b81971f9fb2ae2d198680ae69"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_OPT</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_OPT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>optional flag, used with struct members. For non-string types, an optional member also gets the FLAG_EXT, see above. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_OPT"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_SZ_SHIFT">
+<span class="target" id="group__serialization_1gadc9038a02b33658ee88f6e7f3a620ce4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_SZ_SHIFT</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_SZ_SHIFT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enum and bitmask storage size (shift amount) </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_SZ_SHIFT"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_SZ_MASK">
+<span class="target" id="group__serialization_1ga8cf41e8652cff65f526a47022b4fb0a2"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_SZ_MASK</span></span></span><a class="headerlink" href="#c.DDS_OP_FLAG_SZ_MASK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enum and bitmask storage size. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_SZ_MASK"></span><ol class="loweralpha simple">
+<li><p>00 = 1 byte,<ol class="lowerroman simple">
+<li><p>01 = 2 bytes,</p></li>
+<li><p>10 = 4 bytes,</p></li>
+<li><p>11 = 8 bytes (bitmask only) </p></li>
+</ol>
+</p></li>
+</ol>
+</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAGS_SZ">
+<span class="target" id="group__serialization_1gae595d45c2d8285aab1caacd2d9634265"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAGS_SZ</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">f</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_FLAGS_SZ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the Enum and Bitmask storage size from flags. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAGS_SZ"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_TYPE_SZ">
+<span class="target" id="group__serialization_1ga339709c57c6484e92ade1cae69899cb0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_SZ</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_OP_TYPE_SZ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the Enum and Bitmask storage size from an uint32. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_TYPE_SZ"></span></p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_stream_opcode">
+<span class="target" id="group__serialization_1ga3408a192a4fba825f21d27a5a0fe0bb1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_stream_opcode</span></span></span><a class="headerlink" href="#c.dds_stream_opcode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic encoding instruction types. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_RTS">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a4aaf1fa08fde6878ce10079e774611d4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_RTS</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_RTS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>return from subroutine, exits top-level [RTS, 0, 0, 0] </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_ADR">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1adbec6d75962cd1c74efaa0526d723559"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_ADR</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_ADR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>data field [ADR, nBY, 0, f] [offset] [ADR, BLN, 0, f] [offset] [ADR, ENU, 0, f] [offset] [max] [ADR, BMK, 0, f] [offset] [bits-high] [bits-low] [ADR, STR, 0, f] [offset] [ADR, BST, 0, f] [offset] [max-size]</p>
+<p>[ADR, SEQ, nBY, f] [offset] [ADR, SEQ, BLN, f] [offset] [ADR, SEQ, ENU, f] [offset] [max] [ADR, SEQ, BMK, f] [offset] [bits-high] [bits-low] [ADR, SEQ, STR, f] [offset] [ADR, SEQ, BST, f] [offset] [max-size] [ADR, SEQ, s, f] [offset] [elem-size] [next-insn, elem-insn] where s = {SEQ,ARR,UNI,STU,BSQ} [ADR, SEQ, EXT, f] *** not supported</p>
+<p>[ADR, BSQ, nBY, f] [offset] [sbound] [ADR, BSQ, BLN, f] [offset] [sbound] [ADR, BSQ, ENU, f] [offset] [sbound] [max] [ADR, BSQ, BMK, f] [offset] [sbound] [bits-high] [bits-low] [ADR, BSQ, STR, f] [offset] [sbound] [ADR, BSQ, BST, f] [offset] [sbound] [max-size] [ADR, BSQ, s, f] [offset] [sbound] [elem-size] [next-insn, elem-insn] where s = {SEQ,ARR,UNI,STU,BSQ} [ADR, BSQ, EXT, f] *** not supported</p>
+<p>[ADR, ARR, nBY, f] [offset] [alen] [ADR, ARR, BLN, f] [offset] [alen] [ADR, ARR, ENU, f] [offset] [alen] [max] [ADR, ARR, BMK, f] [offset] [alen] [bits-high] [bits-low] [ADR, ARR, STR, f] [offset] [alen] [ADR, ARR, BST, f] [offset] [alen] [0] [max-size] [ADR, ARR, s, f] [offset] [alen] [next-insn, elem-insn] [elem-size] where s = {SEQ,ARR,UNI,STU,BSQ} [ADR, ARR, EXT, f] *** not supported</p>
+<p>[ADR, UNI, d, z] [offset] [alen] [next-insn, cases] [ADR, UNI, ENU, z] [offset] [alen] [next-insn, cases] [max] [ADR, UNI, EXT, f] *** not supported where d = discriminant type of {1BY,2BY,4BY,BLN} z = default present/not present (DDS_OP_FLAG_DEF) offset = discriminant offset max = max enum value followed by alen case labels: in JEQ format</p>
+<p>[ADR, e | EXT, 0, f] [offset] [next-insn, elem-insn] [elem-size iff “external” flag e is set, or flag f has DDS_OP_FLAG_OPT] [ADR, STU, 0, f] *** not supported where s = subtype e = external: stored as external data (pointer) (DDS_OP_FLAG_EXT) f = flags:<ul class="simple">
+<li><p>key/not key (DDS_OP_FLAG_KEY)</p></li>
+<li><p>base type member, used with EXT type (DDS_OP_FLAG_BASE)</p></li>
+<li><p>optional (DDS_OP_FLAG_OPT)</p></li>
+<li><p>must-understand (DDS_OP_FLAG_MU)</p></li>
+<li><p>storage size, only for ENU and BMK (n &lt;&lt; DDS_OP_FLAG_SZ_SHIFT) [offset] = field offset from start of element in memory [elem-size] = element size in memory (elem-size is only included in case ‘external’ flag is set) [max-size] = string bound + 1 [max] = max enum value [bits-..] = identified bits in the bitmask, split into high and low 32 bits [alen] = array length, number of cases [sbound] = bounded sequence maximum number of elements [next-insn] = (unsigned 16 bits) offset to instruction for next field, from start of insn [elem-insn] = (unsigned 16 bits) offset to first instruction for element, from start of insn [cases] = (unsigned 16 bits) offset to first case label, from start of insn </p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_JSR">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a5cadbc61058eaf557b089b0f74093cb0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_JSR</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_JSR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>jump-to-subroutine (e.g. used for recursive types and appendable unions) [JSR, 0, e] where e = (signed 16 bits) offset to first instruction in subroutine, from start of insn instruction sequence must end in RTS, execution resumes at instruction following JSR </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_JEQ">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1ae6e5d8cccabe5eda9df32a9787e518a8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_JEQ</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_JEQ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>jump-if-equal, used for union cases: [JEQ, nBY, 0] [disc] [offset] [JEQ, BLN, 0] [disc] [offset] [JEQ, STR, 0] [disc] [offset] [JEQ, s, i] [disc] [offset] [JEQ4, e | nBY, 0] [disc] [offset] 0 [JEQ4, e | STR, 0] [disc] [offset] 0 [JEQ4, e | ENU, f] [disc] [offset] [max] [JEQ4, EXT, 0] *** not supported, use STU/UNI for external defined types [JEQ4, e | s, i] [disc] [offset] [elem-size iff “external” flag e is set, else 0] where e = external: stored as external data (pointer) (DDS_OP_FLAG_EXT) s = subtype other than {nBY,STR} for JEQ and {nBY,STR,ENU,EXT} for JEQ4 (note that BMK cannot be inline, because it needs 2 additional instructions for the bits that are identified in the bitmask type) i = (unsigned 16 bits) offset to first instruction for case, from start of insn instruction sequence must end in RTS, at which point executes continues at the next field’s instruction as specified by the union f = size flags for ENU instruction</p>
+<p>Note that the JEQ instruction is deprecated and replaced by the JEQ4 instruction. The IDL compiler only generates JEQ4 for union cases, the JEQ instruction is included here for backwards compatibility (topic descriptors generated with a previous version of IDLC) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_DLC">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a121b215682bd972e6fcb6ee5134266e9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_DLC</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_DLC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XCDR2 delimited CDR (inserts DHEADER before type) [DLC, 0, 0] </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_PLC">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a84e58ce4f2dd4d3e64b9a857666ea3af"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_PLC</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_PLC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XCDR2 parameter list CDR (inserts DHEADER before type and EMHEADER before each member) [PLC, 0, 0] followed by a list of JEQ instructions </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_PLM">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a1a69345f2ca7ff79f3524bad95522b50"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_PLM</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_PLM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>[PLM, f, elem-insn] [member id] for members of aggregated mutable types (pl-cdr): where f = flags:<ul class="simple">
+<li><p>jump to base type (DDS_OP_FLAG_BASE) [elem-insn] = (unsigned 16 bits) offset to instruction for element, from start of insn when FLAG_BASE is set, this is the offset of the PLM list of the base type [member id] = id for this member (0 in case FLAG_BASE is set) </p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_KOF">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a51d7d21984f8390969d922cda839e7a2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_KOF</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_KOF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Key offset list [KOF, 0, n] [offset-1] … [offset-n] where n = number of key offsets in following ops offset = offset of the key field, relative to the previous offset (repeated n times, e.g. when key in nested struct) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_JEQ4">
+<span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a7c5dd8770c76c17a56b288663fb25575"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_JEQ4</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_JEQ4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>see comment for JEQ/JEQ4 above </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_stream_typecode">
+<span class="target" id="group__serialization_1gab19b84d834bb7c98851067947cd23f0b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_stream_typecode</span></span></span><a class="headerlink" href="#c.dds_stream_typecode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>datatypes as recognized by serialization VM. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_1BY">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba762b04cb681c5289253333e924a35665"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_1BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_1BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>one byte simple type (char, octet) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_2BY">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba94ba1e478dff85ce7f9f01b3602b910f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_2BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_2BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>two byte simple type ((unsigned) short) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_4BY">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba3f51221bf8441951222de858ec6bfe10"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_4BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_4BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>four byte simple type ((unsigned) long, float) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_8BY">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0bacf59a60aea9ec92ed33f3e644cdb9dab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_8BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_8BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>eight byte simple type ((unsigned) long long, double) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_STR">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0bac672180526bfb17aa23ddb28fc17099d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_STR</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_STR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>string </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_BST">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba45ae4e81023e10e38bfc5f5e785ad3d8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_BST</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_BST" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bounded string </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_SEQ">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba4a6c1bf55c6310d768fd46b206fb79cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_SEQ</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_SEQ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>sequence </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_ARR">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba3d0bf42953436f27c7ce90d5d24a1ec0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_ARR</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_ARR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>array </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_UNI">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0bac63cce1d95de4faa67b9d1db62371eb8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_UNI</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_UNI" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>union </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_STU">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba95595123e806c28c0be5ec567f64ab54"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_STU</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_STU" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>struct </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_BSQ">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0bae36ccc58357aa28da0af94dc9fad9503"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_BSQ</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_BSQ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bounded sequence </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_ENU">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba53d885c00ecfd673fa466341645ce90e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_ENU</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_ENU" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>enumerated value (long) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_EXT">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba835c52d5f784ca678925027f4c1a9864"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_EXT</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_EXT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>field with external definition </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_BLN">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba070e60d4e8c90773fa5b5b6160793484"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_BLN</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_BLN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>boolean </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode.DDS_OP_VAL_BMK">
+<span class="target" id="group__serialization_1ggab19b84d834bb7c98851067947cd23f0ba8f540730d117f0806cb258969a900d8c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_VAL_BMK</span></span></span><a class="headerlink" href="#c.dds_stream_typecode.DDS_OP_VAL_BMK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bitmask </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary">
+<span class="target" id="group__serialization_1gae71ade828fcfb6d53a96b2aa5f29463f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_stream_typecode_primary</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>primary type code for DDS_OP_ADR, DDS_OP_JEQ Convinience pre-bitshifted values. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_1BY">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa4af5b0a620e075a34be6a6154110d557"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_1BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_1BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>one byte simple type (char, octet) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_2BY">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fae9b84cc7b87c3400fcfae0cf5a31a76b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_2BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_2BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>two byte simple type ((unsigned) short) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_4BY">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fad3eb371fe091c096a0baece05c3f5542"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_4BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_4BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>four byte simple type ((unsigned) long, float) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_8BY">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa88057ef131507197d4b831cb94ad6650"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_8BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_8BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>eight byte simple type ((unsigned) long long, double) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_STR">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa59b1ab09d7ca792e72dc308cc0c209d5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_STR</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_STR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>string </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_BST">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa0e9cbef30689ee2035dbb8f5f7359575"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_BST</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_BST" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bounded string </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_SEQ">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463faa472590c38eb3fb351d5165642ee96e9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_SEQ</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_SEQ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>sequence </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_ARR">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fae9a8124de5a5fc92f88468e679d638d6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_ARR</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_ARR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>array </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_UNI">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa364607b1ec55cc9f9b84016ab03c5b1a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_UNI</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_UNI" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>union </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_STU">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa28cb949f097c960d931a897be600b2df"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_STU</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_STU" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>struct </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_BSQ">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa7a7c0b62a98ade2409337d5f8e708325"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_BSQ</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_BSQ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bounded sequence </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_ENU">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa942ec38fecdb27572303e13a4bf1b1c5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_ENU</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_ENU" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>enumerated value (long) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_EXT">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463face3fbbcb0a1421bd1eca6413c53b3eb1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_EXT</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_EXT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>field with external definition </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_BLN">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fab216f5940c2b9f29baefc6e7d6a7a482"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_BLN</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_BLN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>boolean </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_OP_TYPE_BMK">
+<span class="target" id="group__serialization_1ggae71ade828fcfb6d53a96b2aa5f29463fa0fff1bf68ddafd0d2e9f54e4a28cc7c3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_TYPE_BMK</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary.DDS_OP_TYPE_BMK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bitmask </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype">
+<span class="target" id="group__serialization_1ga3faf85df9d59249c7b31fddded55d277"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_stream_typecode_subtype</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>sub-type code </p>
+<p><ul class="simple">
+<li><p>encodes element type for DDS_OP_TYPE_{SEQ,ARR},</p></li>
+<li><p>discriminant type for DDS_OP_TYPE_UNI Convinience pre-bitshifted values. </p></li>
+</ul>
+</p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_1BY">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277a62af73a6314c258f540e7dcb9849a32a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_1BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_1BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>one byte simple type (char, octet) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_2BY">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277adeef021360766efcb8fd5a5c4ae1fb6b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_2BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_2BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>two byte simple type ((unsigned) short) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_4BY">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277ada3312b1caf6bbe6545bf78df0e1d1f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_4BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_4BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>four byte simple type ((unsigned) long, float) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_8BY">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277a7bd1cf367602278836818ae4d7a2b2a7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_8BY</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_8BY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>eight byte simple type ((unsigned) long long, double) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STR">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277a6b11bcca4dcbd292864ad1f7248bc844"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_STR</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>string </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BST">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277acc60959bf14e0143acdeccc07e7e5531"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_BST</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BST" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bounded string </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_SEQ">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277aa9d43209419e312779c7f8b1603d9941"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_SEQ</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_SEQ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>sequence </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ARR">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277ab5498ab85ecb3eb676c05202e86336a0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_ARR</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ARR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>array </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_UNI">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277aced5ce26a130033e48d589fd7a3531f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_UNI</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_UNI" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>union </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STU">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277ac49f3e8c0996af8c38c00a058a12374a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_STU</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STU" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>struct </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BSQ">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277ae59b1e6fa409017eec011ea4e47de67f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_BSQ</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BSQ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bounded sequence </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ENU">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277ab5273def3421e4e5df297f7eb265c33e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_ENU</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ENU" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>enumerated value (long) </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BLN">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277a2452b62fd27f593df68ee43ee1578612"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_BLN</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BLN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>boolean </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BMK">
+<span class="target" id="group__serialization_1gga3faf85df9d59249c7b31fddded55d277a4f8a8796d6b1a1b1d3bc631ae03a0c4b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_SUBTYPE_BMK</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BMK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bitmask </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__topic__flags"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">topic_flags</span></span></dt>
+<dd><p>There are several flags that can be added to dds_topic_descriptor_t by the IDL compiler. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_NO_OPTIMIZE">
+<span class="target" id="group__topic__flags_1gaf3dfc8c311c9acda1a7baac9f9812d22"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_NO_OPTIMIZE</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_NO_OPTIMIZE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Don’t optimize the opcodes to quick memcpy’s. If a topic includes only plain types and directly nested structs, it can be that a simple copy+optional byteswap can produce the right C memory layout straight from CDR. If this flag is added it means that there is pointer ‘magic’ involved in decoding the type and no shortcuts should be taken. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_NO_OPTIMIZE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_FIXED_KEY">
+<span class="target" id="group__topic__flags_1ga944a56d726a95d52e6db182bb24debdd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FIXED_KEY</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_FIXED_KEY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The XCDRV1 serialized key fits in 16 bytes. If statically determined that a key always fits in 16 bytes the spec specifies that the key of a sample is the resulting CDR. If it is longer we must use MD5 to hash the resultant key CDR. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_FIXED_KEY"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_CONTAINS_UNION">
+<span class="target" id="group__topic__flags_1ga5c3d78742cc81008a866254d50f66f4c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_CONTAINS_UNION</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_CONTAINS_UNION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>at arbitrary deep nesting the topic type contains at least one union. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_CONTAINS_UNION"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_FIXED_SIZE">
+<span class="target" id="group__topic__flags_1ga845240e87c0d57ecf4dac746f91569c4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FIXED_SIZE</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_FIXED_SIZE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The size in memory of a sample of this topic type is fully fixed. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_FIXED_SIZE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_FIXED_KEY_XCDR2">
+<span class="target" id="group__topic__flags_1gac0c4c02ce34c9da87526bd374b3cee0d"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FIXED_KEY_XCDR2</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_FIXED_KEY_XCDR2" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The XCDRV2 serialized key fits in 16 bytes. If statically determined that a key always fits in 16 bytes the spec specifies that the key of a sample is the resulting CDR. If it is longer we must use MD5 to hash the resultant key CDR. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_FIXED_KEY_XCDR2"></span> This is separate from the XCDRV1 version because it can differ due to the change in alignment of 8byte types. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_XTYPES_METADATA">
+<span class="target" id="group__topic__flags_1gaec695c9813257904a2e5586b86de06fb"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_XTYPES_METADATA</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_XTYPES_METADATA" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set if XTypes meta-data is present for this topic. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_XTYPES_METADATA"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_RESTRICT_DATA_REPRESENTATION">
+<span class="target" id="group__topic__flags_1gaedc8c8fcb98faeb167ca8ec13c9db31b"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_RESTRICT_DATA_REPRESENTATION</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_RESTRICT_DATA_REPRESENTATION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set if data representation restrictions for the top-level type are present in the topic descriptor. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_RESTRICT_DATA_REPRESENTATION"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_FIXED_KEY_MAX_SIZE">
+<span class="target" id="group__topic__flags_1gaf8e59c6bd27d2e84cf721ea30dee7160"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_FIXED_KEY_MAX_SIZE</span></span></span><a class="headerlink" href="#c.DDS_FIXED_KEY_MAX_SIZE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Max size of fixed key. </p>
+<p><span class="target" id="group__topic__flags_1DDS_FIXED_KEY_MAX_SIZE"></span></p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="alloc.html">
+                <span><</span> Data Allocator</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="internal.html">Internal functionality <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

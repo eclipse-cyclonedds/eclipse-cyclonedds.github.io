@@ -9,22 +9,17 @@
     <title>Hello World! in more detail &#8212; Eclipse Cyclone DDS latest documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" type="text/css" href="/css/docu.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
-    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <script src="/js/docu.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="What’s next?" href="next_steps.html" />
-    <link rel="prev" title="Building Eclipse Cyclone DDS applications" href="helloworld.html" />
-    <link href="../_static/style.css" rel="stylesheet" type="text/css">
-
+    <link rel="prev" title="Building Eclipse Cyclone DDS applications" href="helloworld.html" /> 
   </head><body>
 <nav id="top_nav">
     <p id="toggle_sidebar">
@@ -119,11 +114,14 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Eclipse Cyclone DDS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Hello World! in more detail</a></li>
-<li class="toctree-l1"><a class="reference internal" href="next_steps.html">What’s next?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installing Eclipse Cyclone DDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hello World! in more detail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next_steps.html">What’s next?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
@@ -185,15 +183,15 @@ and the HelloworldSubscriber.</p>
 <p>There are a few ways to describe the structures that make up the
 data layer. The HelloWorld uses the IDL language to describe the
 data type in HelloWorldData.idl:</p>
-<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>module HelloWorldData
-<span class="linenos">2</span>{
-<span class="linenos">3</span>  struct Msg
-<span class="linenos">4</span>  {
-<span class="linenos">5</span>    @key
-<span class="linenos">6</span>    <span class="nb">long</span> userID;
-<span class="linenos">7</span>    <span class="nb">string</span> <span class="nb">message</span>;
-<span class="linenos">8</span>  };
-<span class="linenos">9</span>};
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>module<span class="w"> </span>HelloWorldData<span class="w"></span>
+<span class="linenos">2</span>{<span class="w"></span>
+<span class="linenos">3</span><span class="w">  </span>struct<span class="w"> </span>Msg<span class="w"></span>
+<span class="linenos">4</span><span class="w">  </span>{<span class="w"></span>
+<span class="linenos">5</span><span class="w">    </span>@key<span class="w"></span>
+<span class="linenos">6</span><span class="w">    </span><span class="nb">long</span><span class="w"> </span>userID;<span class="w"></span>
+<span class="linenos">7</span><span class="w">    </span><span class="nb">string</span><span class="w"> </span><span class="nb">message</span>;<span class="w"></span>
+<span class="linenos">8</span><span class="w">  </span>};<span class="w"></span>
+<span class="linenos">9</span>};<span class="w"></span>
 </pre></div>
 </div>
 <p>An extensive explanation of IDL lies outside the scope of this
@@ -228,14 +226,12 @@ file contains the description of data type(s). This needs to be
 translated into programming languages to be useful in the
 creation of DDS applications.</p>
 <p>To be able to do that, there’s a pre-compile step that actually
-compiles the IDL file into the desired programming language.</p>
-<p>A java application <code class="code docutils literal notranslate"><span class="pre">org.eclipse.cyclonedds.compilers.Idlc</span></code>
-is supplied to support this pre-compile step. This is available
-in <code class="code docutils literal notranslate"><span class="pre">idlc-jar-with-dependencies.jar</span></code></p>
+compiles the IDL file into the desired programming language. The
+<cite>idlc</cite> executable is supplied to perform this pre-compile step.</p>
 <p>The compilation from IDL into c source code is as simple as
-starting that java application with an IDL file. In the case of
+starting that executable with an IDL file. In the case of
 the <em>Hello World!</em> example, that IDL file is HelloWorldData.idl.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">java</span><span class="w"> </span><span class="o">-</span><span class="n">classpath</span><span class="w"> </span><span class="s">&quot;&lt;install_dir&gt;/share/CycloneDDS/idlc/idlc-jar-with-dependencies.jar&quot;</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">eclipse</span><span class="p">.</span><span class="n">cyclonedds</span><span class="p">.</span><span class="n">compilers</span><span class="p">.</span><span class="n">Idlc</span><span class="w"> </span><span class="n">HelloWorldData</span><span class="p">.</span><span class="n">idl</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">idlc</span><span class="w"> </span><span class="n">HelloWorldData</span><span class="p">.</span><span class="n">idl</span><span class="w"></span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -458,7 +454,7 @@ in the info array at the same index.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_read</span><span class="w"> </span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_SAMPLES</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_SAMPLES</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The <code class="code docutils literal notranslate"><span class="pre">dds_read</span></code> function returns the number of samples it
+<p>The <a class="reference internal" href="../api/sub.html#c.dds_read" title="dds_read"><code class="xref c c-func docutils literal notranslate"><span class="pre">dds_read()</span></code></a> function returns the number of samples it
 actually read. We can use that to determine if the function actually
 read some data. When it has, then it is still possible that the
 data part of the sample is not valid. This has some use cases
@@ -716,7 +712,7 @@ automatically delete the topic and writer as well.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

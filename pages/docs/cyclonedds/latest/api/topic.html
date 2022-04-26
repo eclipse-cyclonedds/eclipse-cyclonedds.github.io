@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Topics &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data" href="data.html" />
+    <link rel="prev" title="Domains" href="domain.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="topics">
+<h1>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__topic"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">topic</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_HAS_CREATE_TOPIC_SERTYPE">
+<span class="target" id="group__topic_1ga2a4e1c7473e5db3dc025d4f42cd0dfc6"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_HAS_CREATE_TOPIC_SERTYPE</span></span></span><a class="headerlink" href="#c.DDS_HAS_CREATE_TOPIC_SERTYPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicates that the library defines the dds_create_topic_sertype function. </p>
+<p>Introduced to help with the change from sertopic to sertype. If you are using a modern CycloneDDS version you will not need this. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_HAS_CREATE_TOPIC_GENERIC">
+<span class="target" id="group__topic_1gaa4d134e6e973b4f37533063052a068ce"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_HAS_CREATE_TOPIC_GENERIC</span></span></span><a class="headerlink" href="#c.DDS_HAS_CREATE_TOPIC_GENERIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicates that the library defines the dds_create_topic_generic function. </p>
+<p>Introduced to help with the change from sertopic to sertype. You should probably move to using sertype instead of sertopic and ignore this. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_find_scope_t">
+<span class="target" id="group__topic_1ga04c22a0103dfbcdf214cd812a2f70b72"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_find_scope" title="dds_find_scope"><span class="n"><span class="pre">dds_find_scope</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_scope_t</span></span></span><a class="headerlink" href="#c.dds_find_scope_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Scope for <a class="reference internal" href="#group__topic_1ga0b2918a6ec7674f7d2667068a8a7cfc5"><span class="std std-ref">dds_find_topic()</span></a> </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_find_scope">
+<span class="target" id="group__topic_1ga7624dd31126da620c50c3c48b7d03112"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_scope</span></span></span><a class="headerlink" href="#c.dds_find_scope" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Scope for <a class="reference internal" href="#group__topic_1ga0b2918a6ec7674f7d2667068a8a7cfc5"><span class="std std-ref">dds_find_topic()</span></a> </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_find_scope.DDS_FIND_SCOPE_GLOBAL">
+<span class="target" id="group__topic_1gga7624dd31126da620c50c3c48b7d03112a59fa3da2c83965e4315504fdfd5f84ce"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_FIND_SCOPE_GLOBAL</span></span></span><a class="headerlink" href="#c.dds_find_scope.DDS_FIND_SCOPE_GLOBAL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>locate the topic anywhere CycloneDDS knows about </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_find_scope.DDS_FIND_SCOPE_LOCAL_DOMAIN">
+<span class="target" id="group__topic_1gga7624dd31126da620c50c3c48b7d03112a1d32561c6fbf31ba2407015fc3ee2fec"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_FIND_SCOPE_LOCAL_DOMAIN</span></span></span><a class="headerlink" href="#c.dds_find_scope.DDS_FIND_SCOPE_LOCAL_DOMAIN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>locate the topic locally within domain boundaries </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_find_scope.DDS_FIND_SCOPE_PARTICIPANT">
+<span class="target" id="group__topic_1gga7624dd31126da620c50c3c48b7d03112ad68978b5ed85ca7aa5a181dcebdc58d6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_FIND_SCOPE_PARTICIPANT</span></span></span><a class="headerlink" href="#c.dds_find_scope.DDS_FIND_SCOPE_PARTICIPANT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>locate the topic within the current participant </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_topic">
+<span class="target" id="group__topic_1gabfdc0a0373c99602f3f88798c66a5183"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="internal.html#c.dds_topic_descriptor_t" title="dds_topic_descriptor_t"><span class="n"><span class="pre">dds_topic_descriptor_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">descriptor</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new topic with default type handling. </p>
+<p>The type name for the topic is taken from the generated descriptor. Topic matching is done on a combination of topic name and type name. Each successful call to dds_create_topic creates a new topic entity sharing the same QoS settings with all other topics of the same name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant</strong> – <strong>[in]</strong> Participant on which to create the topic. </p></li>
+<li><p><strong>descriptor</strong> – <strong>[in]</strong> An IDL generated topic descriptor. </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> Name of the topic. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> QoS to set on the new topic (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new topic (can be NULL).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – A valid unique topic handle. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Either participant, descriptor, name or qos is invalid. </p></li>
+<li><p><strong>DDS_RETCODE_INCONSISTENT_POLICY</strong> – QoS mismatch between qos and an existing topic’s QoS. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Mismatch between type name in descriptor and pre-existing topic’s type name. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid, unique topic handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_topic_sertype">
+<span class="target" id="group__topic_1ga614ac937149993f73c307ece8f639033"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_topic_sertype</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_sertype</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sertype</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_plist</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sedp_plist</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_topic_sertype" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new topic with provided type handling. </p>
+<p>The name for the type is taken from the provided “sertype” object. Type matching is done on a combination of topic name and type name. Each successful call to dds_create_topic creates a new topic entity sharing the same QoS settings with all other topics of the same name.</p>
+<p>In case this function returns a valid handle, the ownership of the provided sertype is handed over to Cyclone. On return, the caller gets in the sertype parameter a pointer to the sertype that is actually used by the topic. This can be the provided sertype (if this sertype was not yet known in the domain), or a sertype thas was already known in the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant</strong> – <strong>[in]</strong> Participant on which to create the topic. </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> Topic name </p></li>
+<li><p><strong>sertype</strong> – <strong>[inout]</strong> Internal description of the type . On return, the sertype parameter is set to the actual sertype that is used by the topic. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> QoS to set on the new topic (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new topic (can be NULL). </p></li>
+<li><p><strong>sedp_plist</strong> – <strong>[in]</strong> Topic description to be published as part of discovery (if NULL, not published).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – A valid unique topic handle. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Either participant, descriptor, name or qos is invalid. </p></li>
+<li><p><strong>DDS_RETCODE_INCONSISTENT_POLICY</strong> – QoS mismatch between qos and an existing topic’s QoS. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Mismatch between type name in sertype and pre-existing topic’s type name. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid, unique topic handle or an error code. Iff a valid handle, the domain takes ownership of provided serdata.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_topic_generic">
+<span class="target" id="group__topic_1gaac8eb8e277dbe0c33e3c628a945bd3a1"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_topic_generic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_sertopic</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sertopic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_plist</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sedp_plist</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_topic_generic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new topic with provided type handling. </p>
+<p><span class="target" id="group__topic_1dds_create_topic_generic"></span></p>
+<p>DOC_TODO: this description does not make any sense, this is for the legacy sertopic? deprecate?</p>
+<p>The name for the type is taken from the provided “sertype” object. Type matching is done on a combination of topic name and type name. Each successful call to dds_create_topic creates a new topic entity sharing the same QoS settings with all other topics of the same name.</p>
+<p>In case this function returns a valid handle, the ownership of the provided sertype is handed over to Cyclone. On return, the caller gets in the sertype parameter a pointer to the sertype that is actually used by the topic. This can be the provided sertype (if this sertype was not yet known in the domain), or a sertype thas was already known in the domain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant</strong> – <strong>[in]</strong> Participant on which to create the topic. </p></li>
+<li><p><strong>sertopic</strong> – <strong>[inout]</strong> Legacy internal description of the type. On return, the sertype parameter is set to the actual sertype that is used by the topic. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> QoS to set on the new topic (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new topic (can be NULL). </p></li>
+<li><p><strong>sedp_plist</strong> – <strong>[in]</strong> Topic description to be published as part of discovery (if NULL, not published).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – A valid unique topic handle. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Either participant, descriptor, name or qos is invalid. </p></li>
+<li><p><strong>DDS_RETCODE_INCONSISTENT_POLICY</strong> – QoS mismatch between qos and an existing topic’s QoS. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Mismatch between type name in sertype and pre-existing topic’s type name. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid, unique topic handle or an error code. Iff a valid handle, the domain takes ownership of provided serdata.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_find_topic">
+<span class="target" id="group__topic_1ga0b2918a6ec7674f7d2667068a8a7cfc5"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_find_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Finds a named topic. </p>
+<p>Finds a locally created topic based on the topic name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant</strong> – <strong>[in]</strong> The participant on which to find the topic. </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> The name of the topic to find.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid topic handle. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Participant was invalid. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – No topic of this name existed yet in the participant </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid topic handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_find_topic_scoped">
+<span class="target" id="group__topic_1gad016d6e9e38a6ba24f529781288ae80c"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_topic_scoped</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_find_scope_t" title="dds_find_scope_t"><span class="n"><span class="pre">dds_find_scope_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">scope</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_find_topic_scoped" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Finds a locally created or discovered remote topic by topic name. </p>
+<p>Finds a locally created topic or a discovered remote topic based on the topic name. In case the topic is not found, this function will wait for the topic to become available until the provided time out.</p>
+<p>In case multiple (discovered) topics are found with the provided name, this function will return an error code. The caller can decide to read DCPSTopic data itself and select one of the topic definitions to create the topic.</p>
+<p>The returned topic should be released with dds_delete.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the topic </p></li>
+<li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant the found topic will be created in </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> The name of the topic to find. </p></li>
+<li><p><strong>timeout</strong> – <strong>[in]</strong> The timeout for waiting for the topic to become available</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid topic handle. </p></li>
+<li><p><strong>0</strong> – No topic of this name existed yet </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Participant handle or scope invalid </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Multiple topics with the provided name were found. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid topic handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_name">
+<span class="target" id="group__topic_1ga3327b2fd1f96c9427568f46471270cd7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the name of a given topic. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic. </p></li>
+<li><p><strong>name</strong> – <strong>[out]</strong> Buffer to write the topic name to. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Number of bytes available in the buffer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Actual length of topic name (name is truncated if return value &gt;= size) or error </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_type_name">
+<span class="target" id="group__topic_1ga118e07ef2c3e23f94aa6ac523613b472"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_type_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_type_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the type name of a given topic. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic. </p></li>
+<li><p><strong>name</strong> – <strong>[out]</strong> Buffer to write the topic type name to. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Number of bytes available in the buffer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Actual length of type name (name is truncated if return value &gt;= size) or error </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__topic__filter"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">topic_filter</span></span></dt>
+<dd><p><p>Topic filter functions.</p>
+<p>Sampleinfo is all zero when filtering in a write call (i.e., writer created using a filtered topic, which one perhaps shouldn’t be doing), otherwise it has as much filled in correctly as is possible given the context and the rest fixed:</p>
+<ul class="simple">
+<li><p>sample_state DDS_SST_NOT_READ;</p></li>
+<li><p>publication_handle set to writer’s instance handle</p></li>
+<li><p>source_timestamp set to source timestamp of sample</p></li>
+<li><p>ranks 0</p></li>
+<li><p>valid_data true</p></li>
+<li><p>instance_handle set to instance handle of existing instance if the sample matches an existing instance, otherwise to what the instance handle will be if it passes the filter</p></li>
+<li><p>view_state set to instance view state if sample being filtered matches an existing instance, NEW if not</p></li>
+<li><p>instance_state set to instance state if sample being filtered matches an existing instance, NEW if not</p></li>
+<li><p>generation counts set to instance’s generation counts if the sample matches an existing instance instance, 0 if not </p></li>
+</ul>
+</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>part of the Unstable API: no guarantee that any of this will be maintained for backwards compatibility.</p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_topic_filter_sample_fn">
+<span class="target" id="group__topic__filter_1gafd83a290ef848d7ad766a48e56c7ce5a"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_sample_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_topic_filter_sample_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic filter function that only needs to look at the sample. </p>
+<p><span class="target" id="group__topic__filter_1dds_topic_filter_sample_fn"></span> </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_topic_filter_sample_arg_fn">
+<span class="target" id="group__topic__filter_1ga0a06991cfaaff0b57bb49726bed4d655"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_sample_arg_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_topic_filter_sample_arg_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic filter function that only needs to look at the sample and a custom argument. </p>
+<p><span class="target" id="group__topic__filter_1dds_topic_filter_sample_arg_fn"></span> </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_topic_filter_sampleinfo_arg_fn">
+<span class="target" id="group__topic__filter_1ga5348817f2cc0224cce7063d2e8e49af0"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_sampleinfo_arg_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="sub.html#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sampleinfo</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_topic_filter_sampleinfo_arg_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic filter function that only needs to look at the sampleinfo and a custom argument. </p>
+<p><span class="target" id="group__topic__filter_1dds_topic_filter_sampleinfo_arg_fn"></span> </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_topic_filter_sample_sampleinfo_arg_fn">
+<span class="target" id="group__topic__filter_1ga33bef6989c9df28693ca47fad573c0c5"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_sample_sampleinfo_arg_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="sub.html#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sampleinfo</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_topic_filter_sample_sampleinfo_arg_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic filter function that needs to look at the sample, the sampleinfo and a custom argument. </p>
+<p><span class="target" id="group__topic__filter_1dds_topic_filter_sample_sampleinfo_arg_fn"></span> </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_topic_filter_fn">
+<span class="target" id="group__topic__filter_1gaa031e655ed366666566e6c9cd7c49bc4"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_filter_sample_fn" title="dds_topic_filter_sample_fn"><span class="n"><span class="pre">dds_topic_filter_sample_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_fn</span></span></span><a class="headerlink" href="#c.dds_topic_filter_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_fn"><span class="std std-ref">dds_topic_filter_sample_fn</span></a>. </p>
+<p><span class="target" id="group__topic__filter_1dds_topic_filter_fn"></span> </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_topic_filter_arg_fn">
+<span class="target" id="group__topic__filter_1gab32ed578e469bda4ff3ee8c247281806"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_filter_sample_arg_fn" title="dds_topic_filter_sample_arg_fn"><span class="n"><span class="pre">dds_topic_filter_sample_arg_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_arg_fn</span></span></span><a class="headerlink" href="#c.dds_topic_filter_arg_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_arg_fn"><span class="std std-ref">dds_topic_filter_sample_arg_fn</span></a>. </p>
+<p><span class="target" id="group__topic__filter_1dds_topic_filter_arg_fn"></span> </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_topic_filter_mode">
+<span class="target" id="group__topic__filter_1ga5dce8061f5224b7972231541363cd471"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_mode</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic filter mode;. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_NONE">
+<span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471a6fbe265ec1348310d6a6e82513fd6a40"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_NONE</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_NONE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Can be used to reset topic filter </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE">
+<span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471ab9fd967bd10859617ae155e9ed95719a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLE</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_fn"><span class="std std-ref">dds_topic_filter_sample_fn</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_ARG">
+<span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471a1bad11bf6e4020188d73e69cd75c71d3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLE_ARG</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_ARG" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_arg_fn"><span class="std std-ref">dds_topic_filter_sample_arg_fn</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLEINFO_ARG">
+<span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471a9416770b307433848488ee9d812c589b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLEINFO_ARG</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLEINFO_ARG" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sampleinfo_arg_fn"><span class="std std-ref">dds_topic_filter_sampleinfo_arg_fn</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG">
+<span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471a2e5de2c204d8bb166d25b7f077da396e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_sampleinfo_arg_fn"><span class="std std-ref">dds_topic_filter_sample_sampleinfo_arg_fn</span></a> </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_set_topic_filter">
+<span class="target" id="group__topic__filter_1gaa5f3d507d5d13d71a976161abf101e9b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_set_topic_filter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <a class="reference internal" href="#c.dds_topic_filter_fn" title="dds_topic_filter_fn"><span class="n"><span class="pre">dds_topic_filter_fn</span></span></a><span class="w"> </span><span class="n"><span class="pre">filter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_set_topic_filter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets a filter on a topic. To be replaced by proper filtering on readers,. </p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>use <a class="reference internal" href="#group__topic__filter_1dds_set_topic_filter_and_arg"><span class="std std-ref">dds_set_topic_filter_and_arg</span></a> or <a class="reference internal" href="#group__topic__filter_1dds_set_topic_filter_extended"><span class="std std-ref">dds_set_topic_filter_extended</span></a> instead</p>
+</dd></dl>
+
+</p>
+<p>Not thread-safe with respect to data being read/written using readers/writers using this topic. Be sure to create a topic entity specific to the reader you want to filter, then set the filter function, and only then create the reader. And don’t change it unless you know there are no concurrent writes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic on which the content filter is set. </p></li>
+<li><p><strong>filter</strong> – <strong>[in]</strong> The filter function used to filter topic samples. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_topic_set_filter">
+<span class="target" id="group__topic__filter_1ga69026db02f7530e57b739220454df5de"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_set_filter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <a class="reference internal" href="#c.dds_topic_filter_fn" title="dds_topic_filter_fn"><span class="n"><span class="pre">dds_topic_filter_fn</span></span></a><span class="w"> </span><span class="n"><span class="pre">filter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_topic_set_filter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets a filter on a topic. To be replaced by proper filtering on readers,. </p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>use <a class="reference internal" href="#group__topic__filter_1dds_set_topic_filter_and_arg"><span class="std std-ref">dds_set_topic_filter_and_arg</span></a> or <a class="reference internal" href="#group__topic__filter_1dds_set_topic_filter_extended"><span class="std std-ref">dds_set_topic_filter_extended</span></a> instead</p>
+</dd></dl>
+
+</p>
+<p>Not thread-safe with respect to data being read/written using readers/writers using this topic. Be sure to create a topic entity specific to the reader you want to filter, then set the filter function, and only then create the reader. And don’t change it unless you know there are no concurrent writes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic on which the content filter is set. </p></li>
+<li><p><strong>filter</strong> – <strong>[in]</strong> The filter function used to filter topic samples. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_set_topic_filter_and_arg">
+<span class="target" id="group__topic__filter_1ga62bc81569b6a2849989d02b3a2fefe62"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_set_topic_filter_and_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <a class="reference internal" href="#c.dds_topic_filter_arg_fn" title="dds_topic_filter_arg_fn"><span class="n"><span class="pre">dds_topic_filter_arg_fn</span></span></a><span class="w"> </span><span class="n"><span class="pre">filter</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_set_topic_filter_and_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets a filter and filter argument on a topic. </p>
+<p><span class="target" id="group__topic__filter_1dds_set_topic_filter_and_arg"></span> 
+Not thread-safe with respect to data being read/written using readers/writers using this topic. Be sure to create a topic entity specific to the reader you want to filter, then set the filter function, and only then create the reader. And don’t change it unless you know there are no concurrent writes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API To be replaced by proper filtering on readers.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic on which the content filter is set. </p></li>
+<li><p><strong>filter</strong> – <strong>[in]</strong> The filter function used to filter topic samples. </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> Argument for the filter function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The topic handle is invalid </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_set_topic_filter_extended">
+<span class="target" id="group__topic__filter_1ga86758c4c064e30d65ff194a739fea53a"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_set_topic_filter_extended</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_filter" title="dds_topic_filter"><span class="n"><span class="pre">dds_topic_filter</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">filter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_set_topic_filter_extended" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets a filter and filter argument on a topic. </p>
+<p><span class="target" id="group__topic__filter_1dds_set_topic_filter_extended"></span> 
+Not thread-safe with respect to data being read/written using readers/writers using this topic. Be sure to create a topic entity specific to the reader you want to filter, then set the filter function, and only then create the reader. And don’t change it unless you know there are no concurrent writes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API To be replaced by proper filtering on readers.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic on which the content filter is set. </p></li>
+<li><p><strong>filter</strong> – <strong>[in]</strong> The filter specification.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The topic handle is invalid </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_topic_filter">
+<span class="target" id="group__topic__filter_1ga3be909990fc8a26d73c398541519ad93"></span><a class="reference internal" href="#c.dds_topic_filter_fn" title="dds_topic_filter_fn"><span class="n"><span class="pre">dds_topic_filter_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_topic_filter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_topic_filter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the filter for a topic. </p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Use <a class="reference internal" href="#group__topic__filter_1ga5a8494a5d93266d75cb22e02b748c4a5"><span class="std std-ref">dds_get_topic_filter_and_arg()</span></a> or <a class="reference internal" href="#group__topic__filter_1ga4160b9ce8a5ca227ceeadbed5cf5b72e"><span class="std std-ref">dds_get_topic_filter_extended()</span></a> instead. </p>
+</dd></dl>
+
+
+To be replaced by proper filtering on readers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic from which to get the filter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The topic filter, or 0 when of type other than “sample”. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_topic_get_filter">
+<span class="target" id="group__topic__filter_1gae0a21b70492f0b0972547e796bd1fd75"></span><a class="reference internal" href="#c.dds_topic_filter_fn" title="dds_topic_filter_fn"><span class="n"><span class="pre">dds_topic_filter_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_get_filter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_topic_get_filter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the filter for a topic. </p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Use <a class="reference internal" href="#group__topic__filter_1ga5a8494a5d93266d75cb22e02b748c4a5"><span class="std std-ref">dds_get_topic_filter_and_arg()</span></a> or <a class="reference internal" href="#group__topic__filter_1ga4160b9ce8a5ca227ceeadbed5cf5b72e"><span class="std std-ref">dds_get_topic_filter_extended()</span></a> instead. </p>
+</dd></dl>
+
+
+To be replaced by proper filtering on readers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic from which to get the filter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The topic filter, or 0 when of type other than “sample”. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_topic_filter_and_arg">
+<span class="target" id="group__topic__filter_1ga5a8494a5d93266d75cb22e02b748c4a5"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_topic_filter_and_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <a class="reference internal" href="#c.dds_topic_filter_arg_fn" title="dds_topic_filter_arg_fn"><span class="n"><span class="pre">dds_topic_filter_arg_fn</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">fn</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_topic_filter_and_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the filter for a topic. </p>
+<p>
+To be replaced by proper filtering on readers</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic from which to get the filter. </p></li>
+<li><p><strong>fn</strong> – <strong>[out]</strong> The topic filter function (fn may be NULL). </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Filter function argument (arg may be NULL).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Filter is not of “none” or “sample_arg” </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The topic handle is invalid </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_topic_filter_extended">
+<span class="target" id="group__topic__filter_1ga4160b9ce8a5ca227ceeadbed5cf5b72e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_topic_filter_extended</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_filter" title="dds_topic_filter"><span class="n"><span class="pre">dds_topic_filter</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">filter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_topic_filter_extended" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the filter for a topic. </p>
+<p>
+To be replaced by proper filtering on readers</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic from which to get the filter. </p></li>
+<li><p><strong>filter</strong> – <strong>[out]</strong> The topic filter specification.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The topic handle is invalid </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c union">
+<dt class="sig sig-object c" id="c.dds_topic_filter_function_union">
+<span class="target" id="uniondds__topic__filter__function__union"></span><span class="k"><span class="pre">union</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter_function_union</span></span></span><a class="headerlink" href="#c.dds_topic_filter_function_union" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Union of all filter function types;. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_filter_function_union.sample">
+<span class="target" id="uniondds__topic__filter__function__union_1ac56a891356396542d1fdd20c3da62770"></span><a class="reference internal" href="#c.dds_topic_filter_sample_fn" title="dds_topic_filter_sample_fn"><span class="n"><span class="pre">dds_topic_filter_sample_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample</span></span></span><a class="headerlink" href="#c.dds_topic_filter_function_union.sample" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with mode dds_topic_filter_mode::DDS_TOPIC_FILTER_SAMPLE </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_filter_function_union.sample_arg">
+<span class="target" id="uniondds__topic__filter__function__union_1a2eb8a8894dbf5357a843a63a89668dc8"></span><a class="reference internal" href="#c.dds_topic_filter_sample_arg_fn" title="dds_topic_filter_sample_arg_fn"><span class="n"><span class="pre">dds_topic_filter_sample_arg_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample_arg</span></span></span><a class="headerlink" href="#c.dds_topic_filter_function_union.sample_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with mode dds_topic_filter_mode::DDS_TOPIC_FILTER_SAMPLE_ARG </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_filter_function_union.sampleinfo_arg">
+<span class="target" id="uniondds__topic__filter__function__union_1a192264103137230dd925c6228729b24d"></span><a class="reference internal" href="#c.dds_topic_filter_sampleinfo_arg_fn" title="dds_topic_filter_sampleinfo_arg_fn"><span class="n"><span class="pre">dds_topic_filter_sampleinfo_arg_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sampleinfo_arg</span></span></span><a class="headerlink" href="#c.dds_topic_filter_function_union.sampleinfo_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with mode dds_topic_filter_mode::DDS_TOPIC_FILTER_SAMPLEINFO_ARG </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_filter_function_union.sample_sampleinfo_arg">
+<span class="target" id="uniondds__topic__filter__function__union_1aa0fcf137fe57cee3c609f1ffa07c4c39"></span><a class="reference internal" href="#c.dds_topic_filter_sample_sampleinfo_arg_fn" title="dds_topic_filter_sample_sampleinfo_arg_fn"><span class="n"><span class="pre">dds_topic_filter_sample_sampleinfo_arg_fn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample_sampleinfo_arg</span></span></span><a class="headerlink" href="#c.dds_topic_filter_function_union.sample_sampleinfo_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use with mode dds_topic_filter_mode::DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_topic_filter">
+<span class="target" id="structdds__topic__filter"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_filter</span></span></span><a class="headerlink" href="#c.dds_topic_filter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Full topic filter container;. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API </p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_filter.mode">
+<span class="target" id="structdds__topic__filter_1a5964bb2481949261458b0920293ac4aa"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_filter_mode" title="dds_topic_filter_mode"><span class="n"><span class="pre">dds_topic_filter_mode</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.dds_topic_filter.mode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a mode </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_filter.f">
+<span class="target" id="structdds__topic__filter_1a11596d57a4cf9751b4b7c6b18a62584b"></span><span class="k"><span class="pre">union</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_filter_function_union" title="dds_topic_filter_function_union"><span class="n"><span class="pre">dds_topic_filter_function_union</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">f</span></span></span><a class="headerlink" href="#c.dds_topic_filter.f" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a filter function </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_filter.arg">
+<span class="target" id="structdds__topic__filter_1a7edf68468eea8f6ae80d5ad329d58449"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">arg</span></span></span><a class="headerlink" href="#c.dds_topic_filter.arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide an argument, can be NULL </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="domain.html">
+                <span><</span> Domains</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="data.html">Data <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

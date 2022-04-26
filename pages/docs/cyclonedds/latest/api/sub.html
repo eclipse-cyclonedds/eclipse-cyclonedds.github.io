@@ -1,0 +1,1320 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Subscription &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Loaning" href="loan.html" />
+    <link rel="prev" title="Publication" href="pub.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="data.html">Data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pub.html">Publication</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Subscription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="loan.html">Loaning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instance_handles.html">Instance Handles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="subscription">
+<h1>Subscription<a class="headerlink" href="#subscription" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__subscription"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">subscription</span></span></dt>
+<dd><p>DOC_TODO This contains the definitions regarding subscribing to data. </p>
+</dd></dl>
+
+<section id="subscriber">
+<h2>Subscriber<a class="headerlink" href="#subscriber" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__subscriber"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">subscriber</span></span></dt>
+<dd><p>DOC_TODO The Subscriber is a DDS Entity </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_subscriber">
+<span class="target" id="group__subscriber_1ga0db962ce956278f1cb704d90e59bb859"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_subscriber</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_subscriber" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of a DDS subscriber. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant</strong> – <strong>[in]</strong> The participant on which the subscriber is being created. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new subscriber (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new subscriber (can be NULL).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid subscriber handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the parameters is invalid. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid subscriber handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_notify_readers">
+<span class="target" id="group__subscriber_1ga1500c47cb7a9926efebabe0c8dccfc6b"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_notify_readers</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">subscriber</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_notify_readers" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Trigger DATA_AVAILABLE event on contained readers. </p>
+<p>The DATA_AVAILABLE event is broadcast to all readers owned by this subscriber that currently have new data available. Any on_data_available listener callbacks attached to respective readers are invoked.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subscriber</strong> – <strong>[in]</strong> A valid subscriber handle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The provided subscriber is invalid. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="reader">
+<h2>Reader<a class="headerlink" href="#reader" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__reader"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">reader</span></span></dt>
+<dd><p>DOC_TODO The reader is a DDS Entity </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_reader">
+<span class="target" id="group__reader_1gaf7c29c4f89250e9190fab44ff0eff5ef"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_reader</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant_or_subscriber</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_reader" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of a DDS reader. </p>
+<p>When a participant is used to create a reader, an implicit subscriber is created. This implicit subscriber will be deleted automatically when the created reader is deleted.</p>
+<p>
+DOC_TODO: Complete list of error codes </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant_or_subscriber</strong> – <strong>[in]</strong> The participant or subscriber on which the reader is being created. </p></li>
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new reader (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new reader (can be NULL).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid reader handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid reader handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_reader_rhc">
+<span class="target" id="group__reader_1ga13fa4702e4c7e2964c626278f70b59a8"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_reader_rhc</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant_or_subscriber</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_rhc</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">rhc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_reader_rhc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates a new instance of a DDS reader with a custom history cache. </p>
+<p>When a participant is used to create a reader, an implicit subscriber is created. This implicit subscriber will be deleted automatically when the created reader is deleted.</p>
+<p>
+DOC_TODO: Complete list of error codes </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant_or_subscriber</strong> – <strong>[in]</strong> The participant or subscriber on which the reader is being created. </p></li>
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new reader (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new reader (can be NULL). </p></li>
+<li><p><strong>rhc</strong> – <strong>[in]</strong> Reader history cache to use, reader becomes the owner</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid reader handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid reader handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_reader_wait_for_historical_data">
+<span class="target" id="group__reader_1ga37f36eff4283ed4b3219284454e531c5"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_reader_wait_for_historical_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_wait</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_reader_wait_for_historical_data" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Wait until reader receives all historic data. </p>
+<p>The operation blocks the calling thread until either all “historical” data is received, or else the duration specified by the max_wait parameter elapses, whichever happens first. A return value of 0 indicates that all the “historical” data was received; a return value of TIMEOUT indicates that max_wait elapsed before all the data was received.</p>
+<p>
+DOC_TODO: Complete list of error codes </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader on which to wait for historical data. </p></li>
+<li><p><strong>max_wait</strong> – <strong>[in]</strong> How long to wait for historical data before time out.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a status, 0 on success, TIMEOUT on timeout or a negative value to indicate error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<section id="reading-ops">
+<h3>Reading Ops<a class="headerlink" href="#reading-ops" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__reading"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">reading</span></span></dt>
+<dd><p>There are a number of ways to aquire data, divided into variations of “read” and “take”. The return value of a read/take operation is the number of elements returned. “max_samples” should have the same type, as one can’t return more than MAX_INT this way, anyway. X, Y, CX, CY return to the various filtering options, see the DCPS spec.</p>
+<p>O ::= read | take</p>
+<p>X =&gt; CX (empty) (empty) _next_instance instance_handle_t prev</p>
+<p>Y =&gt; CY (empty) uint32_t mask _cond cond_t cond &amp;#8212; refers to a read condition (or query if implemented) </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_HAS_READCDR">
+<span class="target" id="group__reading_1gac44d37d57c57e640431d6c2042d845de"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_HAS_READCDR</span></span></span><a class="headerlink" href="#c.DDS_HAS_READCDR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set when function dds_has_readcdr is defined. </p>
+<p><span class="target" id="group__reading_1DDS_HAS_READCDR"></span></p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read">
+<span class="target" id="group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access and read the collection of data values (of same type) and sample info from the data reader, readcondition or querycondition. </p>
+<p>Return value provides information about number of samples read, which will be &lt;= maxs. Based on the count, the buffer will contain data to be read only when valid_data bit in sample info structure is set. The buffer required for data values, could be allocated explicitly or can use the memory from data reader to prevent copy. In the latter case, buffer and sample_info should be returned back, once it is no longer using the Data. Data values once read will remain in the buffer with the sample_state set to READ and view_state set to NOT_NEW.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_wl">
+<span class="target" id="group__reading_1gab7f4d847f6f2dc89af86c6b108d50847"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access and read loaned samples of data reader, readcondition or querycondition. </p>
+<p>After dds_read_wl function is being called and the data has been handled, <a class="reference internal" href="loan.html#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan()</span></a> function must be called to possibly free memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL) </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_mask">
+<span class="target" id="group__reading_1gaf7f835a191c31d05c494baee1c0523d5"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_mask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_mask" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the collection of data values and sample info from the data reader, readcondition or querycondition based on mask. </p>
+<p>When using a readcondition or querycondition, their masks are or’d with the given mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_mask_wl">
+<span class="target" id="group__reading_1gadc51bcf84016eac94b367216a891f1ff"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_mask_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_mask_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access and read loaned samples of data reader, readcondition or querycondition based on mask. </p>
+<p>When using a readcondition or querycondition, their masks are or’d with the given mask.</p>
+<p>After dds_read_mask_wl function is being called and the data has been handled, <a class="reference internal" href="loan.html#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan()</span></a> function must be called to possibly free memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_instance">
+<span class="target" id="group__reading_1gad6612a6b0241287c04aa822285a087b2"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_instance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_instance" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access and read the collection of data values (of same type) and sample info from the data reader, readcondition or querycondition, coped by the provided instance handle. </p>
+<p>This operation implements the same functionality as dds_read, except that only data scoped to the provided instance handle is read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_instance_wl">
+<span class="target" id="group__reading_1gaa91dd6929a64f63f3f497ca6c10a4500"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_instance_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_instance_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access and read loaned samples of data reader, readcondition or querycondition, scoped by the provided instance handle. </p>
+<p>This operation implements the same functionality as dds_read_wl, except that only data scoped to the provided instance handle is read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_instance_mask">
+<span class="target" id="group__reading_1ga74b7fb7a36be8d03f80eeb3a1d878cf3"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_instance_mask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_instance_mask" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the collection of data values and sample info from the data reader, readcondition or querycondition based on mask and scoped by the provided instance handle. </p>
+<p>This operation implements the same functionality as dds_read_mask, except that only data scoped to the provided instance handle is read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_instance_mask_wl">
+<span class="target" id="group__reading_1gaa439f22eecacc9b688f2f2627c70d966"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_instance_mask_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_instance_mask_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access and read loaned samples of data reader, readcondition or querycondition based on mask, scoped by the provided instance handle. </p>
+<p>This operation implements the same functionality as dds_read_mask_wl, except that only data scoped to the provided instance handle is read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take">
+<span class="target" id="group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access the collection of data values (of same type) and sample info from the data reader, readcondition or querycondition. </p>
+<p>Data value once read is removed from the Data Reader cannot to ‘read’ or ‘taken’ again. Return value provides information about number of samples read, which will be &lt;= maxs. Based on the count, the buffer will contain data to be read only when valid_data bit in sample info structure is set. The buffer required for data values, could be allocated explicitly or can use the memory from data reader to prevent copy. In the latter case, buffer and sample_info should be returned back, once it is no longer using the Data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_wl">
+<span class="target" id="group__reading_1ga9e219f29e0e285f4f721b843669283a0"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access loaned samples of data reader, readcondition or querycondition. </p>
+<p>After dds_take_wl function is being called and the data has been handled, <a class="reference internal" href="loan.html#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan()</span></a> function must be called to possibly free memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_mask">
+<span class="target" id="group__reading_1ga3819e422bd99e4bff0c615492dcdf146"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_mask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_mask" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Take the collection of data values (of same type) and sample info from the data reader, readcondition or querycondition based on mask. </p>
+<p>When using a readcondition or querycondition, their masks are or’d with the given mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_mask_wl">
+<span class="target" id="group__reading_1ga3d491c0bd61e5cc59184f86b479a3982"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_mask_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_mask_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access loaned samples of data reader, readcondition or querycondition based on mask. </p>
+<p>When using a readcondition or querycondition, their masks are or’d with the given mask.</p>
+<p>After dds_take_mask_wl function is being called and the data has been handled, <a class="reference internal" href="loan.html#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan()</span></a> function must be called to possibly free memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_readcdr">
+<span class="target" id="group__reading_1gaea8f64776b3bc034f8f86b1fe3966b47"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_readcdr</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_serdata</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_readcdr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access the collection of serialized data values (of same type) and sample info from the data reader, readcondition or querycondition. </p>
+<p>This call accesses the serialized data from the data reader, readcondition or querycondition and makes it available to the application. The serialized data is made available through ddsi_serdata structures. Returned samples are marked as READ.</p>
+<p>Return value provides information about the number of samples read, which will be &lt;= maxs. Based on the count, the buffer will contain serialized data to be read only when valid_data bit in sample info structure is set. The buffer required for data values, could be allocated explicitly or can use the memory from data reader to prevent copy. In the latter case, buffer and sample_info should be returned back, once it is no longer using the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to ddsi_serdata structures that contain the serialized data. The pointers can be NULL. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The precondition for this operation is not met. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_readcdr_instance">
+<span class="target" id="group__reading_1gacd57db170da5e4482f4b226cbb3043df"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_readcdr_instance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_serdata</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_readcdr_instance" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access the collection of serialized data values (of same type) and sample info from the data reader, readcondition or querycondition scoped by the provided instance handle. </p>
+<p>This operation implements the same functionality as dds_read_instance_wl, except that samples are now in their serialized form. The serialized data is made available through ddsi_serdata structures. Returned samples are marked as READ.</p>
+<p>Return value provides information about the number of samples read, which will be &lt;= maxs. Based on the count, the buffer will contain serialized data to be read only when valid_data bit in sample info structure is set. The buffer required for data values, could be allocated explicitly or can use the memory from data reader to prevent copy. In the latter case, buffer and sample_info should be returned back, once it is no longer using the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to ddsi_serdata structures that contain the serialized data. The pointers can be NULL. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_takecdr">
+<span class="target" id="group__reading_1ga51aa237a2fc107aacbf2e9947339eb12"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_takecdr</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_serdata</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_takecdr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access the collection of serialized data values (of same type) and sample info from the data reader, readcondition or querycondition. </p>
+<p>This call accesses the serialized data from the data reader, readcondition or querycondition and makes it available to the application. The serialized data is made available through ddsi_serdata structures. Once read the data is removed from the reader and cannot be ‘read’ or ‘taken’ again.</p>
+<p>Return value provides information about the number of samples read, which will be &lt;= maxs. Based on the count, the buffer will contain serialized data to be read only when valid_data bit in sample info structure is set. The buffer required for data values, could be allocated explicitly or can use the memory from data reader to prevent copy. In the latter case, buffer and sample_info should be returned back, once it is no longer using the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to ddsi_serdata structures that contain the serialized data. The pointers can be NULL. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The precondition for this operation is not met. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_takecdr_instance">
+<span class="target" id="group__reading_1ga2abf72e2893e89e67ad465f3e7707642"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_takecdr_instance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_serdata</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_takecdr_instance" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access the collection of serialized data values (of same type) and sample info from the data reader, readcondition or querycondition scoped by the provided instance handle. </p>
+<p>This operation implements the same functionality as dds_take_instance_wl, except that samples are now in their serialized form. The serialized data is made available through ddsi_serdata structures. Returned samples are marked as READ.</p>
+<p>Return value provides information about the number of samples read, which will be &lt;= maxs. Based on the count, the buffer will contain serialized data to be read only when valid_data bit in sample info structure is set. The buffer required for data values, could be allocated explicitly or can use the memory from data reader to prevent copy. In the latter case, buffer and sample_info should be returned back, once it is no longer using the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to ddsi_serdata structures that contain the serialized data. The pointers can be NULL. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_instance">
+<span class="target" id="group__reading_1gaafb3bca1546efaa11995fdac0ca0ba8e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_instance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_instance" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access the collection of data values (of same type) and sample info from the data reader, readcondition or querycondition but scoped by the given instance handle. </p>
+<p>This operation mplements the same functionality as dds_take, except that only data scoped to the provided instance handle is taken.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_instance_wl">
+<span class="target" id="group__reading_1gaf7d5f5bb95c0f9cd8c944de7b716b485"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_instance_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_instance_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access loaned samples of data reader, readcondition or querycondition, scoped by the given instance handle. </p>
+<p>This operation implements the same functionality as dds_take_wl, except that only data scoped to the provided instance handle is read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_instance_mask">
+<span class="target" id="group__reading_1ga36cbeeaa6e84947887945fbffaf01f29"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_instance_mask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_instance_mask" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Take the collection of data values (of same type) and sample info from the data reader, readcondition or querycondition based on mask and scoped by the given instance handle. </p>
+<p>This operation implements the same functionality as dds_take_mask, except that only data scoped to the provided instance handle is read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of buffer provided. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_instance_mask_wl">
+<span class="target" id="group__reading_1gab1b55f55736526d1d990eee9a3dd523f"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_instance_mask_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader_or_condition</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">maxs</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handle</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_instance_mask_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Access loaned samples of data reader, readcondition or querycondition based on mask and scoped by the given intance handle. </p>
+<p>This operation implements the same functionality as dds_take_mask_wl, except that only data scoped to the provided instance handle is read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> Pointer to an array of <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for each data value. </p></li>
+<li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read. </p></li>
+<li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=</strong> – 0 Number of samples read. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t with the number of samples or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_next">
+<span class="target" id="group__reading_1ga3cf029f0c49f42317b887836d681a5a1"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_next</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_next" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read, copy and remove the status set for the entity. </p>
+<p>This operation copies the next, non-previously accessed data value and corresponding sample info and removes from the data reader. As an entity, only reader is accepted.</p>
+<p>The read/take next functions return a single sample. The returned sample has a sample state of NOT_READ, a view state of ANY_VIEW_STATE and an instance state of ANY_INSTANCE_STATE.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_next_wl">
+<span class="target" id="group__reading_1gafe51307d148c677fde3a89a566d7e545"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_next_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_next_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read, copy and remove the status set for the entity. </p>
+<p>This operation copies the next, non-previously accessed data value and corresponding sample info and removes from the data reader. As an entity, only reader is accepted.</p>
+<p>The read/take next functions return a single sample. The returned sample has a sample state of NOT_READ, a view state of ANY_VIEW_STATE and an instance state of ANY_INSTANCE_STATE.</p>
+<p>After dds_take_next_wl function is being called and the data has been handled, <a class="reference internal" href="loan.html#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan()</span></a> function must be called to possibly free memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_next">
+<span class="target" id="group__reading_1ga4b8e3c63892918e79001174c7e81d062"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_next</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_next" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read and copy the status set for the entity. </p>
+<p>This operation copies the next, non-previously accessed data value and corresponding sample info. As an entity, only reader is accepted.</p>
+<p>The read/take next functions return a single sample. The returned sample has a sample state of NOT_READ, a view state of ANY_VIEW_STATE and an instance state of ANY_INSTANCE_STATE.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_next_wl">
+<span class="target" id="group__reading_1gacc9534fade36e3d31d20ce169504ceee"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_next_wl</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <a class="reference internal" href="#c.dds_sample_info_t" title="dds_sample_info_t"><span class="n"><span class="pre">dds_sample_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">si</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_next_wl" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read and copy the status set for the loaned sample. </p>
+<p>This operation copies the next, non-previously accessed data value and corresponding loaned sample info. As an entity, only reader is accepted.</p>
+<p>The read/take next functions return a single sample. The returned sample has a sample state of NOT_READ, a view state of ANY_VIEW_STATE and an instance state of ANY_INSTANCE_STATE.</p>
+<p>After dds_read_next_wl function is being called and the data has been handled, <a class="reference internal" href="loan.html#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan()</span></a> function must be called to possibly free memory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
+<li><p><strong>buf</strong> – <strong>[out]</strong> An array of pointers to samples into which data is read (pointers can be NULL). </p></li>
+<li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+<section id="subscription-data">
+<h2>Subscription Data<a class="headerlink" href="#subscription-data" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__subdata"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">subdata</span></span></dt>
+<dd><p>Every sample you read from DDS comes with some metadata, which you can inspect and filter on. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_sample_state_t">
+<span class="target" id="group__subdata_1gad5b1d441728db52ec85b8eb942073fc3"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_sample_state" title="dds_sample_state"><span class="n"><span class="pre">dds_sample_state</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_state_t</span></span></span><a class="headerlink" href="#c.dds_sample_state_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read state for a data value </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_view_state_t">
+<span class="target" id="group__subdata_1gac36667a347b0070dcb4c0734e6131438"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_view_state" title="dds_view_state"><span class="n"><span class="pre">dds_view_state</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_view_state_t</span></span></span><a class="headerlink" href="#c.dds_view_state_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>View state of an instance relative to the samples </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_instance_state_t">
+<span class="target" id="group__subdata_1ga2c7e99e4aac89f7379fade7b7339dc3f"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_instance_state" title="dds_instance_state"><span class="n"><span class="pre">dds_instance_state</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_instance_state_t</span></span></span><a class="headerlink" href="#c.dds_instance_state_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the state of the instance </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_sample_info_t">
+<span class="target" id="group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_sample_info" title="dds_sample_info"><span class="n"><span class="pre">dds_sample_info</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_info_t</span></span></span><a class="headerlink" href="#c.dds_sample_info_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Contains information about the associated data value </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_sample_state">
+<span class="target" id="group__subdata_1ga3fd41981e46499a9f6f80aa41e753fec"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_state</span></span></span><a class="headerlink" href="#c.dds_sample_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read state for a data value </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_sample_state.DDS_SST_READ">
+<span class="target" id="group__subdata_1gga3fd41981e46499a9f6f80aa41e753fecadffe47d879f8a20257b8bdd4cae8dbbe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SST_READ</span></span></span><a class="headerlink" href="#c.dds_sample_state.DDS_SST_READ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DataReader has already accessed the sample by read </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_sample_state.DDS_SST_NOT_READ">
+<span class="target" id="group__subdata_1gga3fd41981e46499a9f6f80aa41e753feca438a6c282821bfa81167341593a6b2d1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SST_NOT_READ</span></span></span><a class="headerlink" href="#c.dds_sample_state.DDS_SST_NOT_READ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DataReader has not accessed the sample before </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_view_state">
+<span class="target" id="group__subdata_1ga8da3dc661e52d940b795256beb67b95f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_view_state</span></span></span><a class="headerlink" href="#c.dds_view_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>View state of an instance relative to the samples </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_view_state.DDS_VST_NEW">
+<span class="target" id="group__subdata_1gga8da3dc661e52d940b795256beb67b95fa053e7b1e3721e3126290590d146e0e79"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_VST_NEW</span></span></span><a class="headerlink" href="#c.dds_view_state.DDS_VST_NEW" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DataReader is accessing the sample for the first time when the instance is alive </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_view_state.DDS_VST_OLD">
+<span class="target" id="group__subdata_1gga8da3dc661e52d940b795256beb67b95fa6461295960c54e98367f742e0c5f8b6b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_VST_OLD</span></span></span><a class="headerlink" href="#c.dds_view_state.DDS_VST_OLD" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DataReader accessed the sample before </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_instance_state">
+<span class="target" id="group__subdata_1ga986e4dc586b0a652f8d3d32a3512c08f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_instance_state</span></span></span><a class="headerlink" href="#c.dds_instance_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the state of the instance </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_instance_state.DDS_IST_ALIVE">
+<span class="target" id="group__subdata_1gga986e4dc586b0a652f8d3d32a3512c08faadc7b190db146c71b994ce906b623471"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_IST_ALIVE</span></span></span><a class="headerlink" href="#c.dds_instance_state.DDS_IST_ALIVE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Samples received for the instance from the live data writers </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_instance_state.DDS_IST_NOT_ALIVE_DISPOSED">
+<span class="target" id="group__subdata_1gga986e4dc586b0a652f8d3d32a3512c08fad34a82be0a75aa0da2c82a6a0d646a05"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_IST_NOT_ALIVE_DISPOSED</span></span></span><a class="headerlink" href="#c.dds_instance_state.DDS_IST_NOT_ALIVE_DISPOSED" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Instance was explicitly disposed by the data writer </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_instance_state.DDS_IST_NOT_ALIVE_NO_WRITERS">
+<span class="target" id="group__subdata_1gga986e4dc586b0a652f8d3d32a3512c08fa391fdc1ea2db385bef4cac74d7fdecff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_IST_NOT_ALIVE_NO_WRITERS</span></span></span><a class="headerlink" href="#c.dds_instance_state.DDS_IST_NOT_ALIVE_NO_WRITERS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Instance has been declared as not alive by data reader as there are no live data writers writing that instance </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_sample_info">
+<span class="target" id="structdds__sample__info"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_info</span></span></span><a class="headerlink" href="#c.dds_sample_info" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Contains information about the associated data value </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.sample_state">
+<span class="target" id="structdds__sample__info_1ae6f433ae886ff019bc8fce8015a35104"></span><a class="reference internal" href="#c.dds_sample_state_t" title="dds_sample_state_t"><span class="n"><span class="pre">dds_sample_state_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample_state</span></span></span><a class="headerlink" href="#c.dds_sample_info.sample_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sample state </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.view_state">
+<span class="target" id="structdds__sample__info_1a340de075f66227599dc9416b4cdc4338"></span><a class="reference internal" href="#c.dds_view_state_t" title="dds_view_state_t"><span class="n"><span class="pre">dds_view_state_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">view_state</span></span></span><a class="headerlink" href="#c.dds_sample_info.view_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>View state </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.instance_state">
+<span class="target" id="structdds__sample__info_1a28fe41f3e2d1068aede72b9023e208e0"></span><a class="reference internal" href="#c.dds_instance_state_t" title="dds_instance_state_t"><span class="n"><span class="pre">dds_instance_state_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">instance_state</span></span></span><a class="headerlink" href="#c.dds_sample_info.instance_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Instance state </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.valid_data">
+<span class="target" id="structdds__sample__info_1a3c185406bf326df5e94c8ab0fc57aed8"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">valid_data</span></span></span><a class="headerlink" href="#c.dds_sample_info.valid_data" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicates whether there is a data associated with a sample<ul class="simple">
+<li><p>true, indicates the data is valid</p></li>
+<li><p>false, indicates the data is invalid, no data to read </p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.source_timestamp">
+<span class="target" id="structdds__sample__info_1a90b3a31704d20eddb45448b55ce75d37"></span><span class="n"><span class="pre">dds_time_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">source_timestamp</span></span></span><a class="headerlink" href="#c.dds_sample_info.source_timestamp" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>timestamp of a data instance when it is written </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.instance_handle">
+<span class="target" id="structdds__sample__info_1a7c16338ce7ef2af24bc28e7b742ff620"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">instance_handle</span></span></span><a class="headerlink" href="#c.dds_sample_info.instance_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>handle to the data instance </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.publication_handle">
+<span class="target" id="structdds__sample__info_1ae4ab63dc90174bf648646c770425d60e"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">publication_handle</span></span></span><a class="headerlink" href="#c.dds_sample_info.publication_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>handle to the publisher </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.disposed_generation_count">
+<span class="target" id="structdds__sample__info_1af6ae239b245a77e043e57412a6880d93"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">disposed_generation_count</span></span></span><a class="headerlink" href="#c.dds_sample_info.disposed_generation_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>count of instance state change from NOT_ALIVE_DISPOSED to ALIVE </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.no_writers_generation_count">
+<span class="target" id="structdds__sample__info_1a603f9ab18911245df599e7534d52d195"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">no_writers_generation_count</span></span></span><a class="headerlink" href="#c.dds_sample_info.no_writers_generation_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>count of instance state change from NOT_ALIVE_NO_WRITERS to ALIVE </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.sample_rank">
+<span class="target" id="structdds__sample__info_1a3bd83323510a51135aefa2c89aceb11d"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample_rank</span></span></span><a class="headerlink" href="#c.dds_sample_info.sample_rank" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>indicates the number of samples of the same instance that follow the current one in the collection </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.generation_rank">
+<span class="target" id="structdds__sample__info_1a27809762fcbcb2aaa14aab6c9e5eda82"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">generation_rank</span></span></span><a class="headerlink" href="#c.dds_sample_info.generation_rank" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>difference in generations between the sample and most recent sample of the same instance that appears in the returned collection </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_info.absolute_generation_rank">
+<span class="target" id="structdds__sample__info_1a37d16f3498cff77a2587dd5f38b463e1"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">absolute_generation_rank</span></span></span><a class="headerlink" href="#c.dds_sample_info.absolute_generation_rank" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>difference in generations between the sample and most recent sample of the same instance when read/take was called </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Subscription</a><ul>
+<li><a class="reference internal" href="#subscriber">Subscriber</a></li>
+<li><a class="reference internal" href="#reader">Reader</a><ul>
+<li><a class="reference internal" href="#reading-ops">Reading Ops</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#subscription-data">Subscription Data</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="pub.html">
+                <span><</span> Publication</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="loan.html">Loaning <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

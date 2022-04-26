@@ -9,22 +9,17 @@
     <title>Shared Memory &#8212; Eclipse Cyclone DDS latest documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
-    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" type="text/css" href="/css/docu.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
-    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
     <script src="/js/docu.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Eclipse Cyclone DDS C API Reference" href="ddsc.html" />
-    <link rel="prev" title="DDS Security" href="security.html" />
-    <link href="_static/style.css" rel="stylesheet" type="text/css">
-
+    <link rel="prev" title="DDS Security" href="security.html" /> 
   </head><body>
 <nav id="top_nav">
     <p id="toggle_sidebar">
@@ -119,11 +114,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/installation.html">Installing Eclipse Cyclone DDS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/helloworld_indepth.html">Hello World! in more detail</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/next_steps.html">What’s next?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security.html">DDS Security</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Shared Memory</a></li>
@@ -348,15 +339,15 @@ For writers, the following QoS settings are prerequisites for shared memory exch
 <p>If the choice to use shared memory exchange is made, additional performance gains can be made by using the loan mechanism on the writer side.
 The loan mechanism directly allocates memory from the iceoryx shared memory pool, and provides this to the user in the shape of the message data type.
 Thereby eliminating a copy step in the publication process.</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">message_type</span><span class="w"> </span><span class="o">*</span><span class="n">loaned_sample</span><span class="p">;</span><span class="w"></span>
-<span class="n">dds_return_t</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_loan_sample</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">loaned_sample</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">message_type</span><span class="w"> </span><span class="o">*</span><span class="n">loaned_sample</span><span class="p">;</span><span class="w"></span>
+<span class="n">dds_return_t</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_loan_sample</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">loaned_sample</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>If <em>status</em> returns <strong>DDS_RETCODE_OK</strong>, then <em>loaned_sample</em> will contain a pointer to the memory pool object, in all other cases, <em>loaned_sample</em> should not be dereferenced.
+<p>If <em>status</em> returns <code class="xref c c-macro docutils literal notranslate"><span class="pre">DDS_RETCODE_OK</span></code>, then <em>loaned_sample</em> will contain a pointer to the memory pool object, in all other cases, <em>loaned_sample</em> should not be dereferenced.
 For requesting loaned samples, the writer used to request the loaned sample should be of the same data type as the sample that you are writing in it, since necessary information about the data type is supplied by the writer.</p>
-<p>The user is limited in this case by the maximum number of outstanding loans, defined by <strong>MAX_PUB_LOANS</strong> (default set to 8). This is the maximum number of loaned samples that each publisher can have outstanding from the shared memory, before some must be returned (handed back to the publisher through <em>dds_write</em>) before requesting new loaned samples.</p>
-<p>After a loaned sample has been returned to the shared memory pool (at the moment, this can only be done by invoking <em>dds_write</em>), dereferencing the pointer is undefined behaviour.</p>
-<p>If the user is not able to use the loan mechanism, a <em>dds_write</em> will still write to the shared memory service if Cyclone DDS is configured to use shared memory. Though in this case, the overhead of an additional copy step in publication is incurred, since a block for publishing to the shared memory will be requested and the data of the published sample copied into it.</p>
+<p>The user is limited in this case by the maximum number of outstanding loans, defined by <strong>MAX_PUB_LOANS</strong> (default set to 8). This is the maximum number of loaned samples that each publisher can have outstanding from the shared memory, before some must be returned (handed back to the publisher through <a class="reference internal" href="api/pub.html#c.dds_write" title="dds_write"><code class="xref c c-func docutils literal notranslate"><span class="pre">dds_write()</span></code></a>) before requesting new loaned samples.</p>
+<p>After a loaned sample has been returned to the shared memory pool (at the moment, this can only be done by invoking <a class="reference internal" href="api/pub.html#c.dds_write" title="dds_write"><code class="xref c c-func docutils literal notranslate"><span class="pre">dds_write()</span></code></a>), dereferencing the pointer is undefined behaviour.</p>
+<p>If the user is not able to use the loan mechanism, a <a class="reference internal" href="api/pub.html#c.dds_write" title="dds_write"><code class="xref c c-func docutils literal notranslate"><span class="pre">dds_write()</span></code></a> will still write to the shared memory service if Cyclone DDS is configured to use shared memory. Though in this case, the overhead of an additional copy step in publication is incurred, since a block for publishing to the shared memory will be requested and the data of the published sample copied into it.</p>
 </section>
 <section id="developer-hints">
 <h2>Developer Hints<a class="headerlink" href="#developer-hints" title="Permalink to this headline">¶</a></h2>
@@ -453,7 +444,7 @@ Further contributions and feedback from the community are very welcome.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

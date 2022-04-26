@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Builtin Topic Support &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Statistics" href="statistics.html" />
+    <link rel="prev" title="Entity Status" href="status.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="builtin-topic-support">
+<h1>Builtin Topic Support<a class="headerlink" href="#builtin-topic-support" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__builtintopic__constants"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">builtintopic_constants</span></span></dt>
+<dd><p>Convenience constants for referring to builtin topics These constants can be used in place of an actual dds_topic_t, when creating readers or writers for builtin-topics. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_BUILTIN_TOPIC_DCPSPARTICIPANT">
+<span class="target" id="group__builtintopic__constants_1gab69a1a154fbc9ef83a3544188c1df4ef"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_BUILTIN_TOPIC_DCPSPARTICIPANT</span></span></span><a class="headerlink" href="#c.DDS_BUILTIN_TOPIC_DCPSPARTICIPANT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pseudo dds_topic_t for the builtin topic DcpsParticipant. Samples from this topic are <a class="reference internal" href="#structdds__builtintopic__participant"><span class="std std-ref">dds_builtintopic_participant</span></a> structs. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_BUILTIN_TOPIC_DCPSTOPIC">
+<span class="target" id="group__builtintopic__constants_1ga394f1c6e91862269d9dea80d7000a80e"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_BUILTIN_TOPIC_DCPSTOPIC</span></span></span><a class="headerlink" href="#c.DDS_BUILTIN_TOPIC_DCPSTOPIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pseudo dds_topic_t for the builtin topic DcpsTopic. Samples from this topic are <a class="reference internal" href="#structdds__builtintopic__topic"><span class="std std-ref">dds_builtintopic_topic</span></a> structs. Note that this only works if you have specified ENABLE_TOPIC_DISCOVERY in your cmake build. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_BUILTIN_TOPIC_DCPSPUBLICATION">
+<span class="target" id="group__builtintopic__constants_1gabd383981d0521d09e50715c06378a4db"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_BUILTIN_TOPIC_DCPSPUBLICATION</span></span></span><a class="headerlink" href="#c.DDS_BUILTIN_TOPIC_DCPSPUBLICATION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pseudo dds_topic_t for the builtin topic DcpsPublication. Samples from this topic are <a class="reference internal" href="#structdds__builtintopic__endpoint"><span class="std std-ref">dds_builtintopic_endpoint</span></a> structs. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION">
+<span class="target" id="group__builtintopic__constants_1gadd7c0701f36acf61c6cdf9d4d2c4c8de"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION</span></span></span><a class="headerlink" href="#c.DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pseudo dds_topic_t for the builtin topic DcpsSubscription. Samples from this topic are <a class="reference internal" href="#structdds__builtintopic__endpoint"><span class="std std-ref">dds_builtintopic_endpoint</span></a> structs. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__builtintopic"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">builtintopic</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_builtintopic_guid_t">
+<span class="target" id="group__builtintopic_1ga0d67f5936474071096b67bac9fc4ae04"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_builtintopic_guid" title="dds_builtintopic_guid"><span class="n"><span class="pre">dds_builtintopic_guid</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_guid_t</span></span></span><a class="headerlink" href="#c.dds_builtintopic_guid_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Structure of a GUID in any builtin topic sample. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_guid_t">
+<span class="target" id="group__builtintopic_1ga184a4a41b3dfd4cdf8499315e986d44e"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_builtintopic_guid" title="dds_builtintopic_guid"><span class="n"><span class="pre">dds_builtintopic_guid</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_guid_t</span></span></span><a class="headerlink" href="#c.dds_guid_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Structure of a GUID in any builtin topic sample. </p>
+<p><a class="reference internal" href="#group__builtintopic_1ga0d67f5936474071096b67bac9fc4ae04"><span class="std std-ref">dds_builtintopic_guid_t</span></a> is a bit of a weird name for what everyone just calls a GUID, so let us try and switch to using the more logical one. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_builtintopic_participant_t">
+<span class="target" id="group__builtintopic_1gaf15305ba67e6de60ddc94e18f75e3c87"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_builtintopic_participant" title="dds_builtintopic_participant"><span class="n"><span class="pre">dds_builtintopic_participant</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_participant_t</span></span></span><a class="headerlink" href="#c.dds_builtintopic_participant_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sample structure of the Builtin topic DcpsParticipant. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic_key_t">
+<span class="target" id="group__builtintopic_1gae4b25400e0bf9badcde6dc9e090de989"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_builtintopic_topic_key" title="dds_builtintopic_topic_key"><span class="n"><span class="pre">dds_builtintopic_topic_key</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_topic_key_t</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic_key_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Structure of a key in the Builtin topic DcpsTopic. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic_t">
+<span class="target" id="group__builtintopic_1ga83ceb39a7ccdceefdc8d06b0343e252a"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_builtintopic_topic" title="dds_builtintopic_topic"><span class="n"><span class="pre">dds_builtintopic_topic</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_topic_t</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sample structure of the Builtin topic DcpsTopic. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint_t">
+<span class="target" id="group__builtintopic_1gae1bc85235431ea631558447090a7a6af"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_builtintopic_endpoint" title="dds_builtintopic_endpoint"><span class="n"><span class="pre">dds_builtintopic_endpoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sample structure of the Builtin topic DcpsPublication and DcpsSubscription. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_typeid_kind_t">
+<span class="target" id="group__builtintopic_1ga554e5f3cb0f51f6da0b90de1bd795c50"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_typeid_kind" title="dds_typeid_kind"><span class="n"><span class="pre">dds_typeid_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_typeid_kind_t</span></span></span><a class="headerlink" href="#c.dds_typeid_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type identifier kind for getting endpoint type identifier. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_typeid_kind">
+<span class="target" id="group__builtintopic_1gaa4cb4b4507d9a3620e29495834e91ad4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_typeid_kind</span></span></span><a class="headerlink" href="#c.dds_typeid_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type identifier kind for getting endpoint type identifier. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_typeid_kind.DDS_TYPEID_MINIMAL">
+<span class="target" id="group__builtintopic_1ggaa4cb4b4507d9a3620e29495834e91ad4a70e00fca5c22aad8edfdcf4d70f5d805"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TYPEID_MINIMAL</span></span></span><a class="headerlink" href="#c.dds_typeid_kind.DDS_TYPEID_MINIMAL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XTypes Minimal Type ID </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_typeid_kind.DDS_TYPEID_COMPLETE">
+<span class="target" id="group__builtintopic_1ggaa4cb4b4507d9a3620e29495834e91ad4a20fc57b768d554c4268f6b4559e1378d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TYPEID_COMPLETE</span></span></span><a class="headerlink" href="#c.dds_typeid_kind.DDS_TYPEID_COMPLETE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XTypes Complete Type ID </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_matched_subscriptions">
+<span class="target" id="group__builtintopic_1ga895bc21f4b56c138a2a0e5a6a30f7c87"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_subscriptions</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">rds</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">nrds</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_subscriptions" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get instance handles of the data readers matching a writer. </p>
+<p>This operation fills the provided array with the instance handles of the data readers that match the writer. On successful output, the number of entries of “rds” set is the minimum of the return value and the value of “nrds”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> The writer. </p></li>
+<li><p><strong>rds</strong> – <strong>[in]</strong> The array to be filled. </p></li>
+<li><p><strong>nrds</strong> – <strong>[in]</strong> The size of the rds array, at most the first nrds entries will be filled. rds = NULL and nrds = 0 is a valid way of determining the number of matched readers, but inefficient compared to relying on the matched publication status.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – The number of matching readers. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not valid or rds = NULL and nrds &gt; 0. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating the number of matched readers or failure. The return value may be larger than nrds if there are more matching readers than the array can hold.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_matched_subscription_data">
+<span class="target" id="group__builtintopic_1ga9f9f89092376926d1e1a26e51f1bd2c5"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_subscription_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_subscription_data" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a description of a reader matched with the provided writer. </p>
+<p>This operation looks up the reader instance handle in the set of readers matched with the specified writer, returning a freshly allocated sample of the DCPSSubscription built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint.</p>
+<p>This operation is similar to performing a read of the given instance handle on a reader of the DCPSSubscription built-in topic, but this operation additionally filters on whether the reader is matched by the provided writer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> The writer. </p></li>
+<li><p><strong>ih</strong> – <strong>[in]</strong> The instance handle of a reader.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>!=</strong> – NULL The requested data </p></li>
+<li><p><strong>NULL</strong> – The writer is not valid or ih is not an instance handle of a matched reader. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A newly allocated sample containing the information on the reader, or a NULL pointer for any kind of failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_matched_publications">
+<span class="target" id="group__builtintopic_1ga14fe2dfdd7ba1d8dffc38bb0fc086b46"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_publications</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">wrs</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">nwrs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_publications" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get instance handles of the data writers matching a reader. </p>
+<p>This operation fills the provided array with the instance handles of the data writers that match the reader. On successful output, the number of entries of “wrs” set is the minimum of the return value and the value of “nwrs”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader. </p></li>
+<li><p><strong>wrs</strong> – <strong>[in]</strong> The array to be filled. </p></li>
+<li><p><strong>nwrs</strong> – <strong>[in]</strong> The size of the wrs array, at most the first nwrs entries will be filled. wrs = NULL and wrds = 0 is a valid way of determining the number of matched readers, but inefficient compared to relying on the matched publication status.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – The number of matching writers. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not valid or wrs = NULL and nwrs &gt; 0. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating the number of matched writers or failure. The return value may be larger than nwrs if there are more matching writers than the array can hold.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_matched_publication_data">
+<span class="target" id="group__builtintopic_1gaad987077400ac0d217bfccbc0c21dae0"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_publication_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_publication_data" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a description of a writer matched with the provided reader. </p>
+<p>This operation looks up the writer instance handle in the set of writers matched with the specified reader, returning a freshly allocated sample of the DCPSPublication built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint.</p>
+<p>This operation is similar to performing a read of the given instance handle on a reader of the DCPSPublication built-in topic, but this operation additionally filters on whether the writer is matched by the provided reader.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader. </p></li>
+<li><p><strong>ih</strong> – <strong>[in]</strong> The instance handle of a writer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>!=</strong> – NULL The requested data </p></li>
+<li><p><strong>NULL</strong> – The reader is not valid or ih is not an instance handle of a matched writer. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A newly allocated sample containing the information on the writer, or a NULL pointer for any kind of failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_builtintopic_get_endpoint_typeid">
+<span class="target" id="group__builtintopic_1ga10afce5b01056f9b59ec925f89d9a0d9"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_get_endpoint_typeid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_endpoint</span></span>, <a class="reference internal" href="#c.dds_typeid_kind_t" title="dds_typeid_kind_t"><span class="n"><span class="pre">dds_typeid_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">dds_typeid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_identifier</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_get_endpoint_typeid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the type identifier from endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data. </p>
+<p>
+DOC_TODO: more return values? </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builtintopic_endpoint</strong> – <strong>[in]</strong> The builtintopic endpoint struct </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> Kind of type identifier (minimal/complete) </p></li>
+<li><p><strong>type_identifier</strong> – <strong>[out]</strong> Type identifier that will be allocated by this function in case of success. Needs to be freed by the caller.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><p><strong>DDS_RETCODE_OK</strong> – The operation was successful.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_builtintopic_free_endpoint">
+<span class="target" id="group__builtintopic_1ga58fa049ed552fcfb4d21053170096559"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_free_endpoint</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_endpoint</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_free_endpoint" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data. </p>
+<p>This operation deallocates the memory of the fields in a dds_builtintopic_endpoint_t struct and deallocates the struct itself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builtintopic_endpoint</strong> – <strong>[in]</strong> The builtintopic endpoint struct </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_builtintopic_free_topic">
+<span class="target" id="group__builtintopic_1ga2ac2d50b83334dc7d4815d950e8670b0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_free_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_topic_t" title="dds_builtintopic_topic_t"><span class="n"><span class="pre">dds_builtintopic_topic_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_topic</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_free_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the provided topic information. </p>
+<p>This operation deallocates the memory of the fields in a dds_builtintopic_topic_t struct and deallocates the struct itself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builtintopic_topic</strong> – <strong>[in]</strong> The builtintopic topic struct </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_builtintopic_free_participant">
+<span class="target" id="group__builtintopic_1ga19364c35c2e7328cfd8c45fdc7866027"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_free_participant</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_participant_t" title="dds_builtintopic_participant_t"><span class="n"><span class="pre">dds_builtintopic_participant_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_free_participant" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the provided participant information. </p>
+<p>This operation deallocates the memory of the fields in a dds_builtintopic_participant_t struct and deallocates the struct itself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>builtintopic_participant</strong> – <strong>[in]</strong> The builtintopic participant struct </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_builtintopic_guid">
+<span class="target" id="structdds__builtintopic__guid"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_guid</span></span></span><a class="headerlink" href="#c.dds_builtintopic_guid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Structure of a GUID in any builtin topic sample. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_guid.v">
+<span class="target" id="structdds__builtintopic__guid_1a30ffcb5cc2e2926b1598f67e5b549b2a"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">v</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">16</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#c.dds_builtintopic_guid.v" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>16-byte unique identifier </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_builtintopic_participant">
+<span class="target" id="structdds__builtintopic__participant"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_participant</span></span></span><a class="headerlink" href="#c.dds_builtintopic_participant" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Sample structure of the Builtin topic DcpsParticipant. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_participant.key">
+<span class="target" id="structdds__builtintopic__participant_1a2abfe5388874ee54177ecbb9ba98ff8e"></span><a class="reference internal" href="#c.dds_guid_t" title="dds_guid_t"><span class="n"><span class="pre">dds_guid_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">key</span></span></span><a class="headerlink" href="#c.dds_builtintopic_participant.key" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The GUID that uniquely identifies the participant on the network </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_participant.qos">
+<span class="target" id="structdds__builtintopic__participant_1a895a04f15c81fc7f2bfb82ee1eb787c9"></span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">qos</span></span></span><a class="headerlink" href="#c.dds_builtintopic_participant.qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The QoS of the participant </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic_key">
+<span class="target" id="structdds__builtintopic__topic__key"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_topic_key</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic_key" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Structure of a key in the Builtin topic DcpsTopic. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic_key.d">
+<span class="target" id="structdds__builtintopic__topic__key_1a88e873523184bc2f5faeb3afae5dd0b6"></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">d</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">16</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#c.dds_builtintopic_topic_key.d" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>16-byte unique identifier </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic">
+<span class="target" id="structdds__builtintopic__topic"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_topic</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Sample structure of the Builtin topic DcpsTopic. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic.key">
+<span class="target" id="structdds__builtintopic__topic_1a9b9d0a0559a1f2b161a1406ba7e982d3"></span><a class="reference internal" href="#c.dds_builtintopic_topic_key_t" title="dds_builtintopic_topic_key_t"><span class="n"><span class="pre">dds_builtintopic_topic_key_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">key</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic.key" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The GUID that uniquely identifies the topic on the network </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic.topic_name">
+<span class="target" id="structdds__builtintopic__topic_1a629bb8fd57913944d5acb6aed06ea009"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">topic_name</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic.topic_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the topic, potentially unicode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic.type_name">
+<span class="target" id="structdds__builtintopic__topic_1a1c909a62167b36578ea8b9c4a7244dd6"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">type_name</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic.type_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the type, potentially unicode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_topic.qos">
+<span class="target" id="structdds__builtintopic__topic_1a06a5331e6650df459fcf095f6e890a93"></span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">qos</span></span></span><a class="headerlink" href="#c.dds_builtintopic_topic.qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The QoS of the topic </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint">
+<span class="target" id="structdds__builtintopic__endpoint"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_endpoint</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds.h&gt;</em></div>
+<p>Sample structure of the Builtin topic DcpsPublication and DcpsSubscription. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint.key">
+<span class="target" id="structdds__builtintopic__endpoint_1af099689f34604c568d58a737e85d2353"></span><a class="reference internal" href="#c.dds_guid_t" title="dds_guid_t"><span class="n"><span class="pre">dds_guid_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">key</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint.key" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The GUID that uniquely identifies the endpoint on the network </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint.participant_key">
+<span class="target" id="structdds__builtintopic__endpoint_1a817c414de1ec540b512fd9ea2f1f9726"></span><a class="reference internal" href="#c.dds_guid_t" title="dds_guid_t"><span class="n"><span class="pre">dds_guid_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">participant_key</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint.participant_key" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The GUID of the participant this endpoint belongs to. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint.participant_instance_handle">
+<span class="target" id="structdds__builtintopic__endpoint_1ad8d770703a748b36a1d56e237a1678af"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">participant_instance_handle</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint.participant_instance_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The instance handle the participant assigned to this enpoint. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint.topic_name">
+<span class="target" id="structdds__builtintopic__endpoint_1aa434eeb71089554d0b9d31533b064235"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">topic_name</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint.topic_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the topic, potentially unicode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint.type_name">
+<span class="target" id="structdds__builtintopic__endpoint_1aef0d0f8278bb3a2122a0ac49b73ff868"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">type_name</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint.type_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The name of the type, potentially unicode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_builtintopic_endpoint.qos">
+<span class="target" id="structdds__builtintopic__endpoint_1a3f4c5a0473fff30002c39159f1052805"></span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">qos</span></span></span><a class="headerlink" href="#c.dds_builtintopic_endpoint.qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The QoS of the endpoint </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__xtypes"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">xtypes</span></span></dt>
+<dd><p>CycloneDDS supports XTypes, but most of that functionality outside the new IDL constructs happens behind the scenes. However, some API functionality is added that allows inspecting types at runtime. Using it in C is not very ergonomic, but dynamic languages like Python can make good use of it. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_resolve_type">
+<span class="target" id="group__xtypes_1gae3a8ef8ea3ed52bb2284f5ec6dd2ad8a"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_resolve_type</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_id</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_sertype</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sertype</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_resolve_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function resolves the type for the provided type identifier, which can e.g. be retrieved from endpoint or topic discovery data. </p>
+<p><div class="remark admonition">
+<p class="admonition-title">Remark</p>
+<p>The resulting type from the sertype out parameter is refcounted and needs to be dereferenced at some point. This can be done by creating a topic using dds_create_topic_generic, which takes over the ownership of the type or alternatively by using ddsi_sertype_unref to release the reference.</p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> A domain entity or an entity bound to a domain, such as a participant, reader or writer. </p></li>
+<li><p><strong>type_id</strong> – <strong>[in]</strong> Type identifier </p></li>
+<li><p><strong>timeout</strong> – <strong>[in]</strong> Timeout for waiting for requested type information to be available </p></li>
+<li><p><strong>sertype</strong> – <strong>[out]</strong> The type information, or NULL if the type could not be resolved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, type_id or type name is not provided, or the sertype out parameter is NULL </p></li>
+<li><p><strong>DDS_RETCODE_NOT_FOUND</strong> – A type with the provided type_id and type_name was not found </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_typeobj">
+<span class="target" id="group__xtypes_1gaf207cd40a5e7bf2541e422c33aec609e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_typeobj</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_id</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span>, <span class="n"><span class="pre">dds_typeobj_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_typeobj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function resolves the type for the provided type identifier, which can e.g. be retrieved from endpoint or topic discovery data. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> A domain entity or an entity bound to a domain, such as a participant, reader or writer. </p></li>
+<li><p><strong>type_id</strong> – <strong>[in]</strong> Type identifier </p></li>
+<li><p><strong>timeout</strong> – <strong>[in]</strong> Timeout for waiting for requested type information to be available </p></li>
+<li><p><strong>type_obj</strong> – <strong>[out]</strong> The type information, untouched if type is not resolved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, type_id or type name is not provided, or the sertype out parameter is NULL </p></li>
+<li><p><strong>DDS_RETCODE_NOT_FOUND</strong> – A type with the provided type_id and type_name was not found </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_free_typeobj">
+<span class="target" id="group__xtypes_1gab609c72307e34c755b4dc7fb8b071b8a"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_free_typeobj</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">dds_typeobj_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_free_typeobj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the type object that was retrieved using dds_get_typeobj. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type_obj</strong> – <strong>[in]</strong> The type object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_BAD_PARAMETER</strong> – The type_obj parameter is NULL </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="status.html">
+                <span><</span> Entity Status</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="statistics.html">Statistics <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

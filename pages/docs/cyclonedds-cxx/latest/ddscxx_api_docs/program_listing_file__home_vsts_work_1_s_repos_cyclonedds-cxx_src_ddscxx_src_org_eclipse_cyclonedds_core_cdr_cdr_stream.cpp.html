@@ -146,6 +146,7 @@
 <span class="cm"> */</span><span class="w"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;org/eclipse/cyclonedds/core/cdr/cdr_stream.hpp&gt;</span><span class="cp"></span>
 
@@ -211,13 +212,13 @@
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">firstcall</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">entity_properties_t</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">list_type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">member_list_type</span><span class="o">::</span><span class="n">member_by_seq</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">member_list_type</span><span class="o">::</span><span class="no">member_by_seq</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="n">m_members_by_seq</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">member_list_type</span><span class="o">::</span><span class="n">member_by_id</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">member_list_type</span><span class="o">::</span><span class="no">member_by_id</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="n">m_members_by_id</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">member_list_type</span><span class="o">::</span><span class="n">key</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">member_list_type</span><span class="o">::</span><span class="no">key</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="n">m_keys</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
@@ -245,10 +246,10 @@
 <span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="n">m_buffer_end</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="w"></span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">position</span><span class="p">()</span><span class="o">+</span><span class="n">N</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m_buffer_end</span><span class="p">.</span><span class="n">top</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">m_mode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">stream_mode</span><span class="o">::</span><span class="n">read</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">stream_mode</span><span class="o">::</span><span class="no">read</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">peek</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">status</span><span class="p">(</span><span class="n">read_bound_exceeded</span><span class="p">);</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="n">stream_mode</span><span class="o">::</span><span class="n">write</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">stream_mode</span><span class="o">::</span><span class="no">write</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="n">peek</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">status</span><span class="p">(</span><span class="n">write_bound_exceeded</span><span class="p">);</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
@@ -313,13 +314,13 @@
 
 <span class="w">  </span><span class="n">proplist</span><span class="o">::</span><span class="n">iterator</span><span class="w"> </span><span class="n">it</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">list_type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">member_list_type</span><span class="o">::</span><span class="n">member_by_seq</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">member_list_type</span><span class="o">::</span><span class="no">member_by_seq</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="n">m_members_by_seq</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">member_list_type</span><span class="o">::</span><span class="n">member_by_id</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">member_list_type</span><span class="o">::</span><span class="no">member_by_id</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="n">m_members_by_id</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">member_list_type</span><span class="o">::</span><span class="n">key</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">member_list_type</span><span class="o">::</span><span class="no">key</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="n">m_keys</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
@@ -328,7 +329,7 @@
 
 <span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">it</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">must_understand_local</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">is_present</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">status</span><span class="p">(</span><span class="n">must_understand_fail</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">status</span><span class="p">(</span><span class="n">must_understand_fail</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">props</span><span class="p">.</span><span class="n">is_present</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -366,7 +367,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

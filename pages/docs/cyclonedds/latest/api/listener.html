@@ -1,0 +1,1787 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Listener &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Entity Status" href="status.html" />
+    <link rel="prev" title="WaitSets and Conditions" href="waitset.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="waitset.html">WaitSets and Conditions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="status.html">Entity Status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="listener">
+<h1>Listener<a class="headerlink" href="#listener" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__listener"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">listener</span></span></dt>
+<dd><p>This defines the public API of listeners in the Eclipse Cyclone DDS C language binding. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_listener_t">
+<span class="target" id="group__listener_1gabea4a7f035d91f86e036ed764f7b3731"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_listener</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_listener_t</span></span></span><a class="headerlink" href="#c.dds_listener_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS Listener type (opaque) </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_listener">
+<span class="target" id="group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"></span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_listener</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_listener" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocate memory and initializes to default values (<a class="reference internal" href="internal.html#group__internal_1DDS_LUNSET"><span class="std std-ref">DDS_LUNSET</span></a>) of a listener. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg</strong> – <strong>[in]</strong> optional pointer that will be passed on to the listener callbacks</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns a pointer to the allocated memory for dds_listener_t structure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_delete_listener">
+<span class="target" id="group__listener_1ga5ada2f32f0b9453591dad29cbdc0db4d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_delete_listener</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_delete_listener" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete the memory allocated to listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> pointer to the listener struct to delete </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_reset_listener">
+<span class="target" id="group__listener_1ga63df5d862c81b8a7c146107d6db7ebd7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_reset_listener</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_reset_listener" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset the listener structure contents to <a class="reference internal" href="internal.html#group__internal_1DDS_LUNSET"><span class="std std-ref">DDS_LUNSET</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> pointer to the listener struct to reset </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_copy_listener">
+<span class="target" id="group__listener_1ga190627416dd470f921d2be4a40bb6352"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_copy_listener</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dst</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">src</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_copy_listener" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy the listener callbacks from source to destination. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dst</strong> – <strong>[inout]</strong> The pointer to the destination listener structure, where the content is to copied </p></li>
+<li><p><strong>src</strong> – <strong>[in]</strong> The pointer to the source listener structure to be copied </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_merge_listener">
+<span class="target" id="group__listener_1gaf96d05a4f6cce39a03fbefc88828aacd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_merge_listener</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dst</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">src</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_merge_listener" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy the listener callbacks from source to destination, unless already set. </p>
+<p>Any listener callbacks already set in <code class="docutils literal notranslate"><span class="pre">dst</span></code> (including NULL) are skipped, only those set to DDS_LUNSET are copied from <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dst</strong> – <strong>[inout]</strong> The pointer to the destination listener structure, where the content is merged </p></li>
+<li><p><strong>src</strong> – <strong>[in]</strong> The pointer to the source listener structure to be copied </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<section id="dcps-status">
+<h2>DCPS Status<a class="headerlink" href="#dcps-status" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__dcps__status"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">dcps_status</span></span></dt>
+<dd><p>This defines the public API of the Communication Status in the Eclipse Cyclone DDS C language binding. Listeners are implemented as structs containing callback functions that take listener status types as arguments. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_offered_deadline_missed_status_t">
+<span class="target" id="group__dcps__status_1gaf35db6a90a0159e6f471679397cde13d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_offered_deadline_missed_status" title="dds_offered_deadline_missed_status"><span class="n"><span class="pre">dds_offered_deadline_missed_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_offered_deadline_missed_status_t</span></span></span><a class="headerlink" href="#c.dds_offered_deadline_missed_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_OfferedDeadlineMissed DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_offered_incompatible_qos_status_t">
+<span class="target" id="group__dcps__status_1gaddbc3c05f3dc412f596d28ebbb0248f0"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_offered_incompatible_qos_status" title="dds_offered_incompatible_qos_status"><span class="n"><span class="pre">dds_offered_incompatible_qos_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_offered_incompatible_qos_status_t</span></span></span><a class="headerlink" href="#c.dds_offered_incompatible_qos_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_OfferedIncompatibleQoS DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_publication_matched_status_t">
+<span class="target" id="group__dcps__status_1ga122f5a18f9dbbb422c82f6ac457735bf"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_publication_matched_status" title="dds_publication_matched_status"><span class="n"><span class="pre">dds_publication_matched_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_publication_matched_status_t</span></span></span><a class="headerlink" href="#c.dds_publication_matched_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_PublicationMatched DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_liveliness_lost_status_t">
+<span class="target" id="group__dcps__status_1gad6faa739af549b82cf8e64e065ca3db2"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_liveliness_lost_status" title="dds_liveliness_lost_status"><span class="n"><span class="pre">dds_liveliness_lost_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_liveliness_lost_status_t</span></span></span><a class="headerlink" href="#c.dds_liveliness_lost_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_LivelinessLost DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_subscription_matched_status_t">
+<span class="target" id="group__dcps__status_1ga19462213111877cc6ff94c496831c815"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_subscription_matched_status" title="dds_subscription_matched_status"><span class="n"><span class="pre">dds_subscription_matched_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_subscription_matched_status_t</span></span></span><a class="headerlink" href="#c.dds_subscription_matched_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_SubscriptionMatched DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status_t">
+<span class="target" id="group__dcps__status_1ga6007aa14755892b9a558cf26855e4c5e"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_sample_rejected_status" title="dds_sample_rejected_status"><span class="n"><span class="pre">dds_sample_rejected_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_rejected_status_t</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_SampleRejected DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_liveliness_changed_status_t">
+<span class="target" id="group__dcps__status_1gad6b6ac185b7a01afaf296377b17e018b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_liveliness_changed_status" title="dds_liveliness_changed_status"><span class="n"><span class="pre">dds_liveliness_changed_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_liveliness_changed_status_t</span></span></span><a class="headerlink" href="#c.dds_liveliness_changed_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_LivelinessChanged DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_requested_deadline_missed_status_t">
+<span class="target" id="group__dcps__status_1gaca96b4f764e881e8324e2c4615771463"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_requested_deadline_missed_status" title="dds_requested_deadline_missed_status"><span class="n"><span class="pre">dds_requested_deadline_missed_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_requested_deadline_missed_status_t</span></span></span><a class="headerlink" href="#c.dds_requested_deadline_missed_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_RequestedDeadlineMissed DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_requested_incompatible_qos_status_t">
+<span class="target" id="group__dcps__status_1gaa35f9042cb84c849977ac2a760d2fd77"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_requested_incompatible_qos_status" title="dds_requested_incompatible_qos_status"><span class="n"><span class="pre">dds_requested_incompatible_qos_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_requested_incompatible_qos_status_t</span></span></span><a class="headerlink" href="#c.dds_requested_incompatible_qos_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_RequestedIncompatibleQoS DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_sample_lost_status_t">
+<span class="target" id="group__dcps__status_1ga20954c3116b3d2444856234ceb443365"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_sample_lost_status" title="dds_sample_lost_status"><span class="n"><span class="pre">dds_sample_lost_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_lost_status_t</span></span></span><a class="headerlink" href="#c.dds_sample_lost_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_SampleLost DOC_TODO. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_inconsistent_topic_status_t">
+<span class="target" id="group__dcps__status_1ga73818fefd01699d7ef3624b1be3168b0"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_inconsistent_topic_status" title="dds_inconsistent_topic_status"><span class="n"><span class="pre">dds_inconsistent_topic_status</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_inconsistent_topic_status_t</span></span></span><a class="headerlink" href="#c.dds_inconsistent_topic_status_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DCPS_Status_InconsistentTopic DOC_TODO. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status_kind">
+<span class="target" id="group__dcps__status_1gaf0b69a9cb68027e5b84a509b8809c5ed"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_rejected_status_kind</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Rejected Status DOC_TODO. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status_kind.DDS_NOT_REJECTED">
+<span class="target" id="group__dcps__status_1ggaf0b69a9cb68027e5b84a509b8809c5edae371624e8cee89be655a853a3107fb35"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_NOT_REJECTED</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status_kind.DDS_NOT_REJECTED" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status_kind.DDS_REJECTED_BY_INSTANCES_LIMIT">
+<span class="target" id="group__dcps__status_1ggaf0b69a9cb68027e5b84a509b8809c5eda0dab8798e087551400c60a82a42ce02a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REJECTED_BY_INSTANCES_LIMIT</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status_kind.DDS_REJECTED_BY_INSTANCES_LIMIT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status_kind.DDS_REJECTED_BY_SAMPLES_LIMIT">
+<span class="target" id="group__dcps__status_1ggaf0b69a9cb68027e5b84a509b8809c5edad17f50fcc59ea3b9decd493227f6d1ca"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REJECTED_BY_SAMPLES_LIMIT</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status_kind.DDS_REJECTED_BY_SAMPLES_LIMIT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status_kind.DDS_REJECTED_BY_SAMPLES_PER_INSTANCE_LIMIT">
+<span class="target" id="group__dcps__status_1ggaf0b69a9cb68027e5b84a509b8809c5edaab6c983268ca4dd0520e6705156197b7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REJECTED_BY_SAMPLES_PER_INSTANCE_LIMIT</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status_kind.DDS_REJECTED_BY_SAMPLES_PER_INSTANCE_LIMIT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_offered_deadline_missed_status">
+<span class="target" id="structdds__offered__deadline__missed__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_offered_deadline_missed_status</span></span></span><a class="headerlink" href="#c.dds_offered_deadline_missed_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_OfferedDeadlineMissed DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_offered_deadline_missed_status.total_count">
+<span class="target" id="structdds__offered__deadline__missed__status_1a1ad8f9727cd0358e1e27e508cf18e337"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_offered_deadline_missed_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_offered_deadline_missed_status.total_count_change">
+<span class="target" id="structdds__offered__deadline__missed__status_1a75e5c084dff1773f5d22f04fe2b4fbb1"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_offered_deadline_missed_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_offered_deadline_missed_status.last_instance_handle">
+<span class="target" id="structdds__offered__deadline__missed__status_1ac5ffedf847b390c4606662528df97238"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_instance_handle</span></span></span><a class="headerlink" href="#c.dds_offered_deadline_missed_status.last_instance_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_offered_incompatible_qos_status">
+<span class="target" id="structdds__offered__incompatible__qos__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_offered_incompatible_qos_status</span></span></span><a class="headerlink" href="#c.dds_offered_incompatible_qos_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_OfferedIncompatibleQoS DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_offered_incompatible_qos_status.total_count">
+<span class="target" id="structdds__offered__incompatible__qos__status_1a0f58e1537182bc551a1730196a892f49"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_offered_incompatible_qos_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_offered_incompatible_qos_status.total_count_change">
+<span class="target" id="structdds__offered__incompatible__qos__status_1a0c54b5d92c2363f8154d95b9e3e87eda"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_offered_incompatible_qos_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_offered_incompatible_qos_status.last_policy_id">
+<span class="target" id="structdds__offered__incompatible__qos__status_1a40b6dbb71c98a14465277a57e483771a"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_policy_id</span></span></span><a class="headerlink" href="#c.dds_offered_incompatible_qos_status.last_policy_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_publication_matched_status">
+<span class="target" id="structdds__publication__matched__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_publication_matched_status</span></span></span><a class="headerlink" href="#c.dds_publication_matched_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_PublicationMatched DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_publication_matched_status.total_count">
+<span class="target" id="structdds__publication__matched__status_1a20c9782415d78ca0085dd68285485134"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_publication_matched_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_publication_matched_status.total_count_change">
+<span class="target" id="structdds__publication__matched__status_1ac8531cb16405d2d82fbaf83c66de95d0"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_publication_matched_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_publication_matched_status.current_count">
+<span class="target" id="structdds__publication__matched__status_1ad1bceb693d77853ec09831e68d90c417"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">current_count</span></span></span><a class="headerlink" href="#c.dds_publication_matched_status.current_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_publication_matched_status.current_count_change">
+<span class="target" id="structdds__publication__matched__status_1a4b38ad7239dc907bbada97aa4f464e22"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">current_count_change</span></span></span><a class="headerlink" href="#c.dds_publication_matched_status.current_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_publication_matched_status.last_subscription_handle">
+<span class="target" id="structdds__publication__matched__status_1a90223d723b7656b01959092490c72efb"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_subscription_handle</span></span></span><a class="headerlink" href="#c.dds_publication_matched_status.last_subscription_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_liveliness_lost_status">
+<span class="target" id="structdds__liveliness__lost__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_liveliness_lost_status</span></span></span><a class="headerlink" href="#c.dds_liveliness_lost_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_LivelinessLost DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_liveliness_lost_status.total_count">
+<span class="target" id="structdds__liveliness__lost__status_1a45e330984efaf740cf6791a345c4b50e"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_liveliness_lost_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_liveliness_lost_status.total_count_change">
+<span class="target" id="structdds__liveliness__lost__status_1a93288efd61e3fbb2fcef27cbde9e3ca2"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_liveliness_lost_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_subscription_matched_status">
+<span class="target" id="structdds__subscription__matched__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_subscription_matched_status</span></span></span><a class="headerlink" href="#c.dds_subscription_matched_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_SubscriptionMatched DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_subscription_matched_status.total_count">
+<span class="target" id="structdds__subscription__matched__status_1abc11f15238da213899b46ddc15762c31"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_subscription_matched_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_subscription_matched_status.total_count_change">
+<span class="target" id="structdds__subscription__matched__status_1a9c3c2d1a7e4e8ccabb5767b9bfb5a644"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_subscription_matched_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_subscription_matched_status.current_count">
+<span class="target" id="structdds__subscription__matched__status_1a158d1c54fff344b9cc0c3d73c5ca8a2b"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">current_count</span></span></span><a class="headerlink" href="#c.dds_subscription_matched_status.current_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_subscription_matched_status.current_count_change">
+<span class="target" id="structdds__subscription__matched__status_1a365802af7a0af22acccde981a9a7c2e6"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">current_count_change</span></span></span><a class="headerlink" href="#c.dds_subscription_matched_status.current_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_subscription_matched_status.last_publication_handle">
+<span class="target" id="structdds__subscription__matched__status_1a88f5e8ad5f65b5b1587a48db288af595"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_publication_handle</span></span></span><a class="headerlink" href="#c.dds_subscription_matched_status.last_publication_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status">
+<span class="target" id="structdds__sample__rejected__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_rejected_status</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_SampleRejected DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status.total_count">
+<span class="target" id="structdds__sample__rejected__status_1a62958c6b1392a763d2d507f1cf4c2b37"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status.total_count_change">
+<span class="target" id="structdds__sample__rejected__status_1a072c6510fd80059b315efdf728d056bf"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status.last_reason">
+<span class="target" id="structdds__sample__rejected__status_1a81053e33123828f8c85da34971ada738"></span><a class="reference internal" href="#c.dds_sample_rejected_status_kind" title="dds_sample_rejected_status_kind"><span class="n"><span class="pre">dds_sample_rejected_status_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_reason</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status.last_reason" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_rejected_status.last_instance_handle">
+<span class="target" id="structdds__sample__rejected__status_1a439ef90eac3530b47b0865126bf52c8f"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_instance_handle</span></span></span><a class="headerlink" href="#c.dds_sample_rejected_status.last_instance_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_liveliness_changed_status">
+<span class="target" id="structdds__liveliness__changed__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_liveliness_changed_status</span></span></span><a class="headerlink" href="#c.dds_liveliness_changed_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_LivelinessChanged DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_liveliness_changed_status.alive_count">
+<span class="target" id="structdds__liveliness__changed__status_1ab747ccda98884e774cc9ae71a9f4a868"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alive_count</span></span></span><a class="headerlink" href="#c.dds_liveliness_changed_status.alive_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_liveliness_changed_status.not_alive_count">
+<span class="target" id="structdds__liveliness__changed__status_1ad767b2bb7cf2c729123ca25b13f196b0"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">not_alive_count</span></span></span><a class="headerlink" href="#c.dds_liveliness_changed_status.not_alive_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_liveliness_changed_status.alive_count_change">
+<span class="target" id="structdds__liveliness__changed__status_1a150ef1af78fbf64b2eae91d252202841"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alive_count_change</span></span></span><a class="headerlink" href="#c.dds_liveliness_changed_status.alive_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_liveliness_changed_status.not_alive_count_change">
+<span class="target" id="structdds__liveliness__changed__status_1a8bf7373dcf8d43d1bd52b3a4a05a5a54"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">not_alive_count_change</span></span></span><a class="headerlink" href="#c.dds_liveliness_changed_status.not_alive_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_liveliness_changed_status.last_publication_handle">
+<span class="target" id="structdds__liveliness__changed__status_1a2f290ea601de644f348bc5078489b235"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_publication_handle</span></span></span><a class="headerlink" href="#c.dds_liveliness_changed_status.last_publication_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_requested_deadline_missed_status">
+<span class="target" id="structdds__requested__deadline__missed__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_requested_deadline_missed_status</span></span></span><a class="headerlink" href="#c.dds_requested_deadline_missed_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_RequestedDeadlineMissed DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_requested_deadline_missed_status.total_count">
+<span class="target" id="structdds__requested__deadline__missed__status_1aca2b10549fea9a3b09a4ea3b76048d17"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_requested_deadline_missed_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_requested_deadline_missed_status.total_count_change">
+<span class="target" id="structdds__requested__deadline__missed__status_1a4198bd625c366bbd4fd1af19de745f9c"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_requested_deadline_missed_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_requested_deadline_missed_status.last_instance_handle">
+<span class="target" id="structdds__requested__deadline__missed__status_1a7c62ff68ad502e2100f8804e3f35d2b1"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_instance_handle</span></span></span><a class="headerlink" href="#c.dds_requested_deadline_missed_status.last_instance_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_requested_incompatible_qos_status">
+<span class="target" id="structdds__requested__incompatible__qos__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_requested_incompatible_qos_status</span></span></span><a class="headerlink" href="#c.dds_requested_incompatible_qos_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_RequestedIncompatibleQoS DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_requested_incompatible_qos_status.total_count">
+<span class="target" id="structdds__requested__incompatible__qos__status_1a134074cf06915ed4c46adac9c8e41c2c"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_requested_incompatible_qos_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_requested_incompatible_qos_status.total_count_change">
+<span class="target" id="structdds__requested__incompatible__qos__status_1a4cbf9835b5b03b32e3a27a4e009865dc"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_requested_incompatible_qos_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_requested_incompatible_qos_status.last_policy_id">
+<span class="target" id="structdds__requested__incompatible__qos__status_1a38f842646b60203fe6b30dcb900d1de7"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_policy_id</span></span></span><a class="headerlink" href="#c.dds_requested_incompatible_qos_status.last_policy_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_sample_lost_status">
+<span class="target" id="structdds__sample__lost__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sample_lost_status</span></span></span><a class="headerlink" href="#c.dds_sample_lost_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_SampleLost DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_lost_status.total_count">
+<span class="target" id="structdds__sample__lost__status_1ab460d148fb2c04c83cc32f722b4b758c"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_sample_lost_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sample_lost_status.total_count_change">
+<span class="target" id="structdds__sample__lost__status_1a4f6389a5fdda093757d1b48d17cb2db5"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_sample_lost_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_inconsistent_topic_status">
+<span class="target" id="structdds__inconsistent__topic__status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_inconsistent_topic_status</span></span></span><a class="headerlink" href="#c.dds_inconsistent_topic_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_status.h&gt;</em></div>
+<p>DCPS_Status_InconsistentTopic DOC_TODO. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_inconsistent_topic_status.total_count">
+<span class="target" id="structdds__inconsistent__topic__status_1a154286a7ba170ad3eb411594e93654dd"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count</span></span></span><a class="headerlink" href="#c.dds_inconsistent_topic_status.total_count" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_inconsistent_topic_status.total_count_change">
+<span class="target" id="structdds__inconsistent__topic__status_1a205b8a535de5f48475f3788d875765d1"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_count_change</span></span></span><a class="headerlink" href="#c.dds_inconsistent_topic_status.total_count_change" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DOC_TODO </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="setters">
+<h2>Setters<a class="headerlink" href="#setters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__listener__setters"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">listener_setters</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_data_available_arg">
+<span class="target" id="group__listener__setters_1ga34c65e0e15fb3ebed55edf361dd543f5"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_data_available_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_available_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_data_available_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the data_available callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_data_on_readers_arg">
+<span class="target" id="group__listener__setters_1ga466699bb6b4c010d473d364a6813a856"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_data_on_readers_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_on_readers_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_data_on_readers_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the data_on_readers callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_inconsistent_topic_arg">
+<span class="target" id="group__listener__setters_1ga75686fd95dccf505625c4e044ae4ef8f"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_inconsistent_topic_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_inconsistent_topic_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_inconsistent_topic_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the inconsistent_topic callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_liveliness_changed_arg">
+<span class="target" id="group__listener__setters_1ga3d7a2f4ebebc6016684dbf4a256a7239"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_liveliness_changed_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_changed_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_liveliness_changed_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the liveliness_changed callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_liveliness_lost_arg">
+<span class="target" id="group__listener__setters_1gaf73b0fb66ca66e2d6b8009b5cd23cd65"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_liveliness_lost_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_lost_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_liveliness_lost_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the liveliness_lost callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_offered_deadline_missed_arg">
+<span class="target" id="group__listener__setters_1ga81d1a3fb182eddf30b100e2d2e8abb25"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_offered_deadline_missed_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_deadline_missed_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_offered_deadline_missed_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the offered_deadline_missed callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_offered_incompatible_qos_arg">
+<span class="target" id="group__listener__setters_1ga51980d3e9cc69a6a8ab8495018890bd3"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_offered_incompatible_qos_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_incompatible_qos_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_offered_incompatible_qos_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the offered_incompatible_qos callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_publication_matched_arg">
+<span class="target" id="group__listener__setters_1ga3e4547991e8d9f3b023a9213171a9a43"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_publication_matched_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_publication_matched_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_publication_matched_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the publication_matched callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_requested_deadline_missed_arg">
+<span class="target" id="group__listener__setters_1ga50aff815d5efed4c6ac9c9c55519f131"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_requested_deadline_missed_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_deadline_missed_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_requested_deadline_missed_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the requested_deadline_missed callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_requested_incompatible_qos_arg">
+<span class="target" id="group__listener__setters_1ga97a3cc045035c23d07de4e7ccc63ae1b"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_requested_incompatible_qos_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_incompatible_qos_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_requested_incompatible_qos_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the requested_incompatible_qos callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_sample_lost_arg">
+<span class="target" id="group__listener__setters_1gae37e3c8129927c89796d71b5e869f852"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_sample_lost_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_lost_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_sample_lost_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the sample_lost callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_sample_rejected_arg">
+<span class="target" id="group__listener__setters_1gab4d9914fe8ffd7f0e8a5c9465b4a9869"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_sample_rejected_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_rejected_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_sample_rejected_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the sample_rejected callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_subscription_matched_arg">
+<span class="target" id="group__listener__setters_1ga0760184671692f4cd3cad4213bb58d61"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_subscription_matched_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_subscription_matched_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_subscription_matched_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the subscription_matched callback and argument in the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[in]</strong> callback argument that is passed uninterpreted to the callback function </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[in]</strong> whether or not the status should be cleared when the listener callback is invoked</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – success </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_inconsistent_topic">
+<span class="target" id="group__listener__setters_1ga18f0d9b311cf6f6a7ccba178d829cc95"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_inconsistent_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_inconsistent_topic_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_inconsistent_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the inconsistent_topic callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga75686fd95dccf505625c4e044ae4ef8f"><span class="std std-ref">dds_lset_inconsistent_topic_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_liveliness_lost">
+<span class="target" id="group__listener__setters_1ga7e3006a78ba9823c5612e1a25da2d249"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_liveliness_lost</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_lost_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_liveliness_lost" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the liveliness_lost callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1gaf73b0fb66ca66e2d6b8009b5cd23cd65"><span class="std std-ref">dds_lset_liveliness_lost_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_offered_deadline_missed">
+<span class="target" id="group__listener__setters_1ga9a19bf717d285e80c63ff30bbda37179"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_offered_deadline_missed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_deadline_missed_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_offered_deadline_missed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the offered_deadline_missed callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga81d1a3fb182eddf30b100e2d2e8abb25"><span class="std std-ref">dds_lset_offered_deadline_missed_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_offered_incompatible_qos">
+<span class="target" id="group__listener__setters_1ga1c4be441ebe0b11c1229f1b3b099a721"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_offered_incompatible_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_incompatible_qos_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_offered_incompatible_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the offered_incompatible_qos callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga51980d3e9cc69a6a8ab8495018890bd3"><span class="std std-ref">dds_lset_offered_incompatible_qos_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_data_on_readers">
+<span class="target" id="group__listener__setters_1gab4ee39a2a3a59adc93046e39a215e07a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_data_on_readers</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_on_readers_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_data_on_readers" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the data_on_readers callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga466699bb6b4c010d473d364a6813a856"><span class="std std-ref">dds_lset_data_on_readers_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_sample_lost">
+<span class="target" id="group__listener__setters_1ga8b06ca85d07cae2771682c17fc75a2d1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_sample_lost</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_lost_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_sample_lost" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the sample_lost callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1gae37e3c8129927c89796d71b5e869f852"><span class="std std-ref">dds_lset_sample_lost_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_data_available">
+<span class="target" id="group__listener__setters_1gadd64bb8e641bcb8646e055dfa56f6465"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_data_available</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_available_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_data_available" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the data_available callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga34c65e0e15fb3ebed55edf361dd543f5"><span class="std std-ref">dds_lset_data_available_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_sample_rejected">
+<span class="target" id="group__listener__setters_1ga149bf5942ba405d3984b46d0fb4d8c85"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_sample_rejected</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_rejected_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_sample_rejected" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the sample_rejected callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1gab4d9914fe8ffd7f0e8a5c9465b4a9869"><span class="std std-ref">dds_lset_sample_rejected_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_liveliness_changed">
+<span class="target" id="group__listener__setters_1ga2ac51b8bb489af65680e729217b42cdd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_liveliness_changed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_changed_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_liveliness_changed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the liveliness_changed callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga3d7a2f4ebebc6016684dbf4a256a7239"><span class="std std-ref">dds_lset_liveliness_changed_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_requested_deadline_missed">
+<span class="target" id="group__listener__setters_1ga1ef0813c147c40fc96101a2af6e6d8aa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_requested_deadline_missed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_deadline_missed_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_requested_deadline_missed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the requested_deadline_missed callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga50aff815d5efed4c6ac9c9c55519f131"><span class="std std-ref">dds_lset_requested_deadline_missed_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_requested_incompatible_qos">
+<span class="target" id="group__listener__setters_1ga21139cb76cb7db787563f25ac2a66954"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_requested_incompatible_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_incompatible_qos_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_requested_incompatible_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the requested_incompatible_qos callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga97a3cc045035c23d07de4e7ccc63ae1b"><span class="std std-ref">dds_lset_requested_incompatible_qos_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_publication_matched">
+<span class="target" id="group__listener__setters_1gaf39b079bda5562569ac5dada6ce1d9fd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_publication_matched</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_publication_matched_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_publication_matched" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the publication_matched callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga3e4547991e8d9f3b023a9213171a9a43"><span class="std std-ref">dds_lset_publication_matched_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lset_subscription_matched">
+<span class="target" id="group__listener__setters_1gab6a44853577486cd0d226ada18c35201"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_subscription_matched</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_subscription_matched_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_subscription_matched" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the subscription_matched callback in the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga0760184671692f4cd3cad4213bb58d61"><span class="std std-ref">dds_lset_subscription_matched_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1gad0efe47c590bb71dc3a29b7aa5eb8890"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[inout]</strong> listener structure to update </p></li>
+<li><p><strong>callback</strong> – <strong>[in]</strong> the callback to set or a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="getters">
+<h2>Getters<a class="headerlink" href="#getters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__listener__getters"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">listener_getters</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_data_available_arg">
+<span class="target" id="group__listener__getters_1ga4f3b01327cb53013f09cb9a2485a0dd0"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_data_available_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_available_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_data_available_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the data_available callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_data_on_readers_arg">
+<span class="target" id="group__listener__getters_1ga943cc25866e47ecafadf314c8ad9a304"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_data_on_readers_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_on_readers_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_data_on_readers_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the data_on_readers callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_inconsistent_topic_arg">
+<span class="target" id="group__listener__getters_1ga14225ab2ad4cae231aee3695959cb81c"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_inconsistent_topic_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_inconsistent_topic_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_inconsistent_topic_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the inconsistent_topic callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_liveliness_changed_arg">
+<span class="target" id="group__listener__getters_1ga1475f5578927b8231620ad0cbe92e760"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_liveliness_changed_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_changed_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_liveliness_changed_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the liveliness_changed callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_liveliness_lost_arg">
+<span class="target" id="group__listener__getters_1ga20640835f6362736000bd2ca227bf7e3"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_liveliness_lost_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_lost_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_liveliness_lost_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the liveliness_lost callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_offered_deadline_missed_arg">
+<span class="target" id="group__listener__getters_1gac37c7cda6eec01aaefe8455e137ffacf"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_offered_deadline_missed_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_deadline_missed_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_offered_deadline_missed_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the offered_deadline_missed callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_offered_incompatible_qos_arg">
+<span class="target" id="group__listener__getters_1ga155992f4f7785a07418cbced2372a107"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_offered_incompatible_qos_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_incompatible_qos_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_offered_incompatible_qos_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the offered_incompatible_qos callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_publication_matched_arg">
+<span class="target" id="group__listener__getters_1gae35a1c67d3d7df512ef10fefe419baee"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_publication_matched_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_publication_matched_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_publication_matched_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the publication_matched callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_requested_deadline_missed_arg">
+<span class="target" id="group__listener__getters_1gab8cceedbaa4a6a0aa68f0af63dae165d"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_requested_deadline_missed_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_deadline_missed_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_requested_deadline_missed_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the subscription_matched callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_requested_incompatible_qos_arg">
+<span class="target" id="group__listener__getters_1ga9bcd79b111f6310a1d036b0efe719c44"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_requested_incompatible_qos_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_incompatible_qos_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_requested_incompatible_qos_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the requested_incompatible_qos callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_sample_lost_arg">
+<span class="target" id="group__listener__getters_1gaf6d95a412a03b3c452cff9711655c56b"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_sample_lost_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_lost_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_sample_lost_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sample_lost callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_sample_rejected_arg">
+<span class="target" id="group__listener__getters_1ga0cbd64f6e9205e34b71609f0ded1bc13"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_sample_rejected_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_rejected_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_sample_rejected_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sample_rejected callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_subscription_matched_arg">
+<span class="target" id="group__listener__getters_1gaccc5c41a6707676b026e6c347cd51b86"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_subscription_matched_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_subscription_matched_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_subscription_matched_arg" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the subscription_matched callback from the listener structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+<li><p><strong>arg</strong> – <strong>[out]</strong> Callback argument pointer; may be a null pointer </p></li>
+<li><p><strong>reset_on_invoke</strong> – <strong>[out]</strong> Whether the status is reset by listener invocation; may be a null pointer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – if successful </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – listener is a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_inconsistent_topic">
+<span class="target" id="group__listener__getters_1ga68ce58a47ce5a9058c9fb9d20febfb87"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_inconsistent_topic</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_inconsistent_topic_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_inconsistent_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the inconsistent_topic callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga14225ab2ad4cae231aee3695959cb81c"><span class="std std-ref">dds_lget_inconsistent_topic_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_liveliness_lost">
+<span class="target" id="group__listener__getters_1ga1bc086763e7db7dc549feb53fdefcc89"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_liveliness_lost</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_lost_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_liveliness_lost" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the liveliness_lost callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga20640835f6362736000bd2ca227bf7e3"><span class="std std-ref">dds_lget_liveliness_lost_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_offered_deadline_missed">
+<span class="target" id="group__listener__getters_1gaf2887fd39903a1fd6f56cfc9bfda6269"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_offered_deadline_missed</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_deadline_missed_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_offered_deadline_missed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the offered_deadline_missed callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1gac37c7cda6eec01aaefe8455e137ffacf"><span class="std std-ref">dds_lget_offered_deadline_missed_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_offered_incompatible_qos">
+<span class="target" id="group__listener__getters_1ga2eaf807529469eb81981262138315c09"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_offered_incompatible_qos</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_offered_incompatible_qos_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_offered_incompatible_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the offered_incompatible_qos callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga155992f4f7785a07418cbced2372a107"><span class="std std-ref">dds_lget_offered_incompatible_qos_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_data_on_readers">
+<span class="target" id="group__listener__getters_1gad0c8d43df295f822a9ffacde0be9be32"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_data_on_readers</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_on_readers_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_data_on_readers" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the data_on_readers callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga943cc25866e47ecafadf314c8ad9a304"><span class="std std-ref">dds_lget_data_on_readers_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_sample_lost">
+<span class="target" id="group__listener__getters_1ga4db6f20ec836a745759761a46c1d580b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_sample_lost</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_lost_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_sample_lost" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sample_lost callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1gaf6d95a412a03b3c452cff9711655c56b"><span class="std std-ref">dds_lget_sample_lost_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_data_available">
+<span class="target" id="group__listener__getters_1ga2c63f65c60bc89509496c20d05ac8823"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_data_available</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_available_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_data_available" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the data_available callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga4f3b01327cb53013f09cb9a2485a0dd0"><span class="std std-ref">dds_lget_data_available_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_sample_rejected">
+<span class="target" id="group__listener__getters_1ga1700dfc356aa81c6a84e4e4f98d293c0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_sample_rejected</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_sample_rejected_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_sample_rejected" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sample_rejected callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga0cbd64f6e9205e34b71609f0ded1bc13"><span class="std std-ref">dds_lget_sample_rejected_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_liveliness_changed">
+<span class="target" id="group__listener__getters_1gaaee5881bd26b9b2afd61691ff7fcdb73"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_liveliness_changed</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_liveliness_changed_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_liveliness_changed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the liveliness_changed callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga1475f5578927b8231620ad0cbe92e760"><span class="std std-ref">dds_lget_liveliness_changed_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_requested_deadline_missed">
+<span class="target" id="group__listener__getters_1ga5962ae973b19c4a904480dfbb5c1f9b1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_requested_deadline_missed</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_deadline_missed_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_requested_deadline_missed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the requested_deadline_missed callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1gab8cceedbaa4a6a0aa68f0af63dae165d"><span class="std std-ref">dds_lget_requested_deadline_missed_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_requested_incompatible_qos">
+<span class="target" id="group__listener__getters_1ga11028cdb8e7354166ba6cbd1e99869d4"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_requested_incompatible_qos</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_requested_incompatible_qos_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_requested_incompatible_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the requested_incompatible_qos callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1ga9bcd79b111f6310a1d036b0efe719c44"><span class="std std-ref">dds_lget_requested_incompatible_qos_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_publication_matched">
+<span class="target" id="group__listener__getters_1gae7fe17a2bed5cf3625b9c36594d49e3f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_publication_matched</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_publication_matched_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_publication_matched" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the publication_matched callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1gae35a1c67d3d7df512ef10fefe419baee"><span class="std std-ref">dds_lget_publication_matched_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_lget_subscription_matched">
+<span class="target" id="group__listener__getters_1gab8c99bf61fe111bfb954a8d07eacb8ce"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_subscription_matched</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_subscription_matched_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_subscription_matched" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the subscription_matched callback from the listener structure. </p>
+<p>Equivalent to calling <a class="reference internal" href="#group__listener__getters_1gaccc5c41a6707676b026e6c347cd51b86"><span class="std std-ref">dds_lget_subscription_matched_arg</span></a> with arg and reset_on_invoke set to a null pointer and throwing away the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>listener</strong> – <strong>[in]</strong> The pointer to the listener structure, where the callback will be retrieved from </p></li>
+<li><p><strong>callback</strong> – <strong>[out]</strong> Callback function; may be a null pointer </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="interaction-with-dds-entities">
+<span id="section-entity-listener"></span><h2>Interaction with DDS Entities<a class="headerlink" href="#interaction-with-dds-entities" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__entity__listener"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">entity_listener</span></span></dt>
+<dd><p>Get or set listener associated with an entity, type of listener provided much match type of entity. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_listener">
+<span class="target" id="group__entity__listener_1ga3a832d25691829d9eb66c4a2266e9d02"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_listener</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_listener" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity listeners. </p>
+<p>This operation allows access to the existing listeners attached to the entity.</p>
+<p>
+DOC_TODO: Link to (generic) Listener and status information. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity on which to get the listeners. </p></li>
+<li><p><strong>listener</strong> – <strong>[out]</strong> Pointer to the listener structure that returns the set of listener callbacks.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The listeners of to the entity have been successfully been copied into the specified listener parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The listener parameter is NULL. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_set_listener">
+<span class="target" id="group__entity__listener_1ga7dd49bea1c1c0a091a098d9fc74a8efd"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_set_listener</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_set_listener" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set entity listeners. </p>
+<p>This operation attaches a dds_listener_t to the dds_entity_t. Only one Listener can be attached to each Entity. If a Listener was already attached, this operation will replace it with the new one. In other words, all related callbacks are replaced (possibly with NULL).</p>
+<p>When listener parameter is NULL, all listener callbacks that were possibly set on the Entity will be removed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all listener callbacks are related to all entities.</p>
+</div>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Listener</a><ul>
+<li><a class="reference internal" href="#dcps-status">DCPS Status</a></li>
+<li><a class="reference internal" href="#setters">Setters</a></li>
+<li><a class="reference internal" href="#getters">Getters</a></li>
+<li><a class="reference internal" href="#interaction-with-dds-entities">Interaction with DDS Entities</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="waitset.html">
+                <span><</span> WaitSets and Conditions</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="status.html">Entity Status <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

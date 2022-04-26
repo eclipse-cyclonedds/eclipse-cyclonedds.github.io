@@ -1059,37 +1059,37 @@
 <span class="w">    </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">InstanceState</span><span class="w"> </span><span class="n">is</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">from</span><span class="p">.</span><span class="n">sample_state</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">DDS_SST_READ</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">DDS_SST_READ</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">SampleState</span><span class="o">::</span><span class="n">read</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">DDS_SST_NOT_READ</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">DDS_SST_NOT_READ</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">SampleState</span><span class="o">::</span><span class="n">not_read</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">from</span><span class="p">.</span><span class="n">view_state</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">DDS_VST_NEW</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">DDS_VST_NEW</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">vs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">ViewState</span><span class="o">::</span><span class="n">new_view</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">DDS_VST_OLD</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">DDS_VST_OLD</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">vs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">ViewState</span><span class="o">::</span><span class="n">not_new_view</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">from</span><span class="p">.</span><span class="n">instance_state</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">DDS_IST_ALIVE</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">DDS_IST_ALIVE</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">is</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">InstanceState</span><span class="o">::</span><span class="n">alive</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">DDS_IST_NOT_ALIVE_DISPOSED</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">DDS_IST_NOT_ALIVE_DISPOSED</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">is</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">InstanceState</span><span class="o">::</span><span class="n">not_alive_disposed</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nl">DDS_IST_NOT_ALIVE_NO_WRITERS</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">DDS_IST_NOT_ALIVE_NO_WRITERS</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="n">is</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">InstanceState</span><span class="o">::</span><span class="n">not_alive_no_writers</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -1157,7 +1157,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

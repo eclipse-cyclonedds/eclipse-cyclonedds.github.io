@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Entities &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="QoS" href="qos.html" />
+    <link rel="prev" title="Basics" href="basics.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="entities">
+<h1>Entities<a class="headerlink" href="#entities" title="Permalink to this headline">¶</a></h1>
+<p>All entities are represented by a process-private handle, with one call to enable an entity when it was created disabled.
+An entity is created enabled by default. Note: disabled creation is currently not supported.</p>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__entity"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">entity</span></span></dt>
+<dd><p>Every DDS object in the library is an Entity. All entities are represented by a process-private handle, with one call to enable an entity when it was created disabled. An entity is created enabled by default. Note: disabled creation is currently not supported. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_entity_t">
+<span class="target" id="group__entity_1gaa66538468c533a9ea558b7e280677b13"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_entity_t</span></span></span><a class="headerlink" href="#c.dds_entity_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Handle to an entity. </p>
+<p>A valid entity handle will always have a positive integer value. Should the value be negative, it is one of the DDS_RETCODE_* error codes. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_enable">
+<span class="target" id="group__entity_1ga708feb94b63b82d6acd0cc9f0c50d119"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_enable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_enable" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enable entity. </p>
+<p>
+This operation enables the dds_entity_t. Created dds_entity_t objects can start in either an enabled or disabled state. This is controlled by the value of the entityfactory policy on the corresponding parent entity for the given entity. Enabled entities are immediately activated at creation time meaning all their immutable QoS settings can no longer be changed. Disabled Entities are not yet activated, so it is still possible to change their immutable QoS settings. However, once activated the immutable QoS settings can no longer be changed. Creating disabled entities can make sense when the creator of the DDS_Entity does not yet know which QoS settings to apply, thus allowing another piece of code to set the QoS later on.</p>
+<p>The default setting of DDS_EntityFactoryQosPolicy is such that, by default, entities are created in an enabled state so that it is not necessary to explicitly call dds_enable on newly-created entities.</p>
+<p>The dds_enable operation produces the same results no matter how many times it is performed. Calling dds_enable on an already enabled DDS_Entity returns DDS_RETCODE_OK and has no effect.</p>
+<p>If an Entity has not yet been enabled, the only operations that can be invoked on it are: the ones to set, get or copy the QosPolicy settings, the ones that set (or get) the Listener, the ones that get the Status and the dds_get_status_changes operation (although the status of a disabled entity never changes). Other operations will return the error DDS_RETCODE_NOT_ENABLED.</p>
+<p>Entities created with a parent that is disabled, are created disabled regardless of the setting of the entityfactory policy.</p>
+<p>If the entityfactory policy has autoenable_created_entities set to TRUE, the dds_enable operation on the parent will automatically enable all child entities created with the parent.</p>
+<p>The Listeners associated with an Entity are not called until the Entity is enabled. Conditions associated with an Entity that is not enabled are “inactive”, that is, have a trigger_value which is FALSE.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Delayed entity enabling is not supported yet (CHAM-96).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> The entity to enable.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The listeners of to the entity have been successfully been copied into the specified listener parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The parent of the given Entity is not enabled. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_delete">
+<span class="target" id="group__entity_1ga66f5c1f258af4ec55cd8624ef04dfebf"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_delete</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_delete" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete given entity. </p>
+<p>This operation will delete the given entity. It will also automatically delete all its children, childrens’ children, etc entities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity to delete.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The entity and its children (recursive are deleted). </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_publisher">
+<span class="target" id="group__entity_1ga9c91683b6d423faa2831ce513fc865ef"></span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_publisher</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_publisher" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity publisher. </p>
+<p>This operation returns the publisher to which the given entity belongs. For instance, it will return the Publisher that was used when creating a DataWriter (when that DataWriter was provided here).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> Entity from which to get its publisher.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid publisher handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid entity or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_subscriber">
+<span class="target" id="group__entity_1ga6173cb745279698cb5fb684280a585eb"></span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_subscriber</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_subscriber" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity subscriber. </p>
+<p>This operation returns the subscriber to which the given entity belongs. For instance, it will return the Subscriber that was used when creating a DataReader (when that DataReader was provided here).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get its subscriber.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid subscriber handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. DOC_TODO: Link to generic dds entity relations documentation. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid subscriber handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_datareader">
+<span class="target" id="group__entity_1ga114ed8bb8a7e283cf54019f66fca3403"></span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_datareader</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_datareader" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity datareader. </p>
+<p>This operation returns the datareader to which the given entity belongs. For instance, it will return the DataReader that was used when creating a ReadCondition (when that ReadCondition was provided here).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get its datareader.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid reader handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. DOC_TODO: Link to generic dds entity relations documentation. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid reader handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_instance_handle">
+<span class="target" id="group__entity_1ga8349c45285f3bf76a7f2b079442447f7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_instance_handle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ihdl</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_instance_handle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the instance handle that represents the entity. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity of which to get the instance handle. </p></li>
+<li><p><strong>ihdl</strong> – <strong>[out]</strong> Pointer to dds_instance_handle_t.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. DOC_TODO: Check list of return codes is complete. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_guid">
+<span class="target" id="group__entity_1ga9473d8e3de469cd176141d8ce756ee5e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_guid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <a class="reference internal" href="builtin.html#c.dds_guid_t" title="dds_guid_t"><span class="n"><span class="pre">dds_guid_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">guid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_guid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the GUID that represents the entity in the network, and therefore only supports participants, readers and writers. </p>
+<p>
+DOC_TODO: Check list of return codes is complete. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity of which to get the instance handle. </p></li>
+<li><p><strong>guid</strong> – <strong>[out]</strong> Where to store the GUID.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_parent">
+<span class="target" id="group__entity_1gae2508b77a42c8ed0b0b97581bcfd20a5"></span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_parent</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_parent" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity parent. </p>
+<p>This operation returns the parent to which the given entity belongs. For instance, it will return the Participant that was used when creating a Publisher (when that Publisher was provided here).</p>
+<p>When a reader or a writer are created with a participant, then a subscriber or publisher are created implicitly. This function will return the implicit parent and not the used participant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get its parent.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid entity handle. </p></li>
+<li><p><strong>DDS_ENTITY_NIL</strong> – Called with a participant. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. DOC_TODO: Link to generic dds entity relations documentation. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid entity handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_participant">
+<span class="target" id="group__entity_1ga9d6d609b1e68267a5b9088125acd3892"></span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_participant</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_participant" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity participant. </p>
+<p>This operation returns the participant to which the given entity belongs. For instance, it will return the Participant that was used when creating a Publisher that was used to create a DataWriter (when that DataWriter was provided here).</p>
+<p>DOC_TODO: Link to generic dds entity relations documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get its participant.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid participant handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid entity or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_children">
+<span class="target" id="group__entity_1gafb7d1c06a15e21cbf920f42fd4861faa"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_children</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">children</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_children" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity children. </p>
+<p>This operation returns the children that the entity contains. For instance, it will return all the Topics, Publishers and Subscribers of the Participant that was used to create those entities (when that Participant is provided here).</p>
+<p>This functions takes a pre-allocated list to put the children in and will return the number of found children. It is possible that the given size of the list is not the same as the number of found children. If less children are found, then the last few entries in the list are untouched. When more children are found, then only ‘size’ number of entries are inserted into the list, but still complete count of the found children is returned. Which children are returned in the latter case is undefined.</p>
+<p>When supplying NULL as list and 0 as size, you can use this to acquire the number of children without having to pre-allocate a list.</p>
+<p>When a reader or a writer are created with a participant, then a subscriber or publisher are created implicitly. When used on the participant, this function will return the implicit subscriber and/or publisher and not the related reader/writer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get its children. </p></li>
+<li><p><strong>children</strong> – <strong>[out]</strong> Pre-allocated array to contain the found children. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the pre-allocated children’s list.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;=0</strong> – Number of found children (can be larger than ‘size’). </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The children parameter is NULL, while a size is provided. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Number of children or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_domainid">
+<span class="target" id="group__entity_1gae567b70bf7463711fb928a7ac9719dca"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_domainid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <a class="reference internal" href="domain.html#c.dds_domainid_t" title="dds_domainid_t"><span class="n"><span class="pre">dds_domainid_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_domainid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the domain id to which this entity is attached. </p>
+<p>When creating a participant entity, it is attached to a certain domain. All the children (like Publishers) and childrens’ children (like DataReaders), etc are also attached to that domain.</p>
+<p>This function will return the original domain ID when called on any of the entities within that hierarchy. For entities not associated with a domain, the id is set to DDS_DOMAIN_DEFAULT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get its children. </p></li>
+<li><p><strong>id</strong> – <strong>[out]</strong> Pointer to put the domain ID in.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Domain ID was returned. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The id parameter is NULL. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_triggered">
+<span class="target" id="group__entity_1ga471b8ec0d763d88a0e4fd18502bc0bf7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_triggered</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_triggered" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Checks whether the entity has one of its enabled statuses triggered. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity for which to check for triggered status.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_topic">
+<span class="target" id="group__entity_1gadc092c814a34dc6e1c95ac5037f86d29"></span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the topic. </p>
+<p>This operation returns a topic (handle) when the function call is done with reader, writer, read condition or query condition. For instance, it will return the topic when it is used for creating the reader or writer. For the conditions, it returns the topic that is used for creating the reader which was used to create the condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> The entity.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_assert_liveliness">
+<span class="target" id="group__entity_1ga4face9db6e18ba6808bdbf7f4220209e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_assert_liveliness</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_assert_liveliness" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This operation manually asserts the liveliness of a writer or domain participant. </p>
+<p>This operation manually asserts the liveliness of a writer or domain participant. This is used in combination with the Liveliness QoS policy to indicate that the entity remains active. This operation need only be used if the liveliness kind in the QoS is either DDS_LIVELINESS_MANUAL_BY_PARTICIPANT or DDS_LIVELINESS_MANUAL_BY_TOPIC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> A domain participant or writer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__entity__qos"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">entity_qos</span></span></dt>
+<dd><p>Almost all entities have get/set qos operations defined on them, again following the DCPS spec. But unlike the DCPS spec, the “present” field in qos_t allows one to initialize just the one QoS one wants to set &amp; pass it to set_qos. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_qos">
+<span class="target" id="group__entity__qos_1ga460e8db3be614368d575517ce98bfa41"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get entity QoS policies. </p>
+<p>This operation allows access to the existing set of QoS policies for the entity.</p>
+<p>
+DOC_TODO: Link to generic QoS information documentation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity on which to get qos. </p></li>
+<li><p><strong>qos</strong> – <strong>[out]</strong> Pointer to the qos structure that returns the set policies.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The existing set of QoS policy values applied to the entity has successfully been copied into the specified qos parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The qos parameter is NULL. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure. The QoS object will have at least all QoS relevant for the entity present and the corresponding dds_qget_… will return true.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_set_qos">
+<span class="target" id="group__entity__qos_1ga710dd67f02725632099ec23a61225fe2"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_set_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_set_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set entity QoS policies. </p>
+<p>This operation replaces the existing set of Qos Policy settings for an entity. The parameter qos must contain the struct with the QosPolicy settings which is checked for self-consistency.</p>
+<p>The set of QosPolicy settings specified by the qos parameter are applied on top of the existing QoS, replacing the values of any policies previously set (provided, the operation returned DDS_RETCODE_OK).</p>
+<p>Not all policies are changeable when the entity is enabled.</p>
+<p>
+DOC_TODO: Link to generic QoS information documentation. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently only Latency Budget and Ownership Strength are changeable QoS that can be set.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get qos. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> Pointer to the qos structure that provides the policies.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The new QoS policies are set. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The qos parameter is NULL. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_IMMUTABLE_POLICY</strong> – The entity is enabled and one or more of the policies of the QoS are immutable. </p></li>
+<li><p><strong>DDS_RETCODE_INCONSISTENT_POLICY</strong> – A few policies within the QoS are not consistent with each other.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<section id="dcps-status">
+<h2>DCPS Status<a class="headerlink" href="#dcps-status" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__dcps__status__getters"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">dcps_status_getters</span></span></dt>
+<dd><p>get_&lt;status&gt; APIs return the status of an entity and resets the status </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_inconsistent_topic_status">
+<span class="target" id="group__dcps__status__getters_1ga3f09f775d29244bb65ced311b552e59f"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_inconsistent_topic_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <a class="reference internal" href="listener.html#c.dds_inconsistent_topic_status_t" title="dds_inconsistent_topic_status_t"><span class="n"><span class="pre">dds_inconsistent_topic_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_inconsistent_topic_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get INCONSISTENT_TOPIC status. </p>
+<p>This operation gets the status value corresponding to INCONSISTENT_TOPIC and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>topic</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1ga73818fefd01699d7ef3624b1be3168b0"><span class="std std-ref">dds_inconsistent_topic_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_publication_matched_status">
+<span class="target" id="group__dcps__status__getters_1gad602557b20b541fcf7e43017d11db8ec"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_publication_matched_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="listener.html#c.dds_publication_matched_status_t" title="dds_publication_matched_status_t"><span class="n"><span class="pre">dds_publication_matched_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_publication_matched_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get PUBLICATION_MATCHED status. </p>
+<p>This operation gets the status value corresponding to PUBLICATION_MATCHED and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1ga122f5a18f9dbbb422c82f6ac457735bf"><span class="std std-ref">dds_publication_matched_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_liveliness_lost_status">
+<span class="target" id="group__dcps__status__getters_1ga40b217cf86449a417c6055840b25d151"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_liveliness_lost_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="listener.html#c.dds_liveliness_lost_status_t" title="dds_liveliness_lost_status_t"><span class="n"><span class="pre">dds_liveliness_lost_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_liveliness_lost_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get LIVELINESS_LOST status. </p>
+<p>This operation gets the status value corresponding to LIVELINESS_LOST and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1gad6faa739af549b82cf8e64e065ca3db2"><span class="std std-ref">dds_liveliness_lost_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_offered_deadline_missed_status">
+<span class="target" id="group__dcps__status__getters_1gabb85d7f85e94cb2f5ecd93e1820158c9"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_offered_deadline_missed_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="listener.html#c.dds_offered_deadline_missed_status_t" title="dds_offered_deadline_missed_status_t"><span class="n"><span class="pre">dds_offered_deadline_missed_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_offered_deadline_missed_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get OFFERED_DEADLINE_MISSED status. </p>
+<p>This operation gets the status value corresponding to OFFERED_DEADLINE_MISSED and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1gaf35db6a90a0159e6f471679397cde13d"><span class="std std-ref">dds_offered_deadline_missed_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_offered_incompatible_qos_status">
+<span class="target" id="group__dcps__status__getters_1ga68e5dc362b8aeabc45a8a5f27a195c7e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_offered_incompatible_qos_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="listener.html#c.dds_offered_incompatible_qos_status_t" title="dds_offered_incompatible_qos_status_t"><span class="n"><span class="pre">dds_offered_incompatible_qos_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_offered_incompatible_qos_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get OFFERED_INCOMPATIBLE_QOS status. </p>
+<p>This operation gets the status value corresponding to OFFERED_INCOMPATIBLE_QOS and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> The writer entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1gaddbc3c05f3dc412f596d28ebbb0248f0"><span class="std std-ref">dds_offered_incompatible_qos_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_subscription_matched_status">
+<span class="target" id="group__dcps__status__getters_1ga319dbe8418924bac901f8d9323e56e9b"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_subscription_matched_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="listener.html#c.dds_subscription_matched_status_t" title="dds_subscription_matched_status_t"><span class="n"><span class="pre">dds_subscription_matched_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_subscription_matched_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get SUBSCRIPTION_MATCHED status. </p>
+<p>This operation gets the status value corresponding to SUBSCRIPTION_MATCHED and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1ga19462213111877cc6ff94c496831c815"><span class="std std-ref">dds_subscription_matched_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_liveliness_changed_status">
+<span class="target" id="group__dcps__status__getters_1ga1ebab5d0594cc8a347ab60e7b18c3c65"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_liveliness_changed_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="listener.html#c.dds_liveliness_changed_status_t" title="dds_liveliness_changed_status_t"><span class="n"><span class="pre">dds_liveliness_changed_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_liveliness_changed_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get LIVELINESS_CHANGED status. </p>
+<p>This operation gets the status value corresponding to LIVELINESS_CHANGED and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1gad6b6ac185b7a01afaf296377b17e018b"><span class="std std-ref">dds_liveliness_changed_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_sample_rejected_status">
+<span class="target" id="group__dcps__status__getters_1ga11d7558fa602520e1354c17215f54c0c"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_sample_rejected_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="listener.html#c.dds_sample_rejected_status_t" title="dds_sample_rejected_status_t"><span class="n"><span class="pre">dds_sample_rejected_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_sample_rejected_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get SAMPLE_REJECTED status. </p>
+<p>This operation gets the status value corresponding to SAMPLE_REJECTED and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1ga6007aa14755892b9a558cf26855e4c5e"><span class="std std-ref">dds_sample_rejected_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>0 - Success </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>&lt;0 - Failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_sample_lost_status">
+<span class="target" id="group__dcps__status__getters_1gad0dedd5e383366565e52646277f02bfd"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_sample_lost_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="listener.html#c.dds_sample_lost_status_t" title="dds_sample_lost_status_t"><span class="n"><span class="pre">dds_sample_lost_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_sample_lost_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get SAMPLE_LOST status. </p>
+<p>This operation gets the status value corresponding to SAMPLE_LOST and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1ga20954c3116b3d2444856234ceb443365"><span class="std std-ref">dds_sample_lost_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_requested_deadline_missed_status">
+<span class="target" id="group__dcps__status__getters_1gab1be1d343a491917e73117d594138a0e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_requested_deadline_missed_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="listener.html#c.dds_requested_deadline_missed_status_t" title="dds_requested_deadline_missed_status_t"><span class="n"><span class="pre">dds_requested_deadline_missed_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_requested_deadline_missed_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get REQUESTED_DEADLINE_MISSED status. </p>
+<p>This operation gets the status value corresponding to REQUESTED_DEADLINE_MISSED and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1gaca96b4f764e881e8324e2c4615771463"><span class="std std-ref">dds_requested_deadline_missed_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_requested_incompatible_qos_status">
+<span class="target" id="group__dcps__status__getters_1gaa406cf5ea87f760f2cc71a681e295de9"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_requested_incompatible_qos_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="listener.html#c.dds_requested_incompatible_qos_status_t" title="dds_requested_incompatible_qos_status_t"><span class="n"><span class="pre">dds_requested_incompatible_qos_status_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_requested_incompatible_qos_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get REQUESTED_INCOMPATIBLE_QOS status. </p>
+<p>This operation gets the status value corresponding to REQUESTED_INCOMPATIBLE_QOS and reset the status. The value can be obtained, only if the status is enabled for an entity. NULL value for status is allowed and it will reset the trigger value when status is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The entity to get the status </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="listener.html#group__dcps__status_1gaa35f9042cb84c849977ac2a760d2fd77"><span class="std std-ref">dds_requested_incompatible_qos_status_t</span></a> to get the status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="interaction-with-listeners">
+<h2>Interaction with Listeners<a class="headerlink" href="#interaction-with-listeners" title="Permalink to this headline">¶</a></h2>
+<p>You can find the documentation on the interactions with listeners <a class="reference internal" href="listener.html#section-entity-listener"><span class="std std-ref">in the listener API documentation</span></a>:.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Entities</a><ul>
+<li><a class="reference internal" href="#dcps-status">DCPS Status</a></li>
+<li><a class="reference internal" href="#interaction-with-listeners">Interaction with Listeners</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="basics.html">
+                <span><</span> Basics</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="qos.html">QoS <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

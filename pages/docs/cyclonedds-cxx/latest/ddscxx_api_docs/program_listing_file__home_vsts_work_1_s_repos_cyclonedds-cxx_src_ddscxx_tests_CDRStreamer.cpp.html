@@ -254,9 +254,9 @@
 <span class="cp">VerifyRead(normal_bytes, test_struct, streamer, false);\</span>
 <span class="cp">VerifyRead(key_bytes, key_struct, streamer, true);</span>
 
-<span class="cp">#define read_test_fail(test_struct, key_struct, streamer)\</span>
+<span class="cp">#define read_test_fail(test_struct, key_struct, key_bytes, streamer)\</span>
 <span class="cp">VerifyRead(bytes(256, 0x0), test_struct, streamer, false, false);\</span>
-<span class="cp">VerifyRead(bytes(256, 0x0), key_struct, streamer, true, false);</span>
+<span class="cp">VerifyRead(key_bytes, key_struct, streamer, true);</span>
 
 <span class="cp">#define read_deeper_test(test_struct, key_struct, normal_bytes, key_bytes, streamer)\</span>
 <span class="cp">VerifyRead(normal_bytes, test_struct, streamer, false);\</span>
@@ -266,17 +266,17 @@
 <span class="cp">VerifyWrite(test_struct, normal_bytes, streamer, false);\</span>
 <span class="cp">VerifyWrite(key_struct, key_bytes, streamer, true);</span>
 
-<span class="cp">#define write_test_fail(test_struct, key_struct, streamer)\</span>
+<span class="cp">#define write_test_fail(test_struct, key_struct, key_bytes, streamer)\</span>
 <span class="cp">VerifyWrite(test_struct, bytes(256, 0x0), streamer, false, false);\</span>
-<span class="cp">VerifyWrite(test_struct, bytes(256, 0x0), streamer, true, false);</span>
+<span class="cp">VerifyWrite(test_struct, key_bytes, streamer, true);</span>
 
 <span class="cp">#define readwrite_test(test_struct, key_struct, normal_bytes, key_bytes, streamer)\</span>
 <span class="cp">read_test(test_struct, key_struct, normal_bytes, key_bytes, streamer)\</span>
 <span class="cp">write_test(test_struct, key_struct, normal_bytes, key_bytes, streamer)</span>
 
-<span class="cp">#define readwrite_test_fail(test_struct, key_struct, streamer)\</span>
-<span class="cp">read_test_fail(test_struct, key_struct, streamer)\</span>
-<span class="cp">write_test_fail(test_struct, key_struct, streamer)</span>
+<span class="cp">#define readwrite_test_fail(test_struct, key_struct, key_bytes, streamer)\</span>
+<span class="cp">read_test_fail(test_struct, key_struct, key_bytes, streamer)\</span>
+<span class="cp">write_test_fail(test_struct, key_struct, key_bytes, streamer)</span>
 
 <span class="cp">#define readwrite_deeper_test(test_struct, key_struct, normal_bytes, key_bytes, streamer)\</span>
 <span class="cp">read_deeper_test(test_struct, key_struct, normal_bytes, key_bytes, streamer)\</span>
@@ -293,7 +293,7 @@
 <span class="cp">readwrite_test(test_struct, key_struct, cdr_normal_bytes, key_bytes, xcdr_v2_stream(endianness::big_endian))</span>
 
 <span class="cp">#define stream_test_fail_basic(test_struct, xcdr_v1_normal_bytes, xcdr_v2_normal_bytes, key_bytes)\</span>
-<span class="cp">readwrite_test_fail(test_struct, test_struct, basic_cdr_stream(endianness::big_endian))\</span>
+<span class="cp">readwrite_test_fail(test_struct, test_struct, key_bytes, basic_cdr_stream(endianness::big_endian))\</span>
 <span class="cp">readwrite_test(test_struct, test_struct, xcdr_v1_normal_bytes, key_bytes, xcdr_v1_stream(endianness::big_endian))\</span>
 <span class="cp">readwrite_test(test_struct, test_struct, xcdr_v2_normal_bytes, key_bytes, xcdr_v2_stream(endianness::big_endian))</span>
 
@@ -782,7 +782,7 @@
 <span class="w">  </span><span class="cm">/* basic cdr does not support optional fields,</span>
 <span class="cm">     therefore the streamer should enter error status</span>
 <span class="cm">     when the streamer is asked to write them */</span><span class="w"></span>
-<span class="w">  </span><span class="n">readwrite_test_fail</span><span class="p">(</span><span class="n">OFS</span><span class="p">,</span><span class="w"> </span><span class="n">OFS</span><span class="p">,</span><span class="w"> </span><span class="n">basic_cdr_stream</span><span class="p">(</span><span class="n">endianness</span><span class="o">::</span><span class="n">big_endian</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">readwrite_test_fail</span><span class="p">(</span><span class="n">OFS</span><span class="p">,</span><span class="w"> </span><span class="n">OFS</span><span class="p">,</span><span class="w"> </span><span class="n">OFS_key</span><span class="p">,</span><span class="w"> </span><span class="n">basic_cdr_stream</span><span class="p">(</span><span class="n">endianness</span><span class="o">::</span><span class="n">big_endian</span><span class="p">));</span><span class="w"></span>
 
 <span class="w">  </span><span class="n">readwrite_test</span><span class="p">(</span><span class="n">OFS</span><span class="p">,</span><span class="w"> </span><span class="n">OFS</span><span class="p">,</span><span class="w"> </span><span class="n">OFS_xcdr_v1_normal</span><span class="p">,</span><span class="w"> </span><span class="n">OFS_key</span><span class="p">,</span><span class="w"> </span><span class="n">xcdr_v1_stream</span><span class="p">(</span><span class="n">endianness</span><span class="o">::</span><span class="n">big_endian</span><span class="p">))</span><span class="w"></span>
 <span class="w">  </span><span class="n">readwrite_test</span><span class="p">(</span><span class="n">OAS</span><span class="p">,</span><span class="w"> </span><span class="n">OAS</span><span class="p">,</span><span class="w"> </span><span class="n">OFS_xcdr_v1_normal</span><span class="p">,</span><span class="w"> </span><span class="n">OFS_key</span><span class="p">,</span><span class="w"> </span><span class="n">xcdr_v1_stream</span><span class="p">(</span><span class="n">endianness</span><span class="o">::</span><span class="n">big_endian</span><span class="p">))</span><span class="w"></span>
@@ -1025,7 +1025,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

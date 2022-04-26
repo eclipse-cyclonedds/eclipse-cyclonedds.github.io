@@ -143,7 +143,7 @@
 <p>This is the documentation for Eclipse Cyclone DDS Python, wrapping the <a class="reference external" href="https://github.com/eclipse-cyclonedds/cyclonedds/">Eclipse Cyclone DDS</a> C-API for easy creation of DDS applications.</p>
 <section id="prerequisites">
 <span id="installing"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>CycloneDDS Python requires Python version 3.7 or higher, with 3.11 support provisional. When CycloneDDS Python gets an official release the wheels on Pypi will contain a pre-built binary of the CycloneDDS C library and IDL compiler. These have a couple of caveats. The pre-built package:</p>
+<p>CycloneDDS Python requires Python version 3.7 or higher, with 3.11 support provisional. The wheels on PyPi contain a pre-built binary of the CycloneDDS C library and IDL compiler. These have a couple of caveats. The pre-built package:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>has no support for DDS Security,</p></li>
@@ -151,16 +151,16 @@
 <li><p>comes with generic Cyclone DDS binaries that are not optimized per-platform.</p></li>
 </ul>
 </div></blockquote>
-<p>As long as it is not fully released you will have to build from source, requiring your own CycloneDDS installation. While installing the CycloneDDS Python library you need to set the environment variable <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> to allow the installer to locate the CycloneDDS C library if it is on a non-standard path, as with all CMake projects. At runtime we leverage several mechanisms to locate the library that are appropriate for the platform, such as <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code> on linux and the Windows Registry CMake registry. If you get an exception about non-locatable libraries or wish to manage multiple CycloneDDS installations you can use the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to override the load location.</p>
+<p>If you need these features or cannot use the binaries for other reasons you can install the Cyclone DDS Python library from source. You will need to set the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to allow the installer to locate the CycloneDDS C library if it is on a non-standard path. At runtime we leverage several mechanisms to locate the library that are appropriate for the platform. If you get an exception about non-locatable libraries or wish to manage multiple CycloneDDS installations you can use the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to override the load location.</p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Pre-built binary installation from Pypi will be possible once released:</p>
+<p>Simply install with pip from PyPi.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install cyclonedds
 </pre></div>
 </div>
-<p>Right now you will need to install from source. You can install from the github link directly:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="s2">&quot;/path/to/cyclonedds&quot;</span> pip install https://github.com/eclipse-cyclonedds/cyclonedds-python
+<p>You can install from the github link directly:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CYCLONEDDS_HOME</span><span class="o">=</span><span class="s2">&quot;/path/to/cyclonedds&quot;</span> pip install git+https://github.com/eclipse-cyclonedds/cyclonedds-python
 </pre></div>
 </div>
 <p>If you wish to run the testsuite or build the documentation you will need additional dependencies. These can be installed by means of Python installation optional components:</p>
@@ -282,7 +282,7 @@ python -m http.server --directory build
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2020, Eclipse Cyclone DDS Python Committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

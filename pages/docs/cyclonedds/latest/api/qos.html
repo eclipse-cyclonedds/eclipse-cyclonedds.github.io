@@ -1,0 +1,1584 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>QoS &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Domains" href="domain.html" />
+    <link rel="prev" title="Entities" href="entity.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="qos">
+<h1>QoS<a class="headerlink" href="#qos" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__qos"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">qos</span></span></dt>
+<dd><p>This defines the public API of QoS and Policies in the Eclipse Cyclone DDS C language binding. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_HAS_PROPERTY_LIST_QOS">
+<span class="target" id="group__qos_1ga660a075652c311b2904ccc78063f3756"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_HAS_PROPERTY_LIST_QOS</span></span></span><a class="headerlink" href="#c.DDS_HAS_PROPERTY_LIST_QOS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether or not the “property list” QoS setting is supported in this version. If it is, the “dds.sec.” properties are treated specially, preventing the accidental creation of an non-secure participant by an implementation built without support for DDS Security. </p>
+<p><span class="target" id="group__qos_1DDS_HAS_PROPERTY_LIST_QOS"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LENGTH_UNLIMITED">
+<span class="target" id="group__qos_1ga1acaf7769af1917359471d007594328c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LENGTH_UNLIMITED</span></span></span><a class="headerlink" href="#c.DDS_LENGTH_UNLIMITED" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Used for indicating unlimited length in <a class="reference internal" href="#group__qos__setters_1ga9ae73da0f7b76046e1a0a355c18c3690"><span class="std std-ref">dds_qset_resource_limits()</span></a> </p>
+<p><span class="target" id="group__qos_1DDS_LENGTH_UNLIMITED"></span></p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_qos_t">
+<span class="target" id="group__qos_1ga2ecc2eff9e47ee74264a1b93c65241cc"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_qos</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qos_t</span></span></span><a class="headerlink" href="#c.dds_qos_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>QoS datatype. </p>
+<p>QoS structure is opaque </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_durability_kind_t">
+<span class="target" id="group__qos_1ga715c4b0582c2b0d868c20e686458bb97"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_durability_kind" title="dds_durability_kind"><span class="n"><span class="pre">dds_durability_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_durability_kind_t</span></span></span><a class="headerlink" href="#c.dds_durability_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Durability QoS: Applies to Topic, DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_history_kind_t">
+<span class="target" id="group__qos_1ga65d88da0d1ecaa1acaf14e70798bd914"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_history_kind" title="dds_history_kind"><span class="n"><span class="pre">dds_history_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_history_kind_t</span></span></span><a class="headerlink" href="#c.dds_history_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>History QoS: Applies to Topic, DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_ownership_kind_t">
+<span class="target" id="group__qos_1gab3ded62598b41db32f56a011002ae3bb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_ownership_kind" title="dds_ownership_kind"><span class="n"><span class="pre">dds_ownership_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_ownership_kind_t</span></span></span><a class="headerlink" href="#c.dds_ownership_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ownership QoS: Applies to Topic, DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_liveliness_kind_t">
+<span class="target" id="group__qos_1ga5519f28e0674b9cfa2d41f72a68c7833"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_liveliness_kind" title="dds_liveliness_kind"><span class="n"><span class="pre">dds_liveliness_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_liveliness_kind_t</span></span></span><a class="headerlink" href="#c.dds_liveliness_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Liveliness QoS: Applies to Topic, DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_reliability_kind_t">
+<span class="target" id="group__qos_1gab3a2d7f4f60e9cbb980128ce1b8b1f70"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_reliability_kind" title="dds_reliability_kind"><span class="n"><span class="pre">dds_reliability_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_reliability_kind_t</span></span></span><a class="headerlink" href="#c.dds_reliability_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reliability QoS: Applies to Topic, DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_destination_order_kind_t">
+<span class="target" id="group__qos_1gae01eae387c5d4e98e0d23df35fb50297"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_destination_order_kind" title="dds_destination_order_kind"><span class="n"><span class="pre">dds_destination_order_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_destination_order_kind_t</span></span></span><a class="headerlink" href="#c.dds_destination_order_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DestinationOrder QoS: Applies to Topic, DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_presentation_access_scope_kind_t">
+<span class="target" id="group__qos_1gaa361577224d5c14ff64414d9486be7e9"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_presentation_access_scope_kind" title="dds_presentation_access_scope_kind"><span class="n"><span class="pre">dds_presentation_access_scope_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_presentation_access_scope_kind_t</span></span></span><a class="headerlink" href="#c.dds_presentation_access_scope_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Presentation QoS: Applies to Publisher, Subscriber. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_ignorelocal_kind_t">
+<span class="target" id="group__qos_1ga80c08a898048a5ae829bbc013c1f24f6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_ignorelocal_kind" title="dds_ignorelocal_kind"><span class="n"><span class="pre">dds_ignorelocal_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_ignorelocal_kind_t</span></span></span><a class="headerlink" href="#c.dds_ignorelocal_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ignore-local QoS: Applies to DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_type_consistency_kind_t">
+<span class="target" id="group__qos_1ga1c7d3c8b9fa2b035a107c1915eaa1ae6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_type_consistency_kind" title="dds_type_consistency_kind"><span class="n"><span class="pre">dds_type_consistency_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_type_consistency_kind_t</span></span></span><a class="headerlink" href="#c.dds_type_consistency_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type-consistency QoS: Applies to DataReader, DataWriter. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_data_representation_id_t">
+<span class="target" id="group__qos_1gabd1b171611441f4702693b58091a1bee"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_data_representation_id_t</span></span></span><a class="headerlink" href="#c.dds_data_representation_id_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data Representation QoS: Applies to Topic, DataReader, DataWriter. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_durability_kind">
+<span class="target" id="group__qos_1ga361d0c953706f8807226c7d447a4204b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_durability_kind</span></span></span><a class="headerlink" href="#c.dds_durability_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Durability QoS: Applies to Topic, DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_durability_kind.DDS_DURABILITY_VOLATILE">
+<span class="target" id="group__qos_1gga361d0c953706f8807226c7d447a4204ba3dbe2904846b3b0fe3d91666a7d68734"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DURABILITY_VOLATILE</span></span></span><a class="headerlink" href="#c.dds_durability_kind.DDS_DURABILITY_VOLATILE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Volatile durability </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_durability_kind.DDS_DURABILITY_TRANSIENT_LOCAL">
+<span class="target" id="group__qos_1gga361d0c953706f8807226c7d447a4204baf8707c032253e97b131505bbd5754638"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DURABILITY_TRANSIENT_LOCAL</span></span></span><a class="headerlink" href="#c.dds_durability_kind.DDS_DURABILITY_TRANSIENT_LOCAL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Transient Local durability </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_durability_kind.DDS_DURABILITY_TRANSIENT">
+<span class="target" id="group__qos_1gga361d0c953706f8807226c7d447a4204ba7b058634864e4e817d904760610e106f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DURABILITY_TRANSIENT</span></span></span><a class="headerlink" href="#c.dds_durability_kind.DDS_DURABILITY_TRANSIENT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Transient durability </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_durability_kind.DDS_DURABILITY_PERSISTENT">
+<span class="target" id="group__qos_1gga361d0c953706f8807226c7d447a4204baa338e3c5e5b840c19e6c08c6068a2e9e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DURABILITY_PERSISTENT</span></span></span><a class="headerlink" href="#c.dds_durability_kind.DDS_DURABILITY_PERSISTENT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Persistent durability </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_history_kind">
+<span class="target" id="group__qos_1gabe3618212f0903ab8ebb93f359624ca4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_history_kind</span></span></span><a class="headerlink" href="#c.dds_history_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>History QoS: Applies to Topic, DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_history_kind.DDS_HISTORY_KEEP_LAST">
+<span class="target" id="group__qos_1ggabe3618212f0903ab8ebb93f359624ca4a27e1440a886825de67d881ee92384b7b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_HISTORY_KEEP_LAST</span></span></span><a class="headerlink" href="#c.dds_history_kind.DDS_HISTORY_KEEP_LAST" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Keep Last history </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_history_kind.DDS_HISTORY_KEEP_ALL">
+<span class="target" id="group__qos_1ggabe3618212f0903ab8ebb93f359624ca4af39a22d946fe19894b4df289fe4bc36c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_HISTORY_KEEP_ALL</span></span></span><a class="headerlink" href="#c.dds_history_kind.DDS_HISTORY_KEEP_ALL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Keep All history </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_ownership_kind">
+<span class="target" id="group__qos_1ga297402b0f21a00cda5c0ce31be71fc4b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_ownership_kind</span></span></span><a class="headerlink" href="#c.dds_ownership_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ownership QoS: Applies to Topic, DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_ownership_kind.DDS_OWNERSHIP_SHARED">
+<span class="target" id="group__qos_1gga297402b0f21a00cda5c0ce31be71fc4baa46a6cc0efe2ea2925bb78692b86fcab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OWNERSHIP_SHARED</span></span></span><a class="headerlink" href="#c.dds_ownership_kind.DDS_OWNERSHIP_SHARED" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Shared Ownership </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_ownership_kind.DDS_OWNERSHIP_EXCLUSIVE">
+<span class="target" id="group__qos_1gga297402b0f21a00cda5c0ce31be71fc4badfe663be4cca7c5030760df5a30284c7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OWNERSHIP_EXCLUSIVE</span></span></span><a class="headerlink" href="#c.dds_ownership_kind.DDS_OWNERSHIP_EXCLUSIVE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Exclusive Ownership </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_liveliness_kind">
+<span class="target" id="group__qos_1ga379ecfe89e22ebf7dc03784e60cc85ae"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_liveliness_kind</span></span></span><a class="headerlink" href="#c.dds_liveliness_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Liveliness QoS: Applies to Topic, DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_liveliness_kind.DDS_LIVELINESS_AUTOMATIC">
+<span class="target" id="group__qos_1gga379ecfe89e22ebf7dc03784e60cc85aeaedaddb1d2490fcce61b77e4110316808"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_AUTOMATIC</span></span></span><a class="headerlink" href="#c.dds_liveliness_kind.DDS_LIVELINESS_AUTOMATIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Automatic liveliness </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_liveliness_kind.DDS_LIVELINESS_MANUAL_BY_PARTICIPANT">
+<span class="target" id="group__qos_1gga379ecfe89e22ebf7dc03784e60cc85aea0fc35c8840f4059df59e10df643d6938"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_MANUAL_BY_PARTICIPANT</span></span></span><a class="headerlink" href="#c.dds_liveliness_kind.DDS_LIVELINESS_MANUAL_BY_PARTICIPANT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Manual by Participant liveliness </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_liveliness_kind.DDS_LIVELINESS_MANUAL_BY_TOPIC">
+<span class="target" id="group__qos_1gga379ecfe89e22ebf7dc03784e60cc85aea9bb2073222dacfe262ea5a90a3b2d3b0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_MANUAL_BY_TOPIC</span></span></span><a class="headerlink" href="#c.dds_liveliness_kind.DDS_LIVELINESS_MANUAL_BY_TOPIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Manual by Topic liveliness </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_reliability_kind">
+<span class="target" id="group__qos_1ga281ecb83c112f3b86df9873704b5c2c3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_reliability_kind</span></span></span><a class="headerlink" href="#c.dds_reliability_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reliability QoS: Applies to Topic, DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_reliability_kind.DDS_RELIABILITY_BEST_EFFORT">
+<span class="target" id="group__qos_1gga281ecb83c112f3b86df9873704b5c2c3ad96b79bf383d04944ea71ea396811f43"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RELIABILITY_BEST_EFFORT</span></span></span><a class="headerlink" href="#c.dds_reliability_kind.DDS_RELIABILITY_BEST_EFFORT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Best Effort reliability </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_reliability_kind.DDS_RELIABILITY_RELIABLE">
+<span class="target" id="group__qos_1gga281ecb83c112f3b86df9873704b5c2c3af5eb376832afbdb96dff1b6c11aa9495"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RELIABILITY_RELIABLE</span></span></span><a class="headerlink" href="#c.dds_reliability_kind.DDS_RELIABILITY_RELIABLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reliable reliability </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_destination_order_kind">
+<span class="target" id="group__qos_1ga7824679ad7294c50dfe4d32e6166cfed"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_destination_order_kind</span></span></span><a class="headerlink" href="#c.dds_destination_order_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DestinationOrder QoS: Applies to Topic, DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_destination_order_kind.DDS_DESTINATIONORDER_BY_RECEPTION_TIMESTAMP">
+<span class="target" id="group__qos_1gga7824679ad7294c50dfe4d32e6166cfeda6369a7acd43706b090a026ebc842bb58"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DESTINATIONORDER_BY_RECEPTION_TIMESTAMP</span></span></span><a class="headerlink" href="#c.dds_destination_order_kind.DDS_DESTINATIONORDER_BY_RECEPTION_TIMESTAMP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>order by reception timestamp </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_destination_order_kind.DDS_DESTINATIONORDER_BY_SOURCE_TIMESTAMP">
+<span class="target" id="group__qos_1gga7824679ad7294c50dfe4d32e6166cfeda01e556545289f3f3657b0f9f08e65427"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DESTINATIONORDER_BY_SOURCE_TIMESTAMP</span></span></span><a class="headerlink" href="#c.dds_destination_order_kind.DDS_DESTINATIONORDER_BY_SOURCE_TIMESTAMP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>order by source timestamp </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_presentation_access_scope_kind">
+<span class="target" id="group__qos_1gabd56f99be3abaa9f8a9780da63683e46"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_presentation_access_scope_kind</span></span></span><a class="headerlink" href="#c.dds_presentation_access_scope_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Presentation QoS: Applies to Publisher, Subscriber. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_presentation_access_scope_kind.DDS_PRESENTATION_INSTANCE">
+<span class="target" id="group__qos_1ggabd56f99be3abaa9f8a9780da63683e46ad2d70d31c797f3f1a59cc5a5c56e2ae5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PRESENTATION_INSTANCE</span></span></span><a class="headerlink" href="#c.dds_presentation_access_scope_kind.DDS_PRESENTATION_INSTANCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>presentation scope per instance </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_presentation_access_scope_kind.DDS_PRESENTATION_TOPIC">
+<span class="target" id="group__qos_1ggabd56f99be3abaa9f8a9780da63683e46a486a06ccf47fae69c9347767e0036507"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PRESENTATION_TOPIC</span></span></span><a class="headerlink" href="#c.dds_presentation_access_scope_kind.DDS_PRESENTATION_TOPIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>presentation scope per topic </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_presentation_access_scope_kind.DDS_PRESENTATION_GROUP">
+<span class="target" id="group__qos_1ggabd56f99be3abaa9f8a9780da63683e46af67f594f8b8a2afa18523416d8250971"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PRESENTATION_GROUP</span></span></span><a class="headerlink" href="#c.dds_presentation_access_scope_kind.DDS_PRESENTATION_GROUP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>presentation scope per group </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_ignorelocal_kind">
+<span class="target" id="group__qos_1gaab82cd770a6c832d8c4a7b715f829ee9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_ignorelocal_kind</span></span></span><a class="headerlink" href="#c.dds_ignorelocal_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ignore-local QoS: Applies to DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_ignorelocal_kind.DDS_IGNORELOCAL_NONE">
+<span class="target" id="group__qos_1ggaab82cd770a6c832d8c4a7b715f829ee9a7ccfbad843301930c126771a940c360c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_IGNORELOCAL_NONE</span></span></span><a class="headerlink" href="#c.dds_ignorelocal_kind.DDS_IGNORELOCAL_NONE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Don’t ignore local data </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_ignorelocal_kind.DDS_IGNORELOCAL_PARTICIPANT">
+<span class="target" id="group__qos_1ggaab82cd770a6c832d8c4a7b715f829ee9aed3ac6d403199d8324af82a98fbfb942"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_IGNORELOCAL_PARTICIPANT</span></span></span><a class="headerlink" href="#c.dds_ignorelocal_kind.DDS_IGNORELOCAL_PARTICIPANT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ignore local data from same participant </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_ignorelocal_kind.DDS_IGNORELOCAL_PROCESS">
+<span class="target" id="group__qos_1ggaab82cd770a6c832d8c4a7b715f829ee9ad97ac07351e472b8cfbc8c396dcd70a6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_IGNORELOCAL_PROCESS</span></span></span><a class="headerlink" href="#c.dds_ignorelocal_kind.DDS_IGNORELOCAL_PROCESS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ignore local data from same process </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_type_consistency_kind">
+<span class="target" id="group__qos_1ga9c560ff2787cb224e653c53c977edf05"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_type_consistency_kind</span></span></span><a class="headerlink" href="#c.dds_type_consistency_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type-consistency QoS: Applies to DataReader, DataWriter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_type_consistency_kind.DDS_TYPE_CONSISTENCY_DISALLOW_TYPE_COERCION">
+<span class="target" id="group__qos_1gga9c560ff2787cb224e653c53c977edf05a921c921a445d8d4175fb6eac80979a34"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TYPE_CONSISTENCY_DISALLOW_TYPE_COERCION</span></span></span><a class="headerlink" href="#c.dds_type_consistency_kind.DDS_TYPE_CONSISTENCY_DISALLOW_TYPE_COERCION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Do not allow type coercion </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_type_consistency_kind.DDS_TYPE_CONSISTENCY_ALLOW_TYPE_COERCION">
+<span class="target" id="group__qos_1gga9c560ff2787cb224e653c53c977edf05a81f321fb56bfd79bca2143a4aaa3fe67"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TYPE_CONSISTENCY_ALLOW_TYPE_COERCION</span></span></span><a class="headerlink" href="#c.dds_type_consistency_kind.DDS_TYPE_CONSISTENCY_ALLOW_TYPE_COERCION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allow type coercion </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_qos">
+<span class="target" id="group__qos_1gab736e22ef21e2c9f576be32ce99a2087"></span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_qos</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocate memory and initialize default QoS-policies. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>- Pointer to the initialized dds_qos_t structure, NULL if unsuccessful. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_delete_qos">
+<span class="target" id="group__qos_1ga2c6d1492504a2d70beec66335dc9d08d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_delete_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_delete_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete memory allocated to QoS-policies structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to dds_qos_t structure </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_reset_qos">
+<span class="target" id="group__qos_1ga548300984a6fecc95e75e340ec891883"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_reset_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_reset_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset a QoS-policies structure to default values. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to the dds_qos_t structure </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_copy_qos">
+<span class="target" id="group__qos_1ga090a023fe04a46975be7e807065bee80"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_copy_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dst</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">src</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_copy_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy all QoS-policies from one structure to another. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dst</strong> – <strong>[inout]</strong> - Pointer to the destination dds_qos_t structure </p></li>
+<li><p><strong>src</strong> – <strong>[in]</strong> - Pointer to the source dds_qos_t structure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- Return-code indicating success or failure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_merge_qos">
+<span class="target" id="group__qos_1ga639a02c7c517691c8e6e6addab0154e7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_merge_qos</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dst</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">src</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_merge_qos" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy all QoS-policies from one structure to another, unless already set. </p>
+<p>Policies are copied from src to dst, unless src already has the policy set to a non-default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dst</strong> – <strong>[inout]</strong> - Pointer to the destination qos structure </p></li>
+<li><p><strong>src</strong> – <strong>[in]</strong> - Pointer to the source qos structure </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qos_equal">
+<span class="target" id="group__qos_1ga0cc3039c0c42af5c931099f178e93707"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qos_equal</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">a</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">b</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qos_equal" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy all QoS-policies from one structure to another, unless already set. </p>
+<p>Policies are copied from src to dst, unless src already has the policy set to a non-default value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> – <strong>[inout]</strong> - Pointer to the destination qos structure </p></li>
+<li><p><strong>b</strong> – <strong>[in]</strong> - Pointer to the source qos structure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>whether the copy was successful. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<section id="setters">
+<h2>Setters<a class="headerlink" href="#setters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__qos__setters"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">qos_setters</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_userdata">
+<span class="target" id="group__qos__setters_1gae1701a61bc179f4062827b5a3e9ae6f9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_userdata</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_userdata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the userdata of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the userdata </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to the userdata </p></li>
+<li><p><strong>sz</strong> – <strong>[in]</strong> - Size of userdata stored in value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_topicdata">
+<span class="target" id="group__qos__setters_1ga5106489fb2567940fb363c7927c054bf"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_topicdata</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_topicdata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the topicdata of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the topicdata </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to the topicdata </p></li>
+<li><p><strong>sz</strong> – <strong>[in]</strong> - Size of the topicdata stored in value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_groupdata">
+<span class="target" id="group__qos__setters_1ga32ec0b5a69cae74a0d4f2843742a5e8e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_groupdata</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_groupdata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the groupdata of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the groupdata </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to the group data </p></li>
+<li><p><strong>sz</strong> – <strong>[in]</strong> - Size of groupdata stored in value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_durability">
+<span class="target" id="group__qos__setters_1gab22394091cfed2bee05c93ce04c1ae05"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_durability</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_durability_kind_t" title="dds_durability_kind_t"><span class="n"><span class="pre">dds_durability_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_durability" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the durability policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> - Durability kind value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_history">
+<span class="target" id="group__qos__setters_1gadd2aced60f8c7a509b8b7b85809c1402"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_history</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_history_kind_t" title="dds_history_kind_t"><span class="n"><span class="pre">dds_history_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">depth</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_history" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the history policy of a qos structure. </p>
+<p>Note that depth is only relevant for keep last. If you want limited history for keep all, use <a class="reference internal" href="#group__qos__setters_1ga9ae73da0f7b76046e1a0a355c18c3690"><span class="std std-ref">dds_qset_resource_limits()</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> - History kind value </p></li>
+<li><p><strong>depth</strong> – <strong>[in]</strong> - History depth value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_resource_limits">
+<span class="target" id="group__qos__setters_1ga9ae73da0f7b76046e1a0a355c18c3690"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_resource_limits</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_samples</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_instances</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_samples_per_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_resource_limits" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the resource limits policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>max_samples</strong> – <strong>[in]</strong> - Number of samples resource-limit value </p></li>
+<li><p><strong>max_instances</strong> – <strong>[in]</strong> - Number of instances resource-limit value </p></li>
+<li><p><strong>max_samples_per_instance</strong> – <strong>[in]</strong> - Number of samples per instance resource-limit value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_presentation">
+<span class="target" id="group__qos__setters_1ga12638fbf1f68decdfff022d8713865ff"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_presentation</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_presentation_access_scope_kind_t" title="dds_presentation_access_scope_kind_t"><span class="n"><span class="pre">dds_presentation_access_scope_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">access_scope</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">coherent_access</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">ordered_access</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_presentation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the presentation policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>access_scope</strong> – <strong>[in]</strong> - Access-scope kind </p></li>
+<li><p><strong>coherent_access</strong> – <strong>[in]</strong> - Coherent access enable value </p></li>
+<li><p><strong>ordered_access</strong> – <strong>[in]</strong> - Ordered access enable value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_lifespan">
+<span class="target" id="group__qos__setters_1gaf8ae933877645133ff1c28d769b48ccc"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_lifespan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">lifespan</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_lifespan" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the lifespan policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>lifespan</strong> – <strong>[in]</strong> - Lifespan duration (expiration time relative to source timestamp of a sample) </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_deadline">
+<span class="target" id="group__qos__setters_1gaa3eb149709214e5cb9cf749947f7e3de"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_deadline</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">deadline</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_deadline" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the deadline policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>deadline</strong> – <strong>[in]</strong> - Deadline duration </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_latency_budget">
+<span class="target" id="group__qos__setters_1gac8b19beaac9ca07da42ea4ff7c77ca31"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_latency_budget</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">duration</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_latency_budget" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the latency-budget policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>duration</strong> – <strong>[in]</strong> - Latency budget duration </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_ownership">
+<span class="target" id="group__qos__setters_1ga2ee03b9551df5f88c81735109e0a0578"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_ownership</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_ownership_kind_t" title="dds_ownership_kind_t"><span class="n"><span class="pre">dds_ownership_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_ownership" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the ownership policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> - Ownership kind </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_ownership_strength">
+<span class="target" id="group__qos__setters_1gafeb5f6405805fa971a12a6ec98492a67"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_ownership_strength</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_ownership_strength" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the ownership strength policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Ownership strength value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_liveliness">
+<span class="target" id="group__qos__setters_1ga20283b5eaf7c1f7f9cb46d40d544f76a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_liveliness</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_liveliness_kind_t" title="dds_liveliness_kind_t"><span class="n"><span class="pre">dds_liveliness_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">lease_duration</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_liveliness" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the liveliness policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> - Liveliness kind </p></li>
+<li><p><strong>lease_duration</strong> – <strong>[in]</strong> - Lease duration </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_time_based_filter">
+<span class="target" id="group__qos__setters_1ga54995f432ddd5a3597fe8a30d20cd14e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_time_based_filter</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">minimum_separation</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_time_based_filter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the time-based filter policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>minimum_separation</strong> – <strong>[in]</strong> - Minimum duration between sample delivery for an instance </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_partition">
+<span class="target" id="group__qos__setters_1ga8831f25c1a3eceb392dd93e6aece557c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_partition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ps</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_partition" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the partition policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>n</strong> – <strong>[in]</strong> - Number of partitions stored in ps </p></li>
+<li><p><strong>ps</strong> – <strong>[in]</strong> - Pointer to string(s) storing partition name(s) </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_partition1">
+<span class="target" id="group__qos__setters_1gaf67900cd9fe906bfd5eb633506cb7e59"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_partition1</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_partition1" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convenience function to set the partition policy of a qos structure to a single name. Name may be a null pointer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to the name </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_reliability">
+<span class="target" id="group__qos__setters_1gadcc4186f442a3dddedbd277c3e87d93d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_reliability</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_reliability_kind_t" title="dds_reliability_kind_t"><span class="n"><span class="pre">dds_reliability_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_blocking_time</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_reliability" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the reliability policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> - Reliability kind </p></li>
+<li><p><strong>max_blocking_time</strong> – <strong>[in]</strong> - Max blocking duration applied when kind is reliable. This is how long the writer will block when its history is full. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_transport_priority">
+<span class="target" id="group__qos__setters_1ga590958ddac3cbbe03545f0e94f77c93d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_transport_priority</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_transport_priority" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the transport-priority policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Priority value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_destination_order">
+<span class="target" id="group__qos__setters_1gad7a12a1abb437977e4a7e61dd3c41f4c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_destination_order</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_destination_order_kind_t" title="dds_destination_order_kind_t"><span class="n"><span class="pre">dds_destination_order_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_destination_order" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the destination-order policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> - Destination-order kind </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_writer_data_lifecycle">
+<span class="target" id="group__qos__setters_1gac237655723852f787ad8e68d1c291115"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_writer_data_lifecycle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">autodispose</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_writer_data_lifecycle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the writer data-lifecycle policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>autodispose</strong> – <strong>[in]</strong> - Automatic disposal of unregistered instances </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_reader_data_lifecycle">
+<span class="target" id="group__qos__setters_1ga9c167f2288aee1464e572bfc2438d993"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_reader_data_lifecycle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">autopurge_nowriter_samples_delay</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">autopurge_disposed_samples_delay</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_reader_data_lifecycle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the reader data-lifecycle policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>autopurge_nowriter_samples_delay</strong> – <strong>[in]</strong> - Delay for purging of samples from instances in a no-writers state </p></li>
+<li><p><strong>autopurge_disposed_samples_delay</strong> – <strong>[in]</strong> - Delay for purging of samples from disposed instances </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_durability_service">
+<span class="target" id="group__qos__setters_1ga3680335e6298a25fe3ffed6a5d97d1c6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_durability_service</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">service_cleanup_delay</span></span>, <a class="reference internal" href="#c.dds_history_kind_t" title="dds_history_kind_t"><span class="n"><span class="pre">dds_history_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">history_kind</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">history_depth</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_samples</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_instances</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_samples_per_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_durability_service" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the durability-service policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>service_cleanup_delay</strong> – <strong>[in]</strong> - Delay for purging of abandoned instances from the durability service </p></li>
+<li><p><strong>history_kind</strong> – <strong>[in]</strong> - History policy kind applied by the durability service </p></li>
+<li><p><strong>history_depth</strong> – <strong>[in]</strong> - History policy depth applied by the durability service </p></li>
+<li><p><strong>max_samples</strong> – <strong>[in]</strong> - Number of samples resource-limit policy applied by the durability service </p></li>
+<li><p><strong>max_instances</strong> – <strong>[in]</strong> - Number of instances resource-limit policy applied by the durability service </p></li>
+<li><p><strong>max_samples_per_instance</strong> – <strong>[in]</strong> - Number of samples per instance resource-limit policy applied by the durability service </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_ignorelocal">
+<span class="target" id="group__qos__setters_1ga4f41b08fb96ef97fbc00834a47d72dc2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_ignorelocal</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_ignorelocal_kind_t" title="dds_ignorelocal_kind_t"><span class="n"><span class="pre">dds_ignorelocal_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ignore</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_ignorelocal" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the ignore-local policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>ignore</strong> – <strong>[in]</strong> - True if readers and writers owned by the same participant should be ignored </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_prop">
+<span class="target" id="group__qos__setters_1gaec74aa66fd23255a08cf8fb7a3a3c521"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_prop</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_prop" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores a property with the provided name and string value in a qos structure. </p>
+<p>In the case a property with the provided name already exists in the qos structure, the value for this entry is overwritten with the provided string value. If more than one property with the provided name exists, only the value of the first of these properties is updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to a (null-terminated) string that will be stored </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qunset_prop">
+<span class="target" id="group__qos__setters_1ga114b4a4a8ee942c91165dbcf12d17d61"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qunset_prop</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qunset_prop" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Removes the property with the provided name from a qos structure. </p>
+<p>In case more than one property exists with this name, only the first property is removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_bprop">
+<span class="target" id="group__qos__setters_1gacba33f14ac408b8acaf11f51e210c6df"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_bprop</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_bprop" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the provided binary data as a property in a qos structure. </p>
+<p>In the case a property with the provided name already exists in the qos structure, the value for this entry is overwritten with the provided data. If more than one property with the provided name exists, only the value of the first of these properties is updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to data to be stored in the property </p></li>
+<li><p><strong>sz</strong> – <strong>[in]</strong> - Size of the data </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qunset_bprop">
+<span class="target" id="group__qos__setters_1ga6fe1583d3021557c84ed738ed7571c6e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qunset_bprop</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qunset_bprop" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Removes the binary property with the provided name from a qos structure. </p>
+<p>In case more than one binary property exists with this name, only the first binary property is removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains the binary property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_type_consistency">
+<span class="target" id="group__qos__setters_1ga2f1f12669366c7d6e3804c1561912b8a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_type_consistency</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_type_consistency_kind_t" title="dds_type_consistency_kind_t"><span class="n"><span class="pre">dds_type_consistency_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">ignore_sequence_bounds</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">ignore_string_bounds</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">ignore_member_names</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">prevent_type_widening</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">force_type_validation</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_type_consistency" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the type consistency enforcement policy of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[in]</strong> - Type consistency policy kind </p></li>
+<li><p><strong>ignore_sequence_bounds</strong> – <strong>[in]</strong> - Ignore sequence bounds in type assignability checking </p></li>
+<li><p><strong>ignore_string_bounds</strong> – <strong>[in]</strong> - Ignore string bounds in type assignability checking </p></li>
+<li><p><strong>ignore_member_names</strong> – <strong>[in]</strong> - Ignore member names in type assignability checking </p></li>
+<li><p><strong>prevent_type_widening</strong> – <strong>[in]</strong> - Prevent type widening in type assignability checking </p></li>
+<li><p><strong>force_type_validation</strong> – <strong>[in]</strong> - Force type validation in assignability checking </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_data_representation">
+<span class="target" id="group__qos__setters_1ga1079ea3fd78959a9aedce8c93370fada"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_data_representation</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_data_representation_id_t" title="dds_data_representation_id_t"><span class="n"><span class="pre">dds_data_representation_id_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_data_representation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the data representation of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>n</strong> – <strong>[in]</strong> - Number of data representation values </p></li>
+<li><p><strong>values</strong> – <strong>[in]</strong> - Data representation values </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_entity_name">
+<span class="target" id="group__qos__setters_1gad56f1cbb587ff1cde07887ac7e3fb6ac"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_entity_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_entity_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the entity name. </p>
+<p>When using this QoS to initialize a participant, publisher, subscriber, reader or writer it will take the name set here. This name is visible over discovery and can be used to make sense of network in tooling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the entity name. </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to the entity name to set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="getters">
+<h2>Getters<a class="headerlink" href="#getters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__qos__getters"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">qos_getters</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_userdata">
+<span class="target" id="group__qos__getters_1ga95261f1b9f4b9d6235ef26f96c8e6d31"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_userdata</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_userdata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the userdata from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer that will store the userdata. If sz = 0, then a null pointer, else it is a pointer to an allocated buffer of sz+1 bytes where the last byte is always 0 </p></li>
+<li><p><strong>sz</strong> – <strong>[inout]</strong> - Pointer that will store the size of userdata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_topicdata">
+<span class="target" id="group__qos__getters_1ga685e77caff2cce81142091daed1e889d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_topicdata</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_topicdata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the topicdata from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer that will store the topicdata. If sz = 0, then a null pointer, else it is a pointer to an allocated buffer of sz+1 bytes where the last byte is always 0 </p></li>
+<li><p><strong>sz</strong> – <strong>[inout]</strong> - Pointer that will store the size of topicdata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_groupdata">
+<span class="target" id="group__qos__getters_1ga994027d8d438e6ddf60d701d0dd0e82c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_groupdata</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_groupdata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the groupdata from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer that will store the groupdata. If sz = 0, then a null pointer, else it is a pointer to an allocated buffer of sz+1 bytes where the last byte is always 0 </p></li>
+<li><p><strong>sz</strong> – <strong>[inout]</strong> - Pointer that will store the size of groupdata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_durability">
+<span class="target" id="group__qos__getters_1ga45a2340770a885c32085ea2dac558674"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_durability</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_durability_kind_t" title="dds_durability_kind_t"><span class="n"><span class="pre">dds_durability_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_durability" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the durability policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[inout]</strong> - Pointer that will store the durability kind</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_history">
+<span class="target" id="group__qos__getters_1ga99209a1a9ad3fa41f88b9f7b773e6093"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_history</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_history_kind_t" title="dds_history_kind_t"><span class="n"><span class="pre">dds_history_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">depth</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_history" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the history policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[inout]</strong> - Pointer that will store the history kind (optional) </p></li>
+<li><p><strong>depth</strong> – <strong>[inout]</strong> - Pointer that will store the history depth (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_resource_limits">
+<span class="target" id="group__qos__getters_1ga97f6bd5a7832bac32ed7d903725465c1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_resource_limits</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max_samples</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max_instances</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max_samples_per_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_resource_limits" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the resource-limits policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>max_samples</strong> – <strong>[inout]</strong> - Pointer that will store the number of samples resource-limit (optional) </p></li>
+<li><p><strong>max_instances</strong> – <strong>[inout]</strong> - Pointer that will store the number of instances resource-limit (optional) </p></li>
+<li><p><strong>max_samples_per_instance</strong> – <strong>[inout]</strong> - Pointer that will store the number of samples per instance resource-limit (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_presentation">
+<span class="target" id="group__qos__getters_1ga16aebde6bd555bc4f0347067314667f0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_presentation</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_presentation_access_scope_kind_t" title="dds_presentation_access_scope_kind_t"><span class="n"><span class="pre">dds_presentation_access_scope_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">access_scope</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">coherent_access</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ordered_access</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_presentation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the presentation policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>access_scope</strong> – <strong>[inout]</strong> - Pointer that will store access scope kind (optional) </p></li>
+<li><p><strong>coherent_access</strong> – <strong>[inout]</strong> - Pointer that will store coherent access enable value (optional) </p></li>
+<li><p><strong>ordered_access</strong> – <strong>[inout]</strong> - Pointer that will store orderede access enable value (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_lifespan">
+<span class="target" id="group__qos__getters_1ga79fbc67368f3527d461536ec24a08a35"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_lifespan</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">lifespan</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_lifespan" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the lifespan policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>lifespan</strong> – <strong>[inout]</strong> - Pointer that will store lifespan duration</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_deadline">
+<span class="target" id="group__qos__getters_1ga1c6296cf8371243fe25bcff1950f9c65"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_deadline</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">deadline</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_deadline" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the deadline policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>deadline</strong> – <strong>[inout]</strong> - Pointer that will store deadline duration</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_latency_budget">
+<span class="target" id="group__qos__getters_1ga7f50e88c3213379b9fe31a288845fcae"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_latency_budget</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">duration</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_latency_budget" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the latency-budget policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>duration</strong> – <strong>[inout]</strong> - Pointer that will store latency-budget duration</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_ownership">
+<span class="target" id="group__qos__getters_1gae1fbaf59545b348986a045d840ced753"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_ownership</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_ownership_kind_t" title="dds_ownership_kind_t"><span class="n"><span class="pre">dds_ownership_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_ownership" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the ownership policy from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[inout]</strong> - Pointer that will store the ownership kind</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_ownership_strength">
+<span class="target" id="group__qos__getters_1ga3f0c811f5d9976cf3f1913352a84c955"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_ownership_strength</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_ownership_strength" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the ownership strength qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer that will store the ownership strength value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_liveliness">
+<span class="target" id="group__qos__getters_1gac46e8bb34514ed3e3fdaeafb150c5a11"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_liveliness</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_liveliness_kind_t" title="dds_liveliness_kind_t"><span class="n"><span class="pre">dds_liveliness_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">lease_duration</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_liveliness" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the liveliness qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[inout]</strong> - Pointer that will store the liveliness kind (optional) </p></li>
+<li><p><strong>lease_duration</strong> – <strong>[inout]</strong> - Pointer that will store the liveliness lease duration (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_time_based_filter">
+<span class="target" id="group__qos__getters_1ga6f6b6eb1130adbdcde71f9ac09cf62bf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_time_based_filter</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">minimum_separation</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_time_based_filter" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the time-based filter qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>minimum_separation</strong> – <strong>[inout]</strong> - Pointer that will store the minimum separation duration (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_partition">
+<span class="target" id="group__qos__getters_1ga6363952c5f575cf8dc0d8fcd1325a436"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_partition</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">n</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ps</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_partition" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the partition qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>n</strong> – <strong>[inout]</strong> - Pointer that will store the number of partitions (optional) </p></li>
+<li><p><strong>ps</strong> – <strong>[inout]</strong> - Pointer that will store the string(s) containing partition name(s) (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_reliability">
+<span class="target" id="group__qos__getters_1gad179497890069c89db402793c51bac5a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_reliability</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_reliability_kind_t" title="dds_reliability_kind_t"><span class="n"><span class="pre">dds_reliability_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max_blocking_time</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_reliability" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the reliability qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[inout]</strong> - Pointer that will store the reliability kind (optional) </p></li>
+<li><p><strong>max_blocking_time</strong> – <strong>[inout]</strong> - Pointer that will store the max blocking time for reliable reliability (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_transport_priority">
+<span class="target" id="group__qos__getters_1ga0e2c57f4364ddc5a56dc190619676b7b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_transport_priority</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_transport_priority" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the transport priority qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer that will store the transport priority value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_destination_order">
+<span class="target" id="group__qos__getters_1ga7fe02e23b69ad34c8a9e748ef727c3b0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_destination_order</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_destination_order_kind_t" title="dds_destination_order_kind_t"><span class="n"><span class="pre">dds_destination_order_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_destination_order" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the destination-order qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[inout]</strong> - Pointer that will store the destination-order kind</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_writer_data_lifecycle">
+<span class="target" id="group__qos__getters_1ga5153b1f66650bedae134ad47061feb98"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_writer_data_lifecycle</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">autodispose</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_writer_data_lifecycle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the writer data-lifecycle qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>autodispose</strong> – <strong>[inout]</strong> - Pointer that will store the autodispose unregistered instances enable value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_reader_data_lifecycle">
+<span class="target" id="group__qos__getters_1ga999b6d328563f793451c86894172e73c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_reader_data_lifecycle</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">autopurge_nowriter_samples_delay</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">autopurge_disposed_samples_delay</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_reader_data_lifecycle" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the reader data-lifecycle qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>autopurge_nowriter_samples_delay</strong> – <strong>[inout]</strong> - Pointer that will store the delay for auto-purging samples from instances in a no-writer state (optional) </p></li>
+<li><p><strong>autopurge_disposed_samples_delay</strong> – <strong>[inout]</strong> - Pointer that will store the delay for auto-purging of disposed instances (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_durability_service">
+<span class="target" id="group__qos__getters_1ga819b1c8d57d6d02f818abccc8d46ea73"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_durability_service</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">service_cleanup_delay</span></span>, <a class="reference internal" href="#c.dds_history_kind_t" title="dds_history_kind_t"><span class="n"><span class="pre">dds_history_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">history_kind</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">history_depth</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max_samples</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max_instances</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">max_samples_per_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_durability_service" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the durability-service qos policy values. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>service_cleanup_delay</strong> – <strong>[inout]</strong> - Pointer that will store the delay for purging of abandoned instances from the durability service (optional) </p></li>
+<li><p><strong>history_kind</strong> – <strong>[inout]</strong> - Pointer that will store history policy kind applied by the durability service (optional) </p></li>
+<li><p><strong>history_depth</strong> – <strong>[inout]</strong> - Pointer that will store history policy depth applied by the durability service (optional) </p></li>
+<li><p><strong>max_samples</strong> – <strong>[inout]</strong> - Pointer that will store number of samples resource-limit policy applied by the durability service (optional) </p></li>
+<li><p><strong>max_instances</strong> – <strong>[inout]</strong> - Pointer that will store number of instances resource-limit policy applied by the durability service (optional) </p></li>
+<li><p><strong>max_samples_per_instance</strong> – <strong>[inout]</strong> - Pointer that will store number of samples per instance resource-limit policy applied by the durability service (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_ignorelocal">
+<span class="target" id="group__qos__getters_1ga276ca8637fc9259ae1fe39edcf7341f5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_ignorelocal</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_ignorelocal_kind_t" title="dds_ignorelocal_kind_t"><span class="n"><span class="pre">dds_ignorelocal_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ignore</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_ignorelocal" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the ignore-local qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>ignore</strong> – <strong>[inout]</strong> - Pointer that will store whether to ignore readers/writers owned by the same participant (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_propnames">
+<span class="target" id="group__qos__getters_1gabed94494c831692178473f25097b67f9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_propnames</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">n</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_propnames" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the names of the properties from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains properties </p></li>
+<li><p><strong>n</strong> – <strong>[inout]</strong> - Pointer to number of property names that are returned (optional) </p></li>
+<li><p><strong>names</strong> – <strong>[inout]</strong> - Pointer that will store the string(s) containing property name(s) (optional). This function will allocate the memory for the list of names and for the strings containing the names; the caller gets ownership of the allocated memory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_prop">
+<span class="target" id="group__qos__getters_1ga06de20e9a525fa601d7d8c196be6fb1d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_prop</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_prop" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the value of the property with the provided name from a qos structure. </p>
+<p>In case more than one property exists with this name, the value for the first property with this name will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer to a string that will store the value of the property. The memory for storing the string value will be allocated by this function and the caller gets ownership of the allocated memory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid, the qos is not present in the qos object or there was no property found with the provided name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_bpropnames">
+<span class="target" id="group__qos__getters_1gafe7b97bf6909b000e75eaef3ab25781e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_bpropnames</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">n</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_bpropnames" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the names of the binary properties from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains binary properties </p></li>
+<li><p><strong>n</strong> – <strong>[inout]</strong> - Pointer to number of binary property names that are returned (optional) </p></li>
+<li><p><strong>names</strong> – <strong>[inout]</strong> - Pointer that will store the string(s) containing binary property name(s) (optional). This function will allocate the memory for the list of names and for the strings containing the names; the caller gets ownership of the allocated memory</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_bprop">
+<span class="target" id="group__qos__getters_1ga2092cf82d6bd2e1361cfaaa6b19763cd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_bprop</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_bprop" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the value of the binary property with the provided name from a qos structure. </p>
+<p>In case more than one binary property exists with this name, the value for the first binary property with this name will be returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the binary property </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer to a buffer that will store the value of the property. If sz = 0 then a NULL pointer. The memory for storing the value will be allocated by this function and the caller gets ownership of the allocated memory </p></li>
+<li><p><strong>sz</strong> – <strong>[inout]</strong> - Pointer that will store the size of the returned buffer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid, the qos is not present in the qos object or there was no binary property found with the provided name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_type_consistency">
+<span class="target" id="group__qos__getters_1ga220f45b0dd19661b75e3d1ec4a588bf2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_type_consistency</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <a class="reference internal" href="#c.dds_type_consistency_kind_t" title="dds_type_consistency_kind_t"><span class="n"><span class="pre">dds_type_consistency_kind_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">kind</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ignore_sequence_bounds</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ignore_string_bounds</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ignore_member_names</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">prevent_type_widening</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">force_type_validation</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_type_consistency" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the type consistency enforcement qos policy values. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>kind</strong> – <strong>[inout]</strong> - Pointer that will store the type consistency enforcement kind (optional) </p></li>
+<li><p><strong>ignore_sequence_bounds</strong> – <strong>[inout]</strong> - Pointer that will store the boolean value for ignoring sequence bounds in type assignability checking (optional) </p></li>
+<li><p><strong>ignore_string_bounds</strong> – <strong>[inout]</strong> - Pointer that will store the boolean value for ignoring string bounds in type assignability checking (optional) </p></li>
+<li><p><strong>ignore_member_names</strong> – <strong>[inout]</strong> - Pointer that will store the boolean value for ignoring member names in type assignability checking (optional) </p></li>
+<li><p><strong>prevent_type_widening</strong> – <strong>[inout]</strong> - Pointer that will store the boolean value to prevent type widening in type assignability checking (optional) </p></li>
+<li><p><strong>force_type_validation</strong> – <strong>[inout]</strong> - Pointer that will store the boolean value to force type validation in assignability checking (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_data_representation">
+<span class="target" id="group__qos__getters_1ga619ac32eea7fa9277c8ed5ecd297b9e0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_data_representation</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">n</span></span>, <a class="reference internal" href="#c.dds_data_representation_id_t" title="dds_data_representation_id_t"><span class="n"><span class="pre">dds_data_representation_id_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_data_representation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the data representation qos policy value. </p>
+<p>Returns the data representation values that are set in the provided QoS object and stores the number of values in out parameter ‘n’. In case the ‘values’ parameter is provided, this function will allocate a buffer that contains the data representation values, and set ‘values’ to point to this buffer. It is the responsibility of the caller to free the memory of this buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>n</strong> – <strong>[inout]</strong> - Pointer that will store the number of data representation values </p></li>
+<li><p><strong>values</strong> – <strong>[inout]</strong> - Pointer that will store the data representation values (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_entity_name">
+<span class="target" id="group__qos__getters_1ga823c76848f56c57628a275d6f14fcf80"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_entity_name</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_entity_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the entity name from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the entity name </p></li>
+<li><p><strong>name</strong> – <strong>[inout]</strong> - Pointer to a string that will store the returned entity name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object or if a buffer to store the name could not be allocated. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">QoS</a><ul>
+<li><a class="reference internal" href="#setters">Setters</a></li>
+<li><a class="reference internal" href="#getters">Getters</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="entity.html">
+                <span><</span> Entities</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="domain.html">Domains <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -147,6 +147,7 @@
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;RegressionModels.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;RegressionModels_pragma.hpp&quot;</span><span class="cp"></span>
 
 <span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bytes</span><span class="p">;</span><span class="w"></span>
 
@@ -453,6 +454,24 @@
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="n">readwrite_test</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">struct_seq_e1_bytes</span><span class="p">,</span><span class="w"> </span><span class="n">xcdr_v2_stream</span><span class="p">(</span><span class="n">endianness</span><span class="o">::</span><span class="n">little_endian</span><span class="p">));</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST_F</span><span class="p">(</span><span class="n">Regression</span><span class="p">,</span><span class="w"> </span><span class="n">key_value_of_appendables</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">s_final</span><span class="w"> </span><span class="n">s_f</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">s_appendable</span><span class="w"> </span><span class="n">s_a</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">s_f</span><span class="p">.</span><span class="n">s</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abcdef&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">s_a</span><span class="p">.</span><span class="n">s</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;abcdef&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">ddsi_keyhash_t</span><span class="w"> </span><span class="n">kh_f</span><span class="p">,</span><span class="w"> </span><span class="n">kh_a</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">k</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mh">0xcd</span><span class="p">,</span><span class="w"> </span><span class="mh">0x34</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4d</span><span class="p">,</span><span class="w"> </span><span class="mh">0x59</span><span class="p">,</span><span class="w"> </span><span class="mh">0xec</span><span class="p">,</span><span class="w"> </span><span class="mh">0x90</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb9</span><span class="p">,</span><span class="w"> </span><span class="mh">0x62</span><span class="p">,</span><span class="w"> </span><span class="mh">0xca</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb1</span><span class="p">,</span><span class="w"> </span><span class="mh">0x41</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcf</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5d</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa6</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcf</span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">ASSERT_TRUE</span><span class="p">(</span><span class="n">to_key</span><span class="o">&lt;</span><span class="n">s_final</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_f</span><span class="p">,</span><span class="w"> </span><span class="n">kh_f</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">memcmp</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">kh_f</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">ASSERT_TRUE</span><span class="p">(</span><span class="n">to_key</span><span class="o">&lt;</span><span class="n">s_appendable</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s_a</span><span class="p">,</span><span class="w"> </span><span class="n">kh_a</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">EXPECT_EQ</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">memcmp</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">kh_a</span><span class="p">.</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -478,7 +497,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

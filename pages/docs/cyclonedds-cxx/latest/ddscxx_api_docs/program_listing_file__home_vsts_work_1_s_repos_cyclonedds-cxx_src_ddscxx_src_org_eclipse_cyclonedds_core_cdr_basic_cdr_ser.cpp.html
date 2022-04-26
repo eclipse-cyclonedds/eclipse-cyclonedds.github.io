@@ -164,7 +164,7 @@
 
 <span class="kt">bool</span><span class="w"> </span><span class="nf">basic_cdr_stream::start_struct</span><span class="p">(</span><span class="n">entity_properties_t</span><span class="w"> </span><span class="o">&amp;</span><span class="n">props</span><span class="p">)</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">props</span><span class="p">.</span><span class="n">requires_xtypes</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">(</span><span class="n">unsupported_xtypes</span><span class="p">))</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">is_key</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">props</span><span class="p">.</span><span class="n">requires_xtypes</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">(</span><span class="n">unsupported_xtypes</span><span class="p">))</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">cdr_stream</span><span class="o">::</span><span class="n">start_struct</span><span class="p">(</span><span class="n">props</span><span class="p">);</span><span class="w"></span>
@@ -200,7 +200,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

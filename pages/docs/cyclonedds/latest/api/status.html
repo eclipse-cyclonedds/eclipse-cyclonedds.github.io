@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Entity Status &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Builtin Topic Support" href="builtin.html" />
+    <link rel="prev" title="Listener" href="listener.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="waitset.html">WaitSets and Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="listener.html">Listener</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Entity Status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="entity-status">
+<h1>Entity Status<a class="headerlink" href="#entity-status" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__entity__status"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">entity_status</span></span></dt>
+<dd><p>All entities have a set of “status conditions” (following the DCPS spec), read peeks, take reads &amp; resets (analogously to read &amp; take operations on reader). The “mask” allows operating only on a subset of the statuses. Enabled status analogously to DCPS spec. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_STATUS_ID_MAX">
+<span class="target" id="group__entity__status_1ga4167e8c7829c5b10fce81e1ba44c59dd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_STATUS_ID_MAX</span></span></span><a class="headerlink" href="#c.DDS_STATUS_ID_MAX" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Helper value to indicate the highest bit that can be set in a status mask. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_INCONSISTENT_TOPIC_STATUS">
+<span class="target" id="group__entity__status_1ga6be14672910936e1e2650d604a582485"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_INCONSISTENT_TOPIC_STATUS</span></span></span><a class="headerlink" href="#c.DDS_INCONSISTENT_TOPIC_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_INCONSISTENT_TOPIC_STATUS"></span>Another topic exists with the same name but with different characteristics. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OFFERED_DEADLINE_MISSED_STATUS">
+<span class="target" id="group__entity__status_1gaf1e4323428b6e4a2669d60850d1a8b32"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_DEADLINE_MISSED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_OFFERED_DEADLINE_MISSED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_OFFERED_DEADLINE_MISSED_STATUS"></span>The deadline that the writer has committed through its deadline QoS policy was not respected for a specific instance. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_REQUESTED_DEADLINE_MISSED_STATUS">
+<span class="target" id="group__entity__status_1ga2e88c8cf1fac5098d67e05244f69fbfa"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_DEADLINE_MISSED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_REQUESTED_DEADLINE_MISSED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_REQUESTED_DEADLINE_MISSED_STATUS"></span>The deadline that the reader was expecting through its deadline QoS policy was not respected for a specific instance. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OFFERED_INCOMPATIBLE_QOS_STATUS">
+<span class="target" id="group__entity__status_1ga5687ef28e046ac80615b85db2f5ba0fd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_INCOMPATIBLE_QOS_STATUS</span></span></span><a class="headerlink" href="#c.DDS_OFFERED_INCOMPATIBLE_QOS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_OFFERED_INCOMPATIBLE_QOS_STATUS"></span>A QoS policy setting was incompatible with what was requested. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS">
+<span class="target" id="group__entity__status_1ga47aab4cc1f4c074de5c6943e483d95b5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS</span></span></span><a class="headerlink" href="#c.DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS"></span>A QoS policy setting was incompatible with what is offered. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_SAMPLE_LOST_STATUS">
+<span class="target" id="group__entity__status_1gaf9cc2ffe6edaa8b5948750a958cf9235"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_LOST_STATUS</span></span></span><a class="headerlink" href="#c.DDS_SAMPLE_LOST_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_SAMPLE_LOST_STATUS"></span>A sample has been lost (never received). </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_SAMPLE_REJECTED_STATUS">
+<span class="target" id="group__entity__status_1gaeb3807755b63517ac681f253a9179a1a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_REJECTED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_SAMPLE_REJECTED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_SAMPLE_REJECTED_STATUS"></span>A (received) sample has been rejected. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_ON_READERS_STATUS">
+<span class="target" id="group__entity__status_1ga9d1ca1ac4c5bc82ca39437b3b618e519"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_ON_READERS_STATUS</span></span></span><a class="headerlink" href="#c.DDS_DATA_ON_READERS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_DATA_ON_READERS_STATUS"></span>New information is available in some of the data readers of a subscriber. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_AVAILABLE_STATUS">
+<span class="target" id="group__entity__status_1ga3dbf0808cdf4e2d8c2f8a38cac6e4e79"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_AVAILABLE_STATUS</span></span></span><a class="headerlink" href="#c.DDS_DATA_AVAILABLE_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_DATA_AVAILABLE_STATUS"></span>New information is available in a data reader. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LIVELINESS_LOST_STATUS">
+<span class="target" id="group__entity__status_1gaf64301bcc010208fb860aab2309fddd1"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_LOST_STATUS</span></span></span><a class="headerlink" href="#c.DDS_LIVELINESS_LOST_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_LIVELINESS_LOST_STATUS"></span>The liveliness that the DDS_DataWriter has committed through its liveliness QoS policy was not respected; thus readers will consider the writer as no longer “alive”. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LIVELINESS_CHANGED_STATUS">
+<span class="target" id="group__entity__status_1ga09b20d7750ee291c4bc926423569c2bb"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_CHANGED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_LIVELINESS_CHANGED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_LIVELINESS_CHANGED_STATUS"></span>The liveliness of one or more writers, that were writing instances read through the readers has changed. Some writers have become “alive” or “not alive”. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_PUBLICATION_MATCHED_STATUS">
+<span class="target" id="group__entity__status_1gaafc02e17526d8f4af1bc44d979dc88ca"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PUBLICATION_MATCHED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_PUBLICATION_MATCHED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_PUBLICATION_MATCHED_STATUS"></span>The writer has found a reader that matches the topic and has a compatible QoS. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_SUBSCRIPTION_MATCHED_STATUS">
+<span class="target" id="group__entity__status_1ga30f700d35561acfa168b34e9919f774a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SUBSCRIPTION_MATCHED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_SUBSCRIPTION_MATCHED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><span class="target" id="group__entity__status_1DDS_SUBSCRIPTION_MATCHED_STATUS"></span>The reader has found a writer that matches the topic and has a compatible QoS. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_status_id_t">
+<span class="target" id="group__entity__status_1gac829e8e66ec603622e8182c416307316"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_status_id" title="dds_status_id"><span class="n"><span class="pre">dds_status_id</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_status_id_t</span></span></span><a class="headerlink" href="#c.dds_status_id_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>These identifiers are used to generate the bitshifted identifiers. By using bitflags instead of these IDs the process of building status masks is simplified to using simple binary OR operations. DOC_TODO fix the refs. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_status_id">
+<span class="target" id="group__entity__status_1gaec8b373be18767e18e92e861288befeb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_status_id</span></span></span><a class="headerlink" href="#c.dds_status_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>These identifiers are used to generate the bitshifted identifiers. By using bitflags instead of these IDs the process of building status masks is simplified to using simple binary OR operations. DOC_TODO fix the refs. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_INCONSISTENT_TOPIC_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befeba52f96c463c36f9a95fc233433a5afe2e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_INCONSISTENT_TOPIC_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_INCONSISTENT_TOPIC_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_INCONSISTENT_TOPIC_STATUS"><span class="std std-ref">DDS_INCONSISTENT_TOPIC_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_OFFERED_DEADLINE_MISSED_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebabcf359752cbf786db4f9304793273195"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_DEADLINE_MISSED_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_OFFERED_DEADLINE_MISSED_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_OFFERED_DEADLINE_MISSED_STATUS"><span class="std std-ref">DDS_OFFERED_DEADLINE_MISSED_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_REQUESTED_DEADLINE_MISSED_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebae065adae5237d7b898ff1d7f38e37df0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_DEADLINE_MISSED_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_REQUESTED_DEADLINE_MISSED_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_REQUESTED_DEADLINE_MISSED_STATUS"><span class="std std-ref">DDS_REQUESTED_DEADLINE_MISSED_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_OFFERED_INCOMPATIBLE_QOS_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebadd90b571b65241f5231e480c6f429ebc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_INCOMPATIBLE_QOS_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_OFFERED_INCOMPATIBLE_QOS_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_OFFERED_INCOMPATIBLE_QOS_STATUS"><span class="std std-ref">DDS_OFFERED_INCOMPATIBLE_QOS_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebad5ff24f5482bd2fd038d64684583f1eb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS"><span class="std std-ref">DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_SAMPLE_LOST_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebaf376a139f55950ad23931449c224bb1e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_LOST_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_SAMPLE_LOST_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_SAMPLE_LOST_STATUS"><span class="std std-ref">DDS_SAMPLE_LOST_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_SAMPLE_REJECTED_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befeba170269c9edbc1f527db23323a291449c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_REJECTED_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_SAMPLE_REJECTED_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_SAMPLE_REJECTED_STATUS"><span class="std std-ref">DDS_SAMPLE_REJECTED_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_DATA_ON_READERS_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befeba01823c1f7c5a1e4371da35b546d5430d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_ON_READERS_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_DATA_ON_READERS_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_DATA_ON_READERS_STATUS"><span class="std std-ref">DDS_DATA_ON_READERS_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_DATA_AVAILABLE_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befeba182657725b33308a5f58e878e2ada915"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_AVAILABLE_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_DATA_AVAILABLE_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_DATA_AVAILABLE_STATUS"><span class="std std-ref">DDS_DATA_AVAILABLE_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_LIVELINESS_LOST_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebaa7d1d0d90f36e582685f3ec12c087ba1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_LOST_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_LIVELINESS_LOST_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_LIVELINESS_LOST_STATUS"><span class="std std-ref">DDS_LIVELINESS_LOST_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_LIVELINESS_CHANGED_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebabd1089814c91d350c7a255fe1a6a39ea"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_CHANGED_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_LIVELINESS_CHANGED_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_LIVELINESS_CHANGED_STATUS"><span class="std std-ref">DDS_LIVELINESS_CHANGED_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_PUBLICATION_MATCHED_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befebab32fd68f4e03bad911699dcca5a22941"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PUBLICATION_MATCHED_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_PUBLICATION_MATCHED_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_PUBLICATION_MATCHED_STATUS"><span class="std std-ref">DDS_PUBLICATION_MATCHED_STATUS</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_status_id.DDS_SUBSCRIPTION_MATCHED_STATUS_ID">
+<span class="target" id="group__entity__status_1ggaec8b373be18767e18e92e861288befeba35ea314df6033cbc8d9f2df0c483744e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SUBSCRIPTION_MATCHED_STATUS_ID</span></span></span><a class="headerlink" href="#c.dds_status_id.DDS_SUBSCRIPTION_MATCHED_STATUS_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#group__entity__status_1DDS_SUBSCRIPTION_MATCHED_STATUS"><span class="std std-ref">DDS_SUBSCRIPTION_MATCHED_STATUS</span></a> </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_read_status">
+<span class="target" id="group__entity__status_1ga926388c5bba536145203be6554366562"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the status set for the entity. </p>
+<p>This operation reads the status(es) set for the entity based on the enabled status and mask set. It does not clear the read status(es).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity on which the status has to be read. </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> Returns the status set on the entity, based on the enabled status. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the status condition to be read, 0 means all statuses</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, status is a null pointer or mask has bits set outside the status range. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object or mask has status bits set that are undefined for the type of entity. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_take_status">
+<span class="target" id="group__entity__status_1ga5aa32cb5c952f7f599d57b6c3b9ef9b4"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_status</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_status" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the status set for the entity. </p>
+<p>This operation reads the status(es) set for the entity based on the enabled status and mask set. It clears the status set after reading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity on which the status has to be read. </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> Returns the status set on the entity, based on the enabled status. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Filter the status condition to be read, 0 means all statuses</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, status is a null pointer or mask has bits set outside the status range. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object or mask has status bits set that are undefined for the type of entity. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_status_changes">
+<span class="target" id="group__entity__status_1ga6f14d330171466974c78577f14f40d75"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_status_changes</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_status_changes" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get changed status(es) </p>
+<p>This operation returns the status changes since they were last read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity on which the statuses are read. </p></li>
+<li><p><strong>status</strong> – <strong>[out]</strong> Returns the current set of triggered statuses.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_status_mask">
+<span class="target" id="group__entity__status_1gac1b80a78f08b1f03b558c32016597165"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_status_mask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_status_mask" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get enabled status on entity. </p>
+<p><span class="target" id="group__entity__status_1dds_get_status_mask"></span></p>
+<p>This operation returns the status enabled on the entity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity to get the status. </p></li>
+<li><p><strong>mask</strong> – <strong>[out]</strong> Mask of enabled statuses set on the entity.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_set_status_mask">
+<span class="target" id="group__entity__status_1gaf0aee075b95b49b4a8bc1d71cc8120bb"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_set_status_mask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_set_status_mask" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set status enabled on entity. </p>
+<p><span class="target" id="group__entity__status_1dds_set_status_mask"></span></p>
+<p>This operation enables the status(es) based on the mask set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity to enable the status. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Status value that indicates the status to be enabled.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Success. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="listener.html">
+                <span><</span> Listener</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="builtin.html">Builtin Topic Support <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

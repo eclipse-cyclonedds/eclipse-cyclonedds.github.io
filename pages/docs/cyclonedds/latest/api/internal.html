@@ -1,0 +1,838 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Internal functionality &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deprecated functionality" href="deprecated.html" />
+    <link rel="prev" title="Serialization" href="serialization.html" /> 
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="internal-functionality">
+<h1>Internal functionality<a class="headerlink" href="#internal-functionality" title="Permalink to this headline">¶</a></h1>
+<p>All functionality in this section is considered internal. You should not build applications using these methods, since any function signature or datatype may change or be removed without warning.</p>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__internal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">internal</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_MIN_PSEUDO_HANDLE">
+<span class="target" id="group__internal_1ga0ca5d977475bb35a5ab2bd3ac0dff031"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_MIN_PSEUDO_HANDLE</span></span></span><a class="headerlink" href="#c.DDS_MIN_PSEUDO_HANDLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pseudo Handle origin. </p>
+<p><span class="target" id="group__internal_1DDS_MIN_PSEUDO_HANDLE"></span> Some handles in CycloneDDS are ‘fake’, most importantly the builtin topic handles. These handles are derived from this constant. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_CYCLONEDDS_HANDLE">
+<span class="target" id="group__internal_1ga62f1c30f2496513386d2530c1af681d0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_CYCLONEDDS_HANDLE</span></span></span><a class="headerlink" href="#c.DDS_CYCLONEDDS_HANDLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Special handle representing the entity corresponding to the CycloneDDS library itself. </p>
+<p><span class="target" id="group__internal_1DDS_CYCLONEDDS_HANDLE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_READ_WITHOUT_LOCK">
+<span class="target" id="group__internal_1gaf5f9572c0b289315d0b8c16120813e33"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_READ_WITHOUT_LOCK</span></span></span><a class="headerlink" href="#c.DDS_READ_WITHOUT_LOCK" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constant to use with <a class="reference internal" href="sub.html#group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"><span class="std std-ref">dds_read()</span></a> or <a class="reference internal" href="sub.html#group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"><span class="std std-ref">dds_take()</span></a> when using <a class="reference internal" href="#group__internal_1gab19de41386b08df64b7b679c5f643410"><span class="std std-ref">dds_reader_lock_samples()</span></a> </p>
+<p><span class="target" id="group__internal_1DDS_READ_WITHOUT_LOCK"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_KIND_MAX">
+<span class="target" id="group__internal_1ga2542f6f54c3624eaa01cbd12a449f6b4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_MAX</span></span></span><a class="headerlink" href="#c.DDS_KIND_MAX" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Max entity kind, used for loops. </p>
+<p><span class="target" id="group__internal_1DDS_KIND_MAX"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LUNSET">
+<span class="target" id="group__internal_1ga1eff6d9d09533882ff2a2703541d6d27"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LUNSET</span></span></span><a class="headerlink" href="#c.DDS_LUNSET" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default initial value (nullptr) for listener functions. </p>
+<p><span class="target" id="group__internal_1DDS_LUNSET"></span></p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_entity_kind_t">
+<span class="target" id="group__internal_1gad53f4e49cdf47eec9c6db3fef2d04111"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_entity_kind" title="dds_entity_kind"><span class="n"><span class="pre">dds_entity_kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_entity_kind_t</span></span></span><a class="headerlink" href="#c.dds_entity_kind_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS Entity Kind constants. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable/Private API Used throughout the library to indicate what entity is what. </p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_instance_handle_t">
+<span class="target" id="group__internal_1ga004163125a23f123c14cedbe5a237906"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint64_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_instance_handle_t</span></span></span><a class="headerlink" href="#c.dds_instance_handle_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Instance handles are uint64_t behind the scenes. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Private API </p>
+</div>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id_t">
+<span class="target" id="group__internal_1ga3406ae9ea2ac84cc243f9f023f352d4c"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_policy_id" title="dds_qos_policy_id"><span class="n"><span class="pre">dds_qos_policy_id</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qos_policy_id_t</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Qos Policy IDs. </p>
+<p>Used internally to mark the QoS policy type </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_entity_kind">
+<span class="target" id="group__internal_1ga95025da70d4d5b7c257e4f84394c094a"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_entity_kind</span></span></span><a class="headerlink" href="#c.dds_entity_kind" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS Entity Kind constants. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable/Private API Used throughout the library to indicate what entity is what. </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_DONTCARE">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa3977500c68bd9e032eae330342cdfcd3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_DONTCARE</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_DONTCARE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieving any entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_TOPIC">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa86d4b70cc5be7aa27764ae030c68d902"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_TOPIC</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_TOPIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_PARTICIPANT">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa67807a9d57fc53247b5f8769d8b0a2a6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_PARTICIPANT</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_PARTICIPANT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Domain Participant entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_READER">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aabd5319754415d6d3a520e02f8017f26f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_READER</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_READER" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reader entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_WRITER">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa34529a61e98ff002742f167007ab5e01"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_WRITER</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_WRITER" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Writer entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_SUBSCRIBER">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa4bd0cc25ed0ed019f407d41392526f9b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_SUBSCRIBER</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_SUBSCRIBER" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subscriber entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_PUBLISHER">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aae25f9ed06aa74299211698aa79c81679"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_PUBLISHER</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_PUBLISHER" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Publisher entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_COND_READ">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aae20fa8cf3fefc9f66fbe170f46704630"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_COND_READ</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_COND_READ" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>ReadCondition entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_COND_QUERY">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa5c838164b81d0b03c21bbee3003d44bf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_COND_QUERY</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_COND_QUERY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>QueryCondition entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_COND_GUARD">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aaee22691d19631c6c97e2c31c9b250a58"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_COND_GUARD</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_COND_GUARD" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>GuardCondition entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_WAITSET">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa9f5920d7291497029d8f57c57cfac91e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_WAITSET</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_WAITSET" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>WaitSet entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_DOMAIN">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aade7de0951518b6a56719d1e76d651cee"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_DOMAIN</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_DOMAIN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Domain entity </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_entity_kind.DDS_KIND_CYCLONEDDS">
+<span class="target" id="group__internal_1gga95025da70d4d5b7c257e4f84394c094aa5645873cb5a0535fca35ff7ee5066cf5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_CYCLONEDDS</span></span></span><a class="headerlink" href="#c.dds_entity_kind.DDS_KIND_CYCLONEDDS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>CycloneDDS library entity </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id">
+<span class="target" id="group__internal_1ga4bb0c71207830a51b6e310eca1106a57"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qos_policy_id</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Qos Policy IDs. </p>
+<p>Used internally to mark the QoS policy type </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_INVALID_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a3b381d1bfefadadd7bdc4a6df94066ba"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_INVALID_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_INVALID_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Invalid Policy </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_USERDATA_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57afd439068503642ba27ae03e82cd5dfc8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_USERDATA_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_USERDATA_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Userdata policy <a class="reference internal" href="qos.html#group__qos__setters_1gae1701a61bc179f4062827b5a3e9ae6f9"><span class="std std-ref">dds_qset_userdata()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_DURABILITY_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57abc6c3daf8f99df31ca60def2b953b800"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DURABILITY_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_DURABILITY_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Durability policy <a class="reference internal" href="qos.html#group__qos__setters_1gab22394091cfed2bee05c93ce04c1ae05"><span class="std std-ref">dds_qset_durability()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_PRESENTATION_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a9515752aa5a5e4580593a819446767ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PRESENTATION_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_PRESENTATION_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Presentation policy <a class="reference internal" href="qos.html#group__qos__setters_1ga12638fbf1f68decdfff022d8713865ff"><span class="std std-ref">dds_qset_presentation()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_DEADLINE_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57abd77e173b457d7c9a4455c00f5a72d32"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DEADLINE_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_DEADLINE_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deadline policy <a class="reference internal" href="qos.html#group__qos__setters_1gaa3eb149709214e5cb9cf749947f7e3de"><span class="std std-ref">dds_qset_deadline()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_LATENCYBUDGET_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a4307e6cf33965ad1b332de72c7b0a3e6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LATENCYBUDGET_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_LATENCYBUDGET_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>LatencyBudget policy <a class="reference internal" href="qos.html#group__qos__setters_1gac8b19beaac9ca07da42ea4ff7c77ca31"><span class="std std-ref">dds_qset_latency_budget()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_OWNERSHIP_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57afd0f507c4cc38a933f5817d0ea873d03"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OWNERSHIP_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_OWNERSHIP_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Ownership policy <a class="reference internal" href="qos.html#group__qos__setters_1ga2ee03b9551df5f88c81735109e0a0578"><span class="std std-ref">dds_qset_ownership()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_OWNERSHIPSTRENGTH_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a766d1409fe6aa9ee6264f4efe69731c5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OWNERSHIPSTRENGTH_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_OWNERSHIPSTRENGTH_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>OwnershipStrength policy <a class="reference internal" href="qos.html#group__qos__setters_1gafeb5f6405805fa971a12a6ec98492a67"><span class="std std-ref">dds_qset_ownership_strength()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_LIVELINESS_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57ad155c60f378087fa8fdbb0f3eddca268"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_LIVELINESS_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Liveliness policy <a class="reference internal" href="qos.html#group__qos__setters_1ga20283b5eaf7c1f7f9cb46d40d544f76a"><span class="std std-ref">dds_qset_liveliness()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_TIMEBASEDFILTER_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a5c24a0ad10b8b5557f608306acff7e50"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TIMEBASEDFILTER_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_TIMEBASEDFILTER_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TimeBasedFilter policy <a class="reference internal" href="qos.html#group__qos__setters_1ga54995f432ddd5a3597fe8a30d20cd14e"><span class="std std-ref">dds_qset_time_based_filter()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_PARTITION_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a2914476b818ff9a6c16a5a15cc4c9859"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PARTITION_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_PARTITION_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Partition policy <a class="reference internal" href="qos.html#group__qos__setters_1ga8831f25c1a3eceb392dd93e6aece557c"><span class="std std-ref">dds_qset_partition()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_RELIABILITY_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a33cceb8ac73aa06ef39485b3d887c815"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RELIABILITY_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_RELIABILITY_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reliability policy <a class="reference internal" href="qos.html#group__qos__setters_1gadcc4186f442a3dddedbd277c3e87d93d"><span class="std std-ref">dds_qset_reliability()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_DESTINATIONORDER_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57abc7d529d3a26069586a80b7aac6763c4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DESTINATIONORDER_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_DESTINATIONORDER_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DestinationOrder policy <a class="reference internal" href="qos.html#group__qos__setters_1gad7a12a1abb437977e4a7e61dd3c41f4c"><span class="std std-ref">dds_qset_destination_order()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_HISTORY_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57ae84e1113bab59340942bfd52193ea428"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_HISTORY_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_HISTORY_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>History policy <a class="reference internal" href="qos.html#group__qos__setters_1gadd2aced60f8c7a509b8b7b85809c1402"><span class="std std-ref">dds_qset_history()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_RESOURCELIMITS_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57af6dc4ee596d5cbe34bf5c4cb67533c57"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RESOURCELIMITS_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_RESOURCELIMITS_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>ResourceLimits policy <a class="reference internal" href="qos.html#group__qos__setters_1ga9ae73da0f7b76046e1a0a355c18c3690"><span class="std std-ref">dds_qset_resource_limits()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_ENTITYFACTORY_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a02e9e33058e0cdbce813165a59c53438"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_ENTITYFACTORY_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_ENTITYFACTORY_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>EntityFactory policy </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_WRITERDATALIFECYCLE_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57ac87a7459f45e7dfb8b4fe6d7948edb89"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_WRITERDATALIFECYCLE_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_WRITERDATALIFECYCLE_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>WriterDataLifecycle policy <a class="reference internal" href="qos.html#group__qos__setters_1gac237655723852f787ad8e68d1c291115"><span class="std std-ref">dds_qset_writer_data_lifecycle()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_READERDATALIFECYCLE_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57aa62ade0f5a05654c5f959dd33bbeb07e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_READERDATALIFECYCLE_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_READERDATALIFECYCLE_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>ReaderDataLifecycle policy <a class="reference internal" href="qos.html#group__qos__setters_1ga9c167f2288aee1464e572bfc2438d993"><span class="std std-ref">dds_qset_reader_data_lifecycle()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_TOPICDATA_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a12f9b3bb36fe960675fe077b11ea99ce"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPICDATA_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_TOPICDATA_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topicdata policy <a class="reference internal" href="qos.html#group__qos__setters_1ga5106489fb2567940fb363c7927c054bf"><span class="std std-ref">dds_qset_topicdata()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_GROUPDATA_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57aac3715c5385e49e1b6a995f0f8fdec6f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_GROUPDATA_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_GROUPDATA_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Groupdata policy <a class="reference internal" href="qos.html#group__qos__setters_1ga32ec0b5a69cae74a0d4f2843742a5e8e"><span class="std std-ref">dds_qset_groupdata()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_TRANSPORTPRIORITY_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57ab76060ee902af0589e55e15a7a213797"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TRANSPORTPRIORITY_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_TRANSPORTPRIORITY_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TransportPriority policy <a class="reference internal" href="qos.html#group__qos__setters_1ga590958ddac3cbbe03545f0e94f77c93d"><span class="std std-ref">dds_qset_transport_priority()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_LIFESPAN_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a8e8deda6f1b1d576fcea58e66e1eb00b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIFESPAN_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_LIFESPAN_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Livespan policy <a class="reference internal" href="qos.html#group__qos__setters_1gaf8ae933877645133ff1c28d769b48ccc"><span class="std std-ref">dds_qset_lifespan()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_DURABILITYSERVICE_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a6e16affba7e7d1abee18b0a8fb5ced47"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DURABILITYSERVICE_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_DURABILITYSERVICE_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DurabilityService policy <a class="reference internal" href="qos.html#group__qos__setters_1ga3680335e6298a25fe3ffed6a5d97d1c6"><span class="std std-ref">dds_qset_durability_service()</span></a> </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_PROPERTY_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57ae9f95f958fc0a4616616e9a07ca4a8c4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PROPERTY_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_PROPERTY_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Property policy dds_qset_property() </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_TYPE_CONSISTENCY_ENFORCEMENT_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a832635ecb9be4de866ea695b9072d74e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TYPE_CONSISTENCY_ENFORCEMENT_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_TYPE_CONSISTENCY_ENFORCEMENT_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TypeConsistencyEnforcement policy dds_qset_type_consistency_enforcements() </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_qos_policy_id.DDS_DATA_REPRESENTATION_QOS_POLICY_ID">
+<span class="target" id="group__internal_1gga4bb0c71207830a51b6e310eca1106a57a445430c03168ba1923fcd989f9108331"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_QOS_POLICY_ID</span></span></span><a class="headerlink" href="#c.dds_qos_policy_id.DDS_DATA_REPRESENTATION_QOS_POLICY_ID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DataRepresentation policy <a class="reference internal" href="qos.html#group__qos__setters_1ga1079ea3fd78959a9aedce8c93370fada"><span class="std std-ref">dds_qset_data_representation()</span></a> </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_reader_lock_samples">
+<span class="target" id="group__internal_1gab19de41386b08df64b7b679c5f643410"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_reader_lock_samples</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_reader_lock_samples" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns number of samples in read cache and locks the reader cache, to make sure that the samples content doesn’t change. </p>
+<p>Because the cache is locked, you should be able to read/take without having to lock first. This is done by passing the <a class="reference internal" href="#group__internal_1DDS_READ_WITHOUT_LOCK"><span class="std std-ref">DDS_READ_WITHOUT_LOCK</span></a> value to the read/take call as maxs. Then the read/take will not lock but still unlock.</p>
+<p>CycloneDDS doesn’t support a read/take that just returns all available samples issue #74. As a work around to support LENGTH_UNLIMITED in C++. <a class="reference internal" href="#group__internal_1gab19de41386b08df64b7b679c5f643410"><span class="std std-ref">dds_reader_lock_samples()</span></a> and <a class="reference internal" href="#group__internal_1DDS_READ_WITHOUT_LOCK"><span class="std std-ref">DDS_READ_WITHOUT_LOCK</span></a> are needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> Reader to lock the cache of.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the number of samples in the reader cache. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__testing"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">testing</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_domain_set_deafmute">
+<span class="target" id="group__testing_1ga480e09065005332d7209fcb033722fc7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_domain_set_deafmute</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">deaf</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">mute</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">reset_after</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_domain_set_deafmute" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This operation allows making the domain’s network stack temporarily deaf and/or mute. </p>
+<p>
+This is a support function for testing and, other special uses and is subject to change.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable API, for testing</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> A domain entity or an entity bound to a domain, such as a participant, reader or writer. </p></li>
+<li><p><strong>deaf</strong> – <strong>[in]</strong> Whether to network stack should pretend to be deaf and ignore any incoming packets. </p></li>
+<li><p><strong>mute</strong> – <strong>[in]</strong> Whether to network stack should pretend to be mute and discard any outgoing packets where it normally would. pass them to the operating system kernel for transmission. </p></li>
+<li><p><strong>reset_after</strong> – <strong>[in]</strong> Any value less than INFINITY will cause it to set deaf = mute = false after reset_after ns have passed. This is done by an event scheduled for the appropriate time and otherwise forgotten. These events are not affected by subsequent calls to this function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__implementation"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">implementation</span></span></dt>
+<dd><p>Miscellaneous types and functions that are required to be public, since they are in the output of the IDL compiler, but are not intended for direct use. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_sequence_t">
+<span class="target" id="group__implementation_1ga7063a1462c8140e2381d2b7669dc084b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_sequence" title="dds_sequence"><span class="n"><span class="pre">dds_sequence</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sequence_t</span></span></span><a class="headerlink" href="#c.dds_sequence_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Datastructure of a Sequence type Container for a sequence of bytes. The general model of this type is also used in IDL output, where the uint8_t * _buffer is replaced by the appropriate subtype of what is contained. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_key_descriptor_t">
+<span class="target" id="group__implementation_1gacbb3cd80a53d4f2bda852bef2e786539"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_key_descriptor" title="dds_key_descriptor"><span class="n"><span class="pre">dds_key_descriptor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_key_descriptor_t</span></span></span><a class="headerlink" href="#c.dds_key_descriptor_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Key Descriptor Used to describe a named key field in a type with the offset from the start of a struct. </p>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_sequence">
+<span class="target" id="structdds__sequence"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sequence</span></span></span><a class="headerlink" href="#c.dds_sequence" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_impl.h&gt;</em></div>
+<p>Datastructure of a Sequence type Container for a sequence of bytes. The general model of this type is also used in IDL output, where the uint8_t * _buffer is replaced by the appropriate subtype of what is contained. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sequence._maximum">
+<span class="target" id="structdds__sequence_1a74b92ca596bfe7df28f3ace719ba2b94"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_maximum</span></span></span><a class="headerlink" href="#c.dds_sequence._maximum" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocated space in _buffer </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sequence._length">
+<span class="target" id="structdds__sequence_1a1d67343f4f6a2aa02515f0f12121ff35"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_length</span></span></span><a class="headerlink" href="#c.dds_sequence._length" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Used space in _buffer </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sequence._buffer">
+<span class="target" id="structdds__sequence_1a1012d7ff357546d028089bbf912a3f53"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">_buffer</span></span></span><a class="headerlink" href="#c.dds_sequence._buffer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sequence of bytes </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_sequence._release">
+<span class="target" id="structdds__sequence_1a24b352af7703fdb321aa2f3c2422e565"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_release</span></span></span><a class="headerlink" href="#c.dds_sequence._release" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether a CycloneDDS _free method should free the contained buffer. if you put in your own allocated _buffer set this to false to avoid CycloneDDS calling free() on it. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_key_descriptor">
+<span class="target" id="structdds__key__descriptor"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_key_descriptor</span></span></span><a class="headerlink" href="#c.dds_key_descriptor" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_impl.h&gt;</em></div>
+<p>Key Descriptor Used to describe a named key field in a type with the offset from the start of a struct. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_key_descriptor.m_name">
+<span class="target" id="structdds__key__descriptor_1aba1064107018ac1c202c523adba21a1c"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_name</span></span></span><a class="headerlink" href="#c.dds_key_descriptor.m_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>name of keyfield </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_key_descriptor.m_offset">
+<span class="target" id="structdds__key__descriptor_1a13232ed69c56a535601241d9ad72450f"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_offset</span></span></span><a class="headerlink" href="#c.dds_key_descriptor.m_offset" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>offset from pointer </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_key_descriptor.m_idx">
+<span class="target" id="structdds__key__descriptor_1a75d7c102b61d00772f40a73fea464c75"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_idx</span></span></span><a class="headerlink" href="#c.dds_key_descriptor.m_idx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>m_idx’th key of type </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__topic__definition"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">topic_definition</span></span></dt>
+<dd><p>Topic definitions are output by the IDL compiler and have an implementation-private definition. The only thing exposed on the API is a pointer to the “dds_topic_descriptor_t” struct type. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_XCDR1">
+<span class="target" id="group__topic__definition_1ga065f1865b818507e0b57cb81068758ea"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XCDR1</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XCDR1" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data representation XCDR1 Type can be represented using XCDR1. </p>
+<p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_XCDR1"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_XML">
+<span class="target" id="group__topic__definition_1gae662f0810f0541d7b40eea7294ce2aa9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XML</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XML" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data representation XML Type can be represented using XML. </p>
+<p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_XML"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_XCDR2">
+<span class="target" id="group__topic__definition_1ga66a1db8a1a2d420236b1e536f529cccf"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XCDR2</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XCDR2" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data representation XCDR2 Type can be represented using XCDR2. </p>
+<p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_XCDR2"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_FLAG_XCDR1">
+<span class="target" id="group__topic__definition_1ga1c9445103fc4acd8fca5d7135cd6aabe"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR1</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XCDR1" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data representation XCDR1 flag Type can be represented using XCDR1, preshifted. </p>
+<p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_FLAG_XCDR1"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_FLAG_XML">
+<span class="target" id="group__topic__definition_1ga81a0e03f060835f742c710bf5c7eaaa5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XML</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XML" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data representation XML flag Type can be represented using XML, preshifted. </p>
+<p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_FLAG_XML"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_FLAG_XCDR2">
+<span class="target" id="group__topic__definition_1gaefedcfe123cc0acf362473700c3047b7"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR2</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XCDR2" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data representation XCDR2 flag Type can be represented using XCDR2, preshifted. </p>
+<p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_FLAG_XCDR2"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT">
+<span class="target" id="group__topic__definition_1ga0325cf03a9c25c793e71cf20e108de46"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default datarepresentation flag, XCDR1 and XCDR2 flags. </p>
+<p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT"></span></p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor_t">
+<span class="target" id="group__topic__definition_1gad8820c2e51e6d51be6975b1207ca5f25"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_descriptor" title="dds_topic_descriptor"><span class="n"><span class="pre">dds_topic_descriptor</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_descriptor_t</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Topic Descriptor. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable/Private API Contains all meta information about a type, usually produced by the IDL compiler Since this type is not intended for public consumption it can change without warning. </p>
+</div>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_type_meta_ser">
+<span class="target" id="structdds__type__meta__ser"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_type_meta_ser</span></span></span><a class="headerlink" href="#c.dds_type_meta_ser" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_impl.h&gt;</em></div>
+<p>Simple sized byte container to hold serialized type info Holds XTypes information (TypeInformation, TypeMapping) for a type. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_type_meta_ser.data">
+<span class="target" id="structdds__type__meta__ser_1aa8efbd0c82973f7bf005fe31c3f92ab3"></span><span class="kt"><span class="pre">unsigned</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><a class="headerlink" href="#c.dds_type_meta_ser.data" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>data pointer </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_type_meta_ser.sz">
+<span class="target" id="structdds__type__meta__ser_1ac04a225144f8ed142a3d0df63a5094e2"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sz</span></span></span><a class="headerlink" href="#c.dds_type_meta_ser.sz" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>data size </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor">
+<span class="target" id="structdds__topic__descriptor"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_topic_descriptor</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_public_impl.h&gt;</em></div>
+<p>Topic Descriptor. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unstable/Private API Contains all meta information about a type, usually produced by the IDL compiler Since this type is not intended for public consumption it can change without warning. </p>
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_size">
+<span class="target" id="structdds__topic__descriptor_1a1b53bfb6e7bf398036b713adf42a8b1c"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_size</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_size" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Size of topic type </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_align">
+<span class="target" id="structdds__topic__descriptor_1a7d7fd2a423646c9f163c06e79fd673da"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_align</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_align" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Alignment of topic type </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_flagset">
+<span class="target" id="structdds__topic__descriptor_1a9be944b45d38d56bf96d03ebbf4ffe00"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_flagset</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_flagset" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flags </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_nkeys">
+<span class="target" id="structdds__topic__descriptor_1a7d794b60c90c6d3d7a3088ebfd298643"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_nkeys</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_nkeys" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of keys (can be 0) </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_typename">
+<span class="target" id="structdds__topic__descriptor_1a7bc859ea4f81f86c6daff6874c074a24"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_typename</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_typename" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type name </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_keys">
+<span class="target" id="structdds__topic__descriptor_1a37f164aaa0f2523c4567abe88fb3d6fd"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_key_descriptor_t" title="dds_key_descriptor_t"><span class="n"><span class="pre">dds_key_descriptor_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_keys</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_keys" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Key descriptors (NULL iff m_nkeys 0) </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_nops">
+<span class="target" id="structdds__topic__descriptor_1a3961ce194ed6c002ddf2f192416b87d2"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_nops</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_nops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of ops in m_ops </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_ops">
+<span class="target" id="structdds__topic__descriptor_1a33abca7518e1bccf8c3b900dbe1403dd"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_ops</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Marshalling meta data </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.m_meta">
+<span class="target" id="structdds__topic__descriptor_1a1f776eb89f2239e699e768d976c280d4"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_meta</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.m_meta" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XML topic description meta data </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.type_information">
+<span class="target" id="structdds__topic__descriptor_1a026fd5e9ad6c696a7df6872bc989bca4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_type_meta_ser" title="dds_type_meta_ser"><span class="n"><span class="pre">dds_type_meta_ser</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type_information</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.type_information" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XCDR2 serialized TypeInformation, only present if flag DDS_TOPIC_XTYPES_METADATA is set </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.type_mapping">
+<span class="target" id="structdds__topic__descriptor_1ac82f065f4128fcc6843c5b9890475d96"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_type_meta_ser" title="dds_type_meta_ser"><span class="n"><span class="pre">dds_type_meta_ser</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type_mapping</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.type_mapping" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XCDR2 serialized TypeMapping: maps type-id to type object and minimal to complete type id, only present if flag DDS_TOPIC_XTYPES_METADATA is set </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_topic_descriptor.restrict_data_representation">
+<span class="target" id="structdds__topic__descriptor_1a8e5a6d2eea2baa68b234bfbb83e67c20"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">restrict_data_representation</span></span></span><a class="headerlink" href="#c.dds_topic_descriptor.restrict_data_representation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>restrictions on the data representations allowed for the top-level type for this topic, only present if flag DDS_TOPIC_RESTRICT_DATA_REPRESENTATION </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="serialization.html">
+                <span><</span> Serialization</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="deprecated.html">Deprecated functionality <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>
