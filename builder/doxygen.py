@@ -7,7 +7,7 @@ def run_doxygen(path: Path, config_file: Path):
     p = subprocess.Popen([
         "doxygen",
         str(config_file),
-    ], cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    ], cwd=path)
     p.communicate()
 
 

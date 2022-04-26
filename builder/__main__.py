@@ -1,9 +1,11 @@
+import os
 import sys
 import argparse
+from pathlib import Path
 
 from . import config
 from .database import VersionDatabase
-from .docs import build_docs
+from .docs import build_docs, _run_build
 from .web import build_site
 from .myself import has_been_updated, make_commit
 from .paths import was_updated_path
@@ -12,11 +14,21 @@ from .paths import was_updated_path
 def make_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--commit-if-updated", action="store_true", default=False)
+    parser.add_argument("--single-run", nargs=3, type=str)
     return parser
 
 
 def run_builder(args):
     namespace = make_parser().parse_args(args)
+
+    if namespace.single_run:
+        p = Path(namespace.single_run[1]).resolve()
+        o = Path(namespace.single_run[2]).resolve()
+        print(p, o)
+        data = config["projects"][namespace.single_run[0]]
+        _run_build(namespace.single_run[0], data['name'], "custom", p, o, data)
+        return
+
     updates = []
 
     db = VersionDatabase.load()

@@ -67,7 +67,7 @@ def _run_build(project: str, project_name: str, version: str, repo_path: Path, o
             sys.executable,
             "-m",
             "sphinx",
-            "-q",
+            "-v",
             str(confpy[0].parent),
             str(out_path)
         ], env=env, cwd=repo_path)

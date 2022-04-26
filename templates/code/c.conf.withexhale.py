@@ -47,5 +47,6 @@ primary_domain = "c"
 highlight_language = "c"
 
 # Breathe docs
+breathe_domain_by_extension = { "h" : "c" , "c" : "c"}
 breathe_projects = { "ddsc_api_docs": "{{ doxygen_path }}" }
 breathe_default_project = "ddsc_api_docs"
