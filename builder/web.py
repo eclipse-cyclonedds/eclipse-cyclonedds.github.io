@@ -1,4 +1,5 @@
 import re
+import markdown
 from typing import Dict, List
 from pathlib import Path
 from staticjinja import Site
@@ -6,7 +7,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 
 from .database import VersionDatabase
-from .paths import web_template_dir, pages_dir
+from .paths import web_template_dir, pages_dir, content_dir
 
 
 def tag_sort_and_select(tags, prefix):
@@ -55,7 +56,11 @@ def build_site(db: VersionDatabase, config: dict):
         env_globals={
             'releases': releases(db, config),
             'projects': db.projects,
-            'config': config
+            'config': config,
+            'faq': markdown.markdown(
+                text=(content_dir / 'faq.md').read_text(),
+                extensions=['toc', 'extra']
+            )
         },
         filters={
             'tag_sort_and_select': tag_sort_and_select
