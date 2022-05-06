@@ -1,5 +1,6 @@
 import re
 import markdown
+from markdown.extensions.toc import TocExtension
 from typing import Dict, List
 from pathlib import Path
 from staticjinja import Site
@@ -10,6 +11,30 @@ from .database import VersionDatabase
 from .paths import web_template_dir, pages_dir, content_dir
 
 
+
+markdowner = markdown.Markdown(
+    output_format="html5",
+    extensions=[TocExtension(baselevel=2, anchorlink_class="link-primary"), 'extra', 'meta']
+)
+
+
+def md_context(template):
+    markdown_content = Path(template.filename).read_text()
+    html_content = markdowner.convert(markdown_content)
+    meta = markdowner.Meta if hasattr(markdowner, 'Meta') else {}
+    return {"content": html_content, "meta": meta}
+
+
+def render_md(site, template, **kwargs):
+    # i.e. posts/post1.md -> build/posts/post1.html
+    out: Path = site.outpath / Path(template.name).with_suffix(".html")
+
+    # Compile and stream the result
+    out.parent.mkdir(parents=True, exist_ok=True)
+    template = "_{}.html".format(kwargs.get("meta", {}).get("template", ["plain_markdown"])[0])
+    site.get_template(template).stream(**kwargs).dump(str(out), encoding="utf-8")
+
+
 def tag_sort_and_select(tags, prefix):
     filtered = [tag for tag in tags if tag.startswith(prefix)]
     digits = list(set(int((re.match('\\.(\\d+)', tag[len(prefix):]) or re.match('(.+)', '999')).group(1)) for tag in filtered))
@@ -18,7 +43,6 @@ def tag_sort_and_select(tags, prefix):
         f"{prefix}.{d}": list(sorted(tag for tag in filtered if tag.startswith(f"{prefix}.{d}")))
         for d in sorted(digits, reverse=True)
     }
-
 
 
 def multisort(xs, specs):
@@ -50,6 +74,12 @@ def releases(db: VersionDatabase, config: dict):
 
 
 def build_site(db: VersionDatabase, config: dict):
+    linked_content_dir = web_template_dir / "content"
+    try:
+        linked_content_dir.symlink_to(content_dir)
+    except FileExistsError:
+        pass
+
     site = Site.make_site(
         searchpath=str(web_template_dir),
         outpath=str(pages_dir),
@@ -57,13 +87,12 @@ def build_site(db: VersionDatabase, config: dict):
             'releases': releases(db, config),
             'projects': db.projects,
             'config': config,
-            'faq': markdown.markdown(
-                text=(content_dir / 'faq.md').read_text(),
-                extensions=['toc', 'extra']
-            )
         },
+        contexts=[(r".*\.md", md_context)],
+        rules=[(r".*\.md", render_md)],
         filters={
             'tag_sort_and_select': tag_sort_and_select
         }
     )
     site.render()
+    linked_content_dir.unlink()

@@ -1,0 +1,73 @@
+{% set page = "faq" %}
+{% set title = "Eclipse Cyclone DDS - FAQ" %}
+{% extends "_base.html" %}
+
+{# This template is used for python notebook interactive markdown files. #}
+
+
+{% block head %}
+{{ super () }}
+<link rel="stylesheet" href="/css/interactive.css">
+{% endblock head %}
+
+{% block navbar_extensions %}
+<span class="navbar-text me-3 fs-4">
+  <button role="button" class="btn btn-secondary" data-interactive-activator="1"><i class="fas fa-rocket text-danger"></i></button>
+</span>
+{% endblock %}
+
+{% block content %}
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3">
+        {{ content | safe }}
+      </div>
+    </div>
+  </div>
+</main>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<script>
+var button = document.querySelector("[data-interactive-activator]");
+
+var bootstrapThebe = function() {
+    button.innerHTML = "booting <i class=\"fas fa-rocket text-warning\"></i>";
+    thebelab.bootstrap({
+        requestKernel: true,
+        binderOptions: {
+            repo: "thijsmie/cyclonedds-python-runtime",
+        },
+        mountActivateWidget: false,
+        mountStatusWidget: false,
+        selector: ".code-cell",
+    });
+    Array(...document.querySelectorAll(".thebelab-run-button")).forEach((e) => {
+      e.className += " btn btn-link btn-sm";
+      e.innerHTML = "<i class=\"fas fa-play-circle text-success runner\"></i>"
+    });
+    Array(...document.querySelectorAll(".thebelab-restart-button")).forEach((e) => {
+      e.remove();
+    });
+    Array(...document.querySelectorAll(".thebelab-restartall-button")).forEach((e) => {
+      e.remove();
+    });
+}
+
+if (button) {
+  button.addEventListener('click', bootstrapThebe);
+  thebelab.on("status", function (evt, data) {
+    if (data.status === "building") {
+      button.innerHTML = "building <i class=\"fas fa-rocket text-warning\"></i>";
+    } else if (data.status === "built") {
+      button.innerHTML = "built <i class=\"fas fa-rocket text-warning\"></i>";
+    } else if (data.status === "launching") {
+      button.innerHTML = "launching <i class=\"fas fa-rocket text-warning\"></i>";
+    } else if (data.status === "starting") {
+      button.innerHTML = "starting <i class=\"fas fa-rocket text-warning\"></i>";
+    } if (data.status === "ready") {
+      button.innerHTML = "<i class=\"fas fa-rocket text-success\"></i>";
+    }
+  });
+}
+</script>
+{% endblock content %}

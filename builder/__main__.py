@@ -14,6 +14,7 @@ from .paths import was_updated_path
 def make_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--commit-if-updated", action="store_true", default=False)
+    parser.add_argument("--skip-docs-update", action="store_true", default=False)
     parser.add_argument("--single-run", nargs=3, type=str)
     return parser
 
@@ -32,9 +33,11 @@ def run_builder(args):
     updates = []
 
     db = VersionDatabase.load()
-    for project, data in config["projects"].items():
-        pdb = db.get(project)
-        updates += build_docs(project, data, pdb)
+
+    if not namespace.skip_docs_update:
+        for project, data in config["projects"].items():
+            pdb = db.get(project)
+            updates += build_docs(project, data, pdb)
 
     build_site(db, config)
     db.save()
