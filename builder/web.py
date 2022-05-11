@@ -1,12 +1,10 @@
 import re
-from typing import Dict, List
-from pathlib import Path
 from staticjinja import Site
 from collections import defaultdict
-from dataclasses import dataclass
 
 from .database import VersionDatabase
-from .paths import web_template_dir, pages_dir
+from .paths import web_template_dir, pages_dir, content_dir
+from .content import ContentProvider
 
 
 def tag_sort_and_select(tags, prefix):
@@ -17,7 +15,6 @@ def tag_sort_and_select(tags, prefix):
         f"{prefix}.{d}": list(sorted(tag for tag in filtered if tag.startswith(f"{prefix}.{d}")))
         for d in sorted(digits, reverse=True)
     }
-
 
 
 def multisort(xs, specs):
@@ -49,16 +46,27 @@ def releases(db: VersionDatabase, config: dict):
 
 
 def build_site(db: VersionDatabase, config: dict):
+    linked_content_dir = web_template_dir / "content"
+    try:
+        linked_content_dir.symlink_to(content_dir)
+    except FileExistsError:
+        pass
+
+    provider = ContentProvider()
     site = Site.make_site(
         searchpath=str(web_template_dir),
         outpath=str(pages_dir),
         env_globals={
             'releases': releases(db, config),
             'projects': db.projects,
-            'config': config
+            'config': config,
+            'provider': provider
         },
+        contexts=[(r".*\.md", provider.context)],
+        rules=[(r".*\.md", provider.render)],
         filters={
             'tag_sort_and_select': tag_sort_and_select
         }
     )
     site.render()
+    linked_content_dir.unlink()

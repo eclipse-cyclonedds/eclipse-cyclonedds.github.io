@@ -1,3 +1,4 @@
+{% set header_start %}
     <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
       <a class="navbar-brand" href="/">
         <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
@@ -11,8 +12,26 @@
           <li class="nav-item">
             <a class="nav-link{% if page == 'docs' %} active{% endif %}" href="/docs">Documentation</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link{% if page == 'faq' %} active{% endif %}" href="/content/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if page == 'guides' %} active{% endif %}" href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+{% for guide in provider.get_all('guides') %}
+              <li><a class="dropdown-item" href="{{ guide.path }}">{{ guide.title }}</a></li>
+{% endfor %}
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link{% if page == 'blog' %} active{% endif %}" href="/blog.html">Blog</a>
+          </li>
         </ul>
       </div>
+{% endset %}
+{% set header_end %}
 
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
         <li class="nav-item">
@@ -26,9 +45,10 @@
            </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link p-2" href="https://gitter.im/atolab/cyclone-dds" target="_blank" rel="noopener" aria-label="Gitter">
-            <span class="fab fa-gitter fa-lg"></span>
+          <a class="nav-link p-2" href="https://discord.gg/BkRYQPpZV" target="_blank" rel="noopener" aria-label="Discord">
+            <span class="fab fa-discord fa-lg"></span>
            </a>
         </li>
       </ul>
     </header>
+{% endset %}

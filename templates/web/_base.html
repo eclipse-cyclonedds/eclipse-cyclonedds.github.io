@@ -1,3 +1,4 @@
+{% import "_header.html" as header with context %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,9 +20,12 @@
   </head>
 
   <body>
-    {% include '_header.html' %}
+    {{ header.header_start }}
+    {% block navbar_extensions %}{% endblock %}
+    {{ header.header_end }}
+
     {% block content %}{% endblock %}
-    {% include '_footer.html' %}
+    {% include '_footer.html' with context %}
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="/js/jquery.min.js"></script>
