@@ -1,6 +1,6 @@
 ---
 Title:       Hello, World!
-Author:     Thijs Miedema
+Author:      Thijs Miedema
 Date:        2022-05-04
 Template:    plain_markdown
 ---

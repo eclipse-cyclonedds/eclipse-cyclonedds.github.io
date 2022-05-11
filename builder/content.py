@@ -31,7 +31,8 @@ class ContentProvider:
             extensions=[
                 TocExtension(baselevel=2, anchorlink_class="link-primary"),
                 'extra',
-                'meta'
+                'meta',
+                'codehilite'
             ]
         )
 
