@@ -1,6 +1,6 @@
 ---
 Title:       Python Interactive Tutorial, Chapter 1
-Authors:     Thijs Miedema
+Author:     Thijs Miedema
 Date:        2022-05-04
 Template:    py_interactive_markdown
 ---
@@ -119,11 +119,10 @@ class LogbookEntry(IdlStruct):
 quest = journal.quest("remain-on-topic")
 quest.start()
 
-from enum import Enum
 from dataclasses import dataclass
-from cyclonedds.idl import IdlStruct
+from cyclonedds.idl import IdlEnum, IdlStruct
 
-class FishType(Enum):
+class FishType(IdlEnum):
     Shimmering = 0
     Matte = 1
     Metallic = 2
@@ -163,15 +162,14 @@ The topic instantiation is `topic = Topic(participant, "followers", CuriousFish)
 <details>
 <summary>Click to show the solution.</summary>
 
-``` { .python .code-cell }
+``` { .python }
 quest = journal.quest("remain-on-topic")
 quest.start()
 
-from enum import Enum
 from dataclasses import dataclass
-from cyclonedds.idl import IdlStruct
+from cyclonedds.idl import IdlEnum, IdlStruct
 
-class FishType(Enum):
+class FishType(IdlEnum):
     Shimmering = 0
     Matte = 1
     Metallic = 2
@@ -243,7 +241,7 @@ The `DataReader` instantiation is `reader = DataReader(participant, topic)`
 Taking a single fish from the reader is `fish = dr.take()[0]`
 </details>
 
-`<details>
+<details>
 <summary>Click to show the solution.</summary>
 
 ``` { .python }
@@ -374,7 +372,7 @@ from cyclonedds.idl.annotations import key
 
 class Person(IdlStruct):
     a: int
-    key(a)
+    key('a')
 
 
 @dataclass
@@ -413,12 +411,12 @@ quest = journal.quest("land-ahoy")
 quest.start()
 
 @dataclass
-class Island(IdlStruct):S
+class Island(IdlStruct):
     X: float
     Y: float
     size: float
     name: str
-    key(name)
+    key('name')
 
 quest.check("island", Island)
 participant = DomainParticipant()

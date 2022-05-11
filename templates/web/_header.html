@@ -15,11 +15,18 @@
           <li class="nav-item">
             <a class="nav-link{% if page == 'faq' %} active{% endif %}" href="/content/faq.html">FAQ</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link{% if page == 'guides' %} active{% endif %}" href="/content/guides.html">Guides</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if page == 'guides' %} active{% endif %}" href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+{% for guide in provider.get_all('guides') %}
+              <li><a class="dropdown-item" href="{{ guide.path }}">{{ guide.title }}</a></li>
+{% endfor %}
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link{% if page == 'blog' %} active{% endif %}" href="/content/blog.html">Blog</a>
+            <a class="nav-link{% if page == 'blog' %} active{% endif %}" href="/blog.html">Blog</a>
           </li>
         </ul>
       </div>

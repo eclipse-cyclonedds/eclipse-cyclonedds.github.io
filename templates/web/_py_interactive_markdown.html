@@ -1,4 +1,4 @@
-{% set page = "faq" %}
+{% set page = content.category %}
 {% set title = "Eclipse Cyclone DDS - FAQ" %}
 {% extends "_base.html" %}
 
@@ -21,11 +21,20 @@
   <div class="container">
     <div class="row">
       <div class="col-12 mx-auto px-5 my-3">
-        {{ content | safe }}
+        {{ content.html | safe }}
       </div>
     </div>
+    {% if 'author' in content.meta %}
+    <div class="row">
+      <div class="col-12 mx-auto px-5 mb-3">
+        <span class="text-muted">
+          By {{ content.meta.get('author', ['unknown'])[0] }}, posted on {{ content.meta.get('date', ['unknown'])[0] }}.</span>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
 <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
 <script>
 var button = document.querySelector("[data-interactive-activator]");

@@ -1,38 +1,10 @@
 import re
-import markdown
-from markdown.extensions.toc import TocExtension
-from typing import Dict, List
-from pathlib import Path
 from staticjinja import Site
 from collections import defaultdict
-from dataclasses import dataclass
 
 from .database import VersionDatabase
 from .paths import web_template_dir, pages_dir, content_dir
-
-
-
-markdowner = markdown.Markdown(
-    output_format="html5",
-    extensions=[TocExtension(baselevel=2, anchorlink_class="link-primary"), 'extra', 'meta']
-)
-
-
-def md_context(template):
-    markdown_content = Path(template.filename).read_text()
-    html_content = markdowner.convert(markdown_content)
-    meta = markdowner.Meta if hasattr(markdowner, 'Meta') else {}
-    return {"content": html_content, "meta": meta}
-
-
-def render_md(site, template, **kwargs):
-    # i.e. posts/post1.md -> build/posts/post1.html
-    out: Path = site.outpath / Path(template.name).with_suffix(".html")
-
-    # Compile and stream the result
-    out.parent.mkdir(parents=True, exist_ok=True)
-    template = "_{}.html".format(kwargs.get("meta", {}).get("template", ["plain_markdown"])[0])
-    site.get_template(template).stream(**kwargs).dump(str(out), encoding="utf-8")
+from .content import ContentProvider
 
 
 def tag_sort_and_select(tags, prefix):
@@ -80,6 +52,7 @@ def build_site(db: VersionDatabase, config: dict):
     except FileExistsError:
         pass
 
+    provider = ContentProvider()
     site = Site.make_site(
         searchpath=str(web_template_dir),
         outpath=str(pages_dir),
@@ -87,9 +60,10 @@ def build_site(db: VersionDatabase, config: dict):
             'releases': releases(db, config),
             'projects': db.projects,
             'config': config,
+            'provider': provider
         },
-        contexts=[(r".*\.md", md_context)],
-        rules=[(r".*\.md", render_md)],
+        contexts=[(r".*\.md", provider.context)],
+        rules=[(r".*\.md", provider.render)],
         filters={
             'tag_sort_and_select': tag_sort_and_select
         }
