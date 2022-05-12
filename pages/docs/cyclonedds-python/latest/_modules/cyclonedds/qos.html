@@ -136,7 +136,19 @@
           <div class="body" role="main">
             
   <h1>Source code for cyclonedds.qos</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">make_dataclass</span><span class="p">,</span> <span class="n">asdict</span><span class="p">,</span> <span class="n">field</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"> * Copyright(c) 2021 to 2022 ZettaScale Technology and others</span>
+<span class="sd"> *</span>
+<span class="sd"> * This program and the accompanying materials are made available under the</span>
+<span class="sd"> * terms of the Eclipse Public License v. 2.0 which is available at</span>
+<span class="sd"> * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License</span>
+<span class="sd"> * v. 1.0 which is available at</span>
+<span class="sd"> * http://www.eclipse.org/org/documents/edl-v10.php.</span>
+<span class="sd"> *</span>
+<span class="sd"> * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">make_dataclass</span><span class="p">,</span> <span class="n">asdict</span><span class="p">,</span> <span class="n">field</span>
 <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">isclass</span>
 <span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64encode</span><span class="p">,</span> <span class="n">b64decode</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">ClassVar</span>
@@ -2130,6 +2142,12 @@
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_get_p_entityname</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">qos</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_entity_name</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span><span class="o">.</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">bytes</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">None</span>
 
         <span class="n">name</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_gc_prop_get_value</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
