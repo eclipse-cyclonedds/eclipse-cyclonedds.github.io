@@ -1,0 +1,55 @@
+
+.. _program_listing_file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_data_ExtendedTypesModels.idl:
+
+Program Listing for File ExtendedTypesModels.idl
+================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_data_ExtendedTypesModels.idl>` (``/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/data/ExtendedTypesModels.idl``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: idl
+
+   
+   module ExtendedTypes_testing {
+   
+     @final struct finalstruct_smaller {
+       char c;
+     };
+   
+     @final struct finalstruct_larger {
+       char c;
+       char d;
+     };
+   
+     @appendable struct appendablestruct_smaller {
+       char c;
+     };
+   
+     @appendable struct appendablestruct_larger {
+       char c;
+       char d;
+     };
+   
+     @mutable struct mutablestruct_a {
+       @id(0) char a;
+       @id(2) char c;
+       @id(4) char e;
+     };
+   
+     @mutable struct mutablestruct_b {
+       @id(1) char b;
+       @id(2) char c;
+       @id(3) char d;
+     };
+   
+     //sequences
+     struct sequences_of_final_smaller {
+       sequence<finalstruct_smaller> c;
+     };
+   
+     struct sequences_of_final_larger {
+       sequence<finalstruct_larger> c;
+     };
+   
+   };

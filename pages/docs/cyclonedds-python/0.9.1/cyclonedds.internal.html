@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>internal &#8212; Eclipse Cyclone DDS Python  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pub" href="cyclonedds.pub.html" />
+    <link rel="prev" title="idl" href="cyclonedds.idl.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="index.html" title="Go to homepage">Eclipse Cyclone DDS Python</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idl.html">Working with idl</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.builtin.html">builtin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.core.html">core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.domain.html">domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.dynamic.html">dynamic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.idl.html">idl</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">internal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.pub.html">pub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.qos.html">core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.sub.html">sub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.topic.html">topic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds.util.html">util</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dds.html">General information about DDS</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="internal">
+<h1>internal<a class="headerlink" href="#internal" title="Permalink to this headline">¶</a></h1>
+<p>As the name suggests, the functionality in this module is meant for internal package use only.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.DDS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cyclonedds.internal.</span></span><span class="sig-name descname"><span class="pre">DDS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reference</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/internal.html#DDS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.DDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common class for all DDS related classes. This class enables the c_call magic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>reference</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cyclonedds.internal.load_cyclonedds">
+<span class="sig-prename descclassname"><span class="pre">cyclonedds.internal.</span></span><span class="sig-name descname"><span class="pre">load_cyclonedds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/internal.html#load_cyclonedds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.load_cyclonedds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal method to load the Cyclone DDS Dynamic Library.
+Handles platform specific naming/configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.CDLL" title="(in Python v3.10)">ctypes.CDLL</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cyclonedds.internal.c_call">
+<span class="sig-prename descclassname"><span class="pre">&#64;</span></span><span class="sig-prename descclassname"><span class="pre">cyclonedds.internal.</span></span><span class="sig-name descname"><span class="pre">c_call</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#c_call"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.c_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator. Convert a function into call into the class associated dll.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cyclonedds.internal.c_callable">
+<span class="sig-prename descclassname"><span class="pre">cyclonedds.internal.</span></span><span class="sig-name descname"><span class="pre">c_callable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argument_types</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/internal.html#c_callable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.c_callable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator. Make a C function type based on python type annotations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ctypes.CFUNCTYPE</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cyclonedds.internal.</span></span><span class="sig-name descname"><span class="pre">dds_c_t</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.entity">
+<span class="sig-name descname"><span class="pre">entity</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_long" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_long</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_long" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_long</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.instance_handle">
+<span class="sig-name descname"><span class="pre">instance_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.instance_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_long" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_long</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.domainid">
+<span class="sig-name descname"><span class="pre">domainid</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.domainid" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_uint" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_uint</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_state">
+<span class="sig-name descname"><span class="pre">sample_state</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.view_state">
+<span class="sig-name descname"><span class="pre">view_state</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.view_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.instance_state">
+<span class="sig-name descname"><span class="pre">instance_state</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.instance_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.reliability">
+<span class="sig-name descname"><span class="pre">reliability</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.reliability" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.durability">
+<span class="sig-name descname"><span class="pre">durability</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.durability" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.history">
+<span class="sig-name descname"><span class="pre">history</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.history" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.presentation_access_scope">
+<span class="sig-name descname"><span class="pre">presentation_access_scope</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.presentation_access_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.type_consistency">
+<span class="sig-name descname"><span class="pre">type_consistency</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.type_consistency" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.ingnorelocal">
+<span class="sig-name descname"><span class="pre">ingnorelocal</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.ingnorelocal" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.ownership">
+<span class="sig-name descname"><span class="pre">ownership</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.ownership" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness">
+<span class="sig-name descname"><span class="pre">liveliness</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.destination_order">
+<span class="sig-name descname"><span class="pre">destination_order</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.destination_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.data_representation_id">
+<span class="sig-name descname"><span class="pre">data_representation_id</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.data_representation_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_short" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_short</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.qos_p">
+<span class="sig-name descname"><span class="pre">qos_p</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.qos_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_void_p" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_void_p</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.attach">
+<span class="sig-name descname"><span class="pre">attach</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.attach" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_void_p" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_void_p</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.listener_p">
+<span class="sig-name descname"><span class="pre">listener_p</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.listener_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_void_p" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_void_p</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.topic_descriptor_p">
+<span class="sig-name descname"><span class="pre">topic_descriptor_p</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.topic_descriptor_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_void_p" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_void_p</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.returnv">
+<span class="sig-name descname"><span class="pre">returnv</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.returnv" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference external" href="https://docs.python.org/3/library/ctypes.html#ctypes.c_int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ctypes.c_int</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.inconsistent_topic_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inconsistent_topic_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.inconsistent_topic_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.inconsistent_topic_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.inconsistent_topic_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.inconsistent_topic_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.inconsistent_topic_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.inconsistent_topic_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_lost_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">liveliness_lost_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.liveliness_lost_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_lost_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_lost_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_lost_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_lost_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_lost_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_changed_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">liveliness_changed_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.liveliness_changed_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_changed_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_changed_status.alive_count">
+<span class="sig-name descname"><span class="pre">alive_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_changed_status.alive_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_changed_status.alive_count_change">
+<span class="sig-name descname"><span class="pre">alive_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_changed_status.alive_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_changed_status.last_publication_handle">
+<span class="sig-name descname"><span class="pre">last_publication_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_changed_status.last_publication_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_changed_status.not_alive_count">
+<span class="sig-name descname"><span class="pre">not_alive_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_changed_status.not_alive_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.liveliness_changed_status.not_alive_count_change">
+<span class="sig-name descname"><span class="pre">not_alive_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.liveliness_changed_status.not_alive_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_deadline_missed_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">offered_deadline_missed_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.offered_deadline_missed_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_deadline_missed_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_deadline_missed_status.last_instance_handle">
+<span class="sig-name descname"><span class="pre">last_instance_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_deadline_missed_status.last_instance_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_deadline_missed_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_deadline_missed_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_deadline_missed_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_deadline_missed_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_incompatible_qos_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">offered_incompatible_qos_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.offered_incompatible_qos_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_incompatible_qos_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_incompatible_qos_status.last_policy_id">
+<span class="sig-name descname"><span class="pre">last_policy_id</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_incompatible_qos_status.last_policy_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_incompatible_qos_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_incompatible_qos_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.offered_incompatible_qos_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.offered_incompatible_qos_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_lost_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_lost_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.sample_lost_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_lost_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_lost_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_lost_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_lost_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_lost_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_rejected_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_rejected_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.sample_rejected_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_rejected_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_rejected_status.last_instance_handle">
+<span class="sig-name descname"><span class="pre">last_instance_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_rejected_status.last_instance_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_rejected_status.last_reason">
+<span class="sig-name descname"><span class="pre">last_reason</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_rejected_status.last_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_rejected_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_rejected_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_rejected_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_rejected_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_deadline_missed_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requested_deadline_missed_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.requested_deadline_missed_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_deadline_missed_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_deadline_missed_status.last_instance_handle">
+<span class="sig-name descname"><span class="pre">last_instance_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_deadline_missed_status.last_instance_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_deadline_missed_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_deadline_missed_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_deadline_missed_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_deadline_missed_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_incompatible_qos_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requested_incompatible_qos_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.requested_incompatible_qos_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_incompatible_qos_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_incompatible_qos_status.last_policy_id">
+<span class="sig-name descname"><span class="pre">last_policy_id</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_incompatible_qos_status.last_policy_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_incompatible_qos_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_incompatible_qos_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.requested_incompatible_qos_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.requested_incompatible_qos_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.publication_matched_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publication_matched_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.publication_matched_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.publication_matched_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.publication_matched_status.current_count">
+<span class="sig-name descname"><span class="pre">current_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.publication_matched_status.current_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.publication_matched_status.current_count_change">
+<span class="sig-name descname"><span class="pre">current_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.publication_matched_status.current_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.publication_matched_status.last_subscription_handle">
+<span class="sig-name descname"><span class="pre">last_subscription_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.publication_matched_status.last_subscription_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.publication_matched_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.publication_matched_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.publication_matched_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.publication_matched_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.subscription_matched_status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subscription_matched_status</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.subscription_matched_status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.subscription_matched_status" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.subscription_matched_status.current_count">
+<span class="sig-name descname"><span class="pre">current_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.subscription_matched_status.current_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.subscription_matched_status.current_count_change">
+<span class="sig-name descname"><span class="pre">current_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.subscription_matched_status.current_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.subscription_matched_status.last_publication_handle">
+<span class="sig-name descname"><span class="pre">last_publication_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.subscription_matched_status.last_publication_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.subscription_matched_status.total_count">
+<span class="sig-name descname"><span class="pre">total_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.subscription_matched_status.total_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.subscription_matched_status.total_count_change">
+<span class="sig-name descname"><span class="pre">total_count_change</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.subscription_matched_status.total_count_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.guid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">guid</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.guid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.guid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.guid.as_python_guid">
+<span class="sig-name descname"><span class="pre">as_python_guid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.guid.as_python_guid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.guid.as_python_guid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/uuid.html#uuid.UUID" title="(in Python v3.10)">uuid.UUID</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.guid.v">
+<span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.guid.v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_info</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.sample_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.absolute_generation_rank">
+<span class="sig-name descname"><span class="pre">absolute_generation_rank</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.absolute_generation_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.disposed_generation_count">
+<span class="sig-name descname"><span class="pre">disposed_generation_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.disposed_generation_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.generation_rank">
+<span class="sig-name descname"><span class="pre">generation_rank</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.generation_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.instance_handle">
+<span class="sig-name descname"><span class="pre">instance_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.instance_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.instance_state">
+<span class="sig-name descname"><span class="pre">instance_state</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.instance_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.no_writers_generation_count">
+<span class="sig-name descname"><span class="pre">no_writers_generation_count</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.no_writers_generation_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.publication_handle">
+<span class="sig-name descname"><span class="pre">publication_handle</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.publication_handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.sample_rank">
+<span class="sig-name descname"><span class="pre">sample_rank</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.sample_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.sample_state">
+<span class="sig-name descname"><span class="pre">sample_state</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.sample_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.source_timestamp">
+<span class="sig-name descname"><span class="pre">source_timestamp</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.source_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.valid_data">
+<span class="sig-name descname"><span class="pre">valid_data</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.valid_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_info.view_state">
+<span class="sig-name descname"><span class="pre">view_state</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_info.view_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_buffer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_buffer</span></span><a class="reference internal" href="_modules/cyclonedds/internal.html#dds_c_t.sample_buffer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_buffer.buf">
+<span class="sig-name descname"><span class="pre">buf</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_buffer.buf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.internal.dds_c_t.sample_buffer.len">
+<span class="sig-name descname"><span class="pre">len</span></span><a class="headerlink" href="#cyclonedds.internal.dds_c_t.sample_buffer.len" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="cyclonedds.idl.html">
+                <span><</span> idl</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="cyclonedds.pub.html">pub <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Eclipse Cyclone DDS Python Committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Command line tool: ddsls &#8212; Eclipse Cyclone DDS Python  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Command line tool: pubsub" href="tools.pubsub.html" />
+    <link rel="prev" title="Tools" href="tools.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="index.html" title="Go to homepage">Eclipse Cyclone DDS Python</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idl.html">Working with idl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Command line tool: ddsls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.pubsub.html">Command line tool: pubsub</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dds.html">General information about DDS</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="command-line-tool-ddsls">
+<h1>Command line tool: ddsls<a class="headerlink" href="#command-line-tool-ddsls" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>When using DDS, it’s sometimes useful to know what DDS entities are running in the system. The <a class="reference external" href="https://github.com/eclipse-cyclonedds/cyclonedds-python/tree/master/src/cyclonedds/cyclonedds/tools/ddsls">ddsls</a> is a tool that subscribes to the Built-in topics, and shows the information of the domain participants, data readers and data writers in the system.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>To run the <strong>ddsls</strong>, you can use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls <span class="o">[</span>Options<span class="o">]</span>
+</pre></div>
+</div>
+<p>You can view what options you have with the <strong>ddsls</strong> by using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --help
+</pre></div>
+</div>
+<p>And the help message is as follows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: ddsls [-h] [-i ID] [-f FILENAME] [-j] [-w] [-v] [-r RUNTIME] (-a | -t {dcpsparticipant,dcpssubscription,dcpspublication})</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">-h, --help            show this help message and exit</span>
+<span class="go">-i ID, --id ID        Define the domain participant id</span>
+<span class="go">-f FILENAME, --filename FILENAME</span>
+<span class="go">                      Write results to file in JSON format</span>
+<span class="go">-j, --json            Print output in JSON format</span>
+<span class="go">-w, --watch           Watch for data reader &amp; writer &amp; qoses changes</span>
+<span class="go">-v, --verbose         View the sample when Qos changes</span>
+<span class="go">-r RUNTIME, --runtime RUNTIME</span>
+<span class="go">                      Limit the runtime of the tool, in seconds.</span>
+<span class="go">-a, --all             for all topics</span>
+<span class="go">-t {dcpsparticipant,dcpssubscription,dcpspublication}, --topic {dcpsparticipant,dcpssubscription,dcpspublication}</span>
+<span class="go">                      for one specific topic</span>
+</pre></div>
+</div>
+<p>There are several options you can choose to use the <strong>ddsls</strong> according to your needs, which will be further explained in the following sections.</p>
+<p>For checking the DDS entity information, you can use the <code class="docutils literal notranslate"><span class="pre">--topic</span></code> or <code class="docutils literal notranslate"><span class="pre">--all</span></code> option to specify which entity’s information you want to see, the <code class="docutils literal notranslate"><span class="pre">--id</span></code> option to define which domain you like to check using the id of the domain participant, the <code class="docutils literal notranslate"><span class="pre">--watch</span></code> option to monitor the changes in the system as entities being created and disposed.</p>
+<p>For viewing options, you can use the <code class="docutils literal notranslate"><span class="pre">--json</span></code> option to view the output data in JSON format, the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option to view the full sample information when the entity’s QoS changes.</p>
+<p>For additional options, you can use the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option to define the name of file you want to output the result to, the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to specify how long the <strong>ddsls</strong> will run.</p>
+<section id="topic">
+<h3>Topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<p>To use the <strong>ddsls</strong>, you need to specify the topic you’re subscribing to using the <code class="docutils literal notranslate"><span class="pre">--topic</span></code> or <code class="docutils literal notranslate"><span class="pre">--all</span></code> option.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">--topic</span></code> option, you can choose from <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code>, <code class="docutils literal notranslate"><span class="pre">dcpssubscription</span></code> and <code class="docutils literal notranslate"><span class="pre">dcpspublication</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code>, <code class="docutils literal notranslate"><span class="pre">dcpssubscription</span></code> and <code class="docutils literal notranslate"><span class="pre">dcpspublication</span></code> subscribes to the <strong>BuiltinTopicDcpsParticipant</strong>, <strong>BuiltinTopicSubscription</strong> and <strong>BuiltinTopicDcpsPublication</strong> topic respectively, and will show the information of all the participants, subscribers and publishers in the domain respectively.</p>
+<p>Here’s an example of running <strong>ddsls</strong> with the <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code> topic, run the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --all
+</pre></div>
+</div>
+<p>If there are DDS participant, data reader and data writer running in the default domain, it will show up in the <strong>ddsls</strong> like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-- New PARTICIPANT --</span>
+<span class="go">key: 9ce21001-ad00-8ac9-4428-52f1000001c1</span>
+<span class="go">qos: Qos()</span>
+
+<span class="go">key: 350c1001-c5e3-ca6b-712a-ee09000001c1</span>
+<span class="go">qos: Qos()</span>
+
+
+<span class="go">-- New PUBLICATION --</span>
+<span class="go">key: 9ce21001-ad00-8ac9-4428-52f100000102</span>
+<span class="go">participant_key: 9ce21001-ad00-8ac9-4428-52f1000001c1</span>
+<span class="go">participant_instance_handle: 11822753457071331301</span>
+<span class="go">topic_name: Vehicle</span>
+<span class="go">type_name: vehicles::Vehicle</span>
+<span class="go">qos: Qos(Policy.Deadline(deadline=10000), Policy.DestinationOrder.ByReceptionTimestamp, Policy.Durability.Transient, Policy.DurabilityService(cleanup_delay=0, history=Policy.History.KeepLast(depth=1), max_samples=-1, max_instances=-1, max_samples_per_instance=-1), Policy.History.KeepLast(depth=10), Policy.IgnoreLocal.Nothing, Policy.LatencyBudget(budget=0), Policy.Lifespan(lifespan=9223372036854775807), Policy.Liveliness.Automatic(lease_duration=9223372036854775807), Policy.Ownership.Shared, Policy.OwnershipStrength(strength=0), Policy.PresentationAccessScope.Instance(coherent_access=False, ordered_access=False), Policy.Reliability.BestEffort, Policy.ResourceLimits(max_samples=-1, max_instances=-1, max_samples_per_instance=-1), Policy.TransportPriority(priority=0), Policy.WriterDataLifecycle(autodispose=True))</span>
+
+
+<span class="go">-- New SUBSCRIPTION --</span>
+<span class="go">key: 350c1001-c5e3-ca6b-712a-ee0900000107</span>
+<span class="go">participant_key: 350c1001-c5e3-ca6b-712a-ee09000001c1</span>
+<span class="go">participant_instance_handle: 5513147631977453825</span>
+<span class="go">topic_name: Vehicle</span>
+<span class="go">type_name: vehicles::Vehicle</span>
+<span class="go">qos: Qos(Policy.Deadline(deadline=10000), Policy.DestinationOrder.ByReceptionTimestamp, Policy.Durability.Transient, Policy.History.KeepLast(depth=10), Policy.IgnoreLocal.Nothing, Policy.LatencyBudget(budget=0), Policy.Liveliness.Automatic(lease_duration=9223372036854775807), Policy.Ownership.Shared, Policy.PresentationAccessScope.Instance(coherent_access=False, ordered_access=False), Policy.ReaderDataLifecycle(autopurge_nowriter_samples_delay=9223372036854775807, autopurge_disposed_samples_delay=9223372036854775807), Policy.Reliability.BestEffort, Policy.ResourceLimits(max_samples=-1, max_instances=-1, max_samples_per_instance=-1), Policy.TimeBasedFilter(filter_time=0), Policy.TransportPriority(priority=0))</span>
+</pre></div>
+</div>
+<section id="comprehend-output">
+<h4>Comprehend output<a class="headerlink" href="#comprehend-output" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>The result above shows that there is two participant, one data reader and one data writer running in the default domain;</p></li>
+<li><p><strong>New</strong> in “New PARTICIPANT”, “New SUBSCRIPTION”, “New PUBLICATION” indicates that the entities are alive. If the entities are no longer alive, the message will be <strong>Disposed</strong> instead, such as “Disposed PARTICIPANT”.</p></li>
+<li><p>And the fields for the entities are:</p>
+<ul>
+<li><p><strong>PARTICIPANT</strong>:</p>
+<ul>
+<li><p><strong>key</strong>: The GUID (Globally Unique Identifier) of the domain participant.</p></li>
+</ul>
+</li>
+<li><p><strong>SUBSCRIPTION</strong> and <strong>PUBLICATION</strong>:</p>
+<ul>
+<li><p><strong>key</strong>: The GUID of the data reader or data writer;</p></li>
+<li><p><strong>participant_key</strong>: The GUID of the domain participant that created the data reader or data writer;</p></li>
+<li><p><strong>participant_instance_handle</strong>: The instance handle of the domain participant;</p></li>
+<li><p><strong>topic_name</strong>: The name of the topic that the data reader / data writer is subscribing / writing to;</p></li>
+<li><p><strong>type_name</strong>: The type name used in the topic of the data reader / data writer;</p></li>
+<li><p><strong>qos</strong>: The QoS (Quality of Service) of the data reader / data writer.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="domain-participant-id">
+<h3>Domain participant id<a class="headerlink" href="#domain-participant-id" title="Permalink to this headline">¶</a></h3>
+<p>By default, the <strong>ddsls</strong> subscribes to the default domain (domain 0) and displays information of entities in that domain. However, if you want to view the entity information in another domain, you can use the option <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">id</span></code> to change the domain to which the <strong>ddsls</strong> subscribes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--id</span></code> option will set the id of the <strong>ddsls</strong> domain participant, allowing the <strong>ddsls</strong> to view entities in the domain you chooses.</p>
+<p>For example, if you run a small script using domain 1 as the domain participant:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="n">dp</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you run <code class="docutils literal notranslate"><span class="pre">ddsls</span> <span class="pre">--topic</span> <span class="pre">dcpsparticipant</span></code>, the participant you’ve just created will not be there, since it’s only viewing entities in the default domain.</p>
+<p>To view this participant information, you need to use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic dcpsparticipant --id <span class="m">1</span>
+</pre></div>
+</div>
+<p>And the result of the participant in domain 1 will be:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-- New PARTICIPANT --</span>
+<span class="go">key: 02371001-8251-a889-325a-cad5000001c1</span>
+<span class="go">qos: Qos()</span>
+</pre></div>
+</div>
+</section>
+<section id="watch-mode">
+<h3>Watch mode<a class="headerlink" href="#watch-mode" title="Permalink to this headline">¶</a></h3>
+<p>By default, the <strong>ddsls</strong> will run for 1 second and then automatically exit. However, if you want to monitor the entities in the system, you can use the <code class="docutils literal notranslate"><span class="pre">--watch</span></code> option to enable the watch mode.</p>
+<p>In watch mode, the <strong>ddsls</strong> will not automatically exit (if the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option is not selected).  The watch mode monitors entities and displays entity information as they are created and disposed, or as their QoS changes.</p>
+<p>For example, if you have the <strong>ddsls</strong> monitoring the <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code> topic, using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic dcpsparticipant --watch
+</pre></div>
+</div>
+<p>Then start and exit a script that creates a domain participant entity in the default domain, you can get a result like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-- New PARTICIPANT --</span>
+<span class="go">key: 713b1001-bb82-49db-9f2a-46f4000001c1</span>
+<span class="go">qos: Qos()</span>
+
+
+<span class="go">-- Disposed PARTICIPANT --</span>
+<span class="go">key: 713b1001-68a5-e15c-2709-d195000001c1</span>
+<span class="go">qos: Qos()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>New</strong> indicates that the participant is alive in the domain;</p></li>
+<li><p><strong>Disposed</strong> indicates that the participant has already been disposed.</p></li>
+</ul>
+</section>
+<section id="verbose-mode">
+<h3>Verbose mode<a class="headerlink" href="#verbose-mode" title="Permalink to this headline">¶</a></h3>
+<p>Verbose mode is an optional mode for the <strong>ddsls</strong>. By default, the <strong>ddsls</strong> will only display information of the specific QoS policies that has been changed. But you can use the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option to enable to verbose mode, to not only view the specific information, but also the complete information of the entity that has QoS changed.</p>
+<p>By default, when the QoS changes in an entity, the <strong>ddsls</strong> will display which policy has been changed, on which topic and which entity, and the old and new value for the policy.</p>
+<p>For example, when QoS changes in a data writer, you can get a result like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Qos changed on topic &#39;MessageTopic&#39; publication:</span>
+<span class="go"> key = 1d681001-c040-7b68-2e4d-5fb900000102</span>
+<span class="go"> Policy.OwnershipStrength(strength=10) -&gt; Policy.OwnershipStrength(strength=20)</span>
+<span class="go"> Policy.Userdata(data=b&#39;Old&#39;) -&gt; Policy.Userdata(data=b&#39;New&#39;)</span>
+</pre></div>
+</div>
+<p>In this example:</p>
+<ul class="simple">
+<li><p>The QoS changed happened in the <strong>publication</strong>, which means it’s a data writer or a publisher, writing to the topic named “MessageTopic”;</p></li>
+<li><p>The <strong>key</strong> is the GUID of the entity that has QoS changed;</p></li>
+<li><p>The changed QoS <strong>policy</strong> are OwnershipStrength” and “Userdata”, “OwnershipStrength” changed from 10 to 20 and “Userdata” changed from “Old” to “New”.</p></li>
+</ul>
+<p>When verbose mode is activated, using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --all --watch --verbose
+</pre></div>
+</div>
+<p>The <strong>ddsls</strong> will not only display the specific QoS change information, but also display the entity information on which the QoS changes occurs.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Qos changed on topic &#39;MessageTopic&#39; publication:</span>
+<span class="go"> key = e4921001-4edb-926f-14be-adb500000102</span>
+<span class="go"> Policy.OwnershipStrength(strength=10) -&gt; Policy.OwnershipStrength(strength=20)</span>
+<span class="go"> Policy.Userdata(data=b&#39;Old&#39;) -&gt; Policy.Userdata(data=b&#39;New&#39;)</span>
+
+<span class="go">-- New PUBLICATION --</span>
+<span class="go">key: e4921001-4edb-926f-14be-adb500000102</span>
+<span class="go">participant_key: e4921001-4edb-926f-14be-adb5000001c1</span>
+<span class="go">participant_instance_handle: 2236347693610277994</span>
+<span class="go">topic_name: MessageTopic</span>
+<span class="go">type_name: testtopics::message::Message</span>
+<span class="go">qos: Qos(Policy.Deadline(deadline=9223372036854775807), Policy.DestinationOrder.ByReceptionTimestamp, Policy.Durability.Volatile, Policy.DurabilityService(cleanup_delay=0, history=Policy.History.KeepLast(depth=1), max_samples=-1, max_instances=-1, max_samples_per_instance=-1), Policy.History.KeepLast(depth=1), Policy.IgnoreLocal.Nothing, Policy.LatencyBudget(budget=0), Policy.Lifespan(lifespan=9223372036854775807), Policy.Liveliness.Automatic(lease_duration=9223372036854775807), Policy.Ownership.Shared, Policy.OwnershipStrength(strength=20), Policy.PresentationAccessScope.Instance(coherent_access=False, ordered_access=False), Policy.Reliability.Reliable(max_blocking_time=100000000), Policy.ResourceLimits(max_samples=-1, max_instances=-1, max_samples_per_instance=-1), Policy.TransportPriority(priority=0), Policy.Userdata(data=b&#39;New&#39;), Policy.WriterDataLifecycle(autodispose=True))</span>
+</pre></div>
+</div>
+<p>In this verbose mode example:</p>
+<ul class="simple">
+<li><p>The <strong>key</strong> in “New PUBLICATION” is the same as the one in the specific QoS change information, indicating that this is the entity that had QoS changed;</p></li>
+<li><p>The value of the policies “OwnershipStrength” and “Userdata” has been changed to the new values.</p></li>
+</ul>
+</section>
+<section id="json-mode">
+<h3>JSON mode<a class="headerlink" href="#json-mode" title="Permalink to this headline">¶</a></h3>
+<p>For better viewing the entity information, you can use the <code class="docutils literal notranslate"><span class="pre">--json</span></code> option to view the results in JSON format.</p>
+<p>For example, start up the <strong>ddsls</strong> in JSON mode using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic participant --json
+</pre></div>
+</div>
+<p>And you can get a result in JSON format like this:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PARTICIPANT&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5dc81001-75dc-1fe3-5468-48b3000001c1&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;764e1001-d9da-53dd-ca0b-ab06000001c1&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In JSON mode, the output result is divided into 3 parts:</p>
+<ul class="simple">
+<li><p><strong>type</strong> is the type of entity, “PARTICIPANT” or “SUBSCRIPTION” or “PUBLICATION”;</p></li>
+<li><p><strong>event</strong> indicates whether the entity is alive or disposed, using “new” or “disposed”;</p></li>
+<li><p><strong>value</strong> is the properties of the entity, such as the GUID of the entity.</p></li>
+</ul>
+</section>
+<section id="write-to-file">
+<h3>Write to file<a class="headerlink" href="#write-to-file" title="Permalink to this headline">¶</a></h3>
+<p>Other than printing the results in the terminal, you can also choose to write the results to a file using the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option, providing the name of the file you want to write to. The results will be written to the file in JSON format.</p>
+<p>For example, you can choose to write the result to a file named “test.json” using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic participant --watch --filename ddsls_data.json
+</pre></div>
+</div>
+<p>After stopping the <strong>ddsls</strong>, the results will be written to the test.json file in your current directory. And the ddsls_data.json file will look like this:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;PARTICIPANT&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;New&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;da531001-77b3-aef6-0cb8-647f000001c1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;da531001-77b3-aef6-0cb8-647f000001c1&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;Disposed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;8e281001-e010-0c8d-305c-20a3000001c1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8e281001-e010-0c8d-305c-20a3000001c1&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In the output file:</p>
+<ul class="simple">
+<li><p><strong>“PARTICIPANT”</strong> is the type of the entity;</p></li>
+<li><p><strong>“New”</strong> or <strong>“Disposed”</strong> indicates whether the entity is alive or disposed at the time <strong>ddsls</strong> stopped running;</p></li>
+<li><p>The <strong>GUID</strong> of the entity will group the entity information, such as the <strong>“key”</strong>, <strong>“qos”</strong>, in a JSON dictionary.</p></li>
+</ul>
+</section>
+<section id="runtime">
+<h3>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h3>
+<p>Besides using the <strong>ddsls</strong> by default, which will only run for 1 seconds, and using the <strong>ddsls</strong> in watch mode, which will run indefinitely until there is an interrupt, you can use the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to customize the running time according to your needs.</p>
+<p>For example, if you want to run the <strong>ddsls</strong> for 10 seconds, you can use the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --all --runtime <span class="m">10</span>
+</pre></div>
+</div>
+<p>And the tool will automatically shut down after running for 10 seconds. This <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option can also apply to watch mode.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Command line tool: ddsls</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#topic">Topic</a><ul>
+<li><a class="reference internal" href="#comprehend-output">Comprehend output</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#domain-participant-id">Domain participant id</a></li>
+<li><a class="reference internal" href="#watch-mode">Watch mode</a></li>
+<li><a class="reference internal" href="#verbose-mode">Verbose mode</a></li>
+<li><a class="reference internal" href="#json-mode">JSON mode</a></li>
+<li><a class="reference internal" href="#write-to-file">Write to file</a></li>
+<li><a class="reference internal" href="#runtime">Runtime</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="tools.html">
+                <span><</span> Tools</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="tools.pubsub.html">Command line tool: pubsub <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Eclipse Cyclone DDS Python Committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>
