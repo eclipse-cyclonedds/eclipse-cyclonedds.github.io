@@ -1,0 +1,356 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
+    <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
+    <meta name="author" content="Eclipse Cyclone DDS Committers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+<link rel="stylesheet" href="/css/pygments.css">
+
+  </head>
+
+  <body>
+    
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
+      <a class="navbar-brand" href="/">
+        <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
+      </a>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/docs">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/deep-dives.html">Deep Dives</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+    
+    
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/eclipse-cyclonedds/cyclonedds" target="_blank" rel="noopener" aria-label="GitHub">
+            <span class="fab fa-github fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="fab fa-twitter fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://discord.gg/BkRYQPpZVV" target="_blank" rel="noopener" aria-label="Discord">
+            <span class="fab fa-discord fa-lg"></span>
+           </a>
+        </li>
+      </ul>
+    </header>
+
+
+    
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3">
+        <h2 id="deep-dive-topics-for-cyclone-dds"><em>Deep Dive</em> topics for Cyclone DDS</h2>
+<p>Deeply hidden in Cyclone's Github, there's a wealth of information and explanations on the inner-workings of Cyclone DDS.
+Below you'll find an overview of these <em>DEEP DIVE</em> topics that both extend as well as typically exceed a regular FAQ.</p>
+<p>Often these topics are work-in-progress where the 'remarks' section will provide some details and/or questions</p>
+<h4 id="topic-on-handling-user-data-and-its-relationship-with-built-in-topics">TOPIC: on handling user-data and its relationship with built-in-topics</h4>
+<h5 id="reference-cycloneddsissues54">reference <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/54">cyclonedds/issues/54</a></h5>
+<h5 id="remarks">remarks:</h5>
+<ul>
+<li>an evolving topic also w.r.t. completeness and representation of built-in topic support (including suggested API's for getting discovered remote-entity data similar to get_discovered_participant/get_matched_publication_data)</li>
+<li>also a discussion on OMG vs. Cyclone DDS (C-)API and their respective usability</li>
+</ul>
+<h4 id="topic-a-discussion-leading-into-a-new-set-of-readerwriter-qos-settings-wrt-ignoring-data-from-entities-in-the-same-participant">TOPIC: a discussion leading into a new set of reader/writer QoS-settings w.r.t. ignoring data from entities in the same participant</h4>
+<h5 id="reference-cycloneddsissues78">Reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/78">cyclonedds/issues/78</a></h5>
+<h5 id="remarks_1">remarks:</h5>
+<ul>
+<li>most likely also related to the ignore_participant() API</li>
+</ul>
+<h4 id="topic-a-discussion-on-how-to-handle-qos-changes-and-related-specification-flaws-esp-wrt-non-volatile-data">TOPIC a discussion on how to handle QoS-changes and related specification flaws (esp. w.r.t. non-volatile data)</h4>
+<h5 id="reference-cycloneddsissues63">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/63">cyclonedds/issues/63</a></h5>
+<h5 id="remarks_2">remarks:</h5>
+<ul>
+<li>Q: is there a plan/timeline to exploit (wire-level) in-line QoS to (at least) support (interoperable) writer-side QoS-changes ?</li>
+<li>Q: are non-RxO (including user_data) and 'partition' QoS-changes 'at runtime' allowed already (as suggested on ticket #63)(as it would imply processing new SPDP/SEDP discovery messages) ?</li>
+<li>Q: was there any progress for specifically the <em>user_data</em> w.r.t. a proper implementation where the <em>user data</em> part of the QoS struct in the participant can be updated ?</li>
+</ul>
+<h4 id="topic-impact-of-reader-creation-time-relative-to-writer-discovery-time">TOPIC: impact of reader-creation time relative to writer-discovery time</h4>
+<h5 id="reference-cycloneddsissues83">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/83">cyclonedds/issues/83</a></h5>
+<h5 id="remarks_3">remarks:</h5>
+<ul>
+<li>this might be a non-issue right now</li>
+<li>yet there was a mentioning of some 'edge-usecases' for which the fix wasn't yet tested ..</li>
+</ul>
+<h4 id="topic-dealing-with-multicast-over-loopback">TOPIC: dealing with multicast over loopback</h4>
+<h5 id="reference-cycloneddsissues104">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/104">cyclonedds/issues/104</a></h5>
+<h5 id="remarks_4">remarks:</h5>
+<ul>
+<li>a still worthwhile topic to be mentioned/discussed </li>
+<li>also noting that having to set 'internal' configurations such as a 'AssumeMulticastCapable' interface-list is perhaps less than ideal..</li>
+</ul>
+<h4 id="topic-on-how-discovery-works-in-cyclonedds-spdp-to-discover-participants-with-their-built-in-readerswriters-feeding-into-sedp-endpoint-discovery-of-non-built-in-writersreaders">TOPIC: on how discovery works in CycloneDDS (SPDP to discover participants with their built-in readers/writers feeding into SEDP endpoint discovery of non-built-in writers/readers)</h4>
+<h5 id="reference-cycloneddsissues119">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/119">cyclonedds/issues/119</a></h5>
+<h5 id="remarks_5">remarks:</h5>
+<ul>
+<li>explains how the WHC plays a role in the transient_local behavior of discovering bilt-in readers/writers .. esp as typically (for <em>normal</em> writers) sizing of non-volatile cash is 'independent' from an actual WHC and is drivern by the topic-level QoS</li>
+<li>also a nice explanation on how heartbeat-data conveys the availability of such non-volatile data to a (starting)reader so it can request data regardless of how the connection came to existence</li>
+<li>and furthermore explains how to recognize/interpret a set of tracing messages related to configuration-used, SPDP data, port-pairs associated with discovered participants, GUIDS that indicate looped-back data, etc.) including an actual log-assessment</li>
+<li>interesting aspect here is that an issue was identified, likely on some embedded platform that exposed rather strange/unexplained behavior but where some suggestions for further analysis weren't followed-up</li>
+<li>Note that also <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/337">cyclonedds/issues/337</a> addresses some of the mechanics about what 'historical data' in a writer is available (as well as 'advertised' in its '<em>firstSN</em>' heartbeat section )</li>
+<li>Note that this also opened a discussion on spec-ambiguities w.r.t. what available (historical/durable) data to advertise where Cyclone basically <em>implements a 3-way handshake like TCP does</em> quoting Erik Boasson)</li>
+</ul>
+<h4 id="topic-one-of-multiple-related-to-performance-and-in-this-case-both-a-bug-in-acknack-timing-time-out-conversion-to-ms-as-well-as-triggers-some-better-configurability-of-compile-time-vs-run-time-expensive-assertions">TOPIC: one (of multiple) related to performance, and in this case both a bug in acknack timing (time-out conversion to ms) as well as triggers some better configurability of compile-time vs. run-time (expensive-)assertions</h4>
+<h5 id="reference-cycloneddsissues125">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/125">cyclonedds/issues/125</a></h5>
+<h5 id="remarks_6">remarks:</h5>
+<ul>
+<li>also points to a (still open) issue (#99 on dynamic memory usage)</li>
+</ul>
+<h4 id="topic-a-good-write-up-on-how-data-paths-for-historical-transient-local-andor-transient-and-live-data-path-are-different-eg-have-separate-history-sizes-overwrite-behavior-and-how-that-impacts-observable-behavior">TOPIC: a good write-up on how data-paths for historical (transient-local and/or transient) and live data-path are different (e.g. have separate history sizes &amp; overwrite-behavior) and how that impacts (observable) behavior</h4>
+<h5 id="reference-cycloneddsissues146">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/146">cyclonedds/issues/146</a></h5>
+<h5 id="remarks_7">remarks:</h5>
+<ul>
+<li>noting that 'double-delivery' is fixed for multiple use-cases/issues (#146 and #165)</li>
+</ul>
+<h4 id="topic-a-fundamental-discussion-on-data-lifecycle-as-it-relates-to-default-enabled-auto-dispose-unregistered-instances-qos">TOPIC: a 'fundamental' discussion on data-lifecycle as it relates to (default enabled) auto-dispose-unregistered-instances QoS</h4>
+<h5 id="reference-cycloneddsissues148">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/148">cyclonedds/issues/148</a></h5>
+<h5 id="remarks_8">remarks:</h5>
+<ul>
+<li>related to potential inconsistent systems and the advice to properly distinguish between unregistering (as an administrative task) and disposing (as a <em>data-lifecycle-management</em> task)</li>
+<li>also pointing to a common issue that when taking samples one-at-a-time following 'data available' events, one might miss samples as there might be more arrived data/samples before triggering</li>
+</ul>
+<h4 id="topic-questions-on-writer_data_lifecycle-properly-addressed-with-a-nice-write-up-on-lifecycle-and-how-registrations-and-instance-play-a-role-in-that">TOPIC: questions on writer_data_lifecycle properly addressed with a nice write-up on lifecycle and how registrations and instance play a role in that</h4>
+<h5 id="reference-cycloneddsissues156">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/156">cyclonedds/issues/156</a></h5>
+<h5 id="remarks_9">remarks:</h5>
+<ul>
+<li>it also addresses <em>unregister</em> versus <em>dispose</em> also a commonly misunderstood difference (of handling application-resources versus data-lifecycle) especially when used i.c.w. non-volatile data</li>
+</ul>
+<h4 id="topic-on-strange-behavior-when-using-the-multicastrecvnetworkinterfaceaddress-option-when-setting-it-to-all">TOPIC: on strange behavior when using the <em>MulticastRecvNetworkInterfaceAddress</em> option (when setting it to 'all'</h4>
+<h5 id="reference-cycloneddsissues157">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/157">cyclonedds/issues/157</a></h5>
+<h5 id="remarks_10">remarks:</h5>
+<ul>
+<li>this could be part of a bigger discussion w.r.t. handling multiple interfaces with y/n multicast capabilities as well as exploiting multicast-routing intricacies</li>
+</ul>
+<h4 id="topic-issues-with-data-delivery-right-after-publisher-is-matched">TOPIC: issues with data-delivery right after publisher is matched</h4>
+<h5 id="reference-cycloneddsissues165-and-cycloneddspull188">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/165">cyclonedds/issues/165</a> and <a href="https://github.com/eclipse-cyclonedds/cyclonedds/pull/188">cyclonedds/pull/188</a></h5>
+<h5 id="remarks_11">remarks:</h5>
+<ul>
+<li>the fix addresses a <em>not-incorrect-yet-pretty-non-intuitive</em> behavior although it exploits vendor_id to select the correct/intuitive retransmit-behavior</li>
+<li>it also assures that historical transient-local data is received 'in-order' (and 'in-line' with the spec)</li>
+</ul>
+<h4 id="topic-on-static-memory-allocation-and-how-it-would-impact-transmit-side-receive-path-backgroun-activities-discovery-and-some-otherassorted-impact-areas">TOPIC: on static-memory allocation and how it would impact transmit-side, receive-path, backgroun-activities, discovery and some other/assorted impact-areas</h4>
+<h5 id="reference-cycloneddsissues99">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/99">cyclonedds/issues/99</a></h5>
+<h5 id="remarks_12">remarks:</h5>
+<ul>
+<li>it  argues that as a first step, sample-representation, WHC/RHC implemenetation, 'radmin' replacement and 'global' replacement of malloc/free by type-specific allocators with pluggable implementation</li>
+<li>once/if we'd consider certification, this will undoubtedly be followed-up upon</li>
+</ul>
+<h4 id="topic-a-motivation-and-description-of-an-extended-api-to-retrieve-the-instance_handle-from-a-read-or-query-condition-rather-than-just-from-a-reader">TOPIC:  a motivation and description of an extended API to retrieve the <em>instance_handle</em> from a read- or query-condition (rather than just from a reader)</h4>
+<h5 id="reference-cycloneddsissues213-and-cycloneddspull214">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/213">cyclonedds/issues/213</a> and <a href="https://github.com/eclipse-cyclonedds/cyclonedds/pull/214">cyclonedds/pull/214</a></h5>
+<h5 id="remarks_13">remarks:</h5>
+<ul>
+<li>note that its (still) invalid to assume that <em>instance_handle</em> obtained by <em>register_instance()</em> would be valid in a reader-context (also as that instance might not even have been written)</li>
+<li>note also that a lot of this doesn't apply for built-in topics that although with similar API have vastly different implementation to 'manifest' actual instances of such 'pseudo-topics', at least as I understand it</li>
+<li>the discussion also mentions equality of <em>same-keys-yet-in-different-topics</em> that would come-in 'handy' for equi-joins (i.e. multi-topics which would still be a nice and unique feature to have for Cyclone DDS)</li>
+</ul>
+<h4 id="topic-description-of-the-new-feature-of-being-able-to-define-entities-eg-a-waitset-above-the-participant-where-such-a-waitset-will-now-accept-entities-on-same-participant-same-domain-or-any-level-of-entity">TOPIC:  description of the new feature of being able to define entities (e.g. a <em>waitset</em>) 'above' the participant where such a waitset will now accept entities on 'same <em>participant</em>', 'same <em>domain</em>' or '<em>any</em>' level of entity</h4>
+<h5 id="reference-cycloneddsissues205-and-cycloneddspull246">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/205">cyclonedds/issues/205</a> and <a href="https://github.com/eclipse-cyclonedds/cyclonedds/pull/246">cyclonedds/pull/246</a></h5>
+<h5 id="remarks_14">remarks:</h5>
+<ul>
+<li>it also implies a behavioral change where the parent of a participant is no longer <em>DDS_HANDLE_NIL</em> but instead a domain handle</li>
+<li>and also impacts the behavior of 'implicit' entities (that are deleted automatically on deletion of the last remaining child entity)</li>
+<li>Q: the PR also addresses a (somewhat related) feature of allowing user-supplied ReaderHistoryCache (RHC) that a ROS2 RMW-layer could exploit for triggering DATA_AVAILABLE for multiple readers .. not sure of its potential beyond ROS2 ?</li>
+</ul>
+<h4 id="topic-a-discussion-on-data-model-granularity-wrt-topicspartitionsinstancesamples-that-also-introduces-network_partitions-to-aid-in-making-more-efficient-use-of-multicast-addresses">TOPIC:  a discussion on data-model granularity w.r.t. topics/partitions/instance/samples that also introduces <em>network_partitions</em> to aid in making more efficient use of multicast-addresses</h4>
+<h5 id="reference-cycloneddsissues373">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/373">cyclonedds/issues/373</a></h5>
+<h5 id="remarks_15">remarks:</h5>
+<ul>
+<li>note that it also touches upon a earlier POC (yet documented in config/options manual) where a pool of (IPv4) multicast-addresses is exploited with dynamic selection of the relevant addresses in such a pool/set</li>
+</ul>
+<h4 id="topic-driven-by-a-question-on-watermarks-heres-useful-information-related-to-memory-usage-of-cyclone-as-it-relates-to-the-history-and-durability-qos">TOPIC:  driven by a question on watermarks, here's useful information related to memory-usage of Cyclone as it relates to the <em>history</em> and <em>durability</em> QoS</h4>
+<h5 id="reference-cycloneddsissues314">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/314">cyclonedds/issues/314</a></h5>
+<h5 id="remarks_16">remarks:</h5>
+<ul>
+<li>this is a typical 'source-of-confusion' an (thus) deserves a good (i.e. sufficiently extensive) write-up to clarify (see also <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/49">https://github.com/eclipse-cyclonedds/cyclonedds/issues/49</a> )</li>
+</ul>
+<h4 id="topic-a-good-summary-of-how-transient-data-should-outlive-either-lifecycle-of-a-publisher-as-well-as-should-be-able-making-use-of-a-durability-service-separate-from-a-publisher-to-guarantee-eventual-consistency-in-case-of-writerreader-disconnectsreconnects">TOPIC:  a good summary of how transient-data should outlive either lifecycle of a publisher as well as should be able (making use of a 'durability-service' separate from a publisher) to 'guarantee' eventual-consistency in case of writer/reader disconnects/reconnects</h4>
+<h5 id="reference-cycloneddsissues528">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/528">cyclonedds/issues/528</a></h5>
+<h5 id="remarks_17">remarks:</h5>
+<ul>
+<li>surely one of many (to come) write-ups on how transient data is supposed to work (once we've implemented support for it) </li>
+<li>Q: now that I'm thinking of it, what about TRANSIENT_LOCAL behavior in case of disconnect/re-connect, is that also 'equipped' to fill-in-the-blanks w.r.t. missed data sent by 'that' writer during the disconnect state ?</li>
+</ul>
+<h4 id="topic-a-nice-write-up-on-wherewhy-time-is-spent-in-cyclone-focusing-on-its-threads-in-the-receive-part">TOPIC:  a nice write-up on where/why time is spent in Cyclone (focusing on it's threads in the 'receive part')</h4>
+<h5 id="reference-cycloneddsissues769">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/769">cyclonedds/issues/769</a></h5>
+<h5 id="remarks_18">remarks:</h5>
+<ul>
+<li>the context of this issue was ROS2 which implies that its also the rmw-layer that impacts performance</li>
+<li>unfortunately there are little details on what made the high-cpu problem go away (likely the initial suggestion to exploit larger 'MaxMessageSize' to reduce the amount of packets to be processed)</li>
+</ul>
+<h4 id="topic-apart-from-detailed-protocol-issues-this-issue-touches-upon-the-various-mechanisms-to-pass-a-domain-configuration-to-cyclone-esp-for-those-environments-that-dont-include-a-file-system">TOPIC:  apart from detailed-protocol issues, this issue touches upon the various mechanisms to pass a domain-configuration to cyclone (esp. for those environments that don't include a file-system)</h4>
+<h5 id="reference-cycloneddsissues1051">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1051">cyclonedds/issues/1051</a></h5>
+<h5 id="remarks_19">remarks:</h5>
+<ul>
+<li>perhaps just a small notice in the document-section that explains all configuration options suffices here, see <a href="https://github.com/eclipse-cyclonedds/cyclonedds/blob/master/docs/manual/options.md">https://github.com/eclipse-cyclonedds/cyclonedds/blob/master/docs/manual/options.md</a></li>
+</ul>
+<h4 id="topic-a-discussion-on-configuration-and-interoperability-between-ospl-and-cyclone-with-some-pointers-to-current-limitations-wrt-type-discovery-as-well-as-some-changes-wrt-ddsi-configuration">TOPIC:  a discussion on configuration and interoperability between OSPL and Cyclone with some pointers to current limitations w.r.t. type-discovery as well as some changes w.r.t. (ddsi-)configuration</h4>
+<h5 id="reference-cycloneddsissues1057">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1057">cyclonedds/issues/1057</a></h5>
+<h5 id="remarks_20">remarks:</h5>
+<ul>
+<li>it also points to some fundamental differences w.r.t. type-discovery which might deserve a separate 'topic' as to what's going to be possible going-forward</li>
+<li>also (not related to this specific issue) is a common pitfall w.r.t. interoperability with OSPL that relates to type-scope</li>
+<li>noting also that non-matching partition and or durability-QoS settings is a common-cause for non-interoperability (esp. when there's no readily available tooling to spot these such as OSPL's good-old tester)</li>
+</ul>
+<h4 id="topic-an-issue-with-the-roundtrip-example-creating-a-coredump-upon-exit-caused-by-an-arbitrary-sequence-of-deleting-entities-potentially-giving-rise-to-a-use-after-free-attempt">TOPIC:  an issue with the roundtrip-example creating a coredump upon exit, caused by an arbitrary sequence of deleting entities potentially giving rise to a 'use-after-free' attempt</h4>
+<h5 id="reference-cycloneddsissues1074">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1074">cyclonedds/issues/1074</a></h5>
+<h5 id="remarks_21">remarks:</h5>
+<ul>
+<li>here its most likely dds_write_ts called from a listener when the writer is already deleted .. something that can be prevented by explicitly resetting the listener before stopping (dds_delete)</li>
+<li>Q: although that's a workable work-around, it doesn't state that the example is fixed and/or the code being robust against such termination-patterns (which although preferable might not always be  possible)</li>
+</ul>
+<h4 id="topic-not-so-much-an-issue-but-an-observation-wrt-fastrtps-not-properly-dealing-with-all-messages-that-make-up-the-reliable-protocol">TOPIC:  not so much an issue, but an observation w.r.t. fastRTPS not properly dealing with all messages that make up the reliable protocol</h4>
+<h5 id="reference-cycloneddsissues1110">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1110">cyclonedds/issues/1110</a></h5>
+<h5 id="remarks_22">remarks:</h5>
+<ul>
+<li>when using the ROS2 talker/listener example, the first messages are missing whenever the Cyclone-listener is started before the fastRTPS-talker</li>
+<li>maybe less suitable for a real 'deep-dive' but rather targeting a 'interoperability-issue' </li>
+</ul>
+<h4 id="topic-exploit-unicast-traffic-as-bounded-flows-in-requestresponse-scenarios">TOPIC:  exploit unicast-traffic as ‘bounded-flows’ in request/response scenario’s</h4>
+<h5 id="reference-cycloneddsissues911">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/911">cyclonedds/issues/911</a></h5>
+<h5 id="remarks_23">remarks:</h5>
+<ul>
+<li>here both the usage of partitions as well as (future) content-filtering as discussed as a way to implement bounded-flows</li>
+<li>noting that the source- and/or destination-oriented partitions are also patterns that work quite nice and imply unicast-traffic in those ‘dedicated’ partitions</li>
+<li>also related to an IoT-concept of so-called <em>sourceContextFilters</em> on an input of an IoT 'Thing' that result in a subscription tied to a source-specific partition (in a usecase related to enforcing a point-to-point data-flow between an inference-engine and 'its' raw/to-be-processed sensor data)</li>
+</ul>
+<h4 id="topic-on-creating-a-static-build-of-cyclonedds-icw-security-and-also-windows-os">TOPIC:  on creating a static-build of cycloneDDS (i.c.w. security and also windows OS)</h4>
+<h5 id="reference-cycloneddsissues800">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/800">cyclonedds/issues/800</a></h5>
+<h5 id="remarks_24">remarks:</h5>
+<ul>
+<li>this is stil open as the immediate demand vanished, yet seems like a common/recurring question that might deserve a 'deep-dive' in the future</li>
+</ul>
+<h4 id="topic-on-jitter-in-latency-tests">TOPIC:  on jitter in latency-tests</h4>
+<h5 id="reference-cycloneddsissues912">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/912">cyclonedds/issues/912</a></h5>
+<h5 id="remarks_25">remarks:</h5>
+<ul>
+<li>about observed abnormal latency-jitter </li>
+<li>not sure with all our suggestions that issue has been resolved (esp. for large samples)</li>
+<li>anyhow, the ticket contains an elaborate overview on means/methods to measure latency and related jitter</li>
+<li>including bundled roundtrip-apps, ddsperf utility and Erik Boasson’s multi-vendor DDS test-suite i11eperf (https://github.com/eboasson/i11eperf )</li>
+</ul>
+<h4 id="topic-how-to-exploit-on_data_available-when-it-relates-to-either-actual-data-andor-meta-data-for-lifecycle-awareness">TOPIC:  how to exploit on_data_available when it relates to either actual-data and/or meta-data for lifecycle awareness</h4>
+<h5 id="reference-cycloneddsissues1084">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1084">cyclonedds/issues/1084</a></h5>
+<h5 id="remarks_26">remarks:</h5>
+<ul>
+<li>an extensive write-up on both how to properly exploit on_data_available() call-backs as well as an explanation on how the DDS/DCPS and DDSI/RTPS specification have different approaches on how to handle such (meta-data)events</li>
+</ul>
+<h4 id="topic-cyclonedds-and-opendds-interoperability">TOPIC:  CycloneDDS and OpenDDS interoperability</h4>
+<h5 id="reference-cycloneddsissues1241">reference: <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1241">cyclonedds/issues/1241</a></h5>
+<h5 id="remarks_27">remarks:</h5>
+<ul>
+<li>useful information about common pitfalls w.r.t. communicating between different DDS-implementations</li>
+<li>this could be combined with other tickets/remarks of people who have stumbled across typicall interop-blockers/issues</li>
+</ul>
+      </div>
+    </div>
+    
+  </div>
+</main>
+
+        <footer class="ato-footer text-muted">
+      <div class="container-fluid p-6 p-md-5">
+        <div class="row">
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Eclipse Incubation</h5>
+            <p><img src="/images/eclipse-incubation.png" style="width:100px;"></p>
+            <p>Eclipse Cyclone DDS &trade; is an incubating project under the Eclipse Foundation.</p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>More Information</h5>
+            <p><a href="https://www.eclipse.org/legal" target="_blank">Legal</a></p>
+            <p><a href="https://www.eclipse.org/legal/privacy.php" target="_blank">Privacy policy</a></p>
+            <p><a href="https://www.eclipse.org/legal/termsofuse.php" target="_blank">Terms of use</a></p>
+            <p><a href="https://www.eclipse.org/legal/copyright.php" target="_blank">Copyright</a></p>
+            <p><a href="https://www.eclipse.org/security/" target="_blank">Report a security issue</a></p>
+            <p><a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">Eclipse Public License 2.0</a></p>
+            <p><a href="https://www.eclipse.org/org/documents/edl-v10.php" target="_blank">Eclipse Distribution License 1.0</a></p>
+            <p><a href="https://www.eclipse.org/" target="_blank">Eclipse Foundation</a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Sponsored by:</h5>
+            <p><a href="https://www.eclipse.org/" target="_blank"><img src="/images/eclipse-foundation.svg" alt="Eclipse Foundation" class="img-fluid w-75"></a></p>
+            <p><a href="https://zettascale.tech/" target="_blank"><img src="/images/zettascale.svg" alt="ZettaScale Technology" class="img-fluid w-75"></a></p>
+            <p><a href="https://www.adlinktech.com" target="_blank"><img src="/images/company_logo.svg" alt="ADLINK Technology" class="img-fluid w-75"></a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Follow us</h5>
+            <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
+            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
+            <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
+          </div>
+
+          <div class="col-12 col-md-4 pb-2">
+            <p>Eclipse Cyclone DDS &trade; is free, open source and always will be.</p>
+            <p>Copyright &copy; 2022 Eclipse Foundation</p>
+            <p>Theme inspired by: <a href="https://tokio.rs/" target="_blank">Tokio website theme</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+  </body>
+</html>
