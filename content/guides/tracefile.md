@@ -1,3 +1,10 @@
+---
+Title:       Cyclone DDS trace files
+Author:      Erik Boasson
+Date:        2022-05-19
+Template:    plain_markdown
+---
+
 # How to read the Cyclone DDS trace file
 
 The "canonical" trace of Cyclone DDS is enabled by setting `Tracing/Category` to `trace` or `Tracing/Verbosity` to `finest`, the two really amount to the same thing because the verbosity settings expand to predefined sets of categories, and `finest` expands to `trace`. It usually contains far too much data and yet often still misses the bits that one is really looking for. This is quite simply the trouble with logging in general. The interpretation of this output of this logging setting is what this document tries to help with.
