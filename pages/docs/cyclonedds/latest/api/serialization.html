@@ -484,7 +484,7 @@
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_OP_KOF">
 <span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a51d7d21984f8390969d922cda839e7a2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_KOF</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_OP_KOF" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Key offset list [KOF, 0, n] [offset-1] … [offset-n] where n = number of key offsets in following ops offset = offset of the key field, relative to the previous offset (repeated n times, e.g. when key in nested struct) </p>
+<dd><p>Key offset list [KOF, 0, n] [offset-1] … [offset-n] where n = number of key offsets in following ops offset = Offset of the key field relative to the previous offset, repeated n times when key is in a nested struct. In case of inheritance of mutable structs, a single offset of the key member relative to the first op of the top-level type (index 0). </p>
 </dd></dl>
 
 <dl class="c enumerator">
@@ -798,7 +798,13 @@
 <dt class="sig sig-object c" id="c.DDS_TOPIC_NO_OPTIMIZE">
 <span class="target" id="group__topic__flags_1gaf3dfc8c311c9acda1a7baac9f9812d22"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_NO_OPTIMIZE</span></span></span><a class="headerlink" href="#c.DDS_TOPIC_NO_OPTIMIZE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Don’t optimize the opcodes to quick memcpy’s. If a topic includes only plain types and directly nested structs, it can be that a simple copy+optional byteswap can produce the right C memory layout straight from CDR. If this flag is added it means that there is pointer ‘magic’ involved in decoding the type and no shortcuts should be taken. </p>
-<p><span class="target" id="group__topic__flags_1DDS_TOPIC_NO_OPTIMIZE"></span></p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_NO_OPTIMIZE"></span> <dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Optimizability is determined runtime when creating the sertype_default for the type, this flag is not used. </p>
+</dd></dl>
+
+</p>
 </dd></dl>
 
 <dl class="c macro">
