@@ -158,6 +158,9 @@ Program Listing for File extended_cdr_v1_ser.cpp
        return cdr_stream::first_entity(props);
    
      auto prop = cdr_stream::first_entity(props);
+     if (!prop)
+       return prop;
+   
      if (!list_necessary(*props)) {
        do {
          if (prop->is_optional) {

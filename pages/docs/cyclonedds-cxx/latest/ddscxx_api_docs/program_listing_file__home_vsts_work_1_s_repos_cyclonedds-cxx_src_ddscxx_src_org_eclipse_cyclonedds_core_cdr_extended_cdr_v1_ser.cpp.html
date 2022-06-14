@@ -281,6 +281,9 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cdr_stream</span><span class="o">::</span><span class="n">first_entity</span><span class="p">(</span><span class="n">props</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">prop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cdr_stream</span><span class="o">::</span><span class="n">first_entity</span><span class="p">(</span><span class="n">props</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">prop</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">prop</span><span class="p">;</span><span class="w"></span>
+
 <span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">list_necessary</span><span class="p">(</span><span class="o">*</span><span class="n">props</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prop</span><span class="o">-&gt;</span><span class="n">is_optional</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
