@@ -213,6 +213,10 @@
 <span class="cp"># SOVERSION should increase on incompatible ABI change</span>
 <span class="n">set_target_properties</span><span class="p">(</span><span class="n">ddscxx</span><span class="w"> </span><span class="n">PROPERTIES</span><span class="w"> </span><span class="n">VERSION</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">PROJECT_VERSION</span><span class="p">}</span><span class="w"> </span><span class="n">SOVERSION</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">PROJECT_VERSION_MAJOR</span><span class="p">})</span><span class="w"></span>
 
+<span class="k">if</span><span class="p">(</span><span class="n">ENABLE_LEGACY</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">target_compile_definitions</span><span class="p">(</span><span class="n">ddscxx</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="s">&quot;DDSCXX_USE_BOOST&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="n">endif</span><span class="p">()</span><span class="w"></span>
+
 <span class="cp"># Create a pseudo-target that other targets (i.e. examples, tests) can depend</span>
 <span class="cp"># on and can also be provided as import-target by a package-file when building</span>
 <span class="cp"># those targets outside the regular Cyclone build-tree (i.e. the installed tree)</span>
@@ -220,7 +224,7 @@
 
 <span class="n">add_coverage</span><span class="p">(</span><span class="n">ddscxx</span><span class="p">)</span><span class="w"></span>
 
-<span class="n">set_property</span><span class="p">(</span><span class="n">TARGET</span><span class="w"> </span><span class="n">ddscxx</span><span class="w"> </span><span class="n">PROPERTY</span><span class="w"> </span><span class="n">CXX_STANDARD</span><span class="w"> </span><span class="mi">17</span><span class="p">)</span><span class="w"></span>
+<span class="n">set_property</span><span class="p">(</span><span class="n">TARGET</span><span class="w"> </span><span class="n">ddscxx</span><span class="w"> </span><span class="n">PROPERTY</span><span class="w"> </span><span class="n">CXX_STANDARD</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">cyclonedds_cpp_std_to_use</span><span class="p">})</span><span class="w"></span>
 <span class="n">target_link_libraries</span><span class="p">(</span><span class="n">ddscxx</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="n">CycloneDDS</span><span class="o">::</span><span class="n">ddsc</span><span class="p">)</span><span class="w"></span>
 <span class="n">target_include_directories</span><span class="p">(</span><span class="w"></span>
 <span class="w">  </span><span class="n">ddscxx</span><span class="w"></span>
