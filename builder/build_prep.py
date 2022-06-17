@@ -57,7 +57,7 @@ def build_wrap(project: str, repository: Path, confpy: Path, version: str):
             doxygen_conf_path = doxygen_output / "doxygen.conf"
             doxygen_conf_path.write_text(doxygen_conf)
 
-            run_doxygen(repository / "src" / "core", doxygen_conf_path)
+            run_doxygen(repository / "src", doxygen_conf_path)
             confpy.write_text(confpy_data)
 
             yield

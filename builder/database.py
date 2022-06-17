@@ -45,8 +45,8 @@ class VersionDatabase:
             json.dump({
                 name: {
                     "master_commit": project.master_commit,
-                    "tags": list(project.tags),
-                    "ignored_tags": list(project.ignored_tags)
+                    "tags": list(sorted(project.tags)),
+                    "ignored_tags": list(sorted(project.ignored_tags))
                 }
                 for name, project in self.projects.items()
             }, f, indent=4)
