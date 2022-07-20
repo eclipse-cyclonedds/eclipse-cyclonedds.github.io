@@ -117,7 +117,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shared_memory.html">Shared Memory</a></li>
@@ -189,7 +189,7 @@
 </li>
       <li><a href="api/builtin.html#c.dds_builtintopic_free_topic">dds_builtintopic_free_topic (C function)</a>
 </li>
-      <li><a href="api/builtin.html#c.dds_builtintopic_get_endpoint_typeid">dds_builtintopic_get_endpoint_typeid (C function)</a>
+      <li><a href="api/builtin.html#c.dds_builtintopic_get_endpoint_type_info">dds_builtintopic_get_endpoint_type_info (C function)</a>
 </li>
       <li><a href="api/builtin.html#c.dds_builtintopic_guid">dds_builtintopic_guid (C struct)</a>
 </li>
@@ -257,6 +257,8 @@
 </li>
       <li><a href="api/deprecated.html#c.dds_create_topic_arbitrary">dds_create_topic_arbitrary (C function)</a>
 </li>
+      <li><a href="api/topic.html#c.dds_create_topic_descriptor">dds_create_topic_descriptor (C function)</a>
+</li>
       <li><a href="api/topic.html#c.dds_create_topic_generic">dds_create_topic_generic (C function)</a>
 </li>
       <li><a href="api/topic.html#c.dds_create_topic_sertype">dds_create_topic_sertype (C function)</a>
@@ -318,6 +320,8 @@
       <li><a href="api/qos.html#c.dds_delete_qos">dds_delete_qos (C function)</a>
 </li>
       <li><a href="api/statistics.html#c.dds_delete_statistics">dds_delete_statistics (C function)</a>
+</li>
+      <li><a href="api/topic.html#c.dds_delete_topic_descriptor">dds_delete_topic_descriptor (C function)</a>
 </li>
       <li><a href="api/qos.html#c.dds_destination_order_kind">dds_destination_order_kind (C enum)</a>
 </li>
@@ -401,11 +405,13 @@
 </li>
       <li><a href="api/topic.html#c.dds_find_topic">dds_find_topic (C function)</a>
 </li>
-      <li><a href="api/topic.html#c.dds_find_topic_scoped">dds_find_topic_scoped (C function)</a>
+      <li><a href="api/deprecated.html#c.dds_find_topic_scoped">dds_find_topic_scoped (C function)</a>
 </li>
       <li><a href="api/serialization.html#c.DDS_FIXED_KEY_MAX_SIZE">DDS_FIXED_KEY_MAX_SIZE (C macro)</a>
 </li>
       <li><a href="api/pub.html#c.dds_forwardcdr">dds_forwardcdr (C function)</a>
+</li>
+      <li><a href="api/builtin.html#c.dds_free_typeinfo">dds_free_typeinfo (C function)</a>
 </li>
       <li><a href="api/builtin.html#c.dds_free_typeobj">dds_free_typeobj (C function)</a>
 </li>
@@ -480,6 +486,8 @@
       <li><a href="api/topic.html#c.dds_get_topic_filter_extended">dds_get_topic_filter_extended (C function)</a>
 </li>
       <li><a href="api/topic.html#c.dds_get_type_name">dds_get_type_name (C function)</a>
+</li>
+      <li><a href="api/builtin.html#c.dds_get_typeinfo">dds_get_typeinfo (C function)</a>
 </li>
       <li><a href="api/builtin.html#c.dds_get_typeobj">dds_get_typeobj (C function)</a>
 </li>
@@ -893,12 +901,12 @@
 </li>
       <li><a href="api/qos.html#c.dds_qget_presentation">dds_qget_presentation (C function)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/qos.html#c.dds_qget_prop">dds_qget_prop (C function)</a>
 </li>
       <li><a href="api/qos.html#c.dds_qget_propnames">dds_qget_propnames (C function)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/qos.html#c.dds_qget_reader_data_lifecycle">dds_qget_reader_data_lifecycle (C function)</a>
 </li>
       <li><a href="api/qos.html#c.dds_qget_reliability">dds_qget_reliability (C function)</a>
@@ -1116,8 +1124,6 @@
       <li><a href="api/listener.html#c.dds_reset_listener">dds_reset_listener (C function)</a>
 </li>
       <li><a href="api/qos.html#c.dds_reset_qos">dds_reset_qos (C function)</a>
-</li>
-      <li><a href="api/builtin.html#c.dds_resolve_type">dds_resolve_type (C function)</a>
 </li>
       <li><a href="api/pub.html#c.dds_resume">dds_resume (C function)</a>
 </li>

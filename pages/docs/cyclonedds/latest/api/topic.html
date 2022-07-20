@@ -120,7 +120,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
@@ -178,7 +178,7 @@
 <dl class="c type">
 <dt class="sig sig-object c" id="c.dds_find_scope_t">
 <span class="target" id="group__topic_1ga04c22a0103dfbcdf214cd812a2f70b72"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_find_scope" title="dds_find_scope"><span class="n"><span class="pre">dds_find_scope</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_scope_t</span></span></span><a class="headerlink" href="#c.dds_find_scope_t" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Scope for <a class="reference internal" href="#group__topic_1ga0b2918a6ec7674f7d2667068a8a7cfc5"><span class="std std-ref">dds_find_topic()</span></a> </p>
+<dd><p>Scope for <a class="reference internal" href="#group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"><span class="std std-ref">dds_find_topic()</span></a> </p>
 </dd></dl>
 
 </div>
@@ -187,7 +187,7 @@
 <dl class="c enum">
 <dt class="sig sig-object c" id="c.dds_find_scope">
 <span class="target" id="group__topic_1ga7624dd31126da620c50c3c48b7d03112"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_scope</span></span></span><a class="headerlink" href="#c.dds_find_scope" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Scope for <a class="reference internal" href="#group__topic_1ga0b2918a6ec7674f7d2667068a8a7cfc5"><span class="std std-ref">dds_find_topic()</span></a> </p>
+<dd><p>Scope for <a class="reference internal" href="#group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"><span class="std std-ref">dds_find_topic()</span></a> </p>
 <p><em>Values:</em></p>
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_find_scope.DDS_FIND_SCOPE_GLOBAL">
@@ -306,21 +306,29 @@
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_find_topic">
-<span class="target" id="group__topic_1ga0b2918a6ec7674f7d2667068a8a7cfc5"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_find_topic" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Finds a named topic. </p>
-<p>Finds a locally created topic based on the topic name.</p>
+<span class="target" id="group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_find_scope_t" title="dds_find_scope_t"><span class="n"><span class="pre">dds_find_scope_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">scope</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_find_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Finds a locally created or discovered remote topic by topic name and type information. </p>
+<p>Finds a locally created topic or a discovered remote topic based on the topic name and type. In case the topic is not found, this function will wait for the topic to become available until the provided time out.</p>
+<p>When using the scope DDS_FIND_SCOPE_LOCAL_DOMAIN, there will be no requests sent over the network for resolving the type in case it is unresolved. This also applies to dependent types: in case a dependency of the provided type is unresolved, no requests will be sent for resolving the type when using LOCAL_DOMAIN scope.</p>
+<p>In case the scope is DDS_FIND_SCOPE_GLOBAL, for unresolved types (or dependencies) a type lookup request will be sent.</p>
+<p>In case no type information is provided and multiple (discovered) topics exist with the provided name, an arbitrary topic with that name will be returned. In this scenario, it would be better to read DCPSTopic data and use that to get the required topic meta-data.</p>
+<p>The returned topic should be released with dds_delete.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>participant</strong> – <strong>[in]</strong> The participant on which to find the topic. </p></li>
-<li><p><strong>name</strong> – <strong>[in]</strong> The name of the topic to find.</p></li>
+<li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the topic. In case topic discovery is not enabled in the build, SCOPE_GLOBAL cannot be used. </p></li>
+<li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant the found topic will be created in </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> The name of the topic to find. </p></li>
+<li><p><strong>type_info</strong> – <strong>[in]</strong> The type information of the topic to find. Optional, and should not be provided in case topic discovery is not enabled in the build. </p></li>
+<li><p><strong>timeout</strong> – <strong>[in]</strong> The timeout for waiting for the topic to become available</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return values</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid topic handle. </p></li>
-<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Participant was invalid. </p></li>
-<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – No topic of this name existed yet in the participant </p></li>
+<li><p><strong>0</strong> – No topic of this name exists </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Participant or type information was invalid. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type could not be found. </p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -330,31 +338,53 @@
 </dd></dl>
 
 <dl class="c function">
-<dt class="sig sig-object c" id="c.dds_find_topic_scoped">
-<span class="target" id="group__topic_1gad016d6e9e38a6ba24f529781288ae80c"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_topic_scoped</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_find_scope_t" title="dds_find_scope_t"><span class="n"><span class="pre">dds_find_scope_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">scope</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_find_topic_scoped" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Finds a locally created or discovered remote topic by topic name. </p>
-<p>Finds a locally created topic or a discovered remote topic based on the topic name. In case the topic is not found, this function will wait for the topic to become available until the provided time out.</p>
-<p>In case multiple (discovered) topics are found with the provided name, this function will return an error code. The caller can decide to read DCPSTopic data itself and select one of the topic definitions to create the topic.</p>
-<p>The returned topic should be released with dds_delete.</p>
+<dt class="sig sig-object c" id="c.dds_create_topic_descriptor">
+<span class="target" id="group__topic_1ga4fffa2d2d5f7ee98c994550bcc3c750e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_topic_descriptor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_find_scope_t" title="dds_find_scope_t"><span class="n"><span class="pre">dds_find_scope_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">scope</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span>, <a class="reference internal" href="internal.html#c.dds_topic_descriptor_t" title="dds_topic_descriptor_t"><span class="n"><span class="pre">dds_topic_descriptor_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">descriptor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_topic_descriptor" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates topic descriptor for the provided type_info. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the topic </p></li>
-<li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant the found topic will be created in </p></li>
-<li><p><strong>name</strong> – <strong>[in]</strong> The name of the topic to find. </p></li>
-<li><p><strong>timeout</strong> – <strong>[in]</strong> The timeout for waiting for the topic to become available</p></li>
+<li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the type: DDS_FIND_SCOPE_LOCAL_DOMAIN or DDS_FIND_SCOPE_GLOBAL. In case DDS_FIND_SCOPE_GLOBAL is used, a type lookup request will be sent to other nodes. </p></li>
+<li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant. </p></li>
+<li><p><strong>type_info</strong> – <strong>[in]</strong> The type (dds_typeinfo_t) of the topic to find. </p></li>
+<li><p><strong>timeout</strong> – <strong>[in]</strong> The timeout for waiting for the type to become available </p></li>
+<li><p><strong>descriptor</strong> – <strong>[out]</strong> - Pointer to a dds_topic_descriptor_t pointer that will be allocated and populated. To free allocated memory for this descriptor, use dds_delete_topic_descriptor.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return values</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>&gt;0</strong> – A valid topic handle. </p></li>
-<li><p><strong>0</strong> – No topic of this name existed yet </p></li>
-<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Participant handle or scope invalid </p></li>
-<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Multiple topics with the provided name were found. </p></li>
+<li><p><strong>DDS_RETCODE_OK</strong> – The topic descriptor has been succesfully created. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Type_info or descriptor parameter not provided, invalid entity (not a participant) or scope invalid. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The participant or the type_id was not found. </p></li>
+<li><p><strong>DDS_RETCODE_TIMEOUT</strong> – Type was not resolved within the provided timeout </p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A valid topic handle or an error code.</p>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_delete_topic_descriptor">
+<span class="target" id="group__topic_1ga674234ac31b89e96306458bdaeecf60c"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_delete_topic_descriptor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="internal.html#c.dds_topic_descriptor_t" title="dds_topic_descriptor_t"><span class="n"><span class="pre">dds_topic_descriptor_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">descriptor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_delete_topic_descriptor" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete memory allocated to the provided topic descriptor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>descriptor</strong> – <strong>[in]</strong> - Pointer to a dds_topic_descriptor_t</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The topic descriptor has been succesfully deleted. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – No descriptor provided </p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -119,7 +119,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
@@ -226,6 +226,41 @@ Use <a class="reference internal" href="topic.html#group__topic_1ga614ac93714999
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A valid, unique topic handle or an error code. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_find_topic_scoped">
+<span class="target" id="group__deprecated_1gad016d6e9e38a6ba24f529781288ae80c"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_topic_scoped</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="topic.html#c.dds_find_scope_t" title="dds_find_scope_t"><span class="n"><span class="pre">dds_find_scope_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">scope</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_find_topic_scoped" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Finds a locally created or discovered remote topic by topic name </p>
+</dd></dl>
+
+Use <a class="reference internal" href="topic.html#group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"><span class="std std-ref">dds_find_topic</span></a> instead.</p>
+<p>Finds a locally created topic or a discovered remote topic based on the topic name. In case the topic is not found, this function will wait for the topic to become available until the provided time out.</p>
+<p>In case multiple (discovered) topics exist with the provided name, this function will return randomly one of these topic. The caller can decide to read DCPSTopic data and select one of the topic definitions to create the topic.</p>
+<p>The returned topic should be released with dds_delete.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the topic </p></li>
+<li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant the found topic will be created in </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> The name of the topic to find. </p></li>
+<li><p><strong>timeout</strong> – <strong>[in]</strong> The timeout for waiting for the topic to become available</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid topic handle. </p></li>
+<li><p><strong>0</strong> – No topic of this name existed yet </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Participant handle or scope invalid </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A valid topic handle or an error code.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -120,7 +120,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
@@ -362,21 +362,21 @@
 </dd></dl>
 
 <dl class="c function">
-<dt class="sig sig-object c" id="c.dds_builtintopic_get_endpoint_typeid">
-<span class="target" id="group__builtintopic_1ga10afce5b01056f9b59ec925f89d9a0d9"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_get_endpoint_typeid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_endpoint</span></span>, <a class="reference internal" href="#c.dds_typeid_kind_t" title="dds_typeid_kind_t"><span class="n"><span class="pre">dds_typeid_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">kind</span></span>, <span class="n"><span class="pre">dds_typeid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_identifier</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_get_endpoint_typeid" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Gets the type identifier from endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data. </p>
-<p>
-DOC_TODO: more return values? </p>
+<dt class="sig sig-object c" id="c.dds_builtintopic_get_endpoint_type_info">
+<span class="target" id="group__builtintopic_1gac9fb2a2ccb48473796565ac71de9d8f9"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_get_endpoint_type_info</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_endpoint</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_get_endpoint_type_info" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the type information from endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>builtintopic_endpoint</strong> – <strong>[in]</strong> The builtintopic endpoint struct </p></li>
-<li><p><strong>kind</strong> – <strong>[in]</strong> Kind of type identifier (minimal/complete) </p></li>
-<li><p><strong>type_identifier</strong> – <strong>[out]</strong> Type identifier that will be allocated by this function in case of success. Needs to be freed by the caller.</p></li>
+<li><p><strong>type_info</strong> – <strong>[out]</strong> Type information that will be allocated by this function in case of success.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return values</dt>
-<dd class="field-even"><p><strong>DDS_RETCODE_OK</strong> – The operation was successful.</p>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more parameters are invalid </p></li>
+</ul>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
@@ -575,38 +575,6 @@ DOC_TODO: more return values? </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="c function">
-<dt class="sig sig-object c" id="c.dds_resolve_type">
-<span class="target" id="group__xtypes_1gae3a8ef8ea3ed52bb2284f5ec6dd2ad8a"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_resolve_type</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_id</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_sertype</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sertype</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_resolve_type" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This function resolves the type for the provided type identifier, which can e.g. be retrieved from endpoint or topic discovery data. </p>
-<p><div class="remark admonition">
-<p class="admonition-title">Remark</p>
-<p>The resulting type from the sertype out parameter is refcounted and needs to be dereferenced at some point. This can be done by creating a topic using dds_create_topic_generic, which takes over the ownership of the type or alternatively by using ddsi_sertype_unref to release the reference.</p>
-</div>
-</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entity</strong> – <strong>[in]</strong> A domain entity or an entity bound to a domain, such as a participant, reader or writer. </p></li>
-<li><p><strong>type_id</strong> – <strong>[in]</strong> Type identifier </p></li>
-<li><p><strong>timeout</strong> – <strong>[in]</strong> Timeout for waiting for requested type information to be available </p></li>
-<li><p><strong>sertype</strong> – <strong>[out]</strong> The type information, or NULL if the type could not be resolved</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return values</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
-<li><p><strong>DDS_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, type_id or type name is not provided, or the sertype out parameter is NULL </p></li>
-<li><p><strong>DDS_RETCODE_NOT_FOUND</strong> – A type with the provided type_id and type_name was not found </p></li>
-<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
-</ul>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_typeobj">
 <span class="target" id="group__xtypes_1gaf207cd40a5e7bf2541e422c33aec609e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_typeobj</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_id</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span>, <span class="n"><span class="pre">dds_typeobj_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_typeobj" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This function resolves the type for the provided type identifier, which can e.g. be retrieved from endpoint or topic discovery data. </p>
@@ -622,9 +590,10 @@ DOC_TODO: more return values? </p>
 <dt class="field-even">Return values</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
-<li><p><strong>DDS_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, type_id or type name is not provided, or the sertype out parameter is NULL </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, type_id or type name is not provided, or the sertype out parameter is NULL </p></li>
 <li><p><strong>DDS_RETCODE_NOT_FOUND</strong> – A type with the provided type_id and type_name was not found </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
@@ -646,7 +615,57 @@ DOC_TODO: more return values? </p>
 <dt class="field-even">Return values</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
-<li><p><strong>DDS_BAD_PARAMETER</strong> – The type_obj parameter is NULL </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The type_obj parameter is NULL </p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_get_typeinfo">
+<span class="target" id="group__xtypes_1ga665539ad3bb166118840730d04cae6f7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_typeinfo</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_typeinfo" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function gets the type information from the provided topic, reader or writer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> A topic/reader/writer entity </p></li>
+<li><p><strong>type_info</strong> – <strong>[out]</strong> The type information, untouched if returncode indicates failure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The type_info parameter is null </p></li>
+<li><p><strong>DDS_RETCODE_NOT_FOUND</strong> – The entity does not have type information set </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_free_typeinfo">
+<span class="target" id="group__xtypes_1ga761c550b954097271cb4b3e28ded1d0a"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_free_typeinfo</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_free_typeinfo" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Free the type information that was retrieved using dds_get_typeinfo. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type_info</strong> – <strong>[in]</strong> The type information</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The type_info parameter is NULL </p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>

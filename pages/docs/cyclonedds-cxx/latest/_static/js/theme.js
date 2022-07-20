@@ -20,13 +20,13 @@ function setupAutodocPy() {
 }
 
 function setupAutodocCpp() {
-    const highlightableElements = document.querySelectorAll(".cpp dt.sig-object")
+    const highlightableElements = document.querySelectorAll(".c dt.sig-object, .cpp dt.sig-object")
 
     Array(...highlightableElements).forEach((element) => {
         element.classList.add("highlight");
     })
 
-    const documentables = document.querySelectorAll("dt.sig-object.cpp");
+    const documentables = document.querySelectorAll("dt.sig-object.c,dt.sig-object.cpp");
 
     Array(...documentables).forEach((element) => {
         element.classList.add("highlight");
@@ -47,7 +47,7 @@ function setupAutodocCpp() {
                 brElement.after(spanElement)
             }
         });
-        
+
         if (parens[0].nextSibling != parens[1]) {
             // not an empty argument list
             let brElement = document.createElement('br')
@@ -62,8 +62,15 @@ function setupAutodocCpp() {
 }
 
 function setupSearchSidebar() {
-    document.querySelector('form.search input[type=text]').placeholder = 'Search...'
-    document.querySelector('form.search input[type=submit]').value = 'Search'
+    const searchInput = document.querySelector('form.search input[type=text]')
+    if (searchInput) {
+        searchInput.placeholder = 'Search...'
+    }
+
+    const searchButton = document.querySelector('form.search input[type=submit]')
+    if (searchButton) {
+        searchButton.value = 'Search'
+    }
 }
 
 function setupSidebarToggle() {
@@ -90,7 +97,7 @@ function setupRightSidebarToggle() {
 }
 
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
     console.log("custom theme loaded")
 
     setupAutodocPy()
@@ -98,4 +105,4 @@ window.onload = function() {
     setupSearchSidebar()
     setupSidebarToggle()
     setupRightSidebarToggle()
-}
+})

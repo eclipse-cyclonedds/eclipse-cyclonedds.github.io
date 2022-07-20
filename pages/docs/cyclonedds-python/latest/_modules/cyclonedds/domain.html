@@ -246,27 +246,9 @@
             <span class="k">if</span> <span class="n">cqos</span><span class="p">:</span>
                 <span class="n">_CQos</span><span class="o">.</span><span class="n">cqos_destroy</span><span class="p">(</span><span class="n">cqos</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DomainParticipant.find_topic"><a class="viewcode-back" href="../../cyclonedds.domain.html#cyclonedds.domain.DomainParticipant.find_topic">[docs]</a>    <span class="k">def</span> <span class="nf">find_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Topic</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;Locate a Topic. This is not really useful as long as you don&#39;t know the DataType of the topic.</span>
-<span class="sd">        When XTypes support is in this will be more useful.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_topic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">name</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">ret</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="c1"># Note that this function returns a _new_ topic instance which we do not have in our entity list</span>
-            <span class="k">return</span> <span class="n">Topic</span><span class="o">.</span><span class="n">_init_from_retcode</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">ret</span> <span class="o">==</span> <span class="n">DDSException</span><span class="o">.</span><span class="n">DDS_RETCODE_PRECONDITION_NOT_MET</span><span class="p">:</span>
-            <span class="c1"># Not finding a topic is not really an error from python standpoint</span>
-            <span class="k">return</span> <span class="kc">None</span>
-
-        <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the participant of </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
-
     <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_create_participant&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_create_participant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain_id</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">domainid</span><span class="p">,</span> <span class="n">qos</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">qos_p</span><span class="p">,</span> <span class="n">listener</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">listener_p</span><span class="p">)</span> \
             <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-    <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_find_topic&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_find_topic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">participant</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">:</span>
         <span class="k">pass</span></div>
 </pre></div>
 
