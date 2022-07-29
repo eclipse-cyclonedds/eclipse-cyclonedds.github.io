@@ -37,3 +37,5 @@ highlight_language = "c++"
 # Breathe docs
 breathe_projects = { "ddscxx_api_docs": "{{ doxygen_path }}" }
 breathe_default_project = "ddscxx_api_docs"
+breathe_show_define_initializer = True
+breathe_show_include = True

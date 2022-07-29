@@ -64,7 +64,6 @@ def build_wrap(project: str, repository: Path, confpy: Path, version: str):
     elif project == "cyclonedds-cxx":
         with TemporaryDirectory() as doxygen_output:
             doxygen_output = Path(doxygen_output)
-            cxx_preprocess_headers(repository / "src" / "ddscxx" / "include")
 
             confpy_templ = template_env.get_template(
                 "cpp.conf.withexhale.py" if "exhale" in confpy.read_text() else "cpp.conf.py"
@@ -84,7 +83,7 @@ def build_wrap(project: str, repository: Path, confpy: Path, version: str):
             doxygen_conf_path = doxygen_output / "doxygen.conf"
             doxygen_conf_path.write_text(doxygen_conf)
 
-            run_doxygen(repository / "src", doxygen_conf_path)
+            run_doxygen(repository / "src" / "ddscxx", doxygen_conf_path)
             confpy.write_text(confpy_data)
 
             yield
