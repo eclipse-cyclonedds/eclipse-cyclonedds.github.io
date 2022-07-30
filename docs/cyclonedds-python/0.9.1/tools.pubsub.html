@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Command line tool: pubsub &#8212; Eclipse Cyclone DDS Python  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="General information about DDS" href="dds.html" />
+    <link rel="prev" title="Command line tool: ddsls" href="tools.ddsls.html" />
+    <link href="_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="index.html" title="Go to homepage">Eclipse Cyclone DDS Python</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idl.html">Working with idl</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="tools.html">Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tools.ddsls.html">Command line tool: ddsls</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Command line tool: pubsub</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dds.html">General information about DDS</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="command-line-tool-pubsub">
+<h1>Command line tool: pubsub<a class="headerlink" href="#command-line-tool-pubsub" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>When using DDS, it’s sometimes useful to do some manual testing, publishing and subscribing to specific topics. <a class="reference external" href="https://github.com/eclipse-cyclonedds/cyclonedds-python/tree/master/src/cyclonedds/cyclonedds/tools/pubsub">Pubsub</a> is the tool for that.</p>
+<p>For now, the <strong>pubsub</strong> can be used to read/write to a user-defined topic with customized QoS, and you can do the read/write by simply typing what to publish.</p>
+<p>In the future, with the support of XTypes, the <strong>pubsub</strong> will also be able to read/write to arbitrary topic that exists in the system. This way, you will be able to use the <strong>pubsub</strong> to read/write to any topics in the system.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>To use the <strong>pubsub</strong>, you can use:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub <span class="o">[</span>Options<span class="o">]</span>
+</pre></div>
+</div>
+<p>You can view what options you have with the <strong>pubsub</strong> by using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --help
+</pre></div>
+</div>
+<p>And the help message is as follows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: pubsub [-h] [-T TOPIC] [-f FILENAME] [-eqos {all,topic,publisher,subscriber,datawriter,datareader}] [-q QOS [QOS ...]] [-r RUNTIME] [--qoshelp]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">-h, --help              show this help message and exit</span>
+<span class="go">-T TOPIC, --topic TOPIC</span>
+<span class="go">                        The name of the topic to publish/subscribe to</span>
+<span class="go">-f FILENAME, --filename FILENAME</span>
+<span class="go">                        Write results to file in JSON format</span>
+<span class="go">-eqos {all,topic,publisher,subscriber,datawriter,datareader}, --entityqos {all,topic,publisher,subscriber,datawriter,datareader}</span>
+<span class="go">                        Select the entites to set the qos.</span>
+<span class="go">                        Choose between all entities, topic, publisher, subscriber, datawriter and datareader. (default: all).</span>
+<span class="go">                        Inapplicable qos will be ignored.</span>
+<span class="go">-q QOS [QOS ...], --qos QOS [QOS ...]</span>
+<span class="go">                        Set QoS for entities, check &#39;--qoshelp&#39; for available QoS and usage</span>
+<span class="go">-r RUNTIME, --runtime RUNTIME</span>
+<span class="go">                        Limit the runtime of the tool, in seconds.</span>
+<span class="go">--qoshelp               e.g.:</span>
+<span class="go">                            --qos Durability.TransientLocal</span>
+<span class="go">                            --qos History.KeepLast 10</span>
+<span class="go">                            --qos ReaderDataLifecycle 10, 20</span>
+<span class="go">                            --qos Partition [a, b, 123]</span>
+<span class="go">                            --qos PresentationAccessScope.Instance False, True</span>
+<span class="go">                            --qos DurabilityService 1000, History.KeepLast 10, 100, 10, 10</span>
+<span class="go">                            --qos Durability.TransientLocal History.KeepLast 10</span>
+
+<span class="go">                        Available QoS and usage are:</span>
+<span class="go">                        --qos Reliability.BestEffort</span>
+<span class="go">                        --qos Reliability.Reliable [max_blocking_time&lt;integer&gt;]</span>
+<span class="go">                        --qos Durability.Volatile</span>
+<span class="go">                        --qos Durability.TransientLocal</span>
+<span class="go">                        --qos Durability.Transient</span>
+<span class="go">                        --qos Durability.Persistent</span>
+<span class="go">                        --qos History.KeepAll</span>
+<span class="go">                        --qos History.KeepLast [depth&lt;integer&gt;]</span>
+<span class="go">                        --qos ResourceLimits [max_samples&lt;integer&gt;], [max_instances&lt;integer&gt;], [max_samples_per_instance&lt;integer&gt;]</span>
+<span class="go">                        --qos PresentationAccessScope.Instance [coherent_access&lt;boolean&gt;], [ordered_access&lt;boolean&gt;]</span>
+<span class="go">                        --qos PresentationAccessScope.Topic [coherent_access&lt;boolean&gt;], [ordered_access&lt;boolean&gt;]</span>
+<span class="go">                        --qos PresentationAccessScope.Group [coherent_access&lt;boolean&gt;], [ordered_access&lt;boolean&gt;]</span>
+<span class="go">                        --qos Lifespan [lifespan&lt;integer&gt;]</span>
+<span class="go">                        --qos Deadline [deadline&lt;integer&gt;]</span>
+<span class="go">                        --qos LatencyBudget [budget&lt;integer&gt;]</span>
+<span class="go">                        --qos Ownership.Shared</span>
+<span class="go">                        --qos Ownership.Exclusive</span>
+<span class="go">                        --qos OwnershipStrength [strength&lt;integer&gt;]</span>
+<span class="go">                        --qos Liveliness.Automatic [lease_duration&lt;integer&gt;]</span>
+<span class="go">                        --qos Liveliness.ManualByParticipant [lease_duration&lt;integer&gt;]</span>
+<span class="go">                        --qos Liveliness.ManualByTopic [lease_duration&lt;integer&gt;]</span>
+<span class="go">                        --qos TimeBasedFilter [filter_time&lt;integer&gt;]</span>
+<span class="go">                        --qos Partition [partitions&lt;Sequence[str]&gt;]</span>
+<span class="go">                        --qos TransportPriority [priority&lt;integer&gt;]</span>
+<span class="go">                        --qos DestinationOrder.ByReceptionTimestamp</span>
+<span class="go">                        --qos DestinationOrder.BySourceTimestamp</span>
+<span class="go">                        --qos WriterDataLifecycle [autodispose&lt;boolean&gt;]</span>
+<span class="go">                        --qos ReaderDataLifecycle [autopurge_nowriter_samples_delay&lt;integer&gt;], [autopurge_disposed_samples_delay&lt;integer&gt;]</span>
+<span class="go">                        --qos DurabilityService [cleanup_delay&lt;integer&gt;], [History.KeepAll / History.KeepLast [depth&lt;integer&gt;]], [max_samples&lt;integer&gt;], [max_instances&lt;integer&gt;], [max_samples_per_instance&lt;integer&gt;]</span>
+<span class="go">                        --qos IgnoreLocal.Nothing</span>
+<span class="go">                        --qos IgnoreLocal.Participant</span>
+<span class="go">                        --qos IgnoreLocal.Process</span>
+<span class="go">                        --qos Userdata [data&lt;bytes&gt;]</span>
+<span class="go">                        --qos Groupdata [data&lt;bytes&gt;]</span>
+<span class="go">                        --qos Topicdata [data&lt;bytes&gt;]</span>
+</pre></div>
+</div>
+<p>There are several options to configure the <strong>pubsub</strong>, the options will be further explained in the following sections.</p>
+<p>For publishing and subscribing data, you can use the <code class="docutils literal notranslate"><span class="pre">--topic</span></code> option to define the topic to publish/subscribe to.</p>
+<p>You can also modify QoS using the <code class="docutils literal notranslate"><span class="pre">--qos</span></code> option, and use the <code class="docutils literal notranslate"><span class="pre">--entityqos</span></code> option if you want to modify the QoS for a particular entity. If you need help setting up the QoS, the <code class="docutils literal notranslate"><span class="pre">--qoshelp</span></code> option will show you some examples and the policies you can choose from.</p>
+<p>For additional options, you can use the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option to define the name of file you want to output the result to, the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to specify how long the <strong>pubsub</strong> will run.</p>
+<section id="topic">
+<h3>Topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<p>To startup the pubsub tool, you need to use the <code class="docutils literal notranslate"><span class="pre">--topic</span></code> option to specify the topic you want to read/write to.</p>
+<p>For example, if you want the <strong>pubsub</strong> to read/write to the topic “HelloWord”, you can use the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic HelloWorld
+</pre></div>
+</div>
+<section id="read-write-data">
+<h4>Read/write data<a class="headerlink" href="#read-write-data" title="Permalink to this headline">¶</a></h4>
+<p>After starting up the <strong>pubsub</strong> with a specif topic, you can read/write data by simply publishing your data in the terminal.</p>
+<p>For now, the supported data types for read/write are integer, string, integer and string array, integer and string sequence.</p>
+<p>For example, writing “420”, “test”, “[1, 8, 3]”, “[‘h’, ‘e’, ‘l’, ‘l’, ‘o’]”, “[20]”, “[‘test’]” to the terminal respectively, you can see the subscribed message with their datatype printing in the terminal.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">420</span>
+<span class="go">Subscribed: Integer(seq=0, keyval=420)</span>
+<span class="go">test</span>
+<span class="go">Subscribed: String(seq=1, keyval=&#39;test&#39;)</span>
+<span class="go">[1, 8, 3]</span>
+<span class="go">Subscribed: IntArray(seq=2, keyval=[1, 8, 3])</span>
+<span class="go">[&#39;h&#39;,&#39;e&#39;,&#39;l&#39;,&#39;l&#39;,&#39;o&#39;]</span>
+<span class="go">Subscribed: StrArray(seq=3, keyval=[&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;])</span>
+<span class="go">[20]</span>
+<span class="go">Subscribed: IntSequence(seq=4, keyval=[20])</span>
+<span class="go">[&#39;test&#39;]</span>
+<span class="go">Subscribed: StrSequence(seq=5, keyval=[&#39;test&#39;])</span>
+</pre></div>
+</div>
+<p>In the output result:</p>
+<ul class="simple">
+<li><p><strong>Subscribed</strong> indicates that the <strong>pubsub</strong> tool has subscribed to data in the topic you defined;</p></li>
+<li><p>The <strong>Integer</strong>, <strong>String</strong>, etc., is the datatype of the subscribed data.</p></li>
+<li><p><strong>seq</strong> is the sequence number for the <strong>pubsub</strong> subscribed data;</p></li>
+<li><p><strong>keyval</strong> is the data published.</p></li>
+</ul>
+</section>
+</section>
+<section id="qos">
+<h3>QoS<a class="headerlink" href="#qos" title="Permalink to this headline">¶</a></h3>
+<p>By default, the <strong>pubsub</strong> uses the default QoS for DDS, but you can use the <code class="docutils literal notranslate"><span class="pre">--qos</span></code> option to change the QoS according to your needs.</p>
+<p>For example, if you want to set the Reliability QoS to best effort, you can run the <strong>pubsub</strong> with command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Reliability.BestEffort
+</pre></div>
+</div>
+<p>You can also change multiple QoS for the <strong>pubsub</strong>. For example, in addition to setting the Reliability QoS, you also want to set the History to keep the last 10 samples, you can use the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Reliability.BestEffort History.KeepLast <span class="m">10</span>
+</pre></div>
+</div>
+<p>If a policy requires multiple arguments, simply use a space or comma to separate the arguments. For example, you can set the DurabilityService QoS by the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos DurabilityService <span class="m">1000</span>, History.KeepLast <span class="m">10</span>, <span class="m">100</span>, <span class="m">10</span>, <span class="m">10</span>
+</pre></div>
+</div>
+<p>There are some freedom to type the QoS and the arguments on the command line:</p>
+<ul class="simple">
+<li><p>The QoS policy is case insensitive, so you can use the command like <code class="docutils literal notranslate"><span class="pre">-qos</span> <span class="pre">reliAbility.REliable</span></code>;</p></li>
+<li><p>To separate arguments, you can use space, comma, or colon. For example <code class="docutils literal notranslate"><span class="pre">--qos</span> <span class="pre">ResourceLimits:</span> <span class="pre">100,</span> <span class="pre">-1</span> <span class="pre">100</span></code>;</p></li>
+<li><p>For writing duration, you can use arguments like “‘seconds=10;minutes=2’”. For example <code class="docutils literal notranslate"><span class="pre">--qos</span> <span class="pre">lifespan</span> <span class="pre">&quot;seconds=10;days=1&quot;</span></code>;</p></li>
+<li><p>For boolean, other than “True” and “False”, you can also use “1”, “on”, “yes” to represent “True”, and use “0”, “off”, “no” to represent “False”. For example <code class="docutils literal notranslate"><span class="pre">--qos</span> <span class="pre">WriterDataLifecycle</span> <span class="pre">off</span></code>.</p></li>
+</ul>
+</section>
+<section id="entity-qos">
+<h3>Entity QoS<a class="headerlink" href="#entity-qos" title="Permalink to this headline">¶</a></h3>
+<p>When setting the QoS in the <strong>pubsub</strong>, it will set the QoS for all the entities by default. However, you can also use the <code class="docutils literal notranslate"><span class="pre">--entityqos</span></code> option to set the QoS for a certain entity. You can choose to set the desired QoS on topic, subscriber, publisher, data reader or data writer.</p>
+<p>For example, to set the Durability QoS to TransientLocal on the data writer, use the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Durability.TransientLocal --entityqos datawriter
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--entityqos</span></code> option needs to be used together with the <code class="docutils literal notranslate"><span class="pre">--qos</span></code> option.</p>
+</div>
+<section id="inapplicable-qos-for-entity">
+<h4>Inapplicable QoS for entity<a class="headerlink" href="#inapplicable-qos-for-entity" title="Permalink to this headline">¶</a></h4>
+<p>Some QoS policy has limitation as to which entity it can apply to, such as the Topicdata QoS can only be applied to the topic.</p>
+<p>If you selected a QoS policy that is not applicable to the entity you selected, the QoS will be ignored and use the default QoS policy value for the entity.</p>
+<p>For example, if you set Topicdata QoS on data reader, using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Topicdata <span class="nb">test</span> --entityqos datareader
+</pre></div>
+</div>
+<p>It will show a warning stating that the policy is not applicable and will be ignored, like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">InapplicableQosWarning: The Policy.Topicdata(data=b&#39;test&#39;) is not applicable for datareader, will be ignored.</span>
+</pre></div>
+</div>
+</section>
+<section id="incompatible-qos">
+<h4>Incompatible QoS<a class="headerlink" href="#incompatible-qos" title="Permalink to this headline">¶</a></h4>
+<p>To publish and subscribe to data, some QoS need to be compatible between the publisher and subscriber ends, this is the RxO (Requested/Offered) property.</p>
+<p>When setting the entity QoS in the <strong>pubsub</strong>, if the QoS you set has RxO property, and if the QoS policy is incompatible between what is requested by the subscriber and what is offered by the publisher, the <strong>pubsub</strong> will print out a warning message, stating that it detects request/offer incompatibility, may not be able to publish and subscribe successfully.</p>
+<p>For example, if you set the Durability QoS to TransientLocal for data reader, using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Durability.TransientLocal --entityqos datareader
+</pre></div>
+</div>
+<p>The <strong>pubsub</strong> will print out a warning message for incompatible QoS, like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">IncompatibleQosWarning: The Qos requested for subscription is incompatible with the Qos offered by publication.PubSub may not be available.</span>
+</pre></div>
+</div>
+<p>And if you try to publish data in the terminal, the <strong>pubsub</strong> won’t be able to subscribe to that published data.</p>
+</section>
+</section>
+<section id="write-to-file">
+<h3>Write to file<a class="headerlink" href="#write-to-file" title="Permalink to this headline">¶</a></h3>
+<p>When data is subscribed in the <strong>pubsub</strong>, the subscribed data will be printed out in the terminal. There is an option to also write the subscribed data to a file, using the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option to provide the name of the file you want to write to. The outputted file will be written in JSON format.</p>
+<p>For example, you can choose to write the result to a file named “pubsub_data.json” using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pubsub --topic hello --filename pubsub_data.json
+</pre></div>
+</div>
+<p>When publishing data in the terminal, you can view the subscribed results in the terminal and the results will be written to the “pubsub_data.json” file when the <strong>pubsub</strong> stops running. The “pubsub_data.json” file will look like this:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence 0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">420</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence 3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int_array&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mi">3</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In the output file:</p>
+<ul class="simple">
+<li><p><strong>“sequence &lt;n&gt;”</strong> is the sequence number for the subscribed data;</p></li>
+<li><p><strong>“type”</strong> is the datatype for the topic;</p></li>
+<li><p><strong>“keyval”</strong> is the data you published.</p></li>
+</ul>
+</section>
+<section id="runtime">
+<h3>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h3>
+<p>By default, the <strong>pubsub</strong> will run indefinitely until there is an interrupt, but you can also use the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to stop the <strong>pubsub</strong> after running for a certain time.</p>
+<p>For example, if you want to run the <strong>pubsub</strong> for 5 seconds, you can use the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --runtime <span class="m">5</span>
+</pre></div>
+</div>
+<p>And the <strong>pubsub</strong> will be run for 5 seconds, publish and subscribe to data in the terminal within the 5 seconds, then automatically exit the tool after 5 seconds.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Command line tool: pubsub</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#topic">Topic</a><ul>
+<li><a class="reference internal" href="#read-write-data">Read/write data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#qos">QoS</a></li>
+<li><a class="reference internal" href="#entity-qos">Entity QoS</a><ul>
+<li><a class="reference internal" href="#inapplicable-qos-for-entity">Inapplicable QoS for entity</a></li>
+<li><a class="reference internal" href="#incompatible-qos">Incompatible QoS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#write-to-file">Write to file</a></li>
+<li><a class="reference internal" href="#runtime">Runtime</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="tools.ddsls.html">
+                <span><</span> Command line tool: ddsls</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="dds.html">General information about DDS <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Eclipse Cyclone DDS Python Committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

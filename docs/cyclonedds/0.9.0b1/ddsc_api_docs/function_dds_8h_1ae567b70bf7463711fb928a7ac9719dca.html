@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Function dds_get_domainid &#8212; Eclipse Cyclone DDS 0.9.0b1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function dds_get_enabled_status" href="function_dds_8h_1a4543770e99c1417bb71ff6c4d68bb38b.html" />
+    <link rel="prev" title="Function dds_get_datareader" href="function_dds_8h_1aa40baed39d4afe3421131ba9ae3e7f5a.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/installation.html">Installing Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/helloworld_indepth.html">Hello World! in more detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/next_steps.html">What’s next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStartedGuide/uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../apigroups/builtintopic_constants.html">Builtin-topic Constants</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html">Raw C API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="structdds__allocator.html">Struct dds_allocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__builtintopic__endpoint.html">Struct dds_builtintopic_endpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__builtintopic__guid.html">Struct dds_builtintopic_guid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__builtintopic__participant.html">Struct dds_builtintopic_participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__builtintopic__topic.html">Struct dds_builtintopic_topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__builtintopic__topic__key.html">Struct dds_builtintopic_topic_key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__data__allocator.html">Struct dds_data_allocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__inconsistent__topic__status.html">Struct dds_inconsistent_topic_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__key__descriptor.html">Struct dds_key_descriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__liveliness__changed__status.html">Struct dds_liveliness_changed_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__liveliness__lost__status.html">Struct dds_liveliness_lost_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__offered__deadline__missed__status.html">Struct dds_offered_deadline_missed_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__offered__incompatible__qos__status.html">Struct dds_offered_incompatible_qos_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__publication__matched__status.html">Struct dds_publication_matched_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__requested__deadline__missed__status.html">Struct dds_requested_deadline_missed_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__requested__incompatible__qos__status.html">Struct dds_requested_incompatible_qos_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__rhc.html">Struct dds_rhc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__rhc__ops.html">Struct dds_rhc_ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__sample__info.html">Struct dds_sample_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__sample__lost__status.html">Struct dds_sample_lost_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__sample__rejected__status.html">Struct dds_sample_rejected_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__sequence.html">Struct dds_sequence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__stat__keyvalue.html">Struct dds_stat_keyvalue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__statistics.html">Struct dds_statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__subscription__matched__status.html">Struct dds_subscription_matched_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__topic__descriptor.html">Struct dds_topic_descriptor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__topic__filter.html">Struct dds_topic_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structdds__type__meta__ser.html">Struct dds_type_meta_ser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1a7824679ad7294c50dfe4d32e6166cfed.html">Enum dds_destination_order_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1a361d0c953706f8807226c7d447a4204b.html">Enum dds_durability_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__impl_8h_1a95025da70d4d5b7c257e4f84394c094a.html">Enum dds_entity_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__impl_8h_1a7624dd31126da620c50c3c48b7d03112.html">Enum dds_find_scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__alloc_8h_1a491b266494b1ac9e6a406a227e00cb08.html">Enum dds_free_op_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1abe3618212f0903ab8ebb93f359624ca4.html">Enum dds_history_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1aab82cd770a6c832d8c4a7b715f829ee9.html">Enum dds_ignorelocal_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds_8h_1a986e4dc586b0a652f8d3d32a3512c08f.html">Enum dds_instance_state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1a379ecfe89e22ebf7dc03784e60cc85ae.html">Enum dds_liveliness_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1a297402b0f21a00cda5c0ce31be71fc4b.html">Enum dds_ownership_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1abd56f99be3abaa9f8a9780da63683e46.html">Enum dds_presentation_access_scope_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1a4bb0c71207830a51b6e310eca1106a57.html">Enum dds_qos_policy_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1a281ecb83c112f3b86df9873704b5c2c3.html">Enum dds_reliability_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__status_8h_1af0b69a9cb68027e5b84a509b8809c5ed.html">Enum dds_sample_rejected_status_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds_8h_1a3fd41981e46499a9f6f80aa41e753fec.html">Enum dds_sample_state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__statistics_8h_1a97a0c337f32b64b0e3c5265e8f5a367b.html">Enum dds_stat_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds_8h_1aec8b373be18767e18e92e861288befeb.html">Enum dds_status_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__opcodes_8h_1a3408a192a4fba825f21d27a5a0fe0bb1.html">Enum dds_stream_opcode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__opcodes_8h_1ab19b84d834bb7c98851067947cd23f0b.html">Enum dds_stream_typecode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__opcodes_8h_1ae71ade828fcfb6d53a96b2aa5f29463f.html">Enum dds_stream_typecode_primary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__opcodes_8h_1a3faf85df9d59249c7b31fddded55d277.html">Enum dds_stream_typecode_subtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds_8h_1a5dce8061f5224b7972231541363cd471.html">Enum dds_topic_filter_mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__qosdefs_8h_1a9c560ff2787cb224e653c53c977edf05.html">Enum dds_type_consistency_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds__public__impl_8h_1aa4cb4b4507d9a3620e29495834e91ad4.html">Enum dds_typeid_kind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_dds_8h_1a8da3dc661e52d940b795256beb67b95f.html">Enum dds_view_state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="uniondds__topic__filter__function__union.html">Union dds_topic_filter_function_union</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1acf8df55b67dc5ee62f68b4960b35f175.html">Function dds_alloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a4face9db6e18ba6808bdbf7f4220209e.html">Function dds_assert_liveliness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1af4a51fbb23bd567a549de7a8ed9ff036.html">Function dds_begin_coherent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a58fa049ed552fcfb4d21053170096559.html">Function dds_builtintopic_free_endpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a19364c35c2e7328cfd8c45fdc7866027.html">Function dds_builtintopic_free_participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a2ac2d50b83334dc7d4815d950e8670b0.html">Function dds_builtintopic_free_topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a190627416dd470f921d2be4a40bb6352.html">Function dds_copy_listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a090a023fe04a46975be7e807065bee80.html">Function dds_copy_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1abc7a1e23506902ebf55c9011779d5510.html">Function dds_create_domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9d331f2cc40cd4a4287efe274046a5c1.html">Function dds_create_domain_with_rawconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a034257b01770ef8524d8e5bb6c4b1c64.html">Function dds_create_guardcondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ad0efe47c590bb71dc3a29b7aa5eb8890.html">Function dds_create_listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1acfc6838d5a6081c7de2371a61479c254.html">Function dds_create_participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aee9b84a9ece24ea0999da4ff314b18f9.html">Function dds_create_publisher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ab736e22ef21e2c9f576be32ce99a2087.html">Function dds_create_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a5780eb47cbcd107b1b5c8dcadf4baba8.html">Function dds_create_querycondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a6ad0cb634397fd1b45ba1591c45df6b4.html">Function dds_create_readcondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1af7c29c4f89250e9190fab44ff0eff5ef.html">Function dds_create_reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a13fa4702e4c7e2964c626278f70b59a8.html">Function dds_create_reader_rhc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__statistics_8h_1a1ef168603d817eae597a7c38642ef187.html">Function dds_create_statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a0db962ce956278f1cb704d90e59bb859.html">Function dds_create_subscriber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1abfdc0a0373c99602f3f88798c66a5183.html">Function dds_create_topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ad929aab7fb581cb2ea7813d1fb5ceef4.html">Function dds_create_topic_arbitrary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aac8eb8e277dbe0c33e3c628a945bd3a1.html">Function dds_create_topic_generic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a614ac937149993f73c307ece8f639033.html">Function dds_create_topic_sertype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aeb4a843fb425ff99d7155a5f1af5b6d1.html">Function dds_create_waitset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a96270d570da2764a9d00656214e0a130.html">Function dds_create_writer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__data__allocator_8h_1a221a95d416988cb4dac2aea88d811770.html">Function dds_data_allocator_alloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__data__allocator_8h_1ace1d75e0c50e2cc853a592d14c774b80.html">Function dds_data_allocator_fini</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__data__allocator_8h_1aad32840a3ff5772149f75431cb31008f.html">Function dds_data_allocator_free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__data__allocator_8h_1a80558424eb6b4e686850009a7dff2524.html">Function dds_data_allocator_init</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__data__allocator_8h_1a67ae99fbc3f6b9b96d6210ddd23a285f.html">Function dds_data_allocator_init_heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a66f5c1f258af4ec55cd8624ef04dfebf.html">Function dds_delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a5ada2f32f0b9453591dad29cbdc0db4d.html">Function dds_delete_listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a2c6d1492504a2d70beec66335dc9d08d.html">Function dds_delete_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__statistics_8h_1a0dbbae1418d56d066b073861b69a0f61.html">Function dds_delete_statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a2e377fedacacf71276f0f77a31e6fa09.html">Function dds_dispose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a271346d9d0c2b9ef1807101ffc6bf19a.html">Function dds_dispose_ih</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aebded6164ab66bee16e87581ac9368cd.html">Function dds_dispose_ih_ts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a083eab8ccf63966ee8bac7528cdde5e5.html">Function dds_dispose_ts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a480e09065005332d7209fcb033722fc7.html">Function dds_domain_set_deafmute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a708feb94b63b82d6acd0cc9f0c50d119.html">Function dds_enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a25a8128e63b60398a76913920476c200.html">Function dds_end_coherent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a0b2918a6ec7674f7d2667068a8a7cfc5.html">Function dds_find_topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ad016d6e9e38a6ba24f529781288ae80c.html">Function dds_find_topic_scoped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a445df5f9f0d9ac9e5d1507eb51754c81.html">Function dds_forwardcdr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1a312a03b6db43c1ac024a85bfa7259f12.html">Function dds_free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1afb7d1c06a15e21cbf920f42fd4861faa.html">Function dds_get_children</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aa40baed39d4afe3421131ba9ae3e7f5a.html">Function dds_get_datareader</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Function dds_get_domainid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a4543770e99c1417bb71ff6c4d68bb38b.html">Function dds_get_enabled_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9473d8e3de469cd176141d8ce756ee5e.html">Function dds_get_guid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1a3f09f775d29244bb65ced311b552e59f.html">Function dds_get_inconsistent_topic_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a8349c45285f3bf76a7f2b079442447f7.html">Function dds_get_instance_handle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a3a832d25691829d9eb66c4a2266e9d02.html">Function dds_get_listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1a1ebab5d0594cc8a347ab60e7b18c3c65.html">Function dds_get_liveliness_changed_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1a40b217cf86449a417c6055840b25d151.html">Function dds_get_liveliness_lost_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ad2d5146fb5c10c2f0bc4abc50e67f7e0.html">Function dds_get_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aad987077400ac0d217bfccbc0c21dae0.html">Function dds_get_matched_publication_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a14fe2dfdd7ba1d8dffc38bb0fc086b46.html">Function dds_get_matched_publications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9f9f89092376926d1e1a26e51f1bd2c5.html">Function dds_get_matched_subscription_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a895bc21f4b56c138a2a0e5a6a30f7c87.html">Function dds_get_matched_subscriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a3327b2fd1f96c9427568f46471270cd7.html">Function dds_get_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1abb85d7f85e94cb2f5ecd93e1820158c9.html">Function dds_get_offered_deadline_missed_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1a68e5dc362b8aeabc45a8a5f27a195c7e.html">Function dds_get_offered_incompatible_qos_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ae2508b77a42c8ed0b0b97581bcfd20a5.html">Function dds_get_parent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9d6d609b1e68267a5b9088125acd3892.html">Function dds_get_participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1ad602557b20b541fcf7e43017d11db8ec.html">Function dds_get_publication_matched_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9c91683b6d423faa2831ce513fc865ef.html">Function dds_get_publisher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a460e8db3be614368d575517ce98bfa41.html">Function dds_get_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1ab1be1d343a491917e73117d594138a0e.html">Function dds_get_requested_deadline_missed_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1aa406cf5ea87f760f2cc71a681e295de9.html">Function dds_get_requested_incompatible_qos_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1ad0dedd5e383366565e52646277f02bfd.html">Function dds_get_sample_lost_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1a11d7558fa602520e1354c17215f54c0c.html">Function dds_get_sample_rejected_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a6f14d330171466974c78577f14f40d75.html">Function dds_get_status_changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ac1b80a78f08b1f03b558c32016597165.html">Function dds_get_status_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a6173cb745279698cb5fb684280a585eb.html">Function dds_get_subscriber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__status_8h_1a319dbe8418924bac901f8d9323e56e9b.html">Function dds_get_subscription_matched_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1adc092c814a34dc6e1c95ac5037f86d29.html">Function dds_get_topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a3be909990fc8a26d73c398541519ad93.html">Function dds_get_topic_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a5a8494a5d93266d75cb22e02b748c4a5.html">Function dds_get_topic_filter_and_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a4160b9ce8a5ca227ceeadbed5cf5b72e.html">Function dds_get_topic_filter_extended</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a118e07ef2c3e23f94aa6ac523613b472.html">Function dds_get_type_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ade458bcdd653fe718f0acd611070759e.html">Function dds_instance_get_key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9a53da39a893ed75aae5661cc17680a2.html">Function dds_instance_lookup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__data__allocator_8h_1af9b390386aff8ed9ba1ad8477a22339f.html">Function dds_is_loan_available(const dds_entity_t)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__loan__api_8h_1af9b390386aff8ed9ba1ad8477a22339f.html">Function dds_is_loan_available(const dds_entity_t)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__loan__api_8h_1a476b64d60d4f5c30c982e8874a9abf0c.html">Function dds_is_shared_memory_available</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a2c63f65c60bc89509496c20d05ac8823.html">Function dds_lget_data_available</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a4f3b01327cb53013f09cb9a2485a0dd0.html">Function dds_lget_data_available_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ad0c8d43df295f822a9ffacde0be9be32.html">Function dds_lget_data_on_readers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a943cc25866e47ecafadf314c8ad9a304.html">Function dds_lget_data_on_readers_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a68ce58a47ce5a9058c9fb9d20febfb87.html">Function dds_lget_inconsistent_topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a14225ab2ad4cae231aee3695959cb81c.html">Function dds_lget_inconsistent_topic_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1aaee5881bd26b9b2afd61691ff7fcdb73.html">Function dds_lget_liveliness_changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a1475f5578927b8231620ad0cbe92e760.html">Function dds_lget_liveliness_changed_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a1bc086763e7db7dc549feb53fdefcc89.html">Function dds_lget_liveliness_lost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a20640835f6362736000bd2ca227bf7e3.html">Function dds_lget_liveliness_lost_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1af2887fd39903a1fd6f56cfc9bfda6269.html">Function dds_lget_offered_deadline_missed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ac37c7cda6eec01aaefe8455e137ffacf.html">Function dds_lget_offered_deadline_missed_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a2eaf807529469eb81981262138315c09.html">Function dds_lget_offered_incompatible_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a155992f4f7785a07418cbced2372a107.html">Function dds_lget_offered_incompatible_qos_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ae7fe17a2bed5cf3625b9c36594d49e3f.html">Function dds_lget_publication_matched</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ae35a1c67d3d7df512ef10fefe419baee.html">Function dds_lget_publication_matched_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a5962ae973b19c4a904480dfbb5c1f9b1.html">Function dds_lget_requested_deadline_missed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ab8cceedbaa4a6a0aa68f0af63dae165d.html">Function dds_lget_requested_deadline_missed_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a11028cdb8e7354166ba6cbd1e99869d4.html">Function dds_lget_requested_incompatible_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a9bcd79b111f6310a1d036b0efe719c44.html">Function dds_lget_requested_incompatible_qos_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a4db6f20ec836a745759761a46c1d580b.html">Function dds_lget_sample_lost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1af6d95a412a03b3c452cff9711655c56b.html">Function dds_lget_sample_lost_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a1700dfc356aa81c6a84e4e4f98d293c0.html">Function dds_lget_sample_rejected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a0cbd64f6e9205e34b71609f0ded1bc13.html">Function dds_lget_sample_rejected_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ab8c99bf61fe111bfb954a8d07eacb8ce.html">Function dds_lget_subscription_matched</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1accc5c41a6707676b026e6c347cd51b86.html">Function dds_lget_subscription_matched_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1abbaa2e08ba38c8e658eca1a158d20afe.html">Function dds_listener_copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1adb8c5c97304cc06f6202b6ed88081623.html">Function dds_listener_create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ae34bc6171528d10f1a12803f6a2e8969.html">Function dds_listener_delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ace90fe5fab60e6eb95d458b16b2faac8.html">Function dds_listener_merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a42b6450e2d0511504a2a9fb6caa1b1b7.html">Function dds_listener_reset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__loan__api_8h_1a1d8e5f21e6024834693515e6b88f19cd.html">Function dds_loan_sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__loan__api_8h_1a353b7d7fcdfa3b69a8606937ff692f4d.html">Function dds_loan_shared_memory_buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a114ab5b5663757cca34766768af2b9c2.html">Function dds_lookup_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a7bc1df71f682a4b3e843e6ee906a9c8d.html">Function dds_lookup_participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__statistics_8h_1a3bf5fb45a0b32de6d62a5da31dd7dc22.html">Function dds_lookup_statistic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1add64bb8e641bcb8646e055dfa56f6465.html">Function dds_lset_data_available</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a34c65e0e15fb3ebed55edf361dd543f5.html">Function dds_lset_data_available_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ab4ee39a2a3a59adc93046e39a215e07a.html">Function dds_lset_data_on_readers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a466699bb6b4c010d473d364a6813a856.html">Function dds_lset_data_on_readers_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a18f0d9b311cf6f6a7ccba178d829cc95.html">Function dds_lset_inconsistent_topic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a75686fd95dccf505625c4e044ae4ef8f.html">Function dds_lset_inconsistent_topic_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a2ac51b8bb489af65680e729217b42cdd.html">Function dds_lset_liveliness_changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a3d7a2f4ebebc6016684dbf4a256a7239.html">Function dds_lset_liveliness_changed_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a7e3006a78ba9823c5612e1a25da2d249.html">Function dds_lset_liveliness_lost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1af73b0fb66ca66e2d6b8009b5cd23cd65.html">Function dds_lset_liveliness_lost_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a9a19bf717d285e80c63ff30bbda37179.html">Function dds_lset_offered_deadline_missed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a81d1a3fb182eddf30b100e2d2e8abb25.html">Function dds_lset_offered_deadline_missed_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a1c4be441ebe0b11c1229f1b3b099a721.html">Function dds_lset_offered_incompatible_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a51980d3e9cc69a6a8ab8495018890bd3.html">Function dds_lset_offered_incompatible_qos_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1af39b079bda5562569ac5dada6ce1d9fd.html">Function dds_lset_publication_matched</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a3e4547991e8d9f3b023a9213171a9a43.html">Function dds_lset_publication_matched_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a1ef0813c147c40fc96101a2af6e6d8aa.html">Function dds_lset_requested_deadline_missed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a50aff815d5efed4c6ac9c9c55519f131.html">Function dds_lset_requested_deadline_missed_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a21139cb76cb7db787563f25ac2a66954.html">Function dds_lset_requested_incompatible_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a97a3cc045035c23d07de4e7ccc63ae1b.html">Function dds_lset_requested_incompatible_qos_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a8b06ca85d07cae2771682c17fc75a2d1.html">Function dds_lset_sample_lost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ae37e3c8129927c89796d71b5e869f852.html">Function dds_lset_sample_lost_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a149bf5942ba405d3984b46d0fb4d8c85.html">Function dds_lset_sample_rejected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ab4d9914fe8ffd7f0e8a5c9465b4a9869.html">Function dds_lset_sample_rejected_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1ab6a44853577486cd0d226ada18c35201.html">Function dds_lset_subscription_matched</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a0760184671692f4cd3cad4213bb58d61.html">Function dds_lset_subscription_matched_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1af96d05a4f6cce39a03fbefc88828aacd.html">Function dds_merge_listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a639a02c7c517691c8e6e6addab0154e7.html">Function dds_merge_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a1500c47cb7a9926efebabe0c8dccfc6b.html">Function dds_notify_readers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a2092cf82d6bd2e1361cfaaa6b19763cd.html">Function dds_qget_bprop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1afe7b97bf6909b000e75eaef3ab25781e.html">Function dds_qget_bpropnames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a619ac32eea7fa9277c8ed5ecd297b9e0.html">Function dds_qget_data_representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a1c6296cf8371243fe25bcff1950f9c65.html">Function dds_qget_deadline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a7fe02e23b69ad34c8a9e748ef727c3b0.html">Function dds_qget_destination_order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a45a2340770a885c32085ea2dac558674.html">Function dds_qget_durability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a819b1c8d57d6d02f818abccc8d46ea73.html">Function dds_qget_durability_service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a994027d8d438e6ddf60d701d0dd0e82c.html">Function dds_qget_groupdata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a99209a1a9ad3fa41f88b9f7b773e6093.html">Function dds_qget_history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a276ca8637fc9259ae1fe39edcf7341f5.html">Function dds_qget_ignorelocal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a7f50e88c3213379b9fe31a288845fcae.html">Function dds_qget_latency_budget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a79fbc67368f3527d461536ec24a08a35.html">Function dds_qget_lifespan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ac46e8bb34514ed3e3fdaeafb150c5a11.html">Function dds_qget_liveliness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ae1fbaf59545b348986a045d840ced753.html">Function dds_qget_ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a3f0c811f5d9976cf3f1913352a84c955.html">Function dds_qget_ownership_strength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a6363952c5f575cf8dc0d8fcd1325a436.html">Function dds_qget_partition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a16aebde6bd555bc4f0347067314667f0.html">Function dds_qget_presentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a06de20e9a525fa601d7d8c196be6fb1d.html">Function dds_qget_prop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1abed94494c831692178473f25097b67f9.html">Function dds_qget_propnames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a999b6d328563f793451c86894172e73c.html">Function dds_qget_reader_data_lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ad179497890069c89db402793c51bac5a.html">Function dds_qget_reliability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a97f6bd5a7832bac32ed7d903725465c1.html">Function dds_qget_resource_limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a6f6b6eb1130adbdcde71f9ac09cf62bf.html">Function dds_qget_time_based_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a685e77caff2cce81142091daed1e889d.html">Function dds_qget_topicdata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a0e2c57f4364ddc5a56dc190619676b7b.html">Function dds_qget_transport_priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a220f45b0dd19661b75e3d1ec4a588bf2.html">Function dds_qget_type_consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a95261f1b9f4b9d6235ef26f96c8e6d31.html">Function dds_qget_userdata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a5153b1f66650bedae134ad47061feb98.html">Function dds_qget_writer_data_lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ab9b4e5016ab441c55833cb17e02bc0c2.html">Function dds_qos_copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a0fe4b53c1c98106de5c1fa2198ac9d8b.html">Function dds_qos_create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1aa5f12ecebcfc3e832c97910c1ffa2adb.html">Function dds_qos_delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a0cc3039c0c42af5c931099f178e93707.html">Function dds_qos_equal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a85ba30dc5655af4a6001ff7c00259b08.html">Function dds_qos_merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ae8353ab5c091cabcb234f662cc2aacd9.html">Function dds_qos_reset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1acba33f14ac408b8acaf11f51e210c6df.html">Function dds_qset_bprop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a1079ea3fd78959a9aedce8c93370fada.html">Function dds_qset_data_representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1aa3eb149709214e5cb9cf749947f7e3de.html">Function dds_qset_deadline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ad7a12a1abb437977e4a7e61dd3c41f4c.html">Function dds_qset_destination_order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ab22394091cfed2bee05c93ce04c1ae05.html">Function dds_qset_durability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a3680335e6298a25fe3ffed6a5d97d1c6.html">Function dds_qset_durability_service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a32ec0b5a69cae74a0d4f2843742a5e8e.html">Function dds_qset_groupdata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1add2aced60f8c7a509b8b7b85809c1402.html">Function dds_qset_history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a4f41b08fb96ef97fbc00834a47d72dc2.html">Function dds_qset_ignorelocal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ac8b19beaac9ca07da42ea4ff7c77ca31.html">Function dds_qset_latency_budget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1af8ae933877645133ff1c28d769b48ccc.html">Function dds_qset_lifespan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a20283b5eaf7c1f7f9cb46d40d544f76a.html">Function dds_qset_liveliness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a2ee03b9551df5f88c81735109e0a0578.html">Function dds_qset_ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1afeb5f6405805fa971a12a6ec98492a67.html">Function dds_qset_ownership_strength</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a8831f25c1a3eceb392dd93e6aece557c.html">Function dds_qset_partition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1af67900cd9fe906bfd5eb633506cb7e59.html">Function dds_qset_partition1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a12638fbf1f68decdfff022d8713865ff.html">Function dds_qset_presentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1aec74aa66fd23255a08cf8fb7a3a3c521.html">Function dds_qset_prop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a9c167f2288aee1464e572bfc2438d993.html">Function dds_qset_reader_data_lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1adcc4186f442a3dddedbd277c3e87d93d.html">Function dds_qset_reliability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a9ae73da0f7b76046e1a0a355c18c3690.html">Function dds_qset_resource_limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a54995f432ddd5a3597fe8a30d20cd14e.html">Function dds_qset_time_based_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a5106489fb2567940fb363c7927c054bf.html">Function dds_qset_topicdata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a590958ddac3cbbe03545f0e94f77c93d.html">Function dds_qset_transport_priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a2f1f12669366c7d6e3804c1561912b8a.html">Function dds_qset_type_consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ae1701a61bc179f4062827b5a3e9ae6f9.html">Function dds_qset_userdata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1ac237655723852f787ad8e68d1c291115.html">Function dds_qset_writer_data_lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a6fe1583d3021557c84ed738ed7571c6e.html">Function dds_qunset_bprop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a114b4a4a8ee942c91165dbcf12d17d61.html">Function dds_qunset_prop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1af63eb369dc6e7d78896abbbc58d9f7fc.html">Function dds_read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a01af36a3fcdb29a2c553f072616129e1.html">Function dds_read_guardcondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ad6612a6b0241287c04aa822285a087b2.html">Function dds_read_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a74b7fb7a36be8d03f80eeb3a1d878cf3.html">Function dds_read_instance_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aa439f22eecacc9b688f2f2627c70d966.html">Function dds_read_instance_mask_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aa91dd6929a64f63f3f497ca6c10a4500.html">Function dds_read_instance_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1af7f835a191c31d05c494baee1c0523d5.html">Function dds_read_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1adc51bcf84016eac94b367216a891f1ff.html">Function dds_read_mask_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a4b8e3c63892918e79001174c7e81d062.html">Function dds_read_next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1acc9534fade36e3d31d20ce169504ceee.html">Function dds_read_next_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a926388c5bba536145203be6554366562.html">Function dds_read_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ab7f4d847f6f2dc89af86c6b108d50847.html">Function dds_read_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aea8f64776b3bc034f8f86b1fe3966b47.html">Function dds_readcdr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1acd57db170da5e4482f4b226cbb3043df.html">Function dds_readcdr_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a73bec675921a61290e7084628f79ce06.html">Function dds_reader_data_available_cb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__internal__api_8h_1a4ed81c96b5befb89803c5adcd9d94bf1.html">Function dds_reader_lock_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a37f36eff4283ed4b3219284454e531c5.html">Function dds_reader_wait_for_historical_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1a5ebcc54ea3f67da048e40d888a0e7ba6.html">Function dds_realloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1aea779be3a0d013d545b311b528107af4.html">Function dds_realloc_zero</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__statistics_8h_1aa44cd4122776290aa6fec236c5b118d8.html">Function dds_refresh_statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a876aabe55ba801b8685611f4c0511277.html">Function dds_register_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__listener_8h_1a63df5d862c81b8a7c146107d6db7ebd7.html">Function dds_reset_listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__qos_8h_1a548300984a6fecc95e75e340ec891883.html">Function dds_reset_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a81890bac80b98fb7eba4bc03ed0efcc2.html">Function dds_resume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a0ed544785f99a2856b7d81f9e7219b4e.html">Function dds_return_loan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a595283e286728613a5216a78ae43f053.html">Function dds_rhc_add_readcondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a13279140e8df4fee3708d9bf791eeea2.html">Function dds_rhc_associate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a623d54bcbc5f728265953167a2818f36.html">Function dds_rhc_free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a1c8907b58a72a45838e6d97143640bcf.html">Function dds_rhc_lock_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a4eb69925c3c21d510050ff44c9f94972.html">Function dds_rhc_read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a2f3b7d4372ef8d33e29084715bc7abd1.html">Function dds_rhc_readcdr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a6e4c264b20b752a014acb346257133a4.html">Function dds_rhc_relinquish_ownership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1ae49eb6c4c100450ed95ca40657dafe6d.html">Function dds_rhc_remove_readcondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1ad528bf3d0463761cd8b33d8ed5f4e2ad.html">Function dds_rhc_set_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a8c8e1850bdf1ce1ad205be21ce75a486.html">Function dds_rhc_store</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1abacd27fb4ef75ecf80bb4013f505f933.html">Function dds_rhc_take</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a2edd4559c5e7eb927ce1443f8d640e53.html">Function dds_rhc_takecdr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__rhc_8h_1a04c1b349e6b33d424a7662e10e17316f.html">Function dds_rhc_unregister_wr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1ae8b7a3b274aa967a81cce2eda91977fb.html">Function dds_sample_free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1acadd57f34b4b125eb3a75d8800df2f29.html">Function dds_set_enabled_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1abdbe5fc4b2bd6573a09ceb3512e186ad.html">Function dds_set_guardcondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a7dd49bea1c1c0a091a098d9fc74a8efd.html">Function dds_set_listener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a710dd67f02725632099ec23a61225fe2.html">Function dds_set_qos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1af0aee075b95b49b4a8bc1d71cc8120bb.html">Function dds_set_status_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aa5f3d507d5d13d71a976161abf101e9b.html">Function dds_set_topic_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a62bc81569b6a2849989d02b3a2fefe62.html">Function dds_set_topic_filter_and_arg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a86758c4c064e30d65ff194a739fea53a.html">Function dds_set_topic_filter_extended</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1ab91fd6475a4f9358b62b8c5ce5df1f23.html">Function dds_string_alloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1a437221097055c8ed348c66c01edc58c8.html">Function dds_string_dup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__alloc_8h_1adc004e81e6839c4c4b9d24e84bb153b5.html">Function dds_string_free</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aef2dbf22ae70c79225b65e97522bd495.html">Function dds_suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a0dec2431770c3af7d4e7e3528badfa88.html">Function dds_take</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a2882791b660d4da6cb7f19d46bfd575f.html">Function dds_take_guardcondition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aafb3bca1546efaa11995fdac0ca0ba8e.html">Function dds_take_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a36cbeeaa6e84947887945fbffaf01f29.html">Function dds_take_instance_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ab1b55f55736526d1d990eee9a3dd523f.html">Function dds_take_instance_mask_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1af7d5f5bb95c0f9cd8c944de7b716b485.html">Function dds_take_instance_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a3819e422bd99e4bff0c615492dcdf146.html">Function dds_take_mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a3d491c0bd61e5cc59184f86b479a3982.html">Function dds_take_mask_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a3cf029f0c49f42317b887836d681a5a1.html">Function dds_take_next</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1afe51307d148c677fde3a89a566d7e545.html">Function dds_take_next_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a5aa32cb5c952f7f599d57b6c3b9ef9b4.html">Function dds_take_status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9e219f29e0e285f4f721b843669283a0.html">Function dds_take_wl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a51aa237a2fc107aacbf2e9947339eb12.html">Function dds_takecdr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a2abf72e2893e89e67ad465f3e7707642.html">Function dds_takecdr_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ae0a21b70492f0b0972547e796bd1fd75.html">Function dds_topic_get_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a69026db02f7530e57b739220454df5de.html">Function dds_topic_set_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a471b8ec0d763d88a0e4fd18502bc0bf7.html">Function dds_triggered</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1aa5e96c6c7754c929375e882e72cce8bb.html">Function dds_unregister_instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a9dbac57f9d32ad164acb66db65f3670c.html">Function dds_unregister_instance_ih</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ac2932cfcadd96f7817ccd4502eada928.html">Function dds_unregister_instance_ih_ts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a91895356c6cf6ed996cf240b26df0f6c.html">Function dds_unregister_instance_ts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1af26405a90d70fed2b7418db1b9fc763e.html">Function dds_wait_for_acks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a2de9a61e1569c3bb4931ed882738b7ba.html">Function dds_waitset_attach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a8bd29f7b6db7f3fc53d93aabe2970885.html">Function dds_waitset_detach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a74ff7a03ac17f287ac483e83c1947cbd.html">Function dds_waitset_get_entities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ac85a4dd23c10b19dc9fa9b7e99f2d109.html">Function dds_waitset_set_trigger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ae4748b6fd6f3eb86f66b890f69feead4.html">Function dds_waitset_wait</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a4db0893598b351975f481a4eaebcee94.html">Function dds_waitset_wait_until</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a781eb275c5194b48ee52fbe16a8088fd.html">Function dds_write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ae22a06100a776694af5176c8afc2ba2d.html">Function dds_write_flush</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__public__impl_8h_1a7fb577dda0b862f4e755f771f2953e4a.html">Function dds_write_set_batch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ad8da7ce46558c6317d796f2cac923cd1.html">Function dds_write_ts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a8a059f2e870ab8cb5ea70aa8025cd693.html">Function dds_writecdr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1ad16fb6bd42165796bd3f88c52a9c23c1.html">Function dds_writedispose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds_8h_1a88dd1f9ae9a6d855f35dc1a6b6493008.html">Function dds_writedispose_ts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__data__allocator_8h_1afcd1711d9cdf1233dc32fabbcaa615fd.html">Function is_loan_available(const dds_entity_t)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function_dds__loan__api_8h_1afcd1711d9cdf1233dc32fabbcaa615fd.html">Function is_loan_available(const dds_entity_t)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a49ffb616400230ddec0977634861eea2.html">Define DDS_ALIVE_INSTANCE_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a300c5bf2a8d288b7cc5813b97e097693.html">Define DDS_ANY_INSTANCE_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a5e04489490ba7af47777a324003d7b1e.html">Define DDS_ANY_SAMPLE_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1ae8c120921e70d808d411246131cd8596.html">Define DDS_ANY_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a5c19adef721389d74f6871d43849e588.html">Define DDS_ANY_VIEW_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_group__builtintopic__constants_1gab69a1a154fbc9ef83a3544188c1df4ef.html">Define DDS_BUILTIN_TOPIC_DCPSPARTICIPANT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_group__builtintopic__constants_1gabd383981d0521d09e50715c06378a4db.html">Define DDS_BUILTIN_TOPIC_DCPSPUBLICATION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_group__builtintopic__constants_1gadd7c0701f36acf61c6cdf9d4d2c4c8de.html">Define DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_group__builtintopic__constants_1ga394f1c6e91862269d9dea80d7000a80e.html">Define DDS_BUILTIN_TOPIC_DCPSTOPIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__basic__types_8h_1a62f1c30f2496513386d2530c1af681d0.html">Define DDS_CYCLONEDDS_HANDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1aa4a433e4b226f73ed2727fdb964190f2.html">Define DDS_DATA_ALLOCATOR_ALLOC_ON_HEAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__data__allocator_8h_1a3e573761f28377b47977bcd02727ff99.html">Define DDS_DATA_ALLOCATOR_MAX_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a3dbf0808cdf4e2d8c2f8a38cac6e4e79.html">Define DDS_DATA_AVAILABLE_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a9d1ca1ac4c5bc82ca39437b3b618e519.html">Define DDS_DATA_ON_READERS_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a1c9445103fc4acd8fca5d7135cd6aabe.html">Define DDS_DATA_REPRESENTATION_FLAG_XCDR1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1aefedcfe123cc0acf362473700c3047b7.html">Define DDS_DATA_REPRESENTATION_FLAG_XCDR2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a81a0e03f060835f742c710bf5c7eaaa5.html">Define DDS_DATA_REPRESENTATION_FLAG_XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a0325cf03a9c25c793e71cf20e108de46.html">Define DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a065f1865b818507e0b57cb81068758ea.html">Define DDS_DATA_REPRESENTATION_XCDR1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a66a1db8a1a2d420236b1e536f529cccf.html">Define DDS_DATA_REPRESENTATION_XCDR2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1ae662f0810f0541d7b40eea7294ce2aa9.html">Define DDS_DATA_REPRESENTATION_XML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a8939c3899588c99806b7bd7cf62181e5.html">Define DDS_DOMAIN_DEFAULT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1aa416fd2f593852b263bf386709055ec2.html">Define DDS_ENTITY_NIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__error_8h_1aff0656b7ab576c05205c0b2278431610.html">Define dds_err_file_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__error_8h_1a70c0634198543f80a6b3772c40868877.html">Define DDS_ERR_FILE_ID_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__error_8h_1a7d827fbcb22aa0aab422f9b5052ec2c8.html">Define dds_err_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__error_8h_1ac615053a7d97c47eb81a6ebeec65e1fd.html">Define DDS_ERR_LINE_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__error_8h_1adddba8bc8e541c34ef186b3d30fd4938.html">Define dds_err_nr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__error_8h_1a14beae8709d021bcc7f7782fbc03b5c8.html">Define DDS_ERR_NR_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1af8e59c6bd27d2e84cf721ea30dee7160.html">Define DDS_FIXED_KEY_MAX_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__alloc_8h_1a698fa9d29f15b9e0ca1f081d05a1f151.html">Define DDS_FREE_ALL_BIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__alloc_8h_1a5c7a2d1b955fd438f51c95c463ba6943.html">Define DDS_FREE_CONTENTS_BIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__alloc_8h_1a0cd64765e07cf214749f3f7630dcf7bb.html">Define DDS_FREE_KEY_BIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a9170b472f7ae56323bf23dbcda606716.html">Define DDS_HANDLE_NIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1aa4d134e6e973b4f37533063052a068ce.html">Define DDS_HAS_CREATE_TOPIC_GENERIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a2a4e1c7473e5db3dc025d4f42cd0dfc6.html">Define DDS_HAS_CREATE_TOPIC_SERTYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1aaac2f653b8d86896b1bad9f7fd1140fd.html">Define DDS_HAS_DDSI_SERTYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__qos_8h_1a660a075652c311b2904ccc78063f3756.html">Define DDS_HAS_PROPERTY_LIST_QOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1ac44d37d57c57e640431d6c2042d845de.html">Define DDS_HAS_READCDR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a6be14672910936e1e2650d604a582485.html">Define DDS_INCONSISTENT_TOPIC_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a8e4e54d228098312e6f51ca82b72354d.html">Define DDS_JEQ_TYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ab64c9f774b38c456117d6ca62b0cc5da.html">Define DDS_JEQ_TYPE_FLAGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1aed90c65a201deb1935a31ae6bc5d4cc7.html">Define DDS_JEQ_TYPE_FLAGS_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a46084f000e5446921421c32f69823903.html">Define DDS_JEQ_TYPE_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a2542f6f54c3624eaa01cbd12a449f6b4.html">Define DDS_KIND_MAX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a464725d29098f0062b67ecfaa65e8ae7.html">Define DDS_KOF_OFFSET_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__qosdefs_8h_1a1acaf7769af1917359471d007594328c.html">Define DDS_LENGTH_UNLIMITED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a09b20d7750ee291c4bc926423569c2bb.html">Define DDS_LIVELINESS_CHANGED_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1af64301bcc010208fb860aab2309fddd1.html">Define DDS_LIVELINESS_LOST_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__listener_8h_1a1eff6d9d09533882ff2a2703541d6d27.html">Define DDS_LUNSET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__basic__types_8h_1a0ca5d977475bb35a5ab2bd3ac0dff031.html">Define DDS_MIN_PSEUDO_HANDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1ae340e1814d006f40b2ca474dcddb7f20.html">Define DDS_NEW_VIEW_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a8c03ae9985cae84d2dfdec294895fac7.html">Define DDS_NOT_ALIVE_DISPOSED_INSTANCE_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1aee526d254d9d80a7d24ab99a19f8ece9.html">Define DDS_NOT_ALIVE_NO_WRITERS_INSTANCE_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1add16f326b18a0c7cf4e0b094c4fcf886.html">Define DDS_NOT_NEW_VIEW_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1ab9bb2277cce867964e06c119e87dda03.html">Define DDS_NOT_READ_SAMPLE_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1af1e4323428b6e4a2669d60850d1a8b32.html">Define DDS_OFFERED_DEADLINE_MISSED_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a5687ef28e046ac80615b85db2f5ba0fd.html">Define DDS_OFFERED_INCOMPATIBLE_QOS_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a3087efb4dd1d58a61a3155f0e0d6bbdd.html">Define DDS_OP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1aacb0cb4eab972dc0299635c6b5acbd67.html">Define DDS_OP_ADR_JMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a5410c8ea44893b4d595aed6632892d88.html">Define DDS_OP_ADR_JSR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ac0992e3e92a0f6f878d7453b3b52bfbe.html">Define DDS_OP_ADR_PLM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a6b7efe18a2b31328fb1052116c2f7d8e.html">Define DDS_OP_FLAG_BASE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a4a84fbcad72f522504d69d434a738ea9.html">Define DDS_OP_FLAG_DEF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a7a7752dadb8e7a511022fc88f4c4d234.html">Define DDS_OP_FLAG_EXT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ad19c5a08c2ef8dc5b5ef027b349948e3.html">Define DDS_OP_FLAG_FP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a760ca205c759e43609eccc88415e6dcb.html">Define DDS_OP_FLAG_KEY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ae869a85c3484bce8820368edb00ead39.html">Define DDS_OP_FLAG_MU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a9e33c94b81971f9fb2ae2d198680ae69.html">Define DDS_OP_FLAG_OPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ae91d07f3c6d96a96ca9165cc54b92e60.html">Define DDS_OP_FLAG_SGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a8cf41e8652cff65f526a47022b4fb0a2.html">Define DDS_OP_FLAG_SZ_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1adc9038a02b33658ee88f6e7f3a620ce4.html">Define DDS_OP_FLAG_SZ_SHIFT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1af0a471c36177a82c59b02cb11844e778.html">Define DDS_OP_FLAGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a2f9fdc3d50446ed54f4ce2af194cfdea.html">Define DDS_OP_FLAGS_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ae595d45c2d8285aab1caacd2d9634265.html">Define DDS_OP_FLAGS_SZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1af2bf231dd2acd64f63b26638d475c48a.html">Define DDS_OP_JMP_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1aac4258cbb9076592363f9947cf5dd233.html">Define DDS_OP_JUMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a88d3f21d8cff3564bc91fe2f5d2638f0.html">Define DDS_OP_LENGTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a2c8f81b90dfd47f69f07ab6f464b95c7.html">Define DDS_OP_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a856cc9aa7e842232eb0f2834a5d220c6.html">Define DDS_OP_SUBTYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a4c7d9a9cfba6feaabeda5db3c20eeb95.html">Define DDS_OP_SUBTYPE_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ab07d66c4c0f91c5912ed8ba1803aef35.html">Define DDS_OP_TYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1aa2392bf2b06a3c3ca67d6c318b33310d.html">Define DDS_OP_TYPE_BOO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a0be83b7633ba2db294f15bd7dbbd92a8.html">Define DDS_OP_TYPE_FLAGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a287c68c4969b41255c49eab286099442.html">Define DDS_OP_TYPE_FLAGS_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a8b893fb6d53abd6172491d90812862a3.html">Define DDS_OP_TYPE_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a339709c57c6484e92ade1cae69899cb0.html">Define DDS_OP_TYPE_SZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ac1ebdbebc844fa7df8150fc0cf1fbe92.html">Define DDS_PLM_FLAGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1abbff0d64396f0f99a7491d56b24e1225.html">Define DDS_PLM_FLAGS_MASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1aafc02e17526d8f4af1bc44d979dc88ca.html">Define DDS_PUBLICATION_MATCHED_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__public__impl_8h_1a8bcc3b3be2b17f0d7f19a61fb5b82cfe.html">Define DDS_READ_SAMPLE_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__internal__api_8h_1af5f9572c0b289315d0b8c16120813e33.html">Define DDS_READ_WITHOUT_LOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a2e88c8cf1fac5098d67e05244f69fbfa.html">Define DDS_REQUESTED_DEADLINE_MISSED_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a47aab4cc1f4c074de5c6943e483d95b5.html">Define DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1af9cc2ffe6edaa8b5948750a958cf9235.html">Define DDS_SAMPLE_LOST_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1aeb3807755b63517ac681f253a9179a1a.html">Define DDS_SAMPLE_REJECTED_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a4167e8c7829c5b10fce81e1ba44c59dd.html">Define DDS_STATUS_ID_MAX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds_8h_1a30f700d35561acfa168b34e9919f774a.html">Define DDS_SUBSCRIPTION_MATCHED_STATUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a5c3d78742cc81008a866254d50f66f4c.html">Define DDS_TOPIC_CONTAINS_UNION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a944a56d726a95d52e6db182bb24debdd.html">Define DDS_TOPIC_FIXED_KEY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1ac0c4c02ce34c9da87526bd374b3cee0d.html">Define DDS_TOPIC_FIXED_KEY_XCDR2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1a845240e87c0d57ecf4dac746f91569c4.html">Define DDS_TOPIC_FIXED_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1af3dfc8c311c9acda1a7baac9f9812d22.html">Define DDS_TOPIC_NO_OPTIMIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1aedc8c8fcb98faeb167ca8ec13c9db31b.html">Define DDS_TOPIC_RESTRICT_DATA_REPRESENTATION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__opcodes_8h_1aec695c9813257904a2e5586b86de06fb.html">Define DDS_TOPIC_XTYPES_METADATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="define_dds__rhc_8h_1a5d53740a86315bc42ea61fa353d6d108.html">Define NO_STATE_MASK_SET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__alloc_8h_1a8d72fc16406792a133e32d8e6fa00f5b.html">Typedef dds_alloc_fn_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__alloc_8h_1af8b4619157841902d771ea64a17e2ba6.html">Typedef dds_allocator_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1acf58987cea0c33cd4c7ce06b4b29b1cf.html">Typedef dds_attach_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1ae1bc85235431ea631558447090a7a6af.html">Typedef dds_builtintopic_endpoint_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a0d67f5936474071096b67bac9fc4ae04.html">Typedef dds_builtintopic_guid_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1af15305ba67e6de60ddc94e18f75e3c87.html">Typedef dds_builtintopic_participant_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1ae4b25400e0bf9badcde6dc9e090de989.html">Typedef dds_builtintopic_topic_key_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a83ceb39a7ccdceefdc8d06b0343e252a.html">Typedef dds_builtintopic_topic_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__data__allocator_8h_1af953cdc1c40606789d17326be32f93c7.html">Typedef dds_data_allocator_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1abd1b171611441f4702693b58091a1bee.html">Typedef dds_data_representation_id_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1ae01eae387c5d4e98e0d23df35fb50297.html">Typedef dds_destination_order_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1aa5d96fb7c69c5503252549cd415d4582.html">Typedef dds_domainid_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1a715c4b0582c2b0d868c20e686458bb97.html">Typedef dds_durability_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1ad53f4e49cdf47eec9c6db3fef2d04111.html">Typedef dds_entity_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__basic__types_8h_1aa66538468c533a9ea558b7e280677b13.html">Typedef dds_entity_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1a04c22a0103dfbcdf214cd812a2f70b72.html">Typedef dds_find_scope_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__alloc_8h_1af1d774192a2d06e84741b6b994b0d24c.html">Typedef dds_free_fn_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a184a4a41b3dfd4cdf8499315e986d44e.html">Typedef dds_guid_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1a65d88da0d1ecaa1acaf14e70798bd914.html">Typedef dds_history_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1a80c08a898048a5ae829bbc013c1f24f6.html">Typedef dds_ignorelocal_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1a73818fefd01699d7ef3624b1be3168b0.html">Typedef dds_inconsistent_topic_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1a004163125a23f123c14cedbe5a237906.html">Typedef dds_instance_handle_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a2c7e99e4aac89f7379fade7b7339dc3f.html">Typedef dds_instance_state_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1acbb3cd80a53d4f2bda852bef2e786539.html">Typedef dds_key_descriptor_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1abea4a7f035d91f86e036ed764f7b3731.html">Typedef dds_listener_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1ad6b6ac185b7a01afaf296377b17e018b.html">Typedef dds_liveliness_changed_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1a5519f28e0674b9cfa2d41f72a68c7833.html">Typedef dds_liveliness_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1ad6faa739af549b82cf8e64e065ca3db2.html">Typedef dds_liveliness_lost_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1af35db6a90a0159e6f471679397cde13d.html">Typedef dds_offered_deadline_missed_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1addbc3c05f3dc412f596d28ebbb0248f0.html">Typedef dds_offered_incompatible_qos_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1aeb5c8ba1049b18649094d936587b4e73.html">Typedef dds_on_data_available_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1aa0b50b63ef62e8f7a79ed82cd23a051b.html">Typedef dds_on_data_on_readers_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a5f20136551064e5931afc10b82f2ead1.html">Typedef dds_on_inconsistent_topic_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1aa5d7a2b5886f7a1fcfde4b4d00f83ef2.html">Typedef dds_on_liveliness_changed_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a72aba521896da3193ff2433ce651a469.html">Typedef dds_on_liveliness_lost_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a16a1ae82a17371bcfba8279207ac6b8c.html">Typedef dds_on_offered_deadline_missed_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a02cc1c0344ea0f2592d3524770c7f399.html">Typedef dds_on_offered_incompatible_qos_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a5ed7ab3913b8f1ba752ad98010a65919.html">Typedef dds_on_publication_matched_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a6a07756f06d5b4f8890ca1c1854935ad.html">Typedef dds_on_requested_deadline_missed_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a3b4ad9e7b28f6b26dcd23e3fb2c14be1.html">Typedef dds_on_requested_incompatible_qos_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1ac9d86c16b835bbb9a456872cbf9e93c3.html">Typedef dds_on_sample_lost_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a800f2c90fed43dcd50c704a66e74dbda.html">Typedef dds_on_sample_rejected_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__listener_8h_1a66f527e7292c35bd9d18eef2ccb2b001.html">Typedef dds_on_subscription_matched_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1ab3ded62598b41db32f56a011002ae3bb.html">Typedef dds_ownership_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1aa361577224d5c14ff64414d9486be7e9.html">Typedef dds_presentation_access_scope_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1a122f5a18f9dbbb422c82f6ac457735bf.html">Typedef dds_publication_matched_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1a3406ae9ea2ac84cc243f9f023f352d4c.html">Typedef dds_qos_policy_id_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1a2ecc2eff9e47ee74264a1b93c65241cc.html">Typedef dds_qos_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1af286c5bb4900583471367f999a30de81.html">Typedef dds_querycondition_filter_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__alloc_8h_1abb79933a24f0d16f0c5558bf5bf2380e.html">Typedef dds_realloc_fn_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1ab3a2d7f4f60e9cbb980128ce1b8b1f70.html">Typedef dds_reliability_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1aca96b4f764e881e8324e2c4615771463.html">Typedef dds_requested_deadline_missed_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1aa35f9042cb84c849977ac2a760d2fd77.html">Typedef dds_requested_incompatible_qos_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__rhc_8h_1a2ab7df446352a1c4a1b45e774ce5820e.html">Typedef dds_rhc_add_readcondition_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__rhc_8h_1aab01ec3664d48504be2a984e254229a6.html">Typedef dds_rhc_associate_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__rhc_8h_1a0ae2d137a1376748d209f13a638155c2.html">Typedef dds_rhc_lock_samples_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__rhc_8h_1addd458c0e9691b321dbc217509a25eee.html">Typedef dds_rhc_read_take_cdr_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__rhc_8h_1a283c803daa880eb43031db9f8af833b9.html">Typedef dds_rhc_read_take_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__rhc_8h_1a007b66ca29c5c8b0629bc1f424b6239d.html">Typedef dds_rhc_remove_readcondition_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a2e3f15a60e9c8da042fe383e0d20accb.html">Typedef dds_sample_info_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1a20954c3116b3d2444856234ceb443365.html">Typedef dds_sample_lost_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1a6007aa14755892b9a558cf26855e4c5e.html">Typedef dds_sample_rejected_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1ad5b1d441728db52ec85b8eb942073fc3.html">Typedef dds_sample_state_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1a7063a1462c8140e2381d2b7669dc084b.html">Typedef dds_sequence_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1ac829e8e66ec603622e8182c416307316.html">Typedef dds_status_id_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__status_8h_1a19462213111877cc6ff94c496831c815.html">Typedef dds_subscription_matched_status_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1ad8820c2e51e6d51be6975b1207ca5f25.html">Typedef dds_topic_descriptor_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1ab32ed578e469bda4ff3ee8c247281806.html">Typedef dds_topic_filter_arg_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1aa031e655ed366666566e6c9cd7c49bc4.html">Typedef dds_topic_filter_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a0a06991cfaaff0b57bb49726bed4d655.html">Typedef dds_topic_filter_sample_arg_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1afd83a290ef848d7ad766a48e56c7ce5a.html">Typedef dds_topic_filter_sample_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a33bef6989c9df28693ca47fad573c0c5.html">Typedef dds_topic_filter_sample_sampleinfo_arg_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a5348817f2cc0224cce7063d2e8e49af0.html">Typedef dds_topic_filter_sampleinfo_arg_fn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__qosdefs_8h_1a1c7d3c8b9fa2b035a107c1915eaa1ae6.html">Typedef dds_type_consistency_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds__public__impl_8h_1a554e5f3cb0f51f6da0b90de1bd795c50.html">Typedef dds_typeid_kind_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1a9d3cba6adebfeebd909f1272699f9d2b.html">Typedef dds_typeid_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1ab18a236a51180975a7e2e2797d4e4cb3.html">Typedef dds_typeobj_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="typedef_dds_8h_1ac36667a347b0070dcb4c0734e6131438.html">Typedef dds_view_state_t</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="function-dds-get-domainid">
+<span id="exhale-function-dds-8h-1ae567b70bf7463711fb928a7ac9719dca"></span><h1>Function dds_get_domainid<a class="headerlink" href="#function-dds-get-domainid" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_dds.h.html#file-dds-h"><span class="std std-ref">File dds.h</span></a></p></li>
+</ul>
+<section id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416dds_get_domainid12dds_entity_tP14dds_domainid_t">
+<span id="_CPPv316dds_get_domainid12dds_entity_tP14dds_domainid_t"></span><span id="_CPPv216dds_get_domainid12dds_entity_tP14dds_domainid_t"></span><span id="dds_get_domainid__dds_entity_t.dds_domainid_tP"></span><span class="target" id="dds_8h_1ae567b70bf7463711fb928a7ac9719dca"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_domainid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="typedef_dds__basic__types_8h_1aa66538468c533a9ea558b7e280677b13.html#_CPPv412dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="typedef_dds__public__impl_8h_1aa5d96fb7c69c5503252549cd415d4582.html#_CPPv414dds_domainid_t" title="dds_domainid_t"><span class="n"><span class="pre">dds_domainid_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416dds_get_domainid12dds_entity_tP14dds_domainid_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the domain id to which this entity is attached. </p>
+<p>When creating a participant entity, it is attached to a certain domain. All the children (like Publishers) and childrens’ children (like DataReaders), etc are also attached to that domain.</p>
+<p>This function will return the original domain ID when called on any of the entities within that hierarchy. For entities not associated with a domain, the id is set to DDS_DOMAIN_DEFAULT.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> Entity from which to get its children. </p></li>
+<li><p><strong>id</strong> – <strong>[out]</strong> Pointer to put the domain ID in.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – Domain ID was returned. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The id parameter is NULL. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Function dds_get_domainid</a><ul>
+<li><a class="reference internal" href="#function-documentation">Function Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="function_dds_8h_1aa40baed39d4afe3421131ba9ae3e7f5a.html">
+                <span><</span> Function dds_get_datareader</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="function_dds_8h_1a4543770e99c1417bb71ff6c4d68bb38b.html">Function dds_get_enabled_status <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

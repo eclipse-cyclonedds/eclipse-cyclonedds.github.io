@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>File DataWriter.cpp &#8212; Eclipse Cyclone DDS C++ 0.9.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS C++</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ddscxx.html">Eclipse Cyclone DDS C++ API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../idlcxx.html">Custom Containers</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="file-datawriter-cpp">
+<span id="file-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-datawriter-cpp"></span><h1>File DataWriter.cpp<a class="headerlink" href="#file-datawriter-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="dir__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests.html#dir-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests"><span class="std std-ref">Parent directory</span></a> (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests</span></code>)</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-datawriter-cpp" id="id1">Definition (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/DataWriter.cpp</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#includes" id="id2">Includes</a></p></li>
+<li><p><a class="reference internal" href="#classes" id="id3">Classes</a></p></li>
+<li><p><a class="reference internal" href="#functions" id="id4">Functions</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id5">Variables</a></p></li>
+</ul>
+</div>
+<section id="definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-datawriter-cpp">
+<h2>Definition (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/DataWriter.cpp</span></code>)<a class="headerlink" href="#definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-datawriter-cpp" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="program_listing_file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_DataWriter.cpp.html">Program Listing for File DataWriter.cpp</a></li>
+</ul>
+</div>
+</section>
+<section id="includes">
+<h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Space.hpp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dds/dds.hpp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gtest/gtest.h</span></code></p></li>
+</ul>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="classDataWriter.html#exhale-class-classdatawriter"><span class="std std-ref">Class DataWriter</span></a></p></li>
+<li><p><a class="reference internal" href="classTestWriter1Listener.html#exhale-class-classtestwriter1listener"><span class="std std-ref">Class TestWriter1Listener</span></a></p></li>
+</ul>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a39fba1202369ddc614f279d901c32263.html#exhale-function-datawriter-8cpp-1a39fba1202369ddc614f279d901c32263"><span class="std std-ref">Function TEST_F(DataWriter, publisher)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a91594c2318c96d4b66a732aa015e84e5.html#exhale-function-datawriter-8cpp-1a91594c2318c96d4b66a732aa015e84e5"><span class="std std-ref">Function TEST_F(DataWriter, topic_description)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a57d2aeb40d6dcd9effda05aef94df48c.html#exhale-function-datawriter-8cpp-1a57d2aeb40d6dcd9effda05aef94df48c"><span class="std std-ref">Function TEST_F(DataWriter, qos_default)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a346c83312734c4595ad03fdbee0d7c00.html#exhale-function-datawriter-8cpp-1a346c83312734c4595ad03fdbee0d7c00"><span class="std std-ref">Function TEST_F(DataWriter, qos_nondefault_constructor)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a0a4691cfdc10f8af6b853cdf0feaee4f.html#exhale-function-datawriter-8cpp-1a0a4691cfdc10f8af6b853cdf0feaee4f"><span class="std std-ref">Function TEST_F(DataWriter, qos_immutable_constructor)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a446353ca471b30255413dc56b09feed7.html#exhale-function-datawriter-8cpp-1a446353ca471b30255413dc56b09feed7"><span class="std std-ref">Function TEST_F(DataWriter, qos_nondefault_set)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a9e21ec6247682ffa31088a1221819929.html#exhale-function-datawriter-8cpp-1a9e21ec6247682ffa31088a1221819929"><span class="std std-ref">Function TEST_F(DataWriter, qos_immutable_set)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1adf3d4282048c6a467e1ec3a901c5f27b.html#exhale-function-datawriter-8cpp-1adf3d4282048c6a467e1ec3a901c5f27b"><span class="std std-ref">Function TEST_F(DataWriter, qos_nondefault_shift)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a69922f27c31f0d5a86c6127005587a64.html#exhale-function-datawriter-8cpp-1a69922f27c31f0d5a86c6127005587a64"><span class="std std-ref">Function TEST_F(DataWriter, qos_immutable_shift)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a7b81927918ad6ab547f76485fd3074ec.html#exhale-function-datawriter-8cpp-1a7b81927918ad6ab547f76485fd3074ec"><span class="std std-ref">Function TEST_F(DataWriter, write_data)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a540290951b727b9a5814ff2612f07636.html#exhale-function-datawriter-8cpp-1a540290951b727b9a5814ff2612f07636"><span class="std std-ref">Function TEST_F(DataWriter, write_InstanceHandle)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a014d3489de1db4ae2392cf754fc1c990.html#exhale-function-datawriter-8cpp-1a014d3489de1db4ae2392cf754fc1c990"><span class="std std-ref">Function TEST_F(DataWriter, write_TopicInstance)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a3dadcab7ccc4712addc1578b1ad2e075.html#exhale-function-datawriter-8cpp-1a3dadcab7ccc4712addc1578b1ad2e075"><span class="std std-ref">Function TEST_F(DataWriter, write_iter)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1abfc7cea75cecfffc127692fa701b8da9.html#exhale-function-datawriter-8cpp-1abfc7cea75cecfffc127692fa701b8da9"><span class="std std-ref">Function TEST_F(DataWriter, write_data_with_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1abf1894ad381416fdccf7ef0ce24e4c73.html#exhale-function-datawriter-8cpp-1abf1894ad381416fdccf7ef0ce24e4c73"><span class="std std-ref">Function TEST_F(DataWriter, write_InstanceHandle_with_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a66294ceabf15355dd6ba607017cc1409.html#exhale-function-datawriter-8cpp-1a66294ceabf15355dd6ba607017cc1409"><span class="std std-ref">Function TEST_F(DataWriter, write_TopicInstance_with_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1ab65f86214a20b0021fbf059c59e5dd65.html#exhale-function-datawriter-8cpp-1ab65f86214a20b0021fbf059c59e5dd65"><span class="std std-ref">Function TEST_F(DataWriter, write_iter_with_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1ad89f58f69a88ce2d0598ad88ec92eef5.html#exhale-function-datawriter-8cpp-1ad89f58f69a88ce2d0598ad88ec92eef5"><span class="std std-ref">Function TEST_F(DataWriter, writedispose)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a12f38ab8d8484c12f2a5ee487cd06fcc.html#exhale-function-datawriter-8cpp-1a12f38ab8d8484c12f2a5ee487cd06fcc"><span class="std std-ref">Function TEST_F(DataWriter, dispose_instance)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a6082d1288f455cc3c9d5f61ff9d90c8d.html#exhale-function-datawriter-8cpp-1a6082d1288f455cc3c9d5f61ff9d90c8d"><span class="std std-ref">Function TEST_F(DataWriter, dispose_instance_2nd)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1aa1c0f2b86ecb46d9512ff5771070d6da.html#exhale-function-datawriter-8cpp-1aa1c0f2b86ecb46d9512ff5771070d6da"><span class="std std-ref">Function TEST_F(DataWriter, dispose_instance_after_read)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a76db9a48c7192663459bdc43deae2cd4.html#exhale-function-datawriter-8cpp-1a76db9a48c7192663459bdc43deae2cd4"><span class="std std-ref">Function TEST_F(DataWriter, matched_subscriptions_sequence)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a6d8d6a24817e114174e788be454f4dfb.html#exhale-function-datawriter-8cpp-1a6d8d6a24817e114174e788be454f4dfb"><span class="std std-ref">Function TEST_F(DataWriter, matched_subscriptions_array)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a4469adf95c9f521016afbc6688d0d2c4.html#exhale-function-datawriter-8cpp-1a4469adf95c9f521016afbc6688d0d2c4"><span class="std std-ref">Function TEST_F(DataWriter, shift_sample)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1abb8c7c98a5fac16cbfe2c88f698cc87d.html#exhale-function-datawriter-8cpp-1abb8c7c98a5fac16cbfe2c88f698cc87d"><span class="std std-ref">Function TEST_F(DataWriter, shift_pair_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a0c72ff32727a6c9e00f0ec37a7c0ffea.html#exhale-function-datawriter-8cpp-1a0c72ff32727a6c9e00f0ec37a7c0ffea"><span class="std std-ref">Function TEST_F(DataWriter, shift_pair_InstanceHandle)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a2726743a5d9df062cbf0762397c7a2cb.html#exhale-function-datawriter-8cpp-1a2726743a5d9df062cbf0762397c7a2cb"><span class="std std-ref">Function TEST_F(DataWriter, lookup_instance)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a09d45d5cfb38be414977ec03bf2d3d50.html#exhale-function-datawriter-8cpp-1a09d45d5cfb38be414977ec03bf2d3d50"><span class="std std-ref">Function TEST_F(DataWriter, unregister_instance)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a5edd740ec62c1751dff94069d8ad8fc6.html#exhale-function-datawriter-8cpp-1a5edd740ec62c1751dff94069d8ad8fc6"><span class="std std-ref">Function TEST_F(DataWriter, unregister_instance_InstanceHandle)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a6a72c41274ca188bc9fdee324e1dacc7.html#exhale-function-datawriter-8cpp-1a6a72c41274ca188bc9fdee324e1dacc7"><span class="std std-ref">Function TEST_F(DataWriter, unregister_instance_with_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a1a5ebb1c833e770d4cd6f71bf8b6a78c.html#exhale-function-datawriter-8cpp-1a1a5ebb1c833e770d4cd6f71bf8b6a78c"><span class="std std-ref">Function TEST_F(DataWriter, unregister_instance_InstanceHandle_with_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a89730fb0f6c80f42ff103faadcad66a9.html#exhale-function-datawriter-8cpp-1a89730fb0f6c80f42ff103faadcad66a9"><span class="std std-ref">Function TEST_F(DataWriter, register_instance_with_timestamp)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a1cde59f3081ec148b8c95f6aa8a0b176.html#exhale-function-datawriter-8cpp-1a1cde59f3081ec148b8c95f6aa8a0b176"><span class="std std-ref">Function TEST_F(DataWriter, key_value_ti)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1ad540a00a6a9d9ddecfa6df2a29783199.html#exhale-function-datawriter-8cpp-1ad540a00a6a9d9ddecfa6df2a29783199"><span class="std std-ref">Function TEST_F(DataWriter, key_value_sample)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1ad101d90387cc29f585061d6f44a8d6da.html#exhale-function-datawriter-8cpp-1ad101d90387cc29f585061d6f44a8d6da"><span class="std std-ref">Function TEST_F(DataWriter, topic)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1abb2b9af3f702e9b2aeb0c1fc99406c71.html#exhale-function-datawriter-8cpp-1abb2b9af3f702e9b2aeb0c1fc99406c71"><span class="std std-ref">Function TEST_F(DataWriter, use_after_close)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1ace911f0daaa1ab9cdb9491b905bd5c1c.html#exhale-function-datawriter-8cpp-1ace911f0daaa1ab9cdb9491b905bd5c1c"><span class="std std-ref">Function TEST_F(DataWriter, use_after_deletion)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a98af608dca48223e381de9817dec9091.html#exhale-function-datawriter-8cpp-1a98af608dca48223e381de9817dec9091"><span class="std std-ref">Function TEST_F(DataWriter, null)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1ae743ec2c41973c80b4e9f42f052b9ff6.html#exhale-function-datawriter-8cpp-1ae743ec2c41973c80b4e9f42f052b9ff6"><span class="std std-ref">Function TEST_F(DataWriter, create_publisher_null)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a99004a2cddee062c26851fdd2ede2de5.html#exhale-function-datawriter-8cpp-1a99004a2cddee062c26851fdd2ede2de5"><span class="std std-ref">Function TEST_F(DataWriter, create_topic_null)</span></a></p></li>
+<li><p><a class="reference internal" href="function_DataWriter_8cpp_1a61a618a8d1f632f501165fce8b00b6d6.html#exhale-function-datawriter-8cpp-1a61a618a8d1f632f501165fce8b00b6d6"><span class="std std-ref">Function TEST_F(DataWriter, create)</span></a></p></li>
+</ul>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="variable_DataWriter_8cpp_1a51c1edc8c1762f8a06751ecc2fdac10c.html#exhale-variable-datawriter-8cpp-1a51c1edc8c1762f8a06751ecc2fdac10c"><span class="std std-ref">Variable writer1Listener</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">File DataWriter.cpp</a><ul>
+<li><a class="reference internal" href="#definition-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-datawriter-cpp">Definition (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/DataWriter.cpp</span></code>)</a></li>
+<li><a class="reference internal" href="#includes">Includes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#variables">Variables</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+        </div>
+
+        <div class="right">
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hello World! in more detail &#8212; Eclipse Cyclone DDS 0.8.0rc1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="What’s next?" href="next_steps.html" />
+    <link rel="prev" title="Building Eclipse Cyclone DDS applications" href="helloworld.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloworld.html">Building Eclipse Cyclone DDS applications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hello World! in more detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next_steps.html">What’s next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uninstall.html">Uninstalling Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">A guide to the configuration options of Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="hello-world-in-more-detail">
+<h1>Hello World! in more detail<a class="headerlink" href="#hello-world-in-more-detail" title="Permalink to this headline">¶</a></h1>
+<p>The previous chapter focused on building the <em>Hello World!</em> example while
+this chapter will focus on the code itself; what has to be done to code
+this small example.</p>
+<section id="hello-world-datatype">
+<span id="helloworlddatatype"></span><h2>Hello World! DataType<a class="headerlink" href="#hello-world-datatype" title="Permalink to this headline">¶</a></h2>
+<section id="data-centric-architecture">
+<h3>Data-Centric Architecture<a class="headerlink" href="#data-centric-architecture" title="Permalink to this headline">¶</a></h3>
+<p>By creating a Data-centric architecture, you get a loosely
+coupled information-driven system. It emphasizes a data layer
+that is common for all distributed applications within the
+system. Because there is no direct coupling among the
+applications in the DDS model, they can be added and removed
+easily in a modular and scalable manner. This makes that the
+complexity of a data-centric architecture doesn’t really
+increase when more and more publishers/subscribers are added.</p>
+<p>The <em>Hello World!</em> example has a very simple ‘data layer’ of only
+one data type <code class="code docutils literal notranslate"><span class="pre">HelloWorldData_Msg</span></code> (please read on).
+The subscriber and publisher are not aware of each other.
+The former just waits until somebody provides the data it
+requires, while the latter just publishes the data without
+considering the number of interested parties. In other words,
+it doesn’t matter for the publisher if there are none or
+multiple subscribers (try running the <em>Hello World!</em> example
+by starting multiple HelloworldSubscribers before starting a
+HelloworldPublisher). A publisher just writes the data. The
+DDS middleware takes care of delivering the data when needed.</p>
+</section>
+</section>
+<section id="helloworlddata-idl">
+<h2>HelloWorldData.idl<a class="headerlink" href="#helloworlddata-idl" title="Permalink to this headline">¶</a></h2>
+<p>To be able to sent data from a writer to a reader, DDS needs to
+know the data type. For the <em>Hello World!</em> example, this data type
+is described using <a class="reference external" href="http://www.omg.org/gettingstarted/omg_idl.htm">IDL</a>
+and is located in HelloWorldData.idl. This IDL file will be compiled by
+a IDL compiler which in turn generates a C language source and header
+file. These generated source and header file will be used by the
+HelloworldSubscriber and HelloworldPublisher in order to communicate
+the <em>Hello World!</em> message between the HelloworldPublisher
+and the HelloworldSubscriber.</p>
+<section id="hello-world-idl">
+<h3>Hello World! IDL<a class="headerlink" href="#hello-world-idl" title="Permalink to this headline">¶</a></h3>
+<p>There are a few ways to describe the structures that make up the
+data layer. The HelloWorld uses the IDL language to describe the
+data type in HelloWorldData.idl:</p>
+<div class="highlight-idl notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>module HelloWorldData
+<span class="linenos">2</span>{
+<span class="linenos">3</span>  struct Msg
+<span class="linenos">4</span>  {
+<span class="linenos">5</span>    <span class="nb">long</span> userID;
+<span class="linenos">6</span>    <span class="nb">string</span> <span class="nb">message</span>;
+<span class="linenos">7</span>  };
+<span class="linenos">8</span>  <span class="o">#</span>pragma keylist Msg userID
+<span class="linenos">9</span>};
+</pre></div>
+</div>
+<p>An extensive explanation of IDL lies outside the scope of this
+example. Nevertheless, a quick overview of this example is given
+anyway.</p>
+<p>First, there’s the <code class="code docutils literal notranslate"><span class="pre">module</span> <span class="pre">HelloWorldData</span></code>. This is a kind
+of namespace or scope or similar.
+Within that module, there’s the <code class="code docutils literal notranslate"><span class="pre">struct</span> <span class="pre">Msg</span></code>. This is the
+actual data structure that is used for the communication. In
+this case, it contains a <code class="code docutils literal notranslate"><span class="pre">userID</span></code> and <code class="code docutils literal notranslate"><span class="pre">message</span></code>.</p>
+<p>The combination of this module and struct translates to the
+following when using the c language.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When it is translated to a different language, it will look
+different and more tailored towards that language. This is the
+advantage of using a data oriented language, like IDL, to
+describe the data layer. It can be translated into different
+languages after which the resulting applications can communicate
+without concerns about the (possible different) programming
+languages these application are written in.</p>
+</section>
+<section id="generate-sources-and-headers">
+<span id="idlcompiler"></span><h3>Generate Sources and Headers<a class="headerlink" href="#generate-sources-and-headers" title="Permalink to this headline">¶</a></h3>
+<p>Like already mentioned in the <a class="reference internal" href="#hello-world-idl">Hello World! IDL</a> chapter, an IDL
+file contains the description of data type(s). This needs to be
+translated into programming languages to be useful in the
+creation of DDS applications.</p>
+<p>To be able to do that, there’s a pre-compile step that actually
+compiles the IDL file into the desired programming language.</p>
+<p>A java application <code class="code docutils literal notranslate"><span class="pre">org.eclipse.cyclonedds.compilers.Idlc</span></code>
+is supplied to support this pre-compile step. This is available
+in <code class="code docutils literal notranslate"><span class="pre">idlc-jar-with-dependencies.jar</span></code></p>
+<p>The compilation from IDL into c source code is as simple as
+starting that java application with an IDL file. In the case of
+the <em>Hello World!</em> example, that IDL file is HelloWorldData.idl.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">java</span><span class="w"> </span><span class="o">-</span><span class="n">classpath</span><span class="w"> </span><span class="s">&quot;&lt;install_dir&gt;/share/CycloneDDS/idlc/idlc-jar-with-dependencies.jar&quot;</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="n">eclipse</span><span class="p">.</span><span class="n">cyclonedds</span><span class="p">.</span><span class="n">compilers</span><span class="p">.</span><span class="n">Idlc</span><span class="w"> </span><span class="n">HelloWorldData</span><span class="p">.</span><span class="n">idl</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Windows</dt>
+<dd class="field-odd"><p>The <code class="code docutils literal notranslate"><span class="pre">HelloWorldType</span></code> project within the HelloWorld solution.</p>
+</dd>
+<dt class="field-even">Linux</dt>
+<dd class="field-even"><p>The <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">datatype</span></code> command.</p>
+</dd>
+</dl>
+<p>This will result in new <code class="code docutils literal notranslate"><span class="pre">generated/HelloWorldData.c</span></code> and
+<code class="code docutils literal notranslate"><span class="pre">generated/HelloWorldData.h</span></code>
+files that can be used in the <em>Hello World!</em> publisher and
+subscriber applications.</p>
+<p>The application has to be rebuild when the data type source
+files were re-generated.</p>
+<p>Again, this is all for the native builds. When using CMake, all
+this is done automatically.</p>
+</section>
+<section id="helloworlddata-c-helloworlddata-h">
+<span id="helloworlddatafiles"></span><h3>HelloWorldData.c &amp; HelloWorldData.h<a class="headerlink" href="#helloworlddata-c-helloworlddata-h" title="Permalink to this headline">¶</a></h3>
+<p>As described in the <a class="reference internal" href="#helloworlddatatype"><span class="std std-ref">Hello World! DataType</span></a>
+paragraph, the IDL compiler will generate this source and header
+file. These files contain the data type of the messages that are sent
+and received.</p>
+<p>While the c source has no interest for the application
+developers, HelloWorldData.h contains some information that they
+depend on. For example, it contains the actual message structure
+that is used when writing or reading data.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>It also contains convenience macros to allocate and free memory
+space for the specific data types.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData_Msg__alloc</span><span class="p">()</span><span class="w"></span>
+<span class="n">HelloWorldData_Msg_free</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">o</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>It contains an extern variable that describes the data type to
+the DDS middleware as well.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData_Msg_desc</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="hello-world-business-logic">
+<h2>Hello World! Business Logic<a class="headerlink" href="#hello-world-business-logic" title="Permalink to this headline">¶</a></h2>
+<p>Apart from the
+<a class="reference internal" href="#helloworlddatafiles"><span class="std std-ref">HelloWorldData data type files</span></a> that
+the <em>Hello World!</em> example uses to send messages, the <em>Hello World!</em>
+example also contains two (user) source files
+(<a class="reference internal" href="#helloworldsubscribersource"><span class="std std-ref">subscriber.c</span></a> and
+<a class="reference internal" href="#helloworldpublishersource"><span class="std std-ref">publisher.c</span></a>), containing the
+business logic.</p>
+<section id="hello-world-subscriber-source-code">
+<span id="helloworldsubscribersource"></span><h3><em>Hello World!</em> Subscriber Source Code<a class="headerlink" href="#hello-world-subscriber-source-code" title="Permalink to this headline">¶</a></h3>
+<p>Subscriber.c contains the source that will wait for a <em>Hello World!</em>
+message and reads it when it receives one.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="cm">/* An array of one message (aka sample in dds terms) will be used. */</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="cp">#define MAX_SAMPLES 1</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">11</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">12</span><span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">topic</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">reader</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">  </span><span class="n">HelloWorldData_Msg</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">samples</span><span class="p">[</span><span class="n">MAX_SAMPLES</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">17</span><span class="w">  </span><span class="n">dds_sample_info_t</span><span class="w"> </span><span class="n">infos</span><span class="p">[</span><span class="n">MAX_SAMPLES</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">rc</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">  </span><span class="n">dds_qos_t</span><span class="w"> </span><span class="o">*</span><span class="n">qos</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argc</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argv</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="w">  </span><span class="cm">/* Create a Participant. */</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">  </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_DOMAIN_DEFAULT</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_create_participant: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">participant</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">  </span><span class="cm">/* Create a Topic. */</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">  </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">HelloWorldData_Msg_desc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HelloWorldData_Msg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">31</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">topic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_create_topic: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">topic</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="w">  </span><span class="cm">/* Create a reliable Reader. */</span><span class="w"></span>
+<span class="linenos">35</span><span class="w">  </span><span class="n">qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos</span><span class="w"> </span><span class="p">();</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">  </span><span class="n">dds_qset_reliability</span><span class="w"> </span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_RELIABILITY_RELIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_SECS</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">  </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_reader</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">38</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reader</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">39</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_create_reader: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">reader</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">  </span><span class="n">dds_delete_qos</span><span class="p">(</span><span class="n">qos</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="w">  </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">=== [Subscriber] Waiting for a sample ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">  </span><span class="n">fflush</span><span class="w"> </span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="w">  </span><span class="cm">/* Initialize sample buffer, by pointing the void pointer within</span>
+<span class="linenos">46</span><span class="cm">   * the buffer array to a valid sample memory location. */</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">  </span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HelloWorldData_Msg__alloc</span><span class="w"> </span><span class="p">();</span><span class="w"></span>
+<span class="linenos">48</span>
+<span class="linenos">49</span><span class="w">  </span><span class="cm">/* Poll until data has been read. */</span><span class="w"></span>
+<span class="linenos">50</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">51</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">52</span><span class="w">    </span><span class="cm">/* Do the actual read.</span>
+<span class="linenos">53</span><span class="cm">     * The return value contains the number of read samples. */</span><span class="w"></span>
+<span class="linenos">54</span><span class="w">    </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_read</span><span class="w"> </span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span><span class="w"> </span><span class="n">infos</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_SAMPLES</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_SAMPLES</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">      </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_read: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">rc</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">57</span>
+<span class="linenos">58</span><span class="w">    </span><span class="cm">/* Check if we read some data and it is valid. */</span><span class="w"></span>
+<span class="linenos">59</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">rc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">valid_data</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">60</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">61</span><span class="w">      </span><span class="cm">/* Print Message. */</span><span class="w"></span>
+<span class="linenos">62</span><span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HelloWorldData_Msg</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">63</span><span class="w">      </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;=== [Subscriber] Received : &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">64</span><span class="w">      </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Message (%&quot;</span><span class="n">PRId32</span><span class="s">&quot;, %s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">userID</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">65</span><span class="w">      </span><span class="n">fflush</span><span class="w"> </span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">66</span><span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">67</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">68</span><span class="w">    </span><span class="k">else</span><span class="w"></span>
+<span class="linenos">69</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">70</span><span class="w">      </span><span class="cm">/* Polling sleep. */</span><span class="w"></span>
+<span class="linenos">71</span><span class="w">      </span><span class="n">dds_sleepfor</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_MSECS</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">72</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">73</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">74</span>
+<span class="linenos">75</span><span class="w">  </span><span class="cm">/* Free the data location. */</span><span class="w"></span>
+<span class="linenos">76</span><span class="w">  </span><span class="n">HelloWorldData_Msg_free</span><span class="w"> </span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">DDS_FREE_ALL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">77</span>
+<span class="linenos">78</span><span class="w">  </span><span class="cm">/* Deleting the participant will delete all its children recursively as well. */</span><span class="w"></span>
+<span class="linenos">79</span><span class="w">  </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">80</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">81</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_delete: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">rc</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">82</span>
+<span class="linenos">83</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">84</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We will be using the DDS API and the
+<a class="reference internal" href="#helloworlddatafiles"><span class="std std-ref">HelloWorldData_Msg</span></a> type
+to receive data. For that, we need to include the
+appropriate header files.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>The main starts with defining a few variables that will be used for
+reading the <em>Hello World!</em> message.
+The entities are needed to create a reader.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="p">;</span><span class="w"></span>
+<span class="n">dds_entity_t</span><span class="w"> </span><span class="n">topic</span><span class="p">;</span><span class="w"></span>
+<span class="n">dds_entity_t</span><span class="w"> </span><span class="n">reader</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Then there are some buffers that are needed to actually read the
+data.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData_Msg</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">samples</span><span class="p">[</span><span class="n">MAX_SAMPLES</span><span class="p">];</span><span class="w"></span>
+<span class="n">dds_sample_info_t</span><span class="w"> </span><span class="n">info</span><span class="p">[</span><span class="n">MAX_SAMPLES</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To be able to create a reader, we first need a participant. This
+participant is part of a specific communication domain. In the
+<em>Hello World!</em> example case, it is part of the default domain.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_DOMAIN_DEFAULT</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The another requisite is the topic which basically describes the
+data type that is used by the reader. When creating the topic,
+the <a class="reference internal" href="#helloworlddatafiles"><span class="std std-ref">data description</span></a> for the DDS
+middleware that is present in the
+<a class="reference internal" href="#helloworlddatafiles"><span class="std std-ref">HelloWorldData.h</span></a> is used.
+The topic also has a name. Topics with the same data type
+description, but with different names, are considered
+different topics. This means that readers/writers created with a
+topic named “A” will not interfere with readers/writers created
+with a topic named “B”.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">HelloWorldData_Msg_desc</span><span class="p">,</span><span class="w"></span>
+<span class="w">                          </span><span class="s">&quot;HelloWorldData_Msg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When we have a participant and a topic, we then can create
+the reader. Since the order in which the <em>Hello World!</em> Publisher and
+<em>Hello World!</em> Subscriber are started shouldn’t matter, we need to create
+a so called ‘reliable’ reader. Without going into details, the reader
+will be created like this</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">dds_qos_t</span><span class="w"> </span><span class="o">*</span><span class="n">qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos</span><span class="w"> </span><span class="p">();</span><span class="w"></span>
+<span class="n">dds_qset_reliability</span><span class="w"> </span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_RELIABILITY_RELIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_SECS</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">));</span><span class="w"></span>
+<span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_reader</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="n">dds_delete_qos</span><span class="p">(</span><span class="n">qos</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We are almost able to read data. However, the read expects an
+array of pointers to valid memory locations. This means the
+samples array needs initialization. In this example, we have
+an array of only one element: <code class="code docutils literal notranslate"><span class="pre">#define</span> <span class="pre">MAX_SAMPLES</span> <span class="pre">1</span></code>.
+So, we only need to initialize one element.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HelloWorldData_Msg__alloc</span><span class="w"> </span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Now everything is ready for reading data. But we don’t know if
+there is any data. To simplify things, we enter a polling loop
+that will exit when data has been read.</p>
+<p>Within the polling loop, we do the actual read. We provide the
+initialized array of pointers (<code class="code docutils literal notranslate"><span class="pre">samples</span></code>), an array that
+holds information about the read sample(s) (<code class="code docutils literal notranslate"><span class="pre">info</span></code>), the
+size of the arrays and the maximum number of samples to read.
+Every read sample in the samples array has related information
+in the info array at the same index.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_read</span><span class="w"> </span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_SAMPLES</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_SAMPLES</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">dds_read</span></code> function returns the number of samples it
+actually read. We can use that to determine if the function actually
+read some data. When it has, then it is still possible that the
+data part of the sample is not valid. This has some use cases
+when there is no real data, but still the state of the related
+sample has changed (for instance it was deleted). This will
+normally not happen in the <em>Hello World!</em> example. But we check
+for it anyway.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">ret</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">valid_data</span><span class="p">))</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If data has been read, then we can cast the void pointer to the
+actual message data type and display the contents. The polling
+loop is quit as well in this case.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HelloWorldData_Msg</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;=== [Subscriber] Received : &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Message (%d, %s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">userID</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="k">break</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When data is received and the polling loop is stopped, we need to
+clean up.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData_Msg_free</span><span class="w"> </span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">DDS_FREE_ALL</span><span class="p">);</span><span class="w"></span>
+<span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>All the entities that are created using the participant are also
+deleted. This means that deleting the participant will
+automatically delete the topic and reader as well.</p>
+</section>
+<section id="hello-world-publisher-source-code">
+<span id="helloworldpublishersource"></span><h3><em>Hello World!</em> Publisher Source Code<a class="headerlink" href="#hello-world-publisher-source-code" title="Permalink to this headline">¶</a></h3>
+<p>Publisher.c contains the source that will write an <em>Hello World!</em> message
+on which the subscriber is waiting.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">topic</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">10</span><span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">writer</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">rc</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">12</span><span class="w">  </span><span class="n">HelloWorldData_Msg</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argc</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">argv</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="w">  </span><span class="cm">/* Create a Participant. */</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">  </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_DOMAIN_DEFAULT</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_create_participant: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">participant</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">  </span><span class="cm">/* Create a Topic. */</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">  </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">HelloWorldData_Msg_desc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HelloWorldData_Msg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">topic</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_create_topic: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">topic</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">  </span><span class="cm">/* Create a Writer. */</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">  </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_writer</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_create_writer: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">writer</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;=== [Publisher]  Waiting for a reader to be discovered ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">34</span><span class="w">  </span><span class="n">fflush</span><span class="w"> </span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="w">  </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_set_status_mask</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_PUBLICATION_MATCHED_STATUS</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">38</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_set_status_mask: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">rc</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="w">  </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">DDS_PUBLICATION_MATCHED_STATUS</span><span class="p">))</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">42</span><span class="w">    </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_get_status_changes</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">status</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">44</span><span class="w">      </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_get_status_changes: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">rc</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="w">    </span><span class="cm">/* Polling sleep. */</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">    </span><span class="n">dds_sleepfor</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_MSECS</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">48</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="w">  </span><span class="cm">/* Create a message to write. */</span><span class="w"></span>
+<span class="linenos">51</span><span class="w">  </span><span class="n">msg</span><span class="p">.</span><span class="n">userID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">52</span><span class="w">  </span><span class="n">msg</span><span class="p">.</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="w">  </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;=== [Publisher]  Writing : &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">  </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;Message (%&quot;</span><span class="n">PRId32</span><span class="s">&quot;, %s)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">userID</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">  </span><span class="n">fflush</span><span class="w"> </span><span class="p">(</span><span class="n">stdout</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">57</span>
+<span class="linenos">58</span><span class="w">  </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_write</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">59</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">60</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_write: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">rc</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">61</span>
+<span class="linenos">62</span><span class="w">  </span><span class="cm">/* Deleting the participant will delete all its children recursively as well. */</span><span class="w"></span>
+<span class="linenos">63</span><span class="w">  </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">64</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">65</span><span class="w">    </span><span class="n">DDS_FATAL</span><span class="p">(</span><span class="s">&quot;dds_delete: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="p">(</span><span class="o">-</span><span class="n">rc</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">66</span>
+<span class="linenos">67</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">68</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We will be using the DDS API and the
+<a class="reference internal" href="#helloworlddatafiles"><span class="std std-ref">HelloWorldData_Msg</span></a> type
+to sent data. For that, we need to include the
+appropriate header files.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>Just like with the
+<a class="reference internal" href="#helloworldsubscribersource"><span class="std std-ref">reader in subscriber.c</span></a>,
+we need a participant and a topic to be able to create a writer.
+We use the same topic name as in subscriber.c. Otherwise the
+reader and writer are not considered related and data will not
+be sent between them.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="p">;</span><span class="w"></span>
+<span class="n">dds_entity_t</span><span class="w"> </span><span class="n">topic</span><span class="p">;</span><span class="w"></span>
+<span class="n">dds_entity_t</span><span class="w"> </span><span class="n">writer</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_DOMAIN_DEFAULT</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">HelloWorldData_Msg_desc</span><span class="p">,</span><span class="w"></span>
+<span class="w">                          </span><span class="s">&quot;HelloWorldData_Msg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_writer</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The DDS middleware is a publication/subscription implementation.
+This means that it will discover related readers and writers
+(i.e. readers and writers sharing the same data type and topic name)
+and connect them so that written data can be received by readers
+without the application having to worry about it. There is a catch though:
+this discovery and coupling takes a small amount of
+time. There are various ways to work around this problem. The following
+can be done to properly connect readers and writers:</p>
+<ul>
+<li><p>Wait for the publication/subscription matched events</p>
+<ul class="simple">
+<li><p>The Subscriber should wait for a subscription matched event</p></li>
+<li><p>The Publisher should wait for a publication matched event.</p></li>
+</ul>
+<p>The use of these events will be outside the scope of this example</p>
+</li>
+<li><p>Poll for the publication/subscription matches statuses</p>
+<ul class="simple">
+<li><p>The Subscriber should poll for a subscription matched status to be set</p></li>
+<li><p>The Publisher should poll for a publication matched status to be set</p></li>
+</ul>
+<p>The Publisher in this example uses the polling schema.</p>
+</li>
+<li><p>Let the publisher sleep for a second before writing a sample. This
+is not recommended since a second may not be enough on several networks</p></li>
+<li><p>Accept that the reader miss a few samples at startup. This may be
+acceptable in cases where the publishing rate is high enough.</p></li>
+</ul>
+<p>As said, the publisher of this example polls for the publication matched status.
+To make this happen, the writer must be instructed to ‘listen’ for this status.
+The following line of code makes sure the writer does so.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">dds_set_status_mask</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_PUBLICATION_MATCHED_STATUS</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Now the polling may start:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">status</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_get_status_changes</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">status</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">DDS_ERR_CHECK</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_CHECK_REPORT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">DDS_CHECK_EXIT</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_PUBLICATION_MATCHED_STATUS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* Polling sleep. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">dds_sleepfor</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_MSECS</span><span class="w"> </span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>After this loop, we are sure that a matching reader has been started.
+Now, we commence to writing the data. First the data must be initialized</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData_Msg</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">msg</span><span class="p">.</span><span class="n">userID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="n">msg</span><span class="p">.</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Then we can actually sent the message to be received by the
+subscriber.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_write</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>After the sample is written, we need to clean up.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>All the entities that are created using the participant are also
+deleted. This means that deleting the participant will
+automatically delete the topic and writer as well.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+    <div id="show_right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">< <span>Page contents<span></a></p>
+    </div>
+
+    <div id="right_sidebar">
+        <p><a class="toggle_right_sidebar" href="#">> <span>Page contents:<span></a></p>
+        <div class="page_toc">
+            <ul>
+<li><a class="reference internal" href="#">Hello World! in more detail</a><ul>
+<li><a class="reference internal" href="#hello-world-datatype">Hello World! DataType</a><ul>
+<li><a class="reference internal" href="#data-centric-architecture">Data-Centric Architecture</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#helloworlddata-idl">HelloWorldData.idl</a><ul>
+<li><a class="reference internal" href="#hello-world-idl">Hello World! IDL</a></li>
+<li><a class="reference internal" href="#generate-sources-and-headers">Generate Sources and Headers</a></li>
+<li><a class="reference internal" href="#helloworlddata-c-helloworlddata-h">HelloWorldData.c &amp; HelloWorldData.h</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hello-world-business-logic">Hello World! Business Logic</a><ul>
+<li><a class="reference internal" href="#hello-world-subscriber-source-code"><em>Hello World!</em> Subscriber Source Code</a></li>
+<li><a class="reference internal" href="#hello-world-publisher-source-code"><em>Hello World!</em> Publisher Source Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+    </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+            <a href="helloworld.html">
+                <span><</span> Building Eclipse Cyclone DDS applications</a>
+            
+        </div>
+
+        <div class="right">
+            
+                <a href="next_steps.html">What’s next? <span>></span></a>
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>
