@@ -273,32 +273,32 @@
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    subscriber:  Subscriber, optional</span>
+<span class="sd">    subscriber</span>
 <span class="sd">                 If this entity is associated with a DataReader retrieve it.</span>
 <span class="sd">                 It is read-only. This is a proxy for get_subscriber().</span>
-<span class="sd">    publisher:   Publisher, optional</span>
+<span class="sd">    publisher</span>
 <span class="sd">                 If this entity is associated with a Publisher retrieve it.</span>
 <span class="sd">                 It is read-only. This is a proxy for get_publisher().</span>
-<span class="sd">    datareader:  DataReader, optional</span>
+<span class="sd">    datareader</span>
 <span class="sd">                 If this entity is associated with a DataReader retrieve it.</span>
 <span class="sd">                 It is read-only. This is a proxy for get_datareader().</span>
 <span class="sd">    guid:        uuid.UUID</span>
 <span class="sd">                 Return the globally unique identifier for this entity.</span>
 <span class="sd">                 It is read-only. This is a proxy for get_guid().</span>
-<span class="sd">    status_mask: int</span>
+<span class="sd">    status_mask</span>
 <span class="sd">                 The status mask for this entity. It is a set of bits formed</span>
 <span class="sd">                 from ``DDSStatus``. This is a proxy for get/set_status_mask().</span>
-<span class="sd">    parent:      Entity, optional</span>
+<span class="sd">    parent</span>
 <span class="sd">                 The entity that is this entities parent. For example: the subscriber for a</span>
 <span class="sd">                 datareader, the participant for a topic.</span>
 <span class="sd">                 It is read-only. This is a proxy for get_parent().</span>
-<span class="sd">    participant: DomainParticipant, optional</span>
+<span class="sd">    participant</span>
 <span class="sd">                 Get the participant for any entity, will only fail for a ``Domain``.</span>
 <span class="sd">                 It is read-only. This is a proxy for get_participant().</span>
-<span class="sd">    children:    List[Entity]</span>
+<span class="sd">    children</span>
 <span class="sd">                 Get a list of children belonging to this entity. It is the opposite as ``parent``.</span>
 <span class="sd">                 It is read-only. This is a proxy for get_children().</span>
-<span class="sd">    domain_id:   int</span>
+<span class="sd">    domain_id</span>
 <span class="sd">                 Get the id of the domain this entity belongs to.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -342,7 +342,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Subscriber, optional</span>
+<span class="sd">        Optional[Subscriber]</span>
 <span class="sd">            Not all entities are associated with a subscriber, so this method may return None.</span>
 
 <span class="sd">        Raises</span>
@@ -356,14 +356,14 @@
             <span class="n">ref</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the subscriber for </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span></div>
 
-    <span class="n">subscriber</span><span class="p">:</span> <span class="s2">&quot;cyclonedds.sub.Subscriber&quot;</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_subscriber</span><span class="p">)</span>
+    <span class="n">subscriber</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;cyclonedds.sub.Subscriber&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_subscriber</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Entity.get_publisher"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.get_publisher">[docs]</a>    <span class="k">def</span> <span class="nf">get_publisher</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;cyclonedds.pub.Publisher&quot;</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Retrieve the publisher associated with this entity.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Publisher, optional</span>
+<span class="sd">        Optional[Publisher]</span>
 <span class="sd">            Not all entities are associated with a publisher, so this method may return None.</span>
 
 <span class="sd">        Raises</span>
@@ -375,14 +375,14 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_entity</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the publisher for </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-    <span class="n">publisher</span><span class="p">:</span> <span class="s2">&quot;cyclonedds.sub.Publisher&quot;</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_publisher</span><span class="p">)</span>
+    <span class="n">publisher</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;cyclonedds.pub.Publisher&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_publisher</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Entity.get_datareader"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.get_datareader">[docs]</a>    <span class="k">def</span> <span class="nf">get_datareader</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;cyclonedds.sub.DataReader&quot;</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Retrieve the datareader associated with this entity.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        DataReader, optional</span>
+<span class="sd">        Optional[DataReader]</span>
 <span class="sd">            Not all entities are associated with a datareader, so this method may return None.</span>
 
 <span class="sd">        Raises</span>
@@ -445,7 +445,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        mask : int, optional</span>
+<span class="sd">        mask</span>
 <span class="sd">            The :class:`DDSStatus` mask. If not supplied the mask is used that was set on this Entity using set_status_mask.</span>
 
 <span class="sd">        Returns</span>
@@ -467,13 +467,13 @@
             <span class="k">return</span> <span class="n">status</span><span class="o">.</span><span class="n">value</span>
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when reading the status for </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Entity.take_status"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.take_status">[docs]</a>    <span class="k">def</span> <span class="nf">take_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="viewcode-block" id="Entity.take_status"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.take_status">[docs]</a>    <span class="k">def</span> <span class="nf">take_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Take the status bits set on this Entity, after which they will be set to 0 again.</span>
 <span class="sd">        You can build a mask by using :class:`DDSStatus`.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        mask : int, optional</span>
+<span class="sd">        mask</span>
 <span class="sd">            The :class:`DDSStatus` mask. If not supplied the mask is used that was set on this Entity using set_status_mask.</span>
 
 <span class="sd">        Returns</span>
@@ -555,7 +555,7 @@
             <span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when setting the status mask for </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span></div>
 
-    <span class="n">status_mask</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_status_mask</span><span class="p">,</span> <span class="n">set_status_mask</span><span class="p">)</span>
+    <span class="n">status_mask</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_status_mask</span><span class="p">,</span> <span class="n">set_status_mask</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Entity.get_qos"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.get_qos">[docs]</a>    <span class="k">def</span> <span class="nf">get_qos</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Qos</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get the :class:`Qos` associated with this entity. Note that the object returned is not</span>
@@ -646,7 +646,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Entity, optional</span>
+<span class="sd">        Optional[Entity]</span>
 <span class="sd">            The parent of this entity. This would be the Subscriber for a DataReader, DomainParticipant for a Topic etc.</span>
 
 <span class="sd">        Raises</span>
@@ -663,14 +663,14 @@
 
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the parent of </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-    <span class="n">parent</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_parent</span><span class="p">)</span>
+    <span class="n">parent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;Entity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_parent</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Entity.get_participant"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.get_participant">[docs]</a>    <span class="k">def</span> <span class="nf">get_participant</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;cyclonedds.domain.DomainParticipant&quot;</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Get the domain participant for this entity. This should work on all valid Entity objects except a Domain.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        DomainParticipant, optional</span>
+<span class="sd">        Optional[cyclonedds.domain.DomainParticipant]</span>
 <span class="sd">            Only fails for a Domain object.</span>
 
 <span class="sd">        Raises</span>
@@ -689,7 +689,7 @@
             <span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the participant of </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span></div>
 
-    <span class="n">participant</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_participant</span><span class="p">)</span>
+    <span class="n">participant</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s2">&quot;cyclonedds.domain.DomainParticipant&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_participant</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Entity.get_children"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.get_children">[docs]</a>    <span class="k">def</span> <span class="nf">get_children</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Entity&quot;</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Get the list of children of this entity. For example, the list of datareaders belonging to a subscriber.</span>
@@ -722,7 +722,7 @@
 
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the children of </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-    <span class="n">children</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_children</span><span class="p">)</span>
+    <span class="n">children</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Entity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_children</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Entity.get_domain_id"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.get_domain_id">[docs]</a>    <span class="k">def</span> <span class="nf">get_domain_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get the id of the domain this entity resides in.</span>
@@ -743,7 +743,7 @@
 
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the domainid of </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
-    <span class="n">domain_id</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_domain_id</span><span class="p">)</span>
+    <span class="n">domain_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_domain_id</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Entity.begin_coherent"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Entity.begin_coherent">[docs]</a>    <span class="k">def</span> <span class="nf">begin_coherent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Begin coherent publishing or begin accessing a coherent set in a Subscriber.</span>
@@ -1080,6 +1080,10 @@
             <span class="n">listener</span><span class="o">.</span><span class="n">setters</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="n">functor</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Listener.merge"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Listener.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listener</span><span class="p">:</span> <span class="s2">&quot;Listener&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Copies any configured (non-default) callbacks from the given `listener` to self, replacing existing callbacks</span>
+<span class="sd">        already configured on this listener.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">listener</span><span class="o">.</span><span class="n">copy_to</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Listener.on_inconsistent_topic"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Listener.on_inconsistent_topic">[docs]</a>    <span class="k">def</span> <span class="nf">on_inconsistent_topic</span><span class="p">(</span>
@@ -1152,7 +1156,7 @@
 
 <div class="viewcode-block" id="Listener.on_liveliness_changed"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Listener.on_liveliness_changed">[docs]</a>    <span class="k">def</span> <span class="nf">on_liveliness_changed</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">reader</span><span class="p">:</span> <span class="s2">&quot;cyclonedds.pub.DataReader&quot;</span><span class="p">,</span>
+        <span class="n">reader</span><span class="p">:</span> <span class="s2">&quot;cyclonedds.sub.DataReader&quot;</span><span class="p">,</span>
         <span class="n">status</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">liveliness_changed_status</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">pass</span></div>
@@ -1160,7 +1164,7 @@
 <div class="viewcode-block" id="Listener.set_on_liveliness_changed"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Listener.set_on_liveliness_changed">[docs]</a>    <span class="k">def</span> <span class="nf">set_on_liveliness_changed</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">callable</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span>
-            <span class="p">[</span><span class="s2">&quot;cyclonedds.pub.DataReader&quot;</span><span class="p">,</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">liveliness_changed_status</span><span class="p">],</span> <span class="kc">None</span>
+            <span class="p">[</span><span class="s2">&quot;cyclonedds.sub.DataReader&quot;</span><span class="p">,</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">liveliness_changed_status</span><span class="p">],</span> <span class="kc">None</span>
         <span class="p">],</span>
     <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">on_liveliness_changed</span> <span class="o">=</span> <span class="n">callable</span>
@@ -1470,6 +1474,12 @@
     <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_lset_offered_incompatible_qos&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_set_on_offered_incompatible_qos</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">listener</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">listener_p</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">_offered_incompatible_qos_fn</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_lset_data_on_readers&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_set_on_data_on_readers</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">listener</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">listener_p</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">_data_on_readers_fn</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
@@ -1896,7 +1906,7 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        timeout: int</span>
-<span class="sd">            The maximum number of nanoseconds to block. Use the function :func:`duration&lt;cdds.util.duration&gt;`</span>
+<span class="sd">            The maximum number of nanoseconds to block. Use the function :func:`duration&lt;cyclonedds.util.duration&gt;`</span>
 <span class="sd">            to write that in a human readable format.</span>
 
 <span class="sd">        Returns</span>
@@ -1918,7 +1928,7 @@
 <span class="sd">        ----------</span>
 <span class="sd">        abstime: int</span>
 <span class="sd">            The absolute time in nanoseconds since the start of the program (TODO CONFIRM THIS)</span>
-<span class="sd">            to block. Use the function :func:`duration&lt;cdds.util.duration&gt;` to write that in</span>
+<span class="sd">            to block. Use the function :func:`duration&lt;cyclonedds.util.duration&gt;` to write that in</span>
 <span class="sd">            a human readable format.</span>
 
 <span class="sd">        Returns</span>

@@ -212,7 +212,7 @@ python -m http.server --directory build
 <span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.pub</span> <span class="kn">import</span> <span class="n">DataWriter</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
-<span class="linenos">6</span><span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">Message</span><span class="p">,</span> <span class="s2">&quot;Announcements&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="s2">&quot;Announcements&quot;</span><span class="p">,</span> <span class="n">Message</span><span class="p">)</span>
 <span class="linenos">7</span><span class="n">writer</span> <span class="o">=</span> <span class="n">DataWriter</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
 <span class="linenos">8</span>
 <span class="linenos">9</span><span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
@@ -231,7 +231,7 @@ python -m http.server --directory build
 <span class="linenos">10</span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
 <span class="linenos">11</span>
 <span class="linenos">12</span><span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
-<span class="linenos">13</span><span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">Message</span><span class="p">,</span> <span class="s2">&quot;Announcements&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="s2">&quot;Announcements&quot;</span><span class="p">,</span> <span class="n">Message</span><span class="p">)</span>
 <span class="linenos">14</span><span class="n">reader</span> <span class="o">=</span> <span class="n">DataReader</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span><span class="c1"># If we don&#39;t receive a single announcement for five minutes we want the script to exit.</span>

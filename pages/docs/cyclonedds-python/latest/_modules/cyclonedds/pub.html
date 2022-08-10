@@ -220,6 +220,17 @@
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred while resuming </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Publisher.wait_for_acks"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.Publisher.wait_for_acks">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_acks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This operation blocks the calling thread until either all data written by the publisher</span>
+<span class="sd">        or writer is acknowledged by all matched reliable reader entities, or else the duration</span>
+<span class="sd">        specified by the timeout parameter elapses, whichever happens first.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        timeout</span>
+<span class="sd">            The maximum number of nanoseconds to wait. Use the function :func:`duration&lt;cyclonedds.util.duration&gt;`</span>
+<span class="sd">            to write that in a human readable format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_acks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -302,6 +313,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topic</span>
 
 <div class="viewcode-block" id="DataWriter.write"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">_T</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample</span>
+<span class="sd">            The sample to write</span>
+<span class="sd">        timestamp</span>
+<span class="sd">            The sample&#39;s source_timestamp (in nanoseconds since the UNIX Epoch)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sample</span><span class="si">}</span><span class="s2"> is not of type </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -317,6 +336,17 @@
             <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred while writing sample in </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataWriter.write_dispose"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.write_dispose">[docs]</a>    <span class="k">def</span> <span class="nf">write_dispose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">_T</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Similar to :func:`write` but also marks the sample for disposal by setting its</span>
+<span class="sd">        :class:`InstanceState&lt;cyclonedds.core.InstanceState&gt;` to `NotAliveDisposed`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample</span>
+<span class="sd">            The sample to dispose</span>
+<span class="sd">        timestamp</span>
+<span class="sd">            The sample&#39;s source_timestamp (in nanoseconds since the UNIX Epoch)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">use_version_2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_version_2</span><span class="p">)</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">ljust</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -329,6 +359,17 @@
             <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred while writedisposing sample in </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataWriter.dispose"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.dispose">[docs]</a>    <span class="k">def</span> <span class="nf">dispose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">_T</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Marks the sample for disposal by setting its :class:`InstanceState&lt;cyclonedds.core.InstanceState&gt;` to</span>
+<span class="sd">        `NotAliveDisposed`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample</span>
+<span class="sd">            The sample to dispose</span>
+<span class="sd">        timestamp</span>
+<span class="sd">            The sample&#39;s source_timestamp (in nanoseconds since the UNIX Epoch)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">use_version_2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_version_2</span><span class="p">)</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">ljust</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -341,6 +382,17 @@
             <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred while disposing in </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataWriter.dispose_instance_handle"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.dispose_instance_handle">[docs]</a>    <span class="k">def</span> <span class="nf">dispose_instance_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Marks the instance and all samples associated wiht the given handle for disposal by setting their</span>
+<span class="sd">        :class:`InstanceState&lt;cyclonedds.core.InstanceState&gt;` to `NotAliveDisposed`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        handle</span>
+<span class="sd">            An instance handle received from :func:`register_instance` or :func:`lookup_instance`.</span>
+<span class="sd">        timestamp</span>
+<span class="sd">            The instance&#39;s source_timestamp (in nanoseconds since the UNIX Epoch)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">timestamp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="n">ddspy_dispose_handle_ts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">handle</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -359,6 +411,14 @@
         <span class="k">return</span> <span class="n">ret</span></div>
 
 <div class="viewcode-block" id="DataWriter.unregister_instance"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.unregister_instance">[docs]</a>    <span class="k">def</span> <span class="nf">unregister_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">_T</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample</span>
+<span class="sd">            The sample to unregister</span>
+<span class="sd">        timestamp</span>
+<span class="sd">            The timestamp used at registration (in nanoseconds since the UNIX Epoch)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">use_version_2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_version_2</span><span class="p">)</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">ljust</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -371,6 +431,14 @@
             <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred while unregistering instance in </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataWriter.unregister_instance_handle"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.unregister_instance_handle">[docs]</a>    <span class="k">def</span> <span class="nf">unregister_instance_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        handle</span>
+<span class="sd">            An instance handle received from :func:`register_instance` or :func:`lookup_instance`.</span>
+<span class="sd">        timestamp</span>
+<span class="sd">            The timestamp used at registration (in nanoseconds since the UNIX Epoch)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">timestamp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ret</span> <span class="o">=</span> <span class="n">ddspy_unregister_instance_handle_ts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">handle</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -380,6 +448,17 @@
             <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred while unregistering instance handle n </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataWriter.wait_for_acks"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.wait_for_acks">[docs]</a>    <span class="k">def</span> <span class="nf">wait_for_acks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This operation blocks the calling thread until either all data written by the publisher</span>
+<span class="sd">        or writer is acknowledged by all matched reliable reader entities, or else the duration</span>
+<span class="sd">        specified by the timeout parameter elapses, whichever happens first.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        timeout</span>
+<span class="sd">            The maximum number of nanoseconds to wait. Use the function :func:`duration&lt;cyclonedds.util.duration&gt;`</span>
+<span class="sd">            to write that in a human readable format.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_acks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
@@ -388,6 +467,9 @@
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred while waiting for acks from </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataWriter.lookup_instance"><a class="viewcode-back" href="../../cyclonedds.pub.html#cyclonedds.pub.DataWriter.lookup_instance">[docs]</a>    <span class="k">def</span> <span class="nf">lookup_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">_T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This operation takes a sample and returns an instance handle to be used for subsequent operations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">use_version_2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_version_2</span><span class="p">)</span>
         <span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">ljust</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\0</span><span class="s1">&#39;</span><span class="p">)</span>
 
