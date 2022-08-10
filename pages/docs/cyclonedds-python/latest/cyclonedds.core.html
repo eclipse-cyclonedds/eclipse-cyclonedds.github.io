@@ -228,7 +228,9 @@ hurt your DDS performance. Furthermore, deleting entities or writing data inside
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.core.Listener.merge">
 <span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/core.html#Listener.merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.core.Listener.merge" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Copies any configured (non-default) callbacks from the given <cite>listener</cite> to self, replacing existing callbacks
+already configured on this listener.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>listener</strong> (<a class="reference internal" href="#cyclonedds.core.Listener" title="cyclonedds.core.Listener"><em>cyclonedds.core.Listener</em></a>) – </p>
 </dd>
@@ -319,7 +321,7 @@ hurt your DDS performance. Furthermore, deleting entities or writing data inside
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reader</strong> (<em>cyclonedds.pub.DataReader</em>) – </p></li>
+<li><p><strong>reader</strong> (<a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader"><em>cyclonedds.sub.DataReader</em></a>) – </p></li>
 <li><p><strong>status</strong> (<a class="reference internal" href="cyclonedds.internal.html#cyclonedds.internal.dds_c_t.liveliness_changed_status" title="cyclonedds.internal.dds_c_t.liveliness_changed_status"><em>cyclonedds.internal.dds_c_t.liveliness_changed_status</em></a>) – </p></li>
 </ul>
 </dd>
@@ -334,7 +336,7 @@ hurt your DDS performance. Furthermore, deleting entities or writing data inside
 <span class="sig-name descname"><span class="pre">set_on_liveliness_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/core.html#Listener.set_on_liveliness_changed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.core.Listener.set_on_liveliness_changed" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>callable</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>[</em><em>[</em><em>cyclonedds.pub.DataReader</em><em>, </em><a class="reference internal" href="cyclonedds.internal.html#cyclonedds.internal.dds_c_t.liveliness_changed_status" title="cyclonedds.internal.dds_c_t.liveliness_changed_status"><em>cyclonedds.internal.dds_c_t.liveliness_changed_status</em></a><em>]</em><em>, </em><em>None</em><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>callable</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>[</em><em>[</em><a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader"><em>cyclonedds.sub.DataReader</em></a><em>, </em><a class="reference internal" href="cyclonedds.internal.html#cyclonedds.internal.dds_c_t.liveliness_changed_status" title="cyclonedds.internal.dds_c_t.liveliness_changed_status"><em>cyclonedds.internal.dds_c_t.liveliness_changed_status</em></a><em>]</em><em>, </em><em>None</em><em>]</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -815,7 +817,7 @@ after detaching it.</p>
 <dd><p>Block execution and wait for one of the entities in this waitset to trigger.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The maximum number of nanoseconds to block. Use the function <code class="xref py py-func docutils literal notranslate"><span class="pre">duration</span></code>
+<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The maximum number of nanoseconds to block. Use the function <a class="reference internal" href="cyclonedds.util.html#cyclonedds.util.duration" title="cyclonedds.util.duration"><code class="xref py py-func docutils literal notranslate"><span class="pre">duration</span></code></a>
 to write that in a human readable format.</p>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -834,7 +836,7 @@ to write that in a human readable format.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>abstime</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The absolute time in nanoseconds since the start of the program (TODO CONFIRM THIS)
-to block. Use the function <code class="xref py py-func docutils literal notranslate"><span class="pre">duration</span></code> to write that in
+to block. Use the function <a class="reference internal" href="cyclonedds.util.html#cyclonedds.util.duration" title="cyclonedds.util.duration"><code class="xref py py-func docutils literal notranslate"><span class="pre">duration</span></code></a> to write that in
 a human readable format.</p>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1176,7 +1178,7 @@ DDS API object is linked to the lifetime of the Python entity object.</p>
 It is read-only. This is a proxy for get_subscriber().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.Subscriber" title="cyclonedds.sub.Subscriber">Subscriber</a>, optional</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.Subscriber" title="cyclonedds.sub.Subscriber">cyclonedds.sub.Subscriber</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1188,7 +1190,7 @@ It is read-only. This is a proxy for get_subscriber().</p>
 It is read-only. This is a proxy for get_publisher().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="cyclonedds.pub.html#cyclonedds.pub.Publisher" title="cyclonedds.pub.Publisher">Publisher</a>, optional</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="cyclonedds.pub.html#cyclonedds.pub.Publisher" title="cyclonedds.pub.Publisher">cyclonedds.pub.Publisher</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1200,7 +1202,7 @@ It is read-only. This is a proxy for get_publisher().</p>
 It is read-only. This is a proxy for get_datareader().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader">DataReader</a>, optional</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader">cyclonedds.sub.DataReader</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1237,7 +1239,7 @@ datareader, the participant for a topic.
 It is read-only. This is a proxy for get_parent().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#cyclonedds.core.Entity" title="cyclonedds.core.Entity">Entity</a>, optional</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#cyclonedds.core.Entity" title="cyclonedds.core.Entity">Entity</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1249,7 +1251,7 @@ It is read-only. This is a proxy for get_parent().</p>
 It is read-only. This is a proxy for get_participant().</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="cyclonedds.domain.html#cyclonedds.domain.DomainParticipant" title="cyclonedds.domain.DomainParticipant">DomainParticipant</a>, optional</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="cyclonedds.domain.html#cyclonedds.domain.DomainParticipant" title="cyclonedds.domain.DomainParticipant">cyclonedds.domain.DomainParticipant</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1308,7 +1310,7 @@ into freed memory -&gt; segfault.</p></li>
 <dd class="field-odd"><p>Not all entities are associated with a subscriber, so this method may return None.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.Subscriber" title="cyclonedds.sub.Subscriber">Subscriber</a>, optional</p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.Subscriber" title="cyclonedds.sub.Subscriber">Subscriber</a>]</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cyclonedds.core.DDSException" title="cyclonedds.core.DDSException"><strong>DDSException</strong></a> – </p>
@@ -1325,7 +1327,7 @@ into freed memory -&gt; segfault.</p></li>
 <dd class="field-odd"><p>Not all entities are associated with a publisher, so this method may return None.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="cyclonedds.pub.html#cyclonedds.pub.Publisher" title="cyclonedds.pub.Publisher">Publisher</a>, optional</p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="cyclonedds.pub.html#cyclonedds.pub.Publisher" title="cyclonedds.pub.Publisher">Publisher</a>]</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cyclonedds.core.DDSException" title="cyclonedds.core.DDSException"><strong>DDSException</strong></a> – </p>
@@ -1342,7 +1344,7 @@ into freed memory -&gt; segfault.</p></li>
 <dd class="field-odd"><p>Not all entities are associated with a datareader, so this method may return None.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader">DataReader</a>, optional</p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="cyclonedds.sub.html#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader">DataReader</a>]</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cyclonedds.core.DDSException" title="cyclonedds.core.DDSException"><strong>DDSException</strong></a> – </p>
@@ -1407,7 +1409,7 @@ into freed memory -&gt; segfault.</p></li>
 <dd><p>Read the status bits set on this Entity. You can build a mask by using <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a> mask. If not supplied the mask is used that was set on this Entity using set_status_mask.</p>
+<dd class="field-odd"><p><strong>mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a> mask. If not supplied the mask is used that was set on this Entity using set_status_mask.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a> bits that were set.</p>
@@ -1428,7 +1430,7 @@ into freed memory -&gt; segfault.</p></li>
 You can build a mask by using <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a> mask. If not supplied the mask is used that was set on this Entity using set_status_mask.</p>
+<dd class="field-odd"><p><strong>mask</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a> mask. If not supplied the mask is used that was set on this Entity using set_status_mask.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The <a class="reference internal" href="#cyclonedds.core.DDSStatus" title="cyclonedds.core.DDSStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">DDSStatus</span></code></a> bits that were set.</p>
@@ -1579,7 +1581,7 @@ and return None from the DomainParticipant.</p>
 <dd class="field-odd"><p>The parent of this entity. This would be the Subscriber for a DataReader, DomainParticipant for a Topic etc.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#cyclonedds.core.Entity" title="cyclonedds.core.Entity">Entity</a>, optional</p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="#cyclonedds.core.Entity" title="cyclonedds.core.Entity">Entity</a>]</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cyclonedds.core.DDSException" title="cyclonedds.core.DDSException"><strong>DDSException</strong></a> – </p>
@@ -1596,7 +1598,7 @@ and return None from the DomainParticipant.</p>
 <dd class="field-odd"><p>Only fails for a Domain object.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="cyclonedds.domain.html#cyclonedds.domain.DomainParticipant" title="cyclonedds.domain.DomainParticipant">DomainParticipant</a>, optional</p>
+<dd class="field-even"><p>Optional[<a class="reference internal" href="cyclonedds.domain.html#cyclonedds.domain.DomainParticipant" title="cyclonedds.domain.DomainParticipant">cyclonedds.domain.DomainParticipant</a>]</p>
 </dd>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cyclonedds.core.DDSException" title="cyclonedds.core.DDSException"><strong>DDSException</strong></a> – </p>

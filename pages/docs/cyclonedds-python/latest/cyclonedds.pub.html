@@ -185,9 +185,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.pub.Publisher.wait_for_acks">
 <span class="sig-name descname"><span class="pre">wait_for_acks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/pub.html#Publisher.wait_for_acks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.pub.Publisher.wait_for_acks" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>This operation blocks the calling thread until either all data written by the publisher
+or writer is acknowledged by all matched reliable reader entities, or else the duration
+specified by the timeout parameter elapses, whichever happens first.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p>
+<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The maximum number of nanoseconds to wait. Use the function <a class="reference internal" href="cyclonedds.util.html#cyclonedds.util.duration" title="cyclonedds.util.duration"><code class="xref py py-func docutils literal notranslate"><span class="pre">duration</span></code></a>
+to write that in a human readable format.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -219,8 +223,8 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – </p></li>
-<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – </p></li>
+<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – The sample to write</p></li>
+<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The sample’s source_timestamp (in nanoseconds since the UNIX Epoch)</p></li>
 </ul>
 </dd>
 </dl>
@@ -229,11 +233,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.pub.DataWriter.write_dispose">
 <span class="sig-name descname"><span class="pre">write_dispose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/pub.html#DataWriter.write_dispose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.pub.DataWriter.write_dispose" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Similar to <a class="reference internal" href="#cyclonedds.pub.DataWriter.write" title="cyclonedds.pub.DataWriter.write"><code class="xref py py-func docutils literal notranslate"><span class="pre">write()</span></code></a> but also marks the sample for disposal by setting its
+<a class="reference internal" href="cyclonedds.core.html#cyclonedds.core.InstanceState" title="cyclonedds.core.InstanceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstanceState</span></code></a> to <cite>NotAliveDisposed</cite>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – </p></li>
-<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – </p></li>
+<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – The sample to dispose</p></li>
+<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The sample’s source_timestamp (in nanoseconds since the UNIX Epoch)</p></li>
 </ul>
 </dd>
 </dl>
@@ -242,11 +248,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.pub.DataWriter.dispose">
 <span class="sig-name descname"><span class="pre">dispose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/pub.html#DataWriter.dispose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.pub.DataWriter.dispose" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Marks the sample for disposal by setting its <a class="reference internal" href="cyclonedds.core.html#cyclonedds.core.InstanceState" title="cyclonedds.core.InstanceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstanceState</span></code></a> to
+<cite>NotAliveDisposed</cite>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – </p></li>
-<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – </p></li>
+<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – The sample to dispose</p></li>
+<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The sample’s source_timestamp (in nanoseconds since the UNIX Epoch)</p></li>
 </ul>
 </dd>
 </dl>
@@ -255,11 +263,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.pub.DataWriter.dispose_instance_handle">
 <span class="sig-name descname"><span class="pre">dispose_instance_handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/pub.html#DataWriter.dispose_instance_handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.pub.DataWriter.dispose_instance_handle" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Marks the instance and all samples associated wiht the given handle for disposal by setting their
+<a class="reference internal" href="cyclonedds.core.html#cyclonedds.core.InstanceState" title="cyclonedds.core.InstanceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstanceState</span></code></a> to <cite>NotAliveDisposed</cite>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>handle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p></li>
-<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – </p></li>
+<li><p><strong>handle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – An instance handle received from <a class="reference internal" href="#cyclonedds.pub.DataWriter.register_instance" title="cyclonedds.pub.DataWriter.register_instance"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_instance()</span></code></a> or <a class="reference internal" href="#cyclonedds.pub.DataWriter.lookup_instance" title="cyclonedds.pub.DataWriter.lookup_instance"><code class="xref py py-func docutils literal notranslate"><span class="pre">lookup_instance()</span></code></a>.</p></li>
+<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The instance’s source_timestamp (in nanoseconds since the UNIX Epoch)</p></li>
 </ul>
 </dd>
 </dl>
@@ -284,8 +294,8 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – </p></li>
-<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – </p></li>
+<li><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – The sample to unregister</p></li>
+<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The timestamp used at registration (in nanoseconds since the UNIX Epoch)</p></li>
 </ul>
 </dd>
 </dl>
@@ -297,8 +307,8 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>handle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p></li>
-<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – </p></li>
+<li><p><strong>handle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – An instance handle received from <a class="reference internal" href="#cyclonedds.pub.DataWriter.register_instance" title="cyclonedds.pub.DataWriter.register_instance"><code class="xref py py-func docutils literal notranslate"><span class="pre">register_instance()</span></code></a> or <a class="reference internal" href="#cyclonedds.pub.DataWriter.lookup_instance" title="cyclonedds.pub.DataWriter.lookup_instance"><code class="xref py py-func docutils literal notranslate"><span class="pre">lookup_instance()</span></code></a>.</p></li>
+<li><p><strong>timestamp</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>]</em>) – The timestamp used at registration (in nanoseconds since the UNIX Epoch)</p></li>
 </ul>
 </dd>
 </dl>
@@ -307,9 +317,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.pub.DataWriter.wait_for_acks">
 <span class="sig-name descname"><span class="pre">wait_for_acks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/pub.html#DataWriter.wait_for_acks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.pub.DataWriter.wait_for_acks" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>This operation blocks the calling thread until either all data written by the publisher
+or writer is acknowledged by all matched reliable reader entities, or else the duration
+specified by the timeout parameter elapses, whichever happens first.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p>
+<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The maximum number of nanoseconds to wait. Use the function <a class="reference internal" href="cyclonedds.util.html#cyclonedds.util.duration" title="cyclonedds.util.duration"><code class="xref py py-func docutils literal notranslate"><span class="pre">duration</span></code></a>
+to write that in a human readable format.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)">bool</a></p>
@@ -320,7 +334,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.pub.DataWriter.lookup_instance">
 <span class="sig-name descname"><span class="pre">lookup_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/pub.html#DataWriter.lookup_instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.pub.DataWriter.lookup_instance" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>This operation takes a sample and returns an instance handle to be used for subsequent operations.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>sample</strong> (<em>cyclonedds.pub._T</em>) – </p>
 </dd>

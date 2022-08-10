@@ -160,7 +160,7 @@
 
 
 <div class="viewcode-block" id="isgoodentity"><a class="viewcode-back" href="../../cyclonedds.util.html#cyclonedds.util.isgoodentity">[docs]</a><span class="k">def</span> <span class="nf">isgoodentity</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Helper function that checks to see if an object is a valid :class:`Entity&lt;cdds.core.entity.Entity&gt;` returned from DDS.</span>
+    <span class="sd">&quot;&quot;&quot;Helper function that checks to see if an object is a valid :class:`Entity&lt;cyclonedds.core.Entity&gt;` returned from DDS.</span>
 <span class="sd">    This function will never raise an exception.</span>
 
 <span class="sd">    Parameters</span>
@@ -171,7 +171,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    bool</span>
-<span class="sd">        Whether this entity is a valid :class:`Entity&lt;cdds.core.entity.Entity&gt;`.</span>
+<span class="sd">        Whether this entity is a valid :class:`Entity&lt;cyclonedds.core.Entity&gt;`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> \
         <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
@@ -221,10 +221,19 @@
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">nanoseconds</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="timestamp"><a class="viewcode-back" href="../../cyclonedds.util.html#cyclonedds.util.timestamp">[docs]</a><span class="k">class</span> <span class="nc">timestamp</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">timestamp</span><span class="p">:</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">now</span><span class="p">():</span>
-        <span class="k">return</span> <span class="n">_time_ns</span><span class="p">()</span></div>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        In DDS timestamps are typically expressed as nanoseconds since the Unix Epoch (dds_time_t). This helper function</span>
+<span class="sd">        returns the current time in nanoseconds.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Number of nanoseconds since the Unix Epoch.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_time_ns</span><span class="p">()</span>
 </pre></div>
 
             <div class="clearer"></div>

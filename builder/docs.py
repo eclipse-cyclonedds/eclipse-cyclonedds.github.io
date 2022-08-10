@@ -25,14 +25,21 @@ def build_docs(project: str, config: dict, db: ProjectVersionDatabase):
 
     for tag in repo.tags:
         if tag.name not in db.tags and tag.name not in db.ignored_tags:
-            repo.git.clean('-xdf')
-            repo.git.reset('--hard')
-            repo.git.checkout(tag.commit.hexsha)
-            if _run_build(project, config['name'], tag.name, cloned_repos_dir / project, docs_dir / project / tag.name, config):
-                db.tags.add(tag.name)
-                messages.append(f"Building for {project} {tag.name}.")
-            else:
-                db.ignored_tags.add(tag.name)
+            action = db.add_tag(tag.name)
+
+            if action.version_to_delete is not None:
+                try:
+                    rmtree(docs_dir / project / str(action.version_to_delete))
+                except:
+                    pass
+
+            if action.version_to_build is not None:
+                messages.append(f"Building for {project} {action.version_to_build}.")
+                repo.git.clean('-xdf')
+                repo.git.reset('--hard')
+                repo.git.checkout(tag.commit.hexsha)
+                _run_build(project, config['name'], str(action.version_to_build), cloned_repos_dir / project, docs_dir / project / str(action.version_to_build), config)
+
 
     if db.master_commit != str(repo.heads.master.commit.hexsha):
         messages.append(f"Building for {project} master, changed from commit {db.master_commit} to {repo.heads.master.commit.hexsha}.")

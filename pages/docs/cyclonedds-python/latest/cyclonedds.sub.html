@@ -184,6 +184,7 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cyclonedds.sub.</span></span><span class="sig-name descname"><span class="pre">DataReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscriber_or_participant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listener</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/sub.html#DataReader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.sub.DataReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cyclonedds.core.html#cyclonedds.core.Entity" title="cyclonedds.core.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">cyclonedds.core.Entity</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Generic" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">cyclonedds.sub._T</span></code>]</p>
 <p>Subscribe to a topic and read/take the data published to it.</p>
+<p>All returned samples are annotated with the <a class="reference internal" href="cyclonedds.internal.html#cyclonedds.internal.SampleInfo" title="cyclonedds.internal.SampleInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">sample.sample_info</span></code></a> attribute.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -204,6 +205,8 @@
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_handle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/sub.html#DataReader.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.sub.DataReader.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a maximum of N samples, non-blocking. Optionally use a read/query-condition to select which samples
 you are interested in.</p>
+<p>Reading samples does not remove them from the <a class="reference internal" href="#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataReader's</span></code></a> receive queue. So read
+methods may return the same sample in multiple calls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -226,6 +229,8 @@ you are interested in.</p>
 <span class="sig-name descname"><span class="pre">take</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance_handle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/sub.html#DataReader.take"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.sub.DataReader.take" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take a maximum of N samples, non-blocking. Optionally use a read/query-condition to select which samples
 you are interested in.</p>
+<p>Taking samples removes them from the <a class="reference internal" href="#cyclonedds.sub.DataReader" title="cyclonedds.sub.DataReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataReader's</span></code></a> receive queue. So take methods will
+not return the same sample more than once.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -338,7 +343,7 @@ Every time a sample is received the timeout is reset.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.sub.DataReader.read_aiter">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_aiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/sub.html#DataReader.read_aiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.sub.DataReader.read_aiter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut method to asycn iterate reading samples. Iteration will stop once the timeout you supply expires.
+<dd><p>Shortcut method to async iterate reading samples. Iteration will stop once the timeout you supply expires.
 Every time a sample is received the timeout is reset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -356,7 +361,7 @@ Every time a sample is received the timeout is reset.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cyclonedds.sub.DataReader.take_aiter">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">take_aiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/sub.html#DataReader.take_aiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.sub.DataReader.take_aiter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shortcut method to asycn iterate taking samples. Iteration will stop once the timeout you supply expires.
+<dd><p>Shortcut method to async iterate taking samples. Iteration will stop once the timeout you supply expires.
 Every time a sample is received the timeout is reset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>

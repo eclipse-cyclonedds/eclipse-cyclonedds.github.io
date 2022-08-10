@@ -384,8 +384,24 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_ref</span> <span class="o">=</span> <span class="n">reference</span></div>
 
 
-<span class="nd">@dataclass</span>
+<div class="viewcode-block" id="SampleInfo"><a class="viewcode-back" href="../../cyclonedds.internal.html#cyclonedds.internal.SampleInfo">[docs]</a><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">SampleInfo</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Contains information about the associated data value</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sample_state:</span>
+<span class="sd">        Possible values: :class:`SampleState&lt;cyclonedds.core.SampleState&gt;`</span>
+<span class="sd">    view_state:</span>
+<span class="sd">        Possible values: :class:`ViewState&lt;cyclonedds.core.ViewState&gt;`</span>
+<span class="sd">    instance_state:</span>
+<span class="sd">        Possible values: :class:`InstanceState&lt;cyclonedds.core.InstanceState&gt;`</span>
+<span class="sd">    source_timestamp:</span>
+<span class="sd">        The time (in unix nanoseconds) that the associated sample was written.</span>
+<span class="sd">    instance_handle:</span>
+<span class="sd">        Handle to the data instance (if this is a keyed topic)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">sample_state</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">view_state</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">instance_state</span><span class="p">:</span> <span class="nb">int</span>
@@ -397,7 +413,7 @@
     <span class="n">no_writers_generation_count</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">sample_rank</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">generation_rank</span><span class="p">:</span> <span class="nb">int</span>
-    <span class="n">absolute_generation_rank</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">absolute_generation_rank</span><span class="p">:</span> <span class="nb">int</span></div>
 
 
 <span class="nd">@dataclass</span>
