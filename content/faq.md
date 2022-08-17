@@ -55,12 +55,11 @@ A take() in combination with `TRANSIENT_LOCAL` QoS and `BEST_EFFORT` reliability
 
 ## DataModel / IDL
 
-### What (non-Xtypes) IDL is supported?
+### What IDL is supported?
 
 **Answer**
 
-- Issue #350 and related open issue #795 address the question on what IDL types are supported
-- this should be clearly documented but apparently (see #795) this isn't yet the case
+- See [this guide](/content/guides/supported-idl.html) on what is supported.
 
 **See also**
 
