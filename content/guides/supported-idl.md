@@ -79,7 +79,7 @@ union A switch (discriminator) {
 };
 ```
 
-The `discriminator` can be any integer type or an enum. `value` can be any constant value expression. It must be proceeded by a `;`. Any member can be turned into an array by adding `[$size]` after the member name.
+The `discriminator` can be any integer type, char, octet, boolean or an enum. `value` can be any constant value expression which fits the discriminator type. It must be proceeded by a `;`. Any member can be turned into an array by adding `[$size]` after the member name.
 
 ## Enums
 
