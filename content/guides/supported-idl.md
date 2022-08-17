@@ -42,7 +42,7 @@ Explicitly **unsupported** are `wchar` and `long double`. We do not bind the `in
 | `sequence<$type> `       | A sequence (indexed container) of `$type` without bounds (still maximum 4GB).     |
 | `sequence<$type,$bound>` | A bounded sequence of `$type` with maximum `$bound` entries.                      |
 
-Explicitly **unsupported** right now are `wstring` and `fixed`. `map` is also unsupported by C and IDL but you can use a `Dict` in Python, which will not inter-operate.
+Explicitly **unsupported** right now are `wstring` and `fixed`. `map` is also unsupported by C and IDLC but you can use a `Dict` in Python, which will not inter-operate.
 
 ## Structs
 
@@ -54,11 +54,11 @@ struct A {
 };
 ```
 
-It must be proceeded by a `;`. Any member can be turned into an array by adding `[$size]` after the member name.
+Any member can be turned into an array by adding `[$size]` after the member name.
 
 ### Inheritance
 
-Structs support inheritance. They behave as if the parents members where copied into the inheriting struct.
+Structs support inheritance.
 
 ```omg-idl
 struct B : A {
@@ -68,18 +68,19 @@ struct B : A {
 
 ## Unions
 
-A union in IDL is a discriminated union which maps labels to a single member.
+A union in IDL is a discriminated union which maps labels to a single member. Multiple labels can map to a single member and you can define a default member.
 
 ```omg-idl
 union A switch (discriminator) {
     case value:
         type1 member1;
+    case othervalue:
     default:
         type2 member2;
 };
 ```
 
-The `discriminator` can be any integer type, char, octet, boolean or an enum. `value` can be any constant value expression which fits the discriminator type. It must be proceeded by a `;`. Any member can be turned into an array by adding `[$size]` after the member name.
+The `discriminator` can be any integer type, char, octet, boolean or an enum. `value` can be any constant value expression which fits the discriminator type. Any member can be turned into an array by adding `[$size]` after the member name.
 
 ## Enums
 
@@ -92,8 +93,6 @@ enum A {
 };
 ```
 
-It must be proceeded by a `;`.
-
 ## Bitmasks
 
 A bitmask is a collection of boolean flags. They will be packed into integers, making them better than structs with a set of booleans when bandwidth matters.
@@ -105,8 +104,6 @@ bitmask A {
 };
 ```
 
-It must be proceeded by a `;`.
-
 ## Typedefs
 
 A typedef is a named alias for another type.
@@ -116,7 +113,7 @@ typedef sequence<octet> blob;
 typedef double Point3D[3];
 ```
 
-It must be proceeded by a `;`. Any type can be turned into an array by adding `[$size]` after the typedef name.
+Any type can be turned into an array by adding `[$size]` after the typedef name.
 
 ## Modules
 
@@ -129,8 +126,6 @@ module A {
     };
 };
 ```
-
-It must be proceeded by a `;`.
 
 ## Bitsets
 
@@ -165,7 +160,7 @@ Limitations:
    * The `union A switch (@key short)` syntax is also unsupported.
  * A sequence cannot be part of a key.
 
-Note: the old `#pragma keylist` will be converted into the equivalent `@key` annotated version. There are `keylist`s possible that cannot be converted into `@key` style annotations: these will be rejected by the IDL compiler.
+Note: Cyclone DDS' old `#pragma keylist` will be converted into the equivalent `@key` annotated version. There are `keylist`s possible that cannot be converted into `@key` style annotations: these will be rejected by the IDL compiler.
 
 ## Extensibility `@final`, `@appendable` and `@mutable`
 
