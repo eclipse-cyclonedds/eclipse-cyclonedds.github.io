@@ -1,0 +1,432 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
+    <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
+    <meta name="author" content="Eclipse Cyclone DDS Committers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/markdown.css">
+
+  </head>
+
+  <body>
+    
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
+      <a class="navbar-brand" href="/">
+        <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
+      </a>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/docs">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/deep-dives.html">Deep Dives</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+
+              <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+    
+    
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/eclipse-cyclonedds/cyclonedds" target="_blank" rel="noopener" aria-label="GitHub">
+            <span class="fab fa-github fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="fab fa-twitter fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://discord.gg/BkRYQPpZVV" target="_blank" rel="noopener" aria-label="Discord">
+            <span class="fab fa-discord fa-lg"></span>
+           </a>
+        </li>
+      </ul>
+    </header>
+
+
+    
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3 markdown">
+        <h2 id="what-syntax-and-datatypes-are-supported-in-idl">What syntax and datatypes are supported in IDL</h2>
+<p>This is a fairly plain description of what is and isn't supported in IDL for CycloneDDS.</p>
+<div class="toc">
+<ul>
+<li><a href="#what-syntax-and-datatypes-are-supported-in-idl">What syntax and datatypes are supported in IDL</a></li>
+<li><a href="#datatypes">Datatypes</a><ul>
+<li><a href="#primitive-types">Primitive types</a></li>
+<li><a href="#template-types">Template types</a></li>
+<li><a href="#structs">Structs</a><ul>
+<li><a href="#inheritance">Inheritance</a></li>
+</ul>
+</li>
+<li><a href="#unions">Unions</a></li>
+<li><a href="#enums">Enums</a></li>
+<li><a href="#bitmasks">Bitmasks</a></li>
+<li><a href="#typedefs">Typedefs</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#bitsets">Bitsets</a></li>
+<li><a href="#constants">Constants</a></li>
+</ul>
+</li>
+<li><a href="#annotations">Annotations</a><ul>
+<li><a href="#key">@key</a></li>
+<li><a href="#extensibility-final-appendable-and-mutable">Extensibility @final, @appendable and @mutable</a></li>
+<li><a href="#external">@external</a></li>
+<li><a href="#optional">@optional</a></li>
+<li><a href="#bit_bound">@bit_bound</a></li>
+<li><a href="#autoid">@autoid</a></li>
+<li><a href="#id">@id</a></li>
+<li><a href="#hashid">@hashid</a></li>
+<li><a href="#value">@value</a></li>
+<li><a href="#position">@position</a></li>
+<li><a href="#must_understand">@must_understand</a></li>
+<li><a href="#data_representation">@data_representation</a></li>
+<li><a href="#nested">@nested</a></li>
+<li><a href="#topic">@topic</a></li>
+<li><a href="#default_nested">@default_nested</a></li>
+</ul>
+</li>
+<li><a href="#unsupported-annotations">Unsupported annotations</a></li>
+</ul>
+</div>
+<h2 id="datatypes">Datatypes</h2>
+<h3 id="primitive-types">Primitive types</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int8</code></td>
+<td>Signed 8 bit integer</td>
+</tr>
+<tr>
+<td><code>int16</code>, <code>short</code></td>
+<td>Signed 16 bit integer</td>
+</tr>
+<tr>
+<td><code>int32</code>, <code>long</code></td>
+<td>Signed 32 bit integer</td>
+</tr>
+<tr>
+<td><code>int64</code>, <code>long long</code></td>
+<td>Signed 64 bit integer</td>
+</tr>
+<tr>
+<td><code>uint8</code></td>
+<td>Unsigned 8 bit integer</td>
+</tr>
+<tr>
+<td><code>uint16</code>, <code>unsigned short</code></td>
+<td>Unsigned 16 bit integer</td>
+</tr>
+<tr>
+<td><code>uint32</code>, <code>unsigned long</code></td>
+<td>Unsigned 32 bit integer</td>
+</tr>
+<tr>
+<td><code>uint64</code>, <code>unsigned long long</code></td>
+<td>Unsigned 64 bit integer</td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>Single character byte, signed or unsigned depending on platform</td>
+</tr>
+<tr>
+<td><code>octet</code></td>
+<td>Single byte</td>
+</tr>
+<tr>
+<td><code>boolean</code></td>
+<td>True or false</td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>32 bit floating point</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>64 bit floating point</td>
+</tr>
+</tbody>
+</table>
+<p>Explicitly <strong>unsupported</strong> are <code>wchar</code> and <code>long double</code>. We do not bind the <code>int</code> type to nudge users to specify how many bits they need.</p>
+<h3 id="template-types">Template types</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>string</code></td>
+<td>A string without bounds, length is encoded as 32 bit integer, so maximum is 4GB.</td>
+</tr>
+<tr>
+<td><code>string&lt;$bound&gt;</code></td>
+<td>A string with a maximum of <code>$bound</code> characters (excluding null terminator for C).</td>
+</tr>
+<tr>
+<td><code>sequence&lt;$type&gt;</code></td>
+<td>A sequence (indexed container) of <code>$type</code> without bounds (still maximum 4GB).</td>
+</tr>
+<tr>
+<td><code>sequence&lt;$type,$bound&gt;</code></td>
+<td>A bounded sequence of <code>$type</code> with maximum <code>$bound</code> entries.</td>
+</tr>
+</tbody>
+</table>
+<p>Explicitly <strong>unsupported</strong> right now are <code>wstring</code> and <code>fixed</code>. <code>map</code> is also unsupported by C and IDLC but you can use a <code>Dict</code> in Python, which will not inter-operate.</p>
+<h3 id="structs">Structs</h3>
+<p>A struct is a named collection of typed members.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<p>Any member can be turned into an array by adding <code>[$size]</code> after the member name.</p>
+<h4 id="inheritance">Inheritance</h4>
+<p>Structs support inheritance.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="unions">Unions</h3>
+<p>A union in IDL is a discriminated union which maps labels to a single member. Multiple labels can map to a single member and you can define a default member.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">union</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">discriminator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">type1</span><span class="w"> </span><span class="n">member1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">othervalue</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">type2</span><span class="w"> </span><span class="n">member2</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<p>The <code>discriminator</code> can be any integer type, char, octet, boolean or an enum. <code>value</code> can be any constant value expression which fits the discriminator type. Any member can be turned into an array by adding <code>[$size]</code> after the member name.</p>
+<h3 id="enums">Enums</h3>
+<p>An enum is a collection of literals.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="no">ALITERAL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="no">BLITERAL</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="bitmasks">Bitmasks</h3>
+<p>A bitmask is a collection of boolean flags. They will be packed into integers, making them better than structs with a set of booleans when bandwidth matters.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">bitmask</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="no">flag_a</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="no">flag_b</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="typedefs">Typedefs</h3>
+<p>A typedef is a named alias for another type.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">typedef</span><span class="w"> </span><span class="kt">sequence</span><span class="p">&lt;</span><span class="kt">octet</span><span class="p">&gt;</span><span class="w"> </span><span class="n">blob</span><span class="p">;</span><span class="w"></span>
+<span class="kd">typedef</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Point3D</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+</code></pre></div>
+
+<p>Any type can be turned into an array by adding <code>[$size]</code> after the typedef name.</p>
+<h3 id="modules">Modules</h3>
+<p>A module is a namespace that can contain structs, unions, enums, bitmasks, typedefs and other modules.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">module</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">C</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="bitsets">Bitsets</h3>
+<p>Bitsets are not supported.</p>
+<h3 id="constants">Constants</h3>
+<p>A constant can be declared in IDL. It is purely for use inside IDL itself as it is not mapped to the target language.</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="no">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">42</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="annotations">Annotations</h2>
+<p>Annotations are an extension on the IDL syntax as introduced by <a href="https://www.omg.org/spec/DDS-XTypes/">XTypes</a>. What follows is an exhaustive set of everything we currently support.</p>
+<h3 id="key"><code>@key</code></h3>
+<p>Used to mark struct members as key.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">uint16</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<p>Limitations:</p>
+<ul>
+<li>A union cannot be part of a key.</li>
+<li>The <code>union A switch (@key short)</code> syntax is also unsupported.</li>
+<li>A sequence cannot be part of a key.</li>
+</ul>
+<p>Note: Cyclone DDS' old <code>#pragma keylist</code> will be converted into the equivalent <code>@key</code> annotated version. There are <code>keylist</code>s possible that cannot be converted into <code>@key</code> style annotations: these will be rejected by the IDL compiler.</p>
+<h3 id="extensibility-final-appendable-and-mutable">Extensibility <code>@final</code>, <code>@appendable</code> and <code>@mutable</code></h3>
+<p>Used to mark the extensibility of a struct, union, bitmask or enum. Can also be applied to a module to set the default for all nested entries.</p>
+<p>Notes:</p>
+<ul>
+<li><code>@mutable</code> is only supported for structs.</li>
+<li>The CycloneDDS IDL compiler takes as default extensibility <code>@final</code> while the standard says it should be <code>@appendable</code>. By taking <code>@final</code> as the default your types stay compatible with non-XTypes DDS.</li>
+</ul>
+<h3 id="external"><code>@external</code></h3>
+<p>Used to make a "non-pointer-type" a "pointer-type". Could be applied to things that are already "pointer-type" like strings but will do nothing.</p>
+<h3 id="optional"><code>@optional</code></h3>
+<p>Used to make a struct or union member optional (nullable). Often implies <code>@external</code>.</p>
+<h3 id="bit_bound"><code>@bit_bound</code></h3>
+<p>Annotate how many bits a enum or bitmask can use.</p>
+<h3 id="autoid"><code>@autoid</code></h3>
+<p>Can be <code>HASH</code> or <code>SEQUENTIAL</code>. Used to match struct or union members when type evolution is used. When using struct inheritance <code>@autoid(HASH)</code> is strongly recommended. Can be applied to unions or structs. Can be applied to modules to set the default for all nested entries.</p>
+<h3 id><code>@id</code></h3>
+<p>Set the member id of a member of a union or struct explicitly.</p>
+<h3 id="hashid"><code>@hashid</code></h3>
+<p>Calculate the id of this member by hashing the name of the member or hashing a string you supply.</p>
+<h3 id="value"><code>@value</code></h3>
+<p>Set the value of an enumerator in an enum manually.</p>
+<h3 id="position"><code>@position</code></h3>
+<p>Set the bit position of an field in a bitmask manually.</p>
+<h3 id="must_understand"><code>@must_understand</code></h3>
+<p>Used to mark a member in a <code>@mutable</code> struct as <code>must_understand</code>. This means the type match will be rejected if that field is not present in the others type representation. <code>@key</code> implies <code>@must_understand</code>.</p>
+<h3 id="data_representation"><code>@data_representation</code></h3>
+<p>Used to mark what data representations are allowed for a struct or union. Can be applied to modules to set the default for all nested entries. Values are <code>XCDR1</code> and <code>XCDR2</code>. Value <code>XML</code> is accepted but this data representation is not supported by CycloneDDS.</p>
+<h3 id="nested"><code>@nested</code></h3>
+<p>Do not generate topic descriptor for this type.</p>
+<h3 id="topic"><code>@topic</code></h3>
+<p>Generate topic descriptor for this type (the default).</p>
+<h3 id="default_nested"><code>@default_nested</code></h3>
+<p>Annotate a module so all contained entities are <code>@nested</code> by default.</p>
+<h2 id="unsupported-annotations">Unsupported annotations</h2>
+<p>The IDL compiler will generally accept this syntax, but these annotations are unimplemented:</p>
+<ul>
+<li><code>@default</code> (support is planned)</li>
+<li><code>@default_literal</code> (support is planned)</li>
+<li><code>@unit</code> (support is planned)</li>
+<li><code>@min</code> (support is planned)</li>
+<li><code>@max</code> (support is planned)</li>
+<li><code>@try_construct</code> (support is planned)</li>
+<li><code>@verbatim</code></li>
+<li><code>@ami</code></li>
+<li><code>@service</code></li>
+<li><code>@ignore_literal_names</code></li>
+<li><code>@non_serialized</code></li>
+</ul>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mx-auto px-5 mb-3">
+        <span class="text-muted">
+          By Thijs Miedema, posted on 2022-08-17.</span>
+      </div>
+    </div>
+    
+  </div>
+</main>
+
+        <footer class="ato-footer text-muted">
+      <div class="container-fluid p-6 p-md-5">
+        <div class="row">
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Eclipse Incubation</h5>
+            <p><img src="/images/eclipse-incubation.png" style="width:100px;"></p>
+            <p>Eclipse Cyclone DDS &trade; is an incubating project under the Eclipse Foundation.</p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>More Information</h5>
+            <p><a href="https://www.eclipse.org/legal" target="_blank">Legal</a></p>
+            <p><a href="https://www.eclipse.org/legal/privacy.php" target="_blank">Privacy policy</a></p>
+            <p><a href="https://www.eclipse.org/legal/termsofuse.php" target="_blank">Terms of use</a></p>
+            <p><a href="https://www.eclipse.org/legal/copyright.php" target="_blank">Copyright</a></p>
+            <p><a href="https://www.eclipse.org/security/" target="_blank">Report a security issue</a></p>
+            <p><a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">Eclipse Public License 2.0</a></p>
+            <p><a href="https://www.eclipse.org/org/documents/edl-v10.php" target="_blank">Eclipse Distribution License 1.0</a></p>
+            <p><a href="https://www.eclipse.org/" target="_blank">Eclipse Foundation</a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Sponsored by:</h5>
+            <p><a href="https://www.eclipse.org/" target="_blank"><img src="/images/eclipse-foundation.svg" alt="Eclipse Foundation" class="img-fluid w-75"></a></p>
+            <p><a href="https://zettascale.tech/" target="_blank"><img src="/images/zettascale.svg" alt="ZettaScale Technology" class="img-fluid w-75"></a></p>
+            <p><a href="https://www.adlinktech.com" target="_blank"><img src="/images/company_logo.svg" alt="ADLINK Technology" class="img-fluid w-75"></a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Follow us</h5>
+            <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
+            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
+            <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
+          </div>
+
+          <div class="col-12 col-md-4 pb-2">
+            <p>Eclipse Cyclone DDS &trade; is free, open source and always will be.</p>
+            <p>Copyright &copy; 2022 Eclipse Foundation</p>
+            <p>Theme inspired by: <a href="https://tokio.rs/" target="_blank">Tokio website theme</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+  </body>
+</html>
