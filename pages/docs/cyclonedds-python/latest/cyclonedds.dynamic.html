@@ -159,50 +159,6 @@
             
   <section id="dynamic">
 <h1>dynamic<a class="headerlink" href="#dynamic" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="cyclonedds.dynamic.get_types_for_typeid">
-<span class="sig-prename descclassname"><span class="pre">cyclonedds.dynamic.</span></span><span class="sig-name descname"><span class="pre">get_types_for_typeid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">participant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/dynamic.html#get_types_for_typeid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.dynamic.get_types_for_typeid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempt to gather the Python types that match a TypeIdentifier. This might involve several
-network roundtrips to request necessary type information.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Returns a type that can be used in Topic creation (IdlUnion or IdlStruct subclass), as well as all
-types by name that appear at some nesting inside the main type (IdlUnion, IdlStruct, IdlEnum or IdlBitmask)</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>(Type, Dict[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, Type])</p>
-</dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="cyclonedds.core.html#cyclonedds.core.DDSException" title="cyclonedds.core.DDSException"><strong>DDSException</strong></a> – If ENABLE_TYPE_DISCOVERY is not set upon compiling Cyclone DDS this does not work.</p>
-</dd>
-<dt class="field-even">Parameters</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>participant</strong> (<a class="reference internal" href="cyclonedds.domain.html#cyclonedds.domain.DomainParticipant" title="cyclonedds.domain.DomainParticipant"><em>cyclonedds.domain.DomainParticipant</em></a>) – </p></li>
-<li><p><strong>type_id</strong> (<em>cyclonedds.idl._typesupport.DDS.XTypes._ddsi_xt_type_object.TypeIdentifier</em>) – </p></li>
-<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="cyclonedds.dynamic.async_get_types_for_typeid">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cyclonedds.dynamic.</span></span><span class="sig-name descname"><span class="pre">async_get_types_for_typeid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">participant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/dynamic.html#async_get_types_for_typeid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.dynamic.async_get_types_for_typeid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Async version of get_types_for_typeid. Runs in separate thread.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>participant</strong> (<a class="reference internal" href="cyclonedds.domain.html#cyclonedds.domain.DomainParticipant" title="cyclonedds.domain.DomainParticipant"><em>cyclonedds.domain.DomainParticipant</em></a>) – </p></li>
-<li><p><strong>type_id</strong> (<em>cyclonedds.idl._typesupport.DDS.XTypes._ddsi_xt_type_object.TypeIdentifier</em>) – </p></li>
-<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><em>Tuple</em></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><em>Union</em></a>[<a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlUnion" title="cyclonedds.idl.IdlUnion">cyclonedds.idl.IdlUnion</a>, <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct">cyclonedds.idl.IdlStruct</a>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><em>Dict</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><em>Union</em></a>[<a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlUnion" title="cyclonedds.idl.IdlUnion">cyclonedds.idl.IdlUnion</a>, <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct">cyclonedds.idl.IdlStruct</a>, <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlEnum" title="cyclonedds.idl.IdlEnum">cyclonedds.idl.IdlEnum</a>, <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlBitmask" title="cyclonedds.idl.IdlBitmask">cyclonedds.idl.IdlBitmask</a>]]]</p>
-</dd>
-</dl>
-</dd></dl>
-
 </section>
 
 

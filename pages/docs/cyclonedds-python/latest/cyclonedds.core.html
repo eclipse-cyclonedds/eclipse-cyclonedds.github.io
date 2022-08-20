@@ -1556,10 +1556,11 @@ this entity, you will have to call set_listener() with the changed object.</p>
 <dt class="sig sig-object py" id="cyclonedds.core.Entity.set_listener">
 <span class="sig-name descname"><span class="pre">set_listener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listener</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/core.html#Entity.set_listener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.core.Entity.set_listener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the listener for this object. If a listener already exist for this object only the fields you explicitly
-have set on your new listener are overwritten.</p>
+have set on your new listener are overwritten. Passing None will remove this entity’s Listener.</p>
+<p>Future changes to the passed Listener object will not affect the Listener associated with this Entity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>listener</strong> (<a class="reference internal" href="#cyclonedds.core.Listener" title="cyclonedds.core.Listener"><em>Listener</em></a>) – The listener object to use.</p>
+<dd class="field-odd"><p><strong>listener</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><em>Optional</em></a><em>[</em><a class="reference internal" href="#cyclonedds.core.Listener" title="cyclonedds.core.Listener"><em>cyclonedds.core.Listener</em></a><em>]</em>) – The listener object to use, or None to remove the current listener from this Entity.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><a class="reference internal" href="#cyclonedds.core.DDSException" title="cyclonedds.core.DDSException"><strong>DDSException</strong></a> – </p>
