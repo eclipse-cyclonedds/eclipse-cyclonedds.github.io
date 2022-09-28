@@ -194,7 +194,7 @@ class VersionDatabase:
             for version in project.versions:
                 all_streams[version.key()][name] = version
 
-        return list(sorted(((k,v) for k,v in all_streams.items()), reverse=True))
+        return list(sorted(((k,v) for k,v in all_streams.items()), reverse=True, key=lambda x: next(iter(x[1].values()))))
 
     @classmethod
     def load(self) -> 'VersionDatabase':

@@ -24,12 +24,6 @@ def build_wrap(project: str, repository: Path, confpy: Path, version: str):
                 old_conf=confpy.read_text()
             )
         )
-        clayer = repository / "cyclonedds" / "_clayer.py"
-        clayer_templ = template_env.get_template(
-            "py._clayer.py"
-        )
-        clayer.write_text(clayer_templ.render())
-
         os.environ['CYCLONEDDS_PYTHON_NO_IMPORT_LIBS'] = "1"
         sys.path.insert(0, str(repository))
         yield []
