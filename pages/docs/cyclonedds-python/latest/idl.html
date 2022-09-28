@@ -19,7 +19,7 @@
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="next" title="API" href="api.html" />
     <link rel="prev" title="Introduction" href="intro.html" />
     <link href="_static/style.css" rel="stylesheet" type="text/css">
 
@@ -125,14 +125,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Working with idl</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dds.html">General information about DDS</a></li>
 </ul>
 
         </div>
@@ -183,7 +179,7 @@
 <p>Not all types that are possible to write in Python are encodable with OMG XCDR-V1. This means that you are slightly limited in what you can put in an <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlStruct</span></code></a> class. An exhaustive list follows:</p>
 <section id="integers">
 <h3>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">¶</a></h3>
-<p>The default python <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> type maps to a OMG XCDR-V1 64 bit integer. For most applications that should suffice, but the <a class="reference internal" href="cyclonedds.idl.html#module-cyclonedds.idl.types" title="cyclonedds.idl.types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a> module has all the other integers types supported in python.</p>
+<p>The default python <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> type maps to a OMG XCDR-V1 64 bit integer. For most applications that should suffice, but the <code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code> module has all the other integers types supported in python.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
 <span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">int8</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">int16</span><span class="p">,</span> <span class="n">uint16</span><span class="p">,</span> <span class="n">int32</span><span class="p">,</span> <span class="n">uint32</span><span class="p">,</span> <span class="n">int64</span><span class="p">,</span> <span class="n">uint64</span>
@@ -198,11 +194,11 @@
 </section>
 <section id="floats">
 <h3>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">¶</a></h3>
-<p>The python <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> type maps to a 64 bit float, which would be a <cite>double</cite> in C-style languages. The <a class="reference internal" href="cyclonedds.idl.html#module-cyclonedds.idl.types" title="cyclonedds.idl.types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a> module has a float32 and float64 type, float128 is not supported.</p>
+<p>The python <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> type maps to a 64 bit float, which would be a <cite>double</cite> in C-style languages. The <code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code> module has a float32 and float64 type, float128 is not supported.</p>
 </section>
 <section id="strings">
 <h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
-<p>The python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> type maps directly to the XCDR string. Under the hood it is encoded with utf-8. Inside <a class="reference internal" href="cyclonedds.idl.html#module-cyclonedds.idl.types" title="cyclonedds.idl.types"><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a> there is the <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.types.bounded_str" title="cyclonedds.idl.types.bounded_str"><code class="xref py py-class docutils literal notranslate"><span class="pre">bounded_str</span></code></a> type for a string with maximum length.</p>
+<p>The python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> type maps directly to the XCDR string. Under the hood it is encoded with utf-8. Inside <code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code> there is the <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.types.bounded_str" title="cyclonedds.idl.types.bounded_str"><code class="xref py py-class docutils literal notranslate"><span class="pre">bounded_str</span></code></a> type for a string with maximum length.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
 <span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">bounded_str</span>
@@ -410,7 +406,7 @@
 
             <div class="right">
                 
-                    <a href="usage.html"><span>Usage</span><span class="icon">></span></a>
+                    <a href="api.html"><span>API</span><span class="icon">></span></a>
                 
             </div>
         </div>

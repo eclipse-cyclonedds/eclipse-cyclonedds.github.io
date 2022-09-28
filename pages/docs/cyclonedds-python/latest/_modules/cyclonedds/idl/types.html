@@ -122,14 +122,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../idl.html">Working with idl</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../tools.html">Tools</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../dds.html">General information about DDS</a></li>
 </ul>
 
         </div>
@@ -297,8 +293,8 @@
     <span class="fm">__str__</span> <span class="o">=</span> <span class="fm">__repr__</span></div>
 
 
-<div class="viewcode-block" id="ValidUnionHolder"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.types.ValidUnionHolder">[docs]</a><span class="k">class</span> <span class="nc">ValidUnionHolder</span><span class="p">:</span>
-    <span class="k">pass</span></div>
+<span class="k">class</span> <span class="nc">ValidUnionHolder</span><span class="p">:</span>
+    <span class="k">pass</span>
 
 
 <div class="viewcode-block" id="case"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.types.case">[docs]</a><span class="k">class</span> <span class="nc">case</span><span class="p">(</span><span class="n">ValidUnionHolder</span><span class="p">):</span>
@@ -353,18 +349,43 @@
 
 
 <span class="n">char</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;char&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;The C ``char`` datatype. In Python this is implemented as a single-character string.&quot;&quot;&quot;</span>
+
 <span class="n">wchar</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;wchar&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;The C ``wchar`` datatype. Do not use, here for completeness.&quot;&quot;&quot;</span>
+
 <span class="n">int8</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;int8&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;A signed 8 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">int16</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;int16&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;A signed 16 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">int32</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;int32&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;A signed 32 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">int64</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;int64&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;A signed 64 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">uint8</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;uint8&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;An unsigned 8 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">uint16</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;uint16&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;An unsigned 16 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">uint32</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;uint32&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;An unsigned 32 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">uint64</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="s2">&quot;uint64&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;An unsigned 64 bit integer.&quot;&quot;&quot;</span>
+
 <span class="n">float32</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;float32&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;A 32bit floating point number. In typical C this is a regular ``float``.&quot;&quot;&quot;</span>
+
 <span class="n">float64</span> <span class="o">=</span> <span class="n">_th</span><span class="o">.</span><span class="n">Annotated</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="s2">&quot;float64&quot;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;A 64bit floating point number. In typical C this is a regular ``float``.&quot;&quot;&quot;</span>
+
 <span class="n">NoneType</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;The NoneType, or a &quot;void&quot; type. This is not included in the OMG IDL spec or in the C library but it can be very useful.&quot;&quot;&quot;</span>
 
 <span class="n">_type_code_align_size_default_mapping</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">int8</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>

@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Working with idl" href="idl.html" />
-    <link rel="prev" title="CycloneDDS Python" href="index.html" />
+    <link rel="prev" title="Eclipse CycloneDDS Python" href="index.html" />
     <link href="_static/style.css" rel="stylesheet" type="text/css">
 
   </head><body>
@@ -125,14 +125,10 @@
 <li class="toctree-l1"><a class="reference internal" href="idl.html">Working with idl</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dds.html">General information about DDS</a></li>
 </ul>
 
         </div>
@@ -198,15 +194,19 @@ python -m http.server --directory build
 <span class="linenos"> 7</span>
 <span class="linenos"> 8</span>
 <span class="linenos"> 9</span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is your name? &quot;</span><span class="p">)</span>
-<span class="linenos">10</span><span class="n">message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has started his first DDS Python application!&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">message</span> <span class="o">=</span> <span class="n">Message</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> has started their first DDS Python application!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>With <code class="docutils literal notranslate"><span class="pre">cyclonedds.idl</span></code> we write typed classes with the standard library module <cite>dataclasses &lt;python:dataclasses&gt;</cite>. For this simple application we just put in a piece of text, but this system has the same expressive power as the OMG IDL specification, allowing you to use almost any complex datastructure you can think of.</p>
-<p>Now to send our message over DDS we need to perform a few steps:
-* Join the DDS network using a DomainParticipant
-* Define which datatype and under what name we will publish our message as a Topic
-* Make the DataWriter that publishes that Topic
-* And finally publish the message.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">cyclonedds.idl</span></code> we write typed classes with the standard library module <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html#module-dataclasses" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataclasses</span></code></a>. For this simple application we just put in a piece of text, but this system has the same expressive power as the OMG IDL specification, allowing you to use almost any complex datastructure you can think of.</p>
+<p>Now to send our message over DDS we need to perform a few steps:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Join the DDS network using a DomainParticipant</p></li>
+<li><p>Define which datatype and under what name we will publish our message as a Topic</p></li>
+<li><p>Make the DataWriter that publishes that Topic</p></li>
+<li><p>And finally publish the message.</p></li>
+</ul>
+</div></blockquote>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
 <span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.topic</span> <span class="kn">import</span> <span class="n">Topic</span>
 <span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.pub</span> <span class="kn">import</span> <span class="n">DataWriter</span>
@@ -276,7 +276,7 @@ python -m http.server --directory build
             <div class="left">
                 
                 <a href="index.html">
-                    <span class="icon"><</span><span>CycloneDDS Python</span></a>
+                    <span class="icon"><</span><span>Eclipse CycloneDDS Python</span></a>
                 
             </div>
 

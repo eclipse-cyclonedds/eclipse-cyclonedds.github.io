@@ -9,6 +9,7 @@
     <title>Eclipse Cyclone DDS Specifics &#8212; Eclipse Cyclone DDS latest documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="/css/docu.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -145,8 +146,8 @@
 <p>Eclipse Cyclone DDS runs with a default configuration for all of its settings. The defaults can
 be changed via an XML configuration located at a path defined by the variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_URI</span></code>
 (set by the user). An example XML configuration follows</p>
-<div class="literal-block-wrapper docutils container" id="id35">
-<div class="code-block-caption"><span class="caption-text">/path/to/dds/configuration.xml</span><a class="headerlink" href="#id35" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id29">
+<div class="code-block-caption"><span class="caption-text">/path/to/dds/configuration.xml</span><a class="headerlink" href="#id29" title="Permalink to this code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;CycloneDDS</span> <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
 <span class="linenos"> 3</span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
@@ -209,8 +210,8 @@ all discovery activities amongst the participants, allowing one to add participa
 process with only a minimal impact on the system.  It is even possible to have only a
 single DDSI participant in a process regardless of the number of DCPS participants
 created by the application code in that process, which then becomes the virtual owner of
-all the endpoints created in that one process.  (See <a class="reference internal" href="#combining-multiple-participants">Combining multiple
-participants</a>.)  In this latter mode, there is no discovery penalty at all for having
+all the endpoints created in that one process.  (See <a href="#id30"><span class="problematic" id="id31">`Combining multiple
+participants`_</span></a>.)  In this latter mode, there is no discovery penalty at all for having
 many participants, but evidently, any participant-based liveliness monitoring will be
 affected.</p>
 <p>Because other implementations of the DDSI specification may be written on the assumption
@@ -238,38 +239,8 @@ linger duration has elapsed, whichever comes first.</p>
 <p>Note that the writer linger duration setting is currently not applied when Eclipse Cyclone DDS
 is requested to terminate.</p>
 </section>
-<section id="start-up-mode">
-<span id="id6"></span><h3>Start-up Mode<a class="headerlink" href="#start-up-mode" title="Permalink to this headline">¶</a></h3>
-<p>A similar issue exists when starting Eclipse Cyclone DDS: DDSI discovery takes time, and when
-data is written immediately after the first participant was created, it is likely that
-the discovery process hasn’t completed yet and some remote readers have not yet been
-discovered.  This would cause the writers to throw away samples for lack of interest,
-even though matching readers already existed at the time of starting.  For best-effort
-writers, this is perhaps surprising but still acceptable; for reliable writers, however,
-it would be very counter-intuitive.</p>
-<p>Hence the existence of the so-called <em>start-up mode</em>, during which all volatile reliable
-writers are treated as-if they are transient-local writers.  Transient-local data is
-meant to ensure samples are available to late-joining readers, the start-up mode uses
-this same mechanism to ensure late-discovered readers will also receive the data.  This
-treatment of volatile data as-if it were transient-local happens internally and is
-invisible to the outside world, other than the availability of some samples that would
-not otherwise be available.</p>
-<p>Once initial discovery has been completed, any new local writers can be matched locally
-against already existing readers, and consequently keeps any new samples published in a
-writer history cache because these existing readers have not acknowledged them yet.
-Hence why this mode is tied to the start-up of the DDSI stack, rather than to that of an
-individual writer.</p>
-<p>Unfortunately it is impossible to detect with certainty when the initial discovery
-process has been completed and therefore the duration of this start-up mode is
-controlled by an option: <code class="docutils literal notranslate"><span class="pre">General/StartupModeDuration</span></code>.</p>
-<p>While in general this start-up mode is beneficial, it is not always so.  There are two
-downsides: the first is that during the start-up period, the writer history caches can
-grow significantly larger than one would normally expect; the second is that it does
-mean large amounts of historical data may be transferred to readers discovered
-relatively late in the process.</p>
-</section>
 <section id="writer-history-qos-and-throttling">
-<span id="id7"></span><h3>Writer History QoS and Throttling<a class="headerlink" href="#writer-history-qos-and-throttling" title="Permalink to this headline">¶</a></h3>
+<span id="id6"></span><h3>Writer History QoS and Throttling<a class="headerlink" href="#writer-history-qos-and-throttling" title="Permalink to this headline">¶</a></h3>
 <p>The DDSI specification heavily relies on the notion of a writer history cache (WHC)
 within which a sequence number uniquely identifies each sample.  This WHC integrates two
 different indices on the samples published by a writer: one is on sequence number, used
@@ -309,60 +280,61 @@ things can continue at a much lower rate.</p>
 </section>
 </section>
 <section id="network-and-discovery-configuration">
-<span id="id8"></span><h2>Network and Discovery Configuration<a class="headerlink" href="#network-and-discovery-configuration" title="Permalink to this headline">¶</a></h2>
-<section id="networking-interfaces">
-<span id="id9"></span><h3>Networking Interfaces<a class="headerlink" href="#networking-interfaces" title="Permalink to this headline">¶</a></h3>
-<p>Eclipse Cyclone DDS uses a single network interface, the <em>preferred</em> interface, for transmitting
-its multicast packets and advertises only the address corresponding to this interface in
-the DDSI discovery protocol.</p>
-<p>To determine the default network interface, the eligible interfaces are ranked by
-quality and then selects the interface with the highest quality.  If multiple interfaces
-are of the highest quality, it will select the first enumerated one.  Eligible
-interfaces are those that are up and have the right kind of address family (IPv4 or
-IPv6).  Priority is then determined as follows:</p>
+<span id="id7"></span><h2>Network and Discovery Configuration<a class="headerlink" href="#network-and-discovery-configuration" title="Permalink to this headline">¶</a></h2>
+<section id="networking-interfaces-and-addresses">
+<span id="id8"></span><h3>Networking interfaces and addresses<a class="headerlink" href="#networking-interfaces-and-addresses" title="Permalink to this headline">¶</a></h3>
+<p>Cyclone DDS can use multiple network interfaces simultaneously but defaults to using a single network interface.  The set of enabled interfaces determines the addresses that the host advertises in the discovery information.</p>
+<section id="default-behaviour">
+<h4>Default behaviour<a class="headerlink" href="#default-behaviour" title="Permalink to this headline">¶</a></h4>
+<p>To determine the default network interface, the eligible interfaces are ranked by quality and then the interface with the highest quality is selected.  If multiple interfaces are of the highest quality, it will select the first enumerated one.  Eligible interfaces are those that are up and have the right kind of address family (IPv4 or IPv6).  Priority is then determined as follows:</p>
 <ul class="simple">
 <li><p>interfaces with a non-link-local address are preferred over those with
 a link-local one;</p></li>
 <li><p>multicast-capable is preferred (see also <code class="docutils literal notranslate"><span class="pre">General/Interfaces/NetworkInterface[&#64;multicast]</span></code>), or if
 none is available</p></li>
-<li><p>non-multicast capable but neither point-to-point, or if none is available</p></li>
+<li><p>non-multicast capable and not point-to-point, or if none is available</p></li>
 <li><p>point-to-point, or if none is available</p></li>
 <li><p>loopback</p></li>
 </ul>
-<p>If this procedure doesn’t select the desired interface automatically, it can be
-overridden by setting <code class="docutils literal notranslate"><span class="pre">General/Interfaces</span></code> by adding the interface(s) either by name of the
-interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">name='interface_name'</span> <span class="pre">/&gt;</span></code>), the IP address of the host
-on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.129.0.42'</span> <span class="pre">/&gt;</span></code>), or the network portion
-of the IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.11.0.0'</span> <span class="pre">/&gt;</span></code>).
-An exact match on the address is always preferred and is the only option that allows selecting
-the desired one when multiple addresses are tied to a single interface.</p>
-<p>The default address family is IPv4, setting General/UseIPv6 will change this to IPv6.
-Currently, Eclipse Cyclone DDS does not mix IPv4 and IPv6 addressing.  Consequently, all DDSI
-participants in the network must use the same addressing mode.  When inter-operating,
-this behaviour is the same, i.e., it will look at either IPv4 or IPv6 addresses in the
-advertised address information in the SPDP and SEDP discovery protocols.</p>
-<p>IPv6 link-local addresses are considered undesirable because they need to be published
-and received via the discovery mechanism, but there is in general no way to determine to
-which interface a received link-local address is related.</p>
-<p>If IPv6 is requested and the preferred interface has a non-link-local address, Cyclone
-DDS will operate in a <em>global addressing</em> mode and will only consider discovered
-non-link-local addresses.  In this mode, one can select any set of interface for
-listening to multicasts.  Note that this behaviour is essentially identical to that when
-using IPv4, as IPv4 does not have the formal notion of address scopes that IPv6 has.  If
-instead only a link-local address is available, Eclipse Cyclone DDS will run in a <em>link-local
-addressing</em> mode.  In this mode it will accept any address in a discovery packet,
-assuming that a link-local address is valid on the preferred interface.  To minimise the
-risk involved in this assumption, it only allows the preferred interface for listening
-to multicasts.</p>
-<p>When a remote participant publishes multiple addresses in its SPDP message (or in SEDP
-messages, for that matter), it will select a single address to use for communicating
-with that participant. The address chosen is the first eligible one on the same network
-as the locally chosen interface, else one that is on a network corresponding to any of
-the other local interfaces, and finally simply the first one.  Eligibility is determined
-in the same way as for network interfaces.</p>
+<p>If this procedure doesn’t select the desired interface automatically, it can be overridden by setting <code class="docutils literal notranslate"><span class="pre">General/Interfaces</span></code> by adding the interface(s) either by name of the interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">name='interface_name'</span> <span class="pre">/&gt;</span></code>), the IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.129.0.42'</span> <span class="pre">/&gt;</span></code>), or the network portion of the IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.11.0.0'</span> <span class="pre">/&gt;</span></code>). An exact match on the address is always preferred and is the only option that allows selecting the desired one when multiple addresses are tied to a single interface.</p>
+<p>The default address family is IPv4, setting General/Transport to <code class="docutils literal notranslate"><span class="pre">udp6</span></code> or <code class="docutils literal notranslate"><span class="pre">tcp6</span></code> will change this to IPv6.  Currently, Cyclone DDS does not mix IPv4 and IPv6 addressing.  Consequently, all DDSI participants in the network must use the same addressing mode.  When inter-operating, this behaviour is the same, i.e., it will look at either IPv4 or IPv6 addresses in the advertised address information in the SPDP and SEDP discovery protocols.</p>
+<p>IPv6 link-local addresses are considered undesirable because they need to be published and received via the discovery mechanism, but there is in general no way to determine to which interface a received link-local address is related.</p>
+<p>If IPv6 is requested and the selected interface has a non-link-local address, Cyclone DDS will operate in a <em>global addressing</em> mode and will only consider discovered non-link-local addresses.  In this mode, one can select any set of interfaces for listening to multicasts.  Note that this behaviour is essentially identical to that when using IPv4, as IPv4 does not have the formal notion of address scopes that IPv6 has.  If instead only a link-local address is available, Cyclone DDS will run in a <em>link-local addressing</em> mode.  In this mode it will accept any address in a discovery packet, assuming that a link-local address is valid on the selected interface.  To minimise the risk involved in this assumption, it only allows the selected interface for listening to multicasts.</p>
+</section>
+<section id="multiple-network-interfaces">
+<h4>Multiple network interfaces<a class="headerlink" href="#multiple-network-interfaces" title="Permalink to this headline">¶</a></h4>
+<p>Multiple network interfaces can be used simultaneously, by listing multiple <code class="docutils literal notranslate"><span class="pre">NetworkInterface</span></code> elements.  In this case, the above still applies, with most things extended in the obvious manner, e.g., the SPDP packets will now advertise multiple addresses and it will send these packets out on all interfaces.  That means the issue with <em>link-local addressing</em> discussed gains importance if link-local addresses are used, but they usually aren’t.</p>
+<p>In a configuration with just a single network interface, it is obvious which one to use for sending packets to a peer.  When there are multiple network interfaces, it is necessary to establish the set of interfaces via which multicasts can be sent, because these are sent on a specific interface.  This in turn requires determining via which subset of interfaces a peer is reachable.</p>
+<p>Cyclone DDS approaches this by checking which interfaces match the addresses advertised by a peer in its SPDP or SEDP messages, under the assumption that in most cases the peer will be attached to at least one of the configured networks and that checking the network parts of the addresses will result in a subset of the interfaces.  The network interfaces in this subset are then the interfaces on which the peer is assumed to be reachable via multicast.</p>
+<p>This leaves open two classes of addresses:</p>
+<ul class="simple">
+<li><p>Loopback addresses: these are ignored unless (1) the configuration has enabled only loopback interfaces, (2) no other addresses are advertised in the discovery message, or (3) a non-loopback address matches that of the machine.</p></li>
+<li><p>Routable addresses that do not match an interface: these are ignored if the <code class="docutils literal notranslate"><span class="pre">General/DontRoute</span></code> option is set, otherwise it is assumed that the network stack knows how to route them and any of the interfaces may be used.</p></li>
+</ul>
+<p>When a message needs to be sent to a set of peers, Cyclone DDS aims use the set of addresses spanning the set of intended recipients with the lowest cost (number of nodes that receive it without having a use for it, unicast vs multicast, loopback vs real network interface, configured priority).  This is a variant of the set cover problem, and so Cyclone DDS uses some heuristics rather than computing the optimal solution.  The address selection can be influenced in two ways:</p>
+<ul class="simple">
+<li><p>By using the <code class="docutils literal notranslate"><span class="pre">priority</span></code> attribute, which is used as an offset in the cost calculation.  The default configuration gives loopback interfaces a slightly higher priority than other network types.</p></li>
+<li><p>By setting the <code class="docutils literal notranslate"><span class="pre">prefer_multicast</span></code> attribute, which raises the assumed cost of a unicast message.</p></li>
+</ul>
+<p>The experimental <code class="docutils literal notranslate"><span class="pre">Internal/RedundantNetworking</span></code> setting furthermore forces the address selection code to cover all interfaces advertised by a peer.</p>
+</section>
+<section id="overriding-addresses-interfaces-for-readers-writers">
+<h4>Overriding addresses/interfaces for readers/writers<a class="headerlink" href="#overriding-addresses-interfaces-for-readers-writers" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">Partitioning</span></code> element in the configuration allows configuring <code class="docutils literal notranslate"><span class="pre">NetworkPartition</span></code> elements and mapping topic/partition names to these “network partitions” using <code class="docutils literal notranslate"><span class="pre">PartitionMapping</span></code> elements.</p>
+<p>Network partitions introduce alternative multicast addresses for data and/or restrict the set of unicast addresses (i.e., interfaces). In the DDSI discovery protocol, a reader can override the addresses at which it is reachable and this feature of the discovery protocol is used to advertise alternative multicast addresses and/or a subset of the unicast addresses. The writers in the network will use the addresses advertised by the reader rather than the default addresses advertised by the reader’s participant.</p>
+<p>Unicast and multicast addresses in a network partition play different roles:</p>
+<ul class="simple">
+<li><p>The multicast addresses specify an alternative set of addresses to be used instead of the participant’s default. This is particularly useful to limit high-bandwidth flows to the parts of a network where the data is needed (for IP/Ethernet, this assumes switches that are configured to do IGMP snooping).</p></li>
+<li><p>The unicast addresses not only influence the set of interfaces that will be used for unicast, but thereby also the set of interfaces that will be considered for use by multicast. Thus, specifying a unicast address matching network interface A ensures all traffic to that reader will be using interface A, whether unicast or multicast.</p></li>
+</ul>
+<p>Because the typical use of unicast addresses is to force traffic onto certain interfaces, the configuration also allows specifying interface names (using the <code class="docutils literal notranslate"><span class="pre">interface</span></code> attribute).</p>
+<p>The mapping of a data reader or writer to a network partition is indirect: first the partition and topic are matched against a table of <em>partition mappings</em>, partition/topic combinations to obtain the name of a network partition, then the network partition name is used to find the addressing information. This makes it easier to map many different partition/topic combinations to the same multicast address without having to specify the actual multicast address many times over. If no match is found, the default addresses are used.</p>
+<p>Matching proceeds in the order in which the partition mappings are specified in the configuration. The first matching mapping is the one that will be used. The <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code> wildcards are available for the DCPS partition/topic combination in the partition mapping.</p>
+<p>A single reader or writer is associated with a set of partitions, and each partition/topic combination can potentially map to a different network partition. In this case, the first matching network partition will be used. This does not affect what data the reader will receive; it only affects the addressing on the network.</p>
+</section>
 </section>
 <section id="controlling-port-numbers">
-<span id="id10"></span><h3>Controlling Port Numbers<a class="headerlink" href="#controlling-port-numbers" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>Controlling Port Numbers<a class="headerlink" href="#controlling-port-numbers" title="Permalink to this headline">¶</a></h3>
 <p>The port numbers used by Eclipse Cyclone DDS are determined as follows, where the first two
 items are given by the DDSI specification and the third is unique to Eclipse Cyclone DDS as a
 way of serving multiple participants by a single DDSI instance:</p>
@@ -424,7 +396,7 @@ DCPS participants using the same unicast locator.  This improves the chances of 
 unicast sufficing even when addressing a multiple participants.</p>
 </section>
 <section id="multicasting">
-<span id="id11"></span><h3>Multicasting<a class="headerlink" href="#multicasting" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>Multicasting<a class="headerlink" href="#multicasting" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS allows configuring to what extent multicast (the regular, any-source
 multicast as well as source-specific multicast) is to be used:</p>
 <ul class="simple">
@@ -447,7 +419,7 @@ accepted, one can use the <code class="docutils literal notranslate"><span class
 allows listening on no interface, the preferred, all or a specific set of interfaces.</p>
 </section>
 <section id="tcp-support">
-<span id="id12"></span><h3>TCP Support<a class="headerlink" href="#tcp-support" title="Permalink to this headline">¶</a></h3>
+<span id="id11"></span><h3>TCP Support<a class="headerlink" href="#tcp-support" title="Permalink to this headline">¶</a></h3>
 <p>The DDSI protocol is really a protocol designed for a transport providing
 connectionless, unreliable datagrams.  However, there are times where TCP is the only
 practical network transport available (for example, across a WAN).  Because of this,
@@ -470,21 +442,21 @@ time, and that giving up on a transmission to a failed or no-longer reachable ho
 also take a long time. These long delays can be visible at the application level at
 present.</p>
 <section id="tls-support">
-<span id="id13"></span><h4>TLS Support<a class="headerlink" href="#tls-support" title="Permalink to this headline">¶</a></h4>
+<span id="id12"></span><h4>TLS Support<a class="headerlink" href="#tls-support" title="Permalink to this headline">¶</a></h4>
 <p>The TCP mode can be used in conjunction with TLS to provide mutual authentication and
 encryption.  When TLS is enabled, plain TCP connections are no longer accepted or
 initiated.</p>
 </section>
 </section>
 <section id="raw-ethernet-support">
-<span id="id14"></span><h3>Raw Ethernet Support<a class="headerlink" href="#raw-ethernet-support" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>Raw Ethernet Support<a class="headerlink" href="#raw-ethernet-support" title="Permalink to this headline">¶</a></h3>
 <p>As an additional option, on Linux, Eclipse Cyclone DDS can use a raw Ethernet network interface
 to communicate without a configured IP stack.</p>
 </section>
 <section id="discovery-configuration">
-<span id="id15"></span><h3>Discovery Configuration<a class="headerlink" href="#discovery-configuration" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>Discovery Configuration<a class="headerlink" href="#discovery-configuration" title="Permalink to this headline">¶</a></h3>
 <section id="discovery-addresses">
-<span id="id16"></span><h4>Discovery Addresses<a class="headerlink" href="#discovery-addresses" title="Permalink to this headline">¶</a></h4>
+<span id="id15"></span><h4>Discovery Addresses<a class="headerlink" href="#discovery-addresses" title="Permalink to this headline">¶</a></h4>
 <p>The DDSI discovery protocols, SPDP for the domain participants and SEDP for their
 endpoints, usually operate well without any explicit configuration.  Indeed, the SEDP
 protocol never requires any configuration.</p>
@@ -515,7 +487,7 @@ therefore is really attractive only when it is known that there is but a single 
 process on that node.</p>
 </section>
 <section id="asymmetrical-discovery">
-<span id="id17"></span><h4>Asymmetrical Discovery<a class="headerlink" href="#asymmetrical-discovery" title="Permalink to this headline">¶</a></h4>
+<span id="id16"></span><h4>Asymmetrical Discovery<a class="headerlink" href="#asymmetrical-discovery" title="Permalink to this headline">¶</a></h4>
 <p>On reception of an SPDP packet, the addresses advertised in the packet are added to the
 set of addresses to which SPDP packets are sent periodically, allowing asymmetrical
 discovery.  In an extreme example, if SPDP multicasting is disabled entirely, host A has
@@ -526,14 +498,14 @@ discover B.  This takes a bit longer than normal multicast based discovery, thou
 risks writers being blocked by unresponsive readers.</p>
 </section>
 <section id="timing-of-spdp-packets">
-<span id="id18"></span><h4>Timing of SPDP Packets<a class="headerlink" href="#timing-of-spdp-packets" title="Permalink to this headline">¶</a></h4>
+<span id="id17"></span><h4>Timing of SPDP Packets<a class="headerlink" href="#timing-of-spdp-packets" title="Permalink to this headline">¶</a></h4>
 <p>The interval with which the SPDP packets are transmitted is configurable as well, using
 the Discovery/SPDPInterval setting.  A longer interval reduces the network load, but
 also increases the time discovery takes, especially in the face of temporary network
 disconnections.</p>
 </section>
 <section id="endpoint-discovery">
-<span id="id19"></span><h4>Endpoint Discovery<a class="headerlink" href="#endpoint-discovery" title="Permalink to this headline">¶</a></h4>
+<span id="id18"></span><h4>Endpoint Discovery<a class="headerlink" href="#endpoint-discovery" title="Permalink to this headline">¶</a></h4>
 <p>Although the SEDP protocol never requires any configuration, network partitioning does
 interact with it: so-called ‘ignored partitions’ can be used to instruct Eclipse Cyclone DDS to
 completely ignore certain DCPS topic and partition combinations, which will prevent data
@@ -541,32 +513,8 @@ for these topic/partition combinations from being forwarded to and from the netw
 </section>
 </section>
 </section>
-<section id="combining-multiple-participants">
-<span id="id20"></span><h2>Combining Multiple Participants<a class="headerlink" href="#combining-multiple-participants" title="Permalink to this headline">¶</a></h2>
-<p>If a single process creates multiple participants, these are faithfully mirrored in DDSI
-participants and so a single process can appear as if it is a large system with many
-participants.  The <code class="docutils literal notranslate"><span class="pre">Internal/SquashParticipants</span></code> option can be used to simulate the
-existence of only one participant, which owns all endpoints on that node.  This reduces
-the background messages because far fewer liveliness assertions need to be sent, but
-there are some downsides.</p>
-<p>Firstly, the liveliness monitoring features that are related to domain participants will
-be affected if multiple DCPS domain participants are combined into a single DDSI domain
-participant.  For the ‘automatic’ liveliness setting, this is not an issue.</p>
-<p>Secondly, this option makes it impossible for tooling to show the actual system
-topology.</p>
-<p>Thirdly, the QoS of this sole participant is simply that of the first participant
-created in the process.  In particular, no matter what other participants specify as
-their ‘user data’, it will not be visible on remote nodes.</p>
-<p>There is an alternative that sits between squashing participants and normal operation,
-and that is setting <code class="docutils literal notranslate"><span class="pre">Internal/BuiltinEndpointSet</span></code> to <code class="docutils literal notranslate"><span class="pre">minimal</span></code>. In the default
-setting, each DDSI participant handled has its own writers for built-in topics and
-publishes discovery data on its own entities, but when set to ‘minimal’, only the first
-participant has these writers and publishes data on all entities. This is not fully
-compatible with other implementations as it means endpoint discovery data can be
-received for a participant that has not yet been discovered.</p>
-</section>
 <section id="data-path-configuration">
-<span id="id21"></span><h2>Data Path Configuration<a class="headerlink" href="#data-path-configuration" title="Permalink to this headline">¶</a></h2>
+<span id="id19"></span><h2>Data Path Configuration<a class="headerlink" href="#data-path-configuration" title="Permalink to this headline">¶</a></h2>
 <section id="re-transmit-merging">
 <span id="retransmit-merging"></span><h3>Re-Transmit Merging<a class="headerlink" href="#re-transmit-merging" title="Permalink to this headline">¶</a></h3>
 <p>A remote reader can request re-transmission whenever it receives a Heartbeat and detects
@@ -593,7 +541,7 @@ receive the re-transmit, too.  The <code class="docutils literal notranslate"><s
 length of this time window.</p>
 </section>
 <section id="re-transmit-backlogs">
-<span id="id22"></span><h3>Re-Transmit Backlogs<a class="headerlink" href="#re-transmit-backlogs" title="Permalink to this headline">¶</a></h3>
+<span id="id20"></span><h3>Re-Transmit Backlogs<a class="headerlink" href="#re-transmit-backlogs" title="Permalink to this headline">¶</a></h3>
 <p>Another issue is that a reader can request re-transmission of many samples at once.  When
 the writer simply queues all these samples for re-transmission, it may well result in a
 huge backlog of samples to be re-transmitted.  As a result, the ones near the end of the
@@ -609,7 +557,7 @@ bandwidth and the <code class="docutils literal notranslate"><span class="pre">I
 until the next potential re-transmit request from the reader.</p>
 </section>
 <section id="controlling-fragmentation">
-<span id="id23"></span><h3>Controlling Fragmentation<a class="headerlink" href="#controlling-fragmentation" title="Permalink to this headline">¶</a></h3>
+<span id="id21"></span><h3>Controlling Fragmentation<a class="headerlink" href="#controlling-fragmentation" title="Permalink to this headline">¶</a></h3>
 <p>Samples in DDS can be arbitrarily large, and will not always fit within a single
 datagram.  DDSI has facilities to fragment samples so they can fit in UDP datagrams, and
 similarly IP has facilities to fragment UDP datagrams to into network packets.  The DDSI
@@ -632,7 +580,7 @@ is that while DDSI fragments can be re-transmitted individually, the processing 
 of DDSI fragmentation is larger than that of UDP fragmentation.</p>
 </section>
 <section id="receive-processing">
-<span id="id24"></span><h3>Receive Processing<a class="headerlink" href="#receive-processing" title="Permalink to this headline">¶</a></h3>
+<span id="id22"></span><h3>Receive Processing<a class="headerlink" href="#receive-processing" title="Permalink to this headline">¶</a></h3>
 <p>Receiving of data is split into multiple threads:</p>
 <ul class="simple">
 <li><p>A single receive thread responsible for retrieving network packets and running
@@ -665,7 +613,7 @@ evil within the constraints of various other choices).  However, discovery data 
 never block the receive thread.</p>
 </section>
 <section id="minimising-receive-latency">
-<span id="id25"></span><h3>Minimising Receive Latency<a class="headerlink" href="#minimising-receive-latency" title="Permalink to this headline">¶</a></h3>
+<span id="id23"></span><h3>Minimising Receive Latency<a class="headerlink" href="#minimising-receive-latency" title="Permalink to this headline">¶</a></h3>
 <p>In low-latency environments, a few microseconds can be gained by processing the
 application data directly in the receive thread, or synchronously with respect to the
 incoming network traffic, instead of queueing it for asynchronous processing by a
@@ -675,7 +623,7 @@ configurable value. By default, these values are <code class="docutils literal n
 priority, effectively enabling synchronous delivery for all data.</p>
 </section>
 <section id="maximum-sample-size">
-<span id="id26"></span><h3>Maximum Sample Size<a class="headerlink" href="#maximum-sample-size" title="Permalink to this headline">¶</a></h3>
+<span id="id24"></span><h3>Maximum Sample Size<a class="headerlink" href="#maximum-sample-size" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS provides a setting, <code class="docutils literal notranslate"><span class="pre">Internal/MaxSampleSize</span></code>, to control the maximum size
 of samples that the service is willing to process. The size is the size of the (CDR)
 serialised payload, and the limit holds both for built-in data and for application data.
@@ -704,44 +652,8 @@ The dropping of the discovery data will be duly reported, but the usefulness
 of such a configuration seems doubtful.</p>
 </section>
 </section>
-<section id="network-partition-configuration">
-<span id="id27"></span><h2>Network Partition Configuration<a class="headerlink" href="#network-partition-configuration" title="Permalink to this headline">¶</a></h2>
-<section id="network-partition-configuration-overview">
-<span id="id28"></span><h3>Network Partition Configuration Overview<a class="headerlink" href="#network-partition-configuration-overview" title="Permalink to this headline">¶</a></h3>
-<p>Network partitions introduce alternative multicast addresses for data.  In the DDSI
-discovery protocol, a reader can override the default address at which it is reachable,
-and this feature of the discovery protocol is used to advertise alternative multicast
-addresses. The DDSI writers in the network will (also) multicast to such an alternative
-multicast address when multicasting samples or control data.</p>
-<p>The mapping of a DCPS data reader to a network partition is indirect: first the DCPS
-partitions and topic are matched against a table of <em>partition mappings</em>,
-partition/topic combinations to obtain the name of a network partition, then the network
-partition name is used to find a addressing information..  This makes it easier to map
-many different partition/topic combinations to the same multicast address without having
-to specify the actual multicast address many times over.</p>
-<p>If no match is found, the default multicast address is used.</p>
-</section>
-<section id="matching-rules">
-<span id="id29"></span><h3>Matching Rules<a class="headerlink" href="#matching-rules" title="Permalink to this headline">¶</a></h3>
-<p>Matching of a DCPS partition/topic combination proceeds in the order in which the
-partition mappings are specified in the configuration.  The first matching mapping is
-the one that will be used. The <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code> wildcards are available for the DCPS
-partition/topic combination in the partition mapping.</p>
-<p>As mentioned earlier, Eclipse Cyclone DDS can be instructed to ignore all DCPS data
-readers and writers for certain DCPS partition/topic combinations through the use of
-<em>IgnoredPartitions</em>.  The ignored partitions use the same matching rules as normal
-mappings, and take precedence over the normal mappings.</p>
-</section>
-<section id="multiple-matching-mappings">
-<span id="id30"></span><h3>Multiple Matching Mappings<a class="headerlink" href="#multiple-matching-mappings" title="Permalink to this headline">¶</a></h3>
-<p>A single DCPS data reader can be associated with a set of partitions, and each
-partition/topic combination can potentially map to a different network partitions. In
-this case, the first matching network partition will be used. This does not affect what
-data the reader will receive; it only affects the addressing on the network.</p>
-</section>
-</section>
 <section id="thread-configuration">
-<span id="id31"></span><h2>Thread Configuration<a class="headerlink" href="#thread-configuration" title="Permalink to this headline">¶</a></h2>
+<span id="id25"></span><h2>Thread Configuration<a class="headerlink" href="#thread-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Eclipse Cyclone DDS creates a number of threads and each of these threads has a number of
 properties that can be controlled individually.  The properties that can be controlled
 are:</p>
@@ -799,7 +711,7 @@ anything not specified explicitly is left at the default value.</p>
 <p>When no channels are explicitly defined, there is one channel named <em>user</em>.</p>
 </section>
 <section id="reporting-and-tracing">
-<span id="id32"></span><h2>Reporting and Tracing<a class="headerlink" href="#reporting-and-tracing" title="Permalink to this headline">¶</a></h2>
+<span id="id26"></span><h2>Reporting and Tracing<a class="headerlink" href="#reporting-and-tracing" title="Permalink to this headline">¶</a></h2>
 <p>Eclipse Cyclone DDS can produce highly detailed traces of all traffic and internal activities.
 It enables individual categories of information, as well as having a simple verbosity
 level that enables fixed sets of categories.</p>
@@ -925,9 +837,9 @@ it also requires a significant amount of time and results in huge log files.</p>
 corresponding categories is immaterial.</p>
 </section>
 <section id="compatibility-and-conformance">
-<span id="id33"></span><h2>Compatibility and Conformance<a class="headerlink" href="#compatibility-and-conformance" title="Permalink to this headline">¶</a></h2>
+<span id="id27"></span><h2>Compatibility and Conformance<a class="headerlink" href="#compatibility-and-conformance" title="Permalink to this headline">¶</a></h2>
 <section id="conformance-modes">
-<span id="id34"></span><h3>Conformance Modes<a class="headerlink" href="#conformance-modes" title="Permalink to this headline">¶</a></h3>
+<span id="id28"></span><h3>Conformance Modes<a class="headerlink" href="#conformance-modes" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS operates in one of three modes: <em>pedantic</em>, <em>strict</em> and <em>lax</em>; the mode is
 configured using the <code class="docutils literal notranslate"><span class="pre">Compatibility/StandardsConformance</span></code> setting.  The default is
 <em>lax</em>.</p>
@@ -992,12 +904,16 @@ OpenSplice.</p>
 <li><a class="reference internal" href="#proxy-participants-and-endpoints">Proxy Participants and Endpoints</a></li>
 <li><a class="reference internal" href="#sharing-of-discovery-information">Sharing of Discovery Information</a></li>
 <li><a class="reference internal" href="#lingering-writers">Lingering Writers</a></li>
-<li><a class="reference internal" href="#start-up-mode">Start-up Mode</a></li>
 <li><a class="reference internal" href="#writer-history-qos-and-throttling">Writer History QoS and Throttling</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#network-and-discovery-configuration">Network and Discovery Configuration</a><ul>
-<li><a class="reference internal" href="#networking-interfaces">Networking Interfaces</a></li>
+<li><a class="reference internal" href="#networking-interfaces-and-addresses">Networking interfaces and addresses</a><ul>
+<li><a class="reference internal" href="#default-behaviour">Default behaviour</a></li>
+<li><a class="reference internal" href="#multiple-network-interfaces">Multiple network interfaces</a></li>
+<li><a class="reference internal" href="#overriding-addresses-interfaces-for-readers-writers">Overriding addresses/interfaces for readers/writers</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#controlling-port-numbers">Controlling Port Numbers</a></li>
 <li><a class="reference internal" href="#multicasting">Multicasting</a></li>
 <li><a class="reference internal" href="#tcp-support">TCP Support</a><ul>
@@ -1014,7 +930,6 @@ OpenSplice.</p>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#combining-multiple-participants">Combining Multiple Participants</a></li>
 <li><a class="reference internal" href="#data-path-configuration">Data Path Configuration</a><ul>
 <li><a class="reference internal" href="#re-transmit-merging">Re-Transmit Merging</a></li>
 <li><a class="reference internal" href="#re-transmit-backlogs">Re-Transmit Backlogs</a></li>
@@ -1022,12 +937,6 @@ OpenSplice.</p>
 <li><a class="reference internal" href="#receive-processing">Receive Processing</a></li>
 <li><a class="reference internal" href="#minimising-receive-latency">Minimising Receive Latency</a></li>
 <li><a class="reference internal" href="#maximum-sample-size">Maximum Sample Size</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#network-partition-configuration">Network Partition Configuration</a><ul>
-<li><a class="reference internal" href="#network-partition-configuration-overview">Network Partition Configuration Overview</a></li>
-<li><a class="reference internal" href="#matching-rules">Matching Rules</a></li>
-<li><a class="reference internal" href="#multiple-matching-mappings">Multiple Matching Mappings</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#thread-configuration">Thread Configuration</a></li>
