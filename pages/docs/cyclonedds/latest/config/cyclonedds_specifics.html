@@ -20,7 +20,7 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DDS Security" href="../security.html" />
+    <link rel="next" title="Configuration Reference" href="config_file_reference.html" />
     <link rel="prev" title="DDSI Concepts" href="ddsi_concepts.html" /> 
   </head><body>
 
@@ -125,6 +125,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../config.html">Eclipse Cyclone DDS Configuration Options</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ddsi_concepts.html">DDSI Concepts</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Eclipse Cyclone DDS Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file_reference.html">Configuration Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
@@ -147,28 +148,30 @@
 be changed via an XML configuration located at a path defined by the variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_URI</span></code>
 (set by the user). An example XML configuration follows</p>
 <div class="literal-block-wrapper docutils container" id="id29">
-<div class="code-block-caption"><span class="caption-text">/path/to/dds/configuration.xml</span><a class="headerlink" href="#id29" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">/path/to/dds/configuration.xml</span></code></span><a class="headerlink" href="#id29" title="Permalink to this code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="linenos"> 2</span><span class="nt">&lt;CycloneDDS</span> <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
-<span class="linenos"> 3</span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="linenos"> 4</span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span>  <span class="nt">&lt;Domain</span> <span class="na">Id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 7</span>    <span class="nt">&lt;General&gt;</span>
-<span class="linenos"> 8</span>      <span class="nt">&lt;Interfaces&gt;</span>
-<span class="linenos"> 9</span>        <span class="nt">&lt;NetworkInterface</span> <span class="na">autodetermine=</span><span class="s">&quot;true&quot;</span> <span class="na">priority=</span><span class="s">&quot;default&quot;</span>
-<span class="linenos">10</span>        <span class="na">multicast=</span><span class="s">&quot;default&quot;</span> <span class="nt">/&gt;</span>
-<span class="linenos">11</span>      <span class="nt">&lt;/Interfaces&gt;</span>
-<span class="linenos">12</span>      <span class="nt">&lt;AllowMulticast&gt;</span>default<span class="nt">&lt;/AllowMulticast&gt;</span>
-<span class="linenos">13</span>      <span class="nt">&lt;MaxMessageSize&gt;</span>65500B<span class="nt">&lt;/MaxMessageSize&gt;</span>
-<span class="linenos">14</span>    <span class="nt">&lt;/General&gt;</span>
-<span class="linenos">15</span>    <span class="nt">&lt;Tracing&gt;</span>
-<span class="linenos">16</span>      <span class="nt">&lt;Verbosity&gt;</span>config<span class="nt">&lt;/Verbosity&gt;</span>
-<span class="linenos">17</span>      <span class="nt">&lt;OutputFile&gt;</span>
-<span class="linenos">18</span>      ${HOME}/dds/log/cdds.log.${CYCLONEDDS_PID}<span class="nt">&lt;/OutputFile&gt;</span>
-<span class="linenos">19</span>    <span class="nt">&lt;/Tracing&gt;</span>
-<span class="linenos">20</span>  <span class="nt">&lt;/Domain&gt;</span>
-<span class="linenos">21</span><span class="nt">&lt;/CycloneDDS&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;CycloneDDS</span>
+<span class="linenos"> 3</span>  <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+<span class="linenos"> 4</span>  <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="linenos"> 5</span>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span>
+<span class="linenos"> 6</span><span class="nt">&gt;</span>
+<span class="linenos"> 7</span>  <span class="nt">&lt;Domain</span> <span class="na">Id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span>    <span class="nt">&lt;General&gt;</span>
+<span class="linenos"> 9</span>      <span class="nt">&lt;Interfaces&gt;</span>
+<span class="linenos">10</span>        <span class="nt">&lt;NetworkInterface</span> <span class="na">autodetermine=</span><span class="s">&quot;true&quot;</span> <span class="na">priority=</span><span class="s">&quot;default&quot;</span>
+<span class="linenos">11</span>        <span class="na">multicast=</span><span class="s">&quot;default&quot;</span> <span class="nt">/&gt;</span>
+<span class="linenos">12</span>      <span class="nt">&lt;/Interfaces&gt;</span>
+<span class="linenos">13</span>      <span class="nt">&lt;AllowMulticast&gt;</span>default<span class="nt">&lt;/AllowMulticast&gt;</span>
+<span class="linenos">14</span>      <span class="nt">&lt;MaxMessageSize&gt;</span>65500B<span class="nt">&lt;/MaxMessageSize&gt;</span>
+<span class="linenos">15</span>    <span class="nt">&lt;/General&gt;</span>
+<span class="linenos">16</span>    <span class="nt">&lt;Tracing&gt;</span>
+<span class="linenos">17</span>      <span class="nt">&lt;Verbosity&gt;</span>config<span class="nt">&lt;/Verbosity&gt;</span>
+<span class="linenos">18</span>      <span class="nt">&lt;OutputFile&gt;</span>
+<span class="linenos">19</span>        ${HOME}/dds/log/cdds.log.${CYCLONEDDS_PID}
+<span class="linenos">20</span>      <span class="nt">&lt;/OutputFile&gt;</span>
+<span class="linenos">21</span>    <span class="nt">&lt;/Tracing&gt;</span>
+<span class="linenos">22</span>  <span class="nt">&lt;/Domain&gt;</span>
+<span class="linenos">23</span><span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -210,17 +213,16 @@ all discovery activities amongst the participants, allowing one to add participa
 process with only a minimal impact on the system.  It is even possible to have only a
 single DDSI participant in a process regardless of the number of DCPS participants
 created by the application code in that process, which then becomes the virtual owner of
-all the endpoints created in that one process.  (See <a href="#id30"><span class="problematic" id="id31">`Combining multiple
-participants`_</span></a>.)  In this latter mode, there is no discovery penalty at all for having
+all the endpoints created in that one process.  (See <a class="reference internal" href="#sharing-of-discovery-information"><span class="std std-ref">Sharing of Discovery Information</span></a>.)
+In this latter mode, there is no discovery penalty at all for having
 many participants, but evidently, any participant-based liveliness monitoring will be
 affected.</p>
 <p>Because other implementations of the DDSI specification may be written on the assumption
 that all participants perform their own discovery, it is possible to simulate that with
 Eclipse Cyclone DDS.  It will not actually perform the discovery for each participant
-independently, but it will generate the network traffic <em>as if</em> it does.  These are
-controlled by the <code class="docutils literal notranslate"><span class="pre">Internal/BuiltinEndpointSet</span></code> and
-<code class="docutils literal notranslate"><span class="pre">Internal/ConservativeBuiltinReaderStartup</span></code> options.  However, please note that at the
-time of writing, we are not aware of any DDSI implementation requiring the use of these
+independently, but it will generate the network traffic <em>as if</em> it does. These are
+controlled by the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-builtinendpointset"><span class="std std-ref">Internal/BuiltinEndpointSet</span></a> option.
+However, please note that at the time of writing, we are not aware of any DDSI implementation requiring the use of these
 settings.)</p>
 <p>By sharing the discovery information across all participants in a single node, each
 new participant or endpoint is immediately aware of the existing peers and will
@@ -233,7 +235,7 @@ discovering this new participant or endpoint.</p>
 <p>When an application deletes a reliable DCPS data writer, there is no guarantee that all
 its readers have already acknowledged the correct receipt of all samples.  In such a
 case, Eclipse Cyclone DDS lets the writer (and the owning participant if necessary) linger in
-the system for some time, controlled by the <code class="docutils literal notranslate"><span class="pre">Internal/WriterLingerDuration</span></code> option.
+the system for some time, controlled by the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-writerlingerduration"><span class="std std-ref">Internal/WriterLingerDuration</span></a> option.
 The writer is deleted when all samples have been acknowledged by all readers or the
 linger duration has elapsed, whichever comes first.</p>
 <p>Note that the writer linger duration setting is currently not applied when Eclipse Cyclone DDS
@@ -253,8 +255,7 @@ readers have acknowledged a sample.</p>
 <p>The index on sequence number is required for retransmitting old data, and is therefore
 needed for all reliable writers.  The index on key values is always needed for
 transient-local data, and will be default also be used for other writers using a history
-setting of <code class="docutils literal notranslate"><span class="pre">KEEP_LAST</span></code>.  (The <code class="docutils literal notranslate"><span class="pre">Internal/AggressiveKeepLastWhc</span></code> setting controls this
-behaviour.)  The advantage of an index on key value in such a case is that superseded
+setting of <code class="docutils literal notranslate"><span class="pre">KEEP_LAST</span></code>. The advantage of an index on key value in such a case is that superseded
 samples can be dropped aggressively, instead of having to deliver them to all readers;
 the disadvantage is that it is somewhat more resource-intensive.</p>
 <p>The WHC distinguishes between history to be retained for existing readers (controlled by
@@ -266,11 +267,11 @@ readers.  Moreover, it ensures that the data that is available for late-joining 
 is the same for transient-local and for transient data.</p>
 <p>Writer throttling is based on the WHC size using a simple controller.  Once the WHC
 contains at least <em>high</em> bytes in unacknowledged samples, it stalls the writer until the
-number of bytes in unacknowledged samples drops below <code class="docutils literal notranslate"><span class="pre">Internal/Watermarks/WhcLow</span></code>.
-The value of <em>high</em> is dynamically adjusted between <code class="docutils literal notranslate"><span class="pre">Internal/Watermarks/WhcLow</span></code> and
-<code class="docutils literal notranslate"><span class="pre">Internal/Watermarks/WhcHigh</span></code> based on transmit pressure and receive retransmit
-requests. The initial value of <em>high</em> is <code class="docutils literal notranslate"><span class="pre">Internal/Watermarks/WhcHighInit</span></code> and the
-adaptive behavior can be disabled by setting <code class="docutils literal notranslate"><span class="pre">Internal/Watermarks/WhcAdaptive</span></code> to
+number of bytes in unacknowledged samples drops below <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-watermarks-whclow"><span class="std std-ref">Internal/Watermarks/WhcLow</span></a>.
+The value of <em>high</em> is dynamically adjusted between <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-watermarks-whclow"><span class="std std-ref">Internal/Watermarks/WhcLow</span></a> and
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-watermarks-whchigh"><span class="std std-ref">Internal/Watermarks/WhcHigh</span></a> based on transmit pressure and receive retransmit
+requests. The initial value of <em>high</em> is <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-watermarks-whchighinit"><span class="std std-ref">Internal/Watermarks/WhcHighInit</span></a> and the
+adaptive behavior can be disabled by setting <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-watermarks-whcadaptive"><span class="std std-ref">Internal/Watermarks/WhcAdaptive</span></a> to
 false.</p>
 <p>While the adaptive behaviour generally handles a variety of fast and slow writers and
 readers quite well, the introduction of a very slow reader with small buffers in an
@@ -290,37 +291,37 @@ things can continue at a much lower rate.</p>
 <ul class="simple">
 <li><p>interfaces with a non-link-local address are preferred over those with
 a link-local one;</p></li>
-<li><p>multicast-capable is preferred (see also <code class="docutils literal notranslate"><span class="pre">General/Interfaces/NetworkInterface[&#64;multicast]</span></code>), or if
+<li><p>multicast-capable is preferred (see also <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface-multicast"><span class="std std-ref">General/Interfaces/NetworkInterface[&#64;multicast]</span></a>), or if
 none is available</p></li>
 <li><p>non-multicast capable and not point-to-point, or if none is available</p></li>
 <li><p>point-to-point, or if none is available</p></li>
 <li><p>loopback</p></li>
 </ul>
-<p>If this procedure doesn’t select the desired interface automatically, it can be overridden by setting <code class="docutils literal notranslate"><span class="pre">General/Interfaces</span></code> by adding the interface(s) either by name of the interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">name='interface_name'</span> <span class="pre">/&gt;</span></code>), the IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.129.0.42'</span> <span class="pre">/&gt;</span></code>), or the network portion of the IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.11.0.0'</span> <span class="pre">/&gt;</span></code>). An exact match on the address is always preferred and is the only option that allows selecting the desired one when multiple addresses are tied to a single interface.</p>
+<p>If this procedure doesn’t select the desired interface automatically, it can be overridden by setting <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces"><span class="std std-ref">General/Interfaces</span></a> by adding the interface(s) either by name of the interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">name='interface_name'</span> <span class="pre">/&gt;</span></code>), the IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.129.0.42'</span> <span class="pre">/&gt;</span></code>), or the network portion of the IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.11.0.0'</span> <span class="pre">/&gt;</span></code>). An exact match on the address is always preferred and is the only option that allows selecting the desired one when multiple addresses are tied to a single interface.</p>
 <p>The default address family is IPv4, setting General/Transport to <code class="docutils literal notranslate"><span class="pre">udp6</span></code> or <code class="docutils literal notranslate"><span class="pre">tcp6</span></code> will change this to IPv6.  Currently, Cyclone DDS does not mix IPv4 and IPv6 addressing.  Consequently, all DDSI participants in the network must use the same addressing mode.  When inter-operating, this behaviour is the same, i.e., it will look at either IPv4 or IPv6 addresses in the advertised address information in the SPDP and SEDP discovery protocols.</p>
 <p>IPv6 link-local addresses are considered undesirable because they need to be published and received via the discovery mechanism, but there is in general no way to determine to which interface a received link-local address is related.</p>
 <p>If IPv6 is requested and the selected interface has a non-link-local address, Cyclone DDS will operate in a <em>global addressing</em> mode and will only consider discovered non-link-local addresses.  In this mode, one can select any set of interfaces for listening to multicasts.  Note that this behaviour is essentially identical to that when using IPv4, as IPv4 does not have the formal notion of address scopes that IPv6 has.  If instead only a link-local address is available, Cyclone DDS will run in a <em>link-local addressing</em> mode.  In this mode it will accept any address in a discovery packet, assuming that a link-local address is valid on the selected interface.  To minimise the risk involved in this assumption, it only allows the selected interface for listening to multicasts.</p>
 </section>
 <section id="multiple-network-interfaces">
 <h4>Multiple network interfaces<a class="headerlink" href="#multiple-network-interfaces" title="Permalink to this headline">¶</a></h4>
-<p>Multiple network interfaces can be used simultaneously, by listing multiple <code class="docutils literal notranslate"><span class="pre">NetworkInterface</span></code> elements.  In this case, the above still applies, with most things extended in the obvious manner, e.g., the SPDP packets will now advertise multiple addresses and it will send these packets out on all interfaces.  That means the issue with <em>link-local addressing</em> discussed gains importance if link-local addresses are used, but they usually aren’t.</p>
+<p>Multiple network interfaces can be used simultaneously, by listing multiple <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface"><span class="std std-ref">NetworkInterface</span></a> elements.  In this case, the above still applies, with most things extended in the obvious manner, e.g., the SPDP packets will now advertise multiple addresses and it will send these packets out on all interfaces.  That means the issue with <em>link-local addressing</em> discussed gains importance if link-local addresses are used, but they usually aren’t.</p>
 <p>In a configuration with just a single network interface, it is obvious which one to use for sending packets to a peer.  When there are multiple network interfaces, it is necessary to establish the set of interfaces via which multicasts can be sent, because these are sent on a specific interface.  This in turn requires determining via which subset of interfaces a peer is reachable.</p>
 <p>Cyclone DDS approaches this by checking which interfaces match the addresses advertised by a peer in its SPDP or SEDP messages, under the assumption that in most cases the peer will be attached to at least one of the configured networks and that checking the network parts of the addresses will result in a subset of the interfaces.  The network interfaces in this subset are then the interfaces on which the peer is assumed to be reachable via multicast.</p>
 <p>This leaves open two classes of addresses:</p>
 <ul class="simple">
 <li><p>Loopback addresses: these are ignored unless (1) the configuration has enabled only loopback interfaces, (2) no other addresses are advertised in the discovery message, or (3) a non-loopback address matches that of the machine.</p></li>
-<li><p>Routable addresses that do not match an interface: these are ignored if the <code class="docutils literal notranslate"><span class="pre">General/DontRoute</span></code> option is set, otherwise it is assumed that the network stack knows how to route them and any of the interfaces may be used.</p></li>
+<li><p>Routable addresses that do not match an interface: these are ignored if the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-dontroute"><span class="std std-ref">General/DontRoute</span></a> option is set, otherwise it is assumed that the network stack knows how to route them and any of the interfaces may be used.</p></li>
 </ul>
 <p>When a message needs to be sent to a set of peers, Cyclone DDS aims use the set of addresses spanning the set of intended recipients with the lowest cost (number of nodes that receive it without having a use for it, unicast vs multicast, loopback vs real network interface, configured priority).  This is a variant of the set cover problem, and so Cyclone DDS uses some heuristics rather than computing the optimal solution.  The address selection can be influenced in two ways:</p>
 <ul class="simple">
 <li><p>By using the <code class="docutils literal notranslate"><span class="pre">priority</span></code> attribute, which is used as an offset in the cost calculation.  The default configuration gives loopback interfaces a slightly higher priority than other network types.</p></li>
 <li><p>By setting the <code class="docutils literal notranslate"><span class="pre">prefer_multicast</span></code> attribute, which raises the assumed cost of a unicast message.</p></li>
 </ul>
-<p>The experimental <code class="docutils literal notranslate"><span class="pre">Internal/RedundantNetworking</span></code> setting furthermore forces the address selection code to cover all interfaces advertised by a peer.</p>
+<p>The <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-redundantnetworking"><span class="std std-ref">General/RedundantNetworking</span></a> setting furthermore forces the address selection code to cover all interfaces advertised by a peer.</p>
 </section>
 <section id="overriding-addresses-interfaces-for-readers-writers">
 <h4>Overriding addresses/interfaces for readers/writers<a class="headerlink" href="#overriding-addresses-interfaces-for-readers-writers" title="Permalink to this headline">¶</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">Partitioning</span></code> element in the configuration allows configuring <code class="docutils literal notranslate"><span class="pre">NetworkPartition</span></code> elements and mapping topic/partition names to these “network partitions” using <code class="docutils literal notranslate"><span class="pre">PartitionMapping</span></code> elements.</p>
+<p>The <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-partitioning"><span class="std std-ref">Partitioning</span></a> element in the configuration allows configuring <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-partitioning-networkpartitions"><span class="std std-ref">NetworkPartition</span></a> elements and mapping topic/partition names to these “network partitions” using <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-partitioning-partitionmappings"><span class="std std-ref">PartitionMappings</span></a> elements.</p>
 <p>Network partitions introduce alternative multicast addresses for data and/or restrict the set of unicast addresses (i.e., interfaces). In the DDSI discovery protocol, a reader can override the addresses at which it is reachable and this feature of the discovery protocol is used to advertise alternative multicast addresses and/or a subset of the unicast addresses. The writers in the network will use the addresses advertised by the reader rather than the default addresses advertised by the reader’s participant.</p>
 <p>Unicast and multicast addresses in a network partition play different roles:</p>
 <ul class="simple">
@@ -339,7 +340,7 @@ none is available</p></li>
 items are given by the DDSI specification and the third is unique to Eclipse Cyclone DDS as a
 way of serving multiple participants by a single DDSI instance:</p>
 <ul class="simple">
-<li><p>2 ‘well-known’ multicast ports: <code class="docutils literal notranslate"><span class="pre">B</span></code> and <code class="docutils literal notranslate"><span class="pre">B+1</span></code></p></li>
+<li><p>2 “well-known” multicast ports: <code class="docutils literal notranslate"><span class="pre">B</span></code> and <code class="docutils literal notranslate"><span class="pre">B+1</span></code></p></li>
 <li><p>2 unicast ports at which only this instance is listening: <code class="docutils literal notranslate"><span class="pre">B+PG*PI+10</span></code> and
 <code class="docutils literal notranslate"><span class="pre">B+PG*PI+11</span></code></p></li>
 <li><p>1 unicast port per domain participant it serves, chosen by the kernel
@@ -347,10 +348,10 @@ from the anonymous ports, <em>i.e.</em> &gt;= 32768</p></li>
 </ul>
 <p>where:</p>
 <ul class="simple">
-<li><p><em>B</em> is <code class="docutils literal notranslate"><span class="pre">Discovery/Ports/Base</span></code> (<code class="docutils literal notranslate"><span class="pre">7400</span></code>) + <code class="docutils literal notranslate"><span class="pre">Discovery/Ports/DomainGain</span></code>
-(<code class="docutils literal notranslate"><span class="pre">250</span></code>) * <code class="docutils literal notranslate"><span class="pre">Domain/Id</span></code></p></li>
-<li><p><em>PG</em> is <code class="docutils literal notranslate"><span class="pre">Discovery/Ports/ParticipantGain</span></code> (<code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
-<li><p><em>PI</em> is <code class="docutils literal notranslate"><span class="pre">Discovery/ParticipantIndex</span></code></p></li>
+<li><p><em>B</em> is <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-ports-base"><span class="std std-ref">Discovery/Ports/Base</span></a> (<code class="docutils literal notranslate"><span class="pre">7400</span></code>) + <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-ports-domaingain"><span class="std std-ref">Discovery/Ports/DomainGain</span></a>
+(<code class="docutils literal notranslate"><span class="pre">250</span></code>) * <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-id"><span class="std std-ref">Domain[&#64;Id]</span></a></p></li>
+<li><p><em>PG</em> is <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-ports-participantgain"><span class="std std-ref">Discovery/Ports/ParticipantGain</span></a> (<code class="docutils literal notranslate"><span class="pre">2</span></code>)</p></li>
+<li><p><em>PI</em> is <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-participantindex"><span class="std std-ref">Discovery/ParticipantIndex</span></a></p></li>
 </ul>
 <p>The default values, taken from the DDSI specification, are in parentheses.  There are
 actually even more parameters, here simply turned into constants as there is absolutely
@@ -363,9 +364,9 @@ integer.  This setting matters:</p>
 <li><p>When it is <em>auto</em>, Eclipse Cyclone DDS probes UDP port numbers on
 start-up, starting with PI = 0, incrementing it by one each time until it finds a pair
 of available port numbers, or it hits the limit.  The maximum PI it will ever choose
-is <code class="docutils literal notranslate"><span class="pre">Discovery/MaxAutoParticipantIndex</span></code> as a way of limiting the cost of unicast
+is <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-maxautoparticipantindex"><span class="std std-ref">Discovery/MaxAutoParticipantIndex</span></a> as a way of limiting the cost of unicast
 discovery.</p></li>
-<li><p>When it is <em>none</em> (which is the default) it simply ignores the ‘participant index’
+<li><p>When it is <em>none</em> (which is the default) it simply ignores the “participant index”
 altogether and asks the kernel to pick random ports (&gt;= 32768).  This eliminates
 the limit on the number of standalone deployments on a single machine and works
 just fine with multicast discovery while complying with all other parts of the
@@ -375,7 +376,7 @@ calculations.  If multiple processes on a single machine are needed, they will n
 unique values for PI, and so for standalone deployments this particular alternative is
 hardly useful.</p></li>
 </ul>
-<p>Clearly, to fully control port numbers, setting <code class="docutils literal notranslate"><span class="pre">Discovery/ParticipantIndex</span></code> (= PI) to
+<p>Clearly, to fully control port numbers, setting <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-participantindex"><span class="std std-ref">Discovery/ParticipantIndex</span></a> (= PI) to
 a hard-coded value is the only possibility.  By fixing PI, the port numbers needed for
 unicast discovery are fixed as well.  This allows listing peers as IP:PORT pairs,
 significantly reducing traffic, as explained in the preceding subsection.</p>
@@ -389,7 +390,7 @@ send a few bytes extra to ensure the contents of a message are all that is neede
 other implementations, you will need to check.</p>
 <p>If all DDSI implementations in the network include full addressing information in the
 messages like Eclipse Cyclone DDS does, then the per-domain participant ports serve no purpose
-at all.  The default <code class="docutils literal notranslate"><span class="pre">false</span></code> setting of <code class="docutils literal notranslate"><span class="pre">Compatibility/ManySocketsMode</span></code> disables the
+at all.  The default <code class="docutils literal notranslate"><span class="pre">false</span></code> setting of <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-compatibility-manysocketsmode"><span class="std std-ref">Compatibility/ManySocketsMode</span></a> disables the
 creation of these ports.</p>
 <p>This setting can have a few other side benefits as well, as there will may be multiple
 DCPS participants using the same unicast locator.  This improves the chances of a single
@@ -407,15 +408,15 @@ multicast as well as source-specific multicast) is to be used:</p>
 <p>It is advised to allow multicasting to be used.  However, if there are restrictions on
 the use of multicasting, or if the network reliability is dramatically different for
 multicast than for unicast, it may be attractive to disable multicast for normal
-communications.  In this case, setting <code class="docutils literal notranslate"><span class="pre">General/AllowMulticast</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> will
+communications.  In this case, setting <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-allowmulticast"><span class="std std-ref">General/AllowMulticast</span></a> to <code class="docutils literal notranslate"><span class="pre">false</span></code> will
 force the use of unicast communications for everything.</p>
 <p>If at all possible, it is strongly advised to leave multicast-based participant
 discovery enabled, because that avoids having to specify a list of nodes to contact, and
 it furthermore reduces the network load considerably.  Setting
-<code class="docutils literal notranslate"><span class="pre">General/AllowMulticast</span></code> to <code class="docutils literal notranslate"><span class="pre">spdp</span></code> will allow participant discovery via multicast
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-allowmulticast"><span class="std std-ref">General/AllowMulticast</span></a> to <code class="docutils literal notranslate"><span class="pre">spdp</span></code> will allow participant discovery via multicast
 while disabling multicast for everything else.</p>
 <p>To disable incoming multicasts, or to control from which interfaces multicasts are to be
-accepted, one can use the <code class="docutils literal notranslate"><span class="pre">General/MulticastRecvInterfaceAddresses</span></code> setting.  This
+accepted, one can use the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-multicastrecvnetworkinterfaceaddresses"><span class="std std-ref">General/MulticastRecvNetworkInterfaceAddresses</span></a> setting.  This
 allows listening on no interface, the preferred, all or a specific set of interfaces.</p>
 </section>
 <section id="tcp-support">
@@ -426,7 +427,7 @@ practical network transport available (for example, across a WAN).  Because of t
 Eclipse Cyclone DDS can use TCP instead of UDP.</p>
 <p>The differences in the model of operation between DDSI and TCP are quite large: DDSI is
 based on the notion of peers, whereas TCP communication is based on the notion of a
-session that is initiated by a ‘client’ and accepted by a ‘server’; therefore, TCP requires
+session that is initiated by a “client” and accepted by a “server”; therefore, TCP requires
 knowledge of the servers to connect to before the DDSI discovery protocol can exchange
 that information.  The configuration of this is done in the same manner as for
 unicast-based UDP discovery.</p>
@@ -464,13 +465,14 @@ protocol never requires any configuration.</p>
 set of addresses, which by default contains just the multicast address, which is
 standardised for IPv4 (<code class="docutils literal notranslate"><span class="pre">239.255.0.1</span></code>) but not for IPv6 (it uses
 <code class="docutils literal notranslate"><span class="pre">ff02::ffff:239.255.0.1</span></code>).  The actual address can be overridden using the
-<code class="docutils literal notranslate"><span class="pre">Discovery/SPDPMulticastAddress</span></code> setting, which requires a valid multicast address.</p>
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-spdpmulticastaddress"><span class="std std-ref">Discovery/SPDPMulticastAddress</span></a>
+setting, which requires a valid multicast address.</p>
 <p>In addition (or as an alternative) to the multicast-based discovery, any number of
 unicast addresses can be configured as addresses to be contacted by specifying peers in
-the <code class="docutils literal notranslate"><span class="pre">Discovery/Peers</span></code> section.  Each time an SPDP message is sent, it is sent to all
+the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-peers"><span class="std std-ref">Discovery/Peers</span></a> section.  Each time an SPDP message is sent, it is sent to all
 of these addresses.</p>
 <p>Default behaviour is to include each IP address several times in the set (for
-participant indices 0 through <code class="docutils literal notranslate"><span class="pre">MaxAutoParticipantIndex</span></code>, each time with a different
+participant indices 0 through <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-maxautoparticipantindex"><span class="std std-ref">Discovery/MaxAutoParticipantIndex</span></a>, each time with a different
 UDP port number (corresponding to another participant index), allowing at least several
 applications to be present on these hosts.</p>
 <p>Obviously, configuring a number of peers in this way causes a large burst of packets
@@ -480,7 +482,7 @@ making this rather wasteful behaviour.</p>
 <p>To avoid sending large numbers of packets to each host, differing only in port number,
 it is also possible to add a port number to the IP address, formatted as IP:PORT, but
 this requires manually calculating the port number.  In practice it also requires fixing
-the participant index using <code class="docutils literal notranslate"><span class="pre">Discovery/ParticipantIndex</span></code> (see the description of ‘PI’
+the participant index using <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-participantindex"><span class="std std-ref">Discovery/ParticipantIndex</span></a> (see the description of “PI”
 in <a class="reference internal" href="#controlling-port-numbers">Controlling port numbers</a>) to ensure that the configured port number indeed
 corresponds to the port number the remote DDSI implementation is listening on, and
 therefore is really attractive only when it is known that there is but a single DDSI
@@ -507,7 +509,7 @@ disconnections.</p>
 <section id="endpoint-discovery">
 <span id="id18"></span><h4>Endpoint Discovery<a class="headerlink" href="#endpoint-discovery" title="Permalink to this headline">¶</a></h4>
 <p>Although the SEDP protocol never requires any configuration, network partitioning does
-interact with it: so-called ‘ignored partitions’ can be used to instruct Eclipse Cyclone DDS to
+interact with it: so-called “ignored partitions” can be used to instruct Eclipse Cyclone DDS to
 completely ignore certain DCPS topic and partition combinations, which will prevent data
 for these topic/partition combinations from being forwarded to and from the network.</p>
 </section>
@@ -519,25 +521,25 @@ for these topic/partition combinations from being forwarded to and from the netw
 <span id="retransmit-merging"></span><h3>Re-Transmit Merging<a class="headerlink" href="#re-transmit-merging" title="Permalink to this headline">¶</a></h3>
 <p>A remote reader can request re-transmission whenever it receives a Heartbeat and detects
 samples are missing.  If a sample was lost on the network for many or all readers, the
-next heartbeat is likely to trigger a ‘storm’ of re-transmission requests.  Thus, the
+next heartbeat is likely to trigger a “storm” of re-transmission requests.  Thus, the
 writer should attempt merging these requests into a multicast re-transmission, to avoid
 re-transmitting the same sample over &amp; over again to many different readers.  Similarly,
 while readers should try to avoid requesting re-transmissions too often, in an
 interoperable system the writers should be robust against it.</p>
 <p>In Eclipse Cyclone DDS, upon receiving a Heartbeat that indicates samples are missing, a reader
 will schedule the second and following re-transmission requests to be sent after
-<code class="docutils literal notranslate"><span class="pre">Internal/NackDelay</span></code> or combine it with an already scheduled request if possible.  Any
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-nackdelay"><span class="std std-ref">Internal/NackDelay</span></a> or combine it with an already scheduled request if possible.  Any
 samples received in between receipt of the Heartbeat and the sending of the AckNack will
 not need to be re-transmitted.</p>
 <p>Secondly, a writer attempts to combine re-transmit requests in two different ways.  The
 first is to change messages from unicast to multicast when another re-transmit request
 arrives while the re-transmit has not yet taken place.  This is particularly effective
 when bandwidth limiting causes a backlog of samples to be re-transmitted.  The behaviour
-of the second can be configured using the <code class="docutils literal notranslate"><span class="pre">Internal/Re-TransmitMerging</span></code> setting.  Based
+of the second can be configured using the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-retransmitmerging"><span class="std std-ref">Internal/ReTransmitMerging</span></a> setting.  Based
 on this setting, a re-transmit request for a sample is either honoured unconditionally,
-or it may be suppressed (or ‘merged’) if it comes in shortly after a multicasted
+or it may be suppressed (or “merged”) if it comes in shortly after a multicasted
 re-transmission of that very sample, on the assumption that the second reader will likely
-receive the re-transmit, too.  The <code class="docutils literal notranslate"><span class="pre">Internal/ReTransmitMergingPeriod</span></code> controls the
+receive the re-transmit, too.  The <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-retransmitmergingperiod"><span class="std std-ref">Internal/ReTransmitMergingPeriod</span></a> controls the
 length of this time window.</p>
 </section>
 <section id="re-transmit-backlogs">
@@ -550,10 +552,10 @@ queue may be delayed by so much that the reader issues another re-transmit reque
 ignores (those parts of) re-transmission requests that would cause the re-transmit queue
 to contain too many samples or take too much time to process. There are two settings
 governing the size of these queues, and the limits are applied per timed-event thread.
-The first is <code class="docutils literal notranslate"><span class="pre">Internal/MaxQueuedRexmitMessages</span></code>, which limits the number of re-transmit
-messages, the second <code class="docutils literal notranslate"><span class="pre">Internal/MaxQueuedRexmitBytes</span></code> which limits the number of bytes.
+The first is <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxqueuedrexmitmessages"><span class="std std-ref">Internal/MaxQueuedRexmitMessages</span></a>, which limits the number of re-transmit
+messages, the second <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxqueuedrexmitbytes"><span class="std std-ref">Internal/MaxQueuedRexmitBytes</span></a> which limits the number of bytes.
 The latter defaults to a setting based on the combination of the allowed transmit
-bandwidth and the <code class="docutils literal notranslate"><span class="pre">Internal/NackDelay</span></code> setting, as an approximation of the likely time
+bandwidth and the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-nackdelay"><span class="std std-ref">Internal/NackDelay</span></a> setting, as an approximation of the likely time
 until the next potential re-transmit request from the reader.</p>
 </section>
 <section id="controlling-fragmentation">
@@ -563,13 +565,13 @@ datagram.  DDSI has facilities to fragment samples so they can fit in UDP datagr
 similarly IP has facilities to fragment UDP datagrams to into network packets.  The DDSI
 specification states that one must not unnecessarily fragment at the DDSI level, but
 Eclipse Cyclone DDS simply provides a fully configurable behaviour.</p>
-<p>If the serialised form of a sample is at least <code class="docutils literal notranslate"><span class="pre">Internal/FragmentSize</span></code>,
+<p>If the serialised form of a sample is at least <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-fragmentsize"><span class="std std-ref">General/FragmentSize</span></a>,
 it will be fragmented using the DDSI fragmentation. All but the last fragment
 will be exactly this size; the last one may be smaller.</p>
 <p>Control messages, non-fragmented samples, and sample fragments are all subject to
 packing into datagrams before sending it out on the network, based on various attributes
 such as the destination address, to reduce the number of network packets.  This packing
-allows datagram payloads of up to <code class="docutils literal notranslate"><span class="pre">Internal/MaxMessageSize</span></code>, overshooting this size if
+allows datagram payloads of up to <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-maxmessagesize"><span class="std std-ref">General/MaxMessageSize</span></a>, overshooting this size if
 the set maximum is too small to contain what must be sent as a single unit.  Note that
 in this case, there is a real problem anyway, and it no longer matters where the data is
 rejected, if it is rejected at all.  UDP/IP header sizes are not taken into account in
@@ -596,14 +598,14 @@ and queueing of samples that must be retransmitted, and for defragmenting and or
 incoming samples.</p>
 <p>Fragmented data first enters the defragmentation stage, which is per proxy writer.  The
 number of samples that can be defragmented simultaneously is limited, for reliable data
-to <code class="docutils literal notranslate"><span class="pre">Internal/DefragReliableMaxSamples</span></code> and for unreliable data to
-<code class="docutils literal notranslate"><span class="pre">Internal/DefragUnreliableMaxSamples</span></code>.</p>
+to <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-defragreliablemaxsamples"><span class="std std-ref">Internal/DefragReliableMaxSamples</span></a> and for unreliable data to
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-defragunreliablemaxsamples"><span class="std std-ref">Internal/DefragUnreliableMaxSamples</span></a>.</p>
 <p>Samples (defragmented if necessary) received out of sequence are buffered, primarily per
 proxy writer, but, secondarily, per reader catching up on historical (transient-local)
-data.  The size of the first is limited to <code class="docutils literal notranslate"><span class="pre">Internal/PrimaryReorderMaxSamples</span></code>, the
-size of the second to <code class="docutils literal notranslate"><span class="pre">Internal/SecondaryReorderMaxSamples</span></code>.</p>
+data.  The size of the first is limited to <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-primaryreordermaxsamples"><span class="std std-ref">Internal/PrimaryReorderMaxSamples</span></a>, the
+size of the second to <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-secondaryreordermaxsamples"><span class="std std-ref">Internal/SecondaryReorderMaxSamples</span></a>.</p>
 <p>In between the receive thread and the delivery threads sit queues, of which the maximum
-size is controlled by the <code class="docutils literal notranslate"><span class="pre">Internal/DeliveryQueueMaxSamples</span></code> setting.  Generally there
+size is controlled by the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-deliveryqueuemaxsamples"><span class="std std-ref">Internal/DeliveryQueueMaxSamples</span></a> setting.  Generally there
 is no need for these queues to be very large (unless one has very small samples in very
 large messages), their primary function is to smooth out the processing when batches of
 samples become available at once, for example following a retransmission.</p>
@@ -624,14 +626,14 @@ priority, effectively enabling synchronous delivery for all data.</p>
 </section>
 <section id="maximum-sample-size">
 <span id="id24"></span><h3>Maximum Sample Size<a class="headerlink" href="#maximum-sample-size" title="Permalink to this headline">¶</a></h3>
-<p>Eclipse Cyclone DDS provides a setting, <code class="docutils literal notranslate"><span class="pre">Internal/MaxSampleSize</span></code>, to control the maximum size
+<p>Eclipse Cyclone DDS provides a setting, <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a>, to control the maximum size
 of samples that the service is willing to process. The size is the size of the (CDR)
 serialised payload, and the limit holds both for built-in data and for application data.
 The (CDR) serialised payload is never larger than the in-memory representation of the
 data.</p>
-<p>On the transmitting side, samples larger than <code class="docutils literal notranslate"><span class="pre">MaxSampleSize</span></code> are dropped with a
+<p>On the transmitting side, samples larger than <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a> are dropped with a
 warning in the.  Eclipse Cyclone DDS behaves as if the sample never existed.</p>
-<p>Similarly, on the receiving side, samples large than <code class="docutils literal notranslate"><span class="pre">MaxSampleSize</span></code> are dropped as
+<p>Similarly, on the receiving side, samples large than <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a> are dropped as
 early as possible, immediately following the reception of a sample or fragment of one,
 to prevent any resources from being claimed for longer than strictly necessary.  Where
 the transmitting side completely ignores the sample, the receiving side pretends the
@@ -646,7 +648,7 @@ the point of view of reducing resource usage, it can make it hard to decide whet
 not dropping a particular sample has been recorded in the log already.  Under normal
 operational circumstances, only a single message will be recorded for each sample
 dropped, but it may on occasion report multiple events for the same sample.</p>
-<p>Finally, it is technically allowed to set <code class="docutils literal notranslate"><span class="pre">MaxSampleSize</span></code> to very small sizes,
+<p>Finally, it is technically allowed to set <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a> to very small sizes,
 even to the point that the discovery data can’t be communicated anymore.
 The dropping of the discovery data will be duly reported, but the usefulness
 of such a configuration seems doubtful.</p>
@@ -662,7 +664,7 @@ are:</p>
 <li><p>scheduling class, and</p></li>
 <li><p>scheduling priority.</p></li>
 </ul>
-<p>The threads are named and the attribute <code class="docutils literal notranslate"><span class="pre">Threads/Thread[&#64;name]</span></code> is used to set the
+<p>The threads are named and the attribute <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-threads-thread-name"><span class="std std-ref">Threads/Thread[&#64;name]</span></a> is used to set the
 properties by thread name.  Any subset of threads can be given special properties;
 anything not specified explicitly is left at the default value.</p>
 <p>The following threads exist:</p>
@@ -703,7 +705,7 @@ anything not specified explicitly is left at the default value.</p>
 <td><p>Deserialisation and asynchronous delivery of all user data.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tev.channel-name</span></code></p></td>
-<td><p>Channel-specific ‘timed-event’ handling transmission of control messages for reliable writers and readers and retransmission of data on request. Channel-specific threads exist only if the configuration includes an element for it or if an auxiliary bandwidth limit is set for the channel.</p></td>
+<td><p>Channel-specific “timed-event” handling transmission of control messages for reliable writers and readers and retransmission of data on request. Channel-specific threads exist only if the configuration includes an element for it or if an auxiliary bandwidth limit is set for the channel.</p></td>
 </tr>
 </tbody>
 </table>
@@ -719,7 +721,7 @@ level that enables fixed sets of categories.</p>
 levels and categories are not of much use in the current release.  This is an ongoing
 process and here we describe the target situation rather than the current situation.</p>
 <p>All <em>fatal</em> and <em>error</em> messages are written both to the trace and to the
-<code class="docutils literal notranslate"><span class="pre">cyclonedds-error.log</span></code> file; similarly all ‘warning’ messages are written to the trace
+<code class="docutils literal notranslate"><span class="pre">cyclonedds-error.log</span></code> file; similarly all “warning” messages are written to the trace
 and the <code class="docutils literal notranslate"><span class="pre">cyclonedds-info.log</span></code> file.</p>
 <p>The Tracing element has the following sub elements:</p>
 <ul>
@@ -818,11 +820,13 @@ individual categories. The following keywords are recognised:</p>
 <em>topic</em> and <em>plist</em> ones are useful only for particular classes of discovery failures;
 and <em>radmin</em> and <em>whc</em> only help in analyzing the detailed behaviour of those two
 components and produce very large amounts of output.</p>
-<ul class="simple">
-<li><p><em>OutputFile</em>: the file to write the trace to</p></li>
-<li><p><em>AppendToFile</em>: boolean, set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to append to the trace instead of replacing the
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="config_file_reference.html#cyclonedds-domain-tracing-outputfile"><span class="std std-ref">OutputFile</span></a>: the file to write the trace to</p></li>
+<li><p><a class="reference internal" href="config_file_reference.html#cyclonedds-domain-tracing-appendtofile"><span class="std std-ref">AppendToFile</span></a>: boolean, set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to append to the trace instead of replacing the
 file.</p></li>
 </ul>
+</div></blockquote>
 <p>Currently, the useful verbosity settings are <em>config</em>, <em>fine</em> and <em>finest</em>.</p>
 <p><em>Config</em> writes the full configuration to the trace file as well as any warnings or
 errors, which can be a good way to verify everything is configured and behaving as
@@ -841,7 +845,7 @@ corresponding categories is immaterial.</p>
 <section id="conformance-modes">
 <span id="id28"></span><h3>Conformance Modes<a class="headerlink" href="#conformance-modes" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS operates in one of three modes: <em>pedantic</em>, <em>strict</em> and <em>lax</em>; the mode is
-configured using the <code class="docutils literal notranslate"><span class="pre">Compatibility/StandardsConformance</span></code> setting.  The default is
+configured using the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-compatibility-standardsconformance"><span class="std std-ref">Compatibility/StandardsConformance</span></a> setting.  The default is
 <em>lax</em>.</p>
 <p>The first, <em>pedantic</em> mode, is of such limited utility that it will be removed.</p>
 <p>The second mode, <em>strict</em>, attempts to follow the <em>intent</em> of the specification while
@@ -879,7 +883,7 @@ problem is that once Eclipse Cyclone DDS informs the RTI writer that it has rece
 the range of available sequence numbers and requesting an acknowledgement, which becomes
 an endless loop.</p>
 <p>There is furthermore also a difference of interpretation of the meaning of the
-‘autodispose_unregistered_instances’ QoS on the writer.  Eclipse Cyclone DDS aligns with
+“autodispose_unregistered_instances” QoS on the writer.  Eclipse Cyclone DDS aligns with
 OpenSplice.</p>
 </section>
 </section>
@@ -967,7 +971,7 @@ OpenSplice.</p>
 
             <div class="right">
                 
-                    <a href="../security.html"><span>DDS Security</span><span class="icon">></span></a>
+                    <a href="config_file_reference.html"><span>Configuration Reference</span><span class="icon">></span></a>
                 
             </div>
         </div>

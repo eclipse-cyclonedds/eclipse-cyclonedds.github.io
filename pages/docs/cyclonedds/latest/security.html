@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Shared Memory" href="shared_memory.html" />
-    <link rel="prev" title="Eclipse Cyclone DDS Specifics" href="config/cyclonedds_specifics.html" /> 
+    <link rel="prev" title="Configuration Reference" href="config/config_file_reference.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -248,13 +248,13 @@ sub-section.</p>
 <section id="authentication-properties">
 <span id="id2"></span><h4>Authentication Properties<a class="headerlink" href="#authentication-properties" title="Permalink to this headline">¶</a></h4>
 <p>To enable authentication for a node, it has to be configured with an identity certificate
-(<code class="docutils literal notranslate"><span class="pre">DDSSecurity/Authentication/IdentityCertificate</span></code>). This identity certificate is used to
+(<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-identitycertificate"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/IdentityCertificate</span></a>). This identity certificate is used to
 authenticate all participants of that particular CycloneDDS domain. Associated with the
 identity certificate is the corresponding private key
-(<code class="docutils literal notranslate"><span class="pre">DDSSecurity/Authentication/PrivateKey</span></code>). The private key may either be a 2048-bit RSA
+(<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-privatekey"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/PrivateKey</span></a>). The private key may either be a 2048-bit RSA
 or a 256-bit Elliptic Curve Key with a prime256v1 curve.</p>
 <p>The certificate of identity CA, which is the issuer of the node’s identity certificate,
-is configured in <code class="docutils literal notranslate"><span class="pre">DDSSecurity/Authentication/IdentityCA</span></code>. The public key of the
+is configured in <a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-identityca"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/IdentityCA</span></a>. The public key of the
 identity CA (as part of its certificate) shall either be a 2048-bit RSA key or a 256-bit
 Elliptic Curve Key for the prime256v1 curve. The identity CA certificate can be a
 self-signed certificate.</p>
@@ -263,17 +263,17 @@ format. It may either be specified directly in the configuration file (as CDATA,
 with <code class="docutils literal notranslate"><span class="pre">data:,</span></code>) or the configuration file should contain a reference to a corresponding
 file (prefixed with <code class="docutils literal notranslate"><span class="pre">file:</span></code>).</p>
 <p>Optionally the private key could be protected by a password
-(<code class="docutils literal notranslate"><span class="pre">DDSSecurity/Authentication/Password</span></code>).</p>
+(<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-password"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/Password</span></a>).</p>
 <p>Furthermore the CycloneDDS configuration allows configuring a directory containing additional
 identity CA’s which are used to verify the identity certificates that are received from remote instances
-(<code class="docutils literal notranslate"><span class="pre">DDSSecurity/Authentication/TrustedCADirectory</span></code>). This option allows multiple identity
+(<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-trustedcadirectory"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/TrustedCADirectory</span></a>). This option allows multiple identity
 CAs throughout the system.</p>
 </section>
 <section id="access-control-properties">
 <span id="id3"></span><h4>Access Control Properties<a class="headerlink" href="#access-control-properties" title="Permalink to this headline">¶</a></h4>
-<p>A governance document (<code class="docutils literal notranslate"><span class="pre">DDSSecurity/AccessControl/Governance</span></code>), a permissions document
-(<code class="docutils literal notranslate"><span class="pre">DDSSecurity/AccessControl/Permissions</span></code>) and the permissions CA certificate
-(<code class="docutils literal notranslate"><span class="pre">DDSSecurity/AccessControl/PermissionsCA</span></code>) are required for the access control plugin.
+<p>A governance document (<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-accesscontrol-governance"><span class="std std-ref">//CycloneDDS/Domain/Security/AccessControl/Governance</span></a>), a permissions document
+(<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-accesscontrol-permissions"><span class="std std-ref">//CycloneDDS/Domain/Security/AccessControl/Permissions</span></a>) and the permissions CA certificate
+(<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-accesscontrol-permissionsca"><span class="std std-ref">//CycloneDDS/Domain/Security/AccessControl/PermissionsCA</span></a>) are required for the access control plugin.
 Similar to the authentication plugin properties, these values can be provided as CDATA or
 by using a path to a file.</p>
 </section>
@@ -998,8 +998,8 @@ dds_security_api_err.h header file contains the code and message constants.</p>
         <div class="button_nav">
             <div class="left">
                 
-                <a href="config/cyclonedds_specifics.html">
-                    <span class="icon"><</span><span>Eclipse Cyclone DDS Specifics</span></a>
+                <a href="config/config_file_reference.html">
+                    <span class="icon"><</span><span>Configuration Reference</span></a>
                 
             </div>
 
