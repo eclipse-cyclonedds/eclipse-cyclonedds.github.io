@@ -30,31 +30,7 @@ def build_wrap(project: str, repository: Path, confpy: Path, version: str):
         sys.path.pop(0)
         del os.environ['CYCLONEDDS_PYTHON_NO_IMPORT_LIBS']
     elif project == "cyclonedds":
-        with TemporaryDirectory() as doxygen_output:
-            doxygen_output = Path(doxygen_output)
-
-            confpy_templ = template_env.get_template(
-                "c.conf.withexhale.py" if "exhale" in confpy.read_text() else "c.conf.py"
-            )
-            confpy_data = confpy_templ.render(
-                year=datetime.now().year,
-                version=version,
-                doxygen_path=doxygen_output / "xml",
-                path=confpy.parent
-            )
-
-            doxygen_conf_templ = template_env.get_template("c.doxygen.conf")
-            doxygen_conf = doxygen_conf_templ.render(
-                version=version,
-                output=doxygen_output
-            )
-            doxygen_conf_path = doxygen_output / "doxygen.conf"
-            doxygen_conf_path.write_text(doxygen_conf)
-
-            run_doxygen(repository / "src", doxygen_conf_path)
-            confpy.write_text(confpy_data)
-
-            yield
+        yield
     elif project == "cyclonedds-cxx":
         with TemporaryDirectory() as doxygen_output:
             doxygen_output = Path(doxygen_output)
