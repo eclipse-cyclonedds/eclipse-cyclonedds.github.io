@@ -6,22 +6,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Basics &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <title>Basics &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="/js/docu.js"></script>
+    <script src="/_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Entities" href="entity.html" />
-    <link rel="prev" title="Eclipse Cyclone DDS C API Reference" href="../ddsc.html" /> 
+    <link rel="prev" title="C API Reference" href="../ddsc.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -31,7 +31,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS latest documentation</a></h1>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -121,11 +121,12 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../config.html">Eclipse Cyclone DDS Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">C API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
@@ -163,157 +164,157 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_OK">
-<span class="target" id="group__retcode_1gab2d36bd90a788695468288329986e30c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_OK</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_OK" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gab2d36bd90a788695468288329986e30c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_OK</span></span></span> <span class="pre">(0)</span><a class="headerlink" href="#c.DDS_RETCODE_OK" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Success </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_ERROR">
-<span class="target" id="group__retcode_1gab8a0b950e6ed0199a4f8a45da9925fbf"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_ERROR</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gab8a0b950e6ed0199a4f8a45da9925fbf"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_ERROR</span></span></span> <span class="pre">(-1)</span><a class="headerlink" href="#c.DDS_RETCODE_ERROR" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Non specific error </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_UNSUPPORTED">
-<span class="target" id="group__retcode_1gaff391b4aa37fb3f3872fb6349daccfb4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_UNSUPPORTED</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_UNSUPPORTED" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gaff391b4aa37fb3f3872fb6349daccfb4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_UNSUPPORTED</span></span></span> <span class="pre">(-2)</span><a class="headerlink" href="#c.DDS_RETCODE_UNSUPPORTED" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Feature unsupported </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_BAD_PARAMETER">
-<span class="target" id="group__retcode_1ga2689172101d347dba50eb8ecf4821247"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_BAD_PARAMETER</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_BAD_PARAMETER" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga2689172101d347dba50eb8ecf4821247"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_BAD_PARAMETER</span></span></span> <span class="pre">(-3)</span><a class="headerlink" href="#c.DDS_RETCODE_BAD_PARAMETER" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Bad parameter value </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_PRECONDITION_NOT_MET">
-<span class="target" id="group__retcode_1ga9f01b0f24722f0787c39442563531629"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_PRECONDITION_NOT_MET</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_PRECONDITION_NOT_MET" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga9f01b0f24722f0787c39442563531629"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_PRECONDITION_NOT_MET</span></span></span> <span class="pre">(-4)</span><a class="headerlink" href="#c.DDS_RETCODE_PRECONDITION_NOT_MET" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Precondition for operation not met </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_OUT_OF_RESOURCES">
-<span class="target" id="group__retcode_1ga1490662cf1c462a79190747ba0ae0e4a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_OUT_OF_RESOURCES</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_OUT_OF_RESOURCES" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga1490662cf1c462a79190747ba0ae0e4a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_OUT_OF_RESOURCES</span></span></span> <span class="pre">(-5)</span><a class="headerlink" href="#c.DDS_RETCODE_OUT_OF_RESOURCES" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When an operation fails because of a lack of resources </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NOT_ENABLED">
-<span class="target" id="group__retcode_1gae81328f326c4367655fd88ac16ab20f5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ENABLED</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ENABLED" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gae81328f326c4367655fd88ac16ab20f5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ENABLED</span></span></span> <span class="pre">(-6)</span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ENABLED" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When a configurable feature is not enabled </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_IMMUTABLE_POLICY">
-<span class="target" id="group__retcode_1ga97605fd5f2e6f6b6e8a063a6dc2ebb7c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_IMMUTABLE_POLICY</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_IMMUTABLE_POLICY" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga97605fd5f2e6f6b6e8a063a6dc2ebb7c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_IMMUTABLE_POLICY</span></span></span> <span class="pre">(-7)</span><a class="headerlink" href="#c.DDS_RETCODE_IMMUTABLE_POLICY" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When an attempt is made to modify an immutable policy </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_INCONSISTENT_POLICY">
-<span class="target" id="group__retcode_1ga5828ddf306fbe01e5054fe77066ba28e"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_INCONSISTENT_POLICY</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_INCONSISTENT_POLICY" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga5828ddf306fbe01e5054fe77066ba28e"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_INCONSISTENT_POLICY</span></span></span> <span class="pre">(-8)</span><a class="headerlink" href="#c.DDS_RETCODE_INCONSISTENT_POLICY" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When a policy is used with inconsistent values </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_ALREADY_DELETED">
-<span class="target" id="group__retcode_1ga624f993b4a809761fab05dc02afcb394"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_ALREADY_DELETED</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_ALREADY_DELETED" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga624f993b4a809761fab05dc02afcb394"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_ALREADY_DELETED</span></span></span> <span class="pre">(-9)</span><a class="headerlink" href="#c.DDS_RETCODE_ALREADY_DELETED" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When an attempt is made to delete something more than once </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_TIMEOUT">
-<span class="target" id="group__retcode_1gaae7fd57c05d4b884ce24a8d3197264b0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_TIMEOUT</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_TIMEOUT" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gaae7fd57c05d4b884ce24a8d3197264b0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_TIMEOUT</span></span></span> <span class="pre">(-10)</span><a class="headerlink" href="#c.DDS_RETCODE_TIMEOUT" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When a timeout has occurred </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NO_DATA">
-<span class="target" id="group__retcode_1ga4c2e9c61f28d043e6226ebd6022a76b9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NO_DATA</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NO_DATA" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga4c2e9c61f28d043e6226ebd6022a76b9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NO_DATA</span></span></span> <span class="pre">(-11)</span><a class="headerlink" href="#c.DDS_RETCODE_NO_DATA" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When expected data is not provided </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_ILLEGAL_OPERATION">
-<span class="target" id="group__retcode_1ga19bc287812e8631f97ccc2acdd4087be"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_ILLEGAL_OPERATION</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_ILLEGAL_OPERATION" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga19bc287812e8631f97ccc2acdd4087be"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_ILLEGAL_OPERATION</span></span></span> <span class="pre">(-12)</span><a class="headerlink" href="#c.DDS_RETCODE_ILLEGAL_OPERATION" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When a function is called when it should not be </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NOT_ALLOWED_BY_SECURITY">
-<span class="target" id="group__retcode_1ga5ddeaf5380a963635105f0c10338c7ec"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ALLOWED_BY_SECURITY</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ALLOWED_BY_SECURITY" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga5ddeaf5380a963635105f0c10338c7ec"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ALLOWED_BY_SECURITY</span></span></span> <span class="pre">(-13)</span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ALLOWED_BY_SECURITY" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>When credentials are not enough to use the function </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_XRETCODE_BASE">
-<span class="target" id="group__retcode_1gae1d9e4bcbc8c886a2132f1cf8b083417"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_XRETCODE_BASE</span></span></span><a class="headerlink" href="#c.DDS_XRETCODE_BASE" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gae1d9e4bcbc8c886a2132f1cf8b083417"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_XRETCODE_BASE</span></span></span> <span class="pre">(-50)</span><a class="headerlink" href="#c.DDS_XRETCODE_BASE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Base offset for extended return codes </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_XRETCODE">
-<span class="target" id="group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_XRETCODE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">x</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.DDS_XRETCODE" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_XRETCODE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">x</span></span><span class="sig-paren">)</span> <span class="pre">(</span><a class="reference internal" href="#group__retcode_1gae1d9e4bcbc8c886a2132f1cf8b083417"><span class="std std-ref"><span class="pre">DDS_XRETCODE_BASE</span></span></a> <span class="pre">-</span> <span class="pre">(x))</span><a class="headerlink" href="#c.DDS_XRETCODE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Extended return code generator </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_IN_PROGRESS">
-<span class="target" id="group__retcode_1ga177412f0d4e859d3badc40d0859eb3a9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_IN_PROGRESS</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_IN_PROGRESS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga177412f0d4e859d3badc40d0859eb3a9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_IN_PROGRESS</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(1)</span><a class="headerlink" href="#c.DDS_RETCODE_IN_PROGRESS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Requested resource is busy </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_TRY_AGAIN">
-<span class="target" id="group__retcode_1gaa5e499899a795e9d84e38c34f61ea1d8"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_TRY_AGAIN</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_TRY_AGAIN" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gaa5e499899a795e9d84e38c34f61ea1d8"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_TRY_AGAIN</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(2)</span><a class="headerlink" href="#c.DDS_RETCODE_TRY_AGAIN" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Resource unavailable, try again </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_INTERRUPTED">
-<span class="target" id="group__retcode_1ga66bd3a9f664cb564d33965b4036f5f6b"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_INTERRUPTED</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_INTERRUPTED" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga66bd3a9f664cb564d33965b4036f5f6b"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_INTERRUPTED</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(3)</span><a class="headerlink" href="#c.DDS_RETCODE_INTERRUPTED" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Operation was interrupted </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NOT_ALLOWED">
-<span class="target" id="group__retcode_1ga5d0be2a5d6fef1442f2ef9611170da38"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ALLOWED</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ALLOWED" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga5d0be2a5d6fef1442f2ef9611170da38"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ALLOWED</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(4)</span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ALLOWED" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Permission denied </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_HOST_NOT_FOUND">
-<span class="target" id="group__retcode_1gaebcca8c77ca8272d10d7fb471d819373"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_HOST_NOT_FOUND</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_HOST_NOT_FOUND" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gaebcca8c77ca8272d10d7fb471d819373"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_HOST_NOT_FOUND</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(5)</span><a class="headerlink" href="#c.DDS_RETCODE_HOST_NOT_FOUND" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Host not found </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NO_NETWORK">
-<span class="target" id="group__retcode_1gab0e93d3ddfa0a9bf0ba9335c7d32951c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NO_NETWORK</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NO_NETWORK" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gab0e93d3ddfa0a9bf0ba9335c7d32951c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NO_NETWORK</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(6)</span><a class="headerlink" href="#c.DDS_RETCODE_NO_NETWORK" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Network is not available </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NO_CONNECTION">
-<span class="target" id="group__retcode_1gaca27824de20a6c066ac0741e465b70c4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NO_CONNECTION</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NO_CONNECTION" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gaca27824de20a6c066ac0741e465b70c4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NO_CONNECTION</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(7)</span><a class="headerlink" href="#c.DDS_RETCODE_NO_CONNECTION" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Connection is not available </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NOT_ENOUGH_SPACE">
-<span class="target" id="group__retcode_1ga8acd7ec6708155cbc7c292cce93e691d"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ENOUGH_SPACE</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ENOUGH_SPACE" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1ga8acd7ec6708155cbc7c292cce93e691d"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_ENOUGH_SPACE</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(8)</span><a class="headerlink" href="#c.DDS_RETCODE_NOT_ENOUGH_SPACE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Not enough space available </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_OUT_OF_RANGE">
-<span class="target" id="group__retcode_1gacbdb3b8c25e5bdd2230f1d67b45a3dce"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_OUT_OF_RANGE</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_OUT_OF_RANGE" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gacbdb3b8c25e5bdd2230f1d67b45a3dce"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_OUT_OF_RANGE</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(9)</span><a class="headerlink" href="#c.DDS_RETCODE_OUT_OF_RANGE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Result too large </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_RETCODE_NOT_FOUND">
-<span class="target" id="group__retcode_1gad30790c73ca7f6cb928b185600b50840"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_FOUND</span></span></span><a class="headerlink" href="#c.DDS_RETCODE_NOT_FOUND" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__retcode_1gad30790c73ca7f6cb928b185600b50840"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_RETCODE_NOT_FOUND</span></span></span> <a class="reference internal" href="#group__retcode_1ga4cadb081057144c5113ceb321d3d42dc"><span class="std std-ref"><span class="pre">DDS_XRETCODE</span></span></a><span class="pre">(10)</span><a class="headerlink" href="#c.DDS_RETCODE_NOT_FOUND" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Not found </p>
 </dd></dl>
 
@@ -373,7 +374,7 @@
             <div class="left">
                 
                 <a href="../ddsc.html">
-                    <span class="icon"><</span><span>Eclipse Cyclone DDS C API Reference</span></a>
+                    <span class="icon"><</span><span>C API Reference</span></a>
                 
             </div>
 

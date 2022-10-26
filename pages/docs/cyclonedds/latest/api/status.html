@@ -6,16 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Entity Status &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <title>Entity Status &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="/js/docu.js"></script>
+    <script src="/_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,7 +31,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS latest documentation</a></h1>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -121,11 +121,12 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../config.html">Eclipse Cyclone DDS Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">C API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
@@ -167,85 +168,85 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_STATUS_ID_MAX">
-<span class="target" id="group__entity__status_1ga4167e8c7829c5b10fce81e1ba44c59dd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_STATUS_ID_MAX</span></span></span><a class="headerlink" href="#c.DDS_STATUS_ID_MAX" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga4167e8c7829c5b10fce81e1ba44c59dd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_STATUS_ID_MAX</span></span></span> <span class="pre">(</span><a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba35ea314df6033cbc8d9f2df0c483744e"><span class="std std-ref"><span class="pre">DDS_SUBSCRIPTION_MATCHED_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_STATUS_ID_MAX" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Helper value to indicate the highest bit that can be set in a status mask. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_INCONSISTENT_TOPIC_STATUS">
-<span class="target" id="group__entity__status_1ga6be14672910936e1e2650d604a582485"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_INCONSISTENT_TOPIC_STATUS</span></span></span><a class="headerlink" href="#c.DDS_INCONSISTENT_TOPIC_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga6be14672910936e1e2650d604a582485"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_INCONSISTENT_TOPIC_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba52f96c463c36f9a95fc233433a5afe2e"><span class="std std-ref"><span class="pre">DDS_INCONSISTENT_TOPIC_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_INCONSISTENT_TOPIC_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_INCONSISTENT_TOPIC_STATUS"></span>Another topic exists with the same name but with different characteristics. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_OFFERED_DEADLINE_MISSED_STATUS">
-<span class="target" id="group__entity__status_1gaf1e4323428b6e4a2669d60850d1a8b32"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_DEADLINE_MISSED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_OFFERED_DEADLINE_MISSED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1gaf1e4323428b6e4a2669d60850d1a8b32"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_DEADLINE_MISSED_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebabcf359752cbf786db4f9304793273195"><span class="std std-ref"><span class="pre">DDS_OFFERED_DEADLINE_MISSED_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_OFFERED_DEADLINE_MISSED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_OFFERED_DEADLINE_MISSED_STATUS"></span>The deadline that the writer has committed through its deadline QoS policy was not respected for a specific instance. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_REQUESTED_DEADLINE_MISSED_STATUS">
-<span class="target" id="group__entity__status_1ga2e88c8cf1fac5098d67e05244f69fbfa"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_DEADLINE_MISSED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_REQUESTED_DEADLINE_MISSED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga2e88c8cf1fac5098d67e05244f69fbfa"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_DEADLINE_MISSED_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebae065adae5237d7b898ff1d7f38e37df0"><span class="std std-ref"><span class="pre">DDS_REQUESTED_DEADLINE_MISSED_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_REQUESTED_DEADLINE_MISSED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_REQUESTED_DEADLINE_MISSED_STATUS"></span>The deadline that the reader was expecting through its deadline QoS policy was not respected for a specific instance. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_OFFERED_INCOMPATIBLE_QOS_STATUS">
-<span class="target" id="group__entity__status_1ga5687ef28e046ac80615b85db2f5ba0fd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_INCOMPATIBLE_QOS_STATUS</span></span></span><a class="headerlink" href="#c.DDS_OFFERED_INCOMPATIBLE_QOS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga5687ef28e046ac80615b85db2f5ba0fd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OFFERED_INCOMPATIBLE_QOS_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebadd90b571b65241f5231e480c6f429ebc"><span class="std std-ref"><span class="pre">DDS_OFFERED_INCOMPATIBLE_QOS_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_OFFERED_INCOMPATIBLE_QOS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_OFFERED_INCOMPATIBLE_QOS_STATUS"></span>A QoS policy setting was incompatible with what was requested. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS">
-<span class="target" id="group__entity__status_1ga47aab4cc1f4c074de5c6943e483d95b5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS</span></span></span><a class="headerlink" href="#c.DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga47aab4cc1f4c074de5c6943e483d95b5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebad5ff24f5482bd2fd038d64684583f1eb"><span class="std std-ref"><span class="pre">DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS"></span>A QoS policy setting was incompatible with what is offered. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_SAMPLE_LOST_STATUS">
-<span class="target" id="group__entity__status_1gaf9cc2ffe6edaa8b5948750a958cf9235"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_LOST_STATUS</span></span></span><a class="headerlink" href="#c.DDS_SAMPLE_LOST_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1gaf9cc2ffe6edaa8b5948750a958cf9235"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_LOST_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebaf376a139f55950ad23931449c224bb1e"><span class="std std-ref"><span class="pre">DDS_SAMPLE_LOST_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_SAMPLE_LOST_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_SAMPLE_LOST_STATUS"></span>A sample has been lost (never received). </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_SAMPLE_REJECTED_STATUS">
-<span class="target" id="group__entity__status_1gaeb3807755b63517ac681f253a9179a1a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_REJECTED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_SAMPLE_REJECTED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1gaeb3807755b63517ac681f253a9179a1a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SAMPLE_REJECTED_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba170269c9edbc1f527db23323a291449c"><span class="std std-ref"><span class="pre">DDS_SAMPLE_REJECTED_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_SAMPLE_REJECTED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_SAMPLE_REJECTED_STATUS"></span>A (received) sample has been rejected. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_ON_READERS_STATUS">
-<span class="target" id="group__entity__status_1ga9d1ca1ac4c5bc82ca39437b3b618e519"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_ON_READERS_STATUS</span></span></span><a class="headerlink" href="#c.DDS_DATA_ON_READERS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga9d1ca1ac4c5bc82ca39437b3b618e519"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_ON_READERS_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba01823c1f7c5a1e4371da35b546d5430d"><span class="std std-ref"><span class="pre">DDS_DATA_ON_READERS_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_ON_READERS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_DATA_ON_READERS_STATUS"></span>New information is available in some of the data readers of a subscriber. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_AVAILABLE_STATUS">
-<span class="target" id="group__entity__status_1ga3dbf0808cdf4e2d8c2f8a38cac6e4e79"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_AVAILABLE_STATUS</span></span></span><a class="headerlink" href="#c.DDS_DATA_AVAILABLE_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga3dbf0808cdf4e2d8c2f8a38cac6e4e79"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_AVAILABLE_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba182657725b33308a5f58e878e2ada915"><span class="std std-ref"><span class="pre">DDS_DATA_AVAILABLE_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_AVAILABLE_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_DATA_AVAILABLE_STATUS"></span>New information is available in a data reader. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_LIVELINESS_LOST_STATUS">
-<span class="target" id="group__entity__status_1gaf64301bcc010208fb860aab2309fddd1"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_LOST_STATUS</span></span></span><a class="headerlink" href="#c.DDS_LIVELINESS_LOST_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1gaf64301bcc010208fb860aab2309fddd1"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_LOST_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebaa7d1d0d90f36e582685f3ec12c087ba1"><span class="std std-ref"><span class="pre">DDS_LIVELINESS_LOST_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_LIVELINESS_LOST_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_LIVELINESS_LOST_STATUS"></span>The liveliness that the DDS_DataWriter has committed through its liveliness QoS policy was not respected; thus readers will consider the writer as no longer “alive”. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_LIVELINESS_CHANGED_STATUS">
-<span class="target" id="group__entity__status_1ga09b20d7750ee291c4bc926423569c2bb"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_CHANGED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_LIVELINESS_CHANGED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga09b20d7750ee291c4bc926423569c2bb"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LIVELINESS_CHANGED_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebabd1089814c91d350c7a255fe1a6a39ea"><span class="std std-ref"><span class="pre">DDS_LIVELINESS_CHANGED_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_LIVELINESS_CHANGED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_LIVELINESS_CHANGED_STATUS"></span>The liveliness of one or more writers, that were writing instances read through the readers has changed. Some writers have become “alive” or “not alive”. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_PUBLICATION_MATCHED_STATUS">
-<span class="target" id="group__entity__status_1gaafc02e17526d8f4af1bc44d979dc88ca"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PUBLICATION_MATCHED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_PUBLICATION_MATCHED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1gaafc02e17526d8f4af1bc44d979dc88ca"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PUBLICATION_MATCHED_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befebab32fd68f4e03bad911699dcca5a22941"><span class="std std-ref"><span class="pre">DDS_PUBLICATION_MATCHED_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_PUBLICATION_MATCHED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_PUBLICATION_MATCHED_STATUS"></span>The writer has found a reader that matches the topic and has a compatible QoS. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_SUBSCRIPTION_MATCHED_STATUS">
-<span class="target" id="group__entity__status_1ga30f700d35561acfa168b34e9919f774a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SUBSCRIPTION_MATCHED_STATUS</span></span></span><a class="headerlink" href="#c.DDS_SUBSCRIPTION_MATCHED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__entity__status_1ga30f700d35561acfa168b34e9919f774a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SUBSCRIPTION_MATCHED_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba35ea314df6033cbc8d9f2df0c483744e"><span class="std std-ref"><span class="pre">DDS_SUBSCRIPTION_MATCHED_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_SUBSCRIPTION_MATCHED_STATUS" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><span class="target" id="group__entity__status_1DDS_SUBSCRIPTION_MATCHED_STATUS"></span>The reader has found a writer that matches the topic and has a compatible QoS. </p>
 </dd></dl>
 

@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Installation &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script src="/_static/js/helpers.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="C Tutorial" href="../c_tutorial/index.html" />
+    <link rel="prev" title="Getting Started" href="../index.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c_tutorial/index.html">C Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cpp_tutorial/index.html">C++ Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../py_tutorial/index.html">Python Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarking.html">Benchmarking Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ddsc.html">C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<section id="installing-var-project">
+<h2>Installing Eclipse Cyclone DDS<a class="headerlink" href="#installing-var-project" title="Permalink to this headline">¶</a></h2>
+<p>This publication provides detailed information about how install CycloneDDS. The chapters will cover:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The installation and build process of CycloneDDS core, including the C-APIs.</p></li>
+<li><p>How to install the C++ support packages. Short C/C++, and Python tutorials are detailed to show examples of how the DDS technology is used to share data.</p></li>
+</ul>
+</div></blockquote>
+<section id="system-prerequisites">
+<h3>System prerequisites<a class="headerlink" href="#system-prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Before building the Cyclone DDS implementation, ensure you meet all the system prerequisites.
+Failure to meet the prerequisites will cause the build to fail.</p>
+<section id="supported-platforms">
+<h4>Supported platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h4>
+<p>At the time of writing this document, CycloneDDS supports Linux, macOS, and Windows and is known to work on FreeRTOS, QNX and the
+Solaris-like Openindiana OS.</p>
+</section>
+<section id="software-requirements">
+<h4>Software requirements<a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h4>
+<p>Make sure you have the following software installed on your machine:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A C compiler (most commonly GCC or clang on Linux, Visual Studio on Windows, XCode on macOS);</p></li>
+<li><p><a class="reference external" href="https://git-scm.com/">Git</a> version control system;</p></li>
+<li><p><a class="reference external" href="https://cmake.org/download/">CMake</a>, version 3.10 or later;</p></li>
+<li><p>Optionally, <a class="reference external" href="https://www.openssl.org/">OpenSSL</a>, preferably version 1.1 later to use TLS over TCP.</p></li>
+</ul>
+</div></blockquote>
+<p>You can obtain the dependencies to build CycloneDDS by following the platform-specific instructions:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><p>Install the dependencies with a package manager of your choice:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install git cmake gcc
+apt-get install git cmake gcc
+aptitude install git cmake gcc
+<span class="c1"># or others</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><p>Installing XCode from the App Store should be sufficient.</p>
+</div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>First install Visual Studio Code for the C compiler. Then it is easiest to install the <a class="reference external" href="https://chocolatey.org/">chocolatey package manager</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>choco install cmake
+choco install git
+</pre></div>
+</div>
+<p>Alternatively you might use <cite>scoop &lt;https://scoop.sh/&gt;</cite> to aquire the dependencies.</p>
+</div></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When developing for Eclipse Cyclone DDS you might need additional tools and dependencies. See also the <a class="reference internal" href="../contributing.html#contributing"><span class="std std-ref">Contributing to Eclipse Cyclone DDS</span></a> section.</p>
+</div>
+</section>
+</section>
+<section id="obtaining-var-project-short">
+<h3>Obtaining CycloneDDS<a class="headerlink" href="#obtaining-var-project-short" title="Permalink to this headline">¶</a></h3>
+<p>You can obtain CycloneDDS via Git from the github-hosted repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds.git
+<span class="nb">cd</span> cyclonedds
+</pre></div>
+</div>
+</section>
+<section id="building-var-project-short">
+<h3>Building CycloneDDS<a class="headerlink" href="#building-var-project-short" title="Permalink to this headline">¶</a></h3>
+<p>You can build and install the required libraries needed to develop
+your applications using CycloneDDS in a few simple steps, as shown below:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-1-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-1-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-1-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-1-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span>&lt;install-location&gt; -DBUILD_EXAMPLES<span class="o">=</span>ON ..
+cmake --build . --parallel
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span>&lt;install-location&gt; -DBUILD_EXAMPLES<span class="o">=</span>ON ..
+cmake --build . --parallel
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -G &lt;generator-name&gt; -DCMAKE_INSTALL_PREFIX<span class="o">=</span>&lt;install-location&gt; -DBUILD_EXAMPLES<span class="o">=</span>ON ..
+cmake --build . --parallel
+</pre></div>
+</div>
+<p>On Windows you can build CycloneDDS with one of several generators. Usually if you omit the
+<code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&lt;generator-name&gt;</span></code> it will pick a sensible default, but if it doesn’t work or picks something
+unexpected you can go to the <a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html">CMake generators documentation</a>.
+For example, “Visual Studio 15 2017 Win64” targets a 64-bit build using Visual Studio 2017.</p>
+</div></div>
+<p>If you need to reduce the footprint, or have issues with the <cite>FindOpenSSL.cmake</cite> script, you can explicitly disable this by passing <cite>-DENABLE_SSL=NO</cite> to the CMake invocation. If you do not plan
+on running the examples you may omit the <code class="docutils literal notranslate"><span class="pre">-DBUILD_EXAMPLES=ON</span></code>.</p>
+<p>To install it after a successful build:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake --build . --target install
+</pre></div>
+</div>
+<p>Depending on the installation location, you may need administrator privileges. The install step copies everything to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/bin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/include/ddsc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/share/CycloneDDS</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>At this point, you are ready to use Cyclone DDS in your projects.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Build types</p>
+<p>The default build type is a release build that includes debugging information (<code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code>).
+This build is suitable for applications because of its high-performance and debugging capabilities.
+If you prefer a Debug or pure Release build, add <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=&lt;build-type&gt;</span></code> to your CMake invocation.</p>
+</div>
+</section>
+</section>
+<section id="installing-var-project-short-c-api">
+<h2>Installing CycloneDDS C++ API<a class="headerlink" href="#installing-var-project-short-c-api" title="Permalink to this headline">¶</a></h2>
+<p>The Eclipse Cyclone DDS C++ API is an implementation of the DDS ISO/IEC C++ PSM API,
+or simply put, a C++ binding for CycloneDDS. It is made of an
+IDL compiler backend that uses an IDL data model to generate their C++
+representation and artifacts, a software layer that maps some DDS APIs
+on the Eclipse Cyclone DDS C API and direct access to the core APIs
+when managing data to lower overhead.</p>
+<p>Before starting, make sure you have installed the core CycloneDDS libraries as
+described above.</p>
+<section id="obtaining-var-project-short-c-api">
+<h3>Obtaining CycloneDDS C++ API<a class="headerlink" href="#obtaining-var-project-short-c-api" title="Permalink to this headline">¶</a></h3>
+<p>You can obtain CycloneDDS via Git from the github-hosted repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds-cxx.git
+<span class="nb">cd</span> cyclonedds
+</pre></div>
+</div>
+</section>
+<section id="building-var-project-short-c-api">
+<h3>Building CycloneDDS C++ API<a class="headerlink" href="#building-var-project-short-c-api" title="Permalink to this headline">¶</a></h3>
+<p>You can build and install the required libraries needed to develop
+your applications using CycloneDDS C++ in a few simple steps, as shown below:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-2-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-2-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-2-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-2-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;core-install-location&gt; -DCMAKE_INSTALL_PREFIX<span class="o">=</span>&lt;install-location&gt; -DBUILD_EXAMPLES<span class="o">=</span>ON ..
+cmake --build . --parallel
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;core-install-location&gt; -DCMAKE_INSTALL_PREFIX<span class="o">=</span>&lt;install-location&gt; -DBUILD_EXAMPLES<span class="o">=</span>ON ..
+cmake --build . --parallel
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
+cmake -G &lt;generator-name&gt; -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;core-install-location&gt; -DCMAKE_INSTALL_PREFIX<span class="o">=</span>&lt;install-location&gt; -DBUILD_EXAMPLES<span class="o">=</span>ON ..
+cmake --build . --parallel
+</pre></div>
+</div>
+<p>On Windows you can build CycloneDDS C++ with one of several generators. Usually if you omit the
+<code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&lt;generator-name&gt;</span></code> it will pick a sensible default, but if it doesn’t work or picks something
+unexpected you can go to the <a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html">CMake generators documentation</a>.
+For example, “Visual Studio 15 2017 Win64” targets a 64-bit build using Visual Studio 2017.</p>
+</div></div>
+<p>If you do not plan on running the examples you may omit the <code class="docutils literal notranslate"><span class="pre">-DBUILD_EXAMPLES=ON</span></code>.</p>
+<p>To install it after a successful build:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake --build . --target install
+</pre></div>
+</div>
+<p>Depending on the installation location, you may need administrator privileges. The install step copies everything to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/lib</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/bin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/include</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;install-location&gt;/share/CycloneDDSCXX</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>At this point, you are ready to use Cyclone DDS in your projects.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Build types</p>
+<p>The default build type is a release build that includes debugging information (<code class="docutils literal notranslate"><span class="pre">RelWithDebInfo</span></code>).
+This build is suitable for applications because of its high-performance and debugging capabilities.
+If you prefer a Debug or pure Release build, add <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=&lt;build-type&gt;</span></code> to your CMake invocation.</p>
+</div>
+</section>
+</section>
+<section id="installing-var-project-short-python">
+<h2>Installing CycloneDDS Python<a class="headerlink" href="#installing-var-project-short-python" title="Permalink to this headline">¶</a></h2>
+<section id="binaries-or-from-source">
+<h3>Binaries or from source<a class="headerlink" href="#binaries-or-from-source" title="Permalink to this headline">¶</a></h3>
+<p>The CycloneDDS Python API requires Python version 3.7 or higher, with 3.11 support provisional.
+The wheels (binary archives) on PyPi contain a pre-built binary of the CycloneDDS C library and IDL compiler.
+These have a couple of caveats. The pre-built package:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Does not provide support for DDS Security,</p></li>
+<li><p>Does not provide support for shared memory via Iceoryx,</p></li>
+<li><p>Comes with generic binaries that are not optimized per platform.</p></li>
+</ul>
+</div></blockquote>
+<p>If you need these features, or cannot use the binaries for other reasons, you can install the CycloneDDS Python API from the source.
+You will need to set the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to allow the installer to locate the CycloneDDS C library if it is not on the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.
+At runtime, we leverage several mechanisms to locate the appropriate library for the platform. If you get an exception about non-locatable libraries,
+or wish to manage multiple CycloneDDS installations, you can use the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to override the load location.</p>
+</section>
+<section id="installing-from-pypi">
+<h3>Installing from PyPi<a class="headerlink" href="#installing-from-pypi" title="Permalink to this headline">¶</a></h3>
+<p>Install with pip directly from PyPi.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install cyclonedds
+</pre></div>
+</div>
+</section>
+<section id="installing-from-source">
+<h3>Installing from source<a class="headerlink" href="#installing-from-source" title="Permalink to this headline">¶</a></h3>
+<p>You can install it from the GitHub link directly:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CYCLONEDDS_HOME</span><span class="o">=</span><span class="s2">&quot;&lt;cyclonedds-install-location&gt;&quot;</span> pip install git+https://github.com/eclipse-cyclonedds/cyclonedds-python
+</pre></div>
+</div>
+</section>
+</section>
+<section id="installation-remarks">
+<h2>Installation remarks<a class="headerlink" href="#installation-remarks" title="Permalink to this headline">¶</a></h2>
+<section id="environment-variable-updates-on-windows">
+<h3>Environment variable updates on Windows<a class="headerlink" href="#environment-variable-updates-on-windows" title="Permalink to this headline">¶</a></h3>
+<p>To run CycloneDDS executables on Windows, the required libraries (like <code class="docutils literal notranslate"><span class="pre">ddsc.dll</span></code>) must be available to the executables.
+Typically, these libraries are installed in system default locations and work out of the box.
+However, the library search path must be changed if they are not installed in those locations. This can be achieved by
+executing the following command or going into the “Environment variables” Windows menu.</p>
+<div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="nb">set </span><span class="n">PATH</span><span class="p">=&lt;</span><span class="nb">install-location</span><span class="p">&gt;\</span><span class="n">bin</span><span class="p">;</span><span class="k">%</span><span class="n">PATH</span><span class="p">%</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An alternative to make the required libraries available to the executables are to copy the necessary libraries for the
+executables’ directory. This is not recommended.</p>
+</div>
+</section>
+</section>
+<section id="test-your-installation">
+<span id="id1"></span><h2>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">¶</a></h2>
+<p>To test if your installation and configuration are working correctly, you can use the CycloneDDS <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool or you
+can use the <strong>Hello World!</strong> example. To use <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> you skip ahead to <a class="reference external" href="#testing-your-network-configuration">testing your network configuration.</a>.</p>
+<section id="running-the-hello-world-example">
+<h3>Running the <strong>Hello World!</strong> example<a class="headerlink" href="#running-the-hello-world-example" title="Permalink to this headline">¶</a></h3>
+<p>Eclipse Cyclone DDS includes a simple <strong>Hello World!</strong> application that can be executed to test your installation.
+The <strong>Hello World!</strong> application consists of two executables:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>The <strong>Hello World!</strong> executables are located in <code class="docutils literal notranslate"><span class="pre">&lt;cyclonedds-directory&gt;\build\bin\Debug</span></code> on Windows, and
+<code class="docutils literal notranslate"><span class="pre">&lt;cyclonedds-directory&gt;/build/bin</span></code> on Linux/macOS. Please note that you did not run CMake with <code class="docutils literal notranslate"><span class="pre">-DBUILD_EXAMPLES=ON</span></code> earlier the executables will be missing.</p>
+<p>To run the example application, open two console windows and navigate to the appropriate directory in both console windows. Run <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code>
+in one of the console windows:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-3-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-3-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-3-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-3-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldSubscriber</span><span class="p">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+</div></div>
+<p>Run <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> in the other console window using:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-4-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-4-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-4-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-4-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-4-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldPublisher</span><span class="p">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+</div></div>
+<p><code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> appears as follows:</p>
+<img alt="../../_images/helloworld_publisher.png" class="align-center" src="../../_images/helloworld_publisher.png" />
+<p><code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code> appears as follows:</p>
+<img alt="../../_images/helloworld_subscriber.png" class="align-center" src="../../_images/helloworld_subscriber.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default behavior is automatically detecting the first network interface card available on your machine and using it to
+exchange the hello world message. Therefore, selecting the correct interface card is essential to ensure that your publisher
+and subscriber applications are on the same network. This is a common issue with multiple network interface cards on machine configurations.</p>
+<p>You can override this default behavior by updating the property <a class="reference internal" href="../../config/config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface-address"><span class="std std-ref">//CycloneDDS/Domain/General/Interfaces/NetworkInterface[&#64;address]</span></a>
+in a deployment file (e.g. <code class="docutils literal notranslate"><span class="pre">cyclonedds.xml</span></code>) that you created to point to it through an OS environment variable named CYCLONEDDS_URI.</p>
+<p>See also the <a class="reference internal" href="../../config/index.html#config-docs"><span class="std std-ref">Configuration Guide</span></a> and the <a class="reference internal" href="../../config/config_file_reference.html#configuration-reference"><span class="std std-ref">Configuration File Reference</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="uninstalling">
+<h2>Uninstalling<a class="headerlink" href="#uninstalling" title="Permalink to this headline">¶</a></h2>
+<p>You can manually remove the install and build directory.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-5-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-5-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-5-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-5-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-5-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-5-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-5-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-5-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -rf cyclonedds
+rm -rf &lt;install-location&gt;
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-5-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-5-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -rf cyclonedds
+rm -rf &lt;install-location&gt;
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-5-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-5-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>Navigate to your install location and remove the Eclipse Cyclone DDS folder.</p>
+</div></div>
+</section>
+<section id="want-to-know-more-about-dds">
+<h2>Want to know more about DDS?<a class="headerlink" href="#want-to-know-more-about-dds" title="Permalink to this headline">¶</a></h2>
+<p>The primary source of information is the OMG website at <a class="reference external" href="http://www.omg.org/">http://www.omg.org</a>, specifically the <a class="reference external" href="http://www.omg.org/gettingstarted/omg_idl.htm">DDS
+Getting Started</a>page and the <a class="reference external" href="http://www.omg.org/spec/DDS/">DDS specification</a>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#installing-var-project">Installing Eclipse Cyclone DDS</a><ul>
+<li><a class="reference internal" href="#system-prerequisites">System prerequisites</a><ul>
+<li><a class="reference internal" href="#supported-platforms">Supported platforms</a></li>
+<li><a class="reference internal" href="#software-requirements">Software requirements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#obtaining-var-project-short">Obtaining CycloneDDS</a></li>
+<li><a class="reference internal" href="#building-var-project-short">Building CycloneDDS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-var-project-short-c-api">Installing CycloneDDS C++ API</a><ul>
+<li><a class="reference internal" href="#obtaining-var-project-short-c-api">Obtaining CycloneDDS C++ API</a></li>
+<li><a class="reference internal" href="#building-var-project-short-c-api">Building CycloneDDS C++ API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installing-var-project-short-python">Installing CycloneDDS Python</a><ul>
+<li><a class="reference internal" href="#binaries-or-from-source">Binaries or from source</a></li>
+<li><a class="reference internal" href="#installing-from-pypi">Installing from PyPi</a></li>
+<li><a class="reference internal" href="#installing-from-source">Installing from source</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation-remarks">Installation remarks</a><ul>
+<li><a class="reference internal" href="#environment-variable-updates-on-windows">Environment variable updates on Windows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-your-installation">Test your installation</a><ul>
+<li><a class="reference internal" href="#running-the-hello-world-example">Running the <strong>Hello World!</strong> example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uninstalling">Uninstalling</a></li>
+<li><a class="reference internal" href="#want-to-know-more-about-dds">Want to know more about DDS?</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../index.html">
+                    <span class="icon"><</span><span>Getting Started</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../c_tutorial/index.html"><span>C Tutorial</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Benchmarking Tools &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="/_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing to Eclipse Cyclone DDS" href="contributing.html" />
+    <link rel="prev" title="Python Tutorial" href="py_tutorial/index.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="c_tutorial/index.html">C Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cpp_tutorial/index.html">C++ Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="py_tutorial/index.html">Python Tutorial</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Benchmarking Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="benchmarking-tools">
+<h1>Benchmarking Tools<a class="headerlink" href="#benchmarking-tools" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>CycloneDDS provides a tool that primarily measures data <em>throughput</em>
+and <em>latency</em> of the DDS applications within the network or
+within the same board, namely <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>. This tool also helps
+sanity checks to ensure your configuration is correctly set up and
+running. This chapter describes how to use the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool and
+read and interpret its outputs and results. Using the CycloneDDS Python
+package, you can also run <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> as a graphical application, by running
+<code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span></code>.</p>
+<p>As well as <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>, you can find dedicated examples in the
+product distribution that measure the DDS system throughput and the
+latency with their associated codebase. You can start from the provided
+code and customize it to fit your scenario and exact data types. Both the
+<code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool and the provided examples perform the benchmarking using
+sequences of octets with different parameterized sizes.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">throughput</span></code> and <code class="docutils literal notranslate"><span class="pre">latency</span></code> examples are not suitable as general
+DDS benchmarking tools since they sacrifice performance for being as simple
+as possible. You cannot compare test results from these tools with results from other tools.</p>
+</div>
+</section>
+<section id="testing-your-network-configuration">
+<h2>Testing your network configuration<a class="headerlink" href="#testing-your-network-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Once your CycloneDDS installation is successfully completed, you may
+want to test if your network environment is correctly set up. This can
+be done by running the <strong>Hello World!</strong> example or using the
+<code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool. The <strong>Hello World!</strong> example sends a single message.
+In contrast, the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool can send a continuous stream of data at a
+variable frequency for sanity checks and bypass sporadic network issues.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool is pre-installed within <code class="docutils literal notranslate"><span class="pre">&lt;installation-dir&gt;/bin</span></code>.</p>
+<p>Complete the sanity checks of your DDS based system using the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>
+tool as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf sanity
+</pre></div>
+</div>
+<p>The sanity option sends only one data sample each second (1Hz).</p>
+<p>In another terminal, start the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> with the <strong>Pong</strong> mode to echo
+the data to the first instance of the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> started with the
+<em>Sanity</em> option.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pong
+</pre></div>
+</div>
+<img alt="../_images/4.2-1.png" class="align-center" src="../_images/4.2-1.png" />
+<p>If the data is not exchanged on the network between the two ddsperf
+instances, it is likely that Eclipse Cyclone DDS has not selected the
+the appropriate network card on both machines or a firewall in-between is
+preventing communication.</p>
+<p>Eclipse Cyclone DDS automatically selects the most available network interface.
+This behavior can be overridden by changing the configuration file. (see
+section <a class="reference internal" href="installation/index.html#test-your-installation"><span class="std std-ref">test your installation</span></a> for more details) .</p>
+<p>When running the previous scenario on a local machine, this test ensures
+the loop-back option is enabled.</p>
+</section>
+<section id="measuring-latency">
+<h2>Measuring latency<a class="headerlink" href="#measuring-latency" title="Permalink to this headline">¶</a></h2>
+<p>To measure latency between two different applications, you need to run
+two instances of the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool and instruct one of them to endorse
+the role of a <em>sender</em> that sends a given amount of data (a sequence of
+octets) at a given rate, and the other instance takes the role of
+<em>receiver</em> that sends back the same amount of data to the sender in a
+Ping-Pong scenario. The sending action is triggered by the <strong>Ping</strong>
+option. The receiving behavior is triggered by the <strong>Pong</strong> action. The
+sender measures the roundtrip time and computes the latency as half of
+the roundtrip time.</p>
+<p>The Ping-Pong scenario avoids clock desynchronization issues that might
+occur between two machines that do not accurately share the same
+perception of the time in the network.</p>
+<img alt="../_images/4.3-1.png" class="align-center" src="../_images/4.3-1.png" />
+<p>To differentiate  the two operational modes, the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool can
+operate either in a <strong>Ping mode</strong> or in a <strong>Pong mode</strong>.</p>
+<p>To run this scenario, open two terminals (e.g., on Linux-like OSs) and run
+the following commands in either of the terminals. The graphical
+<em>python-based</em> alternative is also noted.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf ping
+cyclonedds performance ping
+</pre></div>
+</div>
+<p>Input this command in another terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pong
+cyclonedds performance pong
+</pre></div>
+</div>
+<p>This basic scenario performs a simple latency test with all the default
+values. You may customize your test scenario by changing the following
+options.</p>
+<ul class="simple">
+<li><p>In <strong>Ping mode</strong> you can specify:</p>
+<ul>
+<li><p>The <strong>Rate</strong> and frequency at which data is written. This is
+specified through the [R[Hz]] option. The default rate is “as fast as
+possible”. In <strong>ping</strong> mode, it always sends a new ping as soon as it
+gets a pong</p></li>
+<li><p>The <strong>Size</strong> of the data that is exchanged. This is specified
+through the [Size S] option. Using the built-in default topic, 12 bytes
+(an integer key, an integer sequence number, and an empty sequence of bytes)
+are sent every time. The size is “as small as possible” by default,
+depending on the default topic size.</p></li>
+<li><p>The <strong>Listening</strong> mode, which can either be <code class="docutils literal notranslate"><span class="pre">waitset</span></code> based or
+<code class="docutils literal notranslate"><span class="pre">Listener</span></code> Callbacks modes. In the waitset mode the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>
+application creates a dedicated thread to wait for the data to return
+back from the receiving instance of <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool (i.e the instance
+started with the Pong mode). In the Listener Callback mode, the
+thread is created by the Eclipse Cyclone DDS middleware. The Listener mode is
+the default.</p></li>
+</ul>
+</li>
+<li><p>In <strong>Pong mode</strong>,you can only specify one option:</p>
+<ul>
+<li><p>The <strong>Listening</strong> mode (with two possible values, <code class="docutils literal notranslate"><span class="pre">waitset</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Listener</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+<p>For instance, if you want to measure local latency between to processes
+exchanging 2KB at the frequency of 50Hz, you can run the following
+commands in 2 different terminals:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf ping 50Hz <span class="m">2048</span> waitset
+cyclonedds performance ping --rate 50Hz --size <span class="m">2048</span> --triggering-mode waitset
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pong waitset
+cyclonedds performance pong --triggering-mode waitset
+</pre></div>
+</div>
+<p>The output of the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool is as shown below:</p>
+<ol class="arabic simple">
+<li><p>The output for the <strong>Ping</strong> application indicates mainly:</p></li>
+</ol>
+<ul class="simple">
+<li><p>The <strong>size of the data</strong> involved in the test (e.g. 12 bytes)</p></li>
+<li><p>The <strong>minimum latency</strong> (e.g. 78.89 us)</p></li>
+<li><p>The <strong>maximum latency</strong> (e.g. 544,85 us)</p></li>
+<li><p>The <strong>mean latency</strong> (e.g. 118.434 us)</p></li>
+<li><p>As well as the latency at 50%, 90%, or 99% of the time.</p></li>
+</ul>
+<img alt="../_images/4.3-2.png" class="align-center" src="../_images/4.3-2.png" />
+<ol class="arabic simple" start="2">
+<li><p>The output for the <strong>Pong</strong> application:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>RSS</strong> is the Resident Set Size; it indicates the amount of memory
+used by the process (e.g. 3.5MB used by the process id 2680);</p></li>
+<li><p><strong>VCSW</strong> is the number of voluntary switches, it indicates the
+times when the process waits for input or an event (e.g. 2097 times);</p></li>
+<li><p><strong>IVCSW</strong> is the number of involuntary switches, it indicates the
+times when the process is pre-empted or blocked by a mutex (e.g. 6
+times);</p></li>
+<li><p>The percentage of time spent executing user code and the percentage
+of time spent executing the kernel code in a specific thread (e.g. spent
+almost 0% of the time executing the user code and 5% executing kernel
+code in thread “ping”).</p></li>
+</ul>
+<img alt="../_images/4.3-3.png" class="align-center" src="../_images/4.3-3.png" />
+</section>
+<section id="measuring-throughput">
+<h2>Measuring throughput<a class="headerlink" href="#measuring-throughput" title="Permalink to this headline">¶</a></h2>
+<p>To measure throughput between two different applications, you need to
+run at least two instances of the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>tool and instruct one of
+them to endorse the role of a Publisher that sends a given amount of
+data (a sequence of octets) at a given rate. The other instances take
+the role of Subscriber applications.</p>
+<p><strong>Note:</strong> When your scenario involves only one subscriber, the UDP unicast mode is used.
+If several subscriber instances are running, the multicast is automatically used.</p>
+<img alt="../_images/4.4-1.png" class="align-center" src="../_images/4.4-1.png" />
+<p>Two additional modes are therefore supported:</p>
+<p>The <strong>Pub</strong> mode and the <strong>Sub</strong> mode.</p>
+<p>In the Sub mode, the subscriber operates either:</p>
+<ul class="simple">
+<li><p>Using the <strong>Listener</strong> notification mechanism,</p></li>
+<li><p>The <strong>WaitSet</strong> notification mechanism, or</p></li>
+<li><p>The <strong>Pooling</strong> mode. The pooling mode allows the subscriber to
+cyclically fetch the data from its local cache instead of being
+notified each time a new set of data is added to the subscriber’s
+cache as is the case with the other modes.</p></li>
+</ul>
+<p>You can publish data in two ways by publishing each data sample
+individually or by sending them in a <em>Burst</em> mode.</p>
+<ul class="simple">
+<li><p>The <strong>Rate</strong> and frequency at which data is written. This is
+specified through the [R[Hz]] option. The default rate is “as fast as
+possible”. This means, in <strong>pub</strong> mode, instead of trying to reach a
+certain rate, it just pushes data as hard as it can.</p></li>
+<li><p>The <strong>Size</strong> of the data that is exchanged. This is specified through
+the [Size S] option. The size is “as small as possible” by default,
+depending on the size of the topic it defaults to.</p></li>
+<li><p>The <strong>Burst Size</strong> , defines the number of data samples issued together as a batch.
+This parameter is defined by the [Burst N] option. The default size for burst is 1.
+It doesn’t make much difference when going “as fast as possible”, and it only applies
+to the <strong>pub</strong> mode.</p></li>
+<li><p>The triggering mode by default is <em>listener</em> for the <strong>ping</strong> ,
+<strong>pong</strong> and <strong>sub</strong> mode.</p></li>
+</ul>
+<p>To run a simple throughput test, you can simply run a <strong>pub</strong> mode and a
+<strong>sub</strong> mode in 2 different terminals without specifying any other
+options or you can customize it as shown below:</p>
+<p>Open two terminals, navigate to the directory where <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> is located
+and write the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pub size 1k
+cyclonedds performance publish --size 1k
+</pre></div>
+</div>
+<p>And in the other terminal, type in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf -Qrss:1 sub
+cyclonedds performance -Qrss:1 subscribe
+</pre></div>
+</div>
+<p>This measures the throughput of data samples with 1Kbytes written as
+fast as possible.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-Qrss:1</span></code> option in <strong>sub</strong> mode sets the maximum allowed an increase
+in RSS as 1MB. When running the test, if the memory occupied by the
+process increases by less than 1MB, the test can successfully run.
+Otherwise, an error message is printed out at the end of the test.</p>
+<p>As the <code class="docutils literal notranslate"><span class="pre">pub</span></code> in this example only has a size of 1k, the sub does not
+print out an RSS error message at the end of the test.</p>
+<p>The output of the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool when measuring throughput is as shown
+below:</p>
+<ol class="arabic simple">
+<li><p>The output for the <strong>Pub</strong> application indicates mainly:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>RSS</strong> is the Resident Set Size; it indicates the amount of memory
+is used by the process (e.g. 6.3MB used by the process id “4026”);</p></li>
+<li><p><strong>VCSW</strong> is the number of voluntary switches, it indicates the
+times when the process waits for input or an event (e.g. 1054 times);</p></li>
+<li><p><strong>IVCSW</strong> is the number of involuntary switches, it indicates the
+times when the process is pre-empted or blocked by a mutex (e.g. 24
+times);</p></li>
+<li><p>The percentage of time spent executing user code and the percentage
+of time spent executing kernel code in a specific thread (e.g. spent
+34% of the time executing the user code and 11% executing kernel code
+in thread “pub”).</p></li>
+</ul>
+<img alt="../_images/4.4-2.png" class="align-center" src="../_images/4.4-2.png" />
+<ol class="arabic simple" start="2">
+<li><p>The output for the <strong>Sub</strong> application indicates mainly:</p></li>
+</ol>
+<ul class="simple">
+<li><p>The <strong>size of the data</strong> involved in this test (e.g. 1024 bytes,
+which is the “size 1k” defined in the pub command)</p></li>
+<li><p>The <strong>total packets received</strong> (e.g. 614598);</p></li>
+<li><p>The <strong>total packets lost</strong> t (e.g. 0);</p></li>
+<li><p>The <strong>packets received in a 1 second reporting period</strong> (e.g.
+212648);</p></li>
+<li><p>The <strong>packets lost in a 1 second report period</strong> (e.g. 0);</p></li>
+<li><p>The <strong>number of samples processed by the Sub application</strong> in 1s
+(e.g. 21260 KS/s, with the unit KS/s is 1000 samples per second).</p></li>
+</ul>
+<img alt="../_images/4.4-3.png" class="align-center" src="../_images/4.4-3.png" />
+</section>
+<section id="measuring-throughput-and-latency-in-a-mixed-scenario">
+<h2>Measuring Throughput and Latency in a mixed scenario<a class="headerlink" href="#measuring-throughput-and-latency-in-a-mixed-scenario" title="Permalink to this headline">¶</a></h2>
+<p>In some scenarios, it might be helpful to measure the throughput and
+latency at the same time.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool allows you to mix these two scenarios.
+The Ping mode can be combined with the Pub mode to address such cases.</p>
+<p>The [Ping x%] switch combined with the Pub mode allows you to send a
+fraction of samples x% as if they were used in the Ping mode.</p>
+<p>The different modes of the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool are summarized in the figure
+below.</p>
+<img alt="../_images/4.5-1.png" class="align-center" src="../_images/4.5-1.png" />
+<p>You can get more information for the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool by using the [help]
+option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf <span class="nb">help</span>
+cyclonedds performance --help
+</pre></div>
+</div>
+</section>
+<section id="additional-options">
+<h2>Additional options<a class="headerlink" href="#additional-options" title="Permalink to this headline">¶</a></h2>
+<p>As well as selecting the <code class="docutils literal notranslate"><span class="pre">mode</span></code>, you can also select the <code class="docutils literal notranslate"><span class="pre">options</span></code>
+to specify how to send and receive the data (such as modifying the
+reliable QoS from Reliable to Best-Effort with the <code class="docutils literal notranslate"><span class="pre">-u</span></code> option), or
+how to evaluate or view the data in the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>tool.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">options</span></code> you can select are listed in the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> <code class="docutils literal notranslate"><span class="pre">help</span></code>
+menu, as shown below.</p>
+<img alt="../_images/4.6-1.png" class="align-center" src="../_images/4.6-1.png" />
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Benchmarking Tools</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#testing-your-network-configuration">Testing your network configuration</a></li>
+<li><a class="reference internal" href="#measuring-latency">Measuring latency</a></li>
+<li><a class="reference internal" href="#measuring-throughput">Measuring throughput</a></li>
+<li><a class="reference internal" href="#measuring-throughput-and-latency-in-a-mixed-scenario">Measuring Throughput and Latency in a mixed scenario</a></li>
+<li><a class="reference internal" href="#additional-options">Additional options</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="py_tutorial/index.html">
+                    <span class="icon"><</span><span>Python Tutorial</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="contributing.html"><span>Contributing to Eclipse Cyclone DDS</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

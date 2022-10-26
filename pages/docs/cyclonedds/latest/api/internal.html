@@ -6,16 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Internal functionality &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <title>Internal functionality &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="/js/docu.js"></script>
+    <script src="/_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,7 +31,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS latest documentation</a></h1>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -121,11 +121,12 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../config.html">Eclipse Cyclone DDS Configuration Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">C API Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
@@ -162,35 +163,35 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_MIN_PSEUDO_HANDLE">
-<span class="target" id="group__internal_1ga0ca5d977475bb35a5ab2bd3ac0dff031"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_MIN_PSEUDO_HANDLE</span></span></span><a class="headerlink" href="#c.DDS_MIN_PSEUDO_HANDLE" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__internal_1ga0ca5d977475bb35a5ab2bd3ac0dff031"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_MIN_PSEUDO_HANDLE</span></span></span> <span class="pre">((</span><a class="reference internal" href="entity.html#group__entity_1gaa66538468c533a9ea558b7e280677b13"><span class="std std-ref"><span class="pre">dds_entity_t</span></span></a><span class="pre">)0x7fff0000)</span><a class="headerlink" href="#c.DDS_MIN_PSEUDO_HANDLE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Pseudo Handle origin. </p>
 <p><span class="target" id="group__internal_1DDS_MIN_PSEUDO_HANDLE"></span> Some handles in CycloneDDS are ‘fake’, most importantly the builtin topic handles. These handles are derived from this constant. </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_CYCLONEDDS_HANDLE">
-<span class="target" id="group__internal_1ga62f1c30f2496513386d2530c1af681d0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_CYCLONEDDS_HANDLE</span></span></span><a class="headerlink" href="#c.DDS_CYCLONEDDS_HANDLE" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__internal_1ga62f1c30f2496513386d2530c1af681d0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_CYCLONEDDS_HANDLE</span></span></span> <span class="pre">((</span><a class="reference internal" href="entity.html#group__entity_1gaa66538468c533a9ea558b7e280677b13"><span class="std std-ref"><span class="pre">dds_entity_t</span></span></a><span class="pre">)(</span><a class="reference internal" href="#group__internal_1ga0ca5d977475bb35a5ab2bd3ac0dff031"><span class="std std-ref"><span class="pre">DDS_MIN_PSEUDO_HANDLE</span></span></a> <span class="pre">+</span> <span class="pre">256))</span><a class="headerlink" href="#c.DDS_CYCLONEDDS_HANDLE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Special handle representing the entity corresponding to the CycloneDDS library itself. </p>
 <p><span class="target" id="group__internal_1DDS_CYCLONEDDS_HANDLE"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_READ_WITHOUT_LOCK">
-<span class="target" id="group__internal_1gaf5f9572c0b289315d0b8c16120813e33"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_READ_WITHOUT_LOCK</span></span></span><a class="headerlink" href="#c.DDS_READ_WITHOUT_LOCK" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__internal_1gaf5f9572c0b289315d0b8c16120813e33"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_READ_WITHOUT_LOCK</span></span></span> <span class="pre">(0xFFFFFFED)</span><a class="headerlink" href="#c.DDS_READ_WITHOUT_LOCK" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Constant to use with <a class="reference internal" href="sub.html#group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"><span class="std std-ref">dds_read()</span></a> or <a class="reference internal" href="sub.html#group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"><span class="std std-ref">dds_take()</span></a> when using <a class="reference internal" href="#group__internal_1gab19de41386b08df64b7b679c5f643410"><span class="std std-ref">dds_reader_lock_samples()</span></a> </p>
 <p><span class="target" id="group__internal_1DDS_READ_WITHOUT_LOCK"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_KIND_MAX">
-<span class="target" id="group__internal_1ga2542f6f54c3624eaa01cbd12a449f6b4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_MAX</span></span></span><a class="headerlink" href="#c.DDS_KIND_MAX" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__internal_1ga2542f6f54c3624eaa01cbd12a449f6b4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_MAX</span></span></span> <a class="reference internal" href="#group__internal_1gga95025da70d4d5b7c257e4f84394c094aa5645873cb5a0535fca35ff7ee5066cf5"><span class="std std-ref"><span class="pre">DDS_KIND_CYCLONEDDS</span></span></a><a class="headerlink" href="#c.DDS_KIND_MAX" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Max entity kind, used for loops. </p>
 <p><span class="target" id="group__internal_1DDS_KIND_MAX"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_LUNSET">
-<span class="target" id="group__internal_1ga1eff6d9d09533882ff2a2703541d6d27"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LUNSET</span></span></span><a class="headerlink" href="#c.DDS_LUNSET" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__internal_1ga1eff6d9d09533882ff2a2703541d6d27"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LUNSET</span></span></span> <span class="pre">0</span><a class="headerlink" href="#c.DDS_LUNSET" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Default initial value (nullptr) for listener functions. </p>
 <p><span class="target" id="group__internal_1DDS_LUNSET"></span></p>
 </dd></dl>
@@ -638,49 +639,49 @@ This is a support function for testing and, other special uses and is subject to
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_XCDR1">
-<span class="target" id="group__topic__definition_1ga065f1865b818507e0b57cb81068758ea"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XCDR1</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XCDR1" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__topic__definition_1ga065f1865b818507e0b57cb81068758ea"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XCDR1</span></span></span> <span class="pre">0</span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XCDR1" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Data representation XCDR1 Type can be represented using XCDR1. </p>
 <p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_XCDR1"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_XML">
-<span class="target" id="group__topic__definition_1gae662f0810f0541d7b40eea7294ce2aa9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XML</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XML" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__topic__definition_1gae662f0810f0541d7b40eea7294ce2aa9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XML</span></span></span> <span class="pre">1</span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XML" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Data representation XML Type can be represented using XML. </p>
 <p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_XML"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_XCDR2">
-<span class="target" id="group__topic__definition_1ga66a1db8a1a2d420236b1e536f529cccf"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XCDR2</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XCDR2" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__topic__definition_1ga66a1db8a1a2d420236b1e536f529cccf"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_XCDR2</span></span></span> <span class="pre">2</span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_XCDR2" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Data representation XCDR2 Type can be represented using XCDR2. </p>
 <p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_XCDR2"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_FLAG_XCDR1">
-<span class="target" id="group__topic__definition_1ga1c9445103fc4acd8fca5d7135cd6aabe"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR1</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XCDR1" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__topic__definition_1ga1c9445103fc4acd8fca5d7135cd6aabe"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR1</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__topic__definition_1ga065f1865b818507e0b57cb81068758ea"><span class="std std-ref"><span class="pre">DDS_DATA_REPRESENTATION_XCDR1</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XCDR1" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Data representation XCDR1 flag Type can be represented using XCDR1, preshifted. </p>
 <p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_FLAG_XCDR1"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_FLAG_XML">
-<span class="target" id="group__topic__definition_1ga81a0e03f060835f742c710bf5c7eaaa5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XML</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XML" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__topic__definition_1ga81a0e03f060835f742c710bf5c7eaaa5"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XML</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__topic__definition_1gae662f0810f0541d7b40eea7294ce2aa9"><span class="std std-ref"><span class="pre">DDS_DATA_REPRESENTATION_XML</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XML" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Data representation XML flag Type can be represented using XML, preshifted. </p>
 <p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_FLAG_XML"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_FLAG_XCDR2">
-<span class="target" id="group__topic__definition_1gaefedcfe123cc0acf362473700c3047b7"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR2</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XCDR2" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__topic__definition_1gaefedcfe123cc0acf362473700c3047b7"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR2</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__topic__definition_1ga66a1db8a1a2d420236b1e536f529cccf"><span class="std std-ref"><span class="pre">DDS_DATA_REPRESENTATION_XCDR2</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_FLAG_XCDR2" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Data representation XCDR2 flag Type can be represented using XCDR2, preshifted. </p>
 <p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_FLAG_XCDR2"></span></p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT">
-<span class="target" id="group__topic__definition_1ga0325cf03a9c25c793e71cf20e108de46"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT</span></span></span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__topic__definition_1ga0325cf03a9c25c793e71cf20e108de46"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT</span></span></span> <span class="pre">(</span><a class="reference internal" href="#group__topic__definition_1ga1c9445103fc4acd8fca5d7135cd6aabe"><span class="std std-ref"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR1</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__topic__definition_1gaefedcfe123cc0acf362473700c3047b7"><span class="std std-ref"><span class="pre">DDS_DATA_REPRESENTATION_FLAG_XCDR2</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Default datarepresentation flag, XCDR1 and XCDR2 flags. </p>
 <p><span class="target" id="group__topic__definition_1DDS_DATA_REPRESENTATION_RESTRICT_DEFAULT"></span></p>
 </dd></dl>

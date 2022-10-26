@@ -1,0 +1,950 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>C++ Tutorial &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script src="/_static/js/helpers.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Python Tutorial" href="../py_tutorial/index.html" />
+    <link rel="prev" title="C Tutorial" href="../c_tutorial/index.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../c_tutorial/index.html">C Tutorial</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">C++ Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../py_tutorial/index.html">Python Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../benchmarking.html">Benchmarking Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ddsc.html">C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="c-tutorial">
+<h1>C++ Tutorial<a class="headerlink" href="#c-tutorial" title="Permalink to this headline">¶</a></h1>
+<section id="building-dds-c-hello-world">
+<h2>Building DDS C++ Hello World<a class="headerlink" href="#building-dds-c-hello-world" title="Permalink to this headline">¶</a></h2>
+<p>To test your installation, the <em>Hello World</em> example can be used. The
+code of this application is detailed in the next chapter.</p>
+<p>The <em>DDS C++ Hello World</em> example can be found in the
+<code class="docutils literal notranslate"><span class="pre">&lt;cyclonedds-cxx-install-location&gt;/share/CycloneDDS</span> <span class="pre">CXX/helloworld</span></code>
+directory for both Linux and Windows. This chapter describes the example
+build process using CMake.</p>
+<section id="building-var-project-short-cxx-applications-with-cmake">
+<h3>Building CycloneDDS CXX applications with CMake<a class="headerlink" href="#building-var-project-short-cxx-applications-with-cmake" title="Permalink to this headline">¶</a></h3>
+<p>The CMake build file for the <em>DDS CXX Hello World</em> example is located
+under the <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> directory (<code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>).</p>
+<p>The content of the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> is as follows:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">helloworld</span><span class="w"> </span><span class="s">LANGUAGES</span><span class="w"> </span><span class="s">C</span><span class="w"> </span><span class="s">CXX</span><span class="p">)</span>
+<span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.5</span><span class="p">)</span>
+
+<span class="nb">if</span> <span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">TARGET</span><span class="w"> </span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX::ddscxx</span><span class="p">)</span>
+<span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+
+<span class="c"># Convenience function, provided by the idlc backend for CXX that generates a CMake</span>
+<span class="c"># target for the given IDL file. The function calls idlc to generate</span>
+<span class="c"># source files and compiles them into a library.</span>
+<span class="nb">idlcxx_generate</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">ddscxxHelloWorldData_lib</span><span class="w"> </span><span class="s">FILES</span><span class="w"> </span><span class="s">HelloWorldData.idl</span><span class="w"> </span><span class="s">WARNINGS</span><span class="w"> </span><span class="s">no-implicit-extensibility</span><span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">ddscxxHelloworldPublisher</span><span class="w"> </span><span class="s">publisher.cpp</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">ddscxxHelloworldSubscriber</span><span class="w"> </span><span class="s">subscriber.cpp</span><span class="p">)</span>
+
+<span class="c"># Link both executables to IDL data type library and ddscxx.</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">ddscxxHelloworldPublisher</span><span class="w"> </span><span class="s">ddscxxHelloWorldData_lib</span><span class="w"> </span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX::ddscxx</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">ddscxxHelloworldSubscriber</span><span class="w"> </span><span class="s">ddscxxHelloWorldData_lib</span><span class="w"> </span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX::ddscxx</span><span class="p">)</span>
+
+<span class="nb">set_property</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">ddscxxHelloworldPublisher</span><span class="w"> </span><span class="s">PROPERTY</span><span class="w"> </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+<span class="nb">set_property</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">ddscxxHelloworldSubscriber</span><span class="w"> </span><span class="s">PROPERTY</span><span class="w"> </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To build a CycloneDDS CXX based application with CMake, you must link
+your application business code with:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">|var-project-short|</span> <span class="pre">C++</span></code> libraries that contain the DDS CXX API your
+application needs.</p></li>
+<li><p>The wrapper classes and structures that represent your datatypes and
+the customized-DataWriter’s and readers that can handle these data
+types. The CMake statement generates these classes
+<code class="docutils literal notranslate"><span class="pre">idlcxx_generate()</span></code> that incepts the IDL file invokes the
+IDL compiler and packages the datatype wrapper classes in a library
+(e.g. <code class="docutils literal notranslate"><span class="pre">ddscxxHelloWorldData_lib</span></code>).</p></li>
+</ul>
+<p>This process is outlined as follows:</p>
+<img alt="../../_images/6.1.1-1.png" class="align-center" src="../../_images/6.1.1-1.png" />
+<p>Setting the property for the applications in the CMake
+<code class="docutils literal notranslate"><span class="pre">set_property()</span></code> statement compiles the application against the
+<code class="docutils literal notranslate"><span class="pre">C++</span> <span class="pre">11</span></code> standard.</p>
+<p>The application executable (<code class="docutils literal notranslate"><span class="pre">ddscxxHellowordPublisher</span></code>) is built with
+the CMake <code class="docutils literal notranslate"><span class="pre">target_link_libraries()</span></code> statement which links the ddscxx
+lib, the datatype wrapper classes lib (e.g <code class="docutils literal notranslate"><span class="pre">ddscxxHelloWorldData_lib</span></code>)
+and the application code lib.</p>
+<p>CMake tries to find the <code class="docutils literal notranslate"><span class="pre">CycloneDDS</span></code> and <code class="docutils literal notranslate"><span class="pre">CycloneDDSCXX</span></code>
+CMake packages, the details regarding how to locate those packages are
+described in the next section. When the packages are found, every path
+and dependencies are automatically set.</p>
+</section>
+<section id="building-the-hello-world-example">
+<h3>Building the <strong>Hello World!</strong> Example<a class="headerlink" href="#building-the-hello-world-example" title="Permalink to this headline">¶</a></h3>
+<p>With our <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file in hand we can now start the build process.
+It’s good practice to build examples or applications out-of-source by creating a <code class="docutils literal notranslate"><span class="pre">build</span></code> directory inside
+where you copied the <strong>Hello World!</strong> example. In the terminal that you opened inside the directory with
+the <strong>Hello World!</strong> files run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+<span class="nb">cd</span> build
+</pre></div>
+</div>
+<p>Now you can configure the build environment:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;core-install-location&gt;<span class="p">;</span>&lt;c++-install-location&gt; ..
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;core-install-location&gt;<span class="p">;</span>&lt;c++-install-location&gt; ..
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -G &lt;generator-name&gt; -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;core-install-location&gt;<span class="p">;</span>&lt;c++-install-location&gt; ..
+</pre></div>
+</div>
+<p>On Windows you can build with one of several generators. Usually if you omit the <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&lt;generator-name&gt;</span></code>
+it will pick a sensible default, but if it doesn’t work or picks something unexpected you can go to the
+<a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html">CMake generators documentation</a>.
+For example, “Visual Studio 15 2017 Win64” targets a 64-bit build using Visual Studio 2017.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If manually specifying generators be careful about mixing and matching! If you compiled CycloneDDS with 32-bit libraries
+and you try to compile <strong>Hello World!</strong> as 64-bit or vice-versa it will not work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Weird things can happen if you mix <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code>, <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=RelWithDebInfo</span></code> and <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Debug</span></code>,
+try to match what you picked for CycloneDDS in downstream projects.</p>
+</div>
+</div></div>
+<p>CMake uses the CMakeLists.txt in the HelloWorld directory to create “makefiles” that target the native platform.
+Our build directory is now prepared to build the actual executables (<code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code> in this case):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake --build .
+</pre></div>
+</div>
+<p>Your build directory should now contain your executables (on Windows they might be in a <code class="docutils literal notranslate"><span class="pre">Release</span></code> or <code class="docutils literal notranslate"><span class="pre">Debug</span></code> subdirectory). You can
+execute them in the same way as described in the <a class="reference external" href="#test-your-installation">Test your installation</a> section.</p>
+</section>
+</section>
+<section id="dds-c-hello-world-code-anatomy">
+<h2>DDS C++ Hello World Code anatomy<a class="headerlink" href="#dds-c-hello-world-code-anatomy" title="Permalink to this headline">¶</a></h2>
+<p>The previous chapter described the installation process that built
+implicitly or explicitly the C++ <em>Hello World!</em> Example.</p>
+<p>This chapter introduces the structural code of a simple system made by an
+application that publishes keyed messages and another one that subscribes and
+reads such data. Each message represents a data object that is uniquely identified
+with a key and a payload.</p>
+<section id="keys-steps-to-build-the-hello-world-application-in-c">
+<span id="key-steps-helloworld-cpp"></span><h3>Keys steps to build the <strong>Hello World!</strong> application in C++<a class="headerlink" href="#keys-steps-to-build-the-hello-world-application-in-c" title="Permalink to this headline">¶</a></h3>
+<p>The <em>Hello World!</em> example has a very simple ‘data layer’ with a data
+model made of one data type <code class="docutils literal notranslate"><span class="pre">Msg</span></code> which represents keyed messages (c,f
+next subsection).</p>
+<p>To exchange data, applications’ business logic with CycloneDDS must:</p>
+<ol class="arabic simple">
+<li><p>Declare its subscription and involvement into a <strong>DDS domain</strong>. A
+DDS domain is an administrative boundary that defines, scopes, and
+gathers all the DDS applications, data, and infrastructure that needs
+to interconnect and share the same data space. Each DDS domain has a
+unique identifier. Applications declare their participation within a
+DDS domain by creating a <strong>Domain Participant entity</strong>.</p></li>
+<li><p>Create a <strong>Data topic</strong> with the data type described in the data
+model. The data types define the structure of the Topic. The Topic is,
+therefore, an association between the topic name and datatype. QoSs
+can be optionally added to this association. Thus, a topic
+categorizes the data into logical classes and streams.</p></li>
+<li><p>Create at least a <strong>Publisher</strong>, a <strong>Subscriber</strong>, and <strong>Data
+Readers</strong> and <strong>Writers</strong> object specific to the topic
+created earlier. Applications may want to change the default QoSs at
+this stage. In the Hello world! example, the <code class="docutils literal notranslate"><span class="pre">ReliabilityQoS</span></code> is
+changed from its default value (Best-effort) to Reliable.</p></li>
+<li><p>Once the previous DDS computational objects are in place, the
+application logic can start writing or reading the data.</p></li>
+</ol>
+<p>At the application level, readers and writers need not be aware of
+each other. The reading application, now designated as application
+Subscriber, polls the data reader periodically until a writing
+application, designated as application Publisher,
+provides the required data into the shared Topic, namely <code class="docutils literal notranslate"><span class="pre">HelloWorldData_Msg</span></code>.</p>
+<p>The data type is described using the OMG IDL.
+Language &lt;<a class="reference external" href="http://www.omg.org/gettingstarted/omg_idl.htm">http://www.omg.org/gettingstarted/omg_idl.htm</a>&gt;`__ located in
+<code class="docutils literal notranslate"><span class="pre">HelloWorldData.idl</span></code> file. This IDL file is considered the Data Model
+of our example.</p>
+<p>This data model is preprocessed and compiled by CycloneDDS C++
+IDL-Compiler to generate a C++ representation of the data as described
+in Chapter 6. These generated source and header files are used by the
+<code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher.cpp</span></code>
+application programs to share the <em>Hello World!</em> Message instance and
+sample.</p>
+<section id="helloworld-idl">
+<h4>HelloWorld IDL<a class="headerlink" href="#helloworld-idl" title="Permalink to this headline">¶</a></h4>
+<p>As explained earlier, the benefits of using IDL language to define
+data is to have a data model that is independent of the programming
+languages. The <code class="docutils literal notranslate"><span class="pre">HelloWorld.idl</span></code> IDL file can
+therefore be reused, it is compiled to be used within C++ DDS based
+applications.</p>
+<p>The HelloWorld data type is described in a language-independent way and
+stored in the HelloWorldData.idl file.</p>
+<div class="highlight-omg-idl notranslate"><div class="highlight"><pre><span></span><span class="kn">module</span><span class="w"> </span><span class="nn">HelloWorldData</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Msg</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The data definition language used for DDS corresponds to a subset of
+the OMG Interface Definition Language (IDL). In our simple example, the HelloWorld data
+model is made of one module <code class="docutils literal notranslate"><span class="pre">HelloWorldData</span></code>. A module can be seen
+as a namespace where data with interrelated semantics are represented
+together as a logical unit.</p>
+<p>The struct Msg is the actual data structure that shapes the data used to
+build the Topics. As already mentioned, a topic is an
+association between a data type and a string name. The topic name is not
+defined in the IDL file but is instead defined by the application business
+logic at runtime.</p>
+<p>In our case, the data type <code class="docutils literal notranslate"><span class="pre">Msg</span></code> contains two fields: <code class="docutils literal notranslate"><span class="pre">userID</span></code> and
+<code class="docutils literal notranslate"><span class="pre">message</span></code> payload. The <code class="docutils literal notranslate"><span class="pre">userID</span></code> is used to uniquely identify each message
+instance. This is done using the <code class="docutils literal notranslate"><span class="pre">&#64;key</span></code> annotation.</p>
+<p>The CycloneDDS C++ IDL compiler translates module names into
+namespaces and structure names into classes.</p>
+<p>It also generates code for public accessor functions for all fields
+mentioned in the IDL struct, separate public constructors, and a
+destructor:</p>
+<ul class="simple">
+<li><p>A default (empty) constructor that recursively invokes the
+constructors of all fields</p></li>
+<li><p>A copy-constructor that performs a deep copy from the existing class</p></li>
+<li><p>A move-constructor that moves all arguments to its members</p></li>
+</ul>
+<p>The destructor recursively releases all fields. It also generates code
+for assignment operators that recursively construct all fields based on
+the parameter class (copy and move versions). The following code snippet is
+provided without warranty: the internal format may change, but the API
+delivered to your application code is stable.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldData</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Msg</span><span class="w"> </span><span class="n">OSPL_DDS_FINAL</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID_</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message_</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">Msg</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">explicit</span><span class="w"> </span><span class="n">Msg</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="n">userID</span><span class="p">),</span><span class="w"></span>
+<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">Msg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">),</span><span class="w"></span>
+<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+
+<span class="cp">#ifdef OSPL_DDS_C++11</span>
+<span class="w">        </span><span class="n">Msg</span><span class="p">(</span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">)),</span><span class="w"></span>
+<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">        </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="w">        </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">userID_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"></span>
+<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int32_t</span><span class="o">&amp;</span><span class="w"> </span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">userID</span><span class="p">(</span><span class="kt">int32_t</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="cp">#ifdef OSPL_DDS_C++11</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> When translated into a different programming language, the
+data has a different representation specific to the target
+language. For instance, as shown in chapter 3, in C, the Helloworld data
+type is represented by a C structure. This highlights the advantage of using
+neutral language like IDL to describe the data model. It can be
+translated into different languages that can be shared between various
+applications written in other programming languages.</p>
+</section>
+<section id="the-idl-compiler-generated-files">
+<h4>The IDL compiler generated files<a class="headerlink" href="#the-idl-compiler-generated-files" title="Permalink to this headline">¶</a></h4>
+<p>The IDL compiler is a bison-based parser written in pure C and should be
+fast and portable. It loads dynamic libraries to support different output
+languages, but this is seldom relevant to you as a user. You can use
+<code class="docutils literal notranslate"><span class="pre">CMake</span></code> recipes as described above or invoke directly:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>idlc -l C++ HelloWorldData.idl
+</pre></div>
+</div>
+<p>This results in the following new files that need to be compiled and
+their associated object file linked with the Hello <em>World!</em> publisher
+and subscriber application business logic:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HelloWorldData.hpp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HelloWorldData.cpp</span></code></p></li>
+</ul>
+<p>When using CMake to build the application, this step is hidden and is
+done automatically. For building with CMake, refer to <a class="reference external" href="#build-the-dds-C++-hello-world-example">building the
+HelloWorld example.</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">HelloWorldData.hpp</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloWorldData.cpp</span></code> files contain the data
+type of messages that are shared.</p>
+</section>
+</section>
+<section id="dds-c-hello-world-business-logic">
+<h3>DDS C++ Hello World Business Logic<a class="headerlink" href="#dds-c-hello-world-business-logic" title="Permalink to this headline">¶</a></h3>
+<p>As well as from the <code class="docutils literal notranslate"><span class="pre">HelloWorldData</span></code> data type files that the <em>DDS C++
+Hello World</em> example used to send messages, the <em>DDS C++ Hello World!</em>
+example also contains two application-level source files
+(<code class="docutils literal notranslate"><span class="pre">subscriber.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">publisher.cpp</span></code>), containing the business
+logic.</p>
+<p>DDS C++ <strong>Hello World!</strong> Subscriber Source Code
+^^^^^^^^^^^^^^^^^^^^^^^^^^^=^^^^^^^^^^^^^^^^^^^^^</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Subscriber.cpp</span></code> file mainly contains the statements to wait for a
+<em>Hello World</em> message and reads it when it receives it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The read sematic keeps the data sample in the Data Reader
+cache. The Subscriber application implements the steps defined in
+<a class="reference internal" href="#key-steps-helloworld-cpp"><span class="std std-ref">Key Steps to build helloworld for C++</span></a>.</p>
+</div>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="cm">/* Include the C++ DDS API. */</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="cm">/* Include data type and specific traits to be used with the C++ DDS API. */</span><span class="w"></span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.hpp&quot;</span><span class="cp"></span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">org</span><span class="o">::</span><span class="nn">eclipse</span><span class="o">::</span><span class="nn">cyclonedds</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Create reader.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="cm">/* First, a domain participant is needed.</span>
+<span class="linenos">19</span><span class="cm">         * Create one on the default domain. */</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="n">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span><span class="w"></span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">        </span><span class="cm">/* To subscribe to something, a topic is needed. */</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ddsC++_helloworld_example&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">/* A reader also needs a subscriber. */</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">Subscriber</span><span class="w"> </span><span class="n">subscriber</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">        </span><span class="cm">/* Now, the reader can be created to subscribe to a HelloWorld message. */</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">        </span><span class="cm">/* Poll until a message has been read.</span>
+<span class="linenos">32</span><span class="cm">         * It isn&#39;t really recommended to do this kind wait in a polling loop.</span>
+<span class="linenos">33</span><span class="cm">         * It&#39;s done here just to illustrate the easiest way to get data.</span>
+<span class="linenos">34</span><span class="cm">         * Please take a look at Listeners and WaitSets for much better</span>
+<span class="linenos">35</span><span class="cm">         * solutions, albeit somewhat more elaborate ones. */</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Wait for message.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">poll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">poll</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">            </span><span class="cm">/* For this example, the reader will return a set of messages (aka</span>
+<span class="linenos">41</span><span class="cm">             * Samples). There are other ways of getting samples from reader.</span>
+<span class="linenos">42</span><span class="cm">             * See the various read() and take() functions that are present. */</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">            </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">LoanedSamples</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">samples</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="w">            </span><span class="cm">/* Try taking samples from the reader. */</span><span class="w"></span>
+<span class="linenos">46</span><span class="w">            </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">take</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">47</span>
+<span class="linenos">48</span><span class="w">            </span><span class="cm">/* Are samples read? */</span><span class="w"></span>
+<span class="linenos">49</span><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">samples</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">50</span><span class="w">                </span><span class="cm">/* Use an iterator to run over the set of samples. */</span><span class="w"></span>
+<span class="linenos">51</span><span class="w">                </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">LoanedSamples</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;::</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">sample_iter</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">52</span><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">sample_iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">samples</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">53</span><span class="w">                     </span><span class="n">sample_iter</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">samples</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">54</span><span class="w">                     </span><span class="o">++</span><span class="n">sample_iter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">                    </span><span class="cm">/* Get the message and sample information. */</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sample_iter</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">57</span><span class="w">                    </span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">SampleInfo</span><span class="o">&amp;</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sample_iter</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="w">                    </span><span class="cm">/* Sometimes a sample is read, only to indicate a data</span>
+<span class="linenos">60</span><span class="cm">                     * state change (which can be found in the info). If</span>
+<span class="linenos">61</span><span class="cm">                     * that&#39;s the case, only the key value of the sample</span>
+<span class="linenos">62</span><span class="cm">                     * is set. The other data parts are not.</span>
+<span class="linenos">63</span><span class="cm">                     * Check if this sample has valid data. */</span><span class="w"></span>
+<span class="linenos">64</span><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">valid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">65</span><span class="w">                        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Message received:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">66</span><span class="w">                        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    userID  : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">67</span><span class="w">                        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    Message : </span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">68</span>
+<span class="linenos">69</span><span class="w">                        </span><span class="cm">/* Only 1 message is expected in this example. */</span><span class="w"></span>
+<span class="linenos">70</span><span class="w">                        </span><span class="n">poll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">71</span><span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">72</span><span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">73</span><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">74</span><span class="w">                </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">75</span><span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">76</span><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">77</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">78</span><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">79</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Exception: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">80</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">81</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">82</span>
+<span class="linenos">83</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Done.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">84</span>
+<span class="linenos">85</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">86</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Within the subscriber code, we mainly use the DDS ISOCPP API and the
+<code class="docutils literal notranslate"><span class="pre">HelloWorldData::Msg</span></code> type. Therefore, the following header files must
+be included:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dds.hpp</span></code> file give access to the DDS APIs,</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">HelloWorldData.hpp</span></code> is specific to the data type defined
+in the IDL.</p></li>
+</ul>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.hpp&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>At least four DDS entities are needed, the domain participant,
+the topic, the subscriber, and the reader.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="nf">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="s">&quot;ddsC++_helloworld_example&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">Subscriber</span><span class="w"> </span><span class="nf">subscriber</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The CycloneDDS C++ API simplifies and extends how data can be read or
+taken. To handle the data some, <code class="docutils literal notranslate"><span class="pre">LoanedSamples</span></code> is declared and
+created which loan samples from the Service pool. Return of the loan is
+implicit and managed by scoping:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">LoanedSamples</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">samples</span><span class="p">;</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">LoanedSamples</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;::</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">sample_iter</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>As the <code class="docutils literal notranslate"><span class="pre">read(</span> <span class="pre">)/take()</span></code> operation may return more the one data sample
+(if several publishing applications are started
+simultaneously to write different message instances), an iterator is
+used.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="o">::</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">SampleInfo</span><span class="o">&amp;</span><span class="w"> </span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In DDS, data and metadata are propagated together. The samples are a
+set of data samples (i.e., user-defined data) and metadata describing the
+sample state and validity, etc ,,, (<code class="docutils literal notranslate"><span class="pre">info</span></code>). We can use iterators to
+get the data and metadata from each sample.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Exception: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>It is good practice to surround every key verb of the DDS APIs with
+<code class="docutils literal notranslate"><span class="pre">try/catch</span></code> block to locate issues precisely when they occur. In this
+example, one block is used to facilitate the programming model of the
+applications and improve their source code readability.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="nf">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The DDS participant is always attached to a specific DDS domain. In the
+Hello World! example, it is part of the Default_Domain, the one
+specified in the XML deployment file that you potentially be created
+(i.e., the one pointing to <code class="docutils literal notranslate"><span class="pre">$CYCLONEDDS_URI</span></code>), please refer to
+<a class="reference internal" href="../installation/index.html#test-your-installation"><span class="std std-ref">testing your installation</span></a> for further details.</p>
+<p>Subsequently, create a subscriber attached to your participant.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">Subscriber</span><span class="w"> </span><span class="nf">subscriber</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The next step is to create the topic with a given
+name(<code class="docutils literal notranslate"><span class="pre">ddsC++_helloworld_example</span></code>)and the predefined data
+type(<code class="docutils literal notranslate"><span class="pre">HelloWorldData::Msg</span></code>). Topics with the same data type
+description and with different names are considered different topics.
+This means that readers or writers created for a given topic do not
+interfere with readers or writers created with another topic, even if
+they are the same data type.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="s">&quot;ddsC++_helloworld_example&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Once the topic is created, we can create and associate to it a data
+reader.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To modify the Data Reader Default Reliability Qos to Reliable:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drqos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topic</span><span class="p">.</span><span class="n">qos</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">Reliability</span><span class="o">::</span><span class="n">Reliable</span><span class="p">();</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dr</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">drqos</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To retrieve data in your application code from the data reader’s cache
+you can either use a pre-allocated buffer to store the data or loan it
+from the middleware.</p>
+<p>If you use a pre-allocated buffer, you create an array/vector-like
+like container. If you use the loaned buffer option, you need to be
+aware that these buffers are actually ‘owned’ by the middleware,
+precisely by the <code class="docutils literal notranslate"><span class="pre">DataReader</span></code>. The CycloneDDS C++ API implicitly
+allows you to return the loans through scoping.</p>
+<p>In our example, we use the loan samples mode (<code class="docutils literal notranslate"><span class="pre">LoanedSamples</span></code>).
+<code class="docutils literal notranslate"><span class="pre">Samples</span></code> are an unbounded sequence of samples; the sequence
+length depends on the amount of data available in the data reader’s
+cache.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">LoanedSamples</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">samples</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>At this stage, we can attempt to read data by going into a polling loop
+that regularly scrutinizes and examines the arrival of a message.
+Samples are removed from the reader’s cache when taken with the
+<code class="docutils literal notranslate"><span class="pre">take()</span></code>.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">take</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If you choose to read the samples with <code class="docutils literal notranslate"><span class="pre">read()</span></code>, data remains in the
+data reader cache. A length() of samples greater than zero indicates
+that the data reader cache was not empty.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">samples</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>As sequences are NOT pre-allocated by the user, buffers are ‘loaned’ to
+him by the <code class="docutils literal notranslate"><span class="pre">DataReader</span></code>.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">LoanedSamples</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;::</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">sample_iter</span><span class="p">;</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">sample_iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">samples</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
+<span class="w">     </span><span class="n">sample_iter</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">samples</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"></span>
+<span class="w">     </span><span class="o">++</span><span class="n">sample_iter</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For each sample, cast and extract its user-defined data
+(<code class="docutils literal notranslate"><span class="pre">Msg</span></code>) and metadate (<code class="docutils literal notranslate"><span class="pre">info</span></code>).</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sample_iter</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">();</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">SampleInfo</span><span class="o">&amp;</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sample_iter</span><span class="o">-&gt;</span><span class="n">info</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The SampleInfo (<code class="docutils literal notranslate"><span class="pre">info</span></code>) tells us whether the data we are taking is
+<em>Valid</em> or <em>Invalid</em>. Valid data means that it contains the payload
+provided by the publishing application. Invalid data means that we are
+reading the DDS state of the data Instance. The state of a data instance can
+be <code class="docutils literal notranslate"><span class="pre">DISPOSED</span></code> by the writer, or it is <code class="docutils literal notranslate"><span class="pre">NOT_ALIVE</span></code> anymore, which
+could happen when the publisher application terminates while the
+subscriber is still active. In this case, the sample is not considered
+Valid, and its sample <code class="docutils literal notranslate"><span class="pre">info.valid()</span></code> field is False.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">valid</span><span class="p">())</span><span class="w"></span>
+</pre></div>
+</div>
+<p>As the sample contains valid data, we can safely display its content.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Message received:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    userID  : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;    Message : </span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>As we are using the Poll data reading mode, we repeat the above steps
+every 20 milliseconds.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This example uses the polling mode to read or take data. CycloneDDS
+offers <em>waitSet</em> and <em>Listener</em> mechanism to notify the application that
+data is available in their cache, which avoids polling the cache at a
+regular intervals. The discretion of these mechanisms is beyond the
+scope of this document.</p>
+<p>All the entities that are created under the participant, such as the
+Data Reader Subscriber and Topic are automatically deleted by
+middleware through the scoping mechanism.</p>
+<section id="dds-c-hello-world-publisher-source-code">
+<h4>DDS C++ <strong>Hello World!</strong> Publisher Source Code<a class="headerlink" href="#dds-c-hello-world-publisher-source-code" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">Publisher.cpp</span></code> contains the source that writes a <em>Hello World</em>
+message. From the DDS perspective, the publisher application code is
+almost symmetrical to the subscriber one, except that you need to create
+a Publisher and <code class="docutils literal notranslate"><span class="pre">DataWriter</span></code>, respectively, instead of a Subscriber and
+Data Reader. A synchronization statement is added to the main thread to
+ensure data is only written when CycloneDDS discovers at least a matching
+reader. Synchronizing the main thread until a reader is discovered
+assures we can start the publisher or subscriber program in any order.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="cm">/* Include the C++ DDS API. */</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="cm">/* Include data type and specific traits to be used with the C++ DDS API. */</span><span class="w"></span>
+<span class="linenos">10</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.hpp&quot;</span><span class="cp"></span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">org</span><span class="o">::</span><span class="nn">eclipse</span><span class="o">::</span><span class="nn">cyclonedds</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Publisher] Create writer.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">        </span><span class="cm">/* First, a domain participant is needed.</span>
+<span class="linenos">19</span><span class="cm">         * Create one on the default domain. */</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="n">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span><span class="w"></span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">        </span><span class="cm">/* To publish something, a topic is needed. */</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ddsC++_helloworld_example&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">/* A writer also needs a publisher. */</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">Publisher</span><span class="w"> </span><span class="n">publisher</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">        </span><span class="cm">/* Now, the writer can be created to publish a HelloWorld message. */</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">        </span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">writer</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">        </span><span class="cm">/* For this example, we&#39;d like to have a subscriber read</span>
+<span class="linenos">32</span><span class="cm">         * our message. This is not always necessary. Also, the way it is</span>
+<span class="linenos">33</span><span class="cm">         * done here is to illustrate the easiest way to do so. However, it is *not*</span>
+<span class="linenos">34</span><span class="cm">         * recommended to do a wait in a polling loop.</span>
+<span class="linenos">35</span><span class="cm">         * Please take a look at Listeners and WaitSets for much better</span>
+<span class="linenos">36</span><span class="cm">         * solutions, albeit somewhat more elaborate ones. */</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Publisher] Waiting for subscriber.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">38</span><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">.</span><span class="n">publication_matched_status</span><span class="p">().</span><span class="n">current_count</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">39</span><span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">41</span>
+<span class="linenos">42</span><span class="w">        </span><span class="cm">/* Create a message to write. */</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">        </span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="w"> </span><span class="n">msg</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="w">        </span><span class="cm">/* Write the message. */</span><span class="w"></span>
+<span class="linenos">46</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Publisher] Write sample.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">        </span><span class="n">writer</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">48</span>
+<span class="linenos">49</span><span class="w">        </span><span class="cm">/* With a normal configuration (see dds::pub::qos::DataWriterQos</span>
+<span class="linenos">50</span><span class="cm">         * for various writer configurations), deleting a writer will</span>
+<span class="linenos">51</span><span class="cm">         * dispose of all its related messages.</span>
+<span class="linenos">52</span><span class="cm">         * Wait for the subscriber to have stopped to be sure it received the</span>
+<span class="linenos">53</span><span class="cm">         * message. Again, not normally necessary and not recommended to do</span>
+<span class="linenos">54</span><span class="cm">         * this in a polling loop. */</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Publisher] Waiting for sample to be accepted.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">.</span><span class="n">publication_matched_status</span><span class="p">().</span><span class="n">current_count</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">57</span><span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">58</span><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">59</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">60</span><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">61</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Publisher] Exception: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">62</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">63</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Publisher] Done.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">66</span>
+<span class="linenos">67</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">68</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We are using the ISOCPP DDS API and the HelloWorldData to receive data.
+For that, we need to include the appropriate header files.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.hpp&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+<p>An exception handling mechanism <code class="docutils literal notranslate"><span class="pre">try/catch</span></code> block is used.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// …</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;=== [Subscriber] Exception: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>As with the reader in <code class="docutils literal notranslate"><span class="pre">subscriber.cpp</span></code>, we need a participant, a
+topic, and a publisher to create a writer. We must also</p>
+<p>use the same topic name specified in the <code class="docutils literal notranslate"><span class="pre">subscriber.cpp</span></code>.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="nf">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ddsC++_helloworld_example&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">Publisher</span><span class="w"> </span><span class="nf">publisher</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>With these entities ready, the writer can now be created. The writer is
+created for a specific topic <code class="docutils literal notranslate"><span class="pre">“ddsC++_helloworld_example”</span></code> in the
+default DDS domain.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">writer</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To modify the <code class="docutils literal notranslate"><span class="pre">DataWriter</span></code> Default Reliability Qos to Reliable:</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">dwqos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topic</span><span class="p">.</span><span class="n">qos</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">Reliability</span><span class="o">::</span><span class="n">Reliable</span><span class="p">();</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dr</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">dwqos</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>When CycloneDDS discovers readers and writers sharing the same data
+type and topic name, it connects them without the application’s
+involvement. A rendezvous pattern is required to write data only when
+a data reader appears. Either can implement such a pattern:</p>
+<ol class="arabic simple">
+<li><p>Wait for the publication/subscription matched events, where the
+Publisher waits and blocks the writing thread until the appropriate
+publication-matched event is raised, or</p></li>
+<li><p>Regularly poll the publication matching status. This is the
+preferred option used in this example. The following line of code
+instructs CycloneDDS to listen on the
+<code class="docutils literal notranslate"><span class="pre">writer.publication_matched_status()</span></code></p></li>
+</ol>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">writer</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>At regular intervals, we get the status change and for a matching
+publication. In between, the writing thread sleeps for 20 milliseconds.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">.</span><span class="n">publication_matched_status</span><span class="p">().</span><span class="n">current_count</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>After this loop, we are confident that a matching reader has been
+discovered. Now, we can commence the writing of the data instance.
+First, the data must be created and initialized.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="w"> </span><span class="n">msg</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Send the data instance of the keyed message.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">writer</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>After writing the data to the writer, the <em>DDS C++ Hello World</em> example
+checks if a matching subscriber(s) is still available. If
+matching subscribers exist, the example waits for 50ms and starts
+publishing the data again. If no matching subscriber is found, then the
+publisher program is ended.</p>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Through scoping, all the entities such as topic, writer, etc. are
+deleted automatically.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">C++ Tutorial</a><ul>
+<li><a class="reference internal" href="#building-dds-c-hello-world">Building DDS C++ Hello World</a><ul>
+<li><a class="reference internal" href="#building-var-project-short-cxx-applications-with-cmake">Building CycloneDDS CXX applications with CMake</a></li>
+<li><a class="reference internal" href="#building-the-hello-world-example">Building the <strong>Hello World!</strong> Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dds-c-hello-world-code-anatomy">DDS C++ Hello World Code anatomy</a><ul>
+<li><a class="reference internal" href="#keys-steps-to-build-the-hello-world-application-in-c">Keys steps to build the <strong>Hello World!</strong> application in C++</a><ul>
+<li><a class="reference internal" href="#helloworld-idl">HelloWorld IDL</a></li>
+<li><a class="reference internal" href="#the-idl-compiler-generated-files">The IDL compiler generated files</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dds-c-hello-world-business-logic">DDS C++ Hello World Business Logic</a><ul>
+<li><a class="reference internal" href="#dds-c-hello-world-publisher-source-code">DDS C++ <strong>Hello World!</strong> Publisher Source Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../c_tutorial/index.html">
+                    <span class="icon"><</span><span>C Tutorial</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../py_tutorial/index.html"><span>Python Tutorial</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

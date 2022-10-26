@@ -6,22 +6,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DDSI Concepts &#8212; Eclipse Cyclone DDS latest documentation</title>
+    <title>DDSI Concepts &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="/js/docu.js"></script>
+    <script src="/_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Eclipse Cyclone DDS Specifics" href="cyclonedds_specifics.html" />
-    <link rel="prev" title="Eclipse Cyclone DDS Configuration Options" href="../config.html" /> 
+    <link rel="next" title="Implementation Specifics" href="cyclonedds_specifics.html" />
+    <link rel="prev" title="Configuration Guide" href="index.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -31,7 +31,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS latest documentation</a></h1>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -121,16 +121,17 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../config.html">Eclipse Cyclone DDS Configuration Options</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">DDSI Concepts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cyclonedds_specifics.html">Eclipse Cyclone DDS Specifics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="config_file_reference.html">Configuration Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds_specifics.html">Implementation Specifics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file_reference.html">Configuration File Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
 </ul>
 
         </div>
@@ -145,137 +146,141 @@
   <section id="ddsi-concepts">
 <span id="id1"></span><h1>DDSI Concepts<a class="headerlink" href="#ddsi-concepts" title="Permalink to this headline">¶</a></h1>
 <p>The DDSI standard is intimately related to the DDS 1.2 and 1.4 standards, with a clear
-correspondence between the entities in DDSI and those in DCPS.  However, this
+correspondence between the entities in DDSI and those in DCPS. However, this
 correspondence is not one-to-one.</p>
 <p>In this section we give a high-level description of the concepts of the DDSI
 specification, with hardly any reference to the specifics of the Eclipse Cyclone DDS
-implementation (addressed in <a class="reference internal" href="cyclonedds_specifics.html#eclipse-cyclone-dds-specifics"><span class="std std-ref">Eclipse Cyclone DDS Specifics</span></a>). This division
-aids readers interested in interoperability in understanding where the specification ends
+implementation (addressed in <a class="reference internal" href="cyclonedds_specifics.html#cyclonedds-specifics"><span class="std std-ref">Implementation Specifics</span></a>). This division
+helps readers interested in interoperability to understand where the specification ends
 and the Eclipse Cyclone DDS implementation begins.</p>
 <section id="mapping-of-dcps-domains-to-ddsi-domains">
 <span id="id2"></span><h2>Mapping of DCPS Domains to DDSI Domains<a class="headerlink" href="#mapping-of-dcps-domains-to-ddsi-domains" title="Permalink to this headline">¶</a></h2>
-<p>In DCPS, a domain is uniquely identified by a non-negative integer, the domain id.  In
+<p>In DCPS, a domain is uniquely identified by a non-negative integer, the domain id. In
 the UDP/IP mapping, this domain id is mapped to port numbers to be used for
-communicating with the peer nodes — these port numbers are particularly important for
-the discovery protocol — and this mapping of domain ids to UDP/IP port numbers ensures
+communicating with the peer nodes. These port numbers are of significance for
+the discovery protocol. This mapping of domain ids to UDP/IP port numbers ensures
 that accidental cross-domain communication is impossible with the default mapping.</p>
 <p>DDSI does not communicate the DCPS port number in the discovery protocol; it assumes
-that each domain id maps to a unique port number.  While it is unusual to change the
+that each domain id maps to a unique port number. While it is unusual to change the
 mapping, the specification requires this to be possible, and this means that two
 different DCPS domain ids can be mapped to a single DDSI domain.</p>
 </section>
 <section id="mapping-of-dcps-entities-to-ddsi-entities">
 <span id="id3"></span><h2>Mapping of DCPS Entities to DDSI Entities<a class="headerlink" href="#mapping-of-dcps-entities-to-ddsi-entities" title="Permalink to this headline">¶</a></h2>
 <p>Each DCPS domain participant in a domain is mirrored in DDSI as a DDSI participant.
-These DDSI participants drive the discovery of participants, readers, and writers in DDSI
-via the discovery protocols.  By default, each DDSI participant has a unique address on
+These DDSI participants drive the discovery of participants, Readers, and Writers in DDSI
+via the discovery protocols. By default, each DDSI participant has a unique address on
 the network in the form of its own UDP/IP socket with a unique port number.</p>
-<p>Any data reader or data writer created by a DCPS domain participant is mirrored in DDSI
-as a DDSI reader or writer.  In this translation, some of the structure of the DCPS
-domain is obscured because the standardized parts of DDSI have no knowledge of DCPS
-Subscribers and Publishers.  Instead, each DDSI reader is the combination of the
-corresponding DCPS data reader and the DCPS subscriber it belongs to; similarly, each
-DDSI writer is a combination of the corresponding DCPS data writer and DCPS publisher.
-This corresponds to the way the standardized DCPS built-in topics describe the DCPS data
-readers and data writers, as there are no standardized built-in topics for describing
-the DCPS subscribers and publishers either.  Implementations can (and do) offer
-additional built-in topics for describing these entities and include them in the
+<p>Any DataReader or DataWriter created by a DCPS domain participant is mirrored in DDSI
+as a DDSI Reader or Writer. In this translation, some of the structure of the DCPS
+domain is obscured because the standardized parts of DDSI do not know DCPS
+Subscribers and Publishers. Instead, each DDSI Reader is the combination of the
+corresponding DCPS DataReader and the DCPS Subscriber it belongs to; similarly, each
+DDSI Writer is a combination of the corresponding DCPS DataWriter and DCPS Publisher.
+This corresponds to how the standardized DCPS built-in topics describe the DCPS
+DataReader and DataWriter, as there are no standardized built-in topics for describing
+the DCPS Subscribers and Publishers. Implementations can (and do) offer
+additional built-in topics representing these entities and include them in the
 discovery, but these are non-standard extensions.</p>
-<p>In addition to the application-created readers and writers (referred to as <em>endpoints</em>),
-DDSI participants have a number of DDSI built-in endpoints used for discovery and
-liveliness checking/asserting.  The most important ones are those absolutely required
-for discovery: readers and writers for the discovery data concerning DDSI participants,
-DDSI readers and DDSI writers.  Some other ones exist as well, and a DDSI implementation
-can leave out some of these if it has no use for them.  For example, if a participant
-has no writers, it doesn’t strictly need the DDSI built-in endpoints for describing
-writers, nor the DDSI built-in endpoint for learning of readers of other participants.</p>
+<p>In addition to the application-created Readers and Writers (referred to as <em>endpoints</em>),
+DDSI participants have several DDSI built-in endpoints used for discovery and
+liveliness checking/asserting. The most important ones are those required for discovery:
+Readers and Writers for the discovery data concerning DDSI participants, DDSI Readers,
+and DDSI Writers. Some other ones exist as well, and a DDSI implementation can leave
+out some of these if it has no use. For example, if a participant does not have
+Writers, it doesn’t strictly need the DDSI built-in endpoints for describing Writers,
+nor the DDSI built-in endpoint for learning of Readers of other participants.</p>
 </section>
 <section id="reliable-communication">
 <span id="id4"></span><h2>Reliable Communication<a class="headerlink" href="#reliable-communication" title="Permalink to this headline">¶</a></h2>
 <p><em>Best-effort</em> communication is simply a wrapper around UDP/IP: the packet(s) containing
-a sample are sent to the addresses at which the readers reside.  No state is maintained
-on the writer.  If a packet is lost, the reader will simply ignore the samples
-contained in the lost packet and continue with the next one.</p>
-<p>When <em>reliable</em> communication is used, the writer maintains a copy of the sample, in
-case a reader detects it has lost packets and requests a re-transmission.  These copies
-are stored in the writer history cache (or <em>WHC</em>) of the DDSI writer.  The DDSI writer
-is required to periodically send <em>Heartbeats</em> to its readers to ensure that all readers
-will learn of the presence of new samples in the WHC even when packets get lost.  It is
-allowed to suppress these periodic Heartbeats if all samples in the WHC have
-been acknowledged by all matched readers. Eclipse Cyclone DDS exploits this freedom.</p>
-<p>If a reader receives a Heartbeat and detects it did not receive all samples, it requests
-a re-transmission by sending an <em>AckNack</em> message to the writer.  The timing of this is
-somewhat adjustable and it is worth remarking that a roundtrip latency longer than the
-Heartbeat interval easily results in multiple re-transmit requests for a single sample.
-In addition to requesting re-transmission of some samples, a reader also uses the AckNack
-messages to inform the writer up to which sample it has received everything, and which
-ones it has not yet received.  Whenever the writer indicates it requires a response to a
-Heartbeat the readers will send an AckNack message even when no samples are missing.  In
-this case, it becomes a pure acknowledgement.</p>
-<p>The combination of these behaviours in principle allows the writer to remove old samples
-from its WHC when it fills up the cache, and allows readers to reliably receive all data.  A
-complication exists in the case of unresponsive readers, readers that do not respond to
-a Heartbeat at all, or that for some reason fail to receive some samples despite
-re-sending them.  The specification does not define how to handle these situations.  The
-default behaviour of Eclipse Cyclone DDS is to never consider readers unresponsive, but it can
-be configured to consider them so after a certain length of time has passed at which
-point the participant containing the reader is undiscovered.</p>
-<p>Note that while this Heartbeat/AckNack mechanism is straightforward, the
-specification actually allows suppressing heartbeats, merging of AckNacks and
-re-transmissions, etc.  The use of these techniques is required to allow for a performant
-DDSI implementation, whilst avoiding the need for sending redundant messages.</p>
+a sample are sent to the addresses where the Readers reside. No state is maintained
+on the Writer. If a packet is lost, the Reader will ignore the samples contained in the
+lost packet and continue with the next one.</p>
+<p>When <em>reliable</em> communication is used, the Writer maintains a copy of the sample in
+case a Reader detects it has lost packets and requests a re-transmission. These copies
+are stored in the Writer history cache (or <em>WHC</em>) of the DDSI Writer. The DDSI Writer
+must periodically send <em>Heartbeats</em> to its Readers to ensure that all Readers
+will learn of the presence of new samples in the WHC, even when packets get lost. It can
+suppress these periodic Heartbeats if all matched Readers have acknowledged all samples
+in the WHC. CycloneDDS exploits this freedom.</p>
+<p>If a Reader receives a Heartbeat and detects it did not receive all samples, it requests
+a re-transmission by sending an <em>AckNack</em> message to the Writer. This timing is somewhat
+adjustable, and it is worth remarking that a roundtrip latency longer than the Heartbeat
+interval quickly results in multiple re-transmit requests for a single sample.
+In addition to requesting the re-transmission of some samples, a Reader also uses the
+AckNack messages to inform the Writer of samples received and not received. Whenever the
+Writer indicates it requires a response to a Heartbeat, the Readers will send an AckNack
+message even when no samples are missing. In this case, it simply becomes acknowledgment.</p>
+<p>In principle, combining these behaviours allows the Writer to remove old samples from its
+WHC when it fills up the cache, enabling Readers to receive all data reliably. A complication
+exists in the case of unresponsive Readers that do not respond to a Heartbeat or fail to
+receive some samples despite resending them. The specification does not define how to
+handle these situations. The default behaviour of CycloneDDS is never to consider
+Readers unresponsive. However, you can configure it after a certain length of time to
+consider them when the participant containing the Reader is undiscovered.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the Heartbeat/AckNack mechanism is straightforward, the specification
+allows suppressing heartbeats, merging AckNacks and re-transmissions, etc. These techniques
+are required to allow for a performant DDSI implementation while avoiding the need for
+sending redundant messages.</p>
+</div>
 </section>
 <section id="ddsi-specific-transient-local-behaviour">
 <span id="id5"></span><h2>DDSI-Specific Transient-Local Behaviour<a class="headerlink" href="#ddsi-specific-transient-local-behaviour" title="Permalink to this headline">¶</a></h2>
 <p>The above describes the essentials of the mechanism used for samples of the <em>volatile</em>
-durability kind, but the DCPS specification also provides <em>transient-local</em>, <em>transient</em>
-and <em>persistent</em> data.  Of these, the DDSI specification at present only covers
+durability kind, but the DCPS specification also provides <em>transient-local</em>, <em>transient</em>,
+and <em>persistent</em> data. Of these, the DDSI specification currently only covers
 <em>transient-local</em>, and this is the only form of durable data available when
 inter-operating across vendors.</p>
 <p>In DDSI, transient-local data is implemented using the WHC that is normally used for
-reliable communication.  For transient-local data, samples are retained even when all
-readers have acknowledged them. With the default history setting of <code class="docutils literal notranslate"><span class="pre">KEEP_LAST</span></code> with
-<code class="docutils literal notranslate"><span class="pre">history_depth</span> <span class="pre">=</span> <span class="pre">1</span></code>, this means that late-joining readers can still obtain the latest
+reliable communication. For transient-local data, samples are retained even when all
+eaders have acknowledged them. With the default history setting of <code class="docutils literal notranslate"><span class="pre">KEEP_LAST</span></code> with
+<code class="docutils literal notranslate"><span class="pre">history_depth</span> <span class="pre">=</span> <span class="pre">1</span></code>, this means that late-joining Readers can still obtain the latest
 sample for each existing instance.</p>
-<p>Naturally, once the DCPS writer is deleted (or disappears for whatever reason), the DDSI
-writer disappears as well, and with it, its history.  For this reason, transient data is
-generally preferred over transient-local data.  Eclipse Cyclone DDS has a facility
-for retrieving transient data from an suitably configured OpenSplice node, but does not
+<p>Once the DCPS Writer is deleted (or disappears for whatever reason), the DDSI
+Writer and its history are also lost. For this reason, transient data is
+typically preferred over transient-local data. Eclipse Cyclone DDS has a facility
+for retrieving transient data from a suitably configured OpenSplice node, but does not
 yet include a native service for managing transient data.</p>
 </section>
 <section id="discovery-of-participants-endpoints">
 <span id="id6"></span><h2>Discovery of Participants &amp; Endpoints<a class="headerlink" href="#discovery-of-participants-endpoints" title="Permalink to this headline">¶</a></h2>
-<p>DDSI participants discover each other by means of the <em>Simple Participant Discovery
-Protocol</em> or <em>SPDP</em> for short.  This protocol is based on periodically sending a message
-containing the specifics of the participant to a set of known addresses.  By default,
-this is a standardised multicast address (<code class="docutils literal notranslate"><span class="pre">239.255.0.1</span></code>; the port number is derived
+<p>DDSI participants discover each other using the <em>Simple Participant Discovery
+Protocol</em> or <em>SPDP</em> for short. This protocol is based on periodically sending a message
+containing the specifics of the participant to a set of known addresses. By default
+this address is a standardised multicast address (<code class="docutils literal notranslate"><span class="pre">239.255.0.1</span></code>; the port number is derived
 from the domain id) that all DDSI implementations listen to.</p>
-<p>Particularly important in the SPDP message are the unicast and multicast addresses at
-which the participant can be reached.  Typically, each participant has a unique unicast
-address, which in practice means all participants on a node all have a different UDP/IP
-port number in their unicast address.  In a multicast-capable network, it doesn’t matter
-what the actual address (including port number) is, because all participants will learn
-them through these SPDP messages.</p>
+<p>In the SPDP message, the unicast and multicast addresses are particularly important,
+as that’s where the participant can be reached. Typically, each participant has a
+unique unicast address, which means all participants on a node have a different UDP/IP
+port number in their unicast address. The actual address (including port number) in a
+multicast-capable network is unimportant because all participants will learn them
+through these SPDP messages.</p>
 <p>The protocol does allow for unicast-based discovery, which requires listing the
 addresses of machines where participants may be located and ensuring each participant
 uses one of a small set of port numbers.  Because of this, some of the port numbers are
 derived not only from the domain id, but also from a <em>participant index</em>, which is a
-small non-negative integer, unique to a participant within a node.  (Eclipse Cyclone DDS adds an
+small non-negative integer, unique to a participant within a node. (Eclipse Cyclone DDS adds an
 indirection and uses at most one participant index for a domain for each process,
 regardless of how many DCPS participants are created by the process.)</p>
 <p>Once two participants have discovered each other and both have matched the DDSI built-in
 endpoints their peer is advertising in the SPDP message, the <em>Simple Endpoint Discovery
-Protocol</em> or <em>SEDP</em> takes over, exchanging information on the DCPS data readers and data
-writers (and for Eclipse Cyclone DDS, also publishers, subscribers and topics in a manner
+Protocol</em> or <em>SEDP</em> takes over, exchanging information on the DCPS Readers and writers
+(and for Eclipse Cyclone DDS, also publishers, subscribers and topics in a manner
 compatible with OpenSplice) in the two participants.</p>
-<p>The SEDP data is handled as reliable, transient-local data.  Therefore, the SEDP writers
-send Heartbeats, the SEDP readers detect they have not yet received all samples and send
-AckNacks requesting retransmissions, the writer responds to these and eventually
-receives a pure acknowledgement informing it that the reader has now received the
+<p>The SEDP data is handled as reliable, transient-local data. Therefore, the SEDP Writers
+send Heartbeats, the SEDP Readers detect they have not yet received all samples and send
+AckNacks requesting retransmissions, the Writer responds to these and eventually
+receives a pure acknowledgement informing it that the Reader has now received the
 complete set.</p>
-<p>Note that the discovery process necessarily creates a burst of traffic each time a
-participant is added to the system: <em>all</em> existing participants respond to the SPDP
-message, following which all start exchanging SEDP data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The discovery process creates a burst of traffic each time a participant is
+added to the system: <em>all</em> existing participants respond to the SPDP message, which all
+start exchanging SEDP data.</p>
+</div>
 </section>
 </section>
 
@@ -313,14 +318,14 @@ message, following which all start exchanging SEDP data.</p>
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../config.html">
-                    <span class="icon"><</span><span>Eclipse Cyclone DDS Configuration Options</span></a>
+                <a href="index.html">
+                    <span class="icon"><</span><span>Configuration Guide</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="cyclonedds_specifics.html"><span>Eclipse Cyclone DDS Specifics</span><span class="icon">></span></a>
+                    <a href="cyclonedds_specifics.html"><span>Implementation Specifics</span><span class="icon">></span></a>
                 
             </div>
         </div>
