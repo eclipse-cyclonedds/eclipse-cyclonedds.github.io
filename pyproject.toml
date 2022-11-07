@@ -3,6 +3,9 @@ name = "cyclonedds.io"
 version = "0.1.0"
 description = ""
 authors = ["Eclipse Cyclone DDS Committers"]
+packages = [
+    { include = "builder" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -19,6 +22,10 @@ Markdown = "^3"
 Pygments = "^2.12"
 myst-parser = "^0.18"
 sphinx-tabs = "^3.4"
+
+
+[tool.poetry.scripts]
+builder = 'builder.main:cli'
 
 [tool.poetry.dev-dependencies]
 
