@@ -6,17 +6,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>C++ Tutorial &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
+    <title>C++ Tutorial &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/helpers.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/tabs.js"></script>
-    <script src="/_static/js/helpers.js"></script>
+    <script src="../../_static/js/helpers.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -32,7 +32,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
+        <h1><a href="../../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -120,8 +120,7 @@
 
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+        <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../c_tutorial/index.html">C Tutorial</a></li>
@@ -158,7 +157,7 @@ code of this application is detailed in the next chapter.</p>
 directory for both Linux and Windows. This chapter describes the example
 build process using CMake.</p>
 <section id="building-var-project-short-cxx-applications-with-cmake">
-<h3>Building CycloneDDS CXX applications with CMake<a class="headerlink" href="#building-var-project-short-cxx-applications-with-cmake" title="Permalink to this headline">¶</a></h3>
+<h3>Building Cyclone DDS CXX applications with CMake<a class="headerlink" href="#building-var-project-short-cxx-applications-with-cmake" title="Permalink to this headline">¶</a></h3>
 <p>The CMake build file for the <em>DDS CXX Hello World</em> example is located
 under the <code class="docutils literal notranslate"><span class="pre">helloworld</span></code> directory (<code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>).</p>
 <p>The content of the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> is as follows:</p>
@@ -185,7 +184,7 @@ under the <code class="docutils literal notranslate"><span class="pre">helloworl
 <span class="nb">set_property</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">ddscxxHelloworldSubscriber</span><span class="w"> </span><span class="s">PROPERTY</span><span class="w"> </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To build a CycloneDDS CXX based application with CMake, you must link
+<p>To build a Cyclone DDS CXX based application with CMake, you must link
 your application business code with:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">|var-project-short|</span> <span class="pre">C++</span></code> libraries that contain the DDS CXX API your
@@ -238,13 +237,13 @@ it will pick a sensible default, but if it doesn’t work or picks something une
 For example, “Visual Studio 15 2017 Win64” targets a 64-bit build using Visual Studio 2017.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If manually specifying generators be careful about mixing and matching! If you compiled CycloneDDS with 32-bit libraries
+<p>If manually specifying generators be careful about mixing and matching! If you compiled Cyclone DDS with 32-bit libraries
 and you try to compile <strong>Hello World!</strong> as 64-bit or vice-versa it will not work.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Weird things can happen if you mix <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code>, <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=RelWithDebInfo</span></code> and <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Debug</span></code>,
-try to match what you picked for CycloneDDS in downstream projects.</p>
+try to match what you picked for Cyclone DDS in downstream projects.</p>
 </div>
 </div></div>
 <p>CMake uses the CMakeLists.txt in the HelloWorld directory to create “makefiles” that target the native platform.
@@ -269,7 +268,7 @@ with a key and a payload.</p>
 <p>The <em>Hello World!</em> example has a very simple ‘data layer’ with a data
 model made of one data type <code class="docutils literal notranslate"><span class="pre">Msg</span></code> which represents keyed messages (c,f
 next subsection).</p>
-<p>To exchange data, applications’ business logic with CycloneDDS must:</p>
+<p>To exchange data, applications’ business logic with Cyclone DDS must:</p>
 <ol class="arabic simple">
 <li><p>Declare its subscription and involvement into a <strong>DDS domain</strong>. A
 DDS domain is an administrative boundary that defines, scopes, and
@@ -299,7 +298,7 @@ provides the required data into the shared Topic, namely <code class="docutils l
 Language &lt;<a class="reference external" href="http://www.omg.org/gettingstarted/omg_idl.htm">http://www.omg.org/gettingstarted/omg_idl.htm</a>&gt;`__ located in
 <code class="docutils literal notranslate"><span class="pre">HelloWorldData.idl</span></code> file. This IDL file is considered the Data Model
 of our example.</p>
-<p>This data model is preprocessed and compiled by CycloneDDS C++
+<p>This data model is preprocessed and compiled by Cyclone DDS C++
 IDL-Compiler to generate a C++ representation of the data as described
 in Chapter 6. These generated source and header files are used by the
 <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber.cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher.cpp</span></code>
@@ -337,7 +336,7 @@ logic at runtime.</p>
 <p>In our case, the data type <code class="docutils literal notranslate"><span class="pre">Msg</span></code> contains two fields: <code class="docutils literal notranslate"><span class="pre">userID</span></code> and
 <code class="docutils literal notranslate"><span class="pre">message</span></code> payload. The <code class="docutils literal notranslate"><span class="pre">userID</span></code> is used to uniquely identify each message
 instance. This is done using the <code class="docutils literal notranslate"><span class="pre">&#64;key</span></code> annotation.</p>
-<p>The CycloneDDS C++ IDL compiler translates module names into
+<p>The Cyclone DDS C++ IDL compiler translates module names into
 namespaces and structure names into classes.</p>
 <p>It also generates code for public accessor functions for all fields
 mentioned in the IDL struct, separate public constructors, and a
@@ -578,7 +577,7 @@ the topic, the subscriber, and the reader.</p>
 <span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The CycloneDDS C++ API simplifies and extends how data can be read or
+<p>The Cyclone DDS C++ API simplifies and extends how data can be read or
 taken. To handle the data some, <code class="docutils literal notranslate"><span class="pre">LoanedSamples</span></code> is declared and
 created which loan samples from the Service pool. Return of the loan is
 implicit and managed by scoping:</p>
@@ -649,7 +648,7 @@ from the middleware.</p>
 <p>If you use a pre-allocated buffer, you create an array/vector-like
 like container. If you use the loaned buffer option, you need to be
 aware that these buffers are actually ‘owned’ by the middleware,
-precisely by the <code class="docutils literal notranslate"><span class="pre">DataReader</span></code>. The CycloneDDS C++ API implicitly
+precisely by the <code class="docutils literal notranslate"><span class="pre">DataReader</span></code>. The Cyclone DDS C++ API implicitly
 allows you to return the loans through scoping.</p>
 <p>In our example, we use the loan samples mode (<code class="docutils literal notranslate"><span class="pre">LoanedSamples</span></code>).
 <code class="docutils literal notranslate"><span class="pre">Samples</span></code> are an unbounded sequence of samples; the sequence
@@ -709,7 +708,7 @@ every 20 milliseconds.</p>
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>This example uses the polling mode to read or take data. CycloneDDS
+<p>This example uses the polling mode to read or take data. Cyclone DDS
 offers <em>waitSet</em> and <em>Listener</em> mechanism to notify the application that
 data is available in their cache, which avoids polling the cache at a
 regular intervals. The discretion of these mechanisms is beyond the
@@ -724,7 +723,7 @@ message. From the DDS perspective, the publisher application code is
 almost symmetrical to the subscriber one, except that you need to create
 a Publisher and <code class="docutils literal notranslate"><span class="pre">DataWriter</span></code>, respectively, instead of a Subscriber and
 Data Reader. A synchronization statement is added to the main thread to
-ensure data is only written when CycloneDDS discovers at least a matching
+ensure data is only written when Cyclone DDS discovers at least a matching
 reader. Synchronizing the main thread until a reader is discovered
 assures we can start the publisher or subscriber program in any order.</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
@@ -832,7 +831,7 @@ default DDS domain.</p>
 <span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dr</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">dwqos</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>When CycloneDDS discovers readers and writers sharing the same data
+<p>When Cyclone DDS discovers readers and writers sharing the same data
 type and topic name, it connects them without the application’s
 involvement. A rendezvous pattern is required to write data only when
 a data reader appears. Either can implement such a pattern:</p>
@@ -842,7 +841,7 @@ Publisher waits and blocks the writing thread until the appropriate
 publication-matched event is raised, or</p></li>
 <li><p>Regularly poll the publication matching status. This is the
 preferred option used in this example. The following line of code
-instructs CycloneDDS to listen on the
+instructs Cyclone DDS to listen on the
 <code class="docutils literal notranslate"><span class="pre">writer.publication_matched_status()</span></code></p></li>
 </ol>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">writer</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
@@ -896,7 +895,7 @@ deleted automatically.</p>
                 <ul>
 <li><a class="reference internal" href="#">C++ Tutorial</a><ul>
 <li><a class="reference internal" href="#building-dds-c-hello-world">Building DDS C++ Hello World</a><ul>
-<li><a class="reference internal" href="#building-var-project-short-cxx-applications-with-cmake">Building CycloneDDS CXX applications with CMake</a></li>
+<li><a class="reference internal" href="#building-var-project-short-cxx-applications-with-cmake">Building Cyclone DDS CXX applications with CMake</a></li>
 <li><a class="reference internal" href="#building-the-hello-world-example">Building the <strong>Hello World!</strong> Example</a></li>
 </ul>
 </li>

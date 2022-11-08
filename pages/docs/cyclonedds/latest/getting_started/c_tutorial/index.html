@@ -6,17 +6,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>C Tutorial &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
+    <title>C Tutorial &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/helpers.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/tabs.js"></script>
-    <script src="/_static/js/helpers.js"></script>
+    <script src="../../_static/js/helpers.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -32,7 +32,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
+        <h1><a href="../../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -120,8 +120,7 @@
 
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+        <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../installation/index.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">C Tutorial</a></li>
@@ -172,7 +171,7 @@ support building the example. For this chapter, we mainly describe:</p>
 <section id="building-the-hello-world-application-with-cmake">
 <h3>Building the <strong>Hello World!</strong> application with CMake<a class="headerlink" href="#building-the-hello-world-application-with-cmake" title="Permalink to this headline">¶</a></h3>
 <p>In the previous sections, building the <strong>Hello World!</strong> example is done
-by default during the CycloneDDS build process. However, the <strong>Hello World!</strong> example
+by default during the Cyclone DDS build process. However, the <strong>Hello World!</strong> example
 can also be built on its own. We do this, again, using the CMake build tool.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -236,7 +235,7 @@ that comes with the <strong>Hello World!</strong> example. The content is shown 
 <span class="linenos">33</span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">HelloworldSubscriber</span><span class="w"> </span><span class="s">HelloWorldData_lib</span><span class="w"> </span><span class="s">CycloneDDS::ddsc</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>To build a CycloneDDS based application, you need to link your business code with:</p>
+<p>To build a Cyclone DDS based application, you need to link your business code with:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">ddsc</span></code> library that contains the DDS API the application needs.</p></li>
@@ -250,13 +249,13 @@ helpers in a library (e.g. <code class="docutils literal notranslate"><span clas
 <p>The <code class="docutils literal notranslate"><span class="pre">idlc_generate</span></code> call makes use of how the IDL compiler
 generates the helpers’ functions and structures. This process is depicted below.</p>
 <img alt="../../_images/dds-application-design.png" class="align-center" src="../../_images/dds-application-design.png" />
-<p>The executables of the CycloneDDS-based application (in this case <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code>
-and <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code>) are linked to CycloneDDS with the CMake <code class="docutils literal notranslate"><span class="pre">target_link_libraries()</span></code>
+<p>The executables of the Cyclone DDS-based application (in this case <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code>
+and <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code>) are linked to Cyclone DDS with the CMake <code class="docutils literal notranslate"><span class="pre">target_link_libraries()</span></code>
 call. This call combines the <code class="docutils literal notranslate"><span class="pre">ddsc</span></code> lib, the datatype helper lib and the application code.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>CMake attempts to find the <code class="docutils literal notranslate"><span class="pre">CycloneDDS</span></code> CMake package in the default system locations.
-If you experience problems with not being able to locate <code class="docutils literal notranslate"><span class="pre">CycloneDDS</span></code> it is often enough to include the CycloneDDS &lt;install-location&gt; as
+If you experience problems with not being able to locate <code class="docutils literal notranslate"><span class="pre">CycloneDDS</span></code> it is often enough to include the Cyclone DDS &lt;install-location&gt; as
 CMake Prefix Path like so: <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-DCMAKE_PREFIX_PATH=&lt;install-location&gt;</span></code>. If you have further issues, please
 consult CMake’s <a class="reference external" href="https://cmake.org/cmake/help/latest/guide/using-dependencies/index.html#guide:Using%20Dependencies%20Guide">Using dependencies guide</a>.</p>
 </div>
@@ -288,13 +287,13 @@ it will pick a sensible default, but if it doesn’t work or picks something une
 For example, “Visual Studio 15 2017 Win64” targets a 64-bit build using Visual Studio 2017.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If manually specifying generators be careful about mixing and matching! If you compiled CycloneDDS with 32-bit libraries
+<p>If manually specifying generators be careful about mixing and matching! If you compiled Cyclone DDS with 32-bit libraries
 and you try to compile <strong>Hello World!</strong> as 64-bit or vice-versa it will not work.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Weird things can happen if you mix <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code>, <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=RelWithDebInfo</span></code> and <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Debug</span></code>,
-try to match what you picked for CycloneDDS in downstream projects.</p>
+try to match what you picked for Cyclone DDS in downstream projects.</p>
 </div>
 </div></div>
 <p>CMake uses the CMakeLists.txt in the HelloWorld directory to create “makefiles” that target the native platform.
@@ -485,7 +484,7 @@ World!</em> example also contains two application-level source files
 World!</em> message and reads it when it receives it.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The CycloneDDS <code class="docutils literal notranslate"><span class="pre">read</span></code> semantics keep the data sample
+<p>The Cyclone DDS <code class="docutils literal notranslate"><span class="pre">read</span></code> semantics keep the data sample
 in the data reader cache. It is important to remember to use <code class="docutils literal notranslate"><span class="pre">take</span></code> where
 appropriate to prevent resource exhaustion.</p>
 </div>
@@ -575,9 +574,9 @@ appropriate to prevent resource exhaustion.</p>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;HelloWorldData.h&quot;</span><span class="cp"></span>
 </pre></div>
 </div>
-<p>With CycloneDDS, at least three DDS entities are needed to build a
+<p>With Cyclone DDS, at least three DDS entities are needed to build a
 minimalistic application, the domain participant, the topic, and the
-reader. CycloneDDS implicitly creates a DDS Subscriber. If
+reader. Cyclone DDS implicitly creates a DDS Subscriber. If
 required, this behavior can be overridden.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="p">;</span><span class="w"></span>
 <span class="n">dds_entity_t</span><span class="w"> </span><span class="n">topic</span><span class="p">;</span><span class="w"></span>
@@ -594,7 +593,7 @@ required, this behavior can be overridden.</p>
 event that several publishing applications are started simultaneously to
 write different message instances), an array of samples is therefore
 needed.</p>
-<p>In CycloneDDS data and metadata are propagated together. The
+<p>In Cyclone DDS data and metadata are propagated together. The
 <code class="docutils literal notranslate"><span class="pre">dds_sample_info</span></code> array needs to be declared to handle the metadata.</p>
 <p>The DDS participant is always attached to a specific DDS domain. In the
 <strong>Hello World!</strong> example, it is part of the <code class="docutils literal notranslate"><span class="pre">Default_Domain</span></code>, the one
@@ -768,7 +767,7 @@ Publisher waits and blocks the writing thread until the appropriate
 publication-matched event is raised, or</p></li>
 <li><p>Regularly polls the publication matching status. This is
 the preferred option we implement in this example. The following line of
-code instructs CycloneDDS to listen on the
+code instructs Cyclone DDS to listen on the
 DDS_PUBLICATION_MATCHED_STATUS:</p></li>
 </ul>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">dds_set_status_mask</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_PUBLICATION_MATCHED_STATUS</span><span class="p">);</span><span class="w"></span>
