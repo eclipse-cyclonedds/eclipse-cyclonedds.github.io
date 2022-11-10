@@ -1,4 +1,10 @@
-# Models simultaneously system's Things, their Metadata, and Relationships
+Title:       Modeling Data, Metadata and their Relationships With DDS
+Author:      Ramzi KAROUI
+Date:        2022-11-08
+Template:    plain_markdown
+---
+
+# DDS Models simultaneously system's Things, their Metadata, and Relationships
 
 From the design perspective, DDS models the words' *entities* or the
 words' ***things*** as they are, with their unique identity (*key*),
