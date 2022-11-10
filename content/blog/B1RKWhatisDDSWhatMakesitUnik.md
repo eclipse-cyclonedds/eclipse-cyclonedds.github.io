@@ -1,4 +1,11 @@
-# What is DDS and what's make it unique
+Title:       What makes DDS unique
+Author:      Ramzi KAROUI
+Date:        2022-11-08
+Template:    plain_markdown
+---
+
+
+# What is DDS and what makes it unique
 
 The OMG-DDS Data Distribution Service is an Object-Management-Group
 standard and technology to share any kind of data, in interoperable,
