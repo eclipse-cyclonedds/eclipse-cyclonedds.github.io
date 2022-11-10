@@ -16,12 +16,13 @@ pr: none
 schedules:
 - cron: "0 0 * * *"
   displayName: Midnight Refresh
+  always: true
   branches:
     include:
     - master
 
 pool:
-  vmImage: ubuntu-20.04
+  vmImage: ubuntu-22.04
 
 steps:
   - task: UsePythonVersion@0
@@ -40,7 +41,11 @@ steps:
     displayName: Install project dependencies
   - bash: |
       set -ex
-      poetry run python -m builder --commit-if-updated
+      mkdir repos
+      git clone https://github.com/eclipse-cyclonedds/cyclonedds repos/cyclonedds
+      git clone https://github.com/eclipse-cyclonedds/cyclonedds-cxx repos/cyclonedds-cxx
+      git clone https://github.com/eclipse-cyclonedds/cyclonedds-python repos/cyclonedds-python
+      poetry run builder --commit-if-updated --repos ./repos
     name: run_site_builder
     displayName: Run site build
   - task: InstallSSHKey@0

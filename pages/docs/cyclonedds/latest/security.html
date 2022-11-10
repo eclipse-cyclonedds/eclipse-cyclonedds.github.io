@@ -6,16 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DDS Security &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
+    <title>DDS Security &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="/_static/js/helpers.js"></script>
+    <script src="_static/js/helpers.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -31,7 +31,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
+        <h1><a href="index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -119,8 +119,7 @@
 
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+        <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config/index.html">Configuration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
@@ -140,12 +139,12 @@
             
   <section id="dds-security">
 <span id="id1"></span><h1>DDS Security<a class="headerlink" href="#dds-security" title="Permalink to this headline">¶</a></h1>
-<p>CycloneDDS is compliant with The Object Management Group (OMG) DDS Security specification.</p>
+<p>Cyclone DDS is compliant with The Object Management Group (OMG) DDS Security specification.</p>
 <p>This specification defines the Security Model and Service Plugin Interface (SPI) architecture for
 compliant DDS implementations. The DDS Security Model is enforced by the invocation of these SPIs
 by the DDS implementation.</p>
 <a class="reference internal image-reference" href="_images/dds_security_overview.png"><img alt="_images/dds_security_overview.png" src="_images/dds_security_overview.png" style="width: 1000px;" /></a>
-<p>The three plugins that comprise the DDS Security Model in CycloneDDS are:</p>
+<p>The three plugins that comprise the DDS Security Model in Cyclone DDS are:</p>
 <p><strong>Authentication Service Plugin</strong></p>
 <p>Provides the means to verify the identity of the application and/or user that invokes operations
 on DDS. Includes facilities to perform mutual authentication between participants and establish
@@ -159,12 +158,12 @@ subscribe to, etc.</p>
 encryption, decryption, hashing, digital signatures, etc. This includes the means to derive keys
 from a shared secret.</p>
 <hr class="docutils" />
-<p>CycloneDDS provides built-in implementations of these plugins. Authentication uses PKI
+<p>Cyclone DDS provides built-in implementations of these plugins. Authentication uses PKI
 (Public Key Infrastructure) with a pre-configured shared Certificate Authority, RSA is used for
 authentication and Diffie-Hellman is used for key exchange. AccessControl use Permissions document
 signed by shared Certificate Authority. Cryptography uses AES-GCM (AES using Galois Counter Mode)
 for encryption and AES-GMAC for message authentication.</p>
-<p>Security plugins are dynamically loaded where the locations are defined in CycloneDDS
+<p>Security plugins are dynamically loaded where the locations are defined in Cyclone DDS
 configuration or Participant QoS settings.</p>
 <section id="brief-information-about-pki-public-key-infrastructure">
 <h2>Brief information about PKI (public key infrastructure)<a class="headerlink" href="#brief-information-about-pki-public-key-infrastructure" title="Permalink to this headline">¶</a></h2>
@@ -237,20 +236,20 @@ Cyclone DDS Security. One of them is using OpenSSL, which is described in sectio
 </ul>
 <section id="plugins-configuration">
 <h3>Plugins Configuration<a class="headerlink" href="#plugins-configuration" title="Permalink to this headline">¶</a></h3>
-<p>CycloneDDS gets the security configuration from XML configuration elements or from
+<p>Cyclone DDS gets the security configuration from XML configuration elements or from
 the participant QoS policies as stated in the DDS Security specification.</p>
 <p>This behavior allows applications to use DDS Security without recompiling the binaries.
 Only supplying a new configuration with DDS Security enabled is enough to switch from a
 non-secure to a secure deployment. The configuration is at domain level, which means
 that all participants created for that domain receive the same DDS security settings.</p>
 <p>The configuration options for a domain are bundled in the <code class="docutils literal notranslate"><span class="pre">DDSSecurity</span></code> configuration
-section in the CycloneDDS configuration. Every DDS Security plugin has its own configuration
+section in the Cyclone DDS configuration. Every DDS Security plugin has its own configuration
 sub-section.</p>
 <section id="authentication-properties">
 <span id="id2"></span><h4>Authentication Properties<a class="headerlink" href="#authentication-properties" title="Permalink to this headline">¶</a></h4>
 <p>To enable authentication for a node, it has to be configured with an identity certificate
 (<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-identitycertificate"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/IdentityCertificate</span></a>). This identity certificate is used to
-authenticate all participants of that particular CycloneDDS domain. Associated with the
+authenticate all participants of that particular Cyclone DDS domain. Associated with the
 identity certificate is the corresponding private key
 (<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-privatekey"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/PrivateKey</span></a>). The private key may either be a 2048-bit RSA
 or a 256-bit Elliptic Curve Key with a prime256v1 curve.</p>
@@ -265,7 +264,7 @@ with <code class="docutils literal notranslate"><span class="pre">data:,</span><
 file (prefixed with <code class="docutils literal notranslate"><span class="pre">file:</span></code>).</p>
 <p>Optionally the private key could be protected by a password
 (<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-password"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/Password</span></a>).</p>
-<p>Furthermore the CycloneDDS configuration allows configuring a directory containing additional
+<p>Furthermore the Cyclone DDS configuration allows configuring a directory containing additional
 identity CA’s which are used to verify the identity certificates that are received from remote instances
 (<a class="reference internal" href="config/config_file_reference.html#cyclonedds-domain-security-authentication-trustedcadirectory"><span class="std std-ref">//CycloneDDS/Domain/Security/Authentication/TrustedCADirectory</span></a>). This option allows multiple identity
 CAs throughout the system.</p>
@@ -452,7 +451,7 @@ the expressions with the &lt;topics&gt; section).</p>
 </section>
 <section id="logging-and-tracing">
 <h3>Logging and tracing<a class="headerlink" href="#logging-and-tracing" title="Permalink to this headline">¶</a></h3>
-<p>The security implementation uses the standard logging and tracing mechanism in CycloneDDS.
+<p>The security implementation uses the standard logging and tracing mechanism in Cyclone DDS.
 The following is written to log and trace:</p>
 <ul class="simple">
 <li><p>Configuration errors such as plugin library files, certificate files, governance and permissions
@@ -681,9 +680,9 @@ when creating a participant:</p>
 </pre></div>
 </div>
 </section>
-<section id="configure-security-in-cyclone-configuration">
-<h4>Configure security in Cyclone configuration<a class="headerlink" href="#configure-security-in-cyclone-configuration" title="Permalink to this headline">¶</a></h4>
-<p>As an alternative for using the QoS, security settings can also be applied using the CycloneDDS
+<section id="configure-security">
+<h4>Configure security<a class="headerlink" href="#configure-security" title="Permalink to this headline">¶</a></h4>
+<p>As an alternative for using the QoS, security settings can also be applied using the Cyclone DDS
 configuration XML. In case both QoS and the configuration XML contain security settings, the values
 from the QoS will be used and the security settings in the configuration XML are ignored.</p>
 <p>The following XML fragment shows how to set security settings through configuration:</p>
@@ -722,7 +721,7 @@ these security settings.</p>
 <section id="external-plugin-development">
 <h2>External Plugin Development<a class="headerlink" href="#external-plugin-development" title="Permalink to this headline">¶</a></h2>
 <p>DDS Security consists of three plugins (authentication, cryptography and access control).
-CycloneDDS comes with built-in security plugins that comply with OMG DDS Security specification.
+Cyclone DDS comes with built-in security plugins that comply with OMG DDS Security specification.
 The plugins are loaded in the run-time. However, you can also implement your own custom plugin by
 implementing the given API according to OMG DDS Security specification.
 You can implement all of the plugins or just one of them.</p>
@@ -973,7 +972,7 @@ dds_security_api_err.h header file contains the code and message constants.</p>
 </li>
 <li><a class="reference internal" href="#example-dds-security-configuration">Example DDS Security configuration</a><ul>
 <li><a class="reference internal" href="#security-properties-in-participant-qos">Security properties in participant QoS</a></li>
-<li><a class="reference internal" href="#configure-security-in-cyclone-configuration">Configure security in Cyclone configuration</a></li>
+<li><a class="reference internal" href="#configure-security">Configure security</a></li>
 </ul>
 </li>
 </ul>

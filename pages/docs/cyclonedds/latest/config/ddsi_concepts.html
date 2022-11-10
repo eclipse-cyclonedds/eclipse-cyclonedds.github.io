@@ -6,16 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DDSI Concepts &#8212; Eclipse Cyclone DDS 0.11.0 documentation</title>
+    <title>DDSI Concepts &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="/_static/css/helpers.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="/_static/js/helpers.js"></script>
+    <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,7 +31,7 @@
         <p id="toggle_sidebar">
             <a href="#" title="Toggle sidebar">|||</a>
         </p>
-        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS 0.11.0 documentation</a></h1>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
 
         <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
     <template v-if="mode == 'light'">
@@ -119,8 +119,7 @@
 
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+        <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">DDSI Concepts</a></li>
@@ -203,7 +202,7 @@ are stored in the Writer history cache (or <em>WHC</em>) of the DDSI Writer. The
 must periodically send <em>Heartbeats</em> to its Readers to ensure that all Readers
 will learn of the presence of new samples in the WHC, even when packets get lost. It can
 suppress these periodic Heartbeats if all matched Readers have acknowledged all samples
-in the WHC. CycloneDDS exploits this freedom.</p>
+in the WHC. Cyclone DDS exploits this freedom.</p>
 <p>If a Reader receives a Heartbeat and detects it did not receive all samples, it requests
 a re-transmission by sending an <em>AckNack</em> message to the Writer. This timing is somewhat
 adjustable, and it is worth remarking that a roundtrip latency longer than the Heartbeat
@@ -216,7 +215,7 @@ message even when no samples are missing. In this case, it simply becomes acknow
 WHC when it fills up the cache, enabling Readers to receive all data reliably. A complication
 exists in the case of unresponsive Readers that do not respond to a Heartbeat or fail to
 receive some samples despite resending them. The specification does not define how to
-handle these situations. The default behaviour of CycloneDDS is never to consider
+handle these situations. The default behaviour of Cyclone DDS is never to consider
 Readers unresponsive. However, you can configure it after a certain length of time to
 consider them when the participant containing the Reader is undiscovered.</p>
 <div class="admonition note">
