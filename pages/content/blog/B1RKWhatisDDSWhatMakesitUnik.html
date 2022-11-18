@@ -5,7 +5,8 @@
 <html lang="en">
   <head>
     
-    <title>Eclipse Cyclone DDS - Blog</title>
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
     <meta charset="utf-8" />
     <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
     <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
@@ -19,6 +20,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/syntax.css">
     
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/markdown.css">
+
   </head>
 
   <body>
@@ -57,7 +61,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/blog.html">Blog</a>
+            <a class="nav-link" href="/blog.html">Blog</a>
           </li>
         </ul>
       </div>
@@ -86,43 +90,110 @@
 
 
     
-    <main>
-      <div class="container">
-        <div class="row my-1">
-          <h1>Blog</h1>
-        </div>
-
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/B2RKDDSModelThingsTheirRelationshipAndRelations.html"><h2 class="mb-2">Modeling Data, Metadata and their Relationships With DDS</h2></a>
-            By Ramzi KAROUI, posted on 2022-11-08.
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/B1RKWhatisDDSWhatMakesitUnik.html"><h2 class="mb-2">What makes DDS unique</h2></a>
-            By Ramzi KAROUI, posted on 2022-11-08.
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/xtypes-features.html"><h2 class="mb-2">What XTypes can do for you</h2></a>
-            By Thijs Miedema, posted on 2022-05-11.
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/hello-world.html"><h2 class="mb-2">Hello, World!</h2></a>
-            By Thijs Miedema, posted on 2022-05-04.
-          </div>
-        </div>
-
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3 markdown">
+        <h2 id="what-is-dds-and-what-makes-it-unique">What is DDS and what makes it unique</h2>
+<p>The OMG-DDS Data Distribution Service is an Object-Management-Group
+standard and technology to share any kind of data in ways that makes it
+interoperable, scalable, real-time, and fault-tolerant ways over
+arbitrary networks. DDS allows system designers to build stateful or
+stateless systems. The system's state is caught and represented in the
+data modeled by DDS.</p>
+<p>DDS allows application developers to create digital twins of their
+systems' entities to share or query their states, share Commands or
+Replies, Events, data streams, videos, audios, structured documents and
+files, or simply share their messages on the network in real-time and
+in fault-tolerant ways.</p>
+<p>With DDS, Data and their associated Quality of Services are the only
+contract that binds and integrates distributed applications together.
+From that perspective, DDS helps build decoupled and flexible
+distributed architectures where applications do not have to expose their
+location, their APIs, their internal behavior, nor need to be active and
+alive at the same time. With DDS, the decoupling is bidimensional, it
+happens both in Space and Time.\
+This disruptive technology provides, secure, low-latency and ultra--high
+throughput data exchange rates.</p>
+<p>Depending on the QoS (Quality of Services) in use, DDS behaves as an
+<strong>in-Memory database</strong> where, on behalf of every DDS-aware application,
+DDS replicates and maintains a local copy of the data based on the
+application's interest, which is expressed in the concept of <em>data topic</em>.
+DDS can manage the last data value or an arbitrary history of the updates.
+It can also store the data on persistent media to make it available
+for later use. When data is consistently propagated in the network,
+Applications can <em>Query</em> it, typically with a subset of the Structured
+Query Language (<strong>SQL</strong>), or use their own querying language.</p>
+<p>In its minimalistic use, DDS behaves as a <strong>Message-oriented
+Middleware</strong>, where data throughput and latency performance can be
+considered more important than data consistency and coherency. In this
+case, applications can apply a filter to receive only the relevant data.
+These typical use-cases are not exclusive and can be combined within the
+same system or application.</p>
+<p>As a standard-based technology with open specification, the OMG DDS
+technology fosters the development of secure interoperate open systems
+through the adoption of a common protocol (<strong>DDSI-RTPS</strong>)
+(<strong>DDS-Security</strong>). The technology also defines an application
+integration framework with intuitive and productive <strong>APIs</strong> available
+in the most popular and programming languages, ranging from <strong>C/C#/C++</strong>
+to <strong>Python/Java/Scala</strong> and <strong>Javascript,</strong> etc... With such
+well-defined APIs, applications can be ported across compliant DDS
+implantations with minimal effort. Such standard APIs avoid the vendor
+locking situation.</p>
+<p>In the next blog, we provide the ten most-distinguishing features that
+make DDS unique when comparing it to other Message-oriented Middleware
+or Distributed Databases Systems. We will discuss how DDS:</p>
+<ol>
+<li>
+<p><strong>simultaneously models system Things, their Relationships and
+    Metadata,</strong></p>
+</li>
+<li>
+<p><strong>manages the best-effort deterministic data distribution on non-deterministic
+    network transport layers,</strong></p>
+</li>
+<li>
+<p><strong>manages the last, or the history states, or both, and organizes them
+    in the desired order,</strong></p>
+</li>
+<li>
+<p><strong>ensures Data Eventual Consistency and Coherency,</strong></p>
+</li>
+<li>
+<p><strong>provides Dynamic discovery with no single point of failure Defines
+    Independent,</strong></p>
+</li>
+<li>
+<p><strong>manages best-effort deterministic data distribution on non-deterministic
+    network transport layers Fault-tolerance and Horizontal
+    scalability,</strong></p>
+</li>
+<li>
+<p><strong>builds complex information from basic data elements,</strong></p>
+</li>
+<li>
+<p><strong>manages integrity Rules on the Writing and Reading applications Ability to
+    share data as well as the context in which it is published.</strong></p>
+</li>
+<li>
+<p><strong>provides a very rich Quality of Service Framework,</strong></p>
+</li>
+<li>
+<p><strong>provides Secure Data Distribution.</strong></p>
+</li>
+</ol>
       </div>
-    </main>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mx-auto px-5 mb-3">
+        <span class="text-muted">
+          By Ramzi KAROUI, posted on 2022-11-08.</span>
+      </div>
+    </div>
+    
+  </div>
+</main>
 
         <footer class="ato-footer text-muted">
       <div class="container-fluid p-6 p-md-5">
