@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tools &#8212; Eclipse Cyclone DDS: Python API, 0.11.0</title>
+    <title>The cyclonedds command line tool &#8212; Eclipse Cyclone DDS: Python API, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
@@ -19,7 +19,6 @@
     <script src="_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Command line tool: ddsls" href="tools.ddsls.html" />
     <link rel="prev" title="util" href="cyclonedds.util.html" />
     <link href="_static/style.css" rel="stylesheet" type="text/css">
 
@@ -128,11 +127,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tools.ddsls.html">Command line tool: ddsls</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tools.pubsub.html">Command line tool: pubsub</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> command line tool</a></li>
 </ul>
 
         </div>
@@ -144,49 +139,53 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="tools">
-<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
-<p>When you install the <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> Python package you also get a <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> command line tool with several subcommands.</p>
-<section id="the-cyclonedds-command-line-tool">
-<h2>The <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> command line tool<a class="headerlink" href="#the-cyclonedds-command-line-tool" title="Permalink to this headline">¶</a></h2>
+  <section id="the-cyclonedds-command-line-tool">
+<h1>The <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> command line tool<a class="headerlink" href="#the-cyclonedds-command-line-tool" title="Permalink to this headline">¶</a></h1>
+<p>Included with the <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> Python package is the <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> command line tool.</p>
+<p>The command line tool provides a quick insight into what your DDS dataspace currently looks like. It allows you to verify that the public view of your applications matches what you had intended.</p>
+<p>The following is a list of the <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> subcommands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">--help</span></code>: Shows the help for the <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> subcommands.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ls</span></code>: Shows the entities and their QoS settings in your DDS system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ps</span></code>: Lists the applications in your DDS system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">typeof</span></code>: Shows the type(s) of a topic in your system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">subscribe</span></code>: Dynamically subscribes to a topic and displays the data as it arrives.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">publish</span></code>: Dynamically builds a REPL with datatypes and a writer for a topic and displays the data as it arrives.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span></code>: A front-end to <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> with four modes: <code class="docutils literal notranslate"><span class="pre">publish</span></code>, <code class="docutils literal notranslate"><span class="pre">subscribe</span></code>, <code class="docutils literal notranslate"><span class="pre">ping</span></code> and <code class="docutils literal notranslate"><span class="pre">pong</span></code>.</p></li>
+</ul>
 <blockquote>
-<div><p>The main help screen shows the commands available:</p>
+<div><p>The help screen shows the available commands:</p>
 </div></blockquote>
 <img alt="``cyclonedds --help``" src="_images/cyclonedds-help.svg" /><section id="cyclonedds-ls">
-<h3><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ls</span></code><a class="headerlink" href="#cyclonedds-ls" title="Permalink to this headline">¶</a></h3>
-<img alt="``cyclonedds ls --help``" src="_images/cyclonedds-ls-help.svg" /><p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> subcommand shows you the entities in your DDS system and their QoS settings. For example, here is the output when running the <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example from this repo in the background:</p>
+<h2><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ls</span></code><a class="headerlink" href="#cyclonedds-ls" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ls</span></code> subcommand shows the entities and their QoS settings in your DDS system.</p>
+<img alt="``cyclonedds ls --help``" src="_images/cyclonedds-ls-help.svg" /><p>The following screen shows the output from <code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ls</span></code>, while running the Python <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example in the background:</p>
 <img alt="``cyclonedds ls --suppress-progress-bar --force-color-mode``" src="_images/cyclonedds-ls-demo.svg" /></section>
 <section id="cyclonedds-ps">
-<h3><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ps</span></code><a class="headerlink" href="#cyclonedds-ps" title="Permalink to this headline">¶</a></h3>
-<img alt="``cyclonedds ps --help``" src="_images/cyclonedds-ps-help.svg" /><p>The <code class="docutils literal notranslate"><span class="pre">ps</span></code> subcommand shows you the applications in your DDS system. Note that this depends on so called ‘Participant Properties’, tactfully named QoS properties in DDS participants. These were merged into CycloneDDS for version 0.10.0. Here is an example of the output when running the <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example from this repo in the background on a single host:</p>
+<h2><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ps</span></code><a class="headerlink" href="#cyclonedds-ps" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ps</span></code> subcommand lists the applications in your DDS system. Note: This depends on ‘Participant Properties’, which are known as “QoS properties” for DDS participants (merged into CycloneDDS version 0.10.0).</p>
+<img alt="``cyclonedds ps --help``" src="_images/cyclonedds-ps-help.svg" /><p>The following screen shows the output from <code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ps</span></code>, while running the Python <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example in the background:</p>
 <img alt="``cyclonedds ps --suppress-progress-bar --force-color-mode``" src="_images/cyclonedds-ps-demo.svg" /></section>
 <section id="cyclonedds-typeof">
-<h3><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">typeof</span></code><a class="headerlink" href="#cyclonedds-typeof" title="Permalink to this headline">¶</a></h3>
-<img alt="``cyclonedds typeof --help``" src="_images/cyclonedds-typeof-help.svg" /><p>The <code class="docutils literal notranslate"><span class="pre">typeof</span></code> subcommand shows you the type(s) of a topic in your system. With XTypes it can happen that more than one type for each topic exists and that they are still compatible. The types are represented in IDL. Here is an example of the output when running the <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example:</p>
+<h2><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">typeof</span></code><a class="headerlink" href="#cyclonedds-typeof" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">typeof</span></code> subcommand shows the type(s) of a topic in your system.</p>
+<p>For XTypes, it is possible to have more than one type for each topic that exists, while maintaining compatability. The types are represented in IDL. For information on the XTypes specification, refer to: <a href="#id1"><span class="problematic" id="id2">:ref:`https://www.omg.org/spec/DDS-XTypes/`_</span></a>.</p>
+<img alt="``cyclonedds typeof --help``" src="_images/cyclonedds-typeof-help.svg" /><p>The following example screen shows the output from the <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example:</p>
 <img alt="``cyclonedds typeof Vehicle --suppress-progress-bar --force-color-mode``" src="_images/cyclonedds-typeof-demo.svg" /></section>
 <section id="cyclonedds-subscribe">
-<h3><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">subscribe</span></code><a class="headerlink" href="#cyclonedds-subscribe" title="Permalink to this headline">¶</a></h3>
-<img alt="``cyclonedds subscribe --help``" src="_images/cyclonedds-subscribe-help.svg" /><p>The <code class="docutils literal notranslate"><span class="pre">subscribe</span></code> subcommand dynamically subscribes to a topic and shows you the data as it arrives. The type is discovered in a similar manner as <code class="docutils literal notranslate"><span class="pre">typeof</span></code>. Here is an example of the output when running the <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example:</p>
+<h2><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">subscribe</span></code><a class="headerlink" href="#cyclonedds-subscribe" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">subscribe</span></code> subcommand dynamically subscribes to a topic and displays the data as it arrives. The type is discovered in a similar manner as <code class="docutils literal notranslate"><span class="pre">typeof</span></code>.</p>
+<img alt="``cyclonedds subscribe --help``" src="_images/cyclonedds-subscribe-help.svg" /><p>The following example screen shows the output from the <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> example:</p>
 <img alt="``timeout -s INT 10s cyclonedds subscribe Vehicle --suppress-progress-bar --force-color-mode``" src="_images/cyclonedds-subscribe-demo.svg" /></section>
 <section id="cyclonedds-publish">
-<h3><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">publish</span></code><a class="headerlink" href="#cyclonedds-publish" title="Permalink to this headline">¶</a></h3>
-<img alt="``cyclonedds publish --help``" src="_images/cyclonedds-publish-help.svg" /><p>The <code class="docutils literal notranslate"><span class="pre">publish</span></code> subcommand dynamically builds a REPL with datatypes and a writer for a topic and shows you the data as it arrives. The type is discovered in a similar manner as <code class="docutils literal notranslate"><span class="pre">typeof</span></code>.</p>
-</section>
+<h2><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">publish</span></code><a class="headerlink" href="#cyclonedds-publish" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">publish</span></code> subcommand dynamically builds a REPL with datatypes and a writer for a topic and displays the data as it arrives. The type is discovered in a similar manner as <code class="docutils literal notranslate"><span class="pre">typeof</span></code>.</p>
+<img alt="``cyclonedds publish --help``" src="_images/cyclonedds-publish-help.svg" /></section>
 <section id="cyclonedds-performance">
-<h3><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span></code><a class="headerlink" href="#cyclonedds-performance" title="Permalink to this headline">¶</a></h3>
-<img alt="``cyclonedds performance --help``" src="_images/cyclonedds-performance-help.svg" /><p>The <code class="docutils literal notranslate"><span class="pre">performance</span></code> subcommand is a nicer frontend to <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> with four modes: <code class="docutils literal notranslate"><span class="pre">publish</span></code>, <code class="docutils literal notranslate"><span class="pre">subscribe</span></code>, <code class="docutils literal notranslate"><span class="pre">ping</span></code> and <code class="docutils literal notranslate"><span class="pre">pong</span></code>. The below performance run example is the <code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span> <span class="pre">subscribe</span></code> mode rendered with <code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span> <span class="pre">publish</span></code> running in the background.</p>
+<h2><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span></code><a class="headerlink" href="#cyclonedds-performance" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">performance</span></code> subcommand is a front-end to <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> with four modes: <code class="docutils literal notranslate"><span class="pre">publish</span></code>, <code class="docutils literal notranslate"><span class="pre">subscribe</span></code>, <code class="docutils literal notranslate"><span class="pre">ping</span></code> and <code class="docutils literal notranslate"><span class="pre">pong</span></code>.</p>
+<img alt="``cyclonedds performance --help``" src="_images/cyclonedds-performance-help.svg" /><p>The following example screen shows a performance-run in the <code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span> <span class="pre">subscribe</span></code> mode, rendered with <code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span> <span class="pre">publish</span></code> running in the background.</p>
 <img alt="``cyclonedds performance --duration 21s --render-output-once-on-exit --force-color-mode subscribe --triggering-mode waitset``" src="_images/cyclonedds-performance-subscribe-demo.svg" /></section>
-</section>
-<section id="legacy-tools">
-<h2>Legacy tools<a class="headerlink" href="#legacy-tools" title="Permalink to this headline">¶</a></h2>
-<p>There are two more tools in the Python repository which are scheduled for removal as soon as their full feature set is available using the main command line tool.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tools.ddsls.html">Command line tool: ddsls</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tools.pubsub.html">Command line tool: pubsub</a></li>
-</ul>
-</div>
-</section>
 </section>
 
 
@@ -203,17 +202,13 @@
             <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
             <div class="page_toc">
                 <ul>
-<li><a class="reference internal" href="#">Tools</a><ul>
-<li><a class="reference internal" href="#the-cyclonedds-command-line-tool">The <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> command line tool</a><ul>
+<li><a class="reference internal" href="#">The <code class="docutils literal notranslate"><span class="pre">cyclonedds</span></code> command line tool</a><ul>
 <li><a class="reference internal" href="#cyclonedds-ls"><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ls</span></code></a></li>
 <li><a class="reference internal" href="#cyclonedds-ps"><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">ps</span></code></a></li>
 <li><a class="reference internal" href="#cyclonedds-typeof"><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">typeof</span></code></a></li>
 <li><a class="reference internal" href="#cyclonedds-subscribe"><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">subscribe</span></code></a></li>
 <li><a class="reference internal" href="#cyclonedds-publish"><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">publish</span></code></a></li>
 <li><a class="reference internal" href="#cyclonedds-performance"><code class="docutils literal notranslate"><span class="pre">cyclonedds</span> <span class="pre">performance</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#legacy-tools">Legacy tools</a></li>
 </ul>
 </li>
 </ul>
@@ -234,8 +229,6 @@
             </div>
 
             <div class="right">
-                
-                    <a href="tools.ddsls.html"><span>Command line tool: ddsls</span><span class="icon">></span></a>
                 
             </div>
         </div>
