@@ -143,9 +143,9 @@
             
   <section id="statuses">
 <h1>Statuses<a class="headerlink" href="#statuses" title="Permalink to this headline">¶</a></h1>
-<p>Entities in DDS have statuses indicating the internal state and/or history of said entity.
-These statuses are used to signal Waitsets and Listeners, and are different between types of DDS entities.
-Below is a table explaining enumerating the fields for each status and their meaning:</p>
+<p>Entities in DDS have statuses that indicate the internal state and/or history of an entity.
+These statuses signal Waitsets and Listeners, and are different between types of DDS entities.
+The following table lists the fields for each status and their meaning:</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">CycloneDDS-CXX Status entities and fields</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -334,7 +334,7 @@ retrieved</p></td>
 <p>Fields of status objects containing counts of events will have both a cumulative and interval count,
 where the cumulative count will keep track of all changes during the lifetime of the DDS entity,
 and the interval count is the number of changes since the previous readout of the status.
-The statuses can be accessed by the following functions on the entity:</p>
+To access the statuses, use the following functions on the entity:</p>
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-text">CycloneDDS-CXX Status accessors</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -387,13 +387,13 @@ The statuses can be accessed by the following functions on the entity:</p>
 </tr>
 </tbody>
 </table>
-<p>The following piece of code shows using statuses to make a writer wait until readers are present:</p>
+<p>The following code fragment shows statuses that make a writer wait until readers are present:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wr</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">wr</span><span class="p">.</span><span class="n">publication_matched_status</span><span class="p">().</span><span class="n">current_count</span><span class="p">())</span><span class="w"></span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span><span class="w"></span>
 </pre></div>
 </div>
-<p>, here the writer will poll the total number of readers that are receiving data from it at a 20 millisecond interval for as long as there are no readers.</p>
+<p>The writer polls the total number of readers that are receiving data from it at 20 millisecond intervals for as long as there are no readers.</p>
 </section>
 
 

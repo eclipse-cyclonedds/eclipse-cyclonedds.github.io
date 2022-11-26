@@ -144,10 +144,10 @@
             
   <section id="quality-of-service">
 <h1>Quality of Service<a class="headerlink" href="#quality-of-service" title="Permalink to this headline">¶</a></h1>
-<p>Quality of Service is the collection of different restrictions and expectations called QoSPolicies on the behaviour of the different components of CycloneDDS.
-Some QoSPolicies only affect a single type of DDS entity, whereas others affect multiple, and QoSPolicies on a DDS entity cannot be modified after creating the entity as they affect matching/discovery of entities.
-The QoS used is linked to a type of DDS entity the QoS is used for, e.g.: a SubscriberQoS is not accepted when creating a DataReader.
-The entity-specific QoSes can be found in the <cite>qos</cite> sub-namespace of the same namespace the entity is defined in, whereas the different QoSPolicies are located in the <cite>dds::core::policy</cite> namespace.</p>
+<p>Quality of Service is the collection of restrictions and expectations (called QoSPolicies) that appy to the different components of CycloneDDS.
+Some QoSPolicies only affect a single type of DDS entity, whereas others affect multiple DDS entities. QoSPolicies on a DDS entity can not be modified after creating the entity as they affect matching/discovery of entities.
+The QoS used is linked to the type of DDS entity the QoS is used for, for example, a SubscriberQoS is not accepted when creating a DataReader.
+The entity-specific QoSes are found in the <cite>qos</cite> sub-namespace of the same namespace the entity is defined in, whereas the different QoSPolicies are located in the <cite>dds::core::policy</cite> namespace.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">DDS entity types and associated QoSes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -396,32 +396,34 @@ The entity-specific QoSes can be found in the <cite>qos</cite> sub-namespace of 
 </tr>
 </tbody>
 </table>
-<p>Setting of QoSPolicies can be done either through left-shifting the QoSPolicy “into” the QoS:</p>
+<p>Setting of QoSPolicies can be done by:</p>
+<p>Either left-shifting the QoSPolicy “into” the QoS:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">rqos</span><span class="p">;</span><span class="w"></span>
 <span class="n">rqos</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">Durability</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DurabilityKind</span><span class="o">::</span><span class="n">TRANSIENT_LOCAL</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>, or passing it as the parameter of the <cite>policy</cite> function:</p>
+<p>Or passing it as the parameter of the <cite>policy</cite> function:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DataWriterQos</span><span class="w"> </span><span class="n">wqos</span><span class="p">;</span><span class="w"></span>
 <span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">Reliability</span><span class="w"> </span><span class="nf">rel</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">ReliabilityKind</span><span class="o">::</span><span class="n">RELIABLE</span><span class="p">,</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">));</span><span class="w"></span>
 <span class="n">wqos</span><span class="p">.</span><span class="n">policy</span><span class="p">(</span><span class="n">rel</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Whereas getting of QoSPolicies can be done either through the right-shifting the QoSPolicy “out of” the QoS:</p>
+<p>Getting of QoSPolicies can be done by:</p>
+<p>Either through the right-shifting the QoSPolicy “out of” the QoS:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">TopicQos</span><span class="w"> </span><span class="n">tqos</span><span class="p">;</span><span class="w"></span>
 <span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">TopicData</span><span class="w"> </span><span class="n">td</span><span class="p">;</span><span class="w"></span>
 <span class="n">tqos</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">td</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>, or through the <cite>policy</cite> function, which is templated to indicate which QoSPolicy is being accessed:</p>
+<p>Or through the <cite>policy</cite> function, which is templated to indicate which QoSPolicy is being accessed:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DomainParticipantQos</span><span class="w"> </span><span class="n">dqos</span><span class="p">;</span><span class="w"></span>
 <span class="k">auto</span><span class="w"> </span><span class="n">ud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dqos</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">UserData</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 </div>
-<p>For a more detailed explanation of the different QoSPolicies and their effects on the behaviour of CycloneDDS, the user is referred to the OMG DDS Spec v1.4 section 2.2.3.</p>
+<p>For a detailed explanation of the different QoSPolicies and their effects on the behaviour of CycloneDDS, refer to the OMG DDS Spec v1.4 section 2.2.3.</p>
 <section id="default-and-inherited-qoses">
 <h2>Default and Inherited QoSes<a class="headerlink" href="#default-and-inherited-qoses" title="Permalink to this headline">¶</a></h2>
-<p>QoSes have a number of default settings that are falled back to when none are provided upon creation.
+<p>QoSes have a number of default settings that are falled-back to when none are provided on creation.
 These defaults are either defined in the DDS standard, or propagated from “superior” entities.
 The default inherited QoS for entities is set through the following functions:</p>
 <table class="docutils align-default" id="id3">
@@ -465,7 +467,7 @@ The default inherited QoS for entities is set through the following functions:</
 </tr>
 </tbody>
 </table>
-<p>So in the following case:</p>
+<p>For example, in the following case:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">Subscriber</span><span class="w"> </span><span class="nf">sub</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
 <span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">qos1</span><span class="p">,</span><span class="w"> </span><span class="n">qos2</span><span class="p">;</span><span class="w"></span>
 <span class="n">qos1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">Durability</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DurabilityKind</span><span class="o">::</span><span class="n">TRANSIENT_LOCAL</span><span class="p">);</span><span class="w"></span>
@@ -474,9 +476,9 @@ The default inherited QoS for entities is set through the following functions:</
 <span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span><span class="n">topic</span><span class="p">,</span><span class="n">qos2</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>, <cite>reader</cite> will have its <cite>DestinationOrder</cite> QoSPolicy set to the value set in the QoS supplied in its constructor, being <cite>BY_SOURCE_TIMESTAMP</cite>.
-On the other hand, the <cite>Durability</cite> QoSPolicy defaults to the one set as default on the Subscriber, being <cite>TRANSIENT_LOCAL</cite>.
-Lastly all other QosPolicies will default to the DDS Spec, for instance the <cite>Ownership</cite> QoSPolicy will have the value <cite>SHARED</cite>.</p>
+<p><cite>reader</cite> has its <cite>DestinationOrder</cite> QoSPolicy set to the value set in the QoS supplied in its constructor, which is <cite>BY_SOURCE_TIMESTAMP</cite>.
+<cite>Durability</cite> QoSPolicy defaults to the one set as default on the Subscriber, which is <cite>TRANSIENT_LOCAL</cite>.
+All other QosPolicies default to the DDS Spec, for example, the <cite>Ownership</cite> QoSPolicy has the value <cite>SHARED</cite>.</p>
 </section>
 </section>
 

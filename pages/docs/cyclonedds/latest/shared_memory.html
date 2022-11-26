@@ -148,17 +148,17 @@
 </pre></div>
 </div>
 <p>Next you will need to get and build iceoryx (all of this is assumed to occur in your home directory):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-iceoryx/iceoryx.git -b master
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-iceoryx/iceoryx.git -b release_2.0
 <span class="nb">cd</span> iceoryx
-cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_SHARED_LIBS<span class="o">=</span>ON -Hiceoryx_meta
-cmake --build build --config Debug --target install
+cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_SHARED_LIBS<span class="o">=</span>ON -Hiceoryx_meta
+cmake --build build --config Release --target install
 </pre></div>
 </div>
 <p>After that, get Cyclone DDS and build it with shared memory support:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds.git -b iceoryx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds.git
 <span class="nb">cd</span> cyclonedds
-cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_EXAMPLES<span class="o">=</span>On -DCMAKE_PREFIX_PATH<span class="o">=</span>~/iceoryx/install/
-cmake --build build --config Debug --target install
+cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_EXAMPLES<span class="o">=</span>On -DCMAKE_PREFIX_PATH<span class="o">=</span>~/iceoryx/install/
+cmake --build build --config Release --target install
 </pre></div>
 </div>
 <p>When the compiler has finished, you should have built both iceoryx and Cyclone DDS. Their respective files can be found in the install directories which were created in the directories git has made for you.</p>

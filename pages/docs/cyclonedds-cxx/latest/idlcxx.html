@@ -137,22 +137,22 @@
             
   <section id="custom-containers">
 <h1>Custom Containers<a class="headerlink" href="#custom-containers" title="Permalink to this headline">¶</a></h1>
-<p>IDLCXX allows users to supply their own container classes, replacing the default containers
+<p>IDLCXX enables users to supply their own container classes, replacing the default containers
 used for IDL sequences (bounded and unbounded), strings (bounded and unbounded), arrays and
-unions. All custom containers templates are set through the -f command line option, followed
+unions. All custom containers templates are set through the <code class="docutils literal notranslate"><span class="pre">-f</span></code> command line option, followed
 by the option to be set, an equals sign and the value to set it to. Each template can have a
 varying number of tags, which are indicated by the following strings:</p>
 <ul class="simple">
-<li><p>{TYPE}: will replace type names in sequences and arrays</p></li>
-<li><p>{BOUND}: will replace maximum size values in bounded sequences and strings</p></li>
-<li><p>{DIMENSION}: will replace size in arrays</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{TYPE}</span></code>: will replace type names in sequences and arrays</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{BOUND}</span></code>: will replace maximum size values in bounded sequences and strings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{DIMENSION}</span></code>: will replace size in arrays</p></li>
 </ul>
-<p>For example, to set a custom container for the bounded sequence, you need to add the following
-to the command line options of idlc:</p>
+<p>For example, to set a custom container for the bounded sequence, you must add the following
+to the command line options of <code class="docutils literal notranslate"><span class="pre">idlc</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-f bounded-sequence-template<span class="o">=</span><span class="s2">&quot;company_name::special_bounded_sequence_impl&lt;{TYPE}, {BOUND}&gt;&quot;</span>
 </pre></div>
 </div>
-<p>Supplying this command line option would convert the following IDL code:</p>
+<p>Supplying this command line option converts the following IDL code from:</p>
 <div class="highlight-IDL notranslate"><div class="highlight"><pre><span></span>sequence<span class="o">&lt;</span><span class="nb">long</span>,<span class="mi">255</span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
@@ -160,21 +160,20 @@ to the command line options of idlc:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">company_name</span><span class="o">::</span><span class="n">special_bounded_sequence_impl</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>For each template the ordering of the tags is not important, the generator will replace based
-on tags, not positions, all other text is inserted into the generated code verbatim. This allows
-for custom allocators and the like to be added as well.</p>
-<p>More information on all command line options can be retrieved by running idlc with the -h option,
-while loading the idlcxx library:</p>
+<p>For each template, the ordering of the tags is not important, the generator will replace based
+on tags, not positions, all other text is inserted into the generated code verbatim. This enables
+custom allocators to also be added.</p>
+<p>For more information on all command line options, run <code class="docutils literal notranslate"><span class="pre">idlc</span></code> with the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option, while loading
+the idlcxx library. For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>idlc -l libdidlcxx.so -h
 </pre></div>
 </div>
 <section id="sequences">
 <h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
-<p>The default container used for both bounded and unbounded IDL sequences is std::vector.
+<p>The default container for both bounded and unbounded IDL sequences is std::vector.
 The custom containers for bounded and unbounded sequences can be defined independently.
-Any user-supplied container class intended to be used in place of std::vector is expected
-to adhere to the following interface, with the same effect as these functions have in
-std::vector:</p>
+Any user-supplied container class that replaces std::vector must comply
+with the following interface (with the same effect as these functions in std::vector):</p>
 <ul class="simple">
 <li><p>size</p></li>
 <li><p>resize</p></li>
@@ -186,26 +185,26 @@ std::vector:</p>
 </ul>
 <p>The command line options for custom sequence containers are:</p>
 <ul class="simple">
-<li><p>bounded-sequence-template</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounded-sequence-template</span></code></p>
 <ul>
 <li><p>template used for bounded sequences instead of std::vector</p></li>
-<li><p>replaced tags: {TYPE}, {BOUND}</p></li>
+<li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{TYPE}</span></code>, <code class="docutils literal notranslate"><span class="pre">{BOUND}</span></code></p></li>
 </ul>
 </li>
-<li><p>bounded-sequence-include</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounded-sequence-include</span></code></p>
 <ul>
-<li><p>header to include if bounded-sequence-template is used</p></li>
+<li><p>header to include if <code class="docutils literal notranslate"><span class="pre">bounded-sequence-template</span></code> is used</p></li>
 </ul>
 </li>
-<li><p>sequence-template</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">sequence-template</span></code></p>
 <ul>
 <li><p>template used for sequences instead of std::vector</p></li>
-<li><p>replaced tags: {TYPE}</p></li>
+<li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{TYPE}</span></code></p></li>
 </ul>
 </li>
-<li><p>sequence-include</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">sequence-include</span></code></p>
 <ul>
-<li><p>header to include if sequence-template is used</p></li>
+<li><p>header to include if <code class="docutils literal notranslate"><span class="pre">sequence-template</span></code> is used</p></li>
 </ul>
 </li>
 </ul>
@@ -214,9 +213,8 @@ std::vector:</p>
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
 <p>The default container used for both bounded and unbounded IDL strings is std::string.
 The custom containers for bounded and unbounded strings can be defined independently.
-Any user-supplied container class intended to be used in place of std::string is expected
-to adhere to the following interface, with the same effect as these functions have in
-std::string:</p>
+Any user-supplied container class that replaces std::string must comply
+with the following interface (with the same effect as these functions in std::string):</p>
 <ul class="simple">
 <li><p>length</p></li>
 <li><p>assign</p>
@@ -230,26 +228,26 @@ std::string:</p>
 </ul>
 <p>The command line options for custom string containers are:</p>
 <ul class="simple">
-<li><p>bounded-string-template</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounded-string-template</span></code></p>
 <ul>
 <li><p>template to use for strings instead of std::string</p></li>
-<li><p>replaced tags: {BOUND}</p></li>
+<li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{BOUND}</span></code></p></li>
 </ul>
 </li>
-<li><p>bounded-string-include</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">bounded-string-include</span></code></p>
 <ul>
-<li><p>header to include if bounded-string-template is used</p></li>
+<li><p>header to include if <code class="docutils literal notranslate"><span class="pre">bounded-string-template</span></code> is used</p></li>
 </ul>
 </li>
-<li><p>string-template</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">string-template</span></code></p>
 <ul>
 <li><p>template to use for strings instead of std::string</p></li>
 <li><p>replaced tags: none</p></li>
 </ul>
 </li>
-<li><p>string-include</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">string-include</span></code></p>
 <ul>
-<li><p>header to include if string-template is used</p></li>
+<li><p>header to include if <code class="docutils literal notranslate"><span class="pre">string-template</span></code> is used</p></li>
 </ul>
 </li>
 </ul>
@@ -257,9 +255,8 @@ std::string:</p>
 <section id="arrays">
 <h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
 <p>The default container used for IDL arrays is std::array.
-Any user-supplied container class intended to be used in place of std::array is expected
-to adhere to the following interface, with the same effect as these functions have in
-std::array:</p>
+Any user-supplied container class that replaces std::array must comply
+with the following interface (with the same effect as these functions in std::array):</p>
 <ul class="simple">
 <li><p>support auto-range for loops</p>
 <ul>
@@ -270,15 +267,15 @@ std::array:</p>
 </ul>
 <p>The command line options for custom array containers are:</p>
 <ul class="simple">
-<li><p>array-template</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">array-template</span></code></p>
 <ul>
 <li><p>template to use for arrays instead of std::array</p></li>
-<li><p>replaced tags: {TYPE}, {DIMENSION}</p></li>
+<li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{TYPE}</span></code>, <code class="docutils literal notranslate"><span class="pre">{DIMENSION}</span></code></p></li>
 </ul>
 </li>
-<li><p>array-include</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">array-include</span></code></p>
 <ul>
-<li><p>header to include if template for array-template is used</p></li>
+<li><p>header to include if template for <code class="docutils literal notranslate"><span class="pre">array-template</span></code> is used</p></li>
 </ul>
 </li>
 </ul>
@@ -292,17 +289,17 @@ The only function needed from the custom union container is the templated getter
 </div>
 <p>The command line options for custom variant containers are:</p>
 <ul class="simple">
-<li><p>union-getter-template</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">union-getter-template</span></code></p>
 <ul>
 <li><p>template to use for reading the value of a variant, copied verbatim</p></li>
 </ul>
 </li>
-<li><p>union-template</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">union-template</span></code></p>
 <ul>
 <li><p>template to use for unions instead of std::variant, copied verbatim</p></li>
 </ul>
 </li>
-<li><p>union-include</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">union-include</span></code></p>
 <ul>
 <li><p>header to include if template for union-template is used</p></li>
 </ul>

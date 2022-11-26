@@ -144,32 +144,34 @@
             
   <section id="waitsets">
 <h1>Waitsets<a class="headerlink" href="#waitsets" title="Permalink to this headline">¶</a></h1>
-<p>Waitsets are a tool in CycloneDDS to hold execution of the program until a specific condition is reached, or an amount of time has expired.
-Waitsets and listeners cover two different requirement sets.
-Whereas Listeners can only react to changes in state, a Waitset also allows the code to react when nothing changes.
-On the other hand, Listeners allow instant callbacks to specific changes.
-A waitset uses a StatusCondition linked to an Entity to signal to the waitset that its wait is finished.
+<p>The Waitsets tool in CycloneDDS holds execution of the program until a specific condition is reached, or an amount of time has expired.
+Waitsets and listeners have two different requirement sets:</p>
+<ul class="simple">
+<li><p>A Waitset  also allows the code to react when nothing changes.</p></li>
+<li><p>Listeners can only react to changes in state. Listeners allow instant callbacks to specific changes.</p></li>
+</ul>
+<p>A waitset uses a StatusCondition linked to an Entity to signal to the waitset that its wait is finished.
 The StatusCondition has a list of enabled statuses, which describe the changes in status which should trigger the waitset to finish its wait.
 When creating a StatusCondition, the enabled statuses should match the type of entity it is attached to.
 Different StatusConditions linked to different Entities can be attached to a Waitset through the <cite>attach_condition</cite> function, and detached through the <cite>detach_condition</cite> function.
-After having created a Waitset with StatusConditions attached, a wait can be triggered for the Duration specified, and triggering the wait will cause one of two things to happen:</p>
+After creating a Waitset with StatusConditions attached, a wait can be triggered for the Duration specified. Triggering the wait causes one of two things to happen:</p>
 <ul class="simple">
-<li><p>the wait will time out, causing an exception of the type dds::core::TimeoutError to be thrown</p></li>
-<li><p>a status change of one of the attached conditions will occur, and the returned container will contain the conditions that have triggered the end of the wait</p></li>
+<li><p>The wait will time out, causing an exception of the type dds::core::TimeoutError to be thrown.</p></li>
+<li><p>A status change of one of the attached conditions occurs, and the returned container contains the conditions that have triggered the end of the wait.</p></li>
 </ul>
-<p>So the following code will work, since subscription_matched is a status associated with a DataReader:</p>
+<p>The following code does not work because the subscription_matched is a status associated with a DataReader:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
 <span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">cond</span><span class="o">::</span><span class="n">StatusCondition</span><span class="w"> </span><span class="nf">rsc</span><span class="p">(</span><span class="n">reader</span><span class="p">);</span><span class="w"></span>
 <span class="n">rsc</span><span class="p">.</span><span class="n">enabled_statuses</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">StatusMask</span><span class="o">::</span><span class="n">subscription_matched</span><span class="p">());</span><span class="w"></span>
 </pre></div>
 </div>
-<p>But the following code will fail, since liveliness_lost is not a status associated with a Topic:</p>
+<p>The following code does not work because the liveliness_lost is not a status associated with a Topic:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="s">&quot;topic&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">cond</span><span class="o">::</span><span class="n">StatusCondition</span><span class="w"> </span><span class="nf">tsc</span><span class="p">(</span><span class="n">topic</span><span class="p">);</span><span class="w"></span>
 <span class="n">tsc</span><span class="p">.</span><span class="n">enabled_statuses</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">StatusMask</span><span class="o">::</span><span class="n">liveliness_lost</span><span class="p">());</span><span class="w"></span>
 </pre></div>
 </div>
-<p>So as an example, the following code will attempt to wait a specified amount of time for readers and writers to see their counterparts, allowing two-way communication to occur:</p>
+<p>The following code attempts to wait a specified amount of time for readers and writers to see their counterparts, allowing two-way communication to occur:</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="kt">bool</span><span class="w"> </span><span class="n">match_reader_and_writer</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rd</span><span class="p">,</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">wr</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dur</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -210,7 +212,7 @@ After having created a Waitset with StatusConditions attached, a wait can be tri
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The above function will return true if the reader and writer have encountered matching publications and subscriptions before the timeout’s duration expired, and false otherwise.</p>
+<p>The above function returns true if the reader and writer have encountered matching publications and subscriptions before the timeout’s duration expired, and false otherwise.</p>
 </section>
 
 
