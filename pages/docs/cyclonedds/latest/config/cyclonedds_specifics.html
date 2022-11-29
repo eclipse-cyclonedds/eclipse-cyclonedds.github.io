@@ -147,8 +147,8 @@
 <p>Eclipse Cyclone DDS runs with a default configuration for all of its settings. You can change the default
 settings via an XML configuration located at a path defined by the variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_URI</span></code>
 (set by the user). An example XML configuration follows:</p>
-<div class="literal-block-wrapper docutils container" id="id36">
-<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">/path/to/dds/configuration.xml</span></code></span><a class="headerlink" href="#id36" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper docutils container" id="id35">
+<div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">/path/to/dds/configuration.xml</span></code></span><a class="headerlink" href="#id35" title="Permalink to this code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;CycloneDDS</span>
 <span class="linenos"> 3</span>  <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
@@ -248,35 +248,8 @@ linger duration has elapsed, whichever comes first.</p>
 is requested to terminate.</p>
 </div>
 </section>
-<section id="start-up-mode">
-<span id="id5"></span><h3>Start-up Mode<a class="headerlink" href="#start-up-mode" title="Permalink to this headline">¶</a></h3>
-<p>A similar issue exists when starting Cyclone DDS: DDSI discovery takes time, and when
-data is written immediately after the first participant was created, it is likely that
-the discovery process hasn’t been completed yet, and some remote Readers have not yet been
-discovered. This would cause the Writers to throw away samples for lack of interest,
-even though matching Readers already existed at the starting time. For best-effort
-Writers, this is perhaps surprising but still acceptable; for reliable Writers, however,
-it would be very counter-intuitive.</p>
-<p>Hence, in the so-called <em>start-up mode</em>, all volatile reliable Writers are
-treated as transient-local Writers. Transient-local data is meant to ensure
-samples are available to late-joining Readers. The start-up mode uses this exact
-mechanism to ensure late-discovered Readers will also receive the data. This treatment of
-volatile data as-if it were transient-local happens internally and is invisible to the
-outside world, other than the availability of some samples that would not otherwise be available.</p>
-<p>Once the initial discovery has been completed, new local Writers can be matched locally against
-existing Readers. Consequently, new samples are published in a Writers history cache because
-these existing Readers have not acknowledged them yet. Hence, this mode is tied to the start-up
-of the DDSI stack rather than an individual Writer.</p>
-<p>Unfortunately, it is impossible to detect with certainty when the initial discovery process has
-been completed, and therefore an option controls the duration of this start-up mode:
-<code class="docutils literal notranslate"><span class="pre">General/StartupModeDuration</span></code>.</p>
-<p>Although the start-up mode is generally beneficial, its downside is that the Writers history
-caches can grow significantly larger than expected during the start-up period. Consequently,
-the extensive amounts of historical data may be transferred to Readers and discovered relatively
-late in the process.</p>
-</section>
 <section id="writer-history-qos-and-throttling">
-<span id="id6"></span><h3>Writer History QoS and Throttling<a class="headerlink" href="#writer-history-qos-and-throttling" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Writer History QoS and Throttling<a class="headerlink" href="#writer-history-qos-and-throttling" title="Permalink to this headline">¶</a></h3>
 <p>The DDSI specification heavily relies on the notion of a Writer history cache (WHC)
 within which a sequence number uniquely identifies each sample. This WHC integrates two
 different indices on the samples published by a Writer: one is on the sequence number, used
@@ -315,9 +288,9 @@ things can continue at a much lower rate.</p>
 </section>
 </section>
 <section id="network-and-discovery-configuration">
-<span id="id7"></span><h2>Network and Discovery Configuration<a class="headerlink" href="#network-and-discovery-configuration" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Network and Discovery Configuration<a class="headerlink" href="#network-and-discovery-configuration" title="Permalink to this headline">¶</a></h2>
 <section id="networking-interfaces">
-<span id="id8"></span><h3>Networking Interfaces<a class="headerlink" href="#networking-interfaces" title="Permalink to this headline">¶</a></h3>
+<span id="id7"></span><h3>Networking Interfaces<a class="headerlink" href="#networking-interfaces" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS can use multiple network interfaces simultaneously but defaults to using a single network interface.  The set of enabled interfaces determines the addresses that the host advertises in the discovery information.</p>
 <section id="default-behaviour">
 <h4>Default behaviour<a class="headerlink" href="#default-behaviour" title="Permalink to this headline">¶</a></h4>
@@ -369,7 +342,7 @@ none is available</p></li>
 </section>
 </section>
 <section id="controlling-port-numbers">
-<span id="id9"></span><h3>Controlling Port Numbers<a class="headerlink" href="#controlling-port-numbers" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>Controlling Port Numbers<a class="headerlink" href="#controlling-port-numbers" title="Permalink to this headline">¶</a></h3>
 <p>The port numbers used by Eclipse Cyclone DDS are determined as follows, where the first two
 items are given by the DDSI specification and the third is unique to Eclipse Cyclone DDS as a
 way of serving multiple participants by a single DDSI instance:</p>
@@ -431,7 +404,7 @@ DCPS participants using the same unicast locator. This improves the chances of a
 unicast sufficing even when addressing multiple participants.</p>
 </section>
 <section id="multicasting">
-<span id="id10"></span><h3>Multicasting<a class="headerlink" href="#multicasting" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>Multicasting<a class="headerlink" href="#multicasting" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS allows configuring to what extent multicast (the regular, any-source
 multicast as well as source-specific multicast) is to be used:</p>
 <ul class="simple">
@@ -454,7 +427,7 @@ accepted, one can use the <a class="reference internal" href="config_file_refere
 allows listening on no interface, the preferred, all or a specific set of interfaces.</p>
 </section>
 <section id="tcp-support">
-<span id="id11"></span><h3>TCP Support<a class="headerlink" href="#tcp-support" title="Permalink to this headline">¶</a></h3>
+<span id="id10"></span><h3>TCP Support<a class="headerlink" href="#tcp-support" title="Permalink to this headline">¶</a></h3>
 <p>The DDSI protocol is a protocol designed to provide a connectionless transport with
 unreliable datagrams. However, there are times where TCP is the only
 practical network transport available (for example, across a WAN). This is the reason
@@ -477,21 +450,21 @@ time, and that giving up on a transmission to a failed or no longer reachable ho
 also take a long time. These long delays can be visible at the application level at
 present.</p>
 <section id="tls-support">
-<span id="id12"></span><h4>TLS Support<a class="headerlink" href="#tls-support" title="Permalink to this headline">¶</a></h4>
+<span id="id11"></span><h4>TLS Support<a class="headerlink" href="#tls-support" title="Permalink to this headline">¶</a></h4>
 <p>The TCP mode can be used together with TLS to provide mutual authentication and
 encryption. When TLS is enabled, plain TCP connections are no longer accepted or
 initiated.</p>
 </section>
 </section>
 <section id="raw-ethernet-support">
-<span id="id13"></span><h3>Raw Ethernet Support<a class="headerlink" href="#raw-ethernet-support" title="Permalink to this headline">¶</a></h3>
+<span id="id12"></span><h3>Raw Ethernet Support<a class="headerlink" href="#raw-ethernet-support" title="Permalink to this headline">¶</a></h3>
 <p>As an additional option, on Linux, Eclipse Cyclone DDS can use a raw Ethernet network interface
 to communicate without a configured IP stack.</p>
 </section>
 <section id="discovery-configuration">
-<span id="id14"></span><h3>Discovery Configuration<a class="headerlink" href="#discovery-configuration" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>Discovery Configuration<a class="headerlink" href="#discovery-configuration" title="Permalink to this headline">¶</a></h3>
 <section id="discovery-addresses">
-<span id="id15"></span><h4>Discovery Addresses<a class="headerlink" href="#discovery-addresses" title="Permalink to this headline">¶</a></h4>
+<span id="id14"></span><h4>Discovery Addresses<a class="headerlink" href="#discovery-addresses" title="Permalink to this headline">¶</a></h4>
 <p>The DDSI discovery protocols, SPDP for the domain participants and SEDP for their
 endpoints, usually operate well without any explicit configuration. Indeed, the SEDP
 protocol never requires any configuration.</p>
@@ -523,7 +496,7 @@ therefore is attractive only when it is known that there is but a single DDSI
 process on that node.</p>
 </section>
 <section id="asymmetrical-discovery">
-<span id="id17"></span><h4>Asymmetrical Discovery<a class="headerlink" href="#asymmetrical-discovery" title="Permalink to this headline">¶</a></h4>
+<span id="id16"></span><h4>Asymmetrical Discovery<a class="headerlink" href="#asymmetrical-discovery" title="Permalink to this headline">¶</a></h4>
 <p>On reception of an SPDP packet, the addresses advertised in the packet are added to the
 set of addresses to which SPDP packets are sent periodically, allowing asymmetrical
 discovery. In an extreme example, if SPDP multicasting is disabled entirely, host A has
@@ -534,14 +507,14 @@ discover B. This takes longer than normal multicast based discovery, though, and
 risks Writers being blocked by unresponsive Readers.</p>
 </section>
 <section id="timing-of-spdp-packets">
-<span id="id18"></span><h4>Timing of SPDP Packets<a class="headerlink" href="#timing-of-spdp-packets" title="Permalink to this headline">¶</a></h4>
+<span id="id17"></span><h4>Timing of SPDP Packets<a class="headerlink" href="#timing-of-spdp-packets" title="Permalink to this headline">¶</a></h4>
 <p>The interval with which the SPDP packets are transmitted is configurable, using
 the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-spdpinterval"><span class="std std-ref">Discovery/SPDPInterval</span></a> setting. A longer interval reduces the network load, but
 also increases the time discovery takes, especially in the face of temporary network
 disconnections.</p>
 </section>
 <section id="endpoint-discovery">
-<span id="id19"></span><h4>Endpoint Discovery<a class="headerlink" href="#endpoint-discovery" title="Permalink to this headline">¶</a></h4>
+<span id="id18"></span><h4>Endpoint Discovery<a class="headerlink" href="#endpoint-discovery" title="Permalink to this headline">¶</a></h4>
 <p>Although the SEDP protocol never requires any configuration, network partitioning does
 interact with it. The “ignored partitions” option can be used to instruct Eclipse Cyclone DDS
 to completely ignore specific DCPS topics and partition combinations. Using the “ignored
@@ -551,7 +524,7 @@ forwarded to and from the network.</p>
 </section>
 </section>
 <section id="combining-multiple-participants">
-<span id="id20"></span><h2>Combining Multiple Participants<a class="headerlink" href="#combining-multiple-participants" title="Permalink to this headline">¶</a></h2>
+<span id="id19"></span><h2>Combining Multiple Participants<a class="headerlink" href="#combining-multiple-participants" title="Permalink to this headline">¶</a></h2>
 <p>If a single process creates multiple participants, these are mirrored in DDSI
 participants, so that a single process can appear like an extensive system with many
 participants. The <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-squashparticipants"><span class="std std-ref">Internal/SquashParticipants</span></a>
@@ -575,7 +548,7 @@ compatible with other implementations as it means endpoint discovery data can be
 received for a participant that has not yet been discovered.</p>
 </section>
 <section id="data-path-configuration">
-<span id="id21"></span><h2>Data Path Configuration<a class="headerlink" href="#data-path-configuration" title="Permalink to this headline">¶</a></h2>
+<span id="id20"></span><h2>Data Path Configuration<a class="headerlink" href="#data-path-configuration" title="Permalink to this headline">¶</a></h2>
 <section id="re-transmit-merging">
 <span id="retransmit-merging"></span><h3>Re-Transmit Merging<a class="headerlink" href="#re-transmit-merging" title="Permalink to this headline">¶</a></h3>
 <p>A remote Reader can request re-transmission whenever it receives a Heartbeat and detects
@@ -602,7 +575,7 @@ receive the re-transmit, too. The <a class="reference internal" href="config_fil
 length of this time window.</p>
 </section>
 <section id="re-transmit-backlogs">
-<span id="id22"></span><h3>Re-Transmit Backlogs<a class="headerlink" href="#re-transmit-backlogs" title="Permalink to this headline">¶</a></h3>
+<span id="id21"></span><h3>Re-Transmit Backlogs<a class="headerlink" href="#re-transmit-backlogs" title="Permalink to this headline">¶</a></h3>
 <p>Another issue is that a Reader can request re-transmission of many samples at once. When
 the Writer queues all these samples for re-transmission, it may result in a
 considerable backlog of samples to be re-transmitted. As a result, the ones near the
@@ -618,7 +591,7 @@ bandwidth and the <a class="reference internal" href="config_file_reference.html
 until the next potential re-transmit request from the Reader.</p>
 </section>
 <section id="controlling-fragmentation">
-<span id="id23"></span><h3>Controlling Fragmentation<a class="headerlink" href="#controlling-fragmentation" title="Permalink to this headline">¶</a></h3>
+<span id="id22"></span><h3>Controlling Fragmentation<a class="headerlink" href="#controlling-fragmentation" title="Permalink to this headline">¶</a></h3>
 <p>Samples in DDS can be arbitrarily large, and will not always fit within a single
 datagram. DDSI has facilities to fragment samples so they can fit in UDP datagrams, and
 similarly IP has facilities to fragment UDP datagrams into network packets. The DDSI
@@ -640,7 +613,7 @@ is that while DDSI fragments can be re-transmitted individually, the processing 
 of DDSI fragmentation is larger than that of UDP fragmentation.</p>
 </section>
 <section id="receive-processing">
-<span id="id25"></span><h3>Receive Processing<a class="headerlink" href="#receive-processing" title="Permalink to this headline">¶</a></h3>
+<span id="id24"></span><h3>Receive Processing<a class="headerlink" href="#receive-processing" title="Permalink to this headline">¶</a></h3>
 <p>Receiving of data is split into multiple threads:</p>
 <ul class="simple">
 <li><p>A single receive thread responsible for retrieving network packets and running
@@ -673,7 +646,7 @@ evil within the constraints of various other choices). However, discovery data w
 never block the receive thread.</p>
 </section>
 <section id="minimising-receive-latency">
-<span id="id26"></span><h3>Minimising Receive Latency<a class="headerlink" href="#minimising-receive-latency" title="Permalink to this headline">¶</a></h3>
+<span id="id25"></span><h3>Minimising Receive Latency<a class="headerlink" href="#minimising-receive-latency" title="Permalink to this headline">¶</a></h3>
 <p>In low-latency environments, a few microseconds can be gained by processing the
 application data directly in the receive thread, or synchronously with respect to the
 incoming network traffic, instead of queueing it for asynchronous processing by a
@@ -683,7 +656,7 @@ configurable value. By default, these values are <code class="docutils literal n
 priority, effectively enabling synchronous delivery for all data.</p>
 </section>
 <section id="maximum-sample-size">
-<span id="id27"></span><h3>Maximum Sample Size<a class="headerlink" href="#maximum-sample-size" title="Permalink to this headline">¶</a></h3>
+<span id="id26"></span><h3>Maximum Sample Size<a class="headerlink" href="#maximum-sample-size" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS provides a setting, <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a>, to control the maximum size
 of samples the service is willing to process. The size is the size of the (CDR)
 serialised payload, and the limit holds both for built-in data and for application data.
@@ -712,9 +685,9 @@ of such a configuration seems doubtful.</p>
 </section>
 </section>
 <section id="network-partition-configuration">
-<span id="id28"></span><h2>Network Partition Configuration<a class="headerlink" href="#network-partition-configuration" title="Permalink to this headline">¶</a></h2>
+<span id="id27"></span><h2>Network Partition Configuration<a class="headerlink" href="#network-partition-configuration" title="Permalink to this headline">¶</a></h2>
 <section id="network-partition-configuration-overview">
-<span id="id29"></span><h3>Network Partition Configuration Overview<a class="headerlink" href="#network-partition-configuration-overview" title="Permalink to this headline">¶</a></h3>
+<span id="id28"></span><h3>Network Partition Configuration Overview<a class="headerlink" href="#network-partition-configuration-overview" title="Permalink to this headline">¶</a></h3>
 <p>Network partitions introduce alternative multicast addresses for data. In the DDSI
 discovery protocol, a Reader can override the default address at which it is reachable,
 and this feature of the discovery protocol is used for advertising alternative multicast
@@ -729,7 +702,7 @@ the actual multicast address many times over.</p>
 <p>In the case no match is found, the default multicast address is used.</p>
 </section>
 <section id="matching-rules">
-<span id="id30"></span><h3>Matching Rules<a class="headerlink" href="#matching-rules" title="Permalink to this headline">¶</a></h3>
+<span id="id29"></span><h3>Matching Rules<a class="headerlink" href="#matching-rules" title="Permalink to this headline">¶</a></h3>
 <p>The matching of a DCPS partition/topic combination proceeds in the order in which the
 partition mappings are specified in the configuration. The first matching mapping is
 the one that will be used. The <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code> wildcards are available for the DCPS
@@ -741,7 +714,7 @@ The ignored partitions use the same matching rules as normal mappings, and take 
 over the normal mappings.</p>
 </section>
 <section id="multiple-matching-mappings">
-<span id="id31"></span><h3>Multiple Matching Mappings<a class="headerlink" href="#multiple-matching-mappings" title="Permalink to this headline">¶</a></h3>
+<span id="id30"></span><h3>Multiple Matching Mappings<a class="headerlink" href="#multiple-matching-mappings" title="Permalink to this headline">¶</a></h3>
 <p>A single DCPS data Reader can be associated with a set of partitions, and each
 partition/topic combination can potentially map to different network partitions. In
 this case, the first matching network partition will be used. This does not affect what
@@ -749,7 +722,7 @@ data the Reader will receive; it only affects the addressing on the network.</p>
 </section>
 </section>
 <section id="thread-configuration">
-<span id="id32"></span><h2>Thread Configuration<a class="headerlink" href="#thread-configuration" title="Permalink to this headline">¶</a></h2>
+<span id="id31"></span><h2>Thread Configuration<a class="headerlink" href="#thread-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Eclipse Cyclone DDS creates several threads, each with a number of
 properties that can be controlled individually. These properties are:</p>
 <ul class="simple">
@@ -806,7 +779,7 @@ anything not specified explicitly is left at the default value.</p>
 <p>When no channels are explicitly defined, there is one channel named <em>user</em>.</p>
 </section>
 <section id="reporting-and-tracing">
-<span id="id33"></span><h2>Reporting and Tracing<a class="headerlink" href="#reporting-and-tracing" title="Permalink to this headline">¶</a></h2>
+<span id="id32"></span><h2>Reporting and Tracing<a class="headerlink" href="#reporting-and-tracing" title="Permalink to this headline">¶</a></h2>
 <p>Eclipse Cyclone DDS can produce highly detailed traces of all traffic and internal activities.
 It enables individual categories of information and a simple verbosity
 level that enables fixed sets of categories.</p>
@@ -934,9 +907,9 @@ it also requires a significant amount of time and results in huge log files.</p>
 corresponding categories is immaterial.</p>
 </section>
 <section id="compatibility-and-conformance">
-<span id="id34"></span><h2>Compatibility and Conformance<a class="headerlink" href="#compatibility-and-conformance" title="Permalink to this headline">¶</a></h2>
+<span id="id33"></span><h2>Compatibility and Conformance<a class="headerlink" href="#compatibility-and-conformance" title="Permalink to this headline">¶</a></h2>
 <section id="conformance-modes">
-<span id="id35"></span><h3>Conformance Modes<a class="headerlink" href="#conformance-modes" title="Permalink to this headline">¶</a></h3>
+<span id="id34"></span><h3>Conformance Modes<a class="headerlink" href="#conformance-modes" title="Permalink to this headline">¶</a></h3>
 <p>Eclipse Cyclone DDS operates in one of three modes: <em>pedantic</em>, <em>strict</em>, and <em>lax</em>; the mode is
 configured using the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-compatibility-standardsconformance"><span class="std std-ref">Compatibility/StandardsConformance</span></a> setting. The default is
 <em>lax</em>.</p>
@@ -1005,7 +978,6 @@ aligns with OpenSplice.</p>
 <li><a class="reference internal" href="#proxy-participants-and-endpoints">Proxy Participants and Endpoints</a></li>
 <li><a class="reference internal" href="#sharing-of-discovery-information">Sharing of Discovery Information</a></li>
 <li><a class="reference internal" href="#lingering-writers">Lingering Writers</a></li>
-<li><a class="reference internal" href="#start-up-mode">Start-up Mode</a></li>
 <li><a class="reference internal" href="#writer-history-qos-and-throttling">Writer History QoS and Throttling</a></li>
 </ul>
 </li>
