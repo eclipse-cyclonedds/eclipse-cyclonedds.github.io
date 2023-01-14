@@ -263,8 +263,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_matched_subscriptions">
 <span class="target" id="group__builtintopic_1ga895bc21f4b56c138a2a0e5a6a30f7c87"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_subscriptions</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">rds</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">nrds</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_subscriptions" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get instance handles of the data readers matching a writer. </p>
-<p>This operation fills the provided array with the instance handles of the data readers that match the writer. On successful output, the number of entries of “rds” set is the minimum of the return value and the value of “nrds”.</p>
+<dd><p>Get instance handles of the data readers matching a writer</p>
+<p>This operation fills the provided array with the instance handles of the data readers that match the writer. On successful output, the number of entries of “rds” set is the minimum of the return value and the value of “nrds”. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -289,8 +289,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_matched_subscription_data">
 <span class="target" id="group__builtintopic_1ga9f9f89092376926d1e1a26e51f1bd2c5"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_subscription_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_subscription_data" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get a description of a reader matched with the provided writer. </p>
-<p>This operation looks up the reader instance handle in the set of readers matched with the specified writer, returning a freshly allocated sample of the DCPSSubscription built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint.</p>
+<dd><p>Get a description of a reader matched with the provided writer</p>
+<p>This operation looks up the reader instance handle in the set of readers matched with the specified writer, returning a freshly allocated sample of the DCPSSubscription built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint. </p>
 <p>This operation is similar to performing a read of the given instance handle on a reader of the DCPSSubscription built-in topic, but this operation additionally filters on whether the reader is matched by the provided writer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -314,8 +314,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_matched_publications">
 <span class="target" id="group__builtintopic_1ga14fe2dfdd7ba1d8dffc38bb0fc086b46"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_publications</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">wrs</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">nwrs</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_publications" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get instance handles of the data writers matching a reader. </p>
-<p>This operation fills the provided array with the instance handles of the data writers that match the reader. On successful output, the number of entries of “wrs” set is the minimum of the return value and the value of “nwrs”.</p>
+<dd><p>Get instance handles of the data writers matching a reader</p>
+<p>This operation fills the provided array with the instance handles of the data writers that match the reader. On successful output, the number of entries of “wrs” set is the minimum of the return value and the value of “nwrs”. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -340,8 +340,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_matched_publication_data">
 <span class="target" id="group__builtintopic_1gaad987077400ac0d217bfccbc0c21dae0"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_publication_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_publication_data" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get a description of a writer matched with the provided reader. </p>
-<p>This operation looks up the writer instance handle in the set of writers matched with the specified reader, returning a freshly allocated sample of the DCPSPublication built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint.</p>
+<dd><p>Get a description of a writer matched with the provided reader</p>
+<p>This operation looks up the writer instance handle in the set of writers matched with the specified reader, returning a freshly allocated sample of the DCPSPublication built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint. </p>
 <p>This operation is similar to performing a read of the given instance handle on a reader of the DCPSPublication built-in topic, but this operation additionally filters on whether the writer is matched by the provided reader.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -388,8 +388,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_builtintopic_free_endpoint">
 <span class="target" id="group__builtintopic_1ga58fa049ed552fcfb4d21053170096559"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_free_endpoint</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_endpoint</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_free_endpoint" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Free the endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data. </p>
-<p>This operation deallocates the memory of the fields in a dds_builtintopic_endpoint_t struct and deallocates the struct itself.</p>
+<dd><p>Free the endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data</p>
+<p>This operation deallocates the memory of the fields in a dds_builtintopic_endpoint_t struct and deallocates the struct itself. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -402,8 +402,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_builtintopic_free_topic">
 <span class="target" id="group__builtintopic_1ga2ac2d50b83334dc7d4815d950e8670b0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_free_topic</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_topic_t" title="dds_builtintopic_topic_t"><span class="n"><span class="pre">dds_builtintopic_topic_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_topic</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_free_topic" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Free the provided topic information. </p>
-<p>This operation deallocates the memory of the fields in a dds_builtintopic_topic_t struct and deallocates the struct itself.</p>
+<dd><p>Free the provided topic information</p>
+<p>This operation deallocates the memory of the fields in a dds_builtintopic_topic_t struct and deallocates the struct itself. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -416,8 +416,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_builtintopic_free_participant">
 <span class="target" id="group__builtintopic_1ga19364c35c2e7328cfd8c45fdc7866027"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_free_participant</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_participant_t" title="dds_builtintopic_participant_t"><span class="n"><span class="pre">dds_builtintopic_participant_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_free_participant" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Free the provided participant information. </p>
-<p>This operation deallocates the memory of the fields in a dds_builtintopic_participant_t struct and deallocates the struct itself.</p>
+<dd><p>Free the provided participant information</p>
+<p>This operation deallocates the memory of the fields in a dds_builtintopic_participant_t struct and deallocates the struct itself. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

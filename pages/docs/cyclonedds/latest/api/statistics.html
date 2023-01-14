@@ -196,8 +196,8 @@ A quick-and-dirty provisional interface </p>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_create_statistics">
 <span class="target" id="group__statistics_1ga1ef168603d817eae597a7c38642ef187"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_statistics" title="dds_statistics"><span class="n"><span class="pre">dds_statistics</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_statistics</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_statistics" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Allocate a new statistics object for entity. </p>
-<p>This allocates and populates a newly allocated <code class="docutils literal notranslate"><span class="pre">struct</span> <a class="reference internal" href="#structdds__statistics"><span class="std std-ref"><span class="pre">dds_statistics</span></span></a></code> for the specified entity.</p>
+<dd><p>Allocate a new statistics object for entity</p>
+<p>This allocates and populates a newly allocated <code class="docutils literal notranslate"><span class="pre">struct</span> <a class="reference internal" href="#structdds__statistics"><span class="std std-ref"><span class="pre">dds_statistics</span></span></a></code> for the specified entity. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -213,8 +213,8 @@ A quick-and-dirty provisional interface </p>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_refresh_statistics">
 <span class="target" id="group__statistics_1gaa44cd4122776290aa6fec236c5b118d8"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_refresh_statistics</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_statistics" title="dds_statistics"><span class="n"><span class="pre">dds_statistics</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">stat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_refresh_statistics" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Update a previously created statistics structure with current values. </p>
-<p>Only the time stamp and the values (and “opaque”) may change. The set of keys and the types of the values do not change.</p>
+<dd><p>Update a previously created statistics structure with current values</p>
+<p>Only the time stamp and the values (and “opaque”) may change. The set of keys and the types of the values do not change. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -237,8 +237,8 @@ A quick-and-dirty provisional interface </p>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_delete_statistics">
 <span class="target" id="group__statistics_1ga0dbbae1418d56d066b073861b69a0f61"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_delete_statistics</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_statistics" title="dds_statistics"><span class="n"><span class="pre">dds_statistics</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">stat</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_delete_statistics" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Free a previously created statistics object. </p>
-<p>This frees the statistics object. Passing a null pointer is a no-op. The operation succeeds also if the referenced entity no longer exists.</p>
+<dd><p>Free a previously created statistics object</p>
+<p>This frees the statistics object. Passing a null pointer is a no-op. The operation succeeds also if the referenced entity no longer exists. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -251,8 +251,8 @@ A quick-and-dirty provisional interface </p>
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_lookup_statistic">
 <span class="target" id="group__statistics_1gaa38db609cf74471daca27214cdc4d963"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_stat_keyvalue" title="dds_stat_keyvalue"><span class="n"><span class="pre">dds_stat_keyvalue</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_lookup_statistic</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_statistics" title="dds_statistics"><span class="n"><span class="pre">dds_statistics</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">stat</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lookup_statistic" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Lookup a specific value by name. </p>
-<p>This looks up the specified name in the list of keys in <code class="docutils literal notranslate"><span class="pre">stat</span></code> and returns the address of the key-value pair if present, a null pointer if not. If <code class="docutils literal notranslate"><span class="pre">stat</span></code> is a null pointer, it returns a null pointer.</p>
+<dd><p>Lookup a specific value by name</p>
+<p>This looks up the specified name in the list of keys in <code class="docutils literal notranslate"><span class="pre">stat</span></code> and returns the address of the key-value pair if present, a null pointer if not. If <code class="docutils literal notranslate"><span class="pre">stat</span></code> is a null pointer, it returns a null pointer. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -307,7 +307,7 @@ A quick-and-dirty provisional interface </p>
 
 <dl class="c var">
 <dt class="sig sig-object c" id="c.dds_stat_keyvalue.u">
-<span class="target" id="structdds__stat__keyvalue_1aebef9a5dfed5b61a98d4c779e3e8cc12"></span><span class="k"><span class="pre">union</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_stat_keyvalue" title="dds_stat_keyvalue"><span class="n"><span class="pre">dds_stat_keyvalue</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">[anonymous]</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">u</span></span></span><a class="headerlink" href="#c.dds_stat_keyvalue.u" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="structdds__stat__keyvalue_1aa4322e706f9c42f469db99678a7f7074"></span><span class="k"><span class="pre">union</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_stat_keyvalue" title="dds_stat_keyvalue"><span class="n"><span class="pre">dds_stat_keyvalue</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">[anonymous]</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">u</span></span></span><a class="headerlink" href="#c.dds_stat_keyvalue.u" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>value </p>
 </dd></dl>
 

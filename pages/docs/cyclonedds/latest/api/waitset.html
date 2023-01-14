@@ -177,8 +177,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_create_waitset">
 <span class="target" id="group__waitset_1gaeb4a843fb425ff99d7155a5f1af5b6d1"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_waitset</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_waitset" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a waitset and allocate the resources required. </p>
-<p>A WaitSet object allows an application to wait until one or more of the conditions of the attached entities evaluates to TRUE or until the timeout expires.</p>
+<dd><p>Create a waitset and allocate the resources required</p>
+<p>A WaitSet object allows an application to wait until one or more of the conditions of the attached entities evaluates to TRUE or until the timeout expires. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -202,8 +202,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_waitset_get_entities">
 <span class="target" id="group__waitset_1ga74ff7a03ac17f287ac483e83c1947cbd"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_waitset_get_entities</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">waitset</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">entities</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_waitset_get_entities" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Acquire previously attached entities. </p>
-<p>This functions takes a pre-allocated list to put the entities in and will return the number of found entities. It is possible that the given size of the list is not the same as the number of found entities. If less entities are found, then the last few entries in the list are untouched. When more entities are found, then only ‘size’ number of entries are inserted into the list, but still the complete count of the found entities is returned. Which entities are returned in the latter case is undefined.</p>
+<dd><p>Acquire previously attached entities.</p>
+<p>This functions takes a pre-allocated list to put the entities in and will return the number of found entities. It is possible that the given size of the list is not the same as the number of found entities. If less entities are found, then the last few entries in the list are untouched. When more entities are found, then only ‘size’ number of entries are inserted into the list, but still the complete count of the found entities is returned. Which entities are returned in the latter case is undefined. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -230,8 +230,9 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_waitset_attach">
 <span class="target" id="group__waitset_1ga2de9a61e1569c3bb4931ed882738b7ba"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_waitset_attach</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">waitset</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <a class="reference internal" href="#c.dds_attach_t" title="dds_attach_t"><span class="n"><span class="pre">dds_attach_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">x</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_waitset_attach" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This operation attaches an Entity to the WaitSet. </p>
-<p>This operation attaches an Entity to the WaitSet. The <a class="reference internal" href="#group__waitset_1gae4748b6fd6f3eb86f66b890f69feead4"><span class="std std-ref">dds_waitset_wait()</span></a> will block when none of the attached entities are triggered. ‘Triggered’ (<a class="reference internal" href="entity.html#group__entity_1ga471b8ec0d763d88a0e4fd18502bc0bf7"><span class="std std-ref">dds_triggered()</span></a>) doesn’t mean the same for every entity:<ul class="simple">
+<dd><p>This operation attaches an Entity to the WaitSet.</p>
+<p>This operation attaches an Entity to the WaitSet. The <a class="reference internal" href="#group__waitset_1gae4748b6fd6f3eb86f66b890f69feead4"><span class="std std-ref">dds_waitset_wait()</span></a> will block when none of the attached entities are triggered. ‘Triggered’ (<a class="reference internal" href="entity.html#group__entity_1ga471b8ec0d763d88a0e4fd18502bc0bf7"><span class="std std-ref">dds_triggered()</span></a>) doesn’t mean the same for every entity: </p>
+<p><ul class="simple">
 <li><p>Reader/Writer/Publisher/Subscriber/Topic/Participant<ul>
 <li><p>These are triggered when their status changed.</p></li>
 </ul>
@@ -301,8 +302,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_waitset_set_trigger">
 <span class="target" id="group__waitset_1gac85a4dd23c10b19dc9fa9b7e99f2d109"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_waitset_set_trigger</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">waitset</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">trigger</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_waitset_set_trigger" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Sets the trigger_value associated with a waitset. </p>
-<p>When the waitset is attached to itself and the trigger value is set to ‘true’, then the waitset will wake up just like with an other status change of the attached entities.</p>
+<dd><p>Sets the trigger_value associated with a waitset.</p>
+<p>When the waitset is attached to itself and the trigger value is set to ‘true’, then the waitset will wake up just like with an other status change of the attached entities. </p>
 <p>This can be used to forcefully wake up a waitset, for instance when the application wants to shut down. So, when the trigger value is true, the waitset will wake up or not wait at all.</p>
 <p>The trigger value will remain true until the application sets it false again deliberately.</p>
 <dl class="field-list simple">
@@ -330,8 +331,9 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_waitset_wait">
 <span class="target" id="group__waitset_1gae4748b6fd6f3eb86f66b890f69feead4"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_waitset_wait</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">waitset</span></span>, <a class="reference internal" href="#c.dds_attach_t" title="dds_attach_t"><span class="n"><span class="pre">dds_attach_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">xs</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">nxs</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">reltimeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_waitset_wait" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This operation allows an application thread to wait for the a status change or other trigger on (one of) the entities that are attached to the WaitSet. </p>
-<p>The <a class="reference internal" href="#group__waitset_1gae4748b6fd6f3eb86f66b890f69feead4"><span class="std std-ref">dds_waitset_wait()</span></a> operation blocks until the some of the attached entities have triggered or “reltimeout” has elapsed. ‘Triggered’ (<a class="reference internal" href="entity.html#group__entity_1ga471b8ec0d763d88a0e4fd18502bc0bf7"><span class="std std-ref">dds_triggered()</span></a>) doesn’t mean the same for every entity:<ul class="simple">
+<dd><p>This operation allows an application thread to wait for the a status change or other trigger on (one of) the entities that are attached to the WaitSet.</p>
+<p>The <a class="reference internal" href="#group__waitset_1gae4748b6fd6f3eb86f66b890f69feead4"><span class="std std-ref">dds_waitset_wait()</span></a> operation blocks until the some of the attached entities have triggered or “reltimeout” has elapsed. ‘Triggered’ (<a class="reference internal" href="entity.html#group__entity_1ga471b8ec0d763d88a0e4fd18502bc0bf7"><span class="std std-ref">dds_triggered()</span></a>) doesn’t mean the same for every entity: </p>
+<p><ul class="simple">
 <li><p>Reader/Writer/Publisher/Subscriber/Topic/Participant<ul>
 <li><p>These are triggered when their status changed.</p></li>
 </ul>
@@ -380,8 +382,9 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_waitset_wait_until">
 <span class="target" id="group__waitset_1ga4db0893598b351975f481a4eaebcee94"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_waitset_wait_until</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">waitset</span></span>, <a class="reference internal" href="#c.dds_attach_t" title="dds_attach_t"><span class="n"><span class="pre">dds_attach_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">xs</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">nxs</span></span>, <span class="n"><span class="pre">dds_time_t</span></span><span class="w"> </span><span class="n"><span class="pre">abstimeout</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_waitset_wait_until" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This operation allows an application thread to wait for the a status change or other trigger on (one of) the entities that are attached to the WaitSet. </p>
-<p>The <a class="reference internal" href="#group__waitset_1gae4748b6fd6f3eb86f66b890f69feead4"><span class="std std-ref">dds_waitset_wait()</span></a> operation blocks until the some of the attached entities have triggered or “abstimeout” has been reached. ‘Triggered’ (<a class="reference internal" href="entity.html#group__entity_1ga471b8ec0d763d88a0e4fd18502bc0bf7"><span class="std std-ref">dds_triggered()</span></a>) doesn’t mean the same for every entity:<ul class="simple">
+<dd><p>This operation allows an application thread to wait for the a status change or other trigger on (one of) the entities that are attached to the WaitSet.</p>
+<p>The <a class="reference internal" href="#group__waitset_1gae4748b6fd6f3eb86f66b890f69feead4"><span class="std std-ref">dds_waitset_wait()</span></a> operation blocks until the some of the attached entities have triggered or “abstimeout” has been reached. ‘Triggered’ (<a class="reference internal" href="entity.html#group__entity_1ga471b8ec0d763d88a0e4fd18502bc0bf7"><span class="std std-ref">dds_triggered()</span></a>) doesn’t mean the same for every entity: </p>
+<p><ul class="simple">
 <li><p>Reader/Writer/Publisher/Subscriber/Topic/Participant<ul>
 <li><p>These are triggered when their status changed.</p></li>
 </ul>
@@ -442,8 +445,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_mask">
 <span class="target" id="group__condition_1gad2d5146fb5c10c2f0bc4abc50e67f7e0"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_mask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">condition</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_mask" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Get the mask of a condition. </p>
-<p>This operation returns the mask that was used to create the given condition.</p>
+<dd><p>Get the mask of a condition.</p>
+<p>This operation returns the mask that was used to create the given condition. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -565,8 +568,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_create_readcondition">
 <span class="target" id="group__readcondition_1ga6ad0cb634397fd1b45ba1591c45df6b4"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_readcondition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_readcondition" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a readcondition associated to the given reader. </p>
-<p>The readcondition allows specifying which samples are of interest in a data reader’s history, by means of a mask. The mask is or’d with the flags that are dds_sample_state_t, dds_view_state_t and dds_instance_state_t.</p>
+<dd><p>Creates a readcondition associated to the given reader.</p>
+<p>The readcondition allows specifying which samples are of interest in a data reader’s history, by means of a mask. The mask is or’d with the flags that are dds_sample_state_t, dds_view_state_t and dds_instance_state_t. </p>
 <p>Based on the mask value set, the readcondition gets triggered when data is available on the reader.</p>
 <p>Waitsets allow waiting for an event on some of any set of entities. This means that the readcondition can be used to wake up a waitset when data is in the reader history with states that matches the given mask.</p>
 <div class="admonition note">
@@ -617,8 +620,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_create_querycondition">
 <span class="target" id="group__querycondition_1ga5780eb47cbcd107b1b5c8dcadf4baba8"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_querycondition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span>, <a class="reference internal" href="#c.dds_querycondition_filter_fn" title="dds_querycondition_filter_fn"><span class="n"><span class="pre">dds_querycondition_filter_fn</span></span></a><span class="w"> </span><span class="n"><span class="pre">filter</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_querycondition" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a queryondition associated to the given reader. </p>
-<p>The queryondition allows specifying which samples are of interest in a data reader’s history, by means of a mask and a filter. The mask is or’d with the flags that are dds_sample_state_t, dds_view_state_t and dds_instance_state_t.</p>
+<dd><p>Creates a queryondition associated to the given reader.</p>
+<p>The queryondition allows specifying which samples are of interest in a data reader’s history, by means of a mask and a filter. The mask is or’d with the flags that are dds_sample_state_t, dds_view_state_t and dds_instance_state_t. </p>
 <p>Based on the mask value set and data that matches the filter, the querycondition gets triggered when data is available on the reader.</p>
 <p>Waitsets allow waiting for an event on some of any set of entities. This means that the querycondition can be used to wake up a waitset when data is in the reader history with states that matches the given mask and filter.</p>
 <div class="admonition note">
@@ -661,8 +664,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_create_guardcondition">
 <span class="target" id="group__guardcondition_1ga034257b01770ef8524d8e5bb6c4b1c64"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_guardcondition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_guardcondition" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a guardcondition. </p>
-<p>Waitsets allow waiting for an event on some of any set of entities. This means that the guardcondition can be used to wake up a waitset when data is in the reader history with states that matches the given mask.</p>
+<dd><p>Creates a guardcondition.</p>
+<p>Waitsets allow waiting for an event on some of any set of entities. This means that the guardcondition can be used to wake up a waitset when data is in the reader history with states that matches the given mask. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
