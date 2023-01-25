@@ -170,24 +170,24 @@ the idlcxx library. For example:</p>
 </div>
 <section id="sequences">
 <h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
-<p>The default container for both bounded and unbounded IDL sequences is std::vector.
+<p>The default container for both bounded and unbounded IDL sequences is <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.
 The custom containers for bounded and unbounded sequences can be defined independently.
-Any user-supplied container class that replaces std::vector must comply
+Any user-supplied container class that replaces <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> must comply
 with the following interface (with the same effect as these functions in std::vector):</p>
 <ul class="simple">
-<li><p>size</p></li>
-<li><p>resize</p></li>
-<li><p>data</p></li>
-<li><p>operator==</p></li>
-<li><p>operator[]</p></li>
-<li><p>copy assignment operator</p></li>
-<li><p>copy constructor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resize</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">operator==</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">operator[]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">assignment</span> <span class="pre">operator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">constructor</span></code></p></li>
 </ul>
 <p>The command line options for custom sequence containers are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bounded-sequence-template</span></code></p>
 <ul>
-<li><p>template used for bounded sequences instead of std::vector</p></li>
+<li><p>template used for bounded sequences instead of <code class="docutils literal notranslate"><span class="pre">std::vector</span></code></p></li>
 <li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{TYPE}</span></code>, <code class="docutils literal notranslate"><span class="pre">{BOUND}</span></code></p></li>
 </ul>
 </li>
@@ -198,7 +198,7 @@ with the following interface (with the same effect as these functions in std::ve
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sequence-template</span></code></p>
 <ul>
-<li><p>template used for sequences instead of std::vector</p></li>
+<li><p>template used for sequences instead of <code class="docutils literal notranslate"><span class="pre">std::vector</span></code></p></li>
 <li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{TYPE}</span></code></p></li>
 </ul>
 </li>
@@ -211,26 +211,26 @@ with the following interface (with the same effect as these functions in std::ve
 </section>
 <section id="strings">
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
-<p>The default container used for both bounded and unbounded IDL strings is std::string.
+<p>The default container used for both bounded and unbounded IDL strings is <code class="docutils literal notranslate"><span class="pre">std::string</span></code>.
 The custom containers for bounded and unbounded strings can be defined independently.
-Any user-supplied container class that replaces std::string must comply
-with the following interface (with the same effect as these functions in std::string):</p>
+Any user-supplied container class that replaces <code class="docutils literal notranslate"><span class="pre">std::string</span></code> must comply
+with the following interface (with the same effect as these functions in <code class="docutils literal notranslate"><span class="pre">std::string</span></code>):</p>
 <ul class="simple">
-<li><p>length</p></li>
-<li><p>assign</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assign</span></code></p>
 <ul>
 <li><p>the variant taking an input pointer and a length</p></li>
 </ul>
 </li>
-<li><p>operator==</p></li>
-<li><p>copy assignment operator</p></li>
-<li><p>copy constructor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">operator==</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">assignment</span> <span class="pre">operator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">constructor</span></code></p></li>
 </ul>
 <p>The command line options for custom string containers are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bounded-string-template</span></code></p>
 <ul>
-<li><p>template to use for strings instead of std::string</p></li>
+<li><p>template to use for strings instead of <code class="docutils literal notranslate"><span class="pre">std::string</span></code></p></li>
 <li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{BOUND}</span></code></p></li>
 </ul>
 </li>
@@ -241,7 +241,7 @@ with the following interface (with the same effect as these functions in std::st
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">string-template</span></code></p>
 <ul>
-<li><p>template to use for strings instead of std::string</p></li>
+<li><p>template to use for strings instead of <code class="docutils literal notranslate"><span class="pre">std::string</span></code></p></li>
 <li><p>replaced tags: none</p></li>
 </ul>
 </li>
@@ -254,9 +254,9 @@ with the following interface (with the same effect as these functions in std::st
 </section>
 <section id="arrays">
 <h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
-<p>The default container used for IDL arrays is std::array.
-Any user-supplied container class that replaces std::array must comply
-with the following interface (with the same effect as these functions in std::array):</p>
+<p>The default container used for IDL arrays is <code class="docutils literal notranslate"><span class="pre">std::array</span></code>.
+Any user-supplied container class that replaces <code class="docutils literal notranslate"><span class="pre">std::array</span></code> must comply
+with the following interface (with the same effect as these functions in <code class="docutils literal notranslate"><span class="pre">std::array</span></code>):</p>
 <ul class="simple">
 <li><p>support auto-range for loops</p>
 <ul>
@@ -269,7 +269,7 @@ with the following interface (with the same effect as these functions in std::ar
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">array-template</span></code></p>
 <ul>
-<li><p>template to use for arrays instead of std::array</p></li>
+<li><p>template to use for arrays instead of <code class="docutils literal notranslate"><span class="pre">std::array</span></code></p></li>
 <li><p>replaced tags: <code class="docutils literal notranslate"><span class="pre">{TYPE}</span></code>, <code class="docutils literal notranslate"><span class="pre">{DIMENSION}</span></code></p></li>
 </ul>
 </li>
@@ -282,7 +282,7 @@ with the following interface (with the same effect as these functions in std::ar
 </section>
 <section id="unions">
 <h2>Unions<a class="headerlink" href="#unions" title="Permalink to this headline">¶</a></h2>
-<p>IDL unions use the std::variant class by default as the container for the union values.
+<p>IDL unions use the <code class="docutils literal notranslate"><span class="pre">std::variant</span></code> class by default as the container for the union values.
 The only function needed from the custom union container is the templated getter function:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="n">T</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="n">var</span><span class="p">)</span><span class="w"></span>
 </pre></div>
@@ -296,7 +296,7 @@ The only function needed from the custom union container is the templated getter
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">union-template</span></code></p>
 <ul>
-<li><p>template to use for unions instead of std::variant, copied verbatim</p></li>
+<li><p>template to use for unions instead of <code class="docutils literal notranslate"><span class="pre">std::variant</span></code>, copied verbatim</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">union-include</span></code></p>
@@ -356,7 +356,7 @@ The only function needed from the custom union container is the templated getter
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2022, Eclipse Cyclone DDS committers.
+        &#169; Copyright 2023, Eclipse Cyclone DDS committers.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
 
