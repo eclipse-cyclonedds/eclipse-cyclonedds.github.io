@@ -20,8 +20,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Configuration Guide" href="../config/index.html" />
-    <link rel="prev" title="Benchmarking Tools" href="benchmarking.html" /> 
+    <link rel="next" title="Configuration guide" href="../config/index.html" />
+    <link rel="prev" title="Benchmarking Tools" href="installation/benchmarking.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -120,20 +120,21 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c_tutorial/index.html">C Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp_tutorial/index.html">C++ Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld/helloworld.html">HelloWorld tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="py_tutorial/index.html">Python Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html">Benchmarking Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/benchmarking.html">Benchmarking Tools</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing to Eclipse Cyclone DDS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
 </ul>
 
         </div>
@@ -146,22 +147,20 @@
           <div class="body" role="main">
             
   <section id="contributing-to-var-project">
-<span id="contributing"></span><h1>Contributing to Eclipse Cyclone DDS<a class="headerlink" href="#contributing-to-var-project" title="Permalink to this headline">¶</a></h1>
+<span id="contributing-to-dds"></span><span id="index-0"></span><h1>Contributing to Eclipse Cyclone DDS<a class="headerlink" href="#contributing-to-var-project" title="Permalink to this headline">¶</a></h1>
 <p>We welcome all contributions to the project, including questions,
 examples, bug fixes, enhancements or improvements to the documentation,
 etc.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Contributing to Eclipse Cyclone DDS means donating your code to the Eclipse foundation. This means you need to
-sign the <a class="reference external" href="https://www.eclipse.org/legal/ECA.php">Eclipse Contributor Agreement</a> using
-<a class="reference external" href="https://accounts.eclipse.org/user/eca">this form</a>. It effectively means that what you are contributing is
-yours to give away and you are fine with everyone using and distributing it. However, don’t take legal advice
+<p>Contributing to Eclipse Cyclone DDS means donating your code to the Eclipse foundation. It requires that you
+sign the <a href="https://www.eclipse.org/legal/ECA.php/">Eclipse Contributor Agreement</a> using <a href="https://accounts.eclipse.org/user/eca/">Eclipse Contributor Agreement</a>. In summary, this means that your contribution is
+yours to give away, and that you allow others to use and distribute it. However, don’t take legal advice
 from this getting started guide, read the terms linked above.</p>
 </div>
-<p>If you want to contribute code, it is helpful to know that build
-configurations for Azure DevOps Pipelines are present in the repositories.
-There is a test suite using CTest and CUnit that can be built
-locally.</p>
+<p>To contribute code, it may be helpful to know that build configurations for Azure DevOps Pipelines
+are present in the repositories.
+There is a test suite using CTest and <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a> that can be built locally.</p>
 <p>The following sections explain how to do this for the different
 operating systems.</p>
 <section id="linux-and-macos">
@@ -173,9 +172,9 @@ cmake --build .
 ctest
 </pre></div>
 </div>
-<p>This build requires <a class="reference external" href="http://cunit.sourceforge.net/">CUnit</a>. You can
+<p>This build requires <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a>. You can
 install this yourself, or you can choose to instead rely on the
-<a class="reference external" href="https://conan.io/">Conan</a> packaging system that the CI build
+<a href="https://conan.io/" target="_blank">Conan</a> packaging system that the CI build
 infrastructure also uses. In that case, install Conan in the build
 directory before running CMake:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install .. --build missing
@@ -191,9 +190,9 @@ cmake --build .
 ctest
 </pre></div>
 </div>
-<p>This build requires <a class="reference external" href="http://cunit.sourceforge.net/">CUnit</a>. You can
+<p>This build requires <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a>. You can
 install this yourself, or you can choose to instead rely on the
-<a class="reference external" href="https://conan.io/">Conan</a> packaging system that the CI build
+<a href="https://conan.io/" target="_blank">Conan</a> packaging system that the CI build
 infrastructure also uses. In that case, install Conan in the build
 directory before running CMake:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install .. --build missing
@@ -241,14 +240,14 @@ directory before running CMake:</p>
         <div class="button_nav">
             <div class="left">
                 
-                <a href="benchmarking.html">
+                <a href="installation/benchmarking.html">
                     <span class="icon"><</span><span>Benchmarking Tools</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../config/index.html"><span>Configuration Guide</span><span class="icon">></span></a>
+                    <a href="../config/index.html"><span>Configuration guide</span><span class="icon">></span></a>
                 
             </div>
         </div>

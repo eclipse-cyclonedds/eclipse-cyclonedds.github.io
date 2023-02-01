@@ -20,7 +20,7 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DDS Security" href="../security.html" />
+    <link rel="next" title="DDS security" href="../security/dds_security.html" />
     <link rel="prev" title="listtopics" href="listtopics.html" /> 
   </head><body>
 
@@ -120,8 +120,9 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="helloworld.html">HelloWorld</a></li>
 <li class="toctree-l2"><a class="reference internal" href="roundtrip.html">Roundtrip</a></li>
@@ -130,9 +131,10 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">dynsub</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
 </ul>
 
         </div>
@@ -145,39 +147,32 @@
           <div class="body" role="main">
             
   <section id="dynsub">
-<h1>dynsub<a class="headerlink" href="#dynsub" title="Permalink to this headline">¶</a></h1>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The “dynsub” example is a PoC for a C-based JSON printer for arbitrary data. It assumes
+<span id="dynsub-bm"></span><span id="index-0"></span><h1>dynsub<a class="headerlink" href="#dynsub" title="Permalink to this headline">¶</a></h1>
+<p>The dynsub example is a <a class="reference internal" href="../glossary.html#term-PoC"><span class="xref std std-term">PoC</span></a> for a C-based JSON printer of arbitrary data. It assumes
 that topic discovery is enabled, but doesn’t require it.</p>
-</section>
 <section id="running-the-example">
 <h2>Running the example<a class="headerlink" href="#running-the-example" title="Permalink to this headline">¶</a></h2>
-<p>Pass it the name of a topic and it will wait for some time for a writer of that topic to
-show up.  Once it finds on in the DCPSPublication topic, it then tries to subscribe and
-print the received samples as JSON.</p>
-<p>It is far from complete and definitely buggy.  It is just a PoC!</p>
-<p>For example: start the HelloworldPublisher in one shell:</p>
-<blockquote>
-<div><p># bin/HelloworldPublisher
-=== [Publisher]  Waiting for a reader to be discovered …</p>
-</div></blockquote>
-<p>then in another shell start this program:</p>
-<blockquote>
-<div><p># bin/dynsub HelloWorldData_Msg
-{“userID”:1,”message”:”Hello World”}
-{“userID”:1}</p>
-</div></blockquote>
+<p>Pass the name of a topic to dynsub and it waits for a writer of that topic to show up. When it
+finds one in the DCPSPublication topic, it tries to subscribe and print the received samples as JSON.</p>
+<p>For example: Start the <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> in one shell:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp"># bin/HelloworldPublisher</span>
+<span class="o">===</span><span class="w"> </span><span class="p">[</span><span class="n">Publisher</span><span class="p">]</span><span class="w">  </span><span class="n">Waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">discovered</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In another shell start <code class="docutils literal notranslate"><span class="pre">dynsub</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp"># bin/dynsub HelloWorldData_Msg</span>
+<span class="p">{</span><span class="s">&quot;userID&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;message&quot;</span><span class="o">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">}</span><span class="w"></span>
+<span class="p">{</span><span class="s">&quot;userID&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <p>The second line is the “invalid sample” generated because of the termination of the
-publisher.  In Cyclone DDS that means only the key fields are valid and so that is what
-gets printed.</p>
-<p>There is a small publisher program “variouspub” that can publish a number of different
-types to make things a bit more interesting than HelloWorldData_Msg.  Pass it the name of
-the type to publish, like:</p>
-<blockquote>
-<div><p># bin/variouspub B</p>
-</div></blockquote>
-<p>This will publish samples at 1Hz until killed.</p>
+publisher. In Cyclone DDS, only the key fields are valid, and therefore printed.</p>
+<p>Instead of the HelloWorldData_Msg, the small publisher program “variouspub” can publish
+a number of different types. Pass it the name of the type to publish. For example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp"># bin/variouspub B</span>
+</pre></div>
+</div>
+<p>This publishes samples at 1Hz until killed.</p>
 </section>
 <section id="source-code">
 <h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
@@ -888,7 +883,6 @@ the type to publish, like:</p>
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">dynsub</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#running-the-example">Running the example</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 </ul>
@@ -912,7 +906,7 @@ the type to publish, like:</p>
 
             <div class="right">
                 
-                    <a href="../security.html"><span>DDS Security</span><span class="icon">></span></a>
+                    <a href="../security/dds_security.html"><span>DDS security</span><span class="icon">></span></a>
                 
             </div>
         </div>

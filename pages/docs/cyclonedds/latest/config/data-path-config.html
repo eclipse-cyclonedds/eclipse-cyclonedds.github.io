@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Data path configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Thread configuration" href="thread-config.html" />
+    <link rel="prev" title="Combining multiple participants" href="combining-participants.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cmake_config.html">CMake build configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddsi_concepts.html">DDSI concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discovery-behavior.html">Discovery behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discovery-config.html">Discovery configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network-config.html">Network configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combining-participants.html">Combining multiple participants</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data path configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread-config.html">Thread configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting-tracing.html">Reporting and tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conformance.html">Conformance modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file_reference.html">Configuration File Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="data-path-configuration">
+<span id="data-path-config"></span><h1>Data path configuration<a class="headerlink" href="#data-path-configuration" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="re-transmission-merging"></span><section id="index-0">
+<span id="id1"></span><h2>Re-transmission merging<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
+<p>A remote reader can request re-transmission whenever it receives a heartbeat and detects
+missing samples. If a sample is lost on the network for many or all readers, the
+next heartbeat can trigger a large number of re-transmission requests. Therefore, to avoid
+re-transmitting the same sample over and over again to many different readers, the
+Writer should attempt to merge these requests into a multicast re-transmission. Similarly,
+while readers should try to avoid requesting re-transmission too often, in an
+interoperable system, the writers should be robust against it.</p>
+<p>On receiving a heartbeat that indicates samples are missing, a reader either:</p>
+<ul class="simple">
+<li><p>Schedules the second and subsequent re-transmission requests to be sent after a delay (set in:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-nackdelay"><span class="std std-ref">Internal/NackDelay</span></a>).</p></li>
+<li><p>Combines it with an already scheduled request. Any samples that are received between the
+receipt of the heartbeat and the sending of the AckNack do not need to be re-transmitted.
+A writer attempts to combine re-transmission requests:</p>
+<ul>
+<li><p>When another re-transmission request arrives, and while the re-transmission has not yet occurred,
+change the messages from unicast to multicast. This is particularly effective when
+bandwidth limiting causes a backlog of samples to be re-transmitted.</p></li>
+<li><p>Merge the re-transmission request:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-retransmitmerging"><span class="std std-ref">Internal/ReTransmitMerging</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+<span class="target" id="re-transmit-backlogs"></span></section>
+<section id="re-transmission-backlogs">
+<span id="index-1"></span><h2>Re-transmission backlogs<a class="headerlink" href="#re-transmission-backlogs" title="Permalink to this headline">¶</a></h2>
+<p>A reader can request re-transmission of many samples at once. When the writer queues
+all these samples for re-transmission, it can cause a large backlog of samples. As a
+result, the samples near the queue’s end may be delayed so much that the reader issues
+another re-transmission request.</p>
+<p>Eclipse Cyclone DDS limits the number of samples queued for re-transmission and ignores
+re-transmission requests that either causes the re-transmission queue to contain too many samples,
+or take too long to process. Two settings govern the size of these queues. The limits are
+applied per timed-event thread:</p>
+<ul class="simple">
+<li><p>The number of re-transmission messages:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxqueuedrexmitmessages"><span class="std std-ref">Internal/MaxQueuedRexmitMessages</span></a>.</p></li>
+<li><p>The size of the queue:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxqueuedrexmitbytes"><span class="std std-ref">Internal/MaxQueuedRexmitBytes</span></a>.
+This defaults to a setting based on the combination of the allowed transmition bandwidth,
+and the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-nackdelay"><span class="std std-ref">Internal/NackDelay</span></a> setting, which
+is an approximation of the time until the next re-transmission request from the Reader.</p></li>
+</ul>
+<span class="target" id="controlling-fragmentation"></span></section>
+<section id="fragmentation">
+<span id="index-2"></span><h2>Fragmentation<a class="headerlink" href="#fragmentation" title="Permalink to this headline">¶</a></h2>
+<p>Samples in DDS can be arbitrarily large, and do not always fit within a single datagram.
+DDSI can fragment samples so they can fit in UDP datagrams. IP has facilities to fragment
+UDP datagrams into network packets. The DDSI specification (see <a href="https://www.omg.org/spec/DDSI-RTPS/2.5" target="_blank">DDSI-RTPS 2.5</a> section 8.4.14.1.2)
+describes how to send fragments (Data must only be fragmented if required). However, Eclipse Cyclone DDS
+provides a fully configurable behaviour.</p>
+<p>If the serialised form of a sample is at least the size set in:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-fragmentsize"><span class="std std-ref">General/FragmentSize</span></a>,
+it is fragmented using DDSI fragmentation. All fragments are this exact size, except for
+the last one, which may be smaller.</p>
+<p>To reduce the number of network packets, the following are all subject to packing into datagrams
+(based on various attributes such as the destination address) before sending on the network:</p>
+<ul class="simple">
+<li><p>control messages</p></li>
+<li><p>non-fragmented samples</p></li>
+<li><p>sample fragments</p></li>
+</ul>
+<p>Packing allows datagram payloads of up to
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-maxmessagesize"><span class="std std-ref">General/MaxMessageSize</span></a>. If
+the <code class="docutils literal notranslate"><span class="pre">MaxMessageSize</span></code> is too small to contain a datagram payload as a single unit, …</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>UDP/IP header sizes are not taken into account in the maximum message size.</p>
+</div>
+<p>To stay within the maximum size that the underlying network supports, the IP layer fragments the datagram
+into multiple packets.</p>
+<p>A trade-off is that while DDSI fragments can be re-transmitted individually, the processing overhead
+of DDSI fragmentation is larger than that of UDP fragmentation.</p>
+<span class="target" id="receive-processing"></span></section>
+<section id="index-3">
+<span id="id5"></span><h2>Receive processing<a class="headerlink" href="#index-3" title="Permalink to this headline">¶</a></h2>
+<p>Receiving of data is split into multiple threads:</p>
+<ul>
+<li><p>A single receive thread, which is responsible for:</p>
+<ul class="simple">
+<li><p>Retrieving all incoming network packets.</p></li>
+<li><p>Running the protocol state machine, which involves scheduling of AckNack and heartbeat messages.</p></li>
+<li><p>Queueing of samples that must be re-transmitted.</p></li>
+<li><p>Defragmenting.</p></li>
+<li><p>Ordering incoming samples.</p></li>
+</ul>
+<p>Between the receive thread and the delivery threads are queues. To control the maximum
+queue size, set: <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-deliveryqueuemaxsamples"><span class="std std-ref">Internal/DeliveryQueueMaxSamples</span></a>.
+Generally, queues do not need to be very large (unless there are very small samples in very
+large messages). The primary function is to smooth out the processing when batches of
+samples become available at once, for example following a re-transmission.</p>
+<p>When any of these receive buffers hit their size limit, and it concerns application data,
+the receive thread waits for the queue to shrink. However, discovery data never blocks the
+receive thread.</p>
+</li>
+<li><dl class="simple">
+<dt>A delivery thread dedicated to processing DDSI built-in data:</dt><dd><ul class="simple">
+<li><p>Participant discovery</p></li>
+<li><p>Endpoint discovery</p></li>
+<li><p>Liveliness assertions</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>One or more delivery threads dedicated to the handling of application data:</dt><dd><ul class="simple">
+<li><p>deserialisation</p></li>
+<li><p>delivery to the DCPS data reader caches</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Fragmented data first enters the defragmentation stage, which is per proxy writer. The
+number of samples that can be defragmented simultaneously is limited:</p>
+<ul class="simple">
+<li><p>Reliable data: <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-defragreliablemaxsamples"><span class="std std-ref">Internal/DefragReliableMaxSamples</span></a></p></li>
+<li><p>Unreliable data: <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-defragunreliablemaxsamples"><span class="std std-ref">Internal/DefragUnreliableMaxSamples</span></a>.</p></li>
+</ul>
+<p>Samples (defragmented if necessary) received out of sequence are buffered:</p>
+<ul class="simple">
+<li><p>Initially per proxy writer. The size is limited to:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-primaryreordermaxsamples"><span class="std std-ref">Internal/PrimaryReorderMaxSamples</span></a>.</p></li>
+<li><p>Then per Reader (catching up on historical (transient-local) data). The size is limited to:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-secondaryreordermaxsamples"><span class="std std-ref">Internal/SecondaryReorderMaxSamples</span></a>.</p></li>
+</ul>
+<span class="target" id="minimising-receive-latency"></span></section>
+<section id="index-4">
+<span id="id6"></span><h2>Minimising receive latency<a class="headerlink" href="#index-4" title="Permalink to this headline">¶</a></h2>
+<p>In low-latency environments, a few microseconds can be gained by processing the
+application data either:</p>
+<ul class="simple">
+<li><p>Directly in the receive thread.</p></li>
+<li><p>Synchronously, with respect to the incoming network traffic (instead of queueing it
+for asynchronous processing by a delivery thread).</p></li>
+</ul>
+<p>This happens for data transmitted where the <em>max_latency</em> QoS is set at a configurable value,
+and the <em>transport_priority</em> QoS is set to a configurable value. By default, these values
+are <code class="docutils literal notranslate"><span class="pre">inf</span></code> and the maximum transport priority, effectively enabling synchronous delivery
+for all data.</p>
+<span class="target" id="maximum-sample-size"></span></section>
+<section id="index-5">
+<span id="id7"></span><h2>Maximum sample size<a class="headerlink" href="#index-5" title="Permalink to this headline">¶</a></h2>
+<p>To control the maximum size of samples that the service can process, set:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a>.
+The size is the size of the Common Data Representation (<a class="reference internal" href="../glossary.html#term-CDR"><span class="xref std std-term">CDR</span></a>) serialised payload,
+and the limit is the same for both built-in data and application data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The (CDR) serialised payload is never larger than the in-memory representation of the data.</p>
+</div>
+<p>When transmitting, samples larger than
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a> are dropped
+with a warning. Eclipse Cyclone DDS behaves as if the sample never existed.</p>
+<p>Where the transmitting side completely ignores the sample, the receiving side assumes that
+the sample has been correctly received and acknowledges reception to the writer, which allows
+communication to continue.</p>
+<p>When receiving, samples larger than
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a> are dropped as
+early as possible. To prevent any resources from being claimed for longer than strictly necessary,
+samples are dropped immediately following the reception of a sample or fragment of one.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the receiving side drops a sample, readers receive a <em>sample lost</em> notification included
+with the next delivered sample. This notification can be easily overlooked. Therefore, the only
+reliable way of determining whether samples have been dropped or not is by checking the logs.</p>
+</div>
+<p>While dropping samples (or fragments thereof) as early as possible is beneficial from
+the point of view of reducing resource usage, it can make it hard to decide whether or
+not dropping a particular sample has been recorded in the log already. Under normal
+operational circumstances, only a single message is recorded for each sample
+dropped, but can occasionally report multiple events for the same sample.</p>
+<p>It is possible (but not recommended) to set
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a>
+to a very small size (to the point that the discovery data can no longer be communicated).</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Data path configuration</a><ul>
+<li><a class="reference internal" href="#index-0">Re-transmission merging</a></li>
+<li><a class="reference internal" href="#re-transmission-backlogs">Re-transmission backlogs</a></li>
+<li><a class="reference internal" href="#fragmentation">Fragmentation</a></li>
+<li><a class="reference internal" href="#index-3">Receive processing</a></li>
+<li><a class="reference internal" href="#index-4">Minimising receive latency</a></li>
+<li><a class="reference internal" href="#index-5">Maximum sample size</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="combining-participants.html">
+                    <span class="icon"><</span><span>Combining multiple participants</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="thread-config.html"><span>Thread configuration</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

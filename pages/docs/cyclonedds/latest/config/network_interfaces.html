@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Networking interfaces &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Network partitions" href="network_partitions.html" />
+    <link rel="prev" title="Network configuration" href="network-config.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cmake_config.html">CMake build configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddsi_concepts.html">DDSI concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discovery-behavior.html">Discovery behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discovery-config.html">Discovery configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="network-config.html">Network configuration</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Networking interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_partitions.html">Network partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="port_numbers.html">Port numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multicasting.html">Multicasting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tcp_support.html">TCP support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tls_support.html">TLS support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ethernet_support.html">Raw ethernet support</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="combining-participants.html">Combining multiple participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-path-config.html">Data path configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread-config.html">Thread configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting-tracing.html">Reporting and tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conformance.html">Conformance modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file_reference.html">Configuration File Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="networking-interfaces">
+<span id="index-0"></span><span id="id1"></span><h1>Networking interfaces<a class="headerlink" href="#networking-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>Eclipse Cyclone DDS can use multiple network interfaces simultaneously (the default is a single
+network interface). The set of enabled interfaces determines the addresses that the host
+advertises in the discovery information (see <a class="reference internal" href="discovery_participants.html#discovery-of-participants-and-endpoints"><span class="std std-ref">Discovery of participants and andpoints</span></a>).</p>
+<section id="default-behaviour">
+<h2>Default behaviour<a class="headerlink" href="#default-behaviour" title="Permalink to this headline">¶</a></h2>
+<p>To determine the default network interface, the eligible interfaces are ranked by quality,
+and the interface with the highest quality is selected. If there are multiple interfaces of
+the highest quality, it selects the first enumerated one. Eligible interfaces are those
+that are connected and have the correct type of address family (IPv4 or IPv6). Priority is
+determined (in decreasing priority) as follows:</p>
+<ul class="simple">
+<li><p>Interfaces with a non-link-local address are preferred over those with a link-local one.</p></li>
+<li><p>Multicast-capable (see
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface-multicast"><span class="std std-ref">General/Interfaces/NetworkInterface[&#64;multicast]</span></a>).</p></li>
+<li><p>Non-multicast capable and not point-to-point.</p></li>
+<li><p>Point-to-point.</p></li>
+<li><p>Loopback.</p></li>
+</ul>
+<p>If this selection procedure does not automatically return the desired interface, to override
+the selection, set: <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces"><span class="std std-ref">General/Interfaces</span></a> adding
+any of the following:</p>
+<ul class="simple">
+<li><p>Name of the interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">name='interface_name'</span> <span class="pre">/&gt;</span></code>).</p></li>
+<li><p>IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.129.0.42'</span> <span class="pre">/&gt;</span></code>).</p></li>
+<li><p>Network portion of the IP address for the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.11.0.0'</span> <span class="pre">/&gt;</span></code>).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An exact match on the address is always preferred, and is the only option that allows
+selecting the desired interface when multiple addresses are tied to a single interface.</p>
+</div>
+<p>The default address family is IPv4. To change the address family to IPv6, set:
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-transport"><span class="std std-ref">General/Transport</span></a> to <code class="docutils literal notranslate"><span class="pre">udp6</span></code> or <code class="docutils literal notranslate"><span class="pre">tcp6</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eclipse Cyclone DDS does not mix IPv4 and IPv6 addressing. Therefore, all DDSI participants in
+the network must use the same addressing mode. When interoperating, this behaviour is
+the same. That is, it looks at either IPv4 or IPv6 addresses in the advertised address
+information in the SPDP and SEDP discovery protocols.</p>
+</div>
+<p>IPv6 link-local addresses are considered undesirable because they must be published
+and received via the discovery mechanism (see <a class="reference internal" href="discovery-behavior.html#discovery-behaviour"><span class="std std-ref">Discovery behaviour</span></a>). There is no way to
+determine to which interface a received link-local address is related.</p>
+<p>If IPv6 is requested and the selected interface has a non-link-local address, Eclipse Cyclone DDS
+operates in a <em>global addressing</em> mode and will only consider discovered non-link-local
+addresses. In this mode, you can select any set of interfaces for listening to multicasts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This behaviour is identical to that when using IPv4, as IPv4 does not have
+the formal notion of address scopes that IPv6 has. If only a link-local address is
+available, Eclipse Cyclone DDS runs in a <em>link-local addressing</em> mode. In this mode, it accepts
+any address in a discovery packet (assuming that a link-local address is valid on the selected
+interface). To minimise the risk involved in this assumption, it only allows the selected
+interface for listening to multicasts.</p>
+</div>
+</section>
+<section id="multiple-network-interfaces">
+<span id="index-1"></span><h2>Multiple network interfaces<a class="headerlink" href="#multiple-network-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>Multiple network interfaces can be used simultaneously by listing multiple
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface"><span class="std std-ref">NetworkInterface</span></a> elements.
+The default behaviour still applies, but with extended network interfaces. For example,
+the SPDP packets advertise multiple addresses and sends these packets out on all interfaces.
+If link-local addresses are used, the issue with <em>link-local addressing</em> gains importance.</p>
+<p>In a configuration with a single network interface, it is obvious which one to use for
+sending packets to a peer. When there are multiple network interfaces, it is necessary to
+establish the set of interfaces through which multicasts can be sent (these are sent
+on a specific interface). This in turn requires determining via which subset of interfaces
+a peer is reachable.</p>
+<p>Cyclone DDS checks which interfaces match the addresses advertised by a peer
+in its SPDP or SEDP messages, which assumes that:</p>
+<ul class="simple">
+<li><p>The peer is attached to at least one of the configured networks.</p></li>
+<li><p>That checking the network parts of the addresses results in a subset of the interfaces.</p></li>
+</ul>
+<p>The network interfaces in this subset are the interfaces on which the peer is assumed to
+be reachable via multicast. This leaves open two classes of addresses:</p>
+<ul class="simple">
+<li><p><strong>Loopback addresses</strong>: these are ignored unless:</p>
+<ul>
+<li><p>The configuration has enabled only loopback interfaces.</p></li>
+<li><p>No other addresses are advertised in the discovery message.</p></li>
+<li><p>A non-loopback address matches that of the machine.</p></li>
+</ul>
+</li>
+<li><p><strong>Routable addresses that do not match an interface</strong>: these are ignored if the
+<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-dontroute"><span class="std std-ref">General/DontRoute</span></a> option is set,
+otherwise it is assumed that the network stack knows how to route them, and any of
+the interfaces may be used.</p></li>
+</ul>
+<p>When a message needs to be sent to a set of peers, Eclipse Cyclone DDS uses the set of addresses
+spanning the set of intended recipients with the lowest cost. That is, the number of nodes
+that:</p>
+<ul class="simple">
+<li><p>Receive it without having a use for it.</p></li>
+<li><p>Unicast vs multicast.</p></li>
+<li><p>Loopback vs real network interface.</p></li>
+<li><p>Configured priority.</p></li>
+</ul>
+<p>Eclipse Cyclone DDS uses some heuristics rather than computing the optimal solution. The address
+selection can be influenced in two ways:</p>
+<ul class="simple">
+<li><p>By using the <code class="docutils literal notranslate"><span class="pre">priority</span></code> attribute, which is used as an offset in the cost calculation.
+The default configuration gives loopback interfaces a slightly higher priority than other
+network types.</p></li>
+<li><p>By setting the <code class="docutils literal notranslate"><span class="pre">prefer_multicast</span></code> attribute, which raises the assumed cost of a unicast
+message.</p></li>
+</ul>
+<p>The <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-redundantnetworking"><span class="std std-ref">General/RedundantNetworking</span></a>
+setting forces the address selection code to consider all interfaces advertised by a peer.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Networking interfaces</a><ul>
+<li><a class="reference internal" href="#default-behaviour">Default behaviour</a></li>
+<li><a class="reference internal" href="#multiple-network-interfaces">Multiple network interfaces</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="network-config.html">
+                    <span class="icon"><</span><span>Network configuration</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="network_partitions.html"><span>Network partitions</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Access control configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging and tracing" href="logging_tracing.html" />
+    <link rel="prev" title="Plugin configuration" href="plugins_config.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dds_security.html">DDS security</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="public_key_infrastructure.html">Public-key infrastructure</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="dds_security_config.html">DDS security configuration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plugins_config.html">Plugin configuration</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Access control configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging_tracing.html">Logging and tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_comms_handshake.html">Data communication and handshake process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dds_secure_discovery.html">DDS secure discovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proprietary_builtin_endpoints.html">Proprietary builtin endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_configuration.html">Example DDS security configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external_plugin_dev.html">External plugin development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error_codes.html">Security plugin error codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="access-control-configuration">
+<span id="index-0"></span><span id="id1"></span><h1>Access control configuration<a class="headerlink" href="#access-control-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Access Control configuration consists of a <a class="reference internal" href="#id2">governance document</a> and a <a class="reference internal" href="#id3">permissions document</a>.
+Both documents must be signed by the Permissions CA in S/MIME format.
+To validate remote permissions, Participants use their own permissions CA.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All permissions CA Certificates must be the same for all participants.</p>
+</div>
+<p>The signed document must be formatted as follows:</p>
+<ul class="simple">
+<li><p>S/MIME version 3.2 format (as defined in <a href="https://www.rfc-editor.org/info/rfc5751" target="_blank">IETF RFC 5751</a>).</p></li>
+<li><p>SignedData Content Type (<a href="https://www.rfc-editor.org/rfc/rfc5751.html#section-2.4.2" target="_blank">IETF RFC 5751 section 2.4.2</a>).</p></li>
+<li><p>Signing Using the multipart/signed Format (<a href="https://www.rfc-editor.org/rfc/rfc5751.html#section-3.4.3" target="_blank">IETF RFC 5751 section 3.4.3</a>).</p></li>
+</ul>
+<p>This corresponds to the mime-type application/pkcs7-signature.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The signer certificate should be be included within the signature.</p>
+</div>
+<section id="governance-document">
+<span id="index-1"></span><span id="id2"></span><h2>Governance document<a class="headerlink" href="#governance-document" title="Permalink to this headline">¶</a></h2>
+<p>The governance document is an XML file that defines the security behavior of domains and topics.
+It is specified in OMG <a href="https://www.omg.org/spec/DDS-SECURITY/" target="_blank">DDS security</a> (Version 1.1 Section 9.4.1.2.3). For an example of a
+governance document, see <span class="xref std std-ref">Create a signed governance document</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To establish communication with a remote node, the options that are specified in a governance
+document must match with those in the remote node.</p>
+</div>
+<section id="protection-kinds">
+<span id="index-2"></span><h3>Protection kinds<a class="headerlink" href="#protection-kinds" title="Permalink to this headline">¶</a></h3>
+<p>The domain governance document provides a means for the application to configure the kinds of
+cryptographic transformation applied to the complete <a class="reference internal" href="../glossary.html#term-RTPS"><span class="xref std std-term">RTPS</span></a> message, certain RTPS submessages, and
+the SerializedPayload RTPS submessage element that appears within the data.</p>
+<a class="reference internal image-reference" href="../_images/rtps_message_structure.png"><img alt="../_images/rtps_message_structure.png" src="../_images/rtps_message_structure.png" style="width: 300px;" /></a>
+<p>The configuration allows specification of five protection levels:</p>
+<ul>
+<li><p><strong>NONE</strong></p>
+<p>Indicates that no cryptographic transformation is applied.</p>
+</li>
+<li><p><strong>SIGN</strong></p>
+<p>Indicates that the cryptographic transformation is a <a class="reference internal" href="../glossary.html#term-MAC"><span class="xref std std-term">MAC</span></a>, that is,
+there is no encryption.</p>
+</li>
+<li><p><strong>ENCRYPT</strong></p>
+<p>Indicates that the cryptographic transformation is an encryption, followed by a MAC
+computed on the ciphertext, also known as Encrypt-then-MAC.</p>
+</li>
+<li><p><strong>SIGN_WITH_ORIGIN_AUTHENTICATION</strong></p>
+<p>Indicates that the cryptographic transformation is a set of MACs, that is, no
+encryption is performed. This cryptographic transformation creates a first common
+<code class="docutils literal notranslate"><span class="pre">authenticationcode</span></code> (similar to where the Protection Kind is <strong>SIGN</strong>). The
+cryptographic transformation creates additional authentication codes, each produced
+with a different secret key. The additional MACs prove to the receiver that the sender
+originated the message, preventing other receivers from impersonating the sender.</p>
+</li>
+<li><p><strong>ENCRYPT_WITH_ORIGIN_AUTHENTICATION</strong>.</p>
+<p>Indicates that the cryptographic transformation is an encryption, followed by a MAC
+computed on the ciphertext, followed by additional authentication codes. Each of the
+additional authentication codes use a different secret key. The encryption and first
+(common) authentication code is similar to ones produced when the Protection Kind is
+<strong>ENCRYPT</strong>. The additional authentication codes are similar to the ones produced when the
+Protection Kind is <strong>SIGN_WITH_ORIGIN_AUTHENTICATION</strong>.</p>
+</li>
+</ul>
+</section>
+<section id="participant-attributes">
+<span id="index-3"></span><h3>Participant attributes<a class="headerlink" href="#participant-attributes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><strong>Allow Unauthenticated Participants</strong></p>
+<p>For communication with non-secure participants.
+If this option is enabled, a secure participant can only communicate with a non-secure
+participant via non-protected topics.</p>
+</li>
+<li><p><strong>Enable Join Access Control</strong></p>
+<p>If this option is enabled, remote participant permissions
+are checked to see if its subject name is allowed to create a topic.</p>
+</li>
+<li><p><strong>Discovery Protection Kind</strong></p>
+<p>This is the protection attribute for discovery communication
+when it is enabled for topic. For available options, refer to the OMG <a href="https://www.omg.org/spec/DDS-SECURITY/" target="_blank">DDS security</a>
+specification.</p>
+</li>
+<li><p><strong>Liveliness Protection Kind</strong></p>
+<p>Protection attribute for liveliness communication when
+it is enabled for topic. For available options, refer to the OMG <a href="https://www.omg.org/spec/DDS-SECURITY/" target="_blank">DDS security</a>
+specification.</p>
+</li>
+<li><p><strong>RTPS Protection Kind</strong></p>
+<p>Protection attribute for all messages on the wire. For available
+options, refer to the OMG <a href="https://www.omg.org/spec/DDS-SECURITY/" target="_blank">DDS security</a> specification. If encryption is selected for
+RTPS, there is no need to encrypt submessages (metadata_protection_kind) and payloads
+(data_protection_kind) which are defined in topic settings.</p>
+</li>
+</ul>
+</section>
+<section id="topic-attributes">
+<h3>Topic attributes<a class="headerlink" href="#topic-attributes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><strong>Enable Discovery protection</strong></p>
+<p>If enabled, discovery is protected according to Discovery
+Protection Kind attribute of the corresponding participant.</p>
+</li>
+<li><p><strong>Enable Liveliness protection</strong></p>
+<p>If enabled, liveliness is protected according to Liveliness
+Protection Kind attribute of the corresponding participant.</p>
+</li>
+<li><p><strong>Enable Read Access Control</strong></p>
+<p>If enabled, the permissions document is checked if the
+participant is allowed to create a datareader for the related topic.</p>
+</li>
+<li><p><strong>Enable Write Access Control</strong></p>
+<p>If enabled, the permissions document is checked if the
+participant is allowed to create a datawriter for the related topic.</p>
+</li>
+<li><p><strong>Metadata protection Kind</strong></p>
+<p>Protection attribute for submessages.</p>
+</li>
+<li><p><strong>Data protection Kind</strong></p>
+<p>Protection attribute for data payload.</p>
+</li>
+</ul>
+<p>There are different settings for different domain ranges. The domain rules are evaluated in the
+same order as they appear in the document. A rule only applies to a particular <code class="docutils literal notranslate"><span class="pre">DomainParticipant</span></code>
+if the domain Section matches the DDS <code class="docutils literal notranslate"><span class="pre">domain_id</span></code> to which the participant belongs. If multiple
+rules match, the first rule that matches is the only one that applies.</p>
+<p>The topic access rules are evaluated in the same order as they appear within the
+&lt;topic_access_rules&gt; Section. If multiple rules match the first rule that matches is the only one
+that applies.</p>
+<p>fnmatch pattern matching can be used for topic expressions including the following patterns:</p>
+<span id="index-4"></span><table class="docutils align-default" id="fnmatch-pattern-matching">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pattern</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>matches everything</p></td>
+</tr>
+<tr class="row-odd"><td><p>?</p></td>
+<td><p>matches any single character</p></td>
+</tr>
+<tr class="row-even"><td><p>[seq]</p></td>
+<td><p>matches any character in seq</p></td>
+</tr>
+<tr class="row-odd"><td><p>[!seq]</p></td>
+<td><p>matches any character not in seq</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="permissions-document">
+<span id="index-5"></span><span id="id3"></span><h2>Permissions document<a class="headerlink" href="#permissions-document" title="Permalink to this headline">¶</a></h2>
+<p>The permissions document is an XML file that contains the permissions of the domain participant
+and binds them to the subject name of the <code class="docutils literal notranslate"><span class="pre">DomainParticipant</span></code>. It is specified in OMG
+<a href="https://www.omg.org/spec/DDS-SECURITY/" target="_blank">DDS security</a> (Version 1.1 Section 9.4.1.3).</p>
+<p>For an example of a permissions document, refer to: <a class="reference internal" href="example_configuration.html#create-permissions-document"><span class="std std-ref">Create a signed permissions document</span></a>.</p>
+<section id="validity-period">
+<span id="index-6"></span><h3>Validity period<a class="headerlink" href="#validity-period" title="Permalink to this headline">¶</a></h3>
+<p>The validity period is checked before creating a participant. The validity period is also
+checked during handshake with a remote participant.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An expired remote permissions document prevents communications from being established.</p>
+</div>
+</section>
+<section id="subject-name">
+<span id="index-7"></span><h3>Subject name<a class="headerlink" href="#subject-name" title="Permalink to this headline">¶</a></h3>
+<p>The subject name must match with Identity Certificate subject. It is checked during a create
+participant, and during handshake with a remote participant. Use the following openssl command to get
+subject name from identity certificate:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">x509</span> <span class="pre">-noout</span> <span class="pre">-subject</span> <span class="pre">-nameopt</span> <span class="pre">RFC2253</span> <span class="pre">-in</span> <span class="pre">&lt;identity_certificate_file.pem&gt;</span></code></p>
+</div></blockquote>
+</section>
+<section id="participant-permissions-rules">
+<span id="index-8"></span><h3>Participant permissions rules<a class="headerlink" href="#participant-permissions-rules" title="Permalink to this headline">¶</a></h3>
+<p>Participant permissions are defined by set of rules. The rules are applied in the same order
+that appear in the document.</p>
+<p>If the criteria for the rule matches the domain_id join and/or publish or subscribe operation
+that is being attempted, then the allow or deny decision is applied.</p>
+<p>If the criteria for a rule does not match the operation being attempted, the evaluation shall
+proceed to the next rule.</p>
+<p>If all rules have been examined without a match, then the decision specified by the “default”
+rule is applied. The default rule, if present, must appear after all allow and deny rules.
+If the default rule is not present, the implied default decision is DENY.</p>
+<p>The matching criteria for each rule specify the <code class="docutils literal notranslate"><span class="pre">domain_id</span></code>, topics (published and subscribed),
+the partitions (published and subscribed), and the data-tags associated with the DataWriter
+and DataReader.</p>
+<p>For the grant to match, there must be a match of the topics, partitions, and data-tags criteria.
+This is interpreted as an <em>AND</em> of each of the criteria. For a specific criterion to match
+(for example, &lt;Topics&gt;) it is enough that one of the topic expressions listed matches (that is,
+an <em>OR</em> of the expressions with the &lt;Topics&gt; section).</p>
+<p>For topic expressions and partition expressions, use <a class="reference internal" href="#fnmatch-pattern-matching">fnmatch pattern matching</a>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Access control configuration</a><ul>
+<li><a class="reference internal" href="#governance-document">Governance document</a><ul>
+<li><a class="reference internal" href="#protection-kinds">Protection kinds</a></li>
+<li><a class="reference internal" href="#participant-attributes">Participant attributes</a></li>
+<li><a class="reference internal" href="#topic-attributes">Topic attributes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#permissions-document">Permissions document</a><ul>
+<li><a class="reference internal" href="#validity-period">Validity period</a></li>
+<li><a class="reference internal" href="#subject-name">Subject name</a></li>
+<li><a class="reference internal" href="#participant-permissions-rules">Participant permissions rules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="plugins_config.html">
+                    <span class="icon"><</span><span>Plugin configuration</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="logging_tracing.html"><span>Logging and tracing</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

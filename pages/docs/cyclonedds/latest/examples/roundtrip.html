@@ -15,6 +15,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -120,8 +121,9 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="helloworld.html">HelloWorld</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Roundtrip</a></li>
@@ -130,9 +132,10 @@
 <li class="toctree-l2"><a class="reference internal" href="dynsub.html">dynsub</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
 </ul>
 
         </div>
@@ -145,17 +148,14 @@
           <div class="body" role="main">
             
   <section id="roundtrip">
-<h1>Roundtrip<a class="headerlink" href="#roundtrip" title="Permalink to this headline">¶</a></h1>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The Roundtrip example allows the measurement of roundtrip duration when sending and receiving back a single message.</p>
-</section>
+<span id="roundtrip-bm"></span><span id="index-0"></span><h1>Roundtrip<a class="headerlink" href="#roundtrip" title="Permalink to this headline">¶</a></h1>
+<p>Measures the roundtrip duration when sending and receiving a single message.</p>
 <section id="design">
 <h2>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
-<p>It consists of 2 units:</p>
+<p>The Roundtrip example consists of two units:</p>
 <ul class="simple">
-<li><p>Pong: waits for messages from ping and sends the same message back.</p></li>
-<li><p>Ping: Sends a message to pong and waits for its return.</p></li>
+<li><p><strong>ping</strong>: Sends a message to pong and waits for its return.</p></li>
+<li><p><strong>pong</strong>: Waits for messages from ping and sends the same message back.</p></li>
 </ul>
 </section>
 <section id="scenario">
@@ -179,16 +179,16 @@ This sequence is repeated a configurable number of times.</p>
 </section>
 <section id="running-the-example">
 <h2>Running the example<a class="headerlink" href="#running-the-example" title="Permalink to this headline">¶</a></h2>
-<p>It is recommended that you run ping and pong in separate terminals to avoid mixing the output.</p>
-<ul>
-<li><p>Open 2 terminals.</p></li>
-<li><p>In the first terminal start Pong by running pong.</p>
+<p>To avoid mixing the output, run the ping and pong in separate terminals.</p>
+<ol class="arabic">
+<li><p>Open two terminals.</p></li>
+<li><p>In the first terminal start Pong by running <strong>pong</strong>.</p>
 <dl class="simple">
 <dt>pong usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./pong</span></code></p>
 </dd>
 </dl>
 </li>
-<li><p>In the second terminal start Ping by running ping.</p>
+<li><p>In the second terminal start Ping by running <strong>ping</strong>.</p>
 <dl>
 <dt>ping usage (parameters must be supplied in order):</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./ping</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes,</span> <span class="pre">0</span> <span class="pre">-</span> <span class="pre">655536)]</span> <span class="pre">[numSamples</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">infinite)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">infinite)]</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">./ping</span> <span class="pre">quit</span> <span class="pre">-</span> <span class="pre">ping</span> <span class="pre">sends</span> <span class="pre">a</span> <span class="pre">quit</span> <span class="pre">signal</span> <span class="pre">to</span> <span class="pre">pong.</span></code></p>
@@ -197,23 +197,25 @@ This sequence is repeated a configurable number of times.</p>
 </dd>
 </dl>
 </li>
-<li><p>To achieve optimal performance it is recommended to set the CPU affinity so that ping and pong run on separate CPU cores,
-and use real-time scheduling. In a Linux environment this can be achieved as follows:</p>
-<dl class="simple">
-<dt>pong usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">taskset</span> <span class="pre">-c</span> <span class="pre">0</span> <span class="pre">chrt</span> <span class="pre">-f</span> <span class="pre">80</span> <span class="pre">./pong</span></code></p>
+<li><p>To achieve optimal performance, set the CPU affinity so that ping and pong run on separate CPU cores
+and use real-time scheduling:</p></li>
+</ol>
+<blockquote>
+<div><div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><dl class="simple">
+<dt>Pong usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">taskset</span> <span class="pre">-c</span> <span class="pre">0</span> <span class="pre">chrt</span> <span class="pre">-f</span> <span class="pre">80</span> <span class="pre">./pong</span></code></p>
 </dd>
-<dt>ping usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">taskset</span> <span class="pre">-c</span> <span class="pre">1</span> <span class="pre">chrt</span> <span class="pre">-f</span> <span class="pre">80</span> <span class="pre">./ping</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes,</span> <span class="pre">0</span> <span class="pre">-</span> <span class="pre">655536)]</span> <span class="pre">[numSamples</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">infinite)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">infinite)]</span></code></p>
-</dd>
-</dl>
-<p>On Windows the CPU affinity and scheduling class can be set as follows:</p>
-<dl class="simple">
-<dt>pong usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">/affinity</span> <span class="pre">1</span> <span class="pre">/high</span> <span class="pre">cmd</span> <span class="pre">/k</span> <span class="pre">&quot;pong.exe&quot;</span></code></p>
-</dd>
-<dt>ping usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">/affinity</span> <span class="pre">2</span> <span class="pre">/high</span> <span class="pre">cmd</span> <span class="pre">/k</span> <span class="pre">&quot;ping.exe&quot;</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes,</span> <span class="pre">0</span> <span class="pre">-</span> <span class="pre">655536)]</span> <span class="pre">[numSamples</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">infinite)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">infinite)]</span></code></p>
+<dt>Ping usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">taskset</span> <span class="pre">-c</span> <span class="pre">1</span> <span class="pre">chrt</span> <span class="pre">-f</span> <span class="pre">80</span> <span class="pre">./ping</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes,</span> <span class="pre">0</span> <span class="pre">-</span> <span class="pre">655536)]</span> <span class="pre">[numSamples</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">infinite)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">infinite)]</span></code></p>
 </dd>
 </dl>
-</li>
-</ul>
+</div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><dl class="simple">
+<dt>Pong usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">/affinity</span> <span class="pre">1</span> <span class="pre">/high</span> <span class="pre">cmd</span> <span class="pre">/k</span> <span class="pre">&quot;pong.exe&quot;</span></code></p>
+</dd>
+<dt>Ping usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">/affinity</span> <span class="pre">2</span> <span class="pre">/high</span> <span class="pre">cmd</span> <span class="pre">/k</span> <span class="pre">&quot;ping.exe&quot;</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes,</span> <span class="pre">0</span> <span class="pre">-</span> <span class="pre">655536)]</span> <span class="pre">[numSamples</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">infinite)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">infinite)]</span></code></p>
+</dd>
+</dl>
+</div></div>
+</div></blockquote>
 </section>
 <section id="source-code">
 <h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
@@ -1006,7 +1008,6 @@ and use real-time scheduling. In a Linux environment this can be achieved as fol
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Roundtrip</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#design">Design</a></li>
 <li><a class="reference internal" href="#scenario">Scenario</a></li>
 <li><a class="reference internal" href="#running-the-example">Running the example</a></li>

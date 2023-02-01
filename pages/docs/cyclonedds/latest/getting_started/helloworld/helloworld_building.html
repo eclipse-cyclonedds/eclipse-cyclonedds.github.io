@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Building HelloWorld with CMake &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/helpers.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script src="../../_static/js/helpers.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HelloWorld keys steps" href="helloworld_key_steps.html" />
+    <link rel="prev" title="HelloWorld tutorial" href="helloworld.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="helloworld.html">HelloWorld tutorial</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Building HelloWorld with CMake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld_key_steps.html">HelloWorld keys steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld_idl.html">HelloWorld IDL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld_source_code.html">HelloWorld source code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helloworld_run.html">Running HelloWorld</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../py_tutorial/index.html">Python Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/benchmarking.html">Benchmarking Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../config/index.html">Configuration guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary of terms</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="building-helloworld-with-cmake">
+<span id="index-0"></span><h1>Building HelloWorld with CMake<a class="headerlink" href="#building-helloworld-with-cmake" title="Permalink to this headline">¶</a></h1>
+<p>In the Installation <a class="reference internal" href="../installation/installation.html#test-install"><span class="std std-ref">Test your installation</span></a> section, the <a class="reference internal" href="../installation/installation.html#helloworld-test"><span class="std std-ref">HelloWorld</span></a> test used
+the files in the default installation. Another way is to use the <a href="https://cmake.org/" target="_blank">CMake</a>
+build tool.</p>
+<p>CMake is an open-source, cross-platform family of tools to build, test, and package
+software. It controls the software compilation process using simple platform and
+compiler-independent configuration files. It also generates the native makefiles,
+projects, and workspaces of your development environment. CMake’s main strength is
+built portability. The same CMake input files can be built with GNU make, Visual
+Studio (6,7,8) IDEs, Borland make, nmake, and XCode, and so on.</p>
+<p>Another advantage of CMake is building out-of-source. It simply works
+out of the box. This facilitates:</p>
+<ul class="simple">
+<li><p>Easy cleanup (no cluttering the source tree). Remove the build directory to start
+from scratch.</p></li>
+<li><p>Multiple build targets. It is possible to have up-to-date debug and release targets
+without having to recompile the entire tree. It is easy for systems that do the
+cross-platform compilation to have up-to-date builds for the host and target platform.</p></li>
+</ul>
+<p>To use CMake, you must provide a <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>, a copy of which, can be found in
+the <code class="docutils literal notranslate"><span class="pre">&lt;cyclonedds-directory&gt;examples/helloworld</span></code> directory that comes with the
+<strong>Hello World!</strong> example. The content is shown below:</p>
+<p>The content of the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> is:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-0-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c">#</span>
+<span class="linenos"> 2</span><span class="c"># Copyright(c) 2019 to 2022 ZettaScale Technology and others</span>
+<span class="linenos"> 3</span><span class="c">#</span>
+<span class="linenos"> 4</span><span class="c"># This program and the accompanying materials are made available under the</span>
+<span class="linenos"> 5</span><span class="c"># terms of the Eclipse Public License v. 2.0 which is available at</span>
+<span class="linenos"> 6</span><span class="c"># http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License</span>
+<span class="linenos"> 7</span><span class="c"># v. 1.0 which is available at</span>
+<span class="linenos"> 8</span><span class="c"># http://www.eclipse.org/org/documents/edl-v10.php.</span>
+<span class="linenos"> 9</span><span class="c">#</span>
+<span class="linenos">10</span><span class="c"># SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause</span>
+<span class="linenos">11</span><span class="c">#</span>
+<span class="linenos">12</span><span class="nb">project</span><span class="p">(</span><span class="s">helloword</span><span class="w"> </span><span class="s">LANGUAGES</span><span class="w"> </span><span class="s">C</span><span class="p">)</span>
+<span class="linenos">13</span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.16</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">TARGET</span><span class="w"> </span><span class="s">CycloneDDS::ddsc</span><span class="p">)</span>
+<span class="linenos">16</span><span class="w">  </span><span class="c"># Find the CycloneDDS package.</span>
+<span class="linenos">17</span><span class="w">  </span><span class="nb">find_package</span><span class="p">(</span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="linenos">18</span><span class="nb">endif</span><span class="p">()</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="c"># This is a convenience function, provided by the CycloneDDS package,</span>
+<span class="linenos">21</span><span class="c"># that will supply a library target related the the given idl file.</span>
+<span class="linenos">22</span><span class="c"># In short, it takes the idl file, generates the source files with</span>
+<span class="linenos">23</span><span class="c"># the proper data types and compiles them into a library.</span>
+<span class="linenos">24</span><span class="nb">idlc_generate</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">HelloWorldData_lib</span><span class="w"> </span><span class="s">FILES</span><span class="w"> </span><span class="s2">&quot;HelloWorldData.idl&quot;</span><span class="w"> </span><span class="s">WARNINGS</span><span class="w"> </span><span class="s">no-implicit-extensibility</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c"># Both executables have only one related source file.</span>
+<span class="linenos">27</span><span class="nb">add_executable</span><span class="p">(</span><span class="s">HelloworldPublisher</span><span class="w"> </span><span class="s">publisher.c</span><span class="p">)</span>
+<span class="linenos">28</span><span class="nb">add_executable</span><span class="p">(</span><span class="s">HelloworldSubscriber</span><span class="w"> </span><span class="s">subscriber.c</span><span class="p">)</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="c"># Both executables need to be linked to the idl data type library and</span>
+<span class="linenos">31</span><span class="c"># the ddsc API library.</span>
+<span class="linenos">32</span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">HelloworldPublisher</span><span class="w"> </span><span class="s">HelloWorldData_lib</span><span class="w"> </span><span class="s">CycloneDDS::ddsc</span><span class="p">)</span>
+<span class="linenos">33</span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">HelloworldSubscriber</span><span class="w"> </span><span class="s">HelloWorldData_lib</span><span class="w"> </span><span class="s">CycloneDDS::ddsc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">helloworld</span><span class="w"> </span><span class="s">LANGUAGES</span><span class="w"> </span><span class="s">C</span><span class="w"> </span><span class="s">CXX</span><span class="p">)</span>
+<span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.5</span><span class="p">)</span>
+
+<span class="nb">if</span> <span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">TARGET</span><span class="w"> </span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX::ddscxx</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+
+<span class="c"># Convenience function, provided by the idlc backend for CXX that generates a CMake</span>
+<span class="c"># target for the given IDL file. The function calls idlc to generate</span>
+<span class="c"># source files and compiles them into a library.</span>
+<span class="nb">idlcxx_generate</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">ddscxxHelloWorldData_lib</span><span class="w"> </span><span class="s">FILES</span><span class="w"> </span><span class="s">HelloWorldData.idl</span><span class="w"> </span><span class="s">WARNINGS</span><span class="w"> </span><span class="s">no-implicit-extensibility</span><span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">ddscxxHelloworldPublisher</span><span class="w"> </span><span class="s">publisher.cpp</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">ddscxxHelloworldSubscriber</span><span class="w"> </span><span class="s">subscriber.cpp</span><span class="p">)</span>
+
+<span class="c"># Link both executables to IDL data type library and ddscxx.</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">ddscxxHelloworldPublisher</span><span class="w"> </span><span class="s">ddscxxHelloWorldData_lib</span><span class="w"> </span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX::ddscxx</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">ddscxxHelloworldSubscriber</span><span class="w"> </span><span class="s">ddscxxHelloWorldData_lib</span><span class="w"> </span><span class="s">CycloneDDS</span><span class="w"> </span><span class="s">CXX::ddscxx</span><span class="p">)</span>
+
+<span class="nb">set_property</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">ddscxxHelloworldPublisher</span><span class="w"> </span><span class="s">PROPERTY</span><span class="w"> </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+<span class="nb">set_property</span><span class="p">(</span><span class="s">TARGET</span><span class="w"> </span><span class="s">ddscxxHelloworldSubscriber</span><span class="w"> </span><span class="s">PROPERTY</span><span class="w"> </span><span class="s">CXX_STANDARD</span><span class="w"> </span><span class="s">11</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+<p>To build a Cyclone DDS based application, you must link your business code to
+the following:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-1-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-1-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-1-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ddsc</span></code> library that contains the DDS API for the application.</p></li>
+<li><p>The helper functions and structures that represent your datatypes. These helpers are
+generated by the IDL compiler and can be accessed through the CMake
+(<code class="docutils literal notranslate"><span class="pre">idlc_generate</span></code>) call that takes the idl file (for example, <code class="docutils literal notranslate"><span class="pre">HelloWorld.idl</span></code>)
+as input, then packages the datatyped helpers in a library (for example,
+<code class="docutils literal notranslate"><span class="pre">HelloWorldData_lib</span></code>).</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">idlc_generate</span></code> call makes use of how the IDL compiler generates the helpers’
+functions and structures. The following diagram shows the process:</p>
+<img alt="../../_images/dds-application-design.png" src="../../_images/dds-application-design.png" />
+<p>The executables of the Cyclone DDS-based application (<code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code>
+and <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code>) are linked to Cyclone DDS with the CMake
+<code class="docutils literal notranslate"><span class="pre">target_link_libraries()</span></code> call. This call combines the <code class="docutils literal notranslate"><span class="pre">ddsc</span></code> lib, the datatype
+helper lib and the application code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CMake attempts to find the <code class="docutils literal notranslate"><span class="pre">CycloneDDS</span></code> CMake package in the default system
+locations. If you experience problems with not being able to locate <code class="docutils literal notranslate"><span class="pre">CycloneDDS</span></code>
+it is often enough to include the Cyclone DDS &lt;install-location&gt; as CMake
+Prefix Path. For example: <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-DCMAKE_PREFIX_PATH=&lt;install-location&gt;</span></code>. If
+you have further issues, please refer to CMake’s <a href="https://cmake.org/cmake/help/latest/guide/using-dependencies/index.html#guide:Using%20Dependencies%20Guide" target="_blank">Using dependencies guide</a>.</p>
+</div>
+</div><div aria-labelledby="tab-1-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Qysr" name="Qysr" role="tabpanel" tabindex="0"><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">|var-project-short|</span> <span class="pre">C++</span></code> libraries that contain the DDS CXX API your
+application needs.</p></li>
+<li><p>The wrapper classes and structures that represent your datatypes and the
+customized-DataWriter’s and readers that can handle these data types. The
+CMake statement generates these classes <code class="docutils literal notranslate"><span class="pre">idlcxx_generate()</span></code> that incepts
+the IDL file invokes the IDL compiler and packages the datatype wrapper
+classes in a library (e.g. <code class="docutils literal notranslate"><span class="pre">ddscxxHelloWorldData_lib</span></code>).</p></li>
+</ul>
+<p>This process is outlined as follows:</p>
+<img alt="../../_images/6.1.1-1.png" src="../../_images/6.1.1-1.png" />
+<p>Setting the property for the applications in the CMake
+<code class="docutils literal notranslate"><span class="pre">set_property()</span></code> statement compiles the application against the
+<code class="docutils literal notranslate"><span class="pre">C++</span> <span class="pre">11</span></code> standard.</p>
+<p>The application executable (<code class="docutils literal notranslate"><span class="pre">ddscxxHellowordPublisher</span></code>) is built with
+the CMake <code class="docutils literal notranslate"><span class="pre">target_link_libraries()</span></code> statement which links the ddscxx
+lib, the datatype wrapper classes lib (e.g <code class="docutils literal notranslate"><span class="pre">ddscxxHelloWorldData_lib</span></code>)
+and the application code lib.</p>
+<p>CMake tries to find the <code class="docutils literal notranslate"><span class="pre">CycloneDDS</span></code> and <code class="docutils literal notranslate"><span class="pre">CycloneDDSCXX</span></code>
+CMake packages, the details regarding how to locate those packages are
+described in the next section. When the packages are found, every path
+and dependencies are automatically set.</p>
+</div></div>
+<section id="building-the-helloworld-example">
+<h2>Building the HelloWorld Example<a class="headerlink" href="#building-the-helloworld-example" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend that to build examples or applications out-of-source, create a
+<code class="docutils literal notranslate"><span class="pre">build</span></code> directory inside the copy of the HelloWorld example directory.</p>
+</div>
+<ol class="arabic">
+<li><p>Open a terminal inside the directory with the HelloWorld files.</p></li>
+<li><p>Run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+  <span class="nb">cd</span> build
+</pre></div>
+</div>
+</li>
+<li><p>Configure the build environment:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-2-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-2-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-2-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-2-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;install-location&gt; ..
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;install-location&gt; ..
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -G &lt;generator-name&gt; -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;install-location&gt; ..
+</pre></div>
+</div>
+<p>On Windows you can build with one of several generators. Usually if you omit the <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&lt;generator-name&gt;</span></code>
+it will pick a sensible default, but if it doesn’t work or picks something unexpected you can go to the
+<a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html">CMake generators documentation</a>.
+For example, “Visual Studio 15 2017 Win64” targets a 64-bit build using Visual Studio 2017.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If manually specifying generators be careful about mixing and matching! If you compiled Cyclone DDS with 32-bit libraries
+and you try to compile <strong>Hello World!</strong> as 64-bit or vice-versa it will not work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Weird things can happen if you mix <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Release</span></code>, <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=RelWithDebInfo</span></code> and <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Debug</span></code>,
+try to match what you picked for Cyclone DDS in downstream projects.</p>
+</div>
+</div></div>
+</li>
+<li><p>CMake uses the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> in the HelloWorld directory to create “makefiles”
+that target the native platform. The Cyclone DDS build directory is now ready
+to build the <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code> executables. Run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake --build .
+</pre></div>
+</div>
+<p>Your build directory now contains your executables (on Windows they may be in a
+<code class="docutils literal notranslate"><span class="pre">Release</span></code> or <code class="docutils literal notranslate"><span class="pre">Debug</span></code> subdirectory).</p>
+</li>
+</ol>
+</section>
+<section id="test-the-build">
+<h2>Test the build<a class="headerlink" href="#test-the-build" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Open two terminals inside the directory with the HelloWorld files.</p></li>
+<li><p>In the first terminal, start the subscriber by running <code class="docutils literal notranslate"><span class="pre">HelloWorldSubscriber</span></code>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-3-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-3-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-3-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-3-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-3-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldSubscriber</span><span class="p">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+</div></div>
+</li>
+<li><p>In the second terminal, start the publisher by running <code class="docutils literal notranslate"><span class="pre">HelloWorldPublisher</span></code>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-4-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-4-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-4-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-4-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-4-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-4-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldPublisher</span><span class="p">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+</div></div>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> appears as follows:</p>
+<img alt="../../_images/helloworld_publisher.png" src="../../_images/helloworld_publisher.png" />
+<p><code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code> appears as follows:</p>
+<img alt="../../_images/helloworld_subscriber.png" src="../../_images/helloworld_subscriber.png" />
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Building HelloWorld with CMake</a><ul>
+<li><a class="reference internal" href="#building-the-helloworld-example">Building the HelloWorld Example</a></li>
+<li><a class="reference internal" href="#test-the-build">Test the build</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="helloworld.html">
+                    <span class="icon"><</span><span>HelloWorld tutorial</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="helloworld_key_steps.html"><span>HelloWorld keys steps</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

@@ -120,8 +120,9 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="helloworld.html">HelloWorld</a></li>
 <li class="toctree-l2"><a class="reference internal" href="roundtrip.html">Roundtrip</a></li>
@@ -130,9 +131,10 @@
 <li class="toctree-l2"><a class="reference internal" href="dynsub.html">dynsub</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
 </ul>
 
         </div>
@@ -145,26 +147,25 @@
           <div class="body" role="main">
             
   <section id="listtopics">
-<h1>listtopics<a class="headerlink" href="#listtopics" title="Permalink to this headline">¶</a></h1>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>The “listtopics” example shows how to monitor which topics have been defined in the
-system.</p>
-</section>
+<span id="listtopics-bm"></span><span id="index-0"></span><h1>listtopics<a class="headerlink" href="#listtopics" title="Permalink to this headline">¶</a></h1>
+<p>The listtopics example shows how to monitor topics that have been defined in the system.</p>
 <section id="running-the-example">
 <h2>Running the example<a class="headerlink" href="#running-the-example" title="Permalink to this headline">¶</a></h2>
-<p>Discovering remote topics is only possible when topic discovery is enabled in the
-configuration using:</p>
+<p>Discovering remote topics is only possible when topic discovery is enabled. To configure
+topic discovery set:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Discovery&gt;</span>
   <span class="nt">&lt;EnableTopicDiscoveryEndpoints&gt;</span>true<span class="nt">&lt;/EnableTopicDiscoveryEndpoints&gt;</span>
 <span class="nt">&lt;/Discovery&gt;</span>
 </pre></div>
 </div>
-<p>most applications create some topics and those are always visible, but this example
-creates none and so yields no output if there is no discovery of remote topics.</p>
-<p>It does make an effort to detect this case by also monitoring the discovery of other
-participants.  If any show up but no topics are discovered, it will print a warning.
-Running two copies of this program (and nothing) else will always trigger this warning.</p>
+<p>Most applications create topics, which are always visible. The listtopics example creates
+no topics and therefore, if there is no discovery of remote topics, shows no output. To
+mitigate this, the listtopics example also monitors the discovery of other participants.
+If any show up but no topics are discovered, it prints a warning.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Running two copies of the listtopics example (and nothing else) always triggers a warning.</p>
+</div>
 </section>
 <section id="source-code">
 <h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
@@ -372,7 +373,6 @@ Running two copies of this program (and nothing) else will always trigger this w
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">listtopics</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#running-the-example">Running the example</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 </ul>

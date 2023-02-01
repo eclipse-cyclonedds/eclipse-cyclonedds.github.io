@@ -20,8 +20,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="installation/index.html" />
-    <link rel="prev" title="Eclipse Cyclone DDS 0.11.0 documentation" href="../index.html" /> 
+    <link rel="next" title="Installation" href="installation/installation.html" />
+    <link rel="prev" title="Data-centric architecture" href="../about_dds/data_centric_architecture.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -120,20 +120,21 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="c_tutorial/index.html">C Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp_tutorial/index.html">C++ Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helloworld/helloworld.html">HelloWorld tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="py_tutorial/index.html">Python Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html">Benchmarking Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/benchmarking.html">Benchmarking Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
 </ul>
 
         </div>
@@ -145,42 +146,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="../_images/Cyclone_DDS-Logo.png"><img alt="../_images/Cyclone_DDS-Logo.png" class="align-center" src="../_images/Cyclone_DDS-Logo.png" style="width: 50%;" /></a>
-<p>Eclipse Cyclone DDS is a performant and robust OMG-compliant <strong>Data Distribution Service</strong> (DDS) implementation. The core of Cyclone DDS is
-implemented in C and provides C-APIs to applications. Through its C++ package, the ISO/IEC C++ 2003 language binding is also supported.</p>
+  <a class="reference internal image-reference" href="../_images/Cyclone_DDS_logo.svg"><img alt="../_images/Cyclone_DDS_logo.svg" height="1px" src="../_images/Cyclone_DDS_logo.svg" width="1px" /></a>
+<p><a href="..\index.html"><img src="..\_images\Cyclone_DDS_logo.svg" width="50%" height="50%"></a></p>
+<section id="getting-started">
+<span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation/index.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html#installing-var-project">Installing Eclipse Cyclone DDS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html#installing-var-project-short-c-api">Installing Cyclone DDS C++ API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html#installing-var-project-short-python">Installing Cyclone DDS Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html#installation-remarks">Installation remarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html#test-your-installation">Test your installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html#uninstalling">Uninstalling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation/index.html#want-to-know-more-about-dds">Want to know more about DDS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html#supported-platforms">Supported platforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html#language-specific-installation">Language-specific installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html#windows-environment-variables">Windows environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html#test-your-installation">Test your installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/installation.html#uninstalling-var-project-short">Uninstalling Cyclone DDS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="c_tutorial/index.html">C Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="c_tutorial/index.html#building-your-own-dds-hello-world">Building your own DDS <strong>Hello World!</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="c_tutorial/index.html#hello-world-code-anatomy"><strong>Hello World!</strong> Code anatomy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cpp_tutorial/index.html">C++ Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cpp_tutorial/index.html#building-dds-c-hello-world">Building DDS C++ Hello World</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cpp_tutorial/index.html#dds-c-hello-world-code-anatomy">DDS C++ Hello World Code anatomy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helloworld/helloworld.html">HelloWorld tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helloworld/helloworld.html#default-directory">Default directory</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="py_tutorial/index.html">Python Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmarking.html">Benchmarking Tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html#testing-your-network-configuration">Testing your network configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html#measuring-latency">Measuring latency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html#measuring-throughput">Measuring throughput</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html#measuring-throughput-and-latency-in-a-mixed-scenario">Measuring Throughput and Latency in a mixed scenario</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmarking.html#additional-options">Additional options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/benchmarking.html">Benchmarking Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation/benchmarking.html#test-your-installation">Test your installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/benchmarking.html#measuring-latency">Measuring latency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/benchmarking.html#measuring-throughput">Measuring throughput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/benchmarking.html#measuring-throughput-and-latency-in-a-mixed-scenario">Measuring Throughput and Latency in a mixed scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation/benchmarking.html#additional-options">Additional options</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Eclipse Cyclone DDS</a><ul>
@@ -226,14 +218,14 @@ implemented in C and provides C-APIs to applications. Through its C++ package, t
         <div class="button_nav">
             <div class="left">
                 
-                <a href="../index.html">
-                    <span class="icon"><</span><span>Eclipse Cyclone DDS 0.11.0 documentation</span></a>
+                <a href="../about_dds/data_centric_architecture.html">
+                    <span class="icon"><</span><span>Data-centric architecture</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="installation/index.html"><span>Installation</span><span class="icon">></span></a>
+                    <a href="installation/installation.html"><span>Installation</span><span class="icon">></span></a>
                 
             </div>
         </div>
