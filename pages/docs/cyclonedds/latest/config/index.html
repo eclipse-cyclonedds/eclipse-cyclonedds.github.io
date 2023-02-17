@@ -197,6 +197,22 @@ environment variable to the location of the configuration file. For example:</p>
 </div>
 <p>For a full listing of the configuration settings (and default value for each parameter) refer
 to the <a class="reference internal" href="config_file_reference.html#configuration-reference"><span class="std std-ref">Configuration File Reference</span></a>, which is generated directly from the source code.</p>
+<p>The configuration does not depend exclusively on the xml file. The content of the xml can be
+set directly into the envrionment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_URI</span></code>. In the following block a
+example is given for windows and linux. On windows it is important to set the quotation mark
+directly after the <code class="docutils literal notranslate"><span class="pre">set</span></code> command, otherwise <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> has to be escaped with <code class="docutils literal notranslate"><span class="pre">^</span></code>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-V2luZG93cw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="0">Windows</button><button aria-controls="panel-1-TGludXg=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-TGludXg=" name="TGludXg=" role="tab" tabindex="-1">Linux</button></div><div aria-labelledby="tab-1-V2luZG93cw==" class="sphinx-tabs-panel group-tab" id="panel-1-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="s2">&quot;CYCLONEDDS_URI=&lt;CycloneDDS&gt;&lt;Domain&gt;&lt;General&gt;&lt;NetworkInterfaceAddress&gt;127.0.0.1&lt;/NetworkInterfaceAddress&gt;&lt;/General&gt;&lt;/Domain&gt;&lt;/CycloneDDS&gt;&quot;</span>
+<span class="nb">set</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>^&lt;CycloneDDS^&gt;^&lt;Domain^&gt;^&lt;General^&gt;^&lt;NetworkInterfaceAddress^&gt;127.0.0.1^&lt;/NetworkInterfaceAddress^&gt;^&lt;/General^&gt;^&lt;/Domain^&gt;^&lt;/CycloneDDS^&gt;
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-TGludXg=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span><span class="s2">&quot;&lt;CycloneDDS&gt;&lt;Domain&gt;&lt;General&gt;&lt;NetworkInterfaceAddress&gt;127.0.0.1&lt;/NetworkInterfaceAddress&gt;&lt;/General&gt;&lt;/Domain&gt;&lt;/CycloneDDS&gt;&quot;</span>
+</pre></div>
+</div>
+</div></div>
+<p>The example configuration above is helpfull if you are developing on a machine with activated firewall.
+Otherwise it would not be possible to send and receive messages between apps on the local machine.
+The ip <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> expresses that the communication shall be restricted to your pc only (localhost).</p>
 <section id="configuration-log-files">
 <h2>Configuration log files<a class="headerlink" href="#configuration-log-files" title="Permalink to this headline">¶</a></h2>
 <p>When editing configuration files, the <code class="docutils literal notranslate"><span class="pre">cdds.log</span></code> can be very useful for providing information about the build.
