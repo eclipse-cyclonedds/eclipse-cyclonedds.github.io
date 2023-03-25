@@ -354,7 +354,7 @@ and use real-time scheduling:</p></li>
 <span class="linenos">118</span><span class="w">  </span><span class="n">dds_waitset_set_trigger</span><span class="w"> </span><span class="p">(</span><span class="n">waitSet</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
 <span class="linenos">119</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">//Don&#39;t let other handlers handle this key</span>
 <span class="linenos">120</span><span class="p">}</span><span class="w"></span>
-<span class="linenos">121</span><span class="cp">#elif !DDSRT_WITH_FREERTOS</span>
+<span class="linenos">121</span><span class="cp">#elif !DDSRT_WITH_FREERTOS &amp;&amp; !__ZEPHYR__</span>
 <span class="linenos">122</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">CtrlHandler</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"></span>
 <span class="linenos">123</span><span class="p">{</span><span class="w"></span>
 <span class="linenos">124</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">sig</span><span class="p">;</span><span class="w"></span>
@@ -489,7 +489,7 @@ and use real-time scheduling:</p></li>
 <span class="linenos">253</span><span class="w">  </span><span class="n">DDSRT_WARNING_GNUC_OFF</span><span class="p">(</span><span class="n">cast</span><span class="o">-</span><span class="n">function</span><span class="o">-</span><span class="n">type</span><span class="p">)</span><span class="w"></span>
 <span class="linenos">254</span><span class="w">  </span><span class="n">SetConsoleCtrlHandler</span><span class="w"> </span><span class="p">((</span><span class="n">PHANDLER_ROUTINE</span><span class="p">)</span><span class="n">CtrlHandler</span><span class="p">,</span><span class="w"> </span><span class="n">TRUE</span><span class="p">);</span><span class="w"></span>
 <span class="linenos">255</span><span class="w">  </span><span class="n">DDSRT_WARNING_GNUC_ON</span><span class="p">(</span><span class="n">cast</span><span class="o">-</span><span class="n">function</span><span class="o">-</span><span class="n">type</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">256</span><span class="cp">#elif !DDSRT_WITH_FREERTOS</span>
+<span class="linenos">256</span><span class="cp">#elif !DDSRT_WITH_FREERTOS &amp;&amp; !__ZEPHYR__</span>
 <span class="linenos">257</span><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sigaction</span><span class="w"> </span><span class="n">sat</span><span class="p">,</span><span class="w"> </span><span class="n">oldAction</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">258</span><span class="w">  </span><span class="n">sat</span><span class="p">.</span><span class="n">sa_handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CtrlHandler</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">259</span><span class="w">  </span><span class="n">sigemptyset</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">sat</span><span class="p">.</span><span class="n">sa_mask</span><span class="p">);</span><span class="w"></span>
@@ -651,7 +651,7 @@ and use real-time scheduling:</p></li>
 <span class="linenos">415</span>
 <span class="linenos">416</span><span class="cp">#ifdef _WIN32</span>
 <span class="linenos">417</span><span class="w">  </span><span class="n">SetConsoleCtrlHandler</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">FALSE</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">418</span><span class="cp">#elif !DDSRT_WITH_FREERTOS</span>
+<span class="linenos">418</span><span class="cp">#elif !DDSRT_WITH_FREERTOS &amp;&amp; !__ZEPHYR__</span>
 <span class="linenos">419</span><span class="w">  </span><span class="n">sigaction</span><span class="w"> </span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">oldAction</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="linenos">420</span><span class="cp">#endif</span>
 <span class="linenos">421</span>
@@ -779,7 +779,7 @@ and use real-time scheduling:</p></li>
 <span class="linenos"> 22</span><span class="w">  </span><span class="n">dds_waitset_set_trigger</span><span class="w"> </span><span class="p">(</span><span class="n">waitSet</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
 <span class="linenos"> 23</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">//Don&#39;t let other handlers handle this key</span>
 <span class="linenos"> 24</span><span class="p">}</span><span class="w"></span>
-<span class="linenos"> 25</span><span class="cp">#elif !DDSRT_WITH_FREERTOS</span>
+<span class="linenos"> 25</span><span class="cp">#elif !DDSRT_WITH_FREERTOS &amp;&amp; !__ZEPHYR__</span>
 <span class="linenos"> 26</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">CtrlHandler</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"></span>
 <span class="linenos"> 27</span><span class="p">{</span><span class="w"></span>
 <span class="linenos"> 28</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">sig</span><span class="p">;</span><span class="w"></span>
@@ -848,7 +848,7 @@ and use real-time scheduling:</p></li>
 <span class="linenos"> 91</span><span class="w">  </span><span class="n">DDSRT_WARNING_GNUC_OFF</span><span class="p">(</span><span class="n">cast</span><span class="o">-</span><span class="n">function</span><span class="o">-</span><span class="n">type</span><span class="p">)</span><span class="w"></span>
 <span class="linenos"> 92</span><span class="w">  </span><span class="n">SetConsoleCtrlHandler</span><span class="w"> </span><span class="p">((</span><span class="n">PHANDLER_ROUTINE</span><span class="p">)</span><span class="n">CtrlHandler</span><span class="p">,</span><span class="w"> </span><span class="n">TRUE</span><span class="p">);</span><span class="w"></span>
 <span class="linenos"> 93</span><span class="w">  </span><span class="n">DDSRT_WARNING_GNUC_ON</span><span class="p">(</span><span class="n">cast</span><span class="o">-</span><span class="n">function</span><span class="o">-</span><span class="n">type</span><span class="p">)</span><span class="w"></span>
-<span class="linenos"> 94</span><span class="cp">#elif !DDSRT_WITH_FREERTOS</span>
+<span class="linenos"> 94</span><span class="cp">#elif !DDSRT_WITH_FREERTOS &amp;&amp; !__ZEPHYR__</span>
 <span class="linenos"> 95</span><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sigaction</span><span class="w"> </span><span class="n">sat</span><span class="p">,</span><span class="w"> </span><span class="n">oldAction</span><span class="p">;</span><span class="w"></span>
 <span class="linenos"> 96</span><span class="w">  </span><span class="n">sat</span><span class="p">.</span><span class="n">sa_handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CtrlHandler</span><span class="p">;</span><span class="w"></span>
 <span class="linenos"> 97</span><span class="w">  </span><span class="n">sigemptyset</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">sat</span><span class="p">.</span><span class="n">sa_mask</span><span class="p">);</span><span class="w"></span>
@@ -891,7 +891,7 @@ and use real-time scheduling:</p></li>
 <span class="linenos">134</span>
 <span class="linenos">135</span><span class="cp">#ifdef _WIN32</span>
 <span class="linenos">136</span><span class="w">  </span><span class="n">SetConsoleCtrlHandler</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">FALSE</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">137</span><span class="cp">#elif !DDSRT_WITH_FREERTOS</span>
+<span class="linenos">137</span><span class="cp">#elif !DDSRT_WITH_FREERTOS &amp;&amp; !__ZEPHYR__</span>
 <span class="linenos">138</span><span class="w">  </span><span class="n">sigaction</span><span class="w"> </span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">oldAction</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
 <span class="linenos">139</span><span class="cp">#endif</span>
 <span class="linenos">140</span>
