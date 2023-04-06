@@ -172,23 +172,23 @@
 <p>To generate the CA for identity management (authentication):</p>
 <ol class="arabic">
 <li><p>Create the private key for the CA:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl genrsa -out example_id_ca_priv_key.pem <span class="m">2048</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl genrsa -out example_id_ca_priv_key.pem 2048</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create the certificate for the identity CA (which is a self-signed certificate):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl req -x509 -key example_id_ca_priv_key.pem -out example_id_ca_cert.pem -days <span class="m">3650</span> -subj <span class="s2">&quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example ID CA Organization/CN=Example ID CA/emailAddress=authority@cycloneddssecurity.zettascale.com&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -x509 -key example_id_ca_priv_key.pem -out example_id_ca_cert.pem -days 3650 -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example ID CA Organization/CN=Example ID CA/emailAddress=authority@cycloneddssecurity.zettascale.com&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create the private key of the permissions CA (used for signing the AccessControl
 configuration files):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl genrsa -out example_perm_ca_priv_key.pem <span class="m">2048</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl genrsa -out example_perm_ca_priv_key.pem 2048</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create the self-signed certificate for the permissions CA:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl req -x509 -key example_perm_ca_priv_key.pem -out example_perm_ca_cert.pem -days <span class="m">3650</span> -subj <span class="s2">&quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example CA Organization/CN=Example Permissions CA/emailAddress=authority@cycloneddssecurity.zettascale.com&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -x509 -key example_perm_ca_priv_key.pem -out example_perm_ca_cert.pem -days 3650 -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example CA Organization/CN=Example Permissions CA/emailAddress=authority@cycloneddssecurity.zettascale.com&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -204,17 +204,17 @@ configuration files):</p>
 <p>To create a private key and an identity certificate for an identity named <em>Alice</em>:</p>
 <ol class="arabic">
 <li><p>Create the <strong>private key</strong> for <em>Alice’s</em> identity:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl genrsa -out example_alice_priv_key.pem <span class="m">2048</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl genrsa -out example_alice_priv_key.pem 2048</span>
 </pre></div>
 </div>
 </li>
 <li><p>To request that the identity CA generates a certificate, create a Certificate Signing Request (<a class="reference internal" href="../glossary.html#term-CSR"><span class="xref std std-term">CSR</span></a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl req -new -key example_alice_priv_key.pem -out example_alice.csr -subj <span class="s2">&quot;/C=NL/ST=OV/L=Locality Name/OU=Organizational Unit Name/O=Example Organization/CN=Alice Example/emailAddress=alice@cycloneddssecurity.zettascale.com&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -new -key example_alice_priv_key.pem -out example_alice.csr -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Organizational Unit Name/O=Example Organization/CN=Alice Example/emailAddress=alice@cycloneddssecurity.zettascale.com&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p>Create <em>Alice’s</em> <strong>identity certificate</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl x509 -req -CA example_id_ca_cert.pem -CAkey example_id_ca_priv_key.pem -CAcreateserial -days <span class="m">3650</span> -in example_alice.csr -out example_alice_cert.pem
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl x509 -req -CA example_id_ca_cert.pem -CAkey example_id_ca_priv_key.pem -CAcreateserial -days 3650 -in example_alice.csr -out example_alice_cert.pem</span>
 </pre></div>
 </div>
 </li>
@@ -233,9 +233,40 @@ for the <a class="reference internal" href="../config/config_file_reference.html
 <section id="create-a-signed-governance-document">
 <span id="create-governance-document"></span><span id="index-3"></span><h2>Create a signed governance document<a class="headerlink" href="#create-a-signed-governance-document" title="Permalink to this headline">¶</a></h2>
 <p>The following shows an example of a governance document that uses <em>signing for submessage</em> and an encrypted payload:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=\&quot;utf-8\&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;dds</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;https://www.omg.org/spec/DDS-SECURITY/20170901/omg_shared_ca_governance.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span>  <span class="nt">&lt;domain_access_rules&gt;</span>
+<span class="linenos"> 4</span>    <span class="nt">&lt;domain_rule&gt;</span>
+<span class="linenos"> 5</span>      <span class="nt">&lt;domains&gt;</span>
+<span class="linenos"> 6</span>        <span class="nt">&lt;id_range&gt;</span>
+<span class="linenos"> 7</span>          <span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="linenos"> 8</span>          <span class="nt">&lt;max&gt;</span>230<span class="nt">&lt;/max&gt;</span>
+<span class="linenos"> 9</span>        <span class="nt">&lt;/id_range&gt;</span>
+<span class="linenos">10</span>      <span class="nt">&lt;/domains&gt;</span>
+<span class="linenos">11</span>      <span class="nt">&lt;allow_unauthenticated_participants&gt;</span>false<span class="nt">&lt;/allow_unauthenticated_participants&gt;</span>
+<span class="linenos">12</span>      <span class="nt">&lt;enable_join_access_control&gt;</span>true<span class="nt">&lt;/enable_join_access_control&gt;</span>
+<span class="linenos">13</span>      <span class="nt">&lt;discovery_protection_kind&gt;</span>NONE<span class="nt">&lt;/discovery_protection_kind&gt;</span>
+<span class="linenos">14</span>      <span class="nt">&lt;liveliness_protection_kind&gt;</span>NONE<span class="nt">&lt;/liveliness_protection_kind&gt;</span>
+<span class="linenos">15</span>      <span class="nt">&lt;rtps_protection_kind&gt;</span>NONE<span class="nt">&lt;/rtps_protection_kind&gt;</span>
+<span class="linenos">16</span>      <span class="nt">&lt;topic_access_rules&gt;</span>
+<span class="linenos">17</span>        <span class="nt">&lt;topic_rule&gt;</span>
+<span class="linenos">18</span>          <span class="nt">&lt;topic_expression&gt;</span>*<span class="nt">&lt;/topic_expression&gt;</span>
+<span class="linenos">19</span>          <span class="nt">&lt;enable_discovery_protection&gt;</span>true<span class="nt">&lt;/enable_discovery_protection&gt;</span>
+<span class="linenos">20</span>          <span class="nt">&lt;enable_liveliness_protection&gt;</span>true<span class="nt">&lt;/enable_liveliness_protection&gt;</span>
+<span class="linenos">21</span>          <span class="nt">&lt;enable_read_access_control&gt;</span>true<span class="nt">&lt;/enable_read_access_control&gt;</span>
+<span class="linenos">22</span>          <span class="nt">&lt;enable_write_access_control&gt;</span>true<span class="nt">&lt;/enable_write_access_control&gt;</span>
+<span class="linenos">23</span>          <span class="nt">&lt;metadata_protection_kind&gt;</span>SIGN<span class="nt">&lt;/metadata_protection_kind&gt;</span>
+<span class="linenos">24</span>          <span class="nt">&lt;data_protection_kind&gt;</span>ENCRYPT<span class="nt">&lt;/data_protection_kind&gt;</span>
+<span class="linenos">25</span>        <span class="nt">&lt;/topic_rule&gt;</span>
+<span class="linenos">26</span>      <span class="nt">&lt;/topic_access_rules&gt;</span>
+<span class="linenos">27</span>    <span class="nt">&lt;/domain_rule&gt;</span>
+<span class="linenos">28</span>  <span class="nt">&lt;/domain_access_rules&gt;</span>
+<span class="linenos">29</span><span class="nt">&lt;/dds&gt;</span>
+</pre></div>
+</div>
 <p>The governance document must be signed by the <a class="reference internal" href="#create-certificate-authority"><span class="std std-ref">permissions CA</span></a>.</p>
 <p>To sign the governance document:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl smime -sign -in example_governance.xml -text -out example_governance.p7s -signer example_perm_ca_cert.pem -inkey example_perm_ca_priv_key.pem
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl smime -sign -in example_governance.xml -text -out example_governance.p7s -signer example_perm_ca_cert.pem -inkey example_perm_ca_priv_key.pem</span>
 </pre></div>
 </div>
 </section>
@@ -287,7 +318,7 @@ as defined in the DDS <a href="https://github.com/eclipse-cyclonedds/cyclonedds/
 </pre></div>
 </div>
 <p>This document also needs to be signed by the <a class="reference internal" href="#create-certificate-authority"><span class="std std-ref">permissions CA</span></a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl smime -sign -in example_permissions.xml -text -out example_permissions.p7s -signer example_perm_ca_cert.pem -inkey example_perm_ca_priv_key.pem
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl smime -sign -in example_permissions.xml -text -out example_permissions.p7s -signer example_perm_ca_cert.pem -inkey example_perm_ca_priv_key.pem</span>
 </pre></div>
 </div>
 </section>
@@ -348,7 +379,7 @@ from the QoS is used and the security settings in the configuration XML are igno
 </div>
 <p>To use this configuration file for an application, set the <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_URI</span></code> environment
 variable to this config file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>/path/to/secure_config.xml
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export CYCLONEDDS_URI=/path/to/secure_config.xml</span>
 </pre></div>
 </div>
 <div class="admonition note">

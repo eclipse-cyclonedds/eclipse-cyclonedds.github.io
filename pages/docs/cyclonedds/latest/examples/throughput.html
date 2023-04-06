@@ -214,18 +214,18 @@ run on separate CPU cores and use real-time scheduling:</p></li>
 </ol>
 <blockquote>
 <div><div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><dl class="simple">
-<dt>Publisher usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">taskset</span> <span class="pre">-c</span> <span class="pre">0</span> <span class="pre">chrt</span> <span class="pre">-f</span> <span class="pre">80</span> <span class="pre">./publisher</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes)]</span> <span class="pre">[burstInterval</span> <span class="pre">(ms)]</span> <span class="pre">[burstSize</span> <span class="pre">(samples)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds)]</span> <span class="pre">[partitionName]</span></code></p>
-</dd>
-<dt>Subscriber usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">taskset</span> <span class="pre">-c</span> <span class="pre">1</span> <span class="pre">chrt</span> <span class="pre">-f</span> <span class="pre">80</span> <span class="pre">./subscriber</span> <span class="pre">[maxCycles</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">infinite)]</span> <span class="pre">[pollingDelay</span> <span class="pre">(ms,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">event</span> <span class="pre">based)]</span> <span class="pre">[partitionName]</span></code></p>
-</dd>
-</dl>
-</div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><dl class="simple">
-<dt>Publisher usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">/affinity</span> <span class="pre">1</span> <span class="pre">/high</span> <span class="pre">cmd</span> <span class="pre">/k</span> <span class="pre">&quot;publisher.exe&quot;</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes)]</span> <span class="pre">[burstInterval</span> <span class="pre">(ms)]</span> <span class="pre">[burstSize</span> <span class="pre">(samples)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds)]</span> <span class="pre">[partitionName]</span></code></p>
-</dd>
-<dt>Subscriber usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">/affinity</span> <span class="pre">2</span> <span class="pre">/high</span> <span class="pre">cmd</span> <span class="pre">/k</span> <span class="pre">&quot;subscriber.exe&quot;</span> <span class="pre">[maxCycles</span> <span class="pre">(0</span> <span class="pre">=</span> <span class="pre">infinite)]</span> <span class="pre">[pollingDelay</span> <span class="pre">(ms,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">event</span> <span class="pre">based)]</span> <span class="pre">[partitionName]</span></code></p>
-</dd>
-</dl>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Publisher usage:</span>
+<span class="go">  ``taskset -c 0 chrt -f 80 ./publisher [payloadSize (bytes)] [burstInterval (ms)] [burstSize (samples)] [timeOut (seconds)] [partitionName]``</span>
+<span class="go">Subscriber usage:</span>
+<span class="go">  ``taskset -c 1 chrt -f 80 ./subscriber [maxCycles (0 = infinite)] [pollingDelay (ms, 0 = event based)] [partitionName]``</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Publisher usage:</span>
+<span class="go">  ``START /affinity 1 /high cmd /k &quot;publisher.exe&quot; [payloadSize (bytes)] [burstInterval (ms)] [burstSize (samples)] [timeOut (seconds)] [partitionName]``</span>
+<span class="go">Subscriber usage:</span>
+<span class="go">  ``START /affinity 2 /high cmd /k &quot;subscriber.exe&quot; [maxCycles (0 = infinite)] [pollingDelay (ms, 0 = event based)] [partitionName]``</span>
+</pre></div>
+</div>
 </div></div>
 </div></blockquote>
 </section>

@@ -157,21 +157,21 @@ following examples.</p>
 <ol class="arabic">
 <li><p>Open three terminals.</p></li>
 <li><p>In the first terminal, start <code class="docutils literal notranslate"><span class="pre">RouDi</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~/iceoryx/build/iox-roudi -c iox_config.toml
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">~/iceoryx/build/iox-roudi -c iox_config.toml</span>
 </pre></div>
 </div>
 </li>
 <li><p>In the second terminal, run the publisher.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>~/iceoryx/install/lib/<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="si">}</span>
-<span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>file://cyclonedds.xml
-~/cyclonedds/build/bin/ShmThroughputPublisher <span class="m">16384</span> <span class="m">0</span> <span class="m">1</span> <span class="m">10</span> <span class="s2">&quot;Throughput example&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export LD_LIBRARY_PATH=~/iceoryx/install/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}</span>
+<span class="go">export CYCLONEDDS_URI=file://cyclonedds.xml</span>
+<span class="go">~/cyclonedds/build/bin/ShmThroughputPublisher 16384 0 1 10 &quot;Throughput example&quot;</span>
 </pre></div>
 </div>
 </li>
 <li><p>In the third terminal, run the subscriber.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>~/iceoryx/install/lib/<span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="p">:+:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="si">}</span>
-<span class="nb">export</span> <span class="nv">CYCLONEDDS_URI</span><span class="o">=</span>file://cyclonedds.xml
-~/cyclonedds/build/bin/ShmThroughputSubscriber <span class="m">10</span> <span class="m">0</span> <span class="s2">&quot;Throughput example&quot;</span> <span class="m">16384</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export LD_LIBRARY_PATH=~/iceoryx/install/lib/${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}</span>
+<span class="go">export CYCLONEDDS_URI=file://cyclonedds.xml</span>
+<span class="go">~/cyclonedds/build/bin/ShmThroughputSubscriber 10 0 &quot;Throughput example&quot; 16384</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -182,23 +182,23 @@ this example is 16384 (the number of bytes in the message sent).</p>
 </li>
 </ol>
 <p>The following shows a typical result on the subscriber side:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cycles: <span class="m">10</span> <span class="p">|</span> PollingDelay: <span class="m">0</span> <span class="p">|</span> Partition: Throughput <span class="nv">example</span>
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> Waiting <span class="k">for</span> samples...
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">26587</span> samples, <span class="m">435601408</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">26586</span>.48 samples/s, <span class="m">3484</span>.74 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">51764</span> samples, <span class="m">848101376</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25176</span>.43 samples/s, <span class="m">3299</span>.92 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">77666</span> samples, <span class="m">1272479744</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25901</span>.57 samples/s, <span class="m">3394</span>.97 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">103328</span> samples, <span class="m">1692925952</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25661</span>.24 samples/s, <span class="m">3363</span>.47 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">127267</span> samples, <span class="m">2085142528</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">23938</span>.74 samples/s, <span class="m">3137</span>.70 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">151643</span> samples, <span class="m">2484518912</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">24375</span>.11 samples/s, <span class="m">3194</span>.89 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">176542</span> samples, <span class="m">2892464128</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">24898</span>.70 samples/s, <span class="m">3263</span>.52 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">201916</span> samples, <span class="m">3308191744</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">25373</span>.31 samples/s, <span class="m">3325</span>.73 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">228113</span> samples, <span class="m">3737403392</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">26196</span>.68 samples/s, <span class="m">3433</span>.65 Mbit/s
-<span class="o">===</span> <span class="o">[</span>Subscriber<span class="o">]</span> <span class="m">1</span>.000 Payload size: <span class="m">16384</span> <span class="p">|</span> Total received: <span class="m">254555</span> samples, <span class="m">4170629120</span> bytes <span class="p">|</span> Out of order: <span class="m">0</span> samples Transfer rate: <span class="m">26441</span>.99 samples/s, <span class="m">3465</span>.80 Mbit/s
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Cycles: 10 | PollingDelay: 0 | Partition: Throughput example</span>
+<span class="go">=== [Subscriber] Waiting for samples...</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 26587 samples, 435601408 bytes | Out of order: 0 samples Transfer rate: 26586.48 samples/s, 3484.74 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 51764 samples, 848101376 bytes | Out of order: 0 samples Transfer rate: 25176.43 samples/s, 3299.92 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 77666 samples, 1272479744 bytes | Out of order: 0 samples Transfer rate: 25901.57 samples/s, 3394.97 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 103328 samples, 1692925952 bytes | Out of order: 0 samples Transfer rate: 25661.24 samples/s, 3363.47 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 127267 samples, 2085142528 bytes | Out of order: 0 samples Transfer rate: 23938.74 samples/s, 3137.70 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 151643 samples, 2484518912 bytes | Out of order: 0 samples Transfer rate: 24375.11 samples/s, 3194.89 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 176542 samples, 2892464128 bytes | Out of order: 0 samples Transfer rate: 24898.70 samples/s, 3263.52 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 201916 samples, 3308191744 bytes | Out of order: 0 samples Transfer rate: 25373.31 samples/s, 3325.73 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 228113 samples, 3737403392 bytes | Out of order: 0 samples Transfer rate: 26196.68 samples/s, 3433.65 Mbit/s</span>
+<span class="go">=== [Subscriber] 1.000 Payload size: 16384 | Total received: 254555 samples, 4170629120 bytes | Out of order: 0 samples Transfer rate: 26441.99 samples/s, 3465.80 Mbit/s</span>
 
-Total received: <span class="m">254555</span> samples, <span class="m">4170629120</span> bytes
-Out of order: <span class="m">0</span> samples
-Average transfer rate: <span class="m">25455</span>.50 samples/s, Maximum transfer rate: <span class="m">26586</span>.48 samples/s, Average throughput : <span class="m">3336</span>.50 Mbit/s
-Maximum throughput : <span class="m">3484</span>.74 Mbit/s
+<span class="go">Total received: 254555 samples, 4170629120 bytes</span>
+<span class="go">Out of order: 0 samples</span>
+<span class="go">Average transfer rate: 25455.50 samples/s, Maximum transfer rate: 26586.48 samples/s, Average throughput : 3336.50 Mbit/s</span>
+<span class="go">Maximum throughput : 3484.74 Mbit/s</span>
 </pre></div>
 </div>
 <p>Shared memory is especially suited for exchanging large messages:</p>

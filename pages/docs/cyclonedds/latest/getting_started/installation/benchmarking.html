@@ -15,7 +15,6 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/tabs.js"></script>
     <script src="../../_static/js/helpers.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -153,7 +152,7 @@
 and <em>latency</em> of the DDS applications within a network, or within the same board.
 The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool also helps to do sanity checks that ensure your configuration
 is correctly set up and running.</p>
-<p>In addition to <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>, there are dedicated <span class="xref std std-ref">examples</span> that show how to measure
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>, there are dedicated <a class="reference internal" href="../../examples/index.html#examples-bm"><span class="std std-ref">Examples</span></a> that show how to measure
 the DDS system throughput and the latency with their associated codebase. You can start
 from the provided code and customize it to fit your requirements. Both the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>
 tool and the examples perform the benchmarking using sequences of octets with different
@@ -164,124 +163,6 @@ parameterized sizes.</p>
 benchmarking tools as they sacrifice performance for simplicity. You cannot compare
 test results from these tools with results from other tools.</p>
 </div>
-<section id="test-your-installation">
-<span id="test-install"></span><span id="index-0"></span><h2>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">¶</a></h2>
-<p>To test if your installation and configuration are working correctly, either:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Use the Cyclone DDS <a class="reference internal" href="installation.html#dsperf-tool"><span class="std std-ref">The ddsperf tool</span></a></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool sends a continuous stream of data at a variable frequency. This is useful for sanity checks and to bypass other sporadic network issues.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Use the <a class="reference internal" href="installation.html#helloworld-test"><span class="std std-ref">HelloWorld</span></a> example.</dt><dd><p>The <strong>Hello World!</strong> example sends a single message.</p>
-</dd>
-</dl>
-</li>
-</ul>
-<section id="the-ddsperf-tool">
-<span id="dsperf-tool"></span><h3>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool<a class="headerlink" href="#the-ddsperf-tool" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool is pre-installed within <code class="docutils literal notranslate"><span class="pre">&lt;installation-dir&gt;/bin</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Python tooling uses <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> to provide the
-cyclonedds <code class="docutils literal notranslate"><span class="pre">performance</span></code> subcommand and acts as a front-end for <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code>.</p>
-</div>
-<p>The following test ensures that the the loopback option is enabled.</p>
-<p>To complete the sanity checks of your DDS-based system:</p>
-<ol class="arabic simple">
-<li><p>Open two terminals.</p></li>
-<li><p>In the first terminal, run the following command:</p></li>
-</ol>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf sanity
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">sanity</span></code> option sends one data sample each second (1Hz).</p>
-</div></blockquote>
-<p>3. In the second terminal, start <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> in <strong>Pong</strong> mode to echo
-the data to the first instance of the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> (started with the
-<em>Sanity</em> option).</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pong
-</pre></div>
-</div>
-</div></blockquote>
-<img alt="../../_images/4.2-1.png" class="align-center" src="../../_images/4.2-1.png" />
-<p>If the data is not exchanged on the network between the two ddsperf
-instances, it is probable that Eclipse Cyclone DDS has not selected the
-the appropriate network card on both machines, or a firewall in-between is
-preventing communication.</p>
-<p>Eclipse Cyclone DDS automatically selects the most available network interface.
-This behavior can be overridden by changing the configuration file. For
-further information, refer to the section <span class="xref std std-ref">test your installation</span>.</p>
-</section>
-<section id="helloworld">
-<span id="helloworld-test"></span><span id="index-1"></span><h3>HelloWorld<a class="headerlink" href="#helloworld" title="Permalink to this headline">¶</a></h3>
-<p>To test your installation, Eclipse Cyclone DDS includes a simple <strong>HelloWorld!</strong> application
-(see also the <a class="reference internal" href="../../examples/helloworld.html#helloworld-bm"><span class="std std-ref">HelloWorld</span></a> example). <strong>HelloWorld!</strong> consists of two executables:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code></p></li>
-</ul>
-</div></blockquote>
-<p>The <strong>HelloWorld!</strong> executables are located in:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;cyclonedds-directory&gt;\build\bin\Debug</span></code> on Windows</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;cyclonedds-directory&gt;/build/bin</span></code> on Linux/macOS.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Requires CMake with <code class="docutils literal notranslate"><span class="pre">-DBUILD_EXAMPLES=ON</span></code>.</p>
-</div>
-<ol class="arabic">
-<li><p>Open two terminals inside the directory with the HelloWorld files.</p></li>
-<li><p>In the first terminal, start the subscriber by running <code class="docutils literal notranslate"><span class="pre">HelloWorldSubscriber</span></code>.</p>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-0-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldSubscriber</span><span class="p">.</span><span class="n">exe</span>
-</pre></div>
-</div>
-</div></div>
-</li>
-<li><p>In the second terminal, start the publisher by running <code class="docutils literal notranslate"><span class="pre">HelloWorldPublisher</span></code>.</p>
-<div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-1-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-1-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-1-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-1-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-1-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
-</pre></div>
-</div>
-</div><div aria-labelledby="tab-1-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldPublisher</span><span class="p">.</span><span class="n">exe</span>
-</pre></div>
-</div>
-</div></div>
-</li>
-</ol>
-<p><code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> appears as follows:</p>
-<img alt="../../_images/helloworld_publisher.png" src="../../_images/helloworld_publisher.png" />
-<p><code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code> appears as follows:</p>
-<img alt="../../_images/helloworld_subscriber.png" src="../../_images/helloworld_subscriber.png" />
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There are some common issues with multiple network interface cards on machine
-configurations. The default behavior automatically detects the first available
-network interface card on your machine for exchanging the <code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">world</span></code> message.
-To ensure that your publisher and subscriber applications are on the same network,
-you must select the correct interface card. To override the default behavior,
-create or edit a deployment file (for example, <code class="docutils literal notranslate"><span class="pre">cyclonedds.xml</span></code>) and update the
-property <a class="reference internal" href="../../config/config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface-address"><span class="std std-ref">//CycloneDDS/Domain/General/Interfaces/NetworkInterface[&#64;address]</span></a>
-to point to it through the <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS\_URI</span></code> OS environment variable. For further
-information, refer to <a class="reference internal" href="../../config/index.html#config-docs"><span class="std std-ref">Configuration guide</span></a> and the <a class="reference internal" href="../../config/config_file_reference.html#configuration-reference"><span class="std std-ref">Configuration File Reference</span></a>.</p>
-</div>
-</section>
-</section>
 <section id="measuring-latency">
 <h2>Measuring latency<a class="headerlink" href="#measuring-latency" title="Permalink to this headline">¶</a></h2>
 <p>To measure latency between two different applications, you run
@@ -305,7 +186,7 @@ operate either in a <strong>Ping mode</strong> or in a <strong>Pong mode</strong
 <li><p>In the first terminal, run the following command:</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf ping
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ddsperf ping</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -313,7 +194,7 @@ operate either in a <strong>Ping mode</strong> or in a <strong>Pong mode</strong
 <li><p>In the second terminal run the following command:</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pong
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ddsperf pong</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -353,7 +234,7 @@ at the frequency of 50Hz:</p>
 <li><p>In the first terminal, run the following command:</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf ping 50Hz <span class="m">2048</span> waitset
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ddsperf ping 50Hz 2048 waitset</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -361,7 +242,7 @@ at the frequency of 50Hz:</p>
 <li><p>In the second terminal run the following command:</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pong waitset
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ddsperf pong waitset</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -444,7 +325,7 @@ Note: When going “as fast as possible”, this option does not make any differ
 <li><p>In the first terminal, run the following command:</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf pub size 1k
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ddsperf pub size 1k</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -452,7 +333,7 @@ Note: When going “as fast as possible”, this option does not make any differ
 <li><p>In the second terminal run the following command:</p></li>
 </ol>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf -Qrss:1 sub
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ddsperf -Qrss:1 sub</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -517,7 +398,7 @@ fraction of samples x% as if they were used in the Ping mode.</p>
 below.</p>
 <img alt="../../_images/4.5-1.png" class="align-center" src="../../_images/4.5-1.png" />
 <p>To get more information for the <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool, use the [help] option:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ddsperf <span class="nb">help</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ddsperf help</span>
 </pre></div>
 </div>
 </section>
@@ -548,11 +429,6 @@ menu, as shown below.</p>
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">Benchmarking Tools</a><ul>
-<li><a class="reference internal" href="#test-your-installation">Test your installation</a><ul>
-<li><a class="reference internal" href="#the-ddsperf-tool">The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool</a></li>
-<li><a class="reference internal" href="#helloworld">HelloWorld</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#measuring-latency">Measuring latency</a></li>
 <li><a class="reference internal" href="#measuring-throughput">Measuring throughput</a></li>
 <li><a class="reference internal" href="#measuring-throughput-and-latency-in-a-mixed-scenario">Measuring Throughput and Latency in a mixed scenario</a></li>

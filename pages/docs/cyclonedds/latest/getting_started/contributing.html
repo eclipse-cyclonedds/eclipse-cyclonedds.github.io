@@ -166,10 +166,10 @@ operating systems.</p>
 <section id="linux-and-macos">
 <h2>Linux and macOS<a class="headerlink" href="#linux-and-macos" title="Permalink to this headline">¶</a></h2>
 <p>Set the CMake variable <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> to <code class="docutils literal notranslate"><span class="pre">ON</span></code> when configuring, e.g.:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
-cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DBUILD_TESTING<span class="o">=</span>ON ..
-cmake --build .
-ctest
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd build</span>
+<span class="go">cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON ..</span>
+<span class="go">cmake --build .</span>
+<span class="go">ctest</span>
 </pre></div>
 </div>
 <p>This build requires <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a>. You can
@@ -177,17 +177,17 @@ install this yourself, or you can choose to instead rely on the
 <a href="https://conan.io/" target="_blank">Conan</a> packaging system that the CI build
 infrastructure also uses. In that case, install Conan in the build
 directory before running CMake:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install .. --build missing
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conan install .. --build missing</span>
 </pre></div>
 </div>
 </section>
 <section id="windows">
 <h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
 <p>Set the CMake variable <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> to <code class="docutils literal notranslate"><span class="pre">ON</span></code> when configuring, e.g.:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
-cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DBUILD_TESTING<span class="o">=</span>ON ..
-cmake --build .
-ctest
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd build</span>
+<span class="go">cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON ..</span>
+<span class="go">cmake --build .</span>
+<span class="go">ctest</span>
 </pre></div>
 </div>
 <p>This build requires <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a>. You can
@@ -195,14 +195,14 @@ install this yourself, or you can choose to instead rely on the
 <a href="https://conan.io/" target="_blank">Conan</a> packaging system that the CI build
 infrastructure also uses. In that case, install Conan in the build
 directory before running CMake:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install .. --build missing
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conan install .. --build missing</span>
 </pre></div>
 </div>
 <p>This automatically downloads and builds CUnit (and currently OpenSSL for transport security).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Depending on the generator, you may also need to add switches to select the architecture and build type, e.g.:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install -s <span class="nv">arch</span><span class="o">=</span>x86_64 -s <span class="nv">build_type</span><span class="o">=</span>Debug ..
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conan install -s arch=x86_64 -s build_type=Debug ..</span>
 </pre></div>
 </div>
 </div>

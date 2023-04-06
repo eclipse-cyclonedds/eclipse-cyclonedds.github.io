@@ -297,20 +297,20 @@ and dependencies are automatically set.</p>
 <ol class="arabic">
 <li><p>Open a terminal inside the directory with the HelloWorld files.</p></li>
 <li><p>Run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
-  <span class="nb">cd</span> build
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mkdir build</span>
+<span class="go">  cd build</span>
 </pre></div>
 </div>
 </li>
 <li><p>Configure the build environment:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-2-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-2-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-2-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-2-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;install-location&gt; ..
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-2-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-2-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-2-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-2-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake -DCMAKE_PREFIX_PATH=&lt;install-location&gt; ..</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;install-location&gt; ..
+</div><div aria-labelledby="tab-2-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake -DCMAKE_PREFIX_PATH=&lt;install-location&gt; ..</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -G &lt;generator-name&gt; -DCMAKE_PREFIX_PATH<span class="o">=</span>&lt;install-location&gt; ..
+</div><div aria-labelledby="tab-2-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake -G &lt;generator-name&gt; -DCMAKE_PREFIX_PATH=&lt;install-location&gt; ..</span>
 </pre></div>
 </div>
 <p>On Windows you can build with one of several generators. Usually if you omit the <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">&lt;generator-name&gt;</span></code>
@@ -332,7 +332,7 @@ try to match what you picked for Cyclone DDS in downstream projects.</p>
 <li><p>CMake uses the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> in the HelloWorld directory to create “makefiles”
 that target the native platform. The Cyclone DDS build directory is now ready
 to build the <code class="docutils literal notranslate"><span class="pre">HelloworldPublisher</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloworldSubscriber</span></code> executables. Run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake --build .
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmake --build .</span>
 </pre></div>
 </div>
 <p>Your build directory now contains your executables (on Windows they may be in a
@@ -346,26 +346,26 @@ to build the <code class="docutils literal notranslate"><span class="pre">Hellow
 <li><p>Open two terminals inside the directory with the HelloWorld files.</p></li>
 <li><p>In the first terminal, start the subscriber by running <code class="docutils literal notranslate"><span class="pre">HelloWorldSubscriber</span></code>.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-3-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-3-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-3-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-3-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-3-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-3-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-3-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-3-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-3-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-3-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-3-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./HelloworldSubscriber</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-3-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldSubscriber
+</div><div aria-labelledby="tab-3-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./HelloworldSubscriber</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-3-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldSubscriber</span><span class="p">.</span><span class="n">exe</span>
+</div><div aria-labelledby="tab-3-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-3-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">HelloworldSubscriber.exe</span>
 </pre></div>
 </div>
 </div></div>
 </li>
 <li><p>In the second terminal, start the publisher by running <code class="docutils literal notranslate"><span class="pre">HelloWorldPublisher</span></code>.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-4-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-4-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-4-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-4-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-4-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-4-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-4-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-4-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-4-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-4-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-4-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-4-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./HelloworldPublisher</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-4-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./HelloworldPublisher
+</div><div aria-labelledby="tab-4-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./HelloworldPublisher</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-4-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-PowerShell notranslate"><div class="highlight"><pre><span></span><span class="n">HelloworldPublisher</span><span class="p">.</span><span class="n">exe</span>
+</div><div aria-labelledby="tab-4-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-4-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">HelloworldPublisher.exe</span>
 </pre></div>
 </div>
 </div></div>

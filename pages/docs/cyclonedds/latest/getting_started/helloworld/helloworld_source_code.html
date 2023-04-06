@@ -784,8 +784,7 @@ same topic name as specified in <code class="docutils literal notranslate"><span
 </div>
 </li>
 <li><p>Create a Topic.</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="linenos">23</span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
-<span class="linenos">24</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">HelloWorldData_Msg_desc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HelloWorldData_Msg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="linenos">23</span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">HelloWorldData_Msg_desc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HelloWorldData_Msg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -956,6 +955,12 @@ appropriate header files:</p>
 <li><p>Create a writer. You must have a participant, a topic, and a publisher (must have
 the same topic name as specified in <code class="docutils literal notranslate"><span class="pre">subscriber.cpp</span></code>):</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">31</span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="nf">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">34</span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">HelloWorldData</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HelloWorldData_Msg&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">37</span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">Publisher</span><span class="w"> </span><span class="nf">publisher</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>

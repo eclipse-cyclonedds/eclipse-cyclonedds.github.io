@@ -161,23 +161,23 @@ which is based on <a href="https://projects.eclipse.org/proposals/eclipse-iceory
 </div>
 <ol class="arabic">
 <li><p>Install the prerequisite packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install cmake libacl1-dev libncurses5-dev pkg-config maven
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install cmake libacl1-dev libncurses5-dev pkg-config maven</span>
 </pre></div>
 </div>
 </li>
 <li><p>Get and build iceoryx. The following assumes that the istall is in your home directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-iceoryx/iceoryx.git -b release_2.0
-<span class="nb">cd</span> iceoryx
-cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_SHARED_LIBS<span class="o">=</span>ON -Hiceoryx_meta
-cmake --build build --config Release --target install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/eclipse-iceoryx/iceoryx.git -b release_2.0</span>
+<span class="go">cd iceoryx</span>
+<span class="go">cmake -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=ON -Hiceoryx_meta</span>
+<span class="go">cmake --build build --config Release --target install</span>
 </pre></div>
 </div>
 </li>
 <li><p>Get Cyclone DDS and build it with shared memory support:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds.git
-<span class="nb">cd</span> cyclonedds
-cmake -Bbuild -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_INSTALL_PREFIX<span class="o">=</span>install -DBUILD_EXAMPLES<span class="o">=</span>On -DCMAKE_PREFIX_PATH<span class="o">=</span>~/iceoryx/install/
-cmake --build build --config Release --target install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/eclipse-cyclonedds/cyclonedds.git</span>
+<span class="go">cd cyclonedds</span>
+<span class="go">cmake -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DBUILD_EXAMPLES=On -DCMAKE_PREFIX_PATH=~/iceoryx/install/</span>
+<span class="go">cmake --build build --config Release --target install</span>
 </pre></div>
 </div>
 </li>
