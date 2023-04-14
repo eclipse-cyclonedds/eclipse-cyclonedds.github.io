@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Discovery configuration" href="discovery-config.html" />
-    <link rel="prev" title="Discovery of participants and endpoints" href="discovery_participants.html" /> 
+    <link rel="prev" title="CMake build configuration" href="cmake_config.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -121,10 +121,10 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="cmake_config.html">CMake build configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ddsi_concepts.html">DDSI concepts</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Discovery behaviour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discovery-config.html">Discovery configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="network-config.html">Network configuration</a></li>
@@ -135,13 +135,15 @@
 <li class="toctree-l2"><a class="reference internal" href="reporting-tracing.html">Reporting and tracing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conformance.html">Conformance modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="config_file_reference.html">Configuration File Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmarking.html">Benchmarking Tools</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -157,17 +159,17 @@
 <span id="index-0"></span><span id="id1"></span><h1>Discovery behaviour<a class="headerlink" href="#discovery-behaviour" title="Permalink to this headline">¶</a></h1>
 <section id="proxy-participants-and-endpoints">
 <span id="proxy-participants-endpoints"></span><h2>Proxy participants and endpoints<a class="headerlink" href="#proxy-participants-and-endpoints" title="Permalink to this headline">¶</a></h2>
-<p>In the <a href="https://www.omg.org/spec/DDSI-RTPS" target="_blank">DDSI specification</a>, Eclipse Cyclone DDS is known as a <em>stateful</em> implementation. Writers
-only send data to discovered Readers, and Readers only accept data from discovered
-Writers. There is one exception: the <code class="docutils literal notranslate"><span class="pre">Writer</span></code> may choose to multicast the data so
-that any Reader is able to receive it. If a Reader has already discovered the Writer
+<p>In the <a href="https://www.omg.org/spec/DDSI-RTPS" target="_blank">DDSI specification</a>, Eclipse Cyclone DDS is known as a <em>stateful</em> implementation. writers
+only send data to discovered readers, and readers only accept data from discovered
+writers. There is one exception: the <code class="docutils literal notranslate"><span class="pre">writer</span></code> may choose to multicast the data so
+that any reader is able to receive it. If a reader has already discovered the writer
 but not vice-versa, it can accept the data even though the connection is not fully
 established.</p>
 <p>Such asymmetrical discovery can cause data to be delivered when it is not expected,
 which can also cause indefinite blocking. To avoid this, Eclipse Cyclone DDS internally
-creates a proxy for each remote participant and Reader or Writer. In the discovery
-process, Writers are matched with proxy Readers, and Readers are matched with proxy
-Writers, based on the topic name, type name, and the QoS settings.</p>
+creates a proxy for each remote participant and reader or writer. In the discovery
+process, writers are matched with proxy readers, and readers are matched with proxy
+writers, based on the topic name, type name, and the <a class="reference internal" href="../about_dds/qos.html#qos-bm"><span class="std std-ref">QoS</span></a> settings.</p>
 <p>Proxies have the same natural hierarchy as ‘normal’ DDSI entities. Each proxy endpoint
 is owned by a proxy participant. When a proxy participant is deleted, all of its proxy
 endpoints are also deleted. Participants assert their liveliness periodically, which is
@@ -204,43 +206,43 @@ participant or endpoint, it can generate some redundant network traffic.</p>
 </section>
 <section id="lingering-writers">
 <span id="index-1"></span><h2>Lingering writers<a class="headerlink" href="#lingering-writers" title="Permalink to this headline">¶</a></h2>
-<p>When an application deletes a reliable DCPS Writer, there is no guarantee that all
-its Readers have already acknowledged the correct receipt of all samples. Eclipse Cyclone DDS
-lets the Writer (and the owning participant if necessary) linger in the system for some time,
-controlled by the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-writerlingerduration"><span class="std std-ref">Internal/WriterLingerDuration</span></a>
-option. The Writer is deleted when all Readers have acknowledged all samples, or the
+<p>When an application deletes a reliable DCPS writer, there is no guarantee that all
+its readers have already acknowledged the correct receipt of all samples. Eclipse Cyclone DDS
+lets the writer (and the owning participant if necessary) linger in the system for some time,
+controlled by the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-writerlingerduration"><span class="std std-ref">Internal/writerLingerDuration</span></a>
+option. The writer is deleted when all readers have acknowledged all samples, or the
 linger duration has elapsed, whichever comes first.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Writer linger duration setting is not applied when Eclipse Cyclone DDS
+<p>The writer linger duration setting is not applied when Eclipse Cyclone DDS
 is requested to terminate.</p>
 </div>
 <span class="target" id="writer-history-qos-and-throttling"></span></section>
 <section id="index-2">
 <span id="id2"></span><h2>Writer history QoS and throttling<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h2>
-<p>The <a href="https://www.omg.org/spec/DDSI-RTPS" target="_blank">DDSI specification</a> relies on the Writer History Cache (WHC), in which a sequence number
+<p>The <a href="https://www.omg.org/spec/DDSI-RTPS" target="_blank">DDSI specification</a> relies on the writer History Cache (WHC), in which a sequence number
 uniquely identifies each sample. The WHC integrates two different indices on the samples
-published by a Writer:</p>
+published by a writer:</p>
 <ul class="simple">
 <li><p>The <strong>sequence number</strong> index is used for re-transmitting lost samples, and is therefore needed
-for all reliable Writers (see <a class="reference internal" href="reliable_communication.html#reliable-coms"><span class="std std-ref">Reliable communication</span></a>).</p></li>
+for all reliable writers (see <a class="reference internal" href="../about_dds/reliable_communication.html#reliable-coms"><span class="std std-ref">Reliable communication</span></a>).</p></li>
 <li><p>The <strong>key value</strong> index is used for retaining the current state of each instance in the WHC.</p></li>
 </ul>
 <p>When a new sample overwrites the state of an instance, the key value index allows dropping
 samples from the sequence number index. For transient-local behaviour (see
-<a class="reference internal" href="ddsi-transient_behavoir.html#ddsi-specific-transient-local-behaviour"><span class="std std-ref">DDSI-Specific Transient-Local Behaviour</span></a>), the key value index also allows retaining
-the current state of each instance even when all Readers have acknowledged a sample.</p>
+<a class="reference internal" href="../about_dds/ddsi-transient_behavior.html#ddsi-specific-transient-local-behaviour"><span class="std std-ref">DDSI-Specific Transient-Local Behaviour</span></a>), the key value index also allows retaining
+the current state of each instance even when all readers have acknowledged a sample.</p>
 <p>Transient-local data always requires the key values index, and by default is also
-used for other Writers that have a history setting of <code class="docutils literal notranslate"><span class="pre">KEEP_LAST</span></code>. The advantage of an
+used for other writers that have a history setting of <code class="docutils literal notranslate"><span class="pre">KEEP_LAST</span></code>. The advantage of an
 index on key value is that superseded samples can be dropped aggressively, instead of
-delivering them to all Readers. The disadvantage is that it is somewhat more resource-intensive.</p>
+delivering them to all readers. The disadvantage is that it is somewhat more resource-intensive.</p>
 <p>The WHC distinguishes between:</p>
 <ul class="simple">
-<li><p>History to be retained for existing Readers (controlled by the Writer’s history QoS setting).</p></li>
+<li><p>History to be retained for existing readers (controlled by the writer’s history QoS setting).</p></li>
 <li><p>History to be retained for late-joining readers for transient-local writers (controlled by
 the topic’s durability-service history QoS setting).</p></li>
 </ul>
-<p>It is therefore possible to create a Writer that never overwrites samples for live readers,
+<p>It is therefore possible to create a writer that never overwrites samples for live readers,
 while maintaining only the most recent samples for late-joining readers. This ensures that
 the data that is available for late-joining readers is the same for transient-local and for
 transient data.</p>
@@ -248,7 +250,7 @@ transient data.</p>
 <span id="index-3"></span><h3>Writer throttling<a class="headerlink" href="#writer-throttling" title="Permalink to this headline">¶</a></h3>
 <p>Writer throttling is based on the WHC size. The following settings control writer throttling:</p>
 <p>When the WHC contains at least <code class="docutils literal notranslate"><span class="pre">high</span></code> bytes in unacknowledged samples, it stalls the
-Writer until the number of bytes in unacknowledged samples drops below the value set in:
+writer until the number of bytes in unacknowledged samples drops below the value set in:
 <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-watermarks-whclow"><span class="std std-ref">Internal/Watermarks/WhcLow</span></a>.</p>
 <p>Based on the transmit pressure and receive re-ransmit requests, the value of <code class="docutils literal notranslate"><span class="pre">high</span></code> is
 dynamically adjusted between:
@@ -304,8 +306,8 @@ things can continue at a much lower rate.</p>
         <div class="button_nav">
             <div class="left">
                 
-                <a href="discovery_participants.html">
-                    <span class="icon"><</span><span>Discovery of participants and endpoints</span></a>
+                <a href="cmake_config.html">
+                    <span class="icon"><</span><span>CMake build configuration</span></a>
                 
             </div>
 

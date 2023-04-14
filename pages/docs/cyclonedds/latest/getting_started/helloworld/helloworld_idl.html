@@ -122,8 +122,8 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="helloworld.html">HelloWorld tutorial</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="helloworld_building.html">Building HelloWorld with CMake</a></li>
 <li class="toctree-l3"><a class="reference internal" href="helloworld_key_steps.html">HelloWorld keys steps</a></li>
@@ -132,17 +132,15 @@
 <li class="toctree-l3"><a class="reference internal" href="helloworld_run.html">Running HelloWorld</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../py_tutorial/index.html">Python Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/benchmarking.html">Benchmarking Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../security/dds_security.html">DDS security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../shared_memory/shared_memory.html">Shared memory exchange</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ddsc.html">C API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -180,8 +178,7 @@ file, but the application business logic determines it at runtime.</p>
 <p>In our simplistic case, the data type Msg contains two fields:
 <code class="docutils literal notranslate"><span class="pre">userID</span></code> and <code class="docutils literal notranslate"><span class="pre">message</span></code> payload. The <code class="docutils literal notranslate"><span class="pre">userID</span></code> is used to uniquely identify each message instance. This is done using the
 <code class="docutils literal notranslate"><span class="pre">&#64;key</span></code> annotation.</p>
-<section id="idl-compilers">
-<h2>IDL Compilers<a class="headerlink" href="#idl-compilers" title="Permalink to this headline">¶</a></h2>
+<p>For further information, refer to <a class="reference internal" href="../../about_dds/idl.html#idl-bm"><span class="std std-ref">IDL</span></a>.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-0-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><p>The IDL compiler translates the IDL datatype into a C struct with a name made
 of the<code class="docutils literal notranslate"><span class="pre">&lt;ModuleName&gt;_&lt;DataTypeName&gt;</span></code> .</p>
@@ -192,22 +189,7 @@ of the<code class="docutils literal notranslate"><span class="pre">&lt;ModuleNam
 <span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><p>The Cyclone DDS C++ IDL compiler translates module names into namespaces
-and structure names into classes.</p>
-<p>It also generates code for public accessor functions for all fields mentioned in
-the IDL struct, separate public constructors, and a destructor:</p>
-<ul class="simple">
-<li><p>A default (empty) constructor that recursively invokes the constructors of
-all fields.</p></li>
-<li><p>A copy-constructor that performs a deep copy from the existing class.</p></li>
-<li><p>A move-constructor that moves all arguments to its members.</p></li>
-</ul>
-<p>The destructor recursively releases all fields. It also generates code for
-assignment operators that recursively construct all fields based on the
-parameter class (copy and move versions). The following code snippet is
-provided without warranty: the internal format may change, but the API
-delivered to your application code is stable.</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldData</span><span class="w"></span>
+</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldData</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Msg</span><span class="w"> </span><span class="n">OSPL_DDS_FINAL</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -277,15 +259,6 @@ delivered to your application code is stable.</p>
 </pre></div>
 </div>
 </div></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When translated into a different programming language, the data has another
-representation specific to the target language. This highlights the advantage
-of using a neutral language such as IDL to describe the data model. It can be
-translated into different languages that can be shared between different
-applications written in other programming languages.</p>
-</div>
-</section>
 <section id="generated-files-with-the-idl-compiler">
 <h2>Generated files with the IDL compiler<a class="headerlink" href="#generated-files-with-the-idl-compiler" title="Permalink to this headline">¶</a></h2>
 <div class="sphinx-tabs docutils container">
@@ -371,7 +344,6 @@ logic.</p>
             <div class="page_toc">
                 <ul>
 <li><a class="reference internal" href="#">HelloWorld IDL</a><ul>
-<li><a class="reference internal" href="#idl-compilers">IDL Compilers</a></li>
 <li><a class="reference internal" href="#generated-files-with-the-idl-compiler">Generated files with the IDL compiler</a></li>
 <li><a class="reference internal" href="#helloworld-business-logic">HelloWorld business logic</a></li>
 </ul>

@@ -20,8 +20,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Getting Started" href="../getting_started/index.html" />
-    <link rel="prev" title="Performance test" href="performance.html" /> 
+    <link rel="next" title="DomainParticipants" href="domainparticipants.html" />
+    <link rel="prev" title="Eclipse Cyclone DDS" href="eclipse_cyclone_dds.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -121,17 +121,32 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance test</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Data-centric architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domainparticipants.html">DomainParticipants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topics.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishers.html">Publishers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscribers.html">Subscribers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datareaders.html">DataReaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datawriters.html">DataWriters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">Quality of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="listener.html">Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="waitset.html">Waitsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">Statuses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idl.html">IDL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddsi_concepts.html">DDSI concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -144,7 +159,7 @@
           <div class="body" role="main">
             
   <section id="data-centric-architecture">
-<span id="index-0"></span><h1>Data-centric architecture<a class="headerlink" href="#data-centric-architecture" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Data-centric architecture<a class="headerlink" href="#data-centric-architecture" title="Permalink to this headline">¶</a></h1>
 <p>In a service-centric architecture, applications need to
 know each other’s interfaces to share data, share events, and share
 commands or replies to interact. These interfaces are modeled as sets of
@@ -169,7 +184,7 @@ searches matching data readers and data writers that are interested in
 the same data topic.</p>
 <p>Time-decoupling derives from the fact that, fundamentally, the nature of
 communication is asynchronous. Data producers and consumers,
-known as <code class="docutils literal notranslate"><span class="pre">DataWriter</span></code>s and <code class="docutils literal notranslate"><span class="pre">DataReader</span></code>s, are not forced to
+known as <a class="reference internal" href="datawriters.html#datawriters-bm"><span class="std std-ref">DataWriters</span></a> and <a class="reference internal" href="datareaders.html#datareaders-bm"><span class="std std-ref">DataReaders</span></a>, are not forced to
 be active and connected simultaneously to share data. In this
 scenario, the Cyclone DDS middleware can handle and manage data on behalf of
 late joining <code class="docutils literal notranslate"><span class="pre">DataReader</span></code> applications and deliver it to them when they
@@ -177,8 +192,8 @@ join the system.</p>
 <p>Time and space decoupling gives applications the freedom to be plugged
 or unplugged from the system at any time, from anywhere, in any order.
 This keeps the complexity and administration of a data-centric
-architecture relatively low when adding more and more <code class="docutils literal notranslate"><span class="pre">DataReader</span></code> and
-<code class="docutils literal notranslate"><span class="pre">DataWriter</span></code> applications.</p>
+architecture relatively low when adding more and more DataReader and
+DataWriter applications.</p>
 </section>
 
 
@@ -194,14 +209,14 @@ architecture relatively low when adding more and more <code class="docutils lite
         <div class="button_nav">
             <div class="left">
                 
-                <a href="performance.html">
-                    <span class="icon"><</span><span>Performance test</span></a>
+                <a href="eclipse_cyclone_dds.html">
+                    <span class="icon"><</span><span>Eclipse Cyclone DDS</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="../getting_started/index.html"><span>Getting Started</span><span class="icon">></span></a>
+                    <a href="domainparticipants.html"><span>DomainParticipants</span><span class="icon">></span></a>
                 
             </div>
         </div>

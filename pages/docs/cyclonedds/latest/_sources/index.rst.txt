@@ -11,6 +11,8 @@
 
 .. _documentation_top:
 
+.. image:: _static/gettingstarted-figures/Cyclone_DDS_logo.svg
+
 |var-project| |var-release| documentation
 =========================================
 
@@ -18,6 +20,7 @@
    :maxdepth: 1
 
    about_dds/eclipse_cyclone_dds
+   installation/installation
    getting_started/index
    config/index
    examples/index
@@ -25,10 +28,10 @@
    shared_memory/shared_memory
    ddsc
    glossary
+   genindex
 
 Indices and tables
 ==================
 
-* :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
