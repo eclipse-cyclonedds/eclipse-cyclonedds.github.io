@@ -859,6 +859,23 @@
 </dd></dl>
 
 <dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_writer_batching">
+<span class="target" id="group__qos__setters_1ga82acdf1ad944f3b3c23e7601ef7cdba1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_writer_batching</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">batch_updates</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_writer_batching" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the writer batching policy of a qos structure. </p>
+<p>When batching is disabled, each write/dispose/unregister operation results in its own RTPS message that is sent out onto the transport. For small data types, this means most messages (and hence network packets) are small. As a consequence the fixed cost of processing a message (or packet) increases load.</p>
+<p>Enabling write batching causes the samples to be aggregated into a single larger RTPS message. This improves efficiency by spreading the fixed cost out over more samples. Naturally this increases latency a bit.</p>
+<p>The batching mechanism may or may not send out packets on a write/&amp;c. operation. It buffers only a limited amount and will send out what has been buffered when a new write/&amp;c. can not be added. To guarantee that the buffered data is sent, one must call “dds_flush”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>batch_updates</strong> – <strong>[in]</strong> - Whether writes should be batched </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
 <dt class="sig sig-object c" id="c.dds_qset_durability_service">
 <span class="target" id="group__qos__setters_1ga3680335e6298a25fe3ffed6a5d97d1c6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_durability_service</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">service_cleanup_delay</span></span>, <a class="reference internal" href="#c.dds_history_kind_t" title="dds_history_kind_t"><span class="n"><span class="pre">dds_history_kind_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">history_kind</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">history_depth</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_samples</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_instances</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">max_samples_per_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_durability_service" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the durability-service policy of a qos structure. </p>
@@ -1358,6 +1375,23 @@
 <li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
 <li><p><strong>autopurge_nowriter_samples_delay</strong> – <strong>[inout]</strong> - Pointer that will store the delay for auto-purging samples from instances in a no-writer state (optional) </p></li>
 <li><p><strong>autopurge_disposed_samples_delay</strong> – <strong>[inout]</strong> - Pointer that will store the delay for auto-purging of disposed instances (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_writer_batching">
+<span class="target" id="group__qos__getters_1ga61df29c248b6e3da616cb2931024908b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_writer_batching</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">batch_updates</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_writer_batching" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the writer batching qos policy. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[in]</strong> - Pointer to a dds_qos_t structure storing the policy </p></li>
+<li><p><strong>batch_updates</strong> – <strong>[inout]</strong> - Pointer that will store the batching enable value</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
