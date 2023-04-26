@@ -153,7 +153,7 @@
 <span class="kn">import</span> <span class="nn">ctypes</span> <span class="k">as</span> <span class="nn">ct</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
 
-<span class="kn">from</span> <span class="nn">.internal</span> <span class="kn">import</span> <span class="n">c_call</span><span class="p">,</span> <span class="n">dds_c_t</span>
+<span class="kn">from</span> <span class="nn">.internal</span> <span class="kn">import</span> <span class="n">c_call</span><span class="p">,</span> <span class="n">dds_c_t</span><span class="p">,</span> <span class="n">dds_domain_default</span>
 <span class="kn">from</span> <span class="nn">.core</span> <span class="kn">import</span> <span class="n">Entity</span><span class="p">,</span> <span class="n">DDSException</span><span class="p">,</span> <span class="n">Listener</span>
 <span class="kn">from</span> <span class="nn">.topic</span> <span class="kn">import</span> <span class="n">Topic</span>
 <span class="kn">from</span> <span class="nn">.qos</span> <span class="kn">import</span> <span class="n">_CQos</span><span class="p">,</span> <span class="n">LimitedScopeQos</span><span class="p">,</span> <span class="n">DomainParticipantQos</span><span class="p">,</span> <span class="n">Qos</span>
@@ -211,13 +211,13 @@
 <span class="sd">    It serves as root entity for all other entities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">qos</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Qos</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">dds_domain_default</span><span class="p">,</span> <span class="n">qos</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Qos</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">listener</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Listener</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize a DomainParticipant.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        domain_id: int, optional, default 0</span>
+<span class="sd">        domain_id: int, optional, default as per Cyclone DDS configuration</span>
 <span class="sd">            The DDS Domain to use</span>
 <span class="sd">        qos: cyclonedds.qos.Qos, optional, default None</span>
 <span class="sd">            Apply DomainParticipant Qos.</span>
