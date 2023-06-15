@@ -722,15 +722,26 @@ DOC_TODO: Complete list of error codes </p>
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_write_flush">
-<span class="target" id="group__writing_1gae22a06100a776694af5176c8afc2ba2d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_write_flush</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_write_flush" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__writing_1ga9288fb5fdb74d99a6a1047f10206d65b"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_write_flush</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_write_flush" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Flush a writers batched writes</p>
-<p>When using the WriteBatch mode you can manually batch small writes into larger datapackets for network efficiency. The normal <a class="reference internal" href="#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref">dds_write()</span></a> calls will no longer automatically decide when to send data, you will do that manually using this function. </p>
-<p>DOC_TODO check if my assumptions about how this function works are correct</p>
+<p>When using write batching you can manually batch small writes into larger datapackets for network efficiency. The normal <code class="docutils literal notranslate"><a class="reference internal" href="#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref"><span class="pre">dds_write()</span></span></a></code> no longer guarantee that data is sent on the network automatically. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>writer</strong> – <strong>[in]</strong> The writer entity. </p></li>
+<li><p><strong>writer</strong> – <strong>[in]</strong> The writer entity.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The writer successfully forwarded to the network. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure. </p>
 </dd>
 </dl>
 </dd></dl>
@@ -758,7 +769,7 @@ DOC_TODO: Complete list of error codes </p>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure. On error, some writers failed to flush buffered messages.</p>
 </dd>
 </dl>
 </dd></dl>
