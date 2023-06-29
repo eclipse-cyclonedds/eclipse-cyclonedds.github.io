@@ -199,17 +199,17 @@ subscriber terminates and outputs the totals and averages.</p>
 <p>To avoid mixing the output, run the publisher and subscriber in separate terminals.</p>
 <ol class="arabic">
 <li><p>Open 2 terminals.</p></li>
-<li><p>In the first terminal start publisher by running <strong>publisher</strong>.</p>
+<li><p>In the first terminal start publisher by running <strong>ThroughputPublisher</strong>.</p>
 <p>Publisher usage (parameters must be supplied in order):</p>
-<p><code class="docutils literal notranslate"><span class="pre">./publisher</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes)]</span> <span class="pre">[burstInterval</span> <span class="pre">(ms)]</span> <span class="pre">[burstSize</span> <span class="pre">(samples)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds)]</span> <span class="pre">[partitionName]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">./ThroughputPublisher</span> <span class="pre">[payloadSize</span> <span class="pre">(bytes)]</span> <span class="pre">[burstInterval</span> <span class="pre">(ms)]</span> <span class="pre">[burstSize</span> <span class="pre">(samples)]</span> <span class="pre">[timeOut</span> <span class="pre">(seconds)]</span> <span class="pre">[partitionName]</span></code></p>
 <p>Defaults:</p>
-<p><code class="docutils literal notranslate"><span class="pre">./publisher</span> <span class="pre">8192</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">&quot;Throughput</span> <span class="pre">example&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">./ThroughputPublisher</span> <span class="pre">8192</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">&quot;Throughput</span> <span class="pre">example&quot;</span></code></p>
 </li>
-<li><p>In the second terminal start subscriber by running <strong>subscriber</strong>.</p>
+<li><p>In the second terminal start subscriber by running <strong>ThroughputSubscriber</strong>.</p>
 <p>Subscriber usage (parameters must be supplied in order):</p>
-<p><code class="docutils literal notranslate"><span class="pre">./subscriber</span> <span class="pre">[maxCycles</span> <span class="pre">(0=infinite)]</span> <span class="pre">[pollingDelay</span> <span class="pre">(ms,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">event</span> <span class="pre">based)]</span> <span class="pre">[partitionName]</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">./ThroughputSubscriber</span> <span class="pre">[maxCycles</span> <span class="pre">(0=infinite)]</span> <span class="pre">[pollingDelay</span> <span class="pre">(ms,</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">event</span> <span class="pre">based)]</span> <span class="pre">[partitionName]</span></code></p>
 <p>Defaults:</p>
-<p><code class="docutils literal notranslate"><span class="pre">./subscriber</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">&quot;Throughput</span> <span class="pre">example&quot;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">./ThroughputSubscriber</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">&quot;Throughput</span> <span class="pre">example&quot;</span></code></p>
 </li>
 <li><p>To achieve optimal performance, set the CPU affinity so that the publisher and subscriber
 run on separate CPU cores and use real-time scheduling:</p></li>
@@ -217,15 +217,15 @@ run on separate CPU cores and use real-time scheduling:</p></li>
 <blockquote>
 <div><div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Publisher usage:</span>
-<span class="go">  ``taskset -c 0 chrt -f 80 ./publisher [payloadSize (bytes)] [burstInterval (ms)] [burstSize (samples)] [timeOut (seconds)] [partitionName]``</span>
+<span class="go">  ``taskset -c 0 chrt -f 80 ./ThroughputSubscriber [payloadSize (bytes)] [burstInterval (ms)] [burstSize (samples)] [timeOut (seconds)] [partitionName]``</span>
 <span class="go">Subscriber usage:</span>
-<span class="go">  ``taskset -c 1 chrt -f 80 ./subscriber [maxCycles (0 = infinite)] [pollingDelay (ms, 0 = event based)] [partitionName]``</span>
+<span class="go">  ``taskset -c 1 chrt -f 80 ./ThroughputSubscriber [maxCycles (0 = infinite)] [pollingDelay (ms, 0 = event based)] [partitionName]``</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Publisher usage:</span>
-<span class="go">  ``START /affinity 1 /high cmd /k &quot;publisher.exe&quot; [payloadSize (bytes)] [burstInterval (ms)] [burstSize (samples)] [timeOut (seconds)] [partitionName]``</span>
+<span class="go">  ``START /affinity 1 /high cmd /k &quot;ThroughputSubscriber.exe&quot; [payloadSize (bytes)] [burstInterval (ms)] [burstSize (samples)] [timeOut (seconds)] [partitionName]``</span>
 <span class="go">Subscriber usage:</span>
-<span class="go">  ``START /affinity 2 /high cmd /k &quot;subscriber.exe&quot; [maxCycles (0 = infinite)] [pollingDelay (ms, 0 = event based)] [partitionName]``</span>
+<span class="go">  ``START /affinity 2 /high cmd /k &quot;ThroughputSubscriber.exe&quot; [maxCycles (0 = infinite)] [pollingDelay (ms, 0 = event based)] [partitionName]``</span>
 </pre></div>
 </div>
 </div></div>
