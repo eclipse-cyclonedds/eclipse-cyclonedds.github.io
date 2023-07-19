@@ -173,21 +173,13 @@ from this getting started guide, read the terms linked above.</p>
 </div>
 <p>To contribute code, it may be helpful to know that build configurations for Azure DevOps Pipelines
 are present in the repositories.
-There is a test suite using CTest and <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a> that can be built locally.</p>
+There is a test suite using CTest that can be built locally.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-0-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-0-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-0-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><p>Set the CMake variable <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> to <code class="docutils literal notranslate"><span class="pre">ON</span></code> when configuring, e.g.:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
 cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DBUILD_TESTING<span class="o">=</span>ON ..
 cmake --build .
 ctest
-</pre></div>
-</div>
-<p>This build requires <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a>. You can
-install this yourself, or you can choose to instead rely on the
-<a href="https://conan.io/" target="_blank">Conan</a> packaging system that the CI build
-infrastructure also uses. In that case, install Conan in the build
-directory before running CMake:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install .. --build missing
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><p>Set the CMake variable <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> to <code class="docutils literal notranslate"><span class="pre">ON</span></code> when configuring, e.g.:</p>
@@ -197,36 +189,12 @@ cmake --build .
 ctest
 </pre></div>
 </div>
-<p>This build requires <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a>. You can
-install this yourself, or you can choose to instead rely on the
-<a href="https://conan.io/" target="_blank">Conan</a> packaging system that the CI build
-infrastructure also uses. In that case, install Conan in the build
-directory before running CMake:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install .. --build missing
-</pre></div>
-</div>
 </div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>Set the CMake variable <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> to <code class="docutils literal notranslate"><span class="pre">ON</span></code> when configuring, e.g.:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> build
 cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Debug -DBUILD_TESTING<span class="o">=</span>ON ..
 cmake --build .
 ctest
 </pre></div>
-</div>
-<p>This build requires <a href="https://cunit.sourceforge.net/" target="_blank">CUnit</a>. You can
-install this yourself, or you can choose to instead rely on the
-<a href="https://conan.io/" target="_blank">Conan</a> packaging system that the CI build
-infrastructure also uses. In that case, install Conan in the build
-directory before running CMake:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install .. --build missing
-</pre></div>
-</div>
-<p>This automatically downloads and builds CUnit (and currently OpenSSL for transport security).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Depending on the generator, you may also need to add switches to select the architecture and build type, e.g.:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan install -s <span class="nv">arch</span><span class="o">=</span>x86_64 -s <span class="nv">build_type</span><span class="o">=</span>Debug ..
-</pre></div>
-</div>
 </div>
 </div></div>
 </section>
