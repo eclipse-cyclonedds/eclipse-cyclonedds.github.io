@@ -1137,40 +1137,8 @@
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN3dds3sub11TSampleInfoE">
-<span id="_CPPv3I0EN3dds3sub11TSampleInfoE"></span><span id="_CPPv2I0EN3dds3sub11TSampleInfoE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DELEGATE</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classdds_1_1sub_1_1TSampleInfo"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TSampleInfo</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">dds</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="core.html#_CPPv4N3dds4coreE" title="dds::core"><span class="n"><span class="pre">core</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="core.html#_CPPv4I0EN3dds4core5ValueE" title="dds::core::Value"><span class="n"><span class="pre">Value</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3dds3sub11TSampleInfoE" title="dds::sub::TSampleInfo::DELEGATE"><span class="n"><span class="pre">DELEGATE</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN3dds3sub11TSampleInfoE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="docutils container">
-<em>#include &lt;TSampleInfo.hpp&gt;</em></div>
-<p>The SampleInfo contains information pertaining to the associated Data value. </p>
-<p>The SampleInfo contains information pertaining to the associated Data value:<ul class="simple">
-<li><p>The data state (<a class="reference internal" href="#classdds_1_1sub_1_1status_1_1DataState"><span class="std std-ref">dds::sub::status::DataState</span></a>).<ul>
-<li><p>The sample_state of the Data value (i.e., if the sample has already been READ or NOT_READ by that same <a class="reference internal" href="#classdds_1_1sub_1_1DataReader"><span class="std std-ref">DataReader</span></a>).</p></li>
-<li><p>The view_state of the related instance (i.e., if the instance is NEW, or NOT_NEW for that <a class="reference internal" href="#classdds_1_1sub_1_1DataReader"><span class="std std-ref">DataReader</span></a>).</p></li>
-<li><p>The instance_state of the related instance (i.e., if the instance is ALIVE, NOT_ALIVE_DISPOSED, or NOT_ALIVE_NO_WRITERS).</p></li>
-</ul>
-</p></li>
-<li><p>The valid data flag. This flag indicates whether there is data associated with the sample. Some samples do not contain data indicating only a change on the instance_state of the corresponding instance.</p></li>
-<li><p>The generation counts (dds::sub::GenerationCount) for the related instance at the time the sample was received. These counters indicate the number of times the instance had become ALIVE.<ul>
-<li><p>The disposed generation count</p></li>
-<li><p>The no_writer generation count</p></li>
-</ul>
-</p></li>
-<li><p>The rank information (dds::sub::Rank).<ul>
-<li><p>The sample rank. This rank provides a preview of the samples that follow within the sequence returned by the read or take operations.</p></li>
-<li><p>The generation rank. This rank provides a preview of the samples that follow within the sequence returned by the read or take operations.</p></li>
-<li><p>The absolute_generation rank. This is the timestamp provided by the DataWriter at the time the sample was produced.</p></li>
-</ul>
-</p></li>
-<li><p>The source timestamp of the sample. This is the timestamp provided by the DataWriter at the time the sample was produced.</p></li>
-<li><p>The InstanceHandle of the associated data <a class="reference internal" href="#classdds_1_1sub_1_1Sample"><span class="std std-ref">Sample</span></a>.</p></li>
-<li><p>The InstanceHandle of the associated publication.</p></li>
-</ul>
-</p>
-<p><div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>for more information: SampleInfo </p>
-</div>
-</p>
-</dd></dl>
+<span id="_CPPv3I0EN3dds3sub11TSampleInfoE"></span><span id="_CPPv2I0EN3dds3sub11TSampleInfoE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DELEGATE</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classdds_1_1sub_1_1TSampleInfo"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TSampleInfo</span></span></span><a class="headerlink" href="#_CPPv4I0EN3dds3sub11TSampleInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0EN3dds3sub11TSubscriberE">
@@ -1497,6 +1465,11 @@
 <dd></dd></dl>
 
 <dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3dds3sub6detail19LoanedSamplesHolder13latest_sampleE">
+<span id="_CPPv3N3dds3sub6detail19LoanedSamplesHolder13latest_sampleE"></span><span id="_CPPv2N3dds3sub6detail19LoanedSamplesHolder13latest_sampleE"></span><span id="dds::sub::detail::LoanedSamplesHolder::latest_sample__dds::sub::SampleRef:T:"></span><span class="target" id="classdds_1_1sub_1_1detail_1_1LoanedSamplesHolder_1a81ee51568b833beaf697772d3ea301f1"></span><span class="n"><span class="pre">dds</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3dds3subE" title="dds::sub"><span class="n"><span class="pre">sub</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I0I0E0EN3dds3sub9SampleRefE" title="dds::sub::SampleRef"><span class="n"><span class="pre">SampleRef</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN3dds3sub6detail19LoanedSamplesHolderE" title="dds::sub::detail::LoanedSamplesHolder::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">latest_sample</span></span></span><a class="headerlink" href="#_CPPv4N3dds3sub6detail19LoanedSamplesHolder13latest_sampleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N3dds3sub6detail19LoanedSamplesHolder6index_E">
 <span id="_CPPv3N3dds3sub6detail19LoanedSamplesHolder6index_E"></span><span id="_CPPv2N3dds3sub6detail19LoanedSamplesHolder6index_E"></span><span id="dds::sub::detail::LoanedSamplesHolder::index___uint32_t"></span><span class="target" id="classdds_1_1sub_1_1detail_1_1LoanedSamplesHolder_1a1e365c282615b3add5b24ac5cecdd388"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">index_</span></span></span><a class="headerlink" href="#_CPPv4N3dds3sub6detail19LoanedSamplesHolder6index_E" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
@@ -1564,8 +1537,8 @@
 <dd></dd></dl>
 
 <dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N3dds3sub6detail23SamplesBIIteratorHolder7samplesE">
-<span id="_CPPv3N3dds3sub6detail23SamplesBIIteratorHolder7samplesE"></span><span id="_CPPv2N3dds3sub6detail23SamplesBIIteratorHolder7samplesE"></span><span id="dds::sub::detail::SamplesBIIteratorHolder::samples__std::vector:dds::sub::Sample:T.dds::sub::detail::Sample::"></span><span class="target" id="classdds_1_1sub_1_1detail_1_1SamplesBIIteratorHolder_1a84aadaf3724333ad6082a5d90a90c847"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">dds</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3dds3subE" title="dds::sub"><span class="n"><span class="pre">sub</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I0I0E0EN3dds3sub6SampleE" title="dds::sub::Sample"><span class="n"><span class="pre">Sample</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN3dds3sub6detail23SamplesBIIteratorHolderE" title="dds::sub::detail::SamplesBIIteratorHolder::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">dds</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3dds3subE" title="dds::sub"><span class="n"><span class="pre">sub</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3dds3sub6detailE" title="dds::sub::detail"><span class="n"><span class="pre">detail</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I0EN3dds3sub6detail6SampleE" title="dds::sub::detail::Sample"><span class="n"><span class="pre">Sample</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">samples</span></span></span><a class="headerlink" href="#_CPPv4N3dds3sub6detail23SamplesBIIteratorHolder7samplesE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N3dds3sub6detail23SamplesBIIteratorHolder11last_sampleE">
+<span id="_CPPv3N3dds3sub6detail23SamplesBIIteratorHolder11last_sampleE"></span><span id="_CPPv2N3dds3sub6detail23SamplesBIIteratorHolder11last_sampleE"></span><span id="dds::sub::detail::SamplesBIIteratorHolder::last_sample__dds::sub::Sample:T:"></span><span class="target" id="classdds_1_1sub_1_1detail_1_1SamplesBIIteratorHolder_1a2aab745dcadc5c7ccf9c1ca4c165c86a"></span><span class="n"><span class="pre">dds</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N3dds3subE" title="dds::sub"><span class="n"><span class="pre">sub</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4I0I0E0EN3dds3sub6SampleE" title="dds::sub::Sample"><span class="n"><span class="pre">Sample</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I00EN3dds3sub6detail23SamplesBIIteratorHolderE" title="dds::sub::detail::SamplesBIIteratorHolder::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_sample</span></span></span><a class="headerlink" href="#_CPPv4N3dds3sub6detail23SamplesBIIteratorHolder11last_sampleE" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp var">

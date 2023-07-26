@@ -180,13 +180,6 @@
 </dd></dl>
 
 <dl class="c macro">
-<dt class="sig sig-object c" id="c.DDS_READ_WITHOUT_LOCK">
-<span class="target" id="group__internal_1gaf5f9572c0b289315d0b8c16120813e33"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_READ_WITHOUT_LOCK</span></span></span> <span class="pre">(0xFFFFFFED)</span><a class="headerlink" href="#c.DDS_READ_WITHOUT_LOCK" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Constant to use with <a class="reference internal" href="sub.html#group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"><span class="std std-ref">dds_read()</span></a> or <a class="reference internal" href="sub.html#group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"><span class="std std-ref">dds_take()</span></a> when using <a class="reference internal" href="#group__internal_1gab19de41386b08df64b7b679c5f643410"><span class="std std-ref">dds_reader_lock_samples()</span></a> </p>
-<p><span class="target" id="group__internal_1DDS_READ_WITHOUT_LOCK"></span></p>
-</dd></dl>
-
-<dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_KIND_MAX">
 <span class="target" id="group__internal_1ga2542f6f54c3624eaa01cbd12a449f6b4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_KIND_MAX</span></span></span> <a class="reference internal" href="#group__internal_1gga95025da70d4d5b7c257e4f84394c094aa5645873cb5a0535fca35ff7ee5066cf5"><span class="std std-ref"><span class="pre">DDS_KIND_CYCLONEDDS</span></span></a><a class="headerlink" href="#c.DDS_KIND_MAX" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Max entity kind, used for loops. </p>
@@ -489,24 +482,6 @@
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
-<dl class="c function">
-<dt class="sig sig-object c" id="c.dds_reader_lock_samples">
-<span class="target" id="group__internal_1gab19de41386b08df64b7b679c5f643410"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_reader_lock_samples</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_reader_lock_samples" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Returns number of samples in read cache and locks the reader cache, to make sure that the samples content doesn’t change. </p>
-<p>Because the cache is locked, you should be able to read/take without having to lock first. This is done by passing the <a class="reference internal" href="#group__internal_1DDS_READ_WITHOUT_LOCK"><span class="std std-ref">DDS_READ_WITHOUT_LOCK</span></a> value to the read/take call as maxs. Then the read/take will not lock but still unlock.</p>
-<p>CycloneDDS doesn’t support a read/take that just returns all available samples issue #74. As a work around to support LENGTH_UNLIMITED in C++. <a class="reference internal" href="#group__internal_1gab19de41386b08df64b7b679c5f643410"><span class="std std-ref">dds_reader_lock_samples()</span></a> and <a class="reference internal" href="#group__internal_1DDS_READ_WITHOUT_LOCK"><span class="std std-ref">DDS_READ_WITHOUT_LOCK</span></a> are needed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>reader</strong> – <strong>[in]</strong> Reader to lock the cache of.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the number of samples in the reader cache. </p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_cdrstream_desc_from_topic_desc">
 <span class="target" id="group__internal_1ga207ec6e2cc80ac3d4348bb95e17f973b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_cdrstream_desc_from_topic_desc</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_cdrstream_desc</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">desc</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_topic_descriptor_t" title="dds_topic_descriptor_t"><span class="n"><span class="pre">dds_topic_descriptor_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">topic_desc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_cdrstream_desc_from_topic_desc" title="Permalink to this definition">¶</a><br /></dt>
