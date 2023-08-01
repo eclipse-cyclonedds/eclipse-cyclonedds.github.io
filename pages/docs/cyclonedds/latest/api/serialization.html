@@ -862,6 +862,28 @@
 </dd></dl>
 
 <dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_KEY_MUTABLE">
+<span class="target" id="group__topic__flags_1ga6909dcb517d2b84c589794b038add048"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_KEY_MUTABLE</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">8)</span><a class="headerlink" href="#c.DDS_TOPIC_KEY_MUTABLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set if any of the key fields of a type is in a mutable aggregated type. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_KEY_MUTABLE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_KEY_APPENDABLE">
+<span class="target" id="group__topic__flags_1ga0c1d7f23afb6f258f63af6ae1d1b0512"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_KEY_APPENDABLE</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">9)</span><a class="headerlink" href="#c.DDS_TOPIC_KEY_APPENDABLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set if any of the key fields of a type is in an appendable aggregated type. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_KEY_APPENDABLE"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_FIXED_KEY_XCDR2_KEYHASH">
+<span class="target" id="group__topic__flags_1ga841b02c1cc9341c174f9f79a573a013d"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FIXED_KEY_XCDR2_KEYHASH</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">10)</span><a class="headerlink" href="#c.DDS_TOPIC_FIXED_KEY_XCDR2_KEYHASH" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The XCDRV2 serialized key with field in member-id order fits in 16 bytes. If statically determined that a serialized key that is used to get the keyhash always fits in 16 bytes, the spec specifies that the keyhash of a sample is the resulting CDR. If it is longer we must use MD5 to hash the resultant key CDR. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_FIXED_KEY_XCDR2_KEYHASH"></span></p>
+<p>The XCDRV1 key-hash is calculated from the serialized key with the fields in definition order, so DDS_TOPIC_FIXED_KEY can also be used for key-hash for XCDR1. </p>
+</dd></dl>
+
+<dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_FIXED_KEY_MAX_SIZE">
 <span class="target" id="group__topic__flags_1gaf8e59c6bd27d2e84cf721ea30dee7160"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_FIXED_KEY_MAX_SIZE</span></span></span> <span class="pre">(16)</span><a class="headerlink" href="#c.DDS_FIXED_KEY_MAX_SIZE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Max size of fixed key. </p>
