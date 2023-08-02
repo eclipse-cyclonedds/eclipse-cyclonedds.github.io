@@ -533,8 +533,8 @@
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">cyclonedds._clayer</span> <span class="k">as</span> <span class="nn">_clayer</span>  <span class="c1"># noqa E402</span>
-<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;Error importing Cyclone DDS C library (should be built with type library enabled, using the ENABLE_TYPELIB build option)&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error importing Cyclone DDS C library: is Cyclone built using the ENABLE_TYPELIB build option? -- </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
 
 <span class="n">dds_infinity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_clayer</span><span class="o">.</span><span class="n">DDS_INFINITY</span>
 <span class="n">uint32_max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">_clayer</span><span class="o">.</span><span class="n">UINT32_MAX</span>
