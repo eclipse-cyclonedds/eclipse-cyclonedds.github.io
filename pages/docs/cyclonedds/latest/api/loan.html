@@ -143,7 +143,6 @@
 <li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
@@ -170,36 +169,65 @@
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="c function">
-<dt class="sig sig-object c" id="c.dds_return_loan">
-<span class="target" id="group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_return_loan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_return_loan" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Return loaned samples to a reader or writer</p>
-<p>Used to release sample buffers returned by a read/take operation (a reader-loan) or, in case shared memory is enabled, of the loan_sample operation (a writer-loan). </p>
-<p>When the application provides an empty buffer to a reader-loan, memory is allocated and managed by DDS. By calling <a class="reference internal" href="#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan()</span></a>, the reader-loan is released so that the buffer can be reused during a successive read/take operation. When a condition is provided, the reader to which the condition belongs is looked up.</p>
-<p>Writer-loans are normally released implicitly when writing a loaned sample, but you can cancel a writer-loan prematurely by invoking the return_loan() operation. For writer loans, buf is overwritten with null pointers for all successfully returned entries. Any failure causes it to abort, possibly midway through buf.</p>
+<dt class="sig sig-object c" id="c.dds_request_loan">
+<span class="target" id="group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_request_loan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_request_loan" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Request a loan from an entity. </p>
+<p>Borrow a sample from the entity, which currently must be a writer. This sample can then be returned using <code class="docutils literal notranslate"><span class="pre">dds_return_loan</span></code> or can be used to publish data using <code class="docutils literal notranslate"><span class="pre">dds_write</span></code> or <code class="docutils literal notranslate"><span class="pre">dds_writedispose</span></code>.</p>
+<p>If the topic type has a fixed size (and so no internal pointers) and a PSMX interface is configured, the memory will be borrowed from the PSMX implementation, which allows Cyclone to avoid copies and/or serialization if there is no need for sending the data over a network interface or storing it in the WHC.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>entity</strong> – <strong>[in]</strong> The entity that the loan belongs to. </p></li>
+<li><p><strong>entity</strong> – <strong>[in]</strong> The entity to request loans from. </p></li>
+<li><p><strong>sample</strong> – <strong>[out]</strong> Where to store the address of the loaned sample.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more parameters are invalid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An unfortunate incident occurred. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_return_loan">
+<span class="target" id="group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_return_loan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_return_loan" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return loaned samples to a reader or writer</p>
+<p>Used to release middleware-owned samples returned by a read/take operation and samples borrowed from the writer using <code class="docutils literal notranslate"><span class="pre">dds_request_loan</span></code>. </p>
+<p>For reader loans, the <code class="docutils literal notranslate"><span class="pre">dds_read</span></code> and <code class="docutils literal notranslate"><span class="pre">dds_take</span></code> operations implicitly return outstanding loans referenced by the sample array passed in. Looping until no data is returned therefore often eliminates the need for calling this function.</p>
+<p>For writer loans, a <code class="docutils literal notranslate"><span class="pre">dds_write</span></code> operation takes over the loan. Consequently, this function is only needed in the exceptional case where a loan is taken but ultimately not used to publish data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> The entity that the loan(s) belong to. If a read or query condition is passed in for the entity, the reader for that condition is used. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of (pointers to) samples, some or all of which will be set to null pointers. </p></li>
-<li><p><strong>bufsz</strong> – <strong>[in]</strong> The number of (pointers to) samples stored in buf.</p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of the buffer.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return values</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – <ul>
-<li><p>the operation was successful; for a writer loan, all entries in buf are set to null</p></li>
-<li><p>this specifically includes cases where bufsz &lt;= 0 while entity is valid </p></li>
+<li><p>the operation was successful</p></li>
+<li><p>a no-op if bufsz &lt;= 0, otherwise</p></li>
+<li><p>buf[0] .. buf[k-1] were successfully returned loans, k = bufsz or buf[k] = null</p></li>
+<li><p>buf[0] is set to a null pointer, buf[k &gt; 0] undefined </p></li>
 </ul>
 </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – <ul>
 <li><p>the entity parameter is not a valid parameter</p></li>
 <li><p>buf is null, or bufsz &gt; 0 and buf[0] = null</p></li>
-<li><p>(for writer loans) buf[0 &lt;= i &lt; bufsz] is null; operation is aborted, all buf[j &lt; i] = null on return </p></li>
+<li><p>a non-loan was encountered (all loans are still returned) </p></li>
 </ul>
 </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – <ul>
-<li><p>(for reader loans) buf was already returned (not guaranteed to be detected)</p></li>
-<li><p>(for writer loans) buf[0 &lt;= i &lt; bufsz] does not correspond to an outstanding loan, all buf[j &lt; i] = null on return </p></li>
+<li><p>bufsz &gt; 0 and buf[0] != null but not a loan, nothing done </p></li>
 </ul>
 </p></li>
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – <ul>
@@ -219,32 +247,12 @@
 </dd></dl>
 
 <dl class="c function">
-<dt class="sig sig-object c" id="c.dds_is_loan_available">
-<span class="target" id="group__loan_1gaf9b390386aff8ed9ba1ad8477a22339f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_is_loan_available</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_is_loan_available" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Check if a Loan is available to reader/writer The loan is available if the shared memory is enabled and all the constraints to enable shared memory are met and the type is fixed. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>dds_loan_sample can be used if and only if dds_is_loan_available returns true.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entity</strong> – <strong>[in]</strong> the handle of the entity</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>loan available or not </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
 <dt class="sig sig-object c" id="c.dds_is_shared_memory_available">
 <span class="target" id="group__loan_1ga476b64d60d4f5c30c982e8874a9abf0c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_is_shared_memory_available</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_is_shared_memory_available" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Check if a shared memory is available to reader/writer. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>dds_loan_shared_memory_buffer can be used if and only if dds_is_shared_memory_available returns true.</p>
+<p>dds_request_loan_of_size can be used if and only if dds_is_shared_memory_available returns true.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -259,13 +267,10 @@
 </dd></dl>
 
 <dl class="c function">
-<dt class="sig sig-object c" id="c.dds_loan_shared_memory_buffer">
-<span class="target" id="group__loan_1ga353b7d7fcdfa3b69a8606937ff692f4d"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loan_shared_memory_buffer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_loan_shared_memory_buffer" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Loan a shared memory buffer of a specific size from the writer. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently this function is to be used with dds_writecdr by adding the loaned buffer to serdata as iox_chunk. </p>
-</div>
+<dt class="sig sig-object c" id="c.dds_request_loan_of_size">
+<span class="target" id="group__loan_1ga15bd17fe3eebde129ce1acbb406c9487"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_request_loan_of_size</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_request_loan_of_size" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Request a loan of a specified size from an entity. </p>
+<p>Borrow a sample of a specified size from the entity, which currently must be a writer. This sample can then be returned using <code class="docutils literal notranslate"><span class="pre">dds_return_loan</span></code> or can be used to publish data using <code class="docutils literal notranslate"><span class="pre">dds_write</span></code> or <code class="docutils literal notranslate"><span class="pre">dds_writedispose</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The function can only be used if dds_is_shared_memory_available is true for the writer.</p>
@@ -273,34 +278,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>writer</strong> – <strong>[in]</strong> the writer to loan the buffer from </p></li>
-<li><p><strong>size</strong> – <strong>[in]</strong> the requested buffer size </p></li>
-<li><p><strong>buffer</strong> – <strong>[out]</strong> the loaned buffer</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>DDS_RETCODE_OK if successful, DDS_RETCODE_ERROR otherwise </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="c function">
-<dt class="sig sig-object c" id="c.dds_loan_sample">
-<span class="target" id="group__loan_1ga1d8e5f21e6024834693515e6b88f19cd"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loan_sample</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_loan_sample" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Loan a sample from the writer. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This function is to be used with dds_write to publish the loaned sample. </p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The function can only be used if dds_is_loan_available is true for the writer.</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>writer</strong> – <strong>[in]</strong> the writer to loan the buffer from </p></li>
-<li><p><strong>sample</strong> – <strong>[out]</strong> the loaned sample</p></li>
+<li><p><strong>writer</strong> – <strong>[in]</strong> The entity to request loans from. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> the requested loan size </p></li>
+<li><p><strong>sample</strong> – <strong>[out]</strong> Where to store the address of the loaned sample.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

@@ -137,7 +137,6 @@
 <li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Deprecated functionality</a></li>
@@ -196,6 +195,66 @@
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A valid topic handle or an error code.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_is_loan_available">
+<span class="target" id="group__deprecated_1gaf9b390386aff8ed9ba1ad8477a22339f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_is_loan_available</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_is_loan_available" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a Loan is available to reader/writer. </p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Use <a class="reference internal" href="loan.html#group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"><span class="std std-ref">dds_request_loan</span></a> instead, returns 0 if loan is not available</p>
+</dd></dl>
+
+</p>
+<p>The loan is available if the shared memory is enabled and all the constraints to enable shared memory are met and the type is fixed </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>dds_loan_sample can be used if and only if dds_is_loan_available returns true.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> the handle of the entity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>loan available or not </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_loan_sample">
+<span class="target" id="group__deprecated_1ga1d8e5f21e6024834693515e6b88f19cd"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loan_sample</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_loan_sample" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Loan a sample from the writer. </p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Use <a class="reference internal" href="loan.html#group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"><span class="std std-ref">dds_request_loan</span></a> </p>
+</dd></dl>
+
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is to be used with dds_write to publish the loaned sample. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function can only be used if dds_is_loan_available is true for the writer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> the writer to loan the buffer from </p></li>
+<li><p><strong>sample</strong> – <strong>[out]</strong> the loaned sample</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DDS_RETCODE_OK if successful, DDS_RETCODE_ERROR otherwise </p>
 </dd>
 </dl>
 </dd></dl>

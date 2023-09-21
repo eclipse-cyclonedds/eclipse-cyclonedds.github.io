@@ -137,7 +137,6 @@
 <li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="alloc.html">Data Allocator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
@@ -1020,6 +1019,21 @@
 </dl>
 </dd></dl>
 
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_psmx_instances">
+<span class="target" id="group__qos__setters_1ga1b42cb15ce1d769f5cb491e9fdc4f2be"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_psmx_instances</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">n</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_psmx_instances" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the supported PSMX instances of a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the policy </p></li>
+<li><p><strong>n</strong> – <strong>[in]</strong> - Number of PSMX instances </p></li>
+<li><p><strong>values</strong> – <strong>[in]</strong> - Names of the PSMX instances kind values </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </dd></dl>
 
@@ -1568,6 +1582,24 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>- false iff any of the arguments is invalid or the qos is not present in the qos object or if a buffer to store the name could not be allocated. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_psmx_instances">
+<span class="target" id="group__qos__getters_1gae023870b7928f848a12b4acee8ded010"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_psmx_instances</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">n_out</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_psmx_instances" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the names of the PSMX instances set in a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – Pointer to a dds_qos_t structure </p></li>
+<li><p><strong>n_out</strong> – Number of PSMX instance names returned </p></li>
+<li><p><strong>values</strong> – Names of the PSMX instances </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>bool indicating success or failure </p>
 </dd>
 </dl>
 </dd></dl>

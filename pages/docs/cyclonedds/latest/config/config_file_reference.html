@@ -417,7 +417,7 @@ The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr,
 </section>
 <section id="cyclonedds-domain-general-interfaces">
 <span id="id40"></span><h5>//CycloneDDS/Domain/General/Interfaces<a class="headerlink" href="#cyclonedds-domain-general-interfaces" title="Permalink to this headline">¶</a></h5>
-<p>Children: <a class="reference internal" href="#cyclonedds-domain-general-interfaces-networkinterface">//CycloneDDS/Domain/General/Interfaces/NetworkInterface</a></p>
+<p>Children: <a class="reference internal" href="#cyclonedds-domain-general-interfaces-networkinterface">//CycloneDDS/Domain/General/Interfaces/NetworkInterface</a>, <a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange</a></p>
 <p>This element specifies the network interfaces for use by Cyclone DDS. Multiple interfaces can be specified with an assigned priority. The list in use will be sorted by priority. If interfaces have an equal priority, the specification order will be preserved.</p>
 <section id="cyclonedds-domain-general-interfaces-networkinterface">
 <span id="id41"></span><h6>//CycloneDDS/Domain/General/Interfaces/NetworkInterface<a class="headerlink" href="#cyclonedds-domain-general-interfaces-networkinterface" title="Permalink to this headline">¶</a></h6>
@@ -439,8 +439,8 @@ The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr,
 <section id="cyclonedds-domain-general-interfaces-networkinterface-multicast">
 <span id="id44"></span><h6>//CycloneDDS/Domain/General/Interfaces/NetworkInterface[&#64;multicast]<a class="headerlink" href="#cyclonedds-domain-general-interfaces-networkinterface-multicast" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
-<p>This attribute specifies whether the interface should use multicast. On its default setting, ‘default’, it will use the value as return by the operating system. If set to ‘true’, the interface will be assumed to be multicast capable even when the interface flags returned by the operating system state it is not (this provides a workaround for some platforms). If set to ‘false’, the interface will never be used for multicast.
-The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
+<p>This attribute specifies whether the interface should use multicast. On its default setting, ‘default’, it will use the value as return by the operating system. If set to ‘true’, the interface will be assumed to be multicast capable even when the interface flags returned by the operating system state it is not (this provides a workaround for some platforms). If set to ‘false’, the interface will never be used for multicast.</p>
+<p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-general-interfaces-networkinterface-name">
 <span id="id45"></span><h6>//CycloneDDS/Domain/General/Interfaces/NetworkInterface[&#64;name]<a class="headerlink" href="#cyclonedds-domain-general-interfaces-networkinterface-name" title="Permalink to this headline">¶</a></h6>
@@ -466,9 +466,38 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>This attribute specifies the interface priority (decimal integer or default). The default value for loopback interfaces is 2, for all other interfaces it is 0.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
+<section id="cyclonedds-domain-general-interfaces-pubsubmessageexchange">
+<span id="id49"></span><h6>//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange<a class="headerlink" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange" title="Permalink to this headline">¶</a></h6>
+<p>Attributes: [config](<a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-config">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;config]</a>), [library](<a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-library">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;library]</a>), [name](<a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-name">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;name]</a>), [priority](<a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-priority">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;priority]</a>)</p>
+<p>This element defines a PSMX.</p>
+</section>
+<section id="cyclonedds-domain-general-interfaces-pubsubmessageexchange-config">
+<span id="id50"></span><h6>//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;config]<a class="headerlink" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-config" title="Permalink to this headline">¶</a></h6>
+<p>Text</p>
+<p>This attribute specifies any configuration data for the PSMX instance.This has no meaning in CycloneDDS itself, and its parsing is deferred to thePSMX implementation.</p>
+<p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
+</section>
+<section id="cyclonedds-domain-general-interfaces-pubsubmessageexchange-library">
+<span id="id51"></span><h6>//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;library]<a class="headerlink" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-library" title="Permalink to this headline">¶</a></h6>
+<p>Text</p>
+<p>This attribute specifies the filename of the interface library.</p>
+<p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
+</section>
+<section id="cyclonedds-domain-general-interfaces-pubsubmessageexchange-name">
+<span id="id52"></span><h6>//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;name]<a class="headerlink" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-name" title="Permalink to this headline">¶</a></h6>
+<p>Text</p>
+<p>This attribute specifies the name of the interface.</p>
+<p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
+</section>
+<section id="cyclonedds-domain-general-interfaces-pubsubmessageexchange-priority">
+<span id="id53"></span><h6>//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;priority]<a class="headerlink" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-priority" title="Permalink to this headline">¶</a></h6>
+<p>Text</p>
+<p>This attribute specifies the interface priority (decimal integer or default). The default value for a PSMX is 0.</p>
+<p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
+</section>
 </section>
 <section id="cyclonedds-domain-general-maxmessagesize">
-<span id="id49"></span><h5>//CycloneDDS/Domain/General/MaxMessageSize<a class="headerlink" href="#cyclonedds-domain-general-maxmessagesize" title="Permalink to this headline">¶</a></h5>
+<span id="id54"></span><h5>//CycloneDDS/Domain/General/MaxMessageSize<a class="headerlink" href="#cyclonedds-domain-general-maxmessagesize" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element specifies the maximum size of the UDP payload that Cyclone DDS will generate. Cyclone DDS will try to maintain this limit within the bounds of the DDSI specification, which means that in some cases (especially for very low values of MaxMessageSize) larger payloads may sporadically be observed (currently up to 1192 B).</p>
 <p>On some networks it may be necessary to set this item to keep the packetsize below the MTU to prevent IP fragmentation.</p>
@@ -476,7 +505,7 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">14720</span> <span class="pre">B</span></code></p>
 </section>
 <section id="cyclonedds-domain-general-maxrexmitmessagesize">
-<span id="id50"></span><h5>//CycloneDDS/Domain/General/MaxRexmitMessageSize<a class="headerlink" href="#cyclonedds-domain-general-maxrexmitmessagesize" title="Permalink to this headline">¶</a></h5>
+<span id="id55"></span><h5>//CycloneDDS/Domain/General/MaxRexmitMessageSize<a class="headerlink" href="#cyclonedds-domain-general-maxrexmitmessagesize" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element specifies the maximum size of the UDP payload that Cyclone DDS will generate for a retransmit. Cyclone DDS will try to maintain this limit within the bounds of the DDSI specification, which means that in some cases (especially for very low values) larger payloads may sporadically be observed (currently up to 1192 B).</p>
 <p>On some networks it may be necessary to set this item to keep the packetsize below the MTU to prevent IP fragmentation.</p>
@@ -484,7 +513,7 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">1456</span> <span class="pre">B</span></code></p>
 </section>
 <section id="cyclonedds-domain-general-multicastrecvnetworkinterfaceaddresses">
-<span id="id51"></span><h5>//CycloneDDS/Domain/General/MulticastRecvNetworkInterfaceAddresses<a class="headerlink" href="#cyclonedds-domain-general-multicastrecvnetworkinterfaceaddresses" title="Permalink to this headline">¶</a></h5>
+<span id="id56"></span><h5>//CycloneDDS/Domain/General/MulticastRecvNetworkInterfaceAddresses<a class="headerlink" href="#cyclonedds-domain-general-multicastrecvnetworkinterfaceaddresses" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>This element specifies which network interfaces Cyclone DDS listens to multicasts. The following options are available:</p>
 <blockquote>
@@ -500,56 +529,56 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">preferred</span></code></p>
 </section>
 <section id="cyclonedds-domain-general-multicasttimetolive">
-<span id="id52"></span><h5>//CycloneDDS/Domain/General/MulticastTimeToLive<a class="headerlink" href="#cyclonedds-domain-general-multicasttimetolive" title="Permalink to this headline">¶</a></h5>
+<span id="id57"></span><h5>//CycloneDDS/Domain/General/MulticastTimeToLive<a class="headerlink" href="#cyclonedds-domain-general-multicasttimetolive" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element specifies the time-to-live setting for outgoing multicast packets.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">32</span></code></p>
 </section>
 <section id="cyclonedds-domain-general-redundantnetworking">
-<span id="id53"></span><h5>//CycloneDDS/Domain/General/RedundantNetworking<a class="headerlink" href="#cyclonedds-domain-general-redundantnetworking" title="Permalink to this headline">¶</a></h5>
+<span id="id58"></span><h5>//CycloneDDS/Domain/General/RedundantNetworking<a class="headerlink" href="#cyclonedds-domain-general-redundantnetworking" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>When enabled, use selected network interfaces in parallel for redundancy.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-general-transport">
-<span id="id54"></span><h5>//CycloneDDS/Domain/General/Transport<a class="headerlink" href="#cyclonedds-domain-general-transport" title="Permalink to this headline">¶</a></h5>
+<span id="id59"></span><h5>//CycloneDDS/Domain/General/Transport<a class="headerlink" href="#cyclonedds-domain-general-transport" title="Permalink to this headline">¶</a></h5>
 <p>One of: default, udp, udp6, tcp, tcp6, raweth</p>
 <p>This element allows selecting the transport to be used (udp, udp6, tcp, tcp6, raweth)</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-general-useipv6">
-<span id="id55"></span><h5>//CycloneDDS/Domain/General/UseIPv6<a class="headerlink" href="#cyclonedds-domain-general-useipv6" title="Permalink to this headline">¶</a></h5>
+<span id="id60"></span><h5>//CycloneDDS/Domain/General/UseIPv6<a class="headerlink" href="#cyclonedds-domain-general-useipv6" title="Permalink to this headline">¶</a></h5>
 <p>One of: false, true, default</p>
 <p>Deprecated (use Transport instead)</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-internal">
-<span id="id56"></span><h4>//CycloneDDS/Domain/Internal<a class="headerlink" href="#cyclonedds-domain-internal" title="Permalink to this headline">¶</a></h4>
+<span id="id61"></span><h4>//CycloneDDS/Domain/Internal<a class="headerlink" href="#cyclonedds-domain-internal" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-internal-acceleraterexmitblocksize">//CycloneDDS/Domain/Internal/AccelerateRexmitBlockSize</a>, <a class="reference internal" href="#cyclonedds-domain-internal-ackdelay">//CycloneDDS/Domain/Internal/AckDelay</a>, <a class="reference internal" href="#cyclonedds-domain-internal-autoreschednackdelay">//CycloneDDS/Domain/Internal/AutoReschedNackDelay</a>, <a class="reference internal" href="#cyclonedds-domain-internal-builtinendpointset">//CycloneDDS/Domain/Internal/BuiltinEndpointSet</a>, <a class="reference internal" href="#cyclonedds-domain-internal-burstsize">//CycloneDDS/Domain/Internal/BurstSize</a>, <a class="reference internal" href="#cyclonedds-domain-internal-controltopic">//CycloneDDS/Domain/Internal/ControlTopic</a>, <a class="reference internal" href="#cyclonedds-domain-internal-defragreliablemaxsamples">//CycloneDDS/Domain/Internal/DefragReliableMaxSamples</a>, <a class="reference internal" href="#cyclonedds-domain-internal-defragunreliablemaxsamples">//CycloneDDS/Domain/Internal/DefragUnreliableMaxSamples</a>, <a class="reference internal" href="#cyclonedds-domain-internal-deliveryqueuemaxsamples">//CycloneDDS/Domain/Internal/DeliveryQueueMaxSamples</a>, <a class="reference internal" href="#cyclonedds-domain-internal-enableexpensivechecks">//CycloneDDS/Domain/Internal/EnableExpensiveChecks</a>, <a class="reference internal" href="#cyclonedds-domain-internal-generatekeyhash">//CycloneDDS/Domain/Internal/GenerateKeyhash</a>, <a class="reference internal" href="#cyclonedds-domain-internal-heartbeatinterval">//CycloneDDS/Domain/Internal/HeartbeatInterval</a>, <a class="reference internal" href="#cyclonedds-domain-internal-lateackmode">//CycloneDDS/Domain/Internal/LateAckMode</a>, <a class="reference internal" href="#cyclonedds-domain-internal-livelinessmonitoring">//CycloneDDS/Domain/Internal/LivelinessMonitoring</a>, <a class="reference internal" href="#cyclonedds-domain-internal-maxparticipants">//CycloneDDS/Domain/Internal/MaxParticipants</a>, <a class="reference internal" href="#cyclonedds-domain-internal-maxqueuedrexmitbytes">//CycloneDDS/Domain/Internal/MaxQueuedRexmitBytes</a>, <a class="reference internal" href="#cyclonedds-domain-internal-maxqueuedrexmitmessages">//CycloneDDS/Domain/Internal/MaxQueuedRexmitMessages</a>, <a class="reference internal" href="#cyclonedds-domain-internal-maxsamplesize">//CycloneDDS/Domain/Internal/MaxSampleSize</a>, <a class="reference internal" href="#cyclonedds-domain-internal-measurehbtoacklatency">//CycloneDDS/Domain/Internal/MeasureHbToAckLatency</a>, <a class="reference internal" href="#cyclonedds-domain-internal-monitorport">//CycloneDDS/Domain/Internal/MonitorPort</a>, <a class="reference internal" href="#cyclonedds-domain-internal-multiplereceivethreads">//CycloneDDS/Domain/Internal/MultipleReceiveThreads</a>, <a class="reference internal" href="#cyclonedds-domain-internal-nackdelay">//CycloneDDS/Domain/Internal/NackDelay</a>, <a class="reference internal" href="#cyclonedds-domain-internal-preemptiveackdelay">//CycloneDDS/Domain/Internal/PreEmptiveAckDelay</a>, <a class="reference internal" href="#cyclonedds-domain-internal-primaryreordermaxsamples">//CycloneDDS/Domain/Internal/PrimaryReorderMaxSamples</a>, <a class="reference internal" href="#cyclonedds-domain-internal-prioritizeretransmit">//CycloneDDS/Domain/Internal/PrioritizeRetransmit</a>, <a class="reference internal" href="#cyclonedds-domain-internal-rediscoveryblacklistduration">//CycloneDDS/Domain/Internal/RediscoveryBlacklistDuration</a>, <a class="reference internal" href="#cyclonedds-domain-internal-retransmitmerging">//CycloneDDS/Domain/Internal/RetransmitMerging</a>, <a class="reference internal" href="#cyclonedds-domain-internal-retransmitmergingperiod">//CycloneDDS/Domain/Internal/RetransmitMergingPeriod</a>, <a class="reference internal" href="#cyclonedds-domain-internal-retryonrejectbesteffort">//CycloneDDS/Domain/Internal/RetryOnRejectBestEffort</a>, <a class="reference internal" href="#cyclonedds-domain-internal-spdpresponsemaxdelay">//CycloneDDS/Domain/Internal/SPDPResponseMaxDelay</a>, <a class="reference internal" href="#cyclonedds-domain-internal-secondaryreordermaxsamples">//CycloneDDS/Domain/Internal/SecondaryReorderMaxSamples</a>, <a class="reference internal" href="#cyclonedds-domain-internal-socketreceivebuffersize">//CycloneDDS/Domain/Internal/SocketReceiveBufferSize</a>, <a class="reference internal" href="#cyclonedds-domain-internal-socketsendbuffersize">//CycloneDDS/Domain/Internal/SocketSendBufferSize</a>, <a class="reference internal" href="#cyclonedds-domain-internal-squashparticipants">//CycloneDDS/Domain/Internal/SquashParticipants</a>, <a class="reference internal" href="#cyclonedds-domain-internal-synchronousdeliverylatencybound">//CycloneDDS/Domain/Internal/SynchronousDeliveryLatencyBound</a>, <a class="reference internal" href="#cyclonedds-domain-internal-synchronousdeliveryprioritythreshold">//CycloneDDS/Domain/Internal/SynchronousDeliveryPriorityThreshold</a>, <a class="reference internal" href="#cyclonedds-domain-internal-test">//CycloneDDS/Domain/Internal/Test</a>, <a class="reference internal" href="#cyclonedds-domain-internal-unicastresponsetospdpmessages">//CycloneDDS/Domain/Internal/UnicastResponseToSPDPMessages</a>, <a class="reference internal" href="#cyclonedds-domain-internal-usemulticastifmreqn">//CycloneDDS/Domain/Internal/UseMulticastIfMreqn</a>, <a class="reference internal" href="#cyclonedds-domain-internal-watermarks">//CycloneDDS/Domain/Internal/Watermarks</a>, <a class="reference internal" href="#cyclonedds-domain-internal-writerlingerduration">//CycloneDDS/Domain/Internal/WriterLingerDuration</a></p>
 <p>The Internal elements deal with a variety of settings that are evolving and that are not necessarily fully supported. For the majority of the Internal settings the functionality is supported, but the right to change the way the options control the functionality is reserved. This includes renaming or moving options.</p>
 <section id="cyclonedds-domain-internal-acceleraterexmitblocksize">
-<span id="id57"></span><h5>//CycloneDDS/Domain/Internal/AccelerateRexmitBlockSize<a class="headerlink" href="#cyclonedds-domain-internal-acceleraterexmitblocksize" title="Permalink to this headline">¶</a></h5>
+<span id="id62"></span><h5>//CycloneDDS/Domain/Internal/AccelerateRexmitBlockSize<a class="headerlink" href="#cyclonedds-domain-internal-acceleraterexmitblocksize" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>Proxy readers that are assumed to still be retrieving historical data get this many samples retransmitted when they NACK something, even if some of these samples have sequence numbers outside the set covered by the NACK.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-ackdelay">
-<span id="id58"></span><h5>//CycloneDDS/Domain/Internal/AckDelay<a class="headerlink" href="#cyclonedds-domain-internal-ackdelay" title="Permalink to this headline">¶</a></h5>
+<span id="id63"></span><h5>//CycloneDDS/Domain/Internal/AckDelay<a class="headerlink" href="#cyclonedds-domain-internal-ackdelay" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting controls the delay between sending identical acknowledgements.</p>
 <p>The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-autoreschednackdelay">
-<span id="id59"></span><h5>//CycloneDDS/Domain/Internal/AutoReschedNackDelay<a class="headerlink" href="#cyclonedds-domain-internal-autoreschednackdelay" title="Permalink to this headline">¶</a></h5>
+<span id="id64"></span><h5>//CycloneDDS/Domain/Internal/AutoReschedNackDelay<a class="headerlink" href="#cyclonedds-domain-internal-autoreschednackdelay" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting controls the interval with which a reader will continue NACK’ing missing samples in the absence of a response from the writer, as a protection mechanism against writers incorrectly stopping the sending of HEARTBEAT messages.</p>
 <p>Valid values are finite durations with an explicit unit or the keyword ‘inf’ for infinity. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">s</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-builtinendpointset">
-<span id="id60"></span><h5>//CycloneDDS/Domain/Internal/BuiltinEndpointSet<a class="headerlink" href="#cyclonedds-domain-internal-builtinendpointset" title="Permalink to this headline">¶</a></h5>
+<span id="id65"></span><h5>//CycloneDDS/Domain/Internal/BuiltinEndpointSet<a class="headerlink" href="#cyclonedds-domain-internal-builtinendpointset" title="Permalink to this headline">¶</a></h5>
 <p>One of: full, writers, minimal</p>
 <dl class="simple">
 <dt>This element controls which participants will have which built-in endpoints for the discovery and liveliness protocols. Valid values are:</dt><dd><ul class="simple">
@@ -563,18 +592,18 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">writers</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-burstsize">
-<span id="id61"></span><h5>//CycloneDDS/Domain/Internal/BurstSize<a class="headerlink" href="#cyclonedds-domain-internal-burstsize" title="Permalink to this headline">¶</a></h5>
+<span id="id66"></span><h5>//CycloneDDS/Domain/Internal/BurstSize<a class="headerlink" href="#cyclonedds-domain-internal-burstsize" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-internal-burstsize-maxinittransmit">//CycloneDDS/Domain/Internal/BurstSize/MaxInitTransmit</a>, <a class="reference internal" href="#cyclonedds-domain-internal-burstsize-maxrexmit">//CycloneDDS/Domain/Internal/BurstSize/MaxRexmit</a></p>
 <p>Setting for controlling the size of transmitting bursts.</p>
 <section id="cyclonedds-domain-internal-burstsize-maxinittransmit">
-<span id="id62"></span><h6>//CycloneDDS/Domain/Internal/BurstSize/MaxInitTransmit<a class="headerlink" href="#cyclonedds-domain-internal-burstsize-maxinittransmit" title="Permalink to this headline">¶</a></h6>
+<span id="id67"></span><h6>//CycloneDDS/Domain/Internal/BurstSize/MaxInitTransmit<a class="headerlink" href="#cyclonedds-domain-internal-burstsize-maxinittransmit" title="Permalink to this headline">¶</a></h6>
 <p>Number-with-unit</p>
 <p>This element specifies how much more than the (presumed or discovered) receive buffer size may be sent when transmitting a sample for the first time, expressed as a percentage; the remainder will then be handled via retransmits. Usually, the receivers can keep up with the transmitter, at least on average, so generally it is better to hope for the best and recover. Besides, the retransmits will be unicast, and so any multicast advantage will be lost as well.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">4294967295</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-burstsize-maxrexmit">
-<span id="id63"></span><h6>//CycloneDDS/Domain/Internal/BurstSize/MaxRexmit<a class="headerlink" href="#cyclonedds-domain-internal-burstsize-maxrexmit" title="Permalink to this headline">¶</a></h6>
+<span id="id68"></span><h6>//CycloneDDS/Domain/Internal/BurstSize/MaxRexmit<a class="headerlink" href="#cyclonedds-domain-internal-burstsize-maxrexmit" title="Permalink to this headline">¶</a></h6>
 <p>Number-with-unit</p>
 <p>This element specifies the amount of data to be retransmitted in response to one NACK.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
@@ -582,29 +611,29 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 </section>
 </section>
 <section id="cyclonedds-domain-internal-controltopic">
-<span id="id64"></span><h5>//CycloneDDS/Domain/Internal/ControlTopic<a class="headerlink" href="#cyclonedds-domain-internal-controltopic" title="Permalink to this headline">¶</a></h5>
+<span id="id69"></span><h5>//CycloneDDS/Domain/Internal/ControlTopic<a class="headerlink" href="#cyclonedds-domain-internal-controltopic" title="Permalink to this headline">¶</a></h5>
 <p>The ControlTopic element allows configured whether Cyclone DDS provides a special control interface via a predefined topic or not.</p>
 </section>
 <section id="cyclonedds-domain-internal-defragreliablemaxsamples">
-<span id="id65"></span><h5>//CycloneDDS/Domain/Internal/DefragReliableMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-defragreliablemaxsamples" title="Permalink to this headline">¶</a></h5>
+<span id="id70"></span><h5>//CycloneDDS/Domain/Internal/DefragReliableMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-defragreliablemaxsamples" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element sets the maximum number of samples that can be defragmented simultaneously for a reliable writer. This has to be large enough to handle retransmissions of historical data in addition to new samples.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">16</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-defragunreliablemaxsamples">
-<span id="id66"></span><h5>//CycloneDDS/Domain/Internal/DefragUnreliableMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-defragunreliablemaxsamples" title="Permalink to this headline">¶</a></h5>
+<span id="id71"></span><h5>//CycloneDDS/Domain/Internal/DefragUnreliableMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-defragunreliablemaxsamples" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element sets the maximum number of samples that can be defragmented simultaneously for best-effort writers.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-deliveryqueuemaxsamples">
-<span id="id67"></span><h5>//CycloneDDS/Domain/Internal/DeliveryQueueMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-deliveryqueuemaxsamples" title="Permalink to this headline">¶</a></h5>
+<span id="id72"></span><h5>//CycloneDDS/Domain/Internal/DeliveryQueueMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-deliveryqueuemaxsamples" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element controls the maximum size of a delivery queue, expressed in samples. Once a delivery queue is full, incoming samples destined for that queue are dropped until space becomes available again.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">256</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-enableexpensivechecks">
-<span id="id68"></span><h5>//CycloneDDS/Domain/Internal/EnableExpensiveChecks<a class="headerlink" href="#cyclonedds-domain-internal-enableexpensivechecks" title="Permalink to this headline">¶</a></h5>
+<span id="id73"></span><h5>//CycloneDDS/Domain/Internal/EnableExpensiveChecks<a class="headerlink" href="#cyclonedds-domain-internal-enableexpensivechecks" title="Permalink to this headline">¶</a></h5>
 <p>One of:
 * Comma-separated list of: whc, rhc, xevent, all
 * Or empty</p>
@@ -620,13 +649,13 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-generatekeyhash">
-<span id="id69"></span><h5>//CycloneDDS/Domain/Internal/GenerateKeyhash<a class="headerlink" href="#cyclonedds-domain-internal-generatekeyhash" title="Permalink to this headline">¶</a></h5>
+<span id="id74"></span><h5>//CycloneDDS/Domain/Internal/GenerateKeyhash<a class="headerlink" href="#cyclonedds-domain-internal-generatekeyhash" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>When true, include keyhashes in outgoing data for topics with keys.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-heartbeatinterval">
-<span id="id70"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval" title="Permalink to this headline">¶</a></h5>
+<span id="id75"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval" title="Permalink to this headline">¶</a></h5>
 <p>Attributes: [max](<a class="reference internal" href="#cyclonedds-domain-internal-heartbeatinterval-max">//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;max]</a>), [min](<a class="reference internal" href="#cyclonedds-domain-internal-heartbeatinterval-min">//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;min]</a>), [minsched](<a class="reference internal" href="#cyclonedds-domain-internal-heartbeatinterval-minsched">//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;minsched]</a>)</p>
 <p>Number-with-unit</p>
 <p>This element allows configuring the base interval for sending writer heartbeats and the bounds within which it can vary.</p>
@@ -634,131 +663,131 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-heartbeatinterval-max">
-<span id="id71"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;max]<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval-max" title="Permalink to this headline">¶</a></h5>
+<span id="id76"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;max]<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval-max" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This attribute sets the maximum interval for periodic heartbeats.</p>
 <p>Valid values are finite durations with an explicit unit or the keyword ‘inf’ for infinity. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">8</span> <span class="pre">s</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-heartbeatinterval-min">
-<span id="id72"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;min]<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval-min" title="Permalink to this headline">¶</a></h5>
+<span id="id77"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;min]<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval-min" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This attribute sets the minimum interval that must have passed since the most recent heartbeat from a writer, before another asynchronous (not directly related to writing) will be sent.</p>
 <p>Valid values are finite durations with an explicit unit or the keyword ‘inf’ for infinity. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-heartbeatinterval-minsched">
-<span id="id73"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;minsched]<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval-minsched" title="Permalink to this headline">¶</a></h5>
+<span id="id78"></span><h5>//CycloneDDS/Domain/Internal/HeartbeatInterval[&#64;minsched]<a class="headerlink" href="#cyclonedds-domain-internal-heartbeatinterval-minsched" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This attribute sets the minimum interval for periodic heartbeats. Other events may still cause heartbeats to go out.</p>
 <p>Valid values are finite durations with an explicit unit or the keyword ‘inf’ for infinity. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">20</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-lateackmode">
-<span id="id74"></span><h5>//CycloneDDS/Domain/Internal/LateAckMode<a class="headerlink" href="#cyclonedds-domain-internal-lateackmode" title="Permalink to this headline">¶</a></h5>
+<span id="id79"></span><h5>//CycloneDDS/Domain/Internal/LateAckMode<a class="headerlink" href="#cyclonedds-domain-internal-lateackmode" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>Ack a sample only when it has been delivered, instead of when committed to delivering it.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-livelinessmonitoring">
-<span id="id75"></span><h5>//CycloneDDS/Domain/Internal/LivelinessMonitoring<a class="headerlink" href="#cyclonedds-domain-internal-livelinessmonitoring" title="Permalink to this headline">¶</a></h5>
+<span id="id80"></span><h5>//CycloneDDS/Domain/Internal/LivelinessMonitoring<a class="headerlink" href="#cyclonedds-domain-internal-livelinessmonitoring" title="Permalink to this headline">¶</a></h5>
 <p>Attributes: [Interval](<a class="reference internal" href="#cyclonedds-domain-internal-livelinessmonitoring-interval">//CycloneDDS/Domain/Internal/LivelinessMonitoring[&#64;Interval]</a>), [StackTraces](<a class="reference internal" href="#cyclonedds-domain-internal-livelinessmonitoring-stacktraces">//CycloneDDS/Domain/Internal/LivelinessMonitoring[&#64;StackTraces]</a>)</p>
 <p>Boolean</p>
 <p>This element controls whether or not implementation should internally monitor its own liveliness. If liveliness monitoring is enabled, stack traces can be dumped automatically when some thread appears to have stopped making progress.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-livelinessmonitoring-interval">
-<span id="id76"></span><h5>//CycloneDDS/Domain/Internal/LivelinessMonitoring[&#64;Interval]<a class="headerlink" href="#cyclonedds-domain-internal-livelinessmonitoring-interval" title="Permalink to this headline">¶</a></h5>
+<span id="id81"></span><h5>//CycloneDDS/Domain/Internal/LivelinessMonitoring[&#64;Interval]<a class="headerlink" href="#cyclonedds-domain-internal-livelinessmonitoring-interval" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element controls the interval to check whether threads have been making progress.</p>
 <p>The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">1s</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-livelinessmonitoring-stacktraces">
-<span id="id77"></span><h5>//CycloneDDS/Domain/Internal/LivelinessMonitoring[&#64;StackTraces]<a class="headerlink" href="#cyclonedds-domain-internal-livelinessmonitoring-stacktraces" title="Permalink to this headline">¶</a></h5>
+<span id="id82"></span><h5>//CycloneDDS/Domain/Internal/LivelinessMonitoring[&#64;StackTraces]<a class="headerlink" href="#cyclonedds-domain-internal-livelinessmonitoring-stacktraces" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This element controls whether or not to write stack traces to the DDSI2 trace when a thread fails to make progress (on select platforms only).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-maxparticipants">
-<span id="id78"></span><h5>//CycloneDDS/Domain/Internal/MaxParticipants<a class="headerlink" href="#cyclonedds-domain-internal-maxparticipants" title="Permalink to this headline">¶</a></h5>
+<span id="id83"></span><h5>//CycloneDDS/Domain/Internal/MaxParticipants<a class="headerlink" href="#cyclonedds-domain-internal-maxparticipants" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This elements configures the maximum number of DCPS domain participants this Cyclone DDS instance is willing to service. 0 is unlimited.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-maxqueuedrexmitbytes">
-<span id="id79"></span><h5>//CycloneDDS/Domain/Internal/MaxQueuedRexmitBytes<a class="headerlink" href="#cyclonedds-domain-internal-maxqueuedrexmitbytes" title="Permalink to this headline">¶</a></h5>
+<span id="id84"></span><h5>//CycloneDDS/Domain/Internal/MaxQueuedRexmitBytes<a class="headerlink" href="#cyclonedds-domain-internal-maxqueuedrexmitbytes" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting limits the maximum number of bytes queued for retransmission. The default value of 0 is unlimited unless an AuxiliaryBandwidthLimit has been set, in which case it becomes NackDelay * AuxiliaryBandwidthLimit. It must be large enough to contain the largest sample that may need to be retransmitted.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">512</span> <span class="pre">kB</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-maxqueuedrexmitmessages">
-<span id="id80"></span><h5>//CycloneDDS/Domain/Internal/MaxQueuedRexmitMessages<a class="headerlink" href="#cyclonedds-domain-internal-maxqueuedrexmitmessages" title="Permalink to this headline">¶</a></h5>
+<span id="id85"></span><h5>//CycloneDDS/Domain/Internal/MaxQueuedRexmitMessages<a class="headerlink" href="#cyclonedds-domain-internal-maxqueuedrexmitmessages" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This setting limits the maximum number of samples queued for retransmission.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">200</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-maxsamplesize">
-<span id="id81"></span><h5>//CycloneDDS/Domain/Internal/MaxSampleSize<a class="headerlink" href="#cyclonedds-domain-internal-maxsamplesize" title="Permalink to this headline">¶</a></h5>
+<span id="id86"></span><h5>//CycloneDDS/Domain/Internal/MaxSampleSize<a class="headerlink" href="#cyclonedds-domain-internal-maxsamplesize" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting controls the maximum (CDR) serialised size of samples that Cyclone DDS will forward in either direction. Samples larger than this are discarded with a warning.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">2147483647</span> <span class="pre">B</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-measurehbtoacklatency">
-<span id="id82"></span><h5>//CycloneDDS/Domain/Internal/MeasureHbToAckLatency<a class="headerlink" href="#cyclonedds-domain-internal-measurehbtoacklatency" title="Permalink to this headline">¶</a></h5>
+<span id="id87"></span><h5>//CycloneDDS/Domain/Internal/MeasureHbToAckLatency<a class="headerlink" href="#cyclonedds-domain-internal-measurehbtoacklatency" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This element enables heartbeat-to-ack latency among Cyclone DDS services by prepending timestamps to Heartbeat and AckNack messages and calculating round trip times. This is non-standard behaviour. The measured latencies are quite noisy and are currently not used anywhere.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-monitorport">
-<span id="id83"></span><h5>//CycloneDDS/Domain/Internal/MonitorPort<a class="headerlink" href="#cyclonedds-domain-internal-monitorport" title="Permalink to this headline">¶</a></h5>
+<span id="id88"></span><h5>//CycloneDDS/Domain/Internal/MonitorPort<a class="headerlink" href="#cyclonedds-domain-internal-monitorport" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element allows configuring a service that dumps a text description of part the internal state to TCP clients. By default (-1), this is disabled; specifying 0 means a kernel-allocated port is used; a positive number is used as the TCP port number.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-multiplereceivethreads">
-<span id="id84"></span><h5>//CycloneDDS/Domain/Internal/MultipleReceiveThreads<a class="headerlink" href="#cyclonedds-domain-internal-multiplereceivethreads" title="Permalink to this headline">¶</a></h5>
+<span id="id89"></span><h5>//CycloneDDS/Domain/Internal/MultipleReceiveThreads<a class="headerlink" href="#cyclonedds-domain-internal-multiplereceivethreads" title="Permalink to this headline">¶</a></h5>
 <p>Attributes: [maxretries](<a class="reference internal" href="#cyclonedds-domain-internal-multiplereceivethreads-maxretries">//CycloneDDS/Domain/Internal/MultipleReceiveThreads[&#64;maxretries]</a>)</p>
 <p>One of: false, true, default</p>
 <p>This element controls whether all traffic is handled by a single receive thread (false) or whether multiple receive threads may be used to improve latency (true). By default it is disabled on Windows because it appears that one cannot count on being able to send packets to oneself, which is necessary to stop the thread during shutdown. Currently multiple receive threads are only used for connectionless transport (e.g., UDP) and ManySocketsMode not set to single (the default).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-multiplereceivethreads-maxretries">
-<span id="id85"></span><h5>//CycloneDDS/Domain/Internal/MultipleReceiveThreads[&#64;maxretries]<a class="headerlink" href="#cyclonedds-domain-internal-multiplereceivethreads-maxretries" title="Permalink to this headline">¶</a></h5>
+<span id="id90"></span><h5>//CycloneDDS/Domain/Internal/MultipleReceiveThreads[&#64;maxretries]<a class="headerlink" href="#cyclonedds-domain-internal-multiplereceivethreads-maxretries" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>Receive threads dedicated to a single socket can only be triggered for termination by sending a packet. Reception of any packet will do, so termination failure due to packet loss is exceedingly unlikely, but to eliminate all risks, it will retry as many times as specified by this attribute before aborting.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">4294967295</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-nackdelay">
-<span id="id86"></span><h5>//CycloneDDS/Domain/Internal/NackDelay<a class="headerlink" href="#cyclonedds-domain-internal-nackdelay" title="Permalink to this headline">¶</a></h5>
+<span id="id91"></span><h5>//CycloneDDS/Domain/Internal/NackDelay<a class="headerlink" href="#cyclonedds-domain-internal-nackdelay" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting controls the delay between receipt of a HEARTBEAT indicating missing samples and a NACK (ignored when the HEARTBEAT requires an answer). However, no NACK is sent if a NACK had been scheduled already for a response earlier than the delay requests: then that NACK will incorporate the latest information.</p>
 <p>The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-preemptiveackdelay">
-<span id="id87"></span><h5>//CycloneDDS/Domain/Internal/PreEmptiveAckDelay<a class="headerlink" href="#cyclonedds-domain-internal-preemptiveackdelay" title="Permalink to this headline">¶</a></h5>
+<span id="id92"></span><h5>//CycloneDDS/Domain/Internal/PreEmptiveAckDelay<a class="headerlink" href="#cyclonedds-domain-internal-preemptiveackdelay" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting controls the delay between the discovering a remote writer and sending a pre-emptive AckNack to discover the available range of data.</p>
 <p>The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-primaryreordermaxsamples">
-<span id="id88"></span><h5>//CycloneDDS/Domain/Internal/PrimaryReorderMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-primaryreordermaxsamples" title="Permalink to this headline">¶</a></h5>
+<span id="id93"></span><h5>//CycloneDDS/Domain/Internal/PrimaryReorderMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-primaryreordermaxsamples" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element sets the maximum size in samples of a primary re-order administration. Each proxy writer has one primary re-order administration to buffer the packet flow in case some packets arrive out of order. Old samples are forwarded to secondary re-order administrations associated with readers needing historical data.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">128</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-prioritizeretransmit">
-<span id="id89"></span><h5>//CycloneDDS/Domain/Internal/PrioritizeRetransmit<a class="headerlink" href="#cyclonedds-domain-internal-prioritizeretransmit" title="Permalink to this headline">¶</a></h5>
+<span id="id94"></span><h5>//CycloneDDS/Domain/Internal/PrioritizeRetransmit<a class="headerlink" href="#cyclonedds-domain-internal-prioritizeretransmit" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This element controls whether retransmits are prioritized over new data, speeding up recovery.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-rediscoveryblacklistduration">
-<span id="id90"></span><h5>//CycloneDDS/Domain/Internal/RediscoveryBlacklistDuration<a class="headerlink" href="#cyclonedds-domain-internal-rediscoveryblacklistduration" title="Permalink to this headline">¶</a></h5>
+<span id="id95"></span><h5>//CycloneDDS/Domain/Internal/RediscoveryBlacklistDuration<a class="headerlink" href="#cyclonedds-domain-internal-rediscoveryblacklistduration" title="Permalink to this headline">¶</a></h5>
 <p>Attributes: [enforce](<a class="reference internal" href="#cyclonedds-domain-internal-rediscoveryblacklistduration-enforce">//CycloneDDS/Domain/Internal/RediscoveryBlacklistDuration[&#64;enforce]</a>)</p>
 <p>Number-with-unit</p>
 <p>This element controls for how long a remote participant that was previously deleted will remain on a blacklist to prevent rediscovery, giving the software on a node time to perform any cleanup actions it needs to do. To some extent this delay is required internally by Cyclone DDS, but in the default configuration with the ‘enforce’ attribute set to false, Cyclone DDS will reallow rediscovery as soon as it has cleared its internal administration. Setting it to too small a value may result in the entry being pruned from the blacklist before Cyclone DDS is ready, it is therefore recommended to set it to at least several seconds.</p>
@@ -766,13 +795,13 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">0s</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-rediscoveryblacklistduration-enforce">
-<span id="id91"></span><h5>//CycloneDDS/Domain/Internal/RediscoveryBlacklistDuration[&#64;enforce]<a class="headerlink" href="#cyclonedds-domain-internal-rediscoveryblacklistduration-enforce" title="Permalink to this headline">¶</a></h5>
+<span id="id96"></span><h5>//CycloneDDS/Domain/Internal/RediscoveryBlacklistDuration[&#64;enforce]<a class="headerlink" href="#cyclonedds-domain-internal-rediscoveryblacklistduration-enforce" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This attribute controls whether the configured time during which recently deleted participants will not be rediscovered (i.e., “black listed”) is enforced and following complete removal of the participant in Cyclone DDS, or whether it can be rediscovered earlier provided all traces of that participant have been removed already.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-retransmitmerging">
-<span id="id92"></span><h5>//CycloneDDS/Domain/Internal/RetransmitMerging<a class="headerlink" href="#cyclonedds-domain-internal-retransmitmerging" title="Permalink to this headline">¶</a></h5>
+<span id="id97"></span><h5>//CycloneDDS/Domain/Internal/RetransmitMerging<a class="headerlink" href="#cyclonedds-domain-internal-retransmitmerging" title="Permalink to this headline">¶</a></h5>
 <p>One of: never, adaptive, always</p>
 <dl class="simple">
 <dt>This elements controls the addressing and timing of retransmits. Possible values are:</dt><dd><ul class="simple">
@@ -786,7 +815,7 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">never</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-retransmitmergingperiod">
-<span id="id93"></span><h5>//CycloneDDS/Domain/Internal/RetransmitMergingPeriod<a class="headerlink" href="#cyclonedds-domain-internal-retransmitmergingperiod" title="Permalink to this headline">¶</a></h5>
+<span id="id98"></span><h5>//CycloneDDS/Domain/Internal/RetransmitMergingPeriod<a class="headerlink" href="#cyclonedds-domain-internal-retransmitmergingperiod" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting determines the time window size in which a NACK of some sample is ignored because a retransmit of that sample has been multicasted too recently. This setting has no effect on unicasted retransmits.</p>
 <p>See also Internal/RetransmitMerging.</p>
@@ -794,132 +823,132 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-retryonrejectbesteffort">
-<span id="id94"></span><h5>//CycloneDDS/Domain/Internal/RetryOnRejectBestEffort<a class="headerlink" href="#cyclonedds-domain-internal-retryonrejectbesteffort" title="Permalink to this headline">¶</a></h5>
+<span id="id99"></span><h5>//CycloneDDS/Domain/Internal/RetryOnRejectBestEffort<a class="headerlink" href="#cyclonedds-domain-internal-retryonrejectbesteffort" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>Whether or not to locally retry pushing a received best-effort sample into the reader caches when resource limits are reached.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-spdpresponsemaxdelay">
-<span id="id95"></span><h5>//CycloneDDS/Domain/Internal/SPDPResponseMaxDelay<a class="headerlink" href="#cyclonedds-domain-internal-spdpresponsemaxdelay" title="Permalink to this headline">¶</a></h5>
+<span id="id100"></span><h5>//CycloneDDS/Domain/Internal/SPDPResponseMaxDelay<a class="headerlink" href="#cyclonedds-domain-internal-spdpresponsemaxdelay" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>Maximum pseudo-random delay in milliseconds between discovering aremote participant and responding to it.</p>
 <p>The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">ms</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-secondaryreordermaxsamples">
-<span id="id96"></span><h5>//CycloneDDS/Domain/Internal/SecondaryReorderMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-secondaryreordermaxsamples" title="Permalink to this headline">¶</a></h5>
+<span id="id101"></span><h5>//CycloneDDS/Domain/Internal/SecondaryReorderMaxSamples<a class="headerlink" href="#cyclonedds-domain-internal-secondaryreordermaxsamples" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element sets the maximum size in samples of a secondary re-order administration. The secondary re-order administration is per reader needing historical data.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">128</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-socketreceivebuffersize">
-<span id="id97"></span><h5>//CycloneDDS/Domain/Internal/SocketReceiveBufferSize<a class="headerlink" href="#cyclonedds-domain-internal-socketreceivebuffersize" title="Permalink to this headline">¶</a></h5>
+<span id="id102"></span><h5>//CycloneDDS/Domain/Internal/SocketReceiveBufferSize<a class="headerlink" href="#cyclonedds-domain-internal-socketreceivebuffersize" title="Permalink to this headline">¶</a></h5>
 <p>Attributes: [max](<a class="reference internal" href="#cyclonedds-domain-internal-socketreceivebuffersize-max">//CycloneDDS/Domain/Internal/SocketReceiveBufferSize[&#64;max]</a>), [min](<a class="reference internal" href="#cyclonedds-domain-internal-socketreceivebuffersize-min">//CycloneDDS/Domain/Internal/SocketReceiveBufferSize[&#64;min]</a>)</p>
 <p>The settings in this element control the size of the socket receive buffers. The operating system provides some size receive buffer upon creation of the socket, this option can be used to increase the size of the buffer beyond that initially provided by the operating system. If the buffer size cannot be increased to the requested minimum size, an error is reported.</p>
 <p>The default setting requests a buffer size of 1MiB but accepts whatever is available after that.</p>
 </section>
 <section id="cyclonedds-domain-internal-socketreceivebuffersize-max">
-<span id="id98"></span><h5>//CycloneDDS/Domain/Internal/SocketReceiveBufferSize[&#64;max]<a class="headerlink" href="#cyclonedds-domain-internal-socketreceivebuffersize-max" title="Permalink to this headline">¶</a></h5>
+<span id="id103"></span><h5>//CycloneDDS/Domain/Internal/SocketReceiveBufferSize[&#64;max]<a class="headerlink" href="#cyclonedds-domain-internal-socketreceivebuffersize-max" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This sets the size of the socket receive buffer to request, with the special value of “default” indicating that it should try to satisfy the minimum buffer size. If both are at “default”, it will request 1MiB and accept anything. It is ignored if the  maximum is set to less than the minimum.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-socketreceivebuffersize-min">
-<span id="id99"></span><h5>//CycloneDDS/Domain/Internal/SocketReceiveBufferSize[&#64;min]<a class="headerlink" href="#cyclonedds-domain-internal-socketreceivebuffersize-min" title="Permalink to this headline">¶</a></h5>
+<span id="id104"></span><h5>//CycloneDDS/Domain/Internal/SocketReceiveBufferSize[&#64;min]<a class="headerlink" href="#cyclonedds-domain-internal-socketreceivebuffersize-min" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This sets the minimum acceptable socket receive buffer size, with the special value “default” indicating that whatever is available is acceptable.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-socketsendbuffersize">
-<span id="id100"></span><h5>//CycloneDDS/Domain/Internal/SocketSendBufferSize<a class="headerlink" href="#cyclonedds-domain-internal-socketsendbuffersize" title="Permalink to this headline">¶</a></h5>
+<span id="id105"></span><h5>//CycloneDDS/Domain/Internal/SocketSendBufferSize<a class="headerlink" href="#cyclonedds-domain-internal-socketsendbuffersize" title="Permalink to this headline">¶</a></h5>
 <p>Attributes: [max](<a class="reference internal" href="#cyclonedds-domain-internal-socketsendbuffersize-max">//CycloneDDS/Domain/Internal/SocketSendBufferSize[&#64;max]</a>), [min](<a class="reference internal" href="#cyclonedds-domain-internal-socketsendbuffersize-min">//CycloneDDS/Domain/Internal/SocketSendBufferSize[&#64;min]</a>)</p>
 <p>The settings in this element control the size of the socket send buffers. The operating system provides some size send buffer upon creation of the socket, this option can be used to increase the size of the buffer beyond that initially provided by the operating system. If the buffer size cannot be increased to the requested minimum size, an error is reported.</p>
 <p>The default setting requires a buffer of at least 64KiB.</p>
 </section>
 <section id="cyclonedds-domain-internal-socketsendbuffersize-max">
-<span id="id101"></span><h5>//CycloneDDS/Domain/Internal/SocketSendBufferSize[&#64;max]<a class="headerlink" href="#cyclonedds-domain-internal-socketsendbuffersize-max" title="Permalink to this headline">¶</a></h5>
+<span id="id106"></span><h5>//CycloneDDS/Domain/Internal/SocketSendBufferSize[&#64;max]<a class="headerlink" href="#cyclonedds-domain-internal-socketsendbuffersize-max" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This sets the size of the socket send buffer to request, with the special value of “default” indicating that it should try to satisfy the minimum buffer size. If both are at “default”, it will use whatever is the system default. It is ignored if the maximum is set to less than the minimum.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-socketsendbuffersize-min">
-<span id="id102"></span><h5>//CycloneDDS/Domain/Internal/SocketSendBufferSize[&#64;min]<a class="headerlink" href="#cyclonedds-domain-internal-socketsendbuffersize-min" title="Permalink to this headline">¶</a></h5>
+<span id="id107"></span><h5>//CycloneDDS/Domain/Internal/SocketSendBufferSize[&#64;min]<a class="headerlink" href="#cyclonedds-domain-internal-socketsendbuffersize-min" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This sets the minimum acceptable socket send buffer size, with the special value “default” indicating that whatever is available is acceptable.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">64</span> <span class="pre">KiB</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-squashparticipants">
-<span id="id103"></span><h5>//CycloneDDS/Domain/Internal/SquashParticipants<a class="headerlink" href="#cyclonedds-domain-internal-squashparticipants" title="Permalink to this headline">¶</a></h5>
+<span id="id108"></span><h5>//CycloneDDS/Domain/Internal/SquashParticipants<a class="headerlink" href="#cyclonedds-domain-internal-squashparticipants" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This element controls whether Cyclone DDS advertises all the domain participants it serves in DDSI (when set to false), or rather only one domain participant (the one corresponding to the Cyclone DDS process; when set to true). In the latter case, Cyclone DDS becomes the virtual owner of all readers and writers of all domain participants, dramatically reducing discovery traffic (a similar effect can be obtained by setting Internal/BuiltinEndpointSet to “minimal” but with less loss of information).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-synchronousdeliverylatencybound">
-<span id="id104"></span><h5>//CycloneDDS/Domain/Internal/SynchronousDeliveryLatencyBound<a class="headerlink" href="#cyclonedds-domain-internal-synchronousdeliverylatencybound" title="Permalink to this headline">¶</a></h5>
+<span id="id109"></span><h5>//CycloneDDS/Domain/Internal/SynchronousDeliveryLatencyBound<a class="headerlink" href="#cyclonedds-domain-internal-synchronousdeliverylatencybound" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element controls whether samples sent by a writer with QoS settings transport_priority &gt;= SynchronousDeliveryPriorityThreshold and a latency_budget at most this element’s value will be delivered synchronously from the “recv” thread, all others will be delivered asynchronously through delivery queues. This reduces latency at the expense of aggregate bandwidth.</p>
 <p>Valid values are finite durations with an explicit unit or the keyword ‘inf’ for infinity. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">inf</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-synchronousdeliveryprioritythreshold">
-<span id="id105"></span><h5>//CycloneDDS/Domain/Internal/SynchronousDeliveryPriorityThreshold<a class="headerlink" href="#cyclonedds-domain-internal-synchronousdeliveryprioritythreshold" title="Permalink to this headline">¶</a></h5>
+<span id="id110"></span><h5>//CycloneDDS/Domain/Internal/SynchronousDeliveryPriorityThreshold<a class="headerlink" href="#cyclonedds-domain-internal-synchronousdeliveryprioritythreshold" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element controls whether samples sent by a writer with QoS settings latency_budget &lt;= SynchronousDeliveryLatencyBound and transport_priority greater than or equal to this element’s value will be delivered synchronously from the “recv” thread, all others will be delivered asynchronously through delivery queues. This reduces latency at the expense of aggregate bandwidth.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-test">
-<span id="id106"></span><h5>//CycloneDDS/Domain/Internal/Test<a class="headerlink" href="#cyclonedds-domain-internal-test" title="Permalink to this headline">¶</a></h5>
+<span id="id111"></span><h5>//CycloneDDS/Domain/Internal/Test<a class="headerlink" href="#cyclonedds-domain-internal-test" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-internal-test-xmitlossiness">//CycloneDDS/Domain/Internal/Test/XmitLossiness</a></p>
 <p>Testing options.</p>
 <section id="cyclonedds-domain-internal-test-xmitlossiness">
-<span id="id107"></span><h6>//CycloneDDS/Domain/Internal/Test/XmitLossiness<a class="headerlink" href="#cyclonedds-domain-internal-test-xmitlossiness" title="Permalink to this headline">¶</a></h6>
+<span id="id112"></span><h6>//CycloneDDS/Domain/Internal/Test/XmitLossiness<a class="headerlink" href="#cyclonedds-domain-internal-test-xmitlossiness" title="Permalink to this headline">¶</a></h6>
 <p>Integer</p>
 <p>This element controls the fraction of outgoing packets to drop, specified as samples per thousand.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-internal-unicastresponsetospdpmessages">
-<span id="id108"></span><h5>//CycloneDDS/Domain/Internal/UnicastResponseToSPDPMessages<a class="headerlink" href="#cyclonedds-domain-internal-unicastresponsetospdpmessages" title="Permalink to this headline">¶</a></h5>
+<span id="id113"></span><h5>//CycloneDDS/Domain/Internal/UnicastResponseToSPDPMessages<a class="headerlink" href="#cyclonedds-domain-internal-unicastresponsetospdpmessages" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This element controls whether the response to a newly discovered participant is sent as a unicasted SPDP packet instead of rescheduling the periodic multicasted one. There is no known benefit to setting this to false.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-usemulticastifmreqn">
-<span id="id109"></span><h5>//CycloneDDS/Domain/Internal/UseMulticastIfMreqn<a class="headerlink" href="#cyclonedds-domain-internal-usemulticastifmreqn" title="Permalink to this headline">¶</a></h5>
+<span id="id114"></span><h5>//CycloneDDS/Domain/Internal/UseMulticastIfMreqn<a class="headerlink" href="#cyclonedds-domain-internal-usemulticastifmreqn" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>Do not use.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-watermarks">
-<span id="id110"></span><h5>//CycloneDDS/Domain/Internal/Watermarks<a class="headerlink" href="#cyclonedds-domain-internal-watermarks" title="Permalink to this headline">¶</a></h5>
+<span id="id115"></span><h5>//CycloneDDS/Domain/Internal/Watermarks<a class="headerlink" href="#cyclonedds-domain-internal-watermarks" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-internal-watermarks-whcadaptive">//CycloneDDS/Domain/Internal/Watermarks/WhcAdaptive</a>, <a class="reference internal" href="#cyclonedds-domain-internal-watermarks-whchigh">//CycloneDDS/Domain/Internal/Watermarks/WhcHigh</a>, <a class="reference internal" href="#cyclonedds-domain-internal-watermarks-whchighinit">//CycloneDDS/Domain/Internal/Watermarks/WhcHighInit</a>, <a class="reference internal" href="#cyclonedds-domain-internal-watermarks-whclow">//CycloneDDS/Domain/Internal/Watermarks/WhcLow</a></p>
 <p>Watermarks for flow-control.</p>
 <section id="cyclonedds-domain-internal-watermarks-whcadaptive">
-<span id="id111"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcAdaptive<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whcadaptive" title="Permalink to this headline">¶</a></h6>
+<span id="id116"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcAdaptive<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whcadaptive" title="Permalink to this headline">¶</a></h6>
 <p>Boolean</p>
 <p>This element controls whether Cyclone DDS will adapt the high-water mark to current traffic conditions based on retransmit requests and transmit pressure.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-watermarks-whchigh">
-<span id="id112"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcHigh<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whchigh" title="Permalink to this headline">¶</a></h6>
+<span id="id117"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcHigh<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whchigh" title="Permalink to this headline">¶</a></h6>
 <p>Number-with-unit</p>
 <p>This element sets the maximum allowed high-water mark for the Cyclone DDS WHCs, expressed in bytes. A writer is suspended when the WHC reaches this size.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">500</span> <span class="pre">kB</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-watermarks-whchighinit">
-<span id="id113"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcHighInit<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whchighinit" title="Permalink to this headline">¶</a></h6>
+<span id="id118"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcHighInit<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whchighinit" title="Permalink to this headline">¶</a></h6>
 <p>Number-with-unit</p>
 <p>This element sets the initial level of the high-water mark for the Cyclone DDS WHCs, expressed in bytes.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">kB</span></code></p>
 </section>
 <section id="cyclonedds-domain-internal-watermarks-whclow">
-<span id="id114"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcLow<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whclow" title="Permalink to this headline">¶</a></h6>
+<span id="id119"></span><h6>//CycloneDDS/Domain/Internal/Watermarks/WhcLow<a class="headerlink" href="#cyclonedds-domain-internal-watermarks-whclow" title="Permalink to this headline">¶</a></h6>
 <p>Number-with-unit</p>
 <p>This element sets the low-water mark for the Cyclone DDS WHCs, expressed in bytes. A suspended writer resumes transmitting when its Cyclone DDS WHC shrinks to this size.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
@@ -927,7 +956,7 @@ The default value is: <code class="docutils literal notranslate"><span class="pr
 </section>
 </section>
 <section id="cyclonedds-domain-internal-writerlingerduration">
-<span id="id115"></span><h5>//CycloneDDS/Domain/Internal/WriterLingerDuration<a class="headerlink" href="#cyclonedds-domain-internal-writerlingerduration" title="Permalink to this headline">¶</a></h5>
+<span id="id120"></span><h5>//CycloneDDS/Domain/Internal/WriterLingerDuration<a class="headerlink" href="#cyclonedds-domain-internal-writerlingerduration" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This setting controls the maximum duration for which actual deletion of a reliable writer with unacknowledged data in its history will be postponed to provide proper reliable transmission.
 The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
@@ -935,40 +964,40 @@ The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr,
 </section>
 </section>
 <section id="cyclonedds-domain-partitioning">
-<span id="id116"></span><h4>//CycloneDDS/Domain/Partitioning<a class="headerlink" href="#cyclonedds-domain-partitioning" title="Permalink to this headline">¶</a></h4>
+<span id="id121"></span><h4>//CycloneDDS/Domain/Partitioning<a class="headerlink" href="#cyclonedds-domain-partitioning" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-partitioning-ignoredpartitions">//CycloneDDS/Domain/Partitioning/IgnoredPartitions</a>, <a class="reference internal" href="#cyclonedds-domain-partitioning-networkpartitions">//CycloneDDS/Domain/Partitioning/NetworkPartitions</a>, <a class="reference internal" href="#cyclonedds-domain-partitioning-partitionmappings">//CycloneDDS/Domain/Partitioning/PartitionMappings</a></p>
 <p>The Partitioning element specifies Cyclone DDS network partitions and how DCPS partition/topic combinations are mapped onto the network partitions.</p>
 <section id="cyclonedds-domain-partitioning-ignoredpartitions">
-<span id="id117"></span><h5>//CycloneDDS/Domain/Partitioning/IgnoredPartitions<a class="headerlink" href="#cyclonedds-domain-partitioning-ignoredpartitions" title="Permalink to this headline">¶</a></h5>
+<span id="id122"></span><h5>//CycloneDDS/Domain/Partitioning/IgnoredPartitions<a class="headerlink" href="#cyclonedds-domain-partitioning-ignoredpartitions" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition">//CycloneDDS/Domain/Partitioning/IgnoredPartitions/IgnoredPartition</a></p>
 <p>The IgnoredPartitions element specifies DCPS partition/topic combinations that are not distributed over the network.</p>
 <section id="cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition">
-<span id="id118"></span><h6>//CycloneDDS/Domain/Partitioning/IgnoredPartitions/IgnoredPartition<a class="headerlink" href="#cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition" title="Permalink to this headline">¶</a></h6>
+<span id="id123"></span><h6>//CycloneDDS/Domain/Partitioning/IgnoredPartitions/IgnoredPartition<a class="headerlink" href="#cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition" title="Permalink to this headline">¶</a></h6>
 <p>Attributes: [DCPSPartitionTopic](<a class="reference internal" href="#cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition-dcpspartitiontopic">//CycloneDDS/Domain/Partitioning/IgnoredPartitions/IgnoredPartition[&#64;DCPSPartitionTopic]</a>)</p>
 <p>Text</p>
 <p>This element can prevent certain combinations of DCPS partition and topic from being transmitted over the network. Cyclone DDS will completely ignore readers and writers for which all DCPS partitions as well as their topic is ignored, not even creating DDSI readers and writers to mirror the DCPS ones.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition-dcpspartitiontopic">
-<span id="id119"></span><h6>//CycloneDDS/Domain/Partitioning/IgnoredPartitions/IgnoredPartition[&#64;DCPSPartitionTopic]<a class="headerlink" href="#cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition-dcpspartitiontopic" title="Permalink to this headline">¶</a></h6>
+<span id="id124"></span><h6>//CycloneDDS/Domain/Partitioning/IgnoredPartitions/IgnoredPartition[&#64;DCPSPartitionTopic]<a class="headerlink" href="#cyclonedds-domain-partitioning-ignoredpartitions-ignoredpartition-dcpspartitiontopic" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This attribute specifies a partition and a topic expression, separated by a single ‘.’, which are used to determine if a given partition and topic will be ignored or not. The expressions may use the usual wildcards ‘*’ and ‘?’. Cyclone DDS will consider a wildcard DCPS partition to match an expression if a string that satisfies both expressions exists.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-partitioning-networkpartitions">
-<span id="id120"></span><h5>//CycloneDDS/Domain/Partitioning/NetworkPartitions<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions" title="Permalink to this headline">¶</a></h5>
+<span id="id125"></span><h5>//CycloneDDS/Domain/Partitioning/NetworkPartitions<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition">//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition</a></p>
 <p>The NetworkPartitions element specifies the Cyclone DDS network partitions.</p>
 <section id="cyclonedds-domain-partitioning-networkpartitions-networkpartition">
-<span id="id121"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition" title="Permalink to this headline">¶</a></h6>
+<span id="id126"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition" title="Permalink to this headline">¶</a></h6>
 <p>Attributes: [Address](<a class="reference internal" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-address">//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Address]</a>), [Interface](<a class="reference internal" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-interface">//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Interface]</a>), [Name](<a class="reference internal" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-name">//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Name]</a>)</p>
 <p>Text</p>
 <p>This element defines a Cyclone DDS network partition.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-partitioning-networkpartitions-networkpartition-address">
-<span id="id122"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Address]<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-address" title="Permalink to this headline">¶</a></h6>
+<span id="id127"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Address]<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-address" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <dl class="simple">
 <dt>This attribute specifies the addresses associated with the network partition as a comma-separated list. The addresses are typically multicast addresses. Non-multicast addresses are allowed, provided the “Interface” attribute is not used: * An address matching the address or the “external address” (see General/ExternalNetworkAddress; default is the actual address) of a configured interface results in adding the corresponding “external” address to the set of advertised unicast addresses.</dt><dd><ul class="simple">
@@ -981,37 +1010,37 @@ The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr,
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-partitioning-networkpartitions-networkpartition-interface">
-<span id="id123"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Interface]<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-interface" title="Permalink to this headline">¶</a></h6>
+<span id="id128"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Interface]<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-interface" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This attribute takes a comma-separated list of interface name that the reader is willing to receive data on. This is implemented by adding the interface addresses to the set address set configured using the sibling “Address” attribute. See there for more details.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-partitioning-networkpartitions-networkpartition-name">
-<span id="id124"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Name]<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-name" title="Permalink to this headline">¶</a></h6>
+<span id="id129"></span><h6>//CycloneDDS/Domain/Partitioning/NetworkPartitions/NetworkPartition[&#64;Name]<a class="headerlink" href="#cyclonedds-domain-partitioning-networkpartitions-networkpartition-name" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This attribute specifies the name of this Cyclone DDS network partition. Two network partitions cannot have the same name. Partition mappings (cf. Partitioning/PartitionMappings) refer to network partitions using these names.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-partitioning-partitionmappings">
-<span id="id125"></span><h5>//CycloneDDS/Domain/Partitioning/PartitionMappings<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings" title="Permalink to this headline">¶</a></h5>
+<span id="id130"></span><h5>//CycloneDDS/Domain/Partitioning/PartitionMappings<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping">//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping</a></p>
 <p>The PartitionMappings element specifies the mapping from DCPS partition/topic combinations to Cyclone DDS network partitions.</p>
 <section id="cyclonedds-domain-partitioning-partitionmappings-partitionmapping">
-<span id="id126"></span><h6>//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping" title="Permalink to this headline">¶</a></h6>
+<span id="id131"></span><h6>//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping" title="Permalink to this headline">¶</a></h6>
 <p>Attributes: [DCPSPartitionTopic](<a class="reference internal" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping-dcpspartitiontopic">//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping[&#64;DCPSPartitionTopic]</a>), [NetworkPartition](<a class="reference internal" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping-networkpartition">//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping[&#64;NetworkPartition]</a>)</p>
 <p>Text</p>
 <p>This element defines a mapping from a DCPS partition/topic combination to a Cyclone DDS network partition. This allows partitioning data flows by using special multicast addresses for part of the data and possibly encrypting the data flow.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-partitioning-partitionmappings-partitionmapping-dcpspartitiontopic">
-<span id="id127"></span><h6>//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping[&#64;DCPSPartitionTopic]<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping-dcpspartitiontopic" title="Permalink to this headline">¶</a></h6>
+<span id="id132"></span><h6>//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping[&#64;DCPSPartitionTopic]<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping-dcpspartitiontopic" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This attribute specifies a partition and a topic expression, separated by a single ‘.’, which are used to determine if a given partition and topic maps to the Cyclone DDS network partition named by the NetworkPartition attribute in this PartitionMapping element. The expressions may use the usual wildcards ‘*’ and ‘?’. Cyclone DDS will consider a wildcard DCPS partition to match an expression if there exists a string that satisfies both expressions.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-partitioning-partitionmappings-partitionmapping-networkpartition">
-<span id="id128"></span><h6>//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping[&#64;NetworkPartition]<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping-networkpartition" title="Permalink to this headline">¶</a></h6>
+<span id="id133"></span><h6>//CycloneDDS/Domain/Partitioning/PartitionMappings/PartitionMapping[&#64;NetworkPartition]<a class="headerlink" href="#cyclonedds-domain-partitioning-partitionmappings-partitionmapping-networkpartition" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This attribute specifies which Cyclone DDS network partition is to be used for DCPS partition/topic combinations matching the DCPSPartitionTopic attribute within this PartitionMapping element.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
@@ -1019,74 +1048,74 @@ The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr,
 </section>
 </section>
 <section id="cyclonedds-domain-ssl">
-<span id="id129"></span><h4>//CycloneDDS/Domain/SSL<a class="headerlink" href="#cyclonedds-domain-ssl" title="Permalink to this headline">¶</a></h4>
+<span id="id134"></span><h4>//CycloneDDS/Domain/SSL<a class="headerlink" href="#cyclonedds-domain-ssl" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-ssl-certificateverification">//CycloneDDS/Domain/SSL/CertificateVerification</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-ciphers">//CycloneDDS/Domain/SSL/Ciphers</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-enable">//CycloneDDS/Domain/SSL/Enable</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-entropyfile">//CycloneDDS/Domain/SSL/EntropyFile</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-keypassphrase">//CycloneDDS/Domain/SSL/KeyPassphrase</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-keystorefile">//CycloneDDS/Domain/SSL/KeystoreFile</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-minimumtlsversion">//CycloneDDS/Domain/SSL/MinimumTLSVersion</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-selfsignedcertificates">//CycloneDDS/Domain/SSL/SelfSignedCertificates</a>, <a class="reference internal" href="#cyclonedds-domain-ssl-verifyclient">//CycloneDDS/Domain/SSL/VerifyClient</a></p>
 <p>The SSL element allows specifying various parameters related to using SSL/TLS for DDSI over TCP.</p>
 <section id="cyclonedds-domain-ssl-certificateverification">
-<span id="id130"></span><h5>//CycloneDDS/Domain/SSL/CertificateVerification<a class="headerlink" href="#cyclonedds-domain-ssl-certificateverification" title="Permalink to this headline">¶</a></h5>
+<span id="id135"></span><h5>//CycloneDDS/Domain/SSL/CertificateVerification<a class="headerlink" href="#cyclonedds-domain-ssl-certificateverification" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>If disabled this allows SSL connections to occur even if an X509 certificate fails verification.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-ciphers">
-<span id="id131"></span><h5>//CycloneDDS/Domain/SSL/Ciphers<a class="headerlink" href="#cyclonedds-domain-ssl-ciphers" title="Permalink to this headline">¶</a></h5>
+<span id="id136"></span><h5>//CycloneDDS/Domain/SSL/Ciphers<a class="headerlink" href="#cyclonedds-domain-ssl-ciphers" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>The set of ciphers used by SSL/TLS</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">ALL:!ADH:!LOW:!EXP:!MD5:&#64;STRENGTH</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-enable">
-<span id="id132"></span><h5>//CycloneDDS/Domain/SSL/Enable<a class="headerlink" href="#cyclonedds-domain-ssl-enable" title="Permalink to this headline">¶</a></h5>
+<span id="id137"></span><h5>//CycloneDDS/Domain/SSL/Enable<a class="headerlink" href="#cyclonedds-domain-ssl-enable" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This enables SSL/TLS for TCP.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-entropyfile">
-<span id="id133"></span><h5>//CycloneDDS/Domain/SSL/EntropyFile<a class="headerlink" href="#cyclonedds-domain-ssl-entropyfile" title="Permalink to this headline">¶</a></h5>
+<span id="id138"></span><h5>//CycloneDDS/Domain/SSL/EntropyFile<a class="headerlink" href="#cyclonedds-domain-ssl-entropyfile" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>The SSL/TLS random entropy file name.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-keypassphrase">
-<span id="id134"></span><h5>//CycloneDDS/Domain/SSL/KeyPassphrase<a class="headerlink" href="#cyclonedds-domain-ssl-keypassphrase" title="Permalink to this headline">¶</a></h5>
+<span id="id139"></span><h5>//CycloneDDS/Domain/SSL/KeyPassphrase<a class="headerlink" href="#cyclonedds-domain-ssl-keypassphrase" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>The SSL/TLS key pass phrase for encrypted keys.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">secret</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-keystorefile">
-<span id="id135"></span><h5>//CycloneDDS/Domain/SSL/KeystoreFile<a class="headerlink" href="#cyclonedds-domain-ssl-keystorefile" title="Permalink to this headline">¶</a></h5>
+<span id="id140"></span><h5>//CycloneDDS/Domain/SSL/KeystoreFile<a class="headerlink" href="#cyclonedds-domain-ssl-keystorefile" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>The SSL/TLS key and certificate store file name. The keystore must be in PEM format.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">keystore</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-minimumtlsversion">
-<span id="id136"></span><h5>//CycloneDDS/Domain/SSL/MinimumTLSVersion<a class="headerlink" href="#cyclonedds-domain-ssl-minimumtlsversion" title="Permalink to this headline">¶</a></h5>
+<span id="id141"></span><h5>//CycloneDDS/Domain/SSL/MinimumTLSVersion<a class="headerlink" href="#cyclonedds-domain-ssl-minimumtlsversion" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>The minimum TLS version that may be negotiated, valid values are 1.2 and 1.3.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">1.3</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-selfsignedcertificates">
-<span id="id137"></span><h5>//CycloneDDS/Domain/SSL/SelfSignedCertificates<a class="headerlink" href="#cyclonedds-domain-ssl-selfsignedcertificates" title="Permalink to this headline">¶</a></h5>
+<span id="id142"></span><h5>//CycloneDDS/Domain/SSL/SelfSignedCertificates<a class="headerlink" href="#cyclonedds-domain-ssl-selfsignedcertificates" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This enables the use of self signed X509 certificates.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-ssl-verifyclient">
-<span id="id138"></span><h5>//CycloneDDS/Domain/SSL/VerifyClient<a class="headerlink" href="#cyclonedds-domain-ssl-verifyclient" title="Permalink to this headline">¶</a></h5>
+<span id="id143"></span><h5>//CycloneDDS/Domain/SSL/VerifyClient<a class="headerlink" href="#cyclonedds-domain-ssl-verifyclient" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This enables an SSL server to check the X509 certificate of a connecting client.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-security">
-<span id="id139"></span><h4>//CycloneDDS/Domain/Security<a class="headerlink" href="#cyclonedds-domain-security" title="Permalink to this headline">¶</a></h4>
+<span id="id144"></span><h4>//CycloneDDS/Domain/Security<a class="headerlink" href="#cyclonedds-domain-security" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-security-accesscontrol">//CycloneDDS/Domain/Security/AccessControl</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication">//CycloneDDS/Domain/Security/Authentication</a>, <a class="reference internal" href="#cyclonedds-domain-security-cryptographic">//CycloneDDS/Domain/Security/Cryptographic</a></p>
 <p>This element is used to configure Cyclone DDS with the DDS Security specification plugins and settings.</p>
 <section id="cyclonedds-domain-security-accesscontrol">
-<span id="id140"></span><h5>//CycloneDDS/Domain/Security/AccessControl<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol" title="Permalink to this headline">¶</a></h5>
+<span id="id145"></span><h5>//CycloneDDS/Domain/Security/AccessControl<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-security-accesscontrol-governance">//CycloneDDS/Domain/Security/AccessControl/Governance</a>, <a class="reference internal" href="#cyclonedds-domain-security-accesscontrol-library">//CycloneDDS/Domain/Security/AccessControl/Library</a>, <a class="reference internal" href="#cyclonedds-domain-security-accesscontrol-permissions">//CycloneDDS/Domain/Security/AccessControl/Permissions</a>, <a class="reference internal" href="#cyclonedds-domain-security-accesscontrol-permissionsca">//CycloneDDS/Domain/Security/AccessControl/PermissionsCA</a></p>
 <p>This element configures the Access Control plugin of the DDS Security specification.</p>
 <section id="cyclonedds-domain-security-accesscontrol-governance">
-<span id="id141"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Governance<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-governance" title="Permalink to this headline">¶</a></h6>
+<span id="id146"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Governance<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-governance" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>URI to the shared Governance Document signed by the Permissions CA in S/MIME format</p>
 <p>URI schemes: file, data&lt;br&gt;
@@ -1116,26 +1145,26 @@ Examples file URIs:</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-accesscontrol-library">
-<span id="id142"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library" title="Permalink to this headline">¶</a></h6>
+<span id="id147"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library" title="Permalink to this headline">¶</a></h6>
 <p>Attributes: [finalizeFunction](<a class="reference internal" href="#cyclonedds-domain-security-accesscontrol-library-finalizefunction">//CycloneDDS/Domain/Security/AccessControl/Library[&#64;finalizeFunction]</a>), [initFunction](<a class="reference internal" href="#cyclonedds-domain-security-accesscontrol-library-initfunction">//CycloneDDS/Domain/Security/AccessControl/Library[&#64;initFunction]</a>), [path](<a class="reference internal" href="#cyclonedds-domain-security-accesscontrol-library-path">//CycloneDDS/Domain/Security/AccessControl/Library[&#64;path]</a>)</p>
 <p>Text</p>
 <p>This element specifies the library to be loaded as the DDS Security Access Control plugin.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-accesscontrol-library-finalizefunction">
-<span id="id143"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library[&#64;finalizeFunction]<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library-finalizefunction" title="Permalink to this headline">¶</a></h6>
+<span id="id148"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library[&#64;finalizeFunction]<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library-finalizefunction" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element names the finalization function of Access Control plugin. This function is called to let the plugin release its resources.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">finalize\_access\_control</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-accesscontrol-library-initfunction">
-<span id="id144"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library[&#64;initFunction]<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library-initfunction" title="Permalink to this headline">¶</a></h6>
+<span id="id149"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library[&#64;initFunction]<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library-initfunction" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element names the initialization function of Access Control plugin. This function is called after loading the plugin library for instantiation purposes. The Init function must return an object that implements the DDS Security Access Control interface.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">init\_access\_control</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-accesscontrol-library-path">
-<span id="id145"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library[&#64;path]<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library-path" title="Permalink to this headline">¶</a></h6>
+<span id="id150"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Library[&#64;path]<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-library-path" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element points to the path of Access Control plugin library.</p>
 <p>It can be either absolute path excluding file extension ( /usr/lib/dds_security_ac ) or single file without extension ( dds_security_ac ).</p>
@@ -1143,7 +1172,7 @@ Examples file URIs:</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">dds\_security\_ac</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-accesscontrol-permissions">
-<span id="id146"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Permissions<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-permissions" title="Permalink to this headline">¶</a></h6>
+<span id="id151"></span><h6>//CycloneDDS/Domain/Security/AccessControl/Permissions<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-permissions" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>URI to the DomainParticipant permissions document signed by the Permissions CA in S/MIME format</p>
 <p>The permissions document specifies the permissions to be applied to a domain.&lt;br&gt;
@@ -1155,7 +1184,7 @@ Example file URIs:</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-accesscontrol-permissionsca">
-<span id="id147"></span><h6>//CycloneDDS/Domain/Security/AccessControl/PermissionsCA<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-permissionsca" title="Permalink to this headline">¶</a></h6>
+<span id="id152"></span><h6>//CycloneDDS/Domain/Security/AccessControl/PermissionsCA<a class="headerlink" href="#cyclonedds-domain-security-accesscontrol-permissionsca" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>URI to an X509 certificate for the PermissionsCA in PEM format.</p>
 <p>Supported URI schemes: file, data</p>
@@ -1170,11 +1199,11 @@ Examples:&lt;br&gt;
 </section>
 </section>
 <section id="cyclonedds-domain-security-authentication">
-<span id="id148"></span><h5>//CycloneDDS/Domain/Security/Authentication<a class="headerlink" href="#cyclonedds-domain-security-authentication" title="Permalink to this headline">¶</a></h5>
+<span id="id153"></span><h5>//CycloneDDS/Domain/Security/Authentication<a class="headerlink" href="#cyclonedds-domain-security-authentication" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-security-authentication-crl">//CycloneDDS/Domain/Security/Authentication/CRL</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication-identityca">//CycloneDDS/Domain/Security/Authentication/IdentityCA</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication-identitycertificate">//CycloneDDS/Domain/Security/Authentication/IdentityCertificate</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication-includeoptionalfields">//CycloneDDS/Domain/Security/Authentication/IncludeOptionalFields</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication-library">//CycloneDDS/Domain/Security/Authentication/Library</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication-password">//CycloneDDS/Domain/Security/Authentication/Password</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication-privatekey">//CycloneDDS/Domain/Security/Authentication/PrivateKey</a>, <a class="reference internal" href="#cyclonedds-domain-security-authentication-trustedcadirectory">//CycloneDDS/Domain/Security/Authentication/TrustedCADirectory</a></p>
 <p>This element configures the Authentication plugin of the DDS Security specification.</p>
 <section id="cyclonedds-domain-security-authentication-crl">
-<span id="id149"></span><h6>//CycloneDDS/Domain/Security/Authentication/CRL<a class="headerlink" href="#cyclonedds-domain-security-authentication-crl" title="Permalink to this headline">¶</a></h6>
+<span id="id154"></span><h6>//CycloneDDS/Domain/Security/Authentication/CRL<a class="headerlink" href="#cyclonedds-domain-security-authentication-crl" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>Optional URI to load an X509 Certificate Revocation List</p>
 <p>Supported URI schemes: file, data</p>
@@ -1186,7 +1215,7 @@ MIIEpAIBAAKCAQEA3HIh…AOBaaqSV37XBUJg=&lt;br&gt;
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-identityca">
-<span id="id150"></span><h6>//CycloneDDS/Domain/Security/Authentication/IdentityCA<a class="headerlink" href="#cyclonedds-domain-security-authentication-identityca" title="Permalink to this headline">¶</a></h6>
+<span id="id155"></span><h6>//CycloneDDS/Domain/Security/Authentication/IdentityCA<a class="headerlink" href="#cyclonedds-domain-security-authentication-identityca" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>URI to the X509 certificate [39] of the Identity CA that is the signer of Identity Certificate.</p>
 <p>Supported URI schemes: file, data</p>
@@ -1199,7 +1228,7 @@ MIIC3DCCAcQCCQCWE5x+Z…PhovK0mp2ohhRLYI0ZiyYQ==&lt;br&gt;
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-identitycertificate">
-<span id="id151"></span><h6>//CycloneDDS/Domain/Security/Authentication/IdentityCertificate<a class="headerlink" href="#cyclonedds-domain-security-authentication-identitycertificate" title="Permalink to this headline">¶</a></h6>
+<span id="id156"></span><h6>//CycloneDDS/Domain/Security/Authentication/IdentityCertificate<a class="headerlink" href="#cyclonedds-domain-security-authentication-identitycertificate" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>An identity certificate will identify all participants in the OSPL instance.&lt;br&gt;The content is URI to an X509 certificate signed by the IdentityCA in PEM format containing the signed public key.</p>
 <p>Supported URI schemes: file, data</p>
@@ -1211,32 +1240,32 @@ MIIDjjCCAnYCCQDCEu9…6rmT87dhTo=&lt;br&gt;
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-includeoptionalfields">
-<span id="id152"></span><h6>//CycloneDDS/Domain/Security/Authentication/IncludeOptionalFields<a class="headerlink" href="#cyclonedds-domain-security-authentication-includeoptionalfields" title="Permalink to this headline">¶</a></h6>
+<span id="id157"></span><h6>//CycloneDDS/Domain/Security/Authentication/IncludeOptionalFields<a class="headerlink" href="#cyclonedds-domain-security-authentication-includeoptionalfields" title="Permalink to this headline">¶</a></h6>
 <p>Boolean</p>
 <p>The authentication handshake tokens may contain optional fields to be included for finding interoperability problems. If this parameter is set to true the optional fields are included in the handshake token exchange.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-library">
-<span id="id153"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library<a class="headerlink" href="#cyclonedds-domain-security-authentication-library" title="Permalink to this headline">¶</a></h6>
+<span id="id158"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library<a class="headerlink" href="#cyclonedds-domain-security-authentication-library" title="Permalink to this headline">¶</a></h6>
 <p>Attributes: [finalizeFunction](<a class="reference internal" href="#cyclonedds-domain-security-authentication-library-finalizefunction">//CycloneDDS/Domain/Security/Authentication/Library[&#64;finalizeFunction]</a>), [initFunction](<a class="reference internal" href="#cyclonedds-domain-security-authentication-library-initfunction">//CycloneDDS/Domain/Security/Authentication/Library[&#64;initFunction]</a>), [path](<a class="reference internal" href="#cyclonedds-domain-security-authentication-library-path">//CycloneDDS/Domain/Security/Authentication/Library[&#64;path]</a>)</p>
 <p>Text</p>
 <p>This element specifies the library to be loaded as the DDS Security Access Control plugin.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-library-finalizefunction">
-<span id="id154"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library[&#64;finalizeFunction]<a class="headerlink" href="#cyclonedds-domain-security-authentication-library-finalizefunction" title="Permalink to this headline">¶</a></h6>
+<span id="id159"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library[&#64;finalizeFunction]<a class="headerlink" href="#cyclonedds-domain-security-authentication-library-finalizefunction" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element names the finalization function of the Authentication plugin. This function is called to let the plugin release its resources.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">finalize\_authentication</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-library-initfunction">
-<span id="id155"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library[&#64;initFunction]<a class="headerlink" href="#cyclonedds-domain-security-authentication-library-initfunction" title="Permalink to this headline">¶</a></h6>
+<span id="id160"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library[&#64;initFunction]<a class="headerlink" href="#cyclonedds-domain-security-authentication-library-initfunction" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element names the initialization function of the Authentication plugin. This function is called after loading the plugin library for instantiation purposes. The Init function must return an object that implements the DDS Security Authentication interface.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">init\_authentication</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-library-path">
-<span id="id156"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library[&#64;path]<a class="headerlink" href="#cyclonedds-domain-security-authentication-library-path" title="Permalink to this headline">¶</a></h6>
+<span id="id161"></span><h6>//CycloneDDS/Domain/Security/Authentication/Library[&#64;path]<a class="headerlink" href="#cyclonedds-domain-security-authentication-library-path" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element points to the path of the Authentication plugin library.</p>
 <p>It can be either absolute path excluding file extension ( /usr/lib/dds_security_auth ) or single file without extension ( dds_security_auth ).</p>
@@ -1244,7 +1273,7 @@ MIIDjjCCAnYCCQDCEu9…6rmT87dhTo=&lt;br&gt;
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">dds\_security\_auth</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-password">
-<span id="id157"></span><h6>//CycloneDDS/Domain/Security/Authentication/Password<a class="headerlink" href="#cyclonedds-domain-security-authentication-password" title="Permalink to this headline">¶</a></h6>
+<span id="id162"></span><h6>//CycloneDDS/Domain/Security/Authentication/Password<a class="headerlink" href="#cyclonedds-domain-security-authentication-password" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>A password is used to decrypt the private_key.</p>
 <p>The value of the password property shall be interpreted as the Base64 encoding of the AES-128 key that shall be used to decrypt the private_key using AES128-CBC.</p>
@@ -1252,7 +1281,7 @@ MIIDjjCCAnYCCQDCEu9…6rmT87dhTo=&lt;br&gt;
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-privatekey">
-<span id="id158"></span><h6>//CycloneDDS/Domain/Security/Authentication/PrivateKey<a class="headerlink" href="#cyclonedds-domain-security-authentication-privatekey" title="Permalink to this headline">¶</a></h6>
+<span id="id163"></span><h6>//CycloneDDS/Domain/Security/Authentication/PrivateKey<a class="headerlink" href="#cyclonedds-domain-security-authentication-privatekey" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>URI to access the private Private Key for all of the participants in the OSPL federation.</p>
 <p>Supported URI schemes: file, data</p>
@@ -1264,37 +1293,37 @@ MIIEpAIBAAKCAQEA3HIh…AOBaaqSV37XBUJg==&lt;br&gt;
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-authentication-trustedcadirectory">
-<span id="id159"></span><h6>//CycloneDDS/Domain/Security/Authentication/TrustedCADirectory<a class="headerlink" href="#cyclonedds-domain-security-authentication-trustedcadirectory" title="Permalink to this headline">¶</a></h6>
+<span id="id164"></span><h6>//CycloneDDS/Domain/Security/Authentication/TrustedCADirectory<a class="headerlink" href="#cyclonedds-domain-security-authentication-trustedcadirectory" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>Trusted CA Directory which contains trusted CA certificates as separated files.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-security-cryptographic">
-<span id="id160"></span><h5>//CycloneDDS/Domain/Security/Cryptographic<a class="headerlink" href="#cyclonedds-domain-security-cryptographic" title="Permalink to this headline">¶</a></h5>
+<span id="id165"></span><h5>//CycloneDDS/Domain/Security/Cryptographic<a class="headerlink" href="#cyclonedds-domain-security-cryptographic" title="Permalink to this headline">¶</a></h5>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-security-cryptographic-library">//CycloneDDS/Domain/Security/Cryptographic/Library</a></p>
 <p>This element configures the Cryptographic plugin of the DDS Security specification.</p>
 <section id="cyclonedds-domain-security-cryptographic-library">
-<span id="id161"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library" title="Permalink to this headline">¶</a></h6>
+<span id="id166"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library" title="Permalink to this headline">¶</a></h6>
 <p>Attributes: [finalizeFunction](<a class="reference internal" href="#cyclonedds-domain-security-cryptographic-library-finalizefunction">//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;finalizeFunction]</a>), [initFunction](<a class="reference internal" href="#cyclonedds-domain-security-cryptographic-library-initfunction">//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;initFunction]</a>), [path](<a class="reference internal" href="#cyclonedds-domain-security-cryptographic-library-path">//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;path]</a>)</p>
 <p>Text</p>
 <p>This element specifies the library to be loaded as the DDS Security Cryptographic plugin.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-cryptographic-library-finalizefunction">
-<span id="id162"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;finalizeFunction]<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library-finalizefunction" title="Permalink to this headline">¶</a></h6>
+<span id="id167"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;finalizeFunction]<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library-finalizefunction" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element names the finalization function of the Cryptographic plugin. This function is called to let the plugin release its resources.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">finalize\_crypto</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-cryptographic-library-initfunction">
-<span id="id163"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;initFunction]<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library-initfunction" title="Permalink to this headline">¶</a></h6>
+<span id="id168"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;initFunction]<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library-initfunction" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element names the initialization function of the Cryptographic plugin. This function is called after loading the plugin library for instantiation purposes. The Init function must return an object that implements the DDS Security Cryptographic interface.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">init\_crypto</span></code></p>
 </section>
 <section id="cyclonedds-domain-security-cryptographic-library-path">
-<span id="id164"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;path]<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library-path" title="Permalink to this headline">¶</a></h6>
+<span id="id169"></span><h6>//CycloneDDS/Domain/Security/Cryptographic/Library[&#64;path]<a class="headerlink" href="#cyclonedds-domain-security-cryptographic-library-path" title="Permalink to this headline">¶</a></h6>
 <p>Text</p>
 <p>This element points to the path of the Cryptographic plugin library.</p>
 <p>It can be either absolute path excluding file extension ( /usr/lib/dds_security_crypto ) or single file without extension ( dds_security_crypto ).</p>
@@ -1304,59 +1333,22 @@ MIIEpAIBAAKCAQEA3HIh…AOBaaqSV37XBUJg==&lt;br&gt;
 </section>
 </section>
 <section id="cyclonedds-domain-sharedmemory">
-<span id="id165"></span><h4>//CycloneDDS/Domain/SharedMemory<a class="headerlink" href="#cyclonedds-domain-sharedmemory" title="Permalink to this headline">¶</a></h4>
-<p>Children: <a class="reference internal" href="#cyclonedds-domain-sharedmemory-enable">//CycloneDDS/Domain/SharedMemory/Enable</a>, <a class="reference internal" href="#cyclonedds-domain-sharedmemory-locator">//CycloneDDS/Domain/SharedMemory/Locator</a>, <a class="reference internal" href="#cyclonedds-domain-sharedmemory-loglevel">//CycloneDDS/Domain/SharedMemory/LogLevel</a>, <a class="reference internal" href="#cyclonedds-domain-sharedmemory-prefix">//CycloneDDS/Domain/SharedMemory/Prefix</a></p>
+<span id="id170"></span><h4>//CycloneDDS/Domain/SharedMemory<a class="headerlink" href="#cyclonedds-domain-sharedmemory" title="Permalink to this headline">¶</a></h4>
 <p>The Shared Memory element allows specifying various parameters related to using shared memory.</p>
-<section id="cyclonedds-domain-sharedmemory-enable">
-<span id="id166"></span><h5>//CycloneDDS/Domain/SharedMemory/Enable<a class="headerlink" href="#cyclonedds-domain-sharedmemory-enable" title="Permalink to this headline">¶</a></h5>
-<p>Boolean</p>
-<p>This element allows for enabling shared memory in Cyclone DDS.</p>
-<p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
-</section>
-<section id="cyclonedds-domain-sharedmemory-locator">
-<span id="id167"></span><h5>//CycloneDDS/Domain/SharedMemory/Locator<a class="headerlink" href="#cyclonedds-domain-sharedmemory-locator" title="Permalink to this headline">¶</a></h5>
-<p>Text</p>
-<p>Explicitly set the Iceoryx locator used by Cyclone to check whether a pair of processes is attached to the same Iceoryx shared memory.  The default is to use one of the MAC addresses of the machine, which should work well in most cases.</p>
-<p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
-</section>
-<section id="cyclonedds-domain-sharedmemory-loglevel">
-<span id="id168"></span><h5>//CycloneDDS/Domain/SharedMemory/LogLevel<a class="headerlink" href="#cyclonedds-domain-sharedmemory-loglevel" title="Permalink to this headline">¶</a></h5>
-<p>One of: off, fatal, error, warn, info, debug, verbose</p>
-<dl class="simple">
-<dt>This element decides the verbosity level of shared memory message:</dt><dd><ul class="simple">
-<li><p>off: no log</p></li>
-<li><p>fatal: show fatal log</p></li>
-<li><p>error: show error log</p></li>
-<li><p>warn: show warn log</p></li>
-<li><p>info: show info log</p></li>
-<li><p>debug: show debug log</p></li>
-<li><p>verbose: show verbose log</p></li>
-</ul>
-</dd>
-</dl>
-<p>If you don’t want to see any log from shared memory, use off to disable logging.</p>
-<p>The default value is: <code class="docutils literal notranslate"><span class="pre">info</span></code></p>
-</section>
-<section id="cyclonedds-domain-sharedmemory-prefix">
-<span id="id169"></span><h5>//CycloneDDS/Domain/SharedMemory/Prefix<a class="headerlink" href="#cyclonedds-domain-sharedmemory-prefix" title="Permalink to this headline">¶</a></h5>
-<p>Text</p>
-<p>Override the Iceoryx service name used by Cyclone.</p>
-<p>The default value is: <code class="docutils literal notranslate"><span class="pre">DDS\_CYCLONE</span></code></p>
-</section>
 </section>
 <section id="cyclonedds-domain-sizing">
-<span id="id170"></span><h4>//CycloneDDS/Domain/Sizing<a class="headerlink" href="#cyclonedds-domain-sizing" title="Permalink to this headline">¶</a></h4>
+<span id="id171"></span><h4>//CycloneDDS/Domain/Sizing<a class="headerlink" href="#cyclonedds-domain-sizing" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-sizing-receivebufferchunksize">//CycloneDDS/Domain/Sizing/ReceiveBufferChunkSize</a>, <a class="reference internal" href="#cyclonedds-domain-sizing-receivebuffersize">//CycloneDDS/Domain/Sizing/ReceiveBufferSize</a></p>
 <p>The Sizing element allows you to specify various configuration settings dealing with expected system sizes, buffer sizes, &amp;c.</p>
 <section id="cyclonedds-domain-sizing-receivebufferchunksize">
-<span id="id171"></span><h5>//CycloneDDS/Domain/Sizing/ReceiveBufferChunkSize<a class="headerlink" href="#cyclonedds-domain-sizing-receivebufferchunksize" title="Permalink to this headline">¶</a></h5>
+<span id="id172"></span><h5>//CycloneDDS/Domain/Sizing/ReceiveBufferChunkSize<a class="headerlink" href="#cyclonedds-domain-sizing-receivebufferchunksize" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element specifies the size of one allocation unit in the receive buffer. It must be greater than the maximum packet size by a modest amount (too large packets are dropped). Each allocation is shrunk immediately after processing a message or freed straightaway.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">128</span> <span class="pre">KiB</span></code></p>
 </section>
 <section id="cyclonedds-domain-sizing-receivebuffersize">
-<span id="id172"></span><h5>//CycloneDDS/Domain/Sizing/ReceiveBufferSize<a class="headerlink" href="#cyclonedds-domain-sizing-receivebuffersize" title="Permalink to this headline">¶</a></h5>
+<span id="id173"></span><h5>//CycloneDDS/Domain/Sizing/ReceiveBufferSize<a class="headerlink" href="#cyclonedds-domain-sizing-receivebuffersize" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element sets the size of a single receive buffer. Many receive buffers may be needed. The minimum workable size is a little larger than Sizing/ReceiveBufferChunkSize, and the value used is taken as the configured value and the actual minimum workable size.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
@@ -1364,42 +1356,42 @@ MIIEpAIBAAKCAQEA3HIh…AOBaaqSV37XBUJg==&lt;br&gt;
 </section>
 </section>
 <section id="cyclonedds-domain-tcp">
-<span id="id173"></span><h4>//CycloneDDS/Domain/TCP<a class="headerlink" href="#cyclonedds-domain-tcp" title="Permalink to this headline">¶</a></h4>
+<span id="id174"></span><h4>//CycloneDDS/Domain/TCP<a class="headerlink" href="#cyclonedds-domain-tcp" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-tcp-alwaysusepeeraddrforunicast">//CycloneDDS/Domain/TCP/AlwaysUsePeeraddrForUnicast</a>, <a class="reference internal" href="#cyclonedds-domain-tcp-enable">//CycloneDDS/Domain/TCP/Enable</a>, <a class="reference internal" href="#cyclonedds-domain-tcp-nodelay">//CycloneDDS/Domain/TCP/NoDelay</a>, <a class="reference internal" href="#cyclonedds-domain-tcp-port">//CycloneDDS/Domain/TCP/Port</a>, <a class="reference internal" href="#cyclonedds-domain-tcp-readtimeout">//CycloneDDS/Domain/TCP/ReadTimeout</a>, <a class="reference internal" href="#cyclonedds-domain-tcp-writetimeout">//CycloneDDS/Domain/TCP/WriteTimeout</a></p>
 <p>The TCP element allows you to specify various parameters related to running DDSI over TCP.</p>
 <section id="cyclonedds-domain-tcp-alwaysusepeeraddrforunicast">
-<span id="id174"></span><h5>//CycloneDDS/Domain/TCP/AlwaysUsePeeraddrForUnicast<a class="headerlink" href="#cyclonedds-domain-tcp-alwaysusepeeraddrforunicast" title="Permalink to this headline">¶</a></h5>
+<span id="id175"></span><h5>//CycloneDDS/Domain/TCP/AlwaysUsePeeraddrForUnicast<a class="headerlink" href="#cyclonedds-domain-tcp-alwaysusepeeraddrforunicast" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>Setting this to true means the unicast addresses in SPDP packets will be ignored, and the peer address from the TCP connection will be used instead. This may help work around incorrectly advertised addresses when using TCP.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-tcp-enable">
-<span id="id175"></span><h5>//CycloneDDS/Domain/TCP/Enable<a class="headerlink" href="#cyclonedds-domain-tcp-enable" title="Permalink to this headline">¶</a></h5>
+<span id="id176"></span><h5>//CycloneDDS/Domain/TCP/Enable<a class="headerlink" href="#cyclonedds-domain-tcp-enable" title="Permalink to this headline">¶</a></h5>
 <p>One of: false, true, default</p>
 <p>This element enables the optional TCP transport - deprecated, use General/Transport instead.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-tcp-nodelay">
-<span id="id176"></span><h5>//CycloneDDS/Domain/TCP/NoDelay<a class="headerlink" href="#cyclonedds-domain-tcp-nodelay" title="Permalink to this headline">¶</a></h5>
+<span id="id177"></span><h5>//CycloneDDS/Domain/TCP/NoDelay<a class="headerlink" href="#cyclonedds-domain-tcp-nodelay" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This element enables the TCP_NODELAY socket option, preventing multiple DDSI messages from being sent in the same TCP request. Setting this option typically optimises latency over throughput.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 <section id="cyclonedds-domain-tcp-port">
-<span id="id177"></span><h5>//CycloneDDS/Domain/TCP/Port<a class="headerlink" href="#cyclonedds-domain-tcp-port" title="Permalink to this headline">¶</a></h5>
+<span id="id178"></span><h5>//CycloneDDS/Domain/TCP/Port<a class="headerlink" href="#cyclonedds-domain-tcp-port" title="Permalink to this headline">¶</a></h5>
 <p>Integer</p>
 <p>This element specifies the TCP port number on which Cyclone DDS accepts connections. If the port is set, it is used in entity locators, published with DDSI discovery, dynamically allocated if zero, and disabled if -1 or not configured. If disabled other DDSI services will not be able to establish connections with the service, the service can only communicate by establishing connections to other services.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
 </section>
 <section id="cyclonedds-domain-tcp-readtimeout">
-<span id="id178"></span><h5>//CycloneDDS/Domain/TCP/ReadTimeout<a class="headerlink" href="#cyclonedds-domain-tcp-readtimeout" title="Permalink to this headline">¶</a></h5>
+<span id="id179"></span><h5>//CycloneDDS/Domain/TCP/ReadTimeout<a class="headerlink" href="#cyclonedds-domain-tcp-readtimeout" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element specifies the timeout for blocking TCP read operations. If this timeout expires then the connection is closed.</p>
 <p>The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">s</span></code></p>
 </section>
 <section id="cyclonedds-domain-tcp-writetimeout">
-<span id="id179"></span><h5>//CycloneDDS/Domain/TCP/WriteTimeout<a class="headerlink" href="#cyclonedds-domain-tcp-writetimeout" title="Permalink to this headline">¶</a></h5>
+<span id="id180"></span><h5>//CycloneDDS/Domain/TCP/WriteTimeout<a class="headerlink" href="#cyclonedds-domain-tcp-writetimeout" title="Permalink to this headline">¶</a></h5>
 <p>Number-with-unit</p>
 <p>This element specifies the timeout for blocking TCP write operations. If this timeout expires then the connection is closed.</p>
 <p>The unit must be specified explicitly. Recognised units: ns, us, ms, s, min, hr, day.</p>
@@ -1407,17 +1399,17 @@ MIIEpAIBAAKCAQEA3HIh…AOBaaqSV37XBUJg==&lt;br&gt;
 </section>
 </section>
 <section id="cyclonedds-domain-threads">
-<span id="id180"></span><h4>//CycloneDDS/Domain/Threads<a class="headerlink" href="#cyclonedds-domain-threads" title="Permalink to this headline">¶</a></h4>
+<span id="id181"></span><h4>//CycloneDDS/Domain/Threads<a class="headerlink" href="#cyclonedds-domain-threads" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread">//CycloneDDS/Domain/Threads/Thread</a></p>
 <p>This element is used to set thread properties.</p>
 <section id="cyclonedds-domain-threads-thread">
-<span id="id181"></span><h5>//CycloneDDS/Domain/Threads/Thread<a class="headerlink" href="#cyclonedds-domain-threads-thread" title="Permalink to this headline">¶</a></h5>
+<span id="id182"></span><h5>//CycloneDDS/Domain/Threads/Thread<a class="headerlink" href="#cyclonedds-domain-threads-thread" title="Permalink to this headline">¶</a></h5>
 <p>Attributes: [Name](<a class="reference internal" href="#cyclonedds-domain-threads-thread-name">//CycloneDDS/Domain/Threads/Thread[&#64;Name]</a>)
 Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling">//CycloneDDS/Domain/Threads/Thread/Scheduling</a>, <a class="reference internal" href="#cyclonedds-domain-threads-thread-stacksize">//CycloneDDS/Domain/Threads/Thread/StackSize</a></p>
 <p>This element is used to set thread properties.</p>
 </section>
 <section id="cyclonedds-domain-threads-thread-name">
-<span id="id182"></span><h5>//CycloneDDS/Domain/Threads/Thread[&#64;Name]<a class="headerlink" href="#cyclonedds-domain-threads-thread-name" title="Permalink to this headline">¶</a></h5>
+<span id="id183"></span><h5>//CycloneDDS/Domain/Threads/Thread[&#64;Name]<a class="headerlink" href="#cyclonedds-domain-threads-thread-name" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>The Name of the thread for which properties are being set. The following threads exist:</p>
 <blockquote>
@@ -1435,24 +1427,24 @@ Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-
 </div></blockquote>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 <section id="cyclonedds-domain-threads-thread-scheduling">
-<span id="id183"></span><h6>//CycloneDDS/Domain/Threads/Thread/Scheduling<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling" title="Permalink to this headline">¶</a></h6>
+<span id="id184"></span><h6>//CycloneDDS/Domain/Threads/Thread/Scheduling<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling" title="Permalink to this headline">¶</a></h6>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-class">//CycloneDDS/Domain/Threads/Thread/Scheduling/Class</a>, <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-priority">//CycloneDDS/Domain/Threads/Thread/Scheduling/Priority</a></p>
 <p>This element configures the scheduling properties of the thread.</p>
 <section id="cyclonedds-domain-threads-thread-scheduling-class">
-<span id="id184"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Class<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-class" title="Permalink to this headline">¶</a></h7>
+<span id="id185"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Class<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-class" title="Permalink to this headline">¶</a></h7>
 <p>One of: realtime, timeshare, default</p>
 <p>This element specifies the thread scheduling class (realtime, timeshare or default). The user may need special privileges from the underlying operating system to be able to assign some of the privileged scheduling classes.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-threads-thread-scheduling-priority">
-<span id="id185"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Priority<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-priority" title="Permalink to this headline">¶</a></h7>
+<span id="id186"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Priority<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-priority" title="Permalink to this headline">¶</a></h7>
 <p>Text</p>
 <p>This element specifies the thread priority (decimal integer or default). Only priorities supported by the underlying operating system can be assigned to this element. The user may need special privileges from the underlying operating system to be able to assign some of the privileged priorities.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-threads-thread-stacksize">
-<span id="id186"></span><h6>//CycloneDDS/Domain/Threads/Thread/StackSize<a class="headerlink" href="#cyclonedds-domain-threads-thread-stacksize" title="Permalink to this headline">¶</a></h6>
+<span id="id187"></span><h6>//CycloneDDS/Domain/Threads/Thread/StackSize<a class="headerlink" href="#cyclonedds-domain-threads-thread-stacksize" title="Permalink to this headline">¶</a></h6>
 <p>Number-with-unit</p>
 <p>This element configures the stack size for this thread. The default value default leaves the stack size at the operating system default.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
@@ -1461,17 +1453,17 @@ Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-
 </section>
 </section>
 <section id="cyclonedds-domain-tracing">
-<span id="id187"></span><h4>//CycloneDDS/Domain/Tracing<a class="headerlink" href="#cyclonedds-domain-tracing" title="Permalink to this headline">¶</a></h4>
+<span id="id188"></span><h4>//CycloneDDS/Domain/Tracing<a class="headerlink" href="#cyclonedds-domain-tracing" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-tracing-appendtofile">//CycloneDDS/Domain/Tracing/AppendToFile</a>, <a class="reference internal" href="#cyclonedds-domain-tracing-category">//CycloneDDS/Domain/Tracing/Category</a>, <a class="reference internal" href="#cyclonedds-domain-tracing-outputfile">//CycloneDDS/Domain/Tracing/OutputFile</a>, <a class="reference internal" href="#cyclonedds-domain-tracing-packetcapturefile">//CycloneDDS/Domain/Tracing/PacketCaptureFile</a>, <a class="reference internal" href="#cyclonedds-domain-tracing-verbosity">//CycloneDDS/Domain/Tracing/Verbosity</a></p>
 <p>The Tracing element controls the amount and type of information that is written into the tracing log by the DDSI service. This is useful to track the DDSI service during application development.</p>
 <section id="cyclonedds-domain-tracing-appendtofile">
-<span id="id188"></span><h5>//CycloneDDS/Domain/Tracing/AppendToFile<a class="headerlink" href="#cyclonedds-domain-tracing-appendtofile" title="Permalink to this headline">¶</a></h5>
+<span id="id189"></span><h5>//CycloneDDS/Domain/Tracing/AppendToFile<a class="headerlink" href="#cyclonedds-domain-tracing-appendtofile" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This option specifies whether the output should be appended to an existing log file. The default is to create a new log file each time, which is generally the best option if a detailed log is generated.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-category">
-<span id="id189"></span><h5>//CycloneDDS/Domain/Tracing/Category<a class="headerlink" href="#cyclonedds-domain-tracing-category" title="Permalink to this headline">¶</a></h5>
+<span id="id190"></span><h5>//CycloneDDS/Domain/Tracing/Category<a class="headerlink" href="#cyclonedds-domain-tracing-category" title="Permalink to this headline">¶</a></h5>
 <p>One of:
 * Comma-separated list of: fatal, error, warning, info, config, discovery, data, radmin, timing, traffic, topic, tcp, plist, whc, throttle, rhc, content, shm, trace
 * Or empty</p>
@@ -1499,19 +1491,19 @@ The categorisation of tracing output is incomplete and hence most of the verbosi
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-outputfile">
-<span id="id190"></span><h5>//CycloneDDS/Domain/Tracing/OutputFile<a class="headerlink" href="#cyclonedds-domain-tracing-outputfile" title="Permalink to this headline">¶</a></h5>
+<span id="id191"></span><h5>//CycloneDDS/Domain/Tracing/OutputFile<a class="headerlink" href="#cyclonedds-domain-tracing-outputfile" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>This option specifies where the logging is printed to. Note that stdout and stderr are treated as special values, representing “standard out” and “standard error” respectively. No file is created unless logging categories are enabled using the Tracing/Verbosity or Tracing/EnabledCategory settings.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">cyclonedds.log</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-packetcapturefile">
-<span id="id191"></span><h5>//CycloneDDS/Domain/Tracing/PacketCaptureFile<a class="headerlink" href="#cyclonedds-domain-tracing-packetcapturefile" title="Permalink to this headline">¶</a></h5>
+<span id="id192"></span><h5>//CycloneDDS/Domain/Tracing/PacketCaptureFile<a class="headerlink" href="#cyclonedds-domain-tracing-packetcapturefile" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>This option specifies the file to which received and sent packets will be logged in the “pcap” format suitable for analysis using common networking tools, such as WireShark. IP and UDP headers are fictitious, in particular the destination address of received packets. The TTL may be used to distinguish between sent and received packets: it is 255 for sent packets and 128 for received ones. Currently IPv4 only.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-verbosity">
-<span id="id192"></span><h5>//CycloneDDS/Domain/Tracing/Verbosity<a class="headerlink" href="#cyclonedds-domain-tracing-verbosity" title="Permalink to this headline">¶</a></h5>
+<span id="id193"></span><h5>//CycloneDDS/Domain/Tracing/Verbosity<a class="headerlink" href="#cyclonedds-domain-tracing-verbosity" title="Permalink to this headline">¶</a></h5>
 <p>One of: finest, finer, fine, config, info, warning, severe, none</p>
 <dl class="simple">
 <dt>This element enables standard groups of categories, based on a desired verbosity level. This is in addition to the categories enabled by the Tracing/Category setting. Recognised verbosity levels and the categories they map to are:</dt><dd><ul class="simple">
@@ -1606,6 +1598,11 @@ The categorisation of tracing output is incomplete and hence most of the verbosi
 <li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-networkinterface-prefer-multicast">//CycloneDDS/Domain/General/Interfaces/NetworkInterface[&#64;prefer_multicast]</a></li>
 <li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-networkinterface-presence-required">//CycloneDDS/Domain/General/Interfaces/NetworkInterface[&#64;presence_required]</a></li>
 <li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-networkinterface-priority">//CycloneDDS/Domain/General/Interfaces/NetworkInterface[&#64;priority]</a></li>
+<li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange</a></li>
+<li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-config">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;config]</a></li>
+<li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-library">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;library]</a></li>
+<li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-name">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;name]</a></li>
+<li><a class="reference internal" href="#cyclonedds-domain-general-interfaces-pubsubmessageexchange-priority">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange[&#64;priority]</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cyclonedds-domain-general-maxmessagesize">//CycloneDDS/Domain/General/MaxMessageSize</a></li>
@@ -1752,13 +1749,7 @@ The categorisation of tracing output is incomplete and hence most of the verbosi
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cyclonedds-domain-sharedmemory">//CycloneDDS/Domain/SharedMemory</a><ul>
-<li><a class="reference internal" href="#cyclonedds-domain-sharedmemory-enable">//CycloneDDS/Domain/SharedMemory/Enable</a></li>
-<li><a class="reference internal" href="#cyclonedds-domain-sharedmemory-locator">//CycloneDDS/Domain/SharedMemory/Locator</a></li>
-<li><a class="reference internal" href="#cyclonedds-domain-sharedmemory-loglevel">//CycloneDDS/Domain/SharedMemory/LogLevel</a></li>
-<li><a class="reference internal" href="#cyclonedds-domain-sharedmemory-prefix">//CycloneDDS/Domain/SharedMemory/Prefix</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#cyclonedds-domain-sharedmemory">//CycloneDDS/Domain/SharedMemory</a></li>
 <li><a class="reference internal" href="#cyclonedds-domain-sizing">//CycloneDDS/Domain/Sizing</a><ul>
 <li><a class="reference internal" href="#cyclonedds-domain-sizing-receivebufferchunksize">//CycloneDDS/Domain/Sizing/ReceiveBufferChunkSize</a></li>
 <li><a class="reference internal" href="#cyclonedds-domain-sizing-receivebuffersize">//CycloneDDS/Domain/Sizing/ReceiveBufferSize</a></li>
