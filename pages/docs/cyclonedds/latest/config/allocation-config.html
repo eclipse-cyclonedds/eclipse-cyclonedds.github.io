@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Networking interfaces &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <title>Memory Allocation Configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Network partitions" href="network_partitions.html" />
-    <link rel="prev" title="Network configuration" href="network-config.html" /> 
+    <link rel="next" title="Examples" href="../examples/index.html" />
+    <link rel="prev" title="Benchmarking Tools" href="benchmarking.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -127,25 +127,16 @@
 <li class="toctree-l2"><a class="reference internal" href="cmake_config.html">CMake build configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discovery-behavior.html">Discovery behaviour</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discovery-config.html">Discovery configuration</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="network-config.html">Network configuration</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Networking interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="network_partitions.html">Network partitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="port_numbers.html">Port numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multicasting.html">Multicasting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tcp_support.html">TCP support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tls_support.html">TLS support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ethernet_support.html">Raw ethernet support</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="network-config.html">Network configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="combining-participants.html">Combining multiple participants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-path-config.html">Data path configuration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Networking interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_interfaces.html">Networking interfaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thread-config.html">Thread configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reporting-tracing.html">Reporting and tracing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conformance.html">Conformance modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="config_file_reference.html">Configuration File Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="benchmarking.html">Benchmarking Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="allocation-config.html">Memory Allocation Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Memory Allocation Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
@@ -165,118 +156,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="networking-interfaces">
-<span id="index-0"></span><span id="id1"></span><h1>Networking interfaces<a class="headerlink" href="#networking-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>Eclipse Cyclone DDS can use multiple network interfaces simultaneously (the default is a single
-network interface). The set of enabled interfaces determines the addresses that the host
-advertises in the discovery information (see <a class="reference internal" href="../about_dds/discovery_participants.html#discovery-participants-endpoints"><span class="std std-ref">Discovery of DDSI participants and endpoints</span></a>).</p>
-<section id="default-behaviour">
-<h2>Default behaviour<a class="headerlink" href="#default-behaviour" title="Permalink to this headline">¶</a></h2>
-<p>To determine the default network interface, the eligible interfaces are ranked by quality,
-and the interface with the highest quality is selected. If there are multiple interfaces of
-the highest quality, it selects the first enumerated one. Eligible interfaces are those
-that are connected and have the correct type of address family (IPv4 or IPv6). Priority is
-determined (in decreasing priority) as follows:</p>
-<ul class="simple">
-<li><p>Interfaces with a non-link-local address are preferred over those with a link-local one.</p></li>
-<li><p>Multicast-capable (see
-<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface-multicast"><span class="std std-ref">General/Interfaces/NetworkInterface[&#64;multicast]</span></a>).</p></li>
-<li><p>Non-multicast capable and not point-to-point.</p></li>
-<li><p>Point-to-point.</p></li>
-<li><p>Loopback.</p></li>
-</ul>
-<p>If this selection procedure does not automatically return the desired interface, to override
-the selection, set: <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces"><span class="std std-ref">General/Interfaces</span></a> adding
-any of the following:</p>
-<ul class="simple">
-<li><p>Name of the interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">name='interface_name'</span> <span class="pre">/&gt;</span></code>).</p></li>
-<li><p>IP address of the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.129.0.42'</span> <span class="pre">/&gt;</span></code>).</p></li>
-<li><p>Network portion of the IP address for the host on the desired interface (<code class="docutils literal notranslate"><span class="pre">&lt;NetworkInterface</span> <span class="pre">address='128.11.0.0'</span> <span class="pre">/&gt;</span></code>).</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>An exact match on the address is always preferred, and is the only option that allows
-selecting the desired interface when multiple addresses are tied to a single interface.</p>
-</div>
-<p>The default address family is IPv4. To change the address family to IPv6, set:
-<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-transport"><span class="std std-ref">General/Transport</span></a> to <code class="docutils literal notranslate"><span class="pre">udp6</span></code> or <code class="docutils literal notranslate"><span class="pre">tcp6</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Eclipse Cyclone DDS does not mix IPv4 and IPv6 addressing. Therefore, all DDSI participants in
-the network must use the same addressing mode. When interoperating, this behaviour is
-the same. That is, it looks at either IPv4 or IPv6 addresses in the advertised address
-information in the SPDP and SEDP discovery protocols.</p>
-</div>
-<p>IPv6 link-local addresses are considered undesirable because they must be published
-and received via the discovery mechanism (see <a class="reference internal" href="discovery-behavior.html#discovery-behaviour"><span class="std std-ref">Discovery behaviour</span></a>). There is no way to
-determine to which interface a received link-local address is related.</p>
-<p>If IPv6 is requested and the selected interface has a non-link-local address, Eclipse Cyclone DDS
-operates in a <em>global addressing</em> mode and will only consider discovered non-link-local
-addresses. In this mode, you can select any set of interfaces for listening to multicasts.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This behaviour is identical to that when using IPv4, as IPv4 does not have
-the formal notion of address scopes that IPv6 has. If only a link-local address is
-available, Eclipse Cyclone DDS runs in a <em>link-local addressing</em> mode. In this mode, it accepts
-any address in a discovery packet (assuming that a link-local address is valid on the selected
-interface). To minimise the risk involved in this assumption, it only allows the selected
-interface for listening to multicasts.</p>
-</div>
-</section>
-<section id="multiple-network-interfaces">
-<span id="index-1"></span><h2>Multiple network interfaces<a class="headerlink" href="#multiple-network-interfaces" title="Permalink to this headline">¶</a></h2>
-<p>Multiple network interfaces can be used simultaneously by listing multiple
-<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-interfaces-networkinterface"><span class="std std-ref">NetworkInterface</span></a> elements.
-The default behaviour still applies, but with extended network interfaces. For example,
-the SPDP packets advertise multiple addresses and sends these packets out on all interfaces.
-If link-local addresses are used, the issue with <em>link-local addressing</em> gains importance.</p>
-<p>In a configuration with a single network interface, it is obvious which one to use for
-sending packets to a peer. When there are multiple network interfaces, it is necessary to
-establish the set of interfaces through which multicasts can be sent (these are sent
-on a specific interface). This in turn requires determining via which subset of interfaces
-a peer is reachable.</p>
-<p>Cyclone DDS checks which interfaces match the addresses advertised by a peer
-in its SPDP or SEDP messages, which assumes that:</p>
-<ul class="simple">
-<li><p>The peer is attached to at least one of the configured networks.</p></li>
-<li><p>That checking the network parts of the addresses results in a subset of the interfaces.</p></li>
-</ul>
-<p>The network interfaces in this subset are the interfaces on which the peer is assumed to
-be reachable via multicast. This leaves open two classes of addresses:</p>
-<ul class="simple">
-<li><p><strong>Loopback addresses</strong>: these are ignored unless:</p>
-<ul>
-<li><p>The configuration has enabled only loopback interfaces.</p></li>
-<li><p>No other addresses are advertised in the discovery message.</p></li>
-<li><p>A non-loopback address matches that of the machine.</p></li>
-</ul>
-</li>
-<li><p><strong>Routable addresses that do not match an interface</strong>: these are ignored if the
-<a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-dontroute"><span class="std std-ref">General/DontRoute</span></a> option is set,
-otherwise it is assumed that the network stack knows how to route them, and any of
-the interfaces may be used.</p></li>
-</ul>
-<p>When a message needs to be sent to a set of peers, Eclipse Cyclone DDS uses the set of addresses
-spanning the set of intended recipients with the lowest cost. That is, the number of nodes
-that:</p>
-<ul class="simple">
-<li><p>Receive it without having a use for it.</p></li>
-<li><p>Unicast vs multicast.</p></li>
-<li><p>Loopback vs real network interface.</p></li>
-<li><p>Configured priority.</p></li>
-</ul>
-<p>Eclipse Cyclone DDS uses some heuristics rather than computing the optimal solution. The address
-selection can be influenced in two ways:</p>
-<ul class="simple">
-<li><p>By using the <code class="docutils literal notranslate"><span class="pre">priority</span></code> attribute, which is used as an offset in the cost calculation.
-The default configuration gives loopback interfaces a slightly higher priority than other
-network types.</p></li>
-<li><p>By setting the <code class="docutils literal notranslate"><span class="pre">prefer_multicast</span></code> attribute, which raises the assumed cost of a unicast
-message.</p></li>
-</ul>
-<p>The <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-general-redundantnetworking"><span class="std std-ref">General/RedundantNetworking</span></a>
-setting forces the address selection code to consider all interfaces advertised by a peer.</p>
-</section>
+  <section id="memory-allocation-configuration">
+<span id="allocation-config"></span><h1>Memory Allocation Configuration<a class="headerlink" href="#memory-allocation-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Users have the flexibility to customize the memory allocation strategy for Eclipse Cyclone DDS by leveraging their own memory allocation libraries. To utilise your preferred memory allocation functions, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Include <cite>dds/ddsrt/heap.h</cite>
+To gain access to <cite>ddsrt_allocation_ops_t</cite> and <cite>ddsrt_set_allocator</cite>.</p></li>
+<li><p>Set the allocation operations
+Define a <cite>ddsrt_allocation_ops_t</cite> structure that contains pointers to the functions you want to use for memory allocation and deallocation (<cite>malloc</cite>, <cite>calloc</cite>, <cite>realloc</cite>, and <cite>free</cite>).</p></li>
+<li><p>Provide <cite>ddsrt</cite> the operations
+Utilize the <cite>ddsrt_set_allocator</cite> function to set the ops chosen in step 2.</p></li>
+<li><p>Link with custom library
+Compile and link your application with the library that contains the functions specified in the <cite>ddsrt_allocation_ops_t</cite> structure created in step 2.</p></li>
+</ol>
+<p>By following these steps, you can tailor the memory allocation mechanism of Eclipse Cyclone DDS to meet your specific requirements.</p>
 </section>
 
 
@@ -285,24 +178,6 @@ setting forces the address selection code to consider all interfaces advertised 
         </div>
       </div>
     
-        <div id="show_right_sidebar">
-            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
-        </div>
-
-        <div id="right_sidebar">
-            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
-            <div class="page_toc">
-                <ul>
-<li><a class="reference internal" href="#">Networking interfaces</a><ul>
-<li><a class="reference internal" href="#default-behaviour">Default behaviour</a></li>
-<li><a class="reference internal" href="#multiple-network-interfaces">Multiple network interfaces</a></li>
-</ul>
-</li>
-</ul>
-
-            </div>
-        </div>
-    
 
       <div class="clearer"></div>
     </div>
@@ -310,14 +185,14 @@ setting forces the address selection code to consider all interfaces advertised 
         <div class="button_nav">
             <div class="left">
                 
-                <a href="network-config.html">
-                    <span class="icon"><</span><span>Network configuration</span></a>
+                <a href="benchmarking.html">
+                    <span class="icon"><</span><span>Benchmarking Tools</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="network_partitions.html"><span>Network partitions</span><span class="icon">></span></a>
+                    <a href="../examples/index.html"><span>Examples</span><span class="icon">></span></a>
                 
             </div>
         </div>
