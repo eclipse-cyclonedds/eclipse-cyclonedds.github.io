@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Publish Subscribe Message Exchange &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dynamic Type API" href="dynamic.html" />
+    <link rel="prev" title="Deprecated functionality" href="deprecated.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">C API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Publish Subscribe Message Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamic.html">Dynamic Type API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="publish-subscribe-message-exchange">
+<h1>Publish Subscribe Message Exchange<a class="headerlink" href="#publish-subscribe-message-exchange" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__psmx"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">psmx</span></span></dt>
+<dd><p>The Publish Subscribe Message Exchange (PSMX) interface allows implementing additional methods of pub-sub data-exchange as an alternative to Cyclone’s networked transport. The PSMX interface allows to load implementations as plugins, so there is no need for compile-time linking. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_type_t">
+<span class="target" id="group__psmx_1gaa6d0321e79d096586a044985349ada6c"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint_type" title="dds_psmx_endpoint_type"><span class="n"><span class="pre">dds_psmx_endpoint_type</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_type_t</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_type_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type of the PSMX endpoint. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_instance_id_t">
+<span class="target" id="group__psmx_1ga4dd1788eaf626a1c4e4827a209a3fb6e"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_instance_id_t</span></span></span><a class="headerlink" href="#c.dds_psmx_instance_id_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Identifier for the PSMX instance. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_metadata_t">
+<span class="target" id="group__psmx_1gad69f7c06ecbc6f5462ca7fc73d6b5f98"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_metadata" title="dds_psmx_metadata"><span class="n"><span class="pre">dds_psmx_metadata</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_metadata_t</span></span></span><a class="headerlink" href="#c.dds_psmx_metadata_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>describes the data which is transferred in addition to just the sample </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_node_identifier_t">
+<span class="target" id="group__psmx_1gaf650ecf9772d3a96b008f47223a5e919"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_node_identifier" title="dds_psmx_node_identifier"><span class="n"><span class="pre">dds_psmx_node_identifier</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_node_identifier_t</span></span></span><a class="headerlink" href="#c.dds_psmx_node_identifier_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>identifier used to distinguish between PSMX instances on nodes </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_type_qos_supported_fn">
+<span class="target" id="group__psmx_1ga94ab6cee9a4ccfdc340de774e4cfb466"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_type_qos_supported_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint_type_t" title="dds_psmx_endpoint_type_t"><span class="n"><span class="pre">dds_psmx_endpoint_type_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">forwhat</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">dds_data_type_properties_t</span></span><span class="w"> </span><span class="n"><span class="pre">data_type_props</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_qos</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_type_qos_supported_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition for function that checks QoS support. </p>
+<p>Definition for function that checks whether the provided QoS is supported by the PSMX implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_instance</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The PSMX instance. </p>
+</dd>
+<dt class="field-even">Param forwhat</dt>
+<dd class="field-even"><p><strong>[in]</strong> whether for a topic/writer/reader (UNSET if topic) </p>
+</dd>
+<dt class="field-odd">Param data_type_props</dt>
+<dd class="field-odd"><p><strong>[in]</strong> Data type properties </p>
+</dd>
+<dt class="field-even">Param qos</dt>
+<dd class="field-even"><p><strong>[in]</strong> The QoS. </p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p>true if the QoS is supported, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_create_topic_fn">
+<span class="target" id="group__psmx_1ga9681daa8daefeba36f864292d845e230"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_create_topic_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">topic_name</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_name</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">dds_data_type_properties_t</span></span><span class="w"> </span><span class="n"><span class="pre">data_type_props</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_create_topic_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition for function to create a topic</p>
+<p>Definition for a function that is called to create a new topic for a PSMX instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_instance</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The PSMX instance. </p>
+</dd>
+<dt class="field-even">Param topic_name</dt>
+<dd class="field-even"><p><strong>[in]</strong> The name of the topic to create </p>
+</dd>
+<dt class="field-odd">Param type_name</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The name of the DDS data type for this topic </p>
+</dd>
+<dt class="field-even">Param data_type_props</dt>
+<dd class="field-even"><p><strong>[in]</strong> The data type properties for the topic’s data type. </p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p>a PSMX topic structure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_delete_topic_fn">
+<span class="target" id="group__psmx_1gaae49c77314252e61fff450b0bb482cfc"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_delete_topic_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_delete_topic_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition for function to destruct a topic</p>
+<p>Definition for a function that is called on topic destruction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_topic</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The PSMX topic to destruct </p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_deinit_fn">
+<span class="target" id="group__psmx_1gabaf2b863fdc65715b71380020a4dac06"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_deinit_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_deinit_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function definition for pubsub message exchange cleanup. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_instance</dt>
+<dd class="field-odd"><p><strong>[in]</strong> the psmx instance to de-initialize </p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_get_node_identifier_fn">
+<span class="target" id="group__psmx_1ga5e3dc0f9405e737ff13e0969b91bdd57"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_node_identifier_t" title="dds_psmx_node_identifier_t"><span class="n"><span class="pre">dds_psmx_node_identifier_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_get_node_identifier_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_get_node_identifier_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition for PSMX locator generation function</p>
+<p>Returns a locator which is unique between nodes, but identical for instances on the same node. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_instance</dt>
+<dd class="field-odd"><p><strong>[in]</strong> a PSMX instance </p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p>a unique node identifier (locator) </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_supported_features_fn">
+<span class="target" id="group__psmx_1gabcf0c7c4b49cf5e7674903dc1a5e9be4"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">dds_psmx_features_t</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_supported_features_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_supported_features_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition for PSMX function to get supported features</p>
+<p>Returns an integer with the flags set for the features that are supported by the provided PSMX instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_instance</dt>
+<dd class="field-odd"><p><strong>[in]</strong> a PSMX instance </p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p>the set of features supported by this PSMX instance </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_ops_t">
+<span class="target" id="group__psmx_1ga421230a1f86ce3091fbfa3d237fa83dd"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_ops" title="dds_psmx_ops"><span class="n"><span class="pre">dds_psmx_ops</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_ops_t</span></span></span><a class="headerlink" href="#c.dds_psmx_ops_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>functions which are used on a PSMX instance </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_create_endpoint_fn">
+<span class="target" id="group__psmx_1ga4e559804b9284505cb415a4a2e15bc7f"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_create_endpoint_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_qos</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint_type_t" title="dds_psmx_endpoint_type_t"><span class="n"><span class="pre">dds_psmx_endpoint_type_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">endpoint_type</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_create_endpoint_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition of function to create an endpoint for a topic. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_topic</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The PSMX topic to create the endpoint for </p>
+</dd>
+<dt class="field-even">Param endpoint_type</dt>
+<dd class="field-even"><p><strong>[in]</strong> The type of endpoint to create (publisher or subscriber) </p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p>A PSMX endpoint struct </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_delete_endpoint_fn">
+<span class="target" id="group__psmx_1ga38e37207944e35a3a203a1749bc9ff4b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_delete_endpoint_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_endpoint</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_delete_endpoint_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition of function to delete an PSMX endpoint. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_endpoint</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The endpoint to be deleted </p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_topic_ops_t">
+<span class="target" id="group__psmx_1ga0b20cf09b2907a517508386fa2b92047"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic_ops" title="dds_psmx_topic_ops"><span class="n"><span class="pre">dds_psmx_topic_ops</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_topic_ops_t</span></span></span><a class="headerlink" href="#c.dds_psmx_topic_ops_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>functions which are used on a PSMX topic </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_request_loan_fn">
+<span class="target" id="group__psmx_1ga8faf98b192614070c45f5bf8006ad810"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="loan.html#c.dds_loaned_sample_t" title="dds_loaned_sample_t"><span class="n"><span class="pre">dds_loaned_sample_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_request_loan_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_endpoint</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">size_requested</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_endpoint_request_loan_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition for function to requests a loan from the PSMX. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_endpoint</dt>
+<dd class="field-odd"><p><strong>[in]</strong> the endpoint to loan from </p>
+</dd>
+<dt class="field-even">Param size_requested</dt>
+<dd class="field-even"><p><strong>[in]</strong> the size of the loan requested </p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p>a pointer to the loaned block on success </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_write_fn">
+<span class="target" id="group__psmx_1ga8a12b70ca8d6bbefd12ce3bbcf76c896"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_write_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_endpoint</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="loan.html#c.dds_loaned_sample_t" title="dds_loaned_sample_t"><span class="n"><span class="pre">dds_loaned_sample_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_endpoint_write_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition of function to write data on a PSMX endpoint. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_endpoint</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The endpoint to publish the data on </p>
+</dd>
+<dt class="field-even">Param data</dt>
+<dd class="field-even"><p><strong>[in]</strong> The data to publish </p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_take_fn">
+<span class="target" id="group__psmx_1ga766507b68f2ee338adccf48e3cddf3c4"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="loan.html#c.dds_loaned_sample_t" title="dds_loaned_sample_t"><span class="n"><span class="pre">dds_loaned_sample_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_take_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_endpoint</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_endpoint_take_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition of function to take data from an PSMX endpoint. </p>
+<p>Used in a poll based implementation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_endpoint</dt>
+<dd class="field-odd"><p><strong>[in]</strong> The endpoint to take the data from </p>
+</dd>
+<dt class="field-even">Return</dt>
+<dd class="field-even"><p>the oldest unread received block of memory </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_on_data_available_fn">
+<span class="target" id="group__psmx_1gae38e3d599ea4d4d38c687e180e9daecb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_on_data_available_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_endpoint</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_endpoint_on_data_available_fn" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition of function to set the a callback function on an PSMX endpoint. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param psmx_endpoint</dt>
+<dd class="field-odd"><p><strong>[in]</strong> the endpoint to set the callback function on </p>
+</dd>
+<dt class="field-even">Param reader</dt>
+<dd class="field-even"><p><strong>[in]</strong> the DDS reader associated with the endpoint </p>
+</dd>
+<dt class="field-odd">Return</dt>
+<dd class="field-odd"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_ops_t">
+<span class="target" id="group__psmx_1ga9ea7186ab253adb05d08713f5847eb17"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint_ops" title="dds_psmx_endpoint_ops"><span class="n"><span class="pre">dds_psmx_endpoint_ops</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_ops_t</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_ops_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Functions that are used on a PSMX endpoint. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_t">
+<span class="target" id="group__psmx_1ga5a294a531e43a835f06ff200ff13cd66"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_t</span></span></span><a class="headerlink" href="#c.dds_psmx_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the top-level entry point on the PSMX is bound to a specific implementation of a PSMX </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_topic_t">
+<span class="target" id="group__psmx_1gae8f55a2882ee3818915dfbfc429da74d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_topic_t</span></span></span><a class="headerlink" href="#c.dds_psmx_topic_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the topic-level PSMX </p>
+<p>this will exchange data for readers and writers which are matched through discovery will only exchange a single type of data </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_t">
+<span class="target" id="group__psmx_1ga053b063abaffa9250d1315b1ffdd9e91"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_t</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the definition of one instance of a dds reader/writer using a PSMX instance </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_type">
+<span class="target" id="group__psmx_1ga3a5f121ec1755567a1ad88dc45d21057"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_type</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type of the PSMX endpoint. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_type.DDS_PSMX_ENDPOINT_TYPE_UNSET">
+<span class="target" id="group__psmx_1gga3a5f121ec1755567a1ad88dc45d21057a86415d8e3879ae9ac124edb0eff781dd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PSMX_ENDPOINT_TYPE_UNSET</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_type.DDS_PSMX_ENDPOINT_TYPE_UNSET" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_type.DDS_PSMX_ENDPOINT_TYPE_READER">
+<span class="target" id="group__psmx_1gga3a5f121ec1755567a1ad88dc45d21057ad11e5f4b300f761234e0f1ada9affac9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PSMX_ENDPOINT_TYPE_READER</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_type.DDS_PSMX_ENDPOINT_TYPE_READER" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_type.DDS_PSMX_ENDPOINT_TYPE_WRITER">
+<span class="target" id="group__psmx_1gga3a5f121ec1755567a1ad88dc45d21057a4f4c9c4a9e3591626b2be2d12bd7c9cc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_PSMX_ENDPOINT_TYPE_WRITER</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_type.DDS_PSMX_ENDPOINT_TYPE_WRITER" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_add_psmx_topic_to_list">
+<span class="target" id="group__psmx_1ga055b5b59831ced05283931e0bfa8aa25"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_add_psmx_topic_to_list</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_psmx_topic_list_elem</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_add_psmx_topic_to_list" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>adds a topic to the list </p>
+<p>will create the first list entry if it does not yet exist</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx_topic</strong> – <strong>[in]</strong> the topic to add </p></li>
+<li><p><strong>list</strong> – <strong>[inout]</strong> list to add the topic to </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DDS_RETCODE_OK on success </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_remove_psmx_topic_from_list">
+<span class="target" id="group__psmx_1ga744e67f9919e70a31489ee5ca943b46d"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_remove_psmx_topic_from_list</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_psmx_topic_list_elem</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_remove_psmx_topic_from_list" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>removes a topic from the list </p>
+<p>will set the pointer to the list to null if the last entry is removed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx_topic</strong> – <strong>[in]</strong> the topic to remove </p></li>
+<li><p><strong>list</strong> – <strong>[inout]</strong> list to remove the topic from </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_add_psmx_endpoint_to_list">
+<span class="target" id="group__psmx_1gac6b1731252e66736d7acd122ff47342d"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_add_psmx_endpoint_to_list</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_endpoint</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_psmx_endpoint_list_elem</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_add_psmx_endpoint_to_list" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>adds an endpoint to the list </p>
+<p>will create the first list entry if it does not yet exist</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx_endpoint</strong> – <strong>[in]</strong> the endpoint to add </p></li>
+<li><p><strong>list</strong> – <strong>[inout]</strong> list to add the endpoint to </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_remove_psmx_endpoint_from_list">
+<span class="target" id="group__psmx_1ga11661dda2ad07010ef82de97de4c0b00"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_remove_psmx_endpoint_from_list</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_endpoint</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_psmx_endpoint_list_elem</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">list</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_remove_psmx_endpoint_from_list" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>removes an endpoint from the list </p>
+<p>will set the pointer to the list to null if the last entry is removed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx_endpoint</strong> – <strong>[in]</strong> the endpoint to remove </p></li>
+<li><p><strong>list</strong> – <strong>[inout]</strong> list to remove the endpoint from </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_psmx_init_generic">
+<span class="target" id="group__psmx_1gab5bcf149eeb30d29ea86c76dd0acc41c"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_init_generic</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_psmx_init_generic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>initialization function for PSMX instance </p>
+<p>Should be called from all constructors of class which inherit from dds_psmx_t</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx</strong> – <strong>[in]</strong> the PSMX instance to initialize </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_psmx_cleanup_generic">
+<span class="target" id="group__psmx_1ga0dadeaf7aa63a55612911f6bc9f6e789"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_cleanup_generic</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_psmx_cleanup_generic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>cleanup function for a PSMX instance </p>
+<p>Should be called from all destructors of classes which inherit from dds_psmx_t</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx</strong> – <strong>[in]</strong> the PSMX instance to cleanup </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_psmx_topic_init_generic">
+<span class="target" id="group__psmx_1gaa8d0eacebbbda03928c6bcaf4769a583"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_topic_init_generic</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic_ops_t" title="dds_psmx_topic_ops_t"><span class="n"><span class="pre">dds_psmx_topic_ops_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">ops</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">topic_name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_name</span></span>, <span class="n"><span class="pre">dds_data_type_properties_t</span></span><span class="w"> </span><span class="n"><span class="pre">data_type_props</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_psmx_topic_init_generic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>init function for topic </p>
+<p>Should be called from all constructors of classes which inherit from struct <a class="reference internal" href="#structdds__psmx__topic"><span class="std std-ref">dds_psmx_topic</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx_topic</strong> – <strong>[in]</strong> the topic to initialize </p></li>
+<li><p><strong>ops</strong> – <strong>[in]</strong> vtable for this psmx_topic </p></li>
+<li><p><strong>psmx</strong> – <strong>[in]</strong> the PSMX instance </p></li>
+<li><p><strong>topic_name</strong> – <strong>[in]</strong> the topic name </p></li>
+<li><p><strong>type_name</strong> – <strong>[in]</strong> the DDS type name for this topic </p></li>
+<li><p><strong>data_type_props</strong> – <strong>[in]</strong> the data type’s properties </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_psmx_topic_cleanup_generic">
+<span class="target" id="group__psmx_1ga0f8d1852e548202e83a1f09f6d9847be"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_topic_cleanup_generic</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_psmx_topic_cleanup_generic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>cleanup function for a topic </p>
+<p>Should be called from all destructors of classes which inherit from struct <a class="reference internal" href="#structdds__psmx__topic"><span class="std std-ref">dds_psmx_topic</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx_topic</strong> – <strong>[in]</strong> the topic to de-initialize </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a DDS return code </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_psmx_supported_features">
+<span class="target" id="group__psmx_1ga7200ee15c3f0274e1888f07258b77d93"></span><span class="n"><span class="pre">dds_psmx_features_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_supported_features</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_psmx_supported_features" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the supported features for a PSMX instance. </p>
+<p>Returns the set of supported features for the provided PSMX instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psmx_instance</strong> – <strong>[in]</strong> the PSMX instance </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the set of features supported by this PSMX instance </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx_metadata">
+<span class="target" id="structdds__psmx__metadata"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_metadata</span></span></span><a class="headerlink" href="#c.dds_psmx_metadata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>describes the data which is transferred in addition to just the sample </p>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx_node_identifier">
+<span class="target" id="structdds__psmx__node__identifier"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_node_identifier</span></span></span><a class="headerlink" href="#c.dds_psmx_node_identifier" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>identifier used to distinguish between PSMX instances on nodes </p>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx_ops">
+<span class="target" id="structdds__psmx__ops"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_ops</span></span></span><a class="headerlink" href="#c.dds_psmx_ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>functions which are used on a PSMX instance </p>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx_topic_ops">
+<span class="target" id="structdds__psmx__topic__ops"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_topic_ops</span></span></span><a class="headerlink" href="#c.dds_psmx_topic_ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>functions which are used on a PSMX topic </p>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint_ops">
+<span class="target" id="structdds__psmx__endpoint__ops"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint_ops</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint_ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>Functions that are used on a PSMX endpoint. </p>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx">
+<span class="target" id="structdds__psmx"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx</span></span></span><a class="headerlink" href="#c.dds_psmx" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>the top-level entry point on the PSMX is bound to a specific implementation of a PSMX </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx.ops">
+<span class="target" id="structdds__psmx_1a74e39391b8e2479e41c268539121ff0d"></span><a class="reference internal" href="#c.dds_psmx_ops_t" title="dds_psmx_ops_t"><span class="n"><span class="pre">dds_psmx_ops_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ops</span></span></span><a class="headerlink" href="#c.dds_psmx.ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>associated functions </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx.instance_name">
+<span class="target" id="structdds__psmx_1a216866595e25095193338a8fa8c5dbdd"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">instance_name</span></span></span><a class="headerlink" href="#c.dds_psmx.instance_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>name of this PSMX instance </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx.priority">
+<span class="target" id="structdds__psmx_1a01a67509415ca2c48d4f6574307fcebd"></span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">priority</span></span></span><a class="headerlink" href="#c.dds_psmx.priority" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>priority of choosing this interface </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx.locator">
+<span class="target" id="structdds__psmx_1a02e43eb279b59c8a65a150993d33fb50"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_locator</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">locator</span></span></span><a class="headerlink" href="#c.dds_psmx.locator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the locator for this PSMX instance </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx.instance_id">
+<span class="target" id="structdds__psmx_1a6b55cd30ba4b7f66716c62962903dfdb"></span><a class="reference internal" href="#c.dds_psmx_instance_id_t" title="dds_psmx_instance_id_t"><span class="n"><span class="pre">dds_psmx_instance_id_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">instance_id</span></span></span><a class="headerlink" href="#c.dds_psmx.instance_id" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the identifier of this PSMX instance </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx.psmx_topics">
+<span class="target" id="structdds__psmx_1a8b3c4e7b1255aab9f3b695a5c214d81e"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_psmx_topic_list_elem</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">psmx_topics</span></span></span><a class="headerlink" href="#c.dds_psmx.psmx_topics" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>associated topics </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx_topic">
+<span class="target" id="structdds__psmx__topic"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_topic</span></span></span><a class="headerlink" href="#c.dds_psmx_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>the topic-level PSMX </p>
+<p>this will exchange data for readers and writers which are matched through discovery will only exchange a single type of data </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_topic.ops">
+<span class="target" id="structdds__psmx__topic_1adbeca3fc32300c4e68f4ee2742572324"></span><a class="reference internal" href="#c.dds_psmx_topic_ops_t" title="dds_psmx_topic_ops_t"><span class="n"><span class="pre">dds_psmx_topic_ops_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ops</span></span></span><a class="headerlink" href="#c.dds_psmx_topic.ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>associated functions </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_topic.psmx_instance">
+<span class="target" id="structdds__psmx__topic_1ae0503e956006714a373af677d32d1689"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">psmx_instance</span></span></span><a class="headerlink" href="#c.dds_psmx_topic.psmx_instance" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the PSMX instance which created this topic </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_topic.topic_name">
+<span class="target" id="structdds__psmx__topic_1ac05214eb24780e8471c53e0d8c295c4f"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">topic_name</span></span></span><a class="headerlink" href="#c.dds_psmx_topic.topic_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the topic name </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_topic.type_name">
+<span class="target" id="structdds__psmx__topic_1adedea2924add17b9950abb900a40b236"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">type_name</span></span></span><a class="headerlink" href="#c.dds_psmx_topic.type_name" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the type name </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_topic.data_type">
+<span class="target" id="structdds__psmx__topic_1a09ffa5c169f4c4356c59b4be764b48fc"></span><a class="reference internal" href="loan.html#c.dds_loan_data_type_t" title="dds_loan_data_type_t"><span class="n"><span class="pre">dds_loan_data_type_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">data_type</span></span></span><a class="headerlink" href="#c.dds_psmx_topic.data_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the unique identifier associated with the data type of this topic </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_topic.psmx_endpoints">
+<span class="target" id="structdds__psmx__topic_1a7875f4ea99dd65302f342e61aadc7f7a"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_psmx_endpoint_list_elem</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">psmx_endpoints</span></span></span><a class="headerlink" href="#c.dds_psmx_topic.psmx_endpoints" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>associated endpoints </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_topic.data_type_props">
+<span class="target" id="structdds__psmx__topic_1a2bfdbb9ac8bdb3fe857bddb5c573832f"></span><span class="n"><span class="pre">dds_data_type_properties_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">data_type_props</span></span></span><a class="headerlink" href="#c.dds_psmx_topic.data_type_props" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the properties of the datatype associated with this topic </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint">
+<span class="target" id="structdds__psmx__endpoint"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_psmx.h&gt;</em></div>
+<p>the definition of one instance of a dds reader/writer using a PSMX instance </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint.ops">
+<span class="target" id="structdds__psmx__endpoint_1af69d9bfd2d05f164b97423e66c89a378"></span><a class="reference internal" href="#c.dds_psmx_endpoint_ops_t" title="dds_psmx_endpoint_ops_t"><span class="n"><span class="pre">dds_psmx_endpoint_ops_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ops</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint.ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>associated functions </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint.psmx_topic">
+<span class="target" id="structdds__psmx__endpoint_1a01d0fff01de39275775ac4efa90989f7"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">psmx_topic</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint.psmx_topic" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the topic this endpoint belongs to </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_psmx_endpoint.endpoint_type">
+<span class="target" id="structdds__psmx__endpoint_1a4ea4ba59ff31817bba20a4001c367641"></span><a class="reference internal" href="#c.dds_psmx_endpoint_type_t" title="dds_psmx_endpoint_type_t"><span class="n"><span class="pre">dds_psmx_endpoint_type_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">endpoint_type</span></span></span><a class="headerlink" href="#c.dds_psmx_endpoint.endpoint_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>type type of endpoint </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="deprecated.html">
+                    <span class="icon"><</span><span>Deprecated functionality</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="dynamic.html"><span>Dynamic Type API</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

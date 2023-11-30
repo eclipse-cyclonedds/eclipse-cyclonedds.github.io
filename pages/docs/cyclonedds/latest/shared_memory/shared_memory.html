@@ -170,7 +170,7 @@ which is based on <a href="https://projects.eclipse.org/proposals/eclipse-iceory
 <li><p>Get and build iceoryx. The following assumes that the install is in your home directory:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/eclipse-iceoryx/iceoryx.git -b release_2.0</span>
 <span class="go">cd iceoryx</span>
-<span class="go">cmake -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=ON -Hiceoryx_meta</span>
+<span class="go">cmake -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DROUDI_ENVIRONMENT=on -DBUILD_SHARED_LIBS=ON -Hiceoryx_meta</span>
 <span class="go">cmake --build build --config Release --target install</span>
 </pre></div>
 </div>
@@ -178,7 +178,7 @@ which is based on <a href="https://projects.eclipse.org/proposals/eclipse-iceory
 <li><p>Get Cyclone DDS and build it with shared memory support:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/eclipse-cyclonedds/cyclonedds.git</span>
 <span class="go">cd cyclonedds</span>
-<span class="go">cmake -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DBUILD_EXAMPLES=On -DCMAKE_PREFIX_PATH=~/iceoryx/install/</span>
+<span class="go">cmake -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install -DENABLE_ICEORYX=On -DBUILD_EXAMPLES=On -DCMAKE_PREFIX_PATH=~/iceoryx/install/</span>
 <span class="go">cmake --build build --config Release --target install</span>
 </pre></div>
 </div>

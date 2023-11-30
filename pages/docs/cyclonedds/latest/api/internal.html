@@ -140,6 +140,8 @@
 <li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Internal functionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psmx.html">Publish Subscribe Message Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamic.html">Dynamic Type API</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
@@ -498,6 +500,8 @@
 </div>
 </dd></dl>
 
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__testing"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">testing</span></span></dt>
@@ -538,6 +542,9 @@ This is a support function for testing and, other special uses and is subject to
 </div>
 </dd></dl>
 
+</section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__implementation"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">implementation</span></span></dt>
@@ -623,6 +630,9 @@ This is a support function for testing and, other special uses and is subject to
 
 </dd></dl>
 
+</section>
+<section id="topic-definition">
+<h2>Topic definition<a class="headerlink" href="#topic-definition" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__topic__definition"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">topic_definition</span></span></dt>
@@ -805,12 +815,163 @@ This is a support function for testing and, other special uses and is subject to
 </dd></dl>
 
 </section>
+<section id="convenience-log-category-definitions">
+<h2>Convenience log category definitions<a class="headerlink" href="#convenience-log-category-definitions" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__log__categories"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">log_categories</span></span></dt>
+<dd><p>These defines expand into numeric values that can be ORed together to specify messages of which categories must be passed to the respective sinks.</p>
+<p>Every category other than DDS_LC_FATAL, DDS_LC_ERROR, DDS_LC_WARNING and DDS_LC_INFO automatically falls into the trace category. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_FATAL">
+<span class="target" id="group__log__categories_1gacb3d4e362d142962476667e57576e0ab"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_FATAL</span></span></span> <span class="pre">(1u)</span><a class="headerlink" href="#c.DDS_LC_FATAL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fatal error condition. Immediate abort on sink return. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_ERROR">
+<span class="target" id="group__log__categories_1ga9332b3f40b07fabb875c80cd250e2bef"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_ERROR</span></span></span> <span class="pre">(2u)</span><a class="headerlink" href="#c.DDS_LC_ERROR" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Error condition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_WARNING">
+<span class="target" id="group__log__categories_1ga58ceffe88b9c8a9405ec3e146155cea0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_WARNING</span></span></span> <span class="pre">(4u)</span><a class="headerlink" href="#c.DDS_LC_WARNING" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Warning condition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_INFO">
+<span class="target" id="group__log__categories_1ga26d70aa39061747fcccef4dc4e8b6066"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_INFO</span></span></span> <span class="pre">(8u)</span><a class="headerlink" href="#c.DDS_LC_INFO" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Informational message. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_CONFIG">
+<span class="target" id="group__log__categories_1gaabe6b46c790ec9e9aa00dff347656ea6"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_CONFIG</span></span></span> <span class="pre">(16u)</span><a class="headerlink" href="#c.DDS_LC_CONFIG" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to configuration settings. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_DISCOVERY">
+<span class="target" id="group__log__categories_1ga4e0c6cdb28647e010d08cddd0a6a44e7"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_DISCOVERY</span></span></span> <span class="pre">(32u)</span><a class="headerlink" href="#c.DDS_LC_DISCOVERY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to node discovery. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_DATA">
+<span class="target" id="group__log__categories_1ga59534307477b306a17c9429891a27e7e"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_DATA</span></span></span> <span class="pre">(64u)</span><a class="headerlink" href="#c.DDS_LC_DATA" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Currently unused. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_TRACE">
+<span class="target" id="group__log__categories_1ga846304379675e258366b81d86467fb0c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_TRACE</span></span></span> <span class="pre">(128u)</span><a class="headerlink" href="#c.DDS_LC_TRACE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages for which no specialized category exists (yet). </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_RADMIN">
+<span class="target" id="group__log__categories_1ga4f055a7e7e1ef3449bfe52e1d738cbb2"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_RADMIN</span></span></span> <span class="pre">(256u)</span><a class="headerlink" href="#c.DDS_LC_RADMIN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to receive administration. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_TIMING">
+<span class="target" id="group__log__categories_1ga37a069dadf4ab75bac95a48632bdf16a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_TIMING</span></span></span> <span class="pre">(512u)</span><a class="headerlink" href="#c.DDS_LC_TIMING" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to timing. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_TRAFFIC">
+<span class="target" id="group__log__categories_1ga39c83665c6d6551cda2eabf412087c2a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_TRAFFIC</span></span></span> <span class="pre">(1024u)</span><a class="headerlink" href="#c.DDS_LC_TRAFFIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to send administration. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_TOPIC">
+<span class="target" id="group__log__categories_1ga55fbef9676bc5c490da67ec046803f87"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_TOPIC</span></span></span> <span class="pre">(2048u)</span><a class="headerlink" href="#c.DDS_LC_TOPIC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Currently unused. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_TCP">
+<span class="target" id="group__log__categories_1gab6e569804c81216a55fc353c1c97dfb2"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_TCP</span></span></span> <span class="pre">(4096u)</span><a class="headerlink" href="#c.DDS_LC_TCP" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to TCP communication. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_PLIST">
+<span class="target" id="group__log__categories_1ga74192d9b6b8022bf7e87e3c061b58424"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_PLIST</span></span></span> <span class="pre">(8192u)</span><a class="headerlink" href="#c.DDS_LC_PLIST" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to parameter list processing. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_WHC">
+<span class="target" id="group__log__categories_1gaae62c911de9bf1cd166e77c7b96a675c"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_WHC</span></span></span> <span class="pre">(16384u)</span><a class="headerlink" href="#c.DDS_LC_WHC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to the writer history cache. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_THROTTLE">
+<span class="target" id="group__log__categories_1gaa9250f9c91ecfbeeaaf8696b821d9e64"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_THROTTLE</span></span></span> <span class="pre">(32768u)</span><a class="headerlink" href="#c.DDS_LC_THROTTLE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Debug/trace messages related to throttling. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_RHC">
+<span class="target" id="group__log__categories_1ga2c68247160a09605d2d0a787cad2c8ec"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_RHC</span></span></span> <span class="pre">(65536u)</span><a class="headerlink" href="#c.DDS_LC_RHC" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reader history cache. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_CONTENT">
+<span class="target" id="group__log__categories_1gaaa22d6e7c541f0d8a1d8bb8e19958987"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_CONTENT</span></span></span> <span class="pre">(131072u)</span><a class="headerlink" href="#c.DDS_LC_CONTENT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Include content in traces. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_ALL">
+<span class="target" id="group__log__categories_1ga352d4655045522adc444d842be35eff0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_ALL</span></span></span> &#160;&#160;&#160; <span class="pre">(</span><a class="reference internal" href="#group__log__categories_1gacb3d4e362d142962476667e57576e0ab"><span class="std std-ref"><span class="pre">DDS_LC_FATAL</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga9332b3f40b07fabb875c80cd250e2bef"><span class="std std-ref"><span class="pre">DDS_LC_ERROR</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga58ceffe88b9c8a9405ec3e146155cea0"><span class="std std-ref"><span class="pre">DDS_LC_WARNING</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga26d70aa39061747fcccef4dc4e8b6066"><span class="std std-ref"><span class="pre">DDS_LC_INFO</span></span></a> <span class="pre">|</span> <span class="pre">\</span>
+&#160;&#160;&#160;&#160; <a class="reference internal" href="#group__log__categories_1gaabe6b46c790ec9e9aa00dff347656ea6"><span class="std std-ref"><span class="pre">DDS_LC_CONFIG</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga4e0c6cdb28647e010d08cddd0a6a44e7"><span class="std std-ref"><span class="pre">DDS_LC_DISCOVERY</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga59534307477b306a17c9429891a27e7e"><span class="std std-ref"><span class="pre">DDS_LC_DATA</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga846304379675e258366b81d86467fb0c"><span class="std std-ref"><span class="pre">DDS_LC_TRACE</span></span></a> <span class="pre">|</span> <span class="pre">\</span>
+&#160;&#160;&#160;&#160; <a class="reference internal" href="#group__log__categories_1ga37a069dadf4ab75bac95a48632bdf16a"><span class="std std-ref"><span class="pre">DDS_LC_TIMING</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga39c83665c6d6551cda2eabf412087c2a"><span class="std std-ref"><span class="pre">DDS_LC_TRAFFIC</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1gab6e569804c81216a55fc353c1c97dfb2"><span class="std std-ref"><span class="pre">DDS_LC_TCP</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1gaa9250f9c91ecfbeeaaf8696b821d9e64"><span class="std std-ref"><span class="pre">DDS_LC_THROTTLE</span></span></a> <span class="pre">|</span> <span class="pre">\</span>
+&#160;&#160;&#160;&#160; <a class="reference internal" href="#group__log__categories_1gaaa22d6e7c541f0d8a1d8bb8e19958987"><span class="std std-ref"><span class="pre">DDS_LC_CONTENT</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_LC_ALL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>All common trace categories. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
 
 
             <div class="clearer"></div>
           </div>
         </div>
       </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Internal functionality</a><ul>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+<li><a class="reference internal" href="#topic-definition">Topic definition</a></li>
+<li><a class="reference internal" href="#convenience-log-category-definitions">Convenience log category definitions</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
     
 
       <div class="clearer"></div>

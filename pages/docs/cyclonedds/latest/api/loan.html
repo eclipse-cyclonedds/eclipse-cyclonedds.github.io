@@ -146,6 +146,8 @@
 <li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psmx.html">Publish Subscribe Message Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamic.html">Dynamic Type API</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
@@ -172,7 +174,7 @@
 <dt class="sig sig-object c" id="c.dds_request_loan">
 <span class="target" id="group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_request_loan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_request_loan" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Request a loan from an entity. </p>
-<p>Borrow a sample from the entity, which currently must be a writer. This sample can then be returned using <code class="docutils literal notranslate"><span class="pre">dds_return_loan</span></code> or can be used to publish data using <code class="docutils literal notranslate"><span class="pre">dds_write</span></code> or <code class="docutils literal notranslate"><span class="pre">dds_writedispose</span></code>.</p>
+<p>Borrow a sample from the entity, which currently must be a writer. This sample can then be returned using <a class="reference internal" href="#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan</span></a> or can be used to publish data using <a class="reference internal" href="pub.html#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref">dds_write</span></a> or <a class="reference internal" href="pub.html#group__writing_1gad16fb6bd42165796bd3f88c52a9c23c1"><span class="std std-ref">dds_writedispose</span></a>.</p>
 <p>If the topic type has a fixed size (and so no internal pointers) and a PSMX interface is configured, the memory will be borrowed from the PSMX implementation, which allows Cyclone to avoid copies and/or serialization if there is no need for sending the data over a network interface or storing it in the WHC.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -200,9 +202,9 @@
 <dt class="sig sig-object c" id="c.dds_return_loan">
 <span class="target" id="group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_return_loan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_return_loan" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Return loaned samples to a reader or writer</p>
-<p>Used to release middleware-owned samples returned by a read/take operation and samples borrowed from the writer using <code class="docutils literal notranslate"><span class="pre">dds_request_loan</span></code>. </p>
-<p>For reader loans, the <code class="docutils literal notranslate"><span class="pre">dds_read</span></code> and <code class="docutils literal notranslate"><span class="pre">dds_take</span></code> operations implicitly return outstanding loans referenced by the sample array passed in. Looping until no data is returned therefore often eliminates the need for calling this function.</p>
-<p>For writer loans, a <code class="docutils literal notranslate"><span class="pre">dds_write</span></code> operation takes over the loan. Consequently, this function is only needed in the exceptional case where a loan is taken but ultimately not used to publish data.</p>
+<p>Used to release middleware-owned samples returned by a read/take operation and samples borrowed from the writer using <a class="reference internal" href="#group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"><span class="std std-ref">dds_request_loan</span></a>. </p>
+<p>For reader loans, the <a class="reference internal" href="sub.html#group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"><span class="std std-ref">dds_read</span></a> and <a class="reference internal" href="sub.html#group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"><span class="std std-ref">dds_take</span></a> operations implicitly return outstanding loans referenced by the sample array passed in. Looping until no data is returned therefore often eliminates the need for calling this function.</p>
+<p>For writer loans, a <a class="reference internal" href="pub.html#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref">dds_write</span></a> operation takes over the loan. Consequently, this function is only needed in the exceptional case where a loan is taken but ultimately not used to publish data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -270,7 +272,7 @@
 <dt class="sig sig-object c" id="c.dds_request_loan_of_size">
 <span class="target" id="group__loan_1ga15bd17fe3eebde129ce1acbb406c9487"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_request_loan_of_size</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_request_loan_of_size" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Request a loan of a specified size from an entity. </p>
-<p>Borrow a sample of a specified size from the entity, which currently must be a writer. This sample can then be returned using <code class="docutils literal notranslate"><span class="pre">dds_return_loan</span></code> or can be used to publish data using <code class="docutils literal notranslate"><span class="pre">dds_write</span></code> or <code class="docutils literal notranslate"><span class="pre">dds_writedispose</span></code>.</p>
+<p>Borrow a sample of a specified size from the entity, which currently must be a writer. This sample can then be returned using <a class="reference internal" href="#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan</span></a> or can be used to publish data using <a class="reference internal" href="pub.html#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref">dds_write</span></a> or <a class="reference internal" href="pub.html#group__writing_1gad16fb6bd42165796bd3f88c52a9c23c1"><span class="std std-ref">dds_writedispose</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The function can only be used if dds_is_shared_memory_available is true for the writer.</p>
@@ -292,6 +294,166 @@
 </div>
 </dd></dl>
 
+<section id="loaned-samples">
+<h2>Loaned Samples<a class="headerlink" href="#loaned-samples" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__loaned__sample"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">loaned_sample</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state_t">
+<span class="target" id="group__loaned__sample_1ga2bbc7acd71b1da5c655e22a4076fd22b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_loaned_sample_state" title="dds_loaned_sample_state"><span class="n"><span class="pre">dds_loaned_sample_state</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_state_t</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>State of the data contained in a memory block. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loan_data_type_t">
+<span class="target" id="group__loaned__sample_1ga3ecf0e0d5482de4271177b419397fcc1"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loan_data_type_t</span></span></span><a class="headerlink" href="#c.dds_loan_data_type_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Identifier used to distinguish between raw data types (C/C++/Python/…) </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c">
+<span class="target" id="group__loaned__sample_1ga1ebe848060febd0fdcce8d64773be93a"></span><span class="sig-name descname"><span class="pre">void(*</span> <span class="pre">dds_loaned_sample_free_f</span> <span class="pre">)(struct</span> <span class="pre">dds_loaned_sample</span> <span class="pre">*loaned_sample)</span> <span class="pre">ddsrt_nonnull_all</span></span></dt>
+<dd><p>Definition for function to free a loaned sample. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param loaned_sample</dt>
+<dd class="field-odd"><p><strong>[in]</strong> A loaned sample </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_ops_t">
+<span class="target" id="group__loaned__sample_1gaf207813556159e6cfeb19efa54d9b1a6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_loaned_sample_ops" title="dds_loaned_sample_ops"><span class="n"><span class="pre">dds_loaned_sample_ops</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_ops_t</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_ops_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Container for implementation specific operations. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_t">
+<span class="target" id="group__loaned__sample_1gab48085ad09a630c251bd6b9a283409cb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_loaned_sample" title="dds_loaned_sample"><span class="n"><span class="pre">dds_loaned_sample</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_t</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The definition of a block of memory originating from a PSMX. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state">
+<span class="target" id="group__loaned__sample_1ga1b9b5b66e7f3cc680239d1a1e759359d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_state</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>State of the data contained in a memory block. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_UNITIALIZED">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359da52da4baa215bc984233d513f71b06e86"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_UNITIALIZED</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_UNITIALIZED" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_KEY">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359dab09737bcf5dc08e162302b2f43192d9b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_RAW_KEY</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_KEY" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_DATA">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359dafdb03fb142c4a84dabbbfc2856da7d57"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_RAW_DATA</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_DATA" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_KEY">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359da1dd3c2a22175f67f07ba19bd0be9eda2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_SERIALIZED_KEY</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_KEY" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_DATA">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359daa4e153baaa40093ea3d23674b64b9524"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_SERIALIZED_DATA</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_DATA" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c">
+<span class="target" id="group__loaned__sample_1gac1334cf3d6e9fae70517041eead5a636"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">DDS_INLINE_EXPORT</span> <span class="pre">void</span> <span class="pre">ddsrt_nonnull_all</span> <span class="pre">dds_loaned_sample_ref</span> <span class="pre">(dds_loaned_sample_t</span> <span class="pre">*loaned_sample)</span></span></dt>
+<dd><p>Generic function to increase the refcount for a loaned sample. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loaned_sample</strong> – <strong>[in]</strong> A loaned sample </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c">
+<span class="target" id="group__loaned__sample_1gaccee3b7ab82e1514790c664c4f72061f"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">DDS_INLINE_EXPORT</span> <span class="pre">void</span> <span class="pre">ddsrt_nonnull_all</span> <span class="pre">dds_loaned_sample_unref</span> <span class="pre">(dds_loaned_sample_t</span> <span class="pre">*loaned_sample)</span></span></dt>
+<dd><p>Generic function to decrease the refcount for a loaned sample. </p>
+<p>Calls the PSMX plugin specific free function once the reference count reaches 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loaned_sample</strong> – <strong>[in]</strong> A loaned sample </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_ops">
+<span class="target" id="structdds__loaned__sample__ops"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_ops</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_loaned_sample.h&gt;</em></div>
+<p>Container for implementation specific operations. </p>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_loaned_sample">
+<span class="target" id="structdds__loaned__sample"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample</span></span></span><a class="headerlink" href="#c.dds_loaned_sample" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_loaned_sample.h&gt;</em></div>
+<p>The definition of a block of memory originating from a PSMX. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.ops">
+<span class="target" id="structdds__loaned__sample_1a92bd5d1de4683ed7e7687f676eb296b4"></span><a class="reference internal" href="#c.dds_loaned_sample_ops_t" title="dds_loaned_sample_ops_t"><span class="n"><span class="pre">dds_loaned_sample_ops_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ops</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the implementation specific ops for this sample </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.loan_origin">
+<span class="target" id="structdds__loaned__sample_1a84921a6f6c32b7f30df8520ba18d29b5"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_loaned_sample_origin</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">loan_origin</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.loan_origin" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the origin of the loan </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.metadata">
+<span class="target" id="structdds__loaned__sample_1a35a1de9d37117afe7ca443e5d59946da"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="psmx.html#c.dds_psmx_metadata" title="dds_psmx_metadata"><span class="n"><span class="pre">dds_psmx_metadata</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">metadata</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.metadata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>pointer to the associated metadata </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.sample_ptr">
+<span class="target" id="structdds__loaned__sample_1ad68e55939a283cadf715fa2c83d7f796"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sample_ptr</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.sample_ptr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>pointer to the loaned sample </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.refc">
+<span class="target" id="structdds__loaned__sample_1a2adaa155a293f41cda16042d9e1fe9b2"></span><span class="n"><span class="pre">ddsrt_atomic_uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">refc</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.refc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the number of references to this loan </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 
 
@@ -299,6 +461,23 @@
           </div>
         </div>
       </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Loaning</a><ul>
+<li><a class="reference internal" href="#loaned-samples">Loaned Samples</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
     
 
       <div class="clearer"></div>

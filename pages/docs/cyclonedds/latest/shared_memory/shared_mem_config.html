@@ -196,40 +196,18 @@ blocks, which can store data types of 16384 bytes (+ 64 byte header = 16448 byte
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export CYCLONEDDS_URI=file://cyclonedds.xml</span>
 </pre></div>
 </div>
-<p>The following optional configuration parameters in SharedMemory govern how Cyclone DDS treats shared memory:</p>
-<ul class="simple">
-<li><p>Enable</p>
-<ul>
-<li><p>When set to <em>true</em> enables Cyclone DDS to use shared memory for local data exchange</p></li>
-<li><p>Defaults to <em>false</em></p></li>
-</ul>
-</li>
-<li><p>LogLevel</p>
-<ul>
-<li><p>Controls the output of the iceoryx runtime and can be set to, in order of decreasing output:</p>
-<ul>
-<li><p><em>verbose</em></p></li>
-<li><p><em>debug</em></p></li>
-<li><p><em>info</em> (default)</p></li>
-<li><p><em>warn</em></p></li>
-<li><p><em>error</em></p></li>
-<li><p><em>fatal</em></p></li>
-<li><p><em>off</em></p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>The following is an example of a Cyclone DDS configuration file supporting shared memory exchange:</p>
+<p>The following is an example of a Cyclone DDS configuration file supporting shared memory exchange through iceoryx.
+Please check <a class="reference internal" href="../config/config_file_reference.html#cyclonedds-domain-general-interfaces-pubsubmessageexchange"><span class="std std-ref">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange</span></a> for all configuration details.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
 <span class="nt">&lt;CycloneDDS</span> <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
             <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
             <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/iceoryx/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;Domain</span> <span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;SharedMemory&gt;</span>
-            <span class="nt">&lt;Enable&gt;</span>true<span class="nt">&lt;/Enable&gt;</span>
-            <span class="nt">&lt;LogLevel&gt;</span>info<span class="nt">&lt;/LogLevel&gt;</span>
-        <span class="nt">&lt;/SharedMemory&gt;</span>
+        <span class="nt">&lt;General&gt;</span>
+            <span class="nt">&lt;Interfaces&gt;</span>
+                <span class="nt">&lt;PubSubMessageExchange</span> <span class="na">name=</span><span class="s">&quot;iox&quot;</span> <span class="na">library=</span><span class="s">&quot;psmx_iox&quot;</span> <span class="na">config=</span><span class="s">&quot;LOG_LEVEL=INFO;&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Interfaces&gt;</span>
+        <span class="nt">&lt;/General&gt;</span>
     <span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
