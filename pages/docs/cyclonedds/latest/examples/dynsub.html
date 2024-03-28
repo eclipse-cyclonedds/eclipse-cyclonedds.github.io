@@ -303,69 +303,70 @@ a number of different types. Pass it the name of the type to publish. For exampl
 <span class="linenos">121</span>    {
 <span class="linenos">122</span>      // not sure whether this is at all possible
 <span class="linenos">123</span>      info = malloc (sizeof (*info));
-<span class="linenos">124</span>      *info = (struct typeinfo){ .key = { .key = (uintptr_t) *xtypeobj }, .typeobj = &amp;(*xtypeobj)-&gt;_u.complete, .release = *xtypeobj, .align = align, .size = size };
-<span class="linenos">125</span>      type_cache_add (info);
-<span class="linenos">126</span>    }
-<span class="linenos">127</span>  }
-<span class="linenos">128</span>error:
-<span class="linenos">129</span>  dds_delete (dcpspublication_reader);
-<span class="linenos">130</span>  dds_delete (waitset);
-<span class="linenos">131</span>  return (*xtypeobj != NULL) ? DDS_RETCODE_OK : DDS_RETCODE_TIMEOUT;
-<span class="linenos">132</span>}
-<span class="linenos">133</span>
-<span class="linenos">134</span>int main (int argc, char **argv)
-<span class="linenos">135</span>{
-<span class="linenos">136</span>  dds_return_t ret = 0;
-<span class="linenos">137</span>  dds_entity_t topic = 0;
-<span class="linenos">138</span>
-<span class="linenos">139</span>  if (argc != 2)
-<span class="linenos">140</span>  {
-<span class="linenos">141</span>    fprintf (stderr, &quot;usage: %s topicname\n&quot;, argv[0]);
-<span class="linenos">142</span>    return 2;
-<span class="linenos">143</span>  }
-<span class="linenos">144</span>
-<span class="linenos">145</span>  participant = dds_create_participant (DDS_DOMAIN_DEFAULT, NULL, NULL);
-<span class="linenos">146</span>  if (participant &lt; 0)
-<span class="linenos">147</span>  {
-<span class="linenos">148</span>    fprintf (stderr, &quot;dds_create_participant: %s\n&quot;, dds_strretcode (participant));
-<span class="linenos">149</span>    return 1;
-<span class="linenos">150</span>  }
-<span class="linenos">151</span>
-<span class="linenos">152</span>  // The one magic step: get a topic and type object ...
-<span class="linenos">153</span>  DDS_XTypes_TypeObject *xtypeobj;
-<span class="linenos">154</span>  type_cache_init ();
-<span class="linenos">155</span>  if ((ret = get_topic_and_typeobj (argv[1], DDS_SECS (10), &amp;topic, &amp;xtypeobj)) &lt; 0)
-<span class="linenos">156</span>  {
-<span class="linenos">157</span>    fprintf (stderr, &quot;get_topic_and_typeobj: %s\n&quot;, dds_strretcode (ret));
-<span class="linenos">158</span>    goto error;
-<span class="linenos">159</span>  }
-<span class="linenos">160</span>  // ... given those, we can create a reader just like we do normally ...
-<span class="linenos">161</span>  const dds_entity_t reader = dds_create_reader (participant, topic, NULL, NULL);
-<span class="linenos">162</span>  // ... and create a waitset that allows us to wait for any incoming data ...
-<span class="linenos">163</span>  const dds_entity_t waitset = dds_create_waitset (participant);
-<span class="linenos">164</span>  const dds_entity_t readcond = dds_create_readcondition (reader, DDS_ANY_STATE);
-<span class="linenos">165</span>  (void) dds_waitset_attach (waitset, readcond, 0);
-<span class="linenos">166</span>  while (1)
-<span class="linenos">167</span>  {
-<span class="linenos">168</span>    (void) dds_waitset_wait (waitset, NULL, 0, DDS_INFINITY);
-<span class="linenos">169</span>    void *raw = NULL;
-<span class="linenos">170</span>    dds_sample_info_t si;
-<span class="linenos">171</span>    if ((ret = dds_take (reader, &amp;raw, &amp;si, 1, 1)) &lt; 0)
-<span class="linenos">172</span>      goto error;
-<span class="linenos">173</span>    else if (ret != 0)
-<span class="linenos">174</span>    {
-<span class="linenos">175</span>      // ... that we then print
-<span class="linenos">176</span>      print_sample (si.valid_data, raw, &amp;xtypeobj-&gt;_u.complete);
-<span class="linenos">177</span>      if ((ret = dds_return_loan (reader, &amp;raw, 1)) &lt; 0)
-<span class="linenos">178</span>        goto error;
-<span class="linenos">179</span>    }
-<span class="linenos">180</span>  }
-<span class="linenos">181</span>
-<span class="linenos">182</span> error:
-<span class="linenos">183</span>  type_cache_free ();
-<span class="linenos">184</span>  dds_delete (participant);
-<span class="linenos">185</span>  return ret &lt; 0;
-<span class="linenos">186</span>}
+<span class="linenos">124</span>      assert (info);
+<span class="linenos">125</span>      *info = (struct typeinfo){ .key = { .key = (uintptr_t) *xtypeobj }, .typeobj = &amp;(*xtypeobj)-&gt;_u.complete, .release = *xtypeobj, .align = align, .size = size };
+<span class="linenos">126</span>      type_cache_add (info);
+<span class="linenos">127</span>    }
+<span class="linenos">128</span>  }
+<span class="linenos">129</span>error:
+<span class="linenos">130</span>  dds_delete (dcpspublication_reader);
+<span class="linenos">131</span>  dds_delete (waitset);
+<span class="linenos">132</span>  return (*xtypeobj != NULL) ? DDS_RETCODE_OK : DDS_RETCODE_TIMEOUT;
+<span class="linenos">133</span>}
+<span class="linenos">134</span>
+<span class="linenos">135</span>int main (int argc, char **argv)
+<span class="linenos">136</span>{
+<span class="linenos">137</span>  dds_return_t ret = 0;
+<span class="linenos">138</span>  dds_entity_t topic = 0;
+<span class="linenos">139</span>
+<span class="linenos">140</span>  if (argc != 2)
+<span class="linenos">141</span>  {
+<span class="linenos">142</span>    fprintf (stderr, &quot;usage: %s topicname\n&quot;, argv[0]);
+<span class="linenos">143</span>    return 2;
+<span class="linenos">144</span>  }
+<span class="linenos">145</span>
+<span class="linenos">146</span>  participant = dds_create_participant (DDS_DOMAIN_DEFAULT, NULL, NULL);
+<span class="linenos">147</span>  if (participant &lt; 0)
+<span class="linenos">148</span>  {
+<span class="linenos">149</span>    fprintf (stderr, &quot;dds_create_participant: %s\n&quot;, dds_strretcode (participant));
+<span class="linenos">150</span>    return 1;
+<span class="linenos">151</span>  }
+<span class="linenos">152</span>
+<span class="linenos">153</span>  // The one magic step: get a topic and type object ...
+<span class="linenos">154</span>  DDS_XTypes_TypeObject *xtypeobj;
+<span class="linenos">155</span>  type_cache_init ();
+<span class="linenos">156</span>  if ((ret = get_topic_and_typeobj (argv[1], DDS_SECS (10), &amp;topic, &amp;xtypeobj)) &lt; 0)
+<span class="linenos">157</span>  {
+<span class="linenos">158</span>    fprintf (stderr, &quot;get_topic_and_typeobj: %s\n&quot;, dds_strretcode (ret));
+<span class="linenos">159</span>    goto error;
+<span class="linenos">160</span>  }
+<span class="linenos">161</span>  // ... given those, we can create a reader just like we do normally ...
+<span class="linenos">162</span>  const dds_entity_t reader = dds_create_reader (participant, topic, NULL, NULL);
+<span class="linenos">163</span>  // ... and create a waitset that allows us to wait for any incoming data ...
+<span class="linenos">164</span>  const dds_entity_t waitset = dds_create_waitset (participant);
+<span class="linenos">165</span>  const dds_entity_t readcond = dds_create_readcondition (reader, DDS_ANY_STATE);
+<span class="linenos">166</span>  (void) dds_waitset_attach (waitset, readcond, 0);
+<span class="linenos">167</span>  while (1)
+<span class="linenos">168</span>  {
+<span class="linenos">169</span>    (void) dds_waitset_wait (waitset, NULL, 0, DDS_INFINITY);
+<span class="linenos">170</span>    void *raw = NULL;
+<span class="linenos">171</span>    dds_sample_info_t si;
+<span class="linenos">172</span>    if ((ret = dds_take (reader, &amp;raw, &amp;si, 1, 1)) &lt; 0)
+<span class="linenos">173</span>      goto error;
+<span class="linenos">174</span>    else if (ret != 0)
+<span class="linenos">175</span>    {
+<span class="linenos">176</span>      // ... that we then print
+<span class="linenos">177</span>      print_sample (si.valid_data, raw, &amp;xtypeobj-&gt;_u.complete);
+<span class="linenos">178</span>      if ((ret = dds_return_loan (reader, &amp;raw, 1)) &lt; 0)
+<span class="linenos">179</span>        goto error;
+<span class="linenos">180</span>    }
+<span class="linenos">181</span>  }
+<span class="linenos">182</span>
+<span class="linenos">183</span> error:
+<span class="linenos">184</span>  type_cache_free ();
+<span class="linenos">185</span>  dds_delete (participant);
+<span class="linenos">186</span>  return ret &lt; 0;
+<span class="linenos">187</span>}
 </pre></div>
 </div>
 </div>
@@ -393,6 +394,13 @@ a number of different types. Pass it the name of the type to publish. For exampl
 <span class="linenos">20</span><span class="w">  </span><span class="nd">@key</span><span class="w"></span>
 <span class="linenos">21</span><span class="w">  </span><span class="kt">short</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">22</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="kn">module</span><span class="w"> </span><span class="nn">M1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">  </span><span class="nd">@appendable</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">O</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">    </span><span class="nd">@optional</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">29</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -485,84 +493,96 @@ a number of different types. Pass it the name of the type to publish. For exampl
 <span class="linenos"> 85</span><span class="w">  </span><span class="nb">NULL</span><span class="w"></span>
 <span class="linenos"> 86</span><span class="p">};</span><span class="w"></span>
 <span class="linenos"> 87</span>
-<span class="linenos"> 88</span><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tpentry</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 89</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="linenos"> 90</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_topic_descriptor_t</span><span class="w"> </span><span class="o">*</span><span class="n">descr</span><span class="p">;</span><span class="w"></span>
-<span class="linenos"> 91</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="n">samples</span><span class="p">;</span><span class="w"></span>
-<span class="linenos"> 92</span><span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count_offset</span><span class="p">;</span><span class="w"></span>
-<span class="linenos"> 93</span><span class="p">}</span><span class="w"> </span><span class="n">tptab</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 94</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A_desc</span><span class="p">,</span><span class="w"> </span><span class="n">samples_a</span><span class="p">,</span><span class="w"> </span><span class="n">offsetof</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="linenos"> 95</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">B_desc</span><span class="p">,</span><span class="w"> </span><span class="n">samples_b</span><span class="p">,</span><span class="w"> </span><span class="n">offsetof</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="linenos"> 96</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">C_desc</span><span class="p">,</span><span class="w"> </span><span class="n">samples_c</span><span class="p">,</span><span class="w"> </span><span class="n">offsetof</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="linenos"> 97</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="linenos"> 98</span><span class="p">};</span><span class="w"></span>
-<span class="linenos"> 99</span>
-<span class="linenos">100</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">usage</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv0</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">101</span><span class="p">{</span><span class="w"></span>
-<span class="linenos">102</span><span class="w">  </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;usage: %s {&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv0</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">103</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">104</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">tpentry</span><span class="w"> </span><span class="o">*</span><span class="n">tpentry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tptab</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="n">tpentry</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">105</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">106</span><span class="w">    </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="p">,</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">107</span><span class="w">    </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;|&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">108</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">109</span><span class="w">  </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">110</span><span class="w">  </span><span class="n">exit</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">111</span><span class="p">}</span><span class="w"></span>
-<span class="linenos">112</span>
-<span class="linenos">113</span><span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">sig_atomic_t</span><span class="w"> </span><span class="n">interrupted</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">114</span>
-<span class="linenos">115</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sigint</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">116</span><span class="p">{</span><span class="w"></span>
-<span class="linenos">117</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">sig</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">118</span><span class="w">  </span><span class="n">interrupted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 88</span><span class="k">static</span><span class="w"> </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">long_4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 89</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">samples_M1_O</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 90</span><span class="w">  </span><span class="o">&amp;</span><span class="p">(</span><span class="n">M1_O</span><span class="p">){</span><span class="w"> </span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos"> 91</span><span class="w">  </span><span class="o">&amp;</span><span class="p">(</span><span class="n">M1_O</span><span class="p">){</span><span class="w"> </span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">long_4</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos"> 92</span><span class="w">  </span><span class="nb">NULL</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="p">};</span><span class="w"></span>
+<span class="linenos"> 94</span>
+<span class="linenos"> 95</span><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tpentry</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_topic_descriptor_t</span><span class="w"> </span><span class="o">*</span><span class="n">descr</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 98</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="o">**</span><span class="n">samples</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 99</span><span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">count_offset</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">100</span><span class="p">}</span><span class="w"> </span><span class="n">tptab</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">101</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A_desc</span><span class="p">,</span><span class="w"> </span><span class="n">samples_a</span><span class="p">,</span><span class="w"> </span><span class="n">offsetof</span><span class="w"> </span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">102</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">B_desc</span><span class="p">,</span><span class="w"> </span><span class="n">samples_b</span><span class="p">,</span><span class="w"> </span><span class="n">offsetof</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">103</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">C_desc</span><span class="p">,</span><span class="w"> </span><span class="n">samples_c</span><span class="p">,</span><span class="w"> </span><span class="n">offsetof</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">104</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;M1::O&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">M1_O_desc</span><span class="p">,</span><span class="w"> </span><span class="n">samples_M1_O</span><span class="p">,</span><span class="w"> </span><span class="n">SIZE_MAX</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="linenos">105</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">106</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">107</span>
+<span class="linenos">108</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">usage</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">109</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">110</span><span class="w">  </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;usage: %s {&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv0</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">111</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">112</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">tpentry</span><span class="w"> </span><span class="o">*</span><span class="n">tpentry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tptab</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="n">tpentry</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">113</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">114</span><span class="w">    </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%s%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="p">,</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">115</span><span class="w">    </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;|&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">117</span><span class="w">  </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">118</span><span class="w">  </span><span class="n">exit</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 <span class="linenos">119</span><span class="p">}</span><span class="w"></span>
 <span class="linenos">120</span>
-<span class="linenos">121</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">122</span><span class="p">{</span><span class="w"></span>
-<span class="linenos">123</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">124</span><span class="w">    </span><span class="n">usage</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="linenos">125</span><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">tpentry</span><span class="w"> </span><span class="o">*</span><span class="n">tpentry</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">126</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tptab</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="n">tpentry</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">127</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">128</span><span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">129</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">130</span><span class="w">    </span><span class="n">usage</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-<span class="linenos">131</span>
-<span class="linenos">132</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_DOMAIN_DEFAULT</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">133</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">134</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">135</span><span class="w">    </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_create_participant: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">));</span><span class="w"></span>
-<span class="linenos">136</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">137</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">138</span>
-<span class="linenos">139</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">descr</span><span class="p">,</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">140</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_writer</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">141</span><span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">sample_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">142</span><span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">143</span><span class="w">  </span><span class="n">signal</span><span class="w"> </span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">sigint</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">144</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">interrupted</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">145</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">146</span><span class="w">    </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">147</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">samples</span><span class="p">[</span><span class="n">sample_idx</span><span class="p">];</span><span class="w"></span>
-<span class="linenos">148</span><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="n">countp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">count_offset</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">149</span><span class="w">    </span><span class="o">*</span><span class="n">countp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">150</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_write</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="n">sample</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">151</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">152</span><span class="w">      </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_write: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="p">));</span><span class="w"></span>
-<span class="linenos">153</span><span class="w">      </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">154</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">155</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">156</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">samples</span><span class="p">[</span><span class="o">++</span><span class="n">sample_idx</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">157</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">158</span><span class="w">      </span><span class="n">sample_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">159</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">160</span><span class="w">    </span><span class="n">dds_sleepfor</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_SECS</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"></span>
-<span class="linenos">161</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="linenos">162</span>
-<span class="linenos">163</span><span class="w">  </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">164</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">165</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">121</span><span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">sig_atomic_t</span><span class="w"> </span><span class="n">interrupted</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">122</span>
+<span class="linenos">123</span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sigint</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">124</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">125</span><span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">sig</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">126</span><span class="w">  </span><span class="n">interrupted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">127</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">128</span>
+<span class="linenos">129</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">130</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">131</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">132</span><span class="w">    </span><span class="n">usage</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">133</span><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">tpentry</span><span class="w"> </span><span class="o">*</span><span class="n">tpentry</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">134</span><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tptab</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="n">tpentry</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">135</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">136</span><span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">137</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">138</span><span class="w">    </span><span class="n">usage</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">139</span>
+<span class="linenos">140</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_DOMAIN_DEFAULT</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">141</span><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">142</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">143</span><span class="w">    </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_create_participant: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">144</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">145</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">146</span>
+<span class="linenos">147</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">descr</span><span class="p">,</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">148</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_writer</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">149</span><span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">sample_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">150</span><span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">151</span><span class="w">  </span><span class="n">signal</span><span class="w"> </span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span><span class="w"> </span><span class="n">sigint</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">152</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">interrupted</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">153</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">154</span><span class="w">    </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">155</span><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">samples</span><span class="p">[</span><span class="n">sample_idx</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">156</span><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">countp</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="linenos">157</span><span class="w">      </span><span class="p">(</span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">count_offset</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SIZE_MAX</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">158</span><span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="p">((</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">count_offset</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">159</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">160</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">countp</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">161</span><span class="w">      </span><span class="o">*</span><span class="n">countp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">162</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_write</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="n">sample</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">163</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">164</span><span class="w">      </span><span class="n">fprintf</span><span class="w"> </span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_write: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dds_strretcode</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">165</span><span class="w">      </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">166</span><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">167</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">168</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tpentry</span><span class="o">-&gt;</span><span class="n">samples</span><span class="p">[</span><span class="o">++</span><span class="n">sample_idx</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">169</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">170</span><span class="w">      </span><span class="n">sample_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">171</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">172</span><span class="w">    </span><span class="n">dds_sleepfor</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_SECS</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">173</span><span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">174</span>
+<span class="linenos">175</span><span class="w">  </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">176</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">177</span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
