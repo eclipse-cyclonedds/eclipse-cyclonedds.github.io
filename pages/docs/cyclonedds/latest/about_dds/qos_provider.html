@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>QoS Provider &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Listeners" href="listener.html" />
+    <link rel="prev" title="Quality of Service" href="qos.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 0.11.0</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_centric_architecture.html">Data-centric architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domainparticipants.html">DomainParticipants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topics.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishers.html">Publishers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscribers.html">Subscribers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datareaders.html">DataReaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datawriters.html">DataWriters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">Quality of Service</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QoS Provider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="listener.html">Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="waitset.html">Waitsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">Statuses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idl.html">IDL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ddsi_concepts.html">DDSI concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="qos-provider">
+<span id="index-0"></span><span id="id1"></span><h1>QoS Provider<a class="headerlink" href="#qos-provider" title="Permalink to this headline">¶</a></h1>
+<p>This page provides information on using the QoS provider API of Eclipse Cyclone DDS. The QoS provider API allows users to specify the QoS settings of their DDS entities outside of application code in XML. This can be seen as a useful feature where code recompilation is restricted during the later stages of application development / during application support. The following sections explain the API and explain how to build QoS Profiles in XML.</p>
+<section id="xml-file-syntax">
+<h2>XML file syntax<a class="headerlink" href="#xml-file-syntax" title="Permalink to this headline">¶</a></h2>
+<p>The syntax for the XML configuration file is defined in <a href="https://www.omg.org/spec/DDS-XML/1.0/" target="_blank">DDS Consolidated XML Syntax</a>.</p>
+<section id="entity-qos">
+<h3>Entity QoS<a class="headerlink" href="#entity-qos" title="Permalink to this headline">¶</a></h3>
+<p>To configure the QoS for a DDS Entity using XML, the following tags have to be used:</p>
+<ul class="simple">
+<li><p><cite>&lt;domainparticipant_qos&gt;</cite></p></li>
+<li><p><cite>&lt;publisher_qos&gt;</cite></p></li>
+<li><p><cite>&lt;subscriber_qos&gt;</cite></p></li>
+<li><p><cite>&lt;topic_qos&gt;</cite></p></li>
+<li><p><cite>&lt;datawriter_qos&gt;</cite></p></li>
+<li><p><cite>&lt;datareader_qos&gt;</cite></p></li>
+</ul>
+<p>Each XML tag with or without an associated name can be uniquely identified by its fully qualified name in C++ style.
+In case of unnamed XML tag, only one tag of this kind is allowed in scope of parent <cite>&lt;qos_profile&gt;</cite>.</p>
+</section>
+<section id="qos-policies">
+<h3>QoS Policies<a class="headerlink" href="#qos-policies" title="Permalink to this headline">¶</a></h3>
+<p>The fields in a Qos policy are described in XML using a 1-to-1 mapping with the equivalent IDL representation in the DDS specification. For example, the Reliability Qos policy is represented with the following structures:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Duration_t</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">sec</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">nanosec</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">ReliabilityQosPolicy</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">ReliabilityQosPolicyKind</span><span class="w"> </span><span class="n">kind</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">Duration_t</span><span class="w"> </span><span class="n">max_blocking_time</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The equivalent representation in XML is as follows:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;reliability&gt;</span>
+  <span class="nt">&lt;kind&gt;&lt;/kind&gt;</span>
+  <span class="nt">&lt;max_blocking_time&gt;</span>
+    <span class="nt">&lt;sec&gt;&lt;/sec&gt;</span>
+    <span class="nt">&lt;nanosec&gt;&lt;/nanosec&gt;</span>
+  <span class="nt">&lt;/max_blocking_time&gt;</span>
+<span class="nt">&lt;/reliability&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="sequences">
+<h3>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h3>
+<p>In general, the sequences contained in the QoS policies are described with the following XML format:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;a_sequence_member_name&gt;</span>
+  <span class="nt">&lt;element&gt;</span>...<span class="nt">&lt;/element&gt;</span>
+  <span class="nt">&lt;element&gt;</span>...<span class="nt">&lt;/element&gt;</span>
+  ...
+<span class="nt">&lt;/a_sequence_member_name&gt;</span>
+</pre></div>
+</div>
+<p>Each element of the sequence is enclosed in an &lt;element&gt; tag, as shown in the following example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;property&gt;</span>
+  <span class="nt">&lt;value&gt;</span>
+    <span class="nt">&lt;element&gt;</span>
+      <span class="nt">&lt;name&gt;</span>my name<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;value&gt;</span>my value<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/element&gt;</span>
+    <span class="nt">&lt;element&gt;</span>
+      <span class="nt">&lt;name&gt;</span>my name2<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;value&gt;</span>my value2<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/element&gt;</span>
+  <span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/property&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="enumerations">
+<h3>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h3>
+<p>Enumeration values are represented using their IDL string representation. For example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;history&gt;</span>
+  <span class="nt">&lt;kind&gt;</span>KEEP_ALL_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+<span class="nt">&lt;/history&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="time-values-durations">
+<h3>Time values (Durations)<a class="headerlink" href="#time-values-durations" title="Permalink to this headline">¶</a></h3>
+<p>Following values can be used for fields that require seconds or nanoseconds:</p>
+<ul class="simple">
+<li><p>DURATION_INFINITE_SEC</p></li>
+<li><p>DURATION_INFINITE_NSEC</p></li>
+</ul>
+<p>The following example shows the use of time values:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;deadline&gt;</span>
+  <span class="nt">&lt;period&gt;</span>
+    <span class="nt">&lt;sec&gt;</span>DURATION_INFINITE_SEC<span class="nt">&lt;/sec&gt;</span>
+    <span class="nt">&lt;nanosec&gt;</span>DURATION_INFINITE_NSEC<span class="nt">&lt;/nanosec&gt;</span>
+  <span class="nt">&lt;/period&gt;</span>
+<span class="nt">&lt;/deadline&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="qos-profiles">
+<h3>QoS Profiles<a class="headerlink" href="#qos-profiles" title="Permalink to this headline">¶</a></h3>
+<p>A QoS profile groups a set of related QoS, usually one per entity. For example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;qos_profile</span> <span class="na">name=</span><span class="s">&quot;StrictReliableCommunicationProfile&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;datareader_qos&gt;</span>
+    <span class="nt">&lt;history&gt;</span>
+      <span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+      <span class="nt">&lt;depth&gt;</span>5<span class="nt">&lt;/depth&gt;</span>
+    <span class="nt">&lt;/history&gt;</span>
+  <span class="nt">&lt;/datareader_qos&gt;</span>
+  <span class="nt">&lt;datawriter_qos&gt;</span>
+   <span class="nt">&lt;history&gt;</span>
+      <span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+      <span class="nt">&lt;depth&gt;</span>1<span class="nt">&lt;/depth&gt;</span>
+    <span class="nt">&lt;/history&gt;</span>
+  <span class="nt">&lt;/datawriter_qos&gt;</span>
+<span class="nt">&lt;/qos_profile&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="xml-example">
+<h3>XML Example<a class="headerlink" href="#xml-example" title="Permalink to this headline">¶</a></h3>
+<p>Consider the following XML file that describes two QoS profiles:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>FooQosProfile</dt><dd><ul>
+<li><p>DataReaderQos - KEEP_LAST (5)</p></li>
+<li><p>DataWriterQos - KEEP_LAST (1)</p></li>
+<li><p>TopicQos      - KEEP_ALL</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>BarQosProfile</dt><dd><ul>
+<li><p>DataWriterQos - KEEP_ALL</p></li>
+<li><p>TopicQos      - KEEP_LAST (5)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dds</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.omg.org/dds/&quot;</span>
+     <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+     <span class="na">xsi:schemaLocation=</span><span class="s">&quot;file://DDS_QoSProfile.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;qos_library</span> <span class="na">name=</span><span class="s">&quot;myqoslib&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;qos_profile</span> <span class="na">name=</span><span class="s">&quot;foo_profile&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;datareader_qos&gt;</span>
+        <span class="nt">&lt;history&gt;</span>
+          <span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+          <span class="nt">&lt;depth&gt;</span>5<span class="nt">&lt;/depth&gt;</span>
+        <span class="nt">&lt;/history&gt;</span>
+      <span class="nt">&lt;/datareader_qos&gt;</span>
+      <span class="nt">&lt;datawriter_qos&gt;</span>
+       <span class="nt">&lt;history&gt;</span>
+          <span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+          <span class="nt">&lt;depth&gt;</span>1<span class="nt">&lt;/depth&gt;</span>
+        <span class="nt">&lt;/history&gt;</span>
+      <span class="nt">&lt;/datawriter_qos&gt;</span>
+      <span class="nt">&lt;topic_qos</span> <span class="na">name=</span><span class="s">&quot;my_topic&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;history&gt;</span>
+          <span class="nt">&lt;kind&gt;</span>KEEP_ALL_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+        <span class="nt">&lt;/history&gt;</span>
+      <span class="nt">&lt;/topic_qos&gt;</span>
+    <span class="nt">&lt;/qos_profile&gt;</span>
+    <span class="nt">&lt;qos_profile</span> <span class="na">name=</span><span class="s">&quot;bar_profile&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;datawriter_qos&gt;</span>
+        <span class="nt">&lt;history&gt;</span>
+          <span class="nt">&lt;kind&gt;</span>KEEP_ALL_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+        <span class="nt">&lt;/history&gt;</span>
+      <span class="nt">&lt;/datawriter_qos&gt;</span>
+        <span class="nt">&lt;topic_qos</span> <span class="na">name=</span><span class="s">&quot;my_topic&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;history&gt;</span>
+            <span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+            <span class="nt">&lt;depth&gt;</span>10<span class="nt">&lt;/depth&gt;</span>
+          <span class="nt">&lt;/history&gt;</span>
+        <span class="nt">&lt;/topic_qos&gt;</span>
+    <span class="nt">&lt;/qos_profile&gt;</span>
+  <span class="nt">&lt;/qos_library&gt;</span>
+<span class="nt">&lt;/dds&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="code-example">
+<h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this headline">¶</a></h2>
+<p>The following C application is an example to illustrate how the QoS settings from the above XML could be accessed.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Qw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Qw==" name="Qw==" role="tab" tabindex="0">C</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-0-Qw==" class="sphinx-tabs-panel group-tab" id="panel-0-Qw==" name="Qw==" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/ddsc/dds_qos_provider.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;datatypes.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argc</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argv</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// provider will contains:</span>
+<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
+<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
+<span class="w">  </span><span class="c1">// myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">// myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">// myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
+<span class="w">  </span><span class="n">dds_qos_provider_t</span><span class="w"> </span><span class="o">*</span><span class="n">provider</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos_provider</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">provider</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">dds_qos_t</span><span class="w"> </span><span class="o">*</span><span class="n">tp_qos</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">wr_qos</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// qos can be accessed by &lt;lib_name&gt;::&lt;profile_name&gt;::[entity_name] if exist.</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_qos_provider_get_qos</span><span class="w"> </span><span class="p">(</span><span class="n">provider</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_TOPIC_QOS</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;myqoslib::bar_profile::my_topic&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tp_qos</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// or if entity_qos is unnamed only by &lt;lib_name&gt;::&lt;profile_name&gt;.</span>
+<span class="w">  </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_qos_provider_get_qos</span><span class="w"> </span><span class="p">(</span><span class="n">provider</span><span class="p">,</span><span class="w"> </span><span class="n">DDS_WRITER_QOS</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;myqoslib::bar_profile&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">wr_qos</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">pp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="w"> </span><span class="p">(</span><span class="n">DDS_DOMAIN_DEFAULT</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_topic</span><span class="w"> </span><span class="p">(</span><span class="n">pp</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mydatatype_desc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;topic_A&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tp_qos</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">wr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_writer</span><span class="w"> </span><span class="p">(</span><span class="n">pp</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">,</span><span class="w"> </span><span class="n">wr_qos</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_delete</span><span class="w"> </span><span class="p">(</span><span class="n">pp</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_delete_qos_provider</span><span class="w"> </span><span class="p">(</span><span class="n">provider</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataType.hpp&quot;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">org</span><span class="o">::</span><span class="nn">eclipse</span><span class="o">::</span><span class="nn">cyclonedds</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// provider will contains:</span>
+<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
+<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
+<span class="w">  </span><span class="c1">// myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">// myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">// myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">topic_qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">provider</span><span class="p">.</span><span class="n">topic_qos</span><span class="p">(</span><span class="s">&quot;myqoslib::bar_profile::my_topic&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">writer_qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">provider</span><span class="p">.</span><span class="n">datawriter_qos</span><span class="p">(</span><span class="s">&quot;myqoslib::bar_profile&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="n">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;topic_A&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">topic_qos</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">Publisher</span><span class="w"> </span><span class="n">publisher</span><span class="p">(</span><span class="n">participant</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">DataWriter</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">writer</span><span class="p">(</span><span class="n">publisher</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">writer_qos</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">writer</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+<p>Also C API allows you to specify which library, profile QoS Provider should contains.
+Let’s extend XML file example above, and omit QoS settings details for simplicity.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dds</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.omg.org/dds/&quot;</span>
+     <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+     <span class="na">xsi:schemaLocation=</span><span class="s">&quot;file://DDS_QoSProfile.xsd&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;qos_library</span> <span class="na">name=</span><span class="s">&quot;qos1_lib&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;qos_profile</span> <span class="na">name=</span><span class="s">&quot;foo_profile&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;datareader_qos/&gt;</span>
+      <span class="nt">&lt;datawriter_qos/&gt;</span>
+      <span class="nt">&lt;topic_qos/&gt;</span>
+    <span class="nt">&lt;/qos_profile&gt;</span>
+    <span class="nt">&lt;qos_profile</span> <span class="na">name=</span><span class="s">&quot;bar_profile&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;datawriter_qos/&gt;</span>
+      <span class="nt">&lt;topic_qos/&gt;</span>
+    <span class="nt">&lt;/qos_profile&gt;</span>
+  <span class="nt">&lt;/qos_library&gt;</span>
+  <span class="nt">&lt;qos_library</span> <span class="na">name=</span><span class="s">&quot;qos2_lib&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;qos_profile</span> <span class="na">name=</span><span class="s">&quot;foo_profile&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;datareader_qos/&gt;</span>
+      <span class="nt">&lt;datawriter_qos/&gt;</span>
+      <span class="nt">&lt;topic_qos/&gt;</span>
+    <span class="nt">&lt;/qos_profile&gt;</span>
+    <span class="nt">&lt;qos_profile</span> <span class="na">name=</span><span class="s">&quot;bar_profile&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;datawriter_qos/&gt;</span>
+      <span class="nt">&lt;topic_qos/&gt;</span>
+    <span class="nt">&lt;/qos_profile&gt;</span>
+  <span class="nt">&lt;/qos_library&gt;</span>
+<span class="nt">&lt;/dds&gt;</span>
+</pre></div>
+</div>
+<p>Let’s create QoS Provider that contains versions of both profiles from different libraries.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Qw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Qw==" name="Qw==" role="tab" tabindex="0">C</button><button aria-controls="panel-1-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-1-Qw==" class="sphinx-tabs-panel group-tab" id="panel-1-Qw==" name="Qw==" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/ddsc/dds_qos_provider.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;datatypes.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argc</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argv</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// foo_provider will contains:</span>
+<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="n">dds_qos_provider_t</span><span class="w"> </span><span class="o">*</span><span class="n">foo_provider</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">foo_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::foo_profile&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos_provider_scope</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo_provider</span><span class="p">,</span><span class="w"> </span><span class="n">foo_scope</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// bar_provider will contains:</span>
+<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="n">dds_qos_provider_t</span><span class="w"> </span><span class="o">*</span><span class="n">bar_provider</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">bar_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::bar_profile&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos_provider_scope</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bar_provider</span><span class="p">,</span><span class="w"> </span><span class="n">bar_scope</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">...</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_delete_qos_provider</span><span class="w"> </span><span class="p">(</span><span class="n">foo_provider</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds_delete_qos_provider</span><span class="w"> </span><span class="p">(</span><span class="n">bar_provider</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;DataType.hpp&quot;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">org</span><span class="o">::</span><span class="nn">eclipse</span><span class="o">::</span><span class="nn">cyclonedds</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// foo_provider will contains:</span>
+<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">foo_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::foo_profile&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">foo_scope</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// bar_provider will contains:</span>
+<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">bar_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::bar_profile&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">bar_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bar_scope</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">...</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="known-limitations">
+<h2>Known limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Inheritance of QoS policies and QoS profiles in XML using the “base_name” attribute is not supported</p></li>
+<li><p>The “topic_filter” attribute for writer, reader and topic QoSes to associate a set of topics to a specific QoS when that QoS is part of a DDS profile, is not supported yet.</p></li>
+<li><p>The “entity_factory” attribute  for participant, writer and reader QoSes, is not supported yet.</p></li>
+<li><p>The &lt;(user|topic|group)_data&gt; base64 syntax is not supported yet.</p></li>
+<li><p>The C++ API QosProvider may throw an UnsupportedError when trying to access a policy that is not supported yet.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">QoS Provider</a><ul>
+<li><a class="reference internal" href="#xml-file-syntax">XML file syntax</a><ul>
+<li><a class="reference internal" href="#entity-qos">Entity QoS</a></li>
+<li><a class="reference internal" href="#qos-policies">QoS Policies</a></li>
+<li><a class="reference internal" href="#sequences">Sequences</a></li>
+<li><a class="reference internal" href="#enumerations">Enumerations</a></li>
+<li><a class="reference internal" href="#time-values-durations">Time values (Durations)</a></li>
+<li><a class="reference internal" href="#qos-profiles">QoS Profiles</a></li>
+<li><a class="reference internal" href="#xml-example">XML Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-example">Code Example</a></li>
+<li><a class="reference internal" href="#known-limitations">Known limitations</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="qos.html">
+                    <span class="icon"><</span><span>Quality of Service</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="listener.html"><span>Listeners</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

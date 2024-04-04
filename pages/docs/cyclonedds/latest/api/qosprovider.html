@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>IDL compiler &#8212; Eclipse Cyclone DDS, 0.11.0</title>
+    <title>QosProvider &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DDSI concepts" href="ddsi_concepts.html" />
-    <link rel="prev" title="IDL" href="idl.html" /> 
+    <link rel="next" title="Domains" href="domain.html" />
+    <link rel="prev" title="QoS" href="qos.html" /> 
   </head><body>
 
 <div id="top_nav">
@@ -120,35 +120,31 @@
     
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper"><ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_centric_architecture.html">Data-centric architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="domainparticipants.html">DomainParticipants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="topics.html">Topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishers.html">Publishers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="subscribers.html">Subscribers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datareaders.html">DataReaders</a></li>
-<li class="toctree-l2"><a class="reference internal" href="datawriters.html">DataWriters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qos.html">Quality of Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qos_provider.html">QoS Provider</a></li>
-<li class="toctree-l2"><a class="reference internal" href="listener.html">Listeners</a></li>
-<li class="toctree-l2"><a class="reference internal" href="waitset.html">Waitsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="status.html">Statuses</a></li>
-<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance test</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="idl.html">IDL</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">IDL compiler</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="ddsi_concepts.html">DDSI concepts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing to Eclipse Cyclone DDS</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">C API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QosProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psmx.html">Publish Subscribe Message Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamic.html">Dynamic Type API</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
@@ -162,28 +158,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="idl-compiler">
-<span id="index-0"></span><span id="id1"></span><h1>IDL compiler<a class="headerlink" href="#idl-compiler" title="Permalink to this headline">¶</a></h1>
-<p>The Cyclone DDS IDL compiler translates module names into namespaces
-and structure names into classes.</p>
-<p>It also generates code for public accessor functions for all fields mentioned in
-the IDL struct, separate public constructors, and a destructor:</p>
-<ul class="simple">
-<li><p>A default (empty) constructor that recursively invokes the constructors of
-all fields.</p></li>
-<li><p>A copy-constructor that performs a deep copy from the existing class.</p></li>
-<li><p>A move-constructor that moves all arguments to its members.</p></li>
-</ul>
-<p>The destructor recursively releases all fields. It also generates code for
-assignment operators that recursively construct all fields based on the
-parameter class (copy and move versions).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When translated into a different programming language, the data has another
-representation specific to the target language. This highlights the advantage
-of using a neutral language such as IDL to describe the data model. It can be
-translated into different languages that can be shared between different
-applications written in other programming languages.</p>
+  <section id="qosprovider">
+<h1>QosProvider<a class="headerlink" href="#qosprovider" title="Permalink to this headline">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygengroup: Cannot find group “qos_provider” in doxygen xml output for project “ddsc_api_docs” from directory: ddsc_api_docs/xml</p>
 </div>
 </section>
 
@@ -200,14 +179,14 @@ applications written in other programming languages.</p>
         <div class="button_nav">
             <div class="left">
                 
-                <a href="idl.html">
-                    <span class="icon"><</span><span>IDL</span></a>
+                <a href="qos.html">
+                    <span class="icon"><</span><span>QoS</span></a>
                 
             </div>
 
             <div class="right">
                 
-                    <a href="ddsi_concepts.html"><span>DDSI concepts</span><span class="icon">></span></a>
+                    <a href="domain.html"><span>Domains</span><span class="icon">></span></a>
                 
             </div>
         </div>
