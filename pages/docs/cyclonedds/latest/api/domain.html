@@ -188,54 +188,14 @@
 <dt class="sig sig-object c" id="c.dds_create_domain">
 <span class="target" id="group__domain_1gabc7a1e23506902ebf55c9011779d5510"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_domain</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_domainid_t" title="dds_domainid_t"><span class="n"><span class="pre">dds_domainid_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_domain" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a domain with a given configuration</p>
-<p>To explicitly create a domain based on a configuration passed as a string. </p>
-<p>It will not be created if a domain with the given domain id already exists. This could have been created implicitly by a <a class="reference internal" href="#group__domain__participant_1gacfc6838d5a6081c7de2371a61479c254"><span class="std std-ref">dds_create_participant()</span></a>.</p>
-<p>Please be aware that the given domain_id always takes precedence over the configuration.</p>
-<p><table class="colwidths-auto docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>domain_id   </p></th>
-<th class="head"><p>domain id in config   </p></th>
-<th class="head"><p>result    </p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>n   </p></td>
-<td><p>any (or absent)   </p></td>
-<td><p>n, config is used    </p></td>
-</tr>
-<tr class="row-odd"><td><p>n   </p></td>
-<td><p>m == n   </p></td>
-<td><p>n, config is used    </p></td>
-</tr>
-<tr class="row-even"><td><p>n   </p></td>
-<td><p>m != n   </p></td>
-<td><p>n, config is ignored: default   </p></td>
-</tr>
-</tbody>
-</table>
-</p>
-<p>Config models:<ol class="loweralpha simple">
-<li><p><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS&gt;</span>
-   <span class="nt">&lt;Domain</span> <span class="na">id=</span><span class="s">&quot;X&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/Domain&gt;</span>
-   <span class="cm">&lt;!-- &lt;Domain .../&gt; --&gt;</span>
- <span class="nt">&lt;/CycloneDDS&gt;</span>
-</pre></div>
-</div>
- where … is all that can today be set in children of CycloneDDS with the exception of the id</p></li>
-<li><p><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;CycloneDDS&gt;</span>
-   <span class="nt">&lt;Domain&gt;&lt;Id&gt;</span>X<span class="nt">&lt;/Id&gt;&lt;/Domain&gt;</span>
-   <span class="cm">&lt;!-- more things here ... --&gt;</span>
-<span class="nt">&lt;/CycloneDDS&gt;</span>
-</pre></div>
-</div>
- Legacy form, domain id must be the first element in the file with a value (if nothing has been set previously, it a warning is good enough)</p></li>
-</ol>
-</p>
+<p>To explicitly create a domain based on a configuration passed as a string. A domain created in this manner must be explicitly deleted by calling <a class="reference internal" href="entity.html#group__entity_1ga66f5c1f258af4ec55cd8624ef04dfebf"><span class="std std-ref">dds_delete</span></a> on the domain (or on DDS_CYCLONEDDS_HANDLE). </p>
+<p>It will not be created if a domain with the given domain id already exists. This could have been created implicitly by a previous call to this function, <a class="reference internal" href="#group__domain__participant_1gacfc6838d5a6081c7de2371a61479c254"><span class="std std-ref">dds_create_participant</span></a> or <a class="reference internal" href="#group__domain_1ga9d331f2cc40cd4a4287efe274046a5c1"><span class="std std-ref">dds_create_domain_with_rawconfig</span></a>.</p>
+<p>The domain configuration is constructed by amending the default configuration with the Domain configuration (fragments) for which the domain id is specifed as “any” and those for which the domain id matches the specified domain id in the order in which they are encountered in the configuration.</p>
 <p>Using NULL or “” as config will create a domain with default settings.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>domain</strong> – <strong>[in]</strong> The domain to be created. DEFAULT_DOMAIN is not allowed. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> The domain to be created. DDS_DEFAULT_DOMAIN is not allowed. </p></li>
 <li><p><strong>config</strong> – <strong>[in]</strong> A configuration string containing file names and/or XML fragments representing the configuration.</p></li>
 </ul>
 </dd>
@@ -256,13 +216,13 @@
 <dt class="sig sig-object c" id="c.dds_create_domain_with_rawconfig">
 <span class="target" id="group__domain_1ga9d331f2cc40cd4a4287efe274046a5c1"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_domain_with_rawconfig</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_domainid_t" title="dds_domainid_t"><span class="n"><span class="pre">dds_domainid_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_config</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_domain_with_rawconfig" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a domain with a given configuration, specified as an initializer (unstable interface)</p>
-<p>To explicitly create a domain based on a configuration passed as a raw initializer rather than as an XML string. This allows bypassing the XML parsing, but tightly couples the initializing to implementation. See dds/ddsi/ddsi_config.h:ddsi_config_init_default for a way to initialize the default configuration. </p>
-<p>It will not be created if a domain with the given domain id already exists. This could have been created implicitly by a <a class="reference internal" href="#group__domain__participant_1gacfc6838d5a6081c7de2371a61479c254"><span class="std std-ref">dds_create_participant()</span></a>.</p>
+<p>To explicitly create a domain based on a configuration passed as a raw initializer rather than as an XML string. This allows bypassing the XML parsing, but tightly couples the initializing to implementation. See dds/ddsi/ddsi_config.h:ddsi_config_init_default for a way to initialize the default configuration. A domain created in this manner must be explicitly deleted by calling <a class="reference internal" href="entity.html#group__entity_1ga66f5c1f258af4ec55cd8624ef04dfebf"><span class="std std-ref">dds_delete</span></a> on the domain (or on DDS_CYCLONEDDS_HANDLE). </p>
+<p>It will not be created if a domain with the given domain id already exists. This could have been created implicitly by a previous call to this function, <a class="reference internal" href="#group__domain__participant_1gacfc6838d5a6081c7de2371a61479c254"><span class="std std-ref">dds_create_participant</span></a> or <a class="reference internal" href="#group__domain_1ga9d331f2cc40cd4a4287efe274046a5c1"><span class="std std-ref">dds_create_domain_with_rawconfig</span></a>.</p>
 <p>Please be aware that the given domain_id always takes precedence over the configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>domain</strong> – <strong>[in]</strong> The domain to be created. DEFAULT_DOMAIN is not allowed. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> The domain to be created. DDS_DEFAULT_DOMAIN is not allowed. </p></li>
 <li><p><strong>config</strong> – <strong>[in]</strong> A configuration initializer. The lifetime of any pointers in config must be at least that of the lifetime of the domain.</p></li>
 </ul>
 </dd>
@@ -320,11 +280,13 @@
 <dt class="sig sig-object c" id="c.dds_create_participant">
 <span class="target" id="group__domain__participant_1gacfc6838d5a6081c7de2371a61479c254"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_participant</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_domainid_t" title="dds_domainid_t"><span class="n"><span class="pre">dds_domainid_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_participant" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a new instance of a DDS participant in a domain</p>
-<p>If domain is set (not DDS_DOMAIN_DEFAULT) then it must match if the domain has also been configured or an error status will be returned. Currently only a single domain can be configured by providing configuration file. If no configuration file exists, the default domain is configured as 0. </p>
+<p>This function creates a new participant in the specified domain id, implicitly creating a domain entity if one doesn’t exist for the specified domain id. The domain entity can exist as a consequence of the existence of another participant in it, or because it was explicitly created using <a class="reference internal" href="#group__domain_1gabc7a1e23506902ebf55c9011779d5510"><span class="std std-ref">dds_create_domain</span></a> or <a class="reference internal" href="#group__domain_1ga9d331f2cc40cd4a4287efe274046a5c1"><span class="std std-ref">dds_create_domain_with_rawconfig</span></a>. If the domain entity has not been created yet, a new domain entity is created using a configuration taken from the CYCLONEDDS_URI environment variable. </p>
+<p>The domain id may be specified as DDS_DOMAIN_DEFAULT, in which case the behaviour depends on whether some domain entity already exists or not. If there is at least one, the one with the lowest id will be used. If there are none, one is created with the domain id taken from the first domain id specified in the configuration file (i.e., with a Domain element with the id attribute not “any”), and if no domain id is specified in the configuration file, domain id 0 is used.</p>
+<p>The domain configuration is constructed by amending the default configuration with the Domain configuration (fragments) for which the domain id is specifed as “any” and those for which the domain id matches the specified domain id (not DDS_DOMAIN_DEFAULT) in the order in which they are encountered in the configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>domain</strong> – <strong>[in]</strong> The domain in which to create the participant (can be DDS_DOMAIN_DEFAULT). DDS_DOMAIN_DEFAULT is for using the domain in the configuration. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> The domain in which to create the participant. </p></li>
 <li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new participant (can be NULL). </p></li>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new participant (can be NULL).</p></li>
 </ul>
