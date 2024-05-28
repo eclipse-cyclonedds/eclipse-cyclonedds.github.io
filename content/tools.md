@@ -1,7 +1,7 @@
 # Tools
 
 Tools are important to learn about your DDS System.
-CycloneDDS provides two tools, a graphical tool and commandline tools.
+CycloneDDS provides two tools, a graphical tool and a command-line tool.
 
 Especially when DDS systems grow larger debugging and monitoring getting more and more important.
 
