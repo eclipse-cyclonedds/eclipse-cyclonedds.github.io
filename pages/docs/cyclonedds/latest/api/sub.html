@@ -1636,6 +1636,34 @@ DOC_TODO: Complete list of error codes </p>
 </dl>
 </dd></dl>
 
+<dl class="c function">
+<dt class="sig sig-object c">
+<span class="target" id="group__reading_1ga3b00d946ebd665a097ae1c58c33f9369"></span><span class="sig-name descname"><span class="pre">dds_return_t</span> <span class="pre">dds_reader_store_loaned_sample_wr_metadata</span> <span class="pre">(dds_entity_t</span> <span class="pre">reader,</span> <span class="pre">dds_loaned_sample_t</span> <span class="pre">*data,</span> <span class="pre">int32_t</span> <span class="pre">ownership_strength,</span> <span class="pre">bool</span> <span class="pre">autodispose_unregistered_instances,</span> <span class="pre">dds_duration_t</span> <span class="pre">lifespan_duration)</span> <span class="pre">ddsrt_nonnull_all</span></span></dt>
+<dd><p>insert data from a loaned sample into the reader history cache using the provided writer meta-data </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
+<li><p><strong>data</strong> – <strong>[in]</strong> Pointer to the loaned sample of the entity received </p></li>
+<li><p><strong>ownership_strength</strong> – <strong>[in]</strong> The ownership strength of the writer </p></li>
+<li><p><strong>autodispose_unregistered_instances</strong> – <strong>[in]</strong> Writer setting for auto-disposing unregistered entities </p></li>
+<li><p><strong>lifespan_duration</strong> – <strong>[in]</strong> Lifespan duration value configured for the writer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more parameters are invalid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The reader entity has already been deleted. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </dd></dl>
 

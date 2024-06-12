@@ -498,6 +498,81 @@
 </dl>
 </dd></dl>
 
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_participant_guid">
+<span class="target" id="group__internal_1gad8b63385b52d314ba6d5022946908df0"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_participant_guid</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="domain.html#c.dds_domainid_t" title="dds_domainid_t"><span class="n"><span class="pre">dds_domainid_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="builtin.html#c.dds_guid_t" title="dds_guid_t"><span class="n"><span class="pre">dds_guid_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">guid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_participant_guid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a participant with the specified GUID. </p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="domain.html#group__domain__participant_1gacfc6838d5a6081c7de2371a61479c254"><span class="std std-ref">dds_create_participant</span></a> for details </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>domain</strong> – <strong>[in]</strong> The domain in which to create the participant (can be DDS_DOMAIN_DEFAULT). DDS_DOMAIN_DEFAULT is for using the domain in the configuration. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new participant (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new participant (can be NULL). </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> The flags to be used when creating the participant </p></li>
+<li><p><strong>guid</strong> – <strong>[in]</strong> The GUID for the new participant</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A valid participant handle or an error code. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_writer_guid">
+<span class="target" id="group__internal_1ga0bee5658a7167414c5568b4a2516d256"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_writer_guid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant_or_publisher</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <a class="reference internal" href="builtin.html#c.dds_guid_t" title="dds_guid_t"><span class="n"><span class="pre">dds_guid_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">guid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_writer_guid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a writer with the specified GUID. </p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="pub.html#group__writer_1ga96270d570da2764a9d00656214e0a130"><span class="std std-ref">dds_create_writer</span></a> for details </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant_or_publisher</strong> – <strong>[in]</strong> The participant or publisher on which the writer is being created. </p></li>
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to write. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new writer (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new writer (can be NULL). </p></li>
+<li><p><strong>guid</strong> – <strong>[in]</strong> The GUID for the new writer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A valid writer handle or an error code. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_create_reader_guid">
+<span class="target" id="group__internal_1ga14304dd2d28157f060909a7cb36a63d7"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_reader_guid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant_or_subscriber</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <a class="reference internal" href="builtin.html#c.dds_guid_t" title="dds_guid_t"><span class="n"><span class="pre">dds_guid_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">guid</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_reader_guid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a reader with the specified GUID. </p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="sub.html#group__reader_1gaf7c29c4f89250e9190fab44ff0eff5ef"><span class="std std-ref">dds_create_reader</span></a> for details </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participant_or_subscriber</strong> – <strong>[in]</strong> The participant or subscriber on which the reader is being created. </p></li>
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read. </p></li>
+<li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new reader (can be NULL). </p></li>
+<li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new reader (can be NULL). </p></li>
+<li><p><strong>guid</strong> – <strong>[in]</strong> The GUID for the new reader</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A valid reader handle or an error code. </p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </dd></dl>
 
@@ -952,11 +1027,32 @@ This is a support function for testing and, other special uses and is subject to
 </dd></dl>
 
 <dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_USER1">
+<span class="target" id="group__log__categories_1gae1acf2a31b752275d6c160f4b176965f"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_USER1</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">29)</span><a class="headerlink" href="#c.DDS_LC_USER1" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reserved for user defined log categories (e.g. user application that uses Cyclone logger) </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_USER2">
+<span class="target" id="group__log__categories_1ga0d3be2cb9769d902f7618931cb0199a9"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_USER2</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">30)</span><a class="headerlink" href="#c.DDS_LC_USER2" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_USER3">
+<span class="target" id="group__log__categories_1ga98260e90f4f7dcfc0c659e8afc5a261a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_USER3</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">31)</span><a class="headerlink" href="#c.DDS_LC_USER3" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_LC_USER">
+<span class="target" id="group__log__categories_1ga136755b064ec6817b6a55670b7db8928"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_USER</span></span></span> <span class="pre">(</span><a class="reference internal" href="#group__log__categories_1gae1acf2a31b752275d6c160f4b176965f"><span class="std std-ref"><span class="pre">DDS_LC_USER1</span></span></a> <span class="pre">|</span> <span class="pre">DDS_LC_USER2</span> <span class="pre">|</span> <span class="pre">DDS_LC_USER3)</span><a class="headerlink" href="#c.DDS_LC_USER" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_LC_ALL">
 <span class="target" id="group__log__categories_1ga352d4655045522adc444d842be35eff0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LC_ALL</span></span></span> &#160;&#160;&#160; <span class="pre">(</span><a class="reference internal" href="#group__log__categories_1gacb3d4e362d142962476667e57576e0ab"><span class="std std-ref"><span class="pre">DDS_LC_FATAL</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga9332b3f40b07fabb875c80cd250e2bef"><span class="std std-ref"><span class="pre">DDS_LC_ERROR</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga58ceffe88b9c8a9405ec3e146155cea0"><span class="std std-ref"><span class="pre">DDS_LC_WARNING</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga26d70aa39061747fcccef4dc4e8b6066"><span class="std std-ref"><span class="pre">DDS_LC_INFO</span></span></a> <span class="pre">|</span> <span class="pre">\</span>
 &#160;&#160;&#160;&#160; <a class="reference internal" href="#group__log__categories_1gaabe6b46c790ec9e9aa00dff347656ea6"><span class="std std-ref"><span class="pre">DDS_LC_CONFIG</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga4e0c6cdb28647e010d08cddd0a6a44e7"><span class="std std-ref"><span class="pre">DDS_LC_DISCOVERY</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga59534307477b306a17c9429891a27e7e"><span class="std std-ref"><span class="pre">DDS_LC_DATA</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga846304379675e258366b81d86467fb0c"><span class="std std-ref"><span class="pre">DDS_LC_TRACE</span></span></a> <span class="pre">|</span> <span class="pre">\</span>
 &#160;&#160;&#160;&#160; <a class="reference internal" href="#group__log__categories_1ga37a069dadf4ab75bac95a48632bdf16a"><span class="std std-ref"><span class="pre">DDS_LC_TIMING</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1ga39c83665c6d6551cda2eabf412087c2a"><span class="std std-ref"><span class="pre">DDS_LC_TRAFFIC</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1gab6e569804c81216a55fc353c1c97dfb2"><span class="std std-ref"><span class="pre">DDS_LC_TCP</span></span></a> <span class="pre">|</span> <a class="reference internal" href="#group__log__categories_1gaa9250f9c91ecfbeeaaf8696b821d9e64"><span class="std std-ref"><span class="pre">DDS_LC_THROTTLE</span></span></a> <span class="pre">|</span> <span class="pre">\</span>
-&#160;&#160;&#160;&#160; <a class="reference internal" href="#group__log__categories_1gaaa22d6e7c541f0d8a1d8bb8e19958987"><span class="std std-ref"><span class="pre">DDS_LC_CONTENT</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_LC_ALL" title="Permalink to this definition">¶</a><br /></dt>
+&#160;&#160;&#160;&#160; <a class="reference internal" href="#group__log__categories_1gaaa22d6e7c541f0d8a1d8bb8e19958987"><span class="std std-ref"><span class="pre">DDS_LC_CONTENT</span></span></a> <span class="pre">|</span> <span class="pre">DDS_LC_USER)</span><a class="headerlink" href="#c.DDS_LC_ALL" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>All common trace categories. </p>
 </dd></dl>
 
