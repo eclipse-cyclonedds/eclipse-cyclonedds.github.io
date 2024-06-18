@@ -218,155 +218,164 @@ a number of different types. Pass it the name of the type to publish. For exampl
 <span class="linenos"> 36</span>static dds_entity_t participant;
 <span class="linenos"> 37</span>
 <span class="linenos"> 38</span>
-<span class="linenos"> 39</span>// Helper function to wait for a DCPSPublication to show up with the desired topic name, then calls
-<span class="linenos"> 40</span>// dds_find_topic to create a topic for that data writer&#39;s type up the retrieves the type object.
-<span class="linenos"> 41</span>static dds_return_t get_topic_and_typeobj (const char *topic_name, dds_duration_t timeout, dds_entity_t *topic, DDS_XTypes_TypeObject **xtypeobj)
-<span class="linenos"> 42</span>{
-<span class="linenos"> 43</span>  const dds_entity_t waitset = dds_create_waitset (participant);
-<span class="linenos"> 44</span>  const dds_entity_t dcpspublication_reader = dds_create_reader (participant, DDS_BUILTIN_TOPIC_DCPSPUBLICATION, NULL, NULL);
-<span class="linenos"> 45</span>  const dds_entity_t dcpspublication_readcond = dds_create_readcondition (dcpspublication_reader, DDS_ANY_STATE);
-<span class="linenos"> 46</span>  (void) dds_waitset_attach (waitset, dcpspublication_readcond, 0);
-<span class="linenos"> 47</span>  const dds_time_t abstimeout = (timeout == DDS_INFINITY) ? DDS_NEVER : dds_time () + timeout;
-<span class="linenos"> 48</span>  dds_return_t ret = DDS_RETCODE_OK;
-<span class="linenos"> 49</span>  *xtypeobj = NULL;
-<span class="linenos"> 50</span>  while (*xtypeobj == NULL &amp;&amp; dds_waitset_wait_until (waitset, NULL, 0, abstimeout) &gt; 0)
-<span class="linenos"> 51</span>  {
-<span class="linenos"> 52</span>    void *epraw = NULL;
-<span class="linenos"> 53</span>    dds_sample_info_t si;
-<span class="linenos"> 54</span>    if (dds_take (dcpspublication_reader, &amp;epraw, &amp;si, 1, 1) &lt;= 0)
-<span class="linenos"> 55</span>      continue;
-<span class="linenos"> 56</span>    dds_builtintopic_endpoint_t *ep = epraw;
-<span class="linenos"> 57</span>    const dds_typeinfo_t *typeinfo = NULL;
-<span class="linenos"> 58</span>    // We are only interested in DCPSPublications where the topic name matches and that carry type information
-<span class="linenos"> 59</span>    // (a non-XTypes capable DDS would not provide type information) because without that information there is
-<span class="linenos"> 60</span>    // no way we can do anything interesting with it.
-<span class="linenos"> 61</span>    if (strcmp (ep-&gt;topic_name, topic_name) == 0 &amp;&amp; dds_builtintopic_get_endpoint_type_info (ep, &amp;typeinfo) == 0 &amp;&amp; typeinfo)
-<span class="linenos"> 62</span>    {
-<span class="linenos"> 63</span>      // Using dds_find_topic allows us to &quot;clone&quot; the topic definition including the topic QoS, but it does
-<span class="linenos"> 64</span>      // require that topic discovery is enabled in the configuration.  The advantage of using dds_find_topic
-<span class="linenos"> 65</span>      // is that it creates a topic with the same name, type *and QoS*.  That distinction only matters if
-<span class="linenos"> 66</span>      // topic is discovery is enabled and/or if the topic has a durability kind of of transient or persistent:
-<span class="linenos"> 67</span>      // - using a different topic QoS might result in an incompatible QoS notification if topic discovery is
-<span class="linenos"> 68</span>      //   enabled (everything would still work).
-<span class="linenos"> 69</span>      // - transient/persistent data behaviour is defined in terms of the topic QoS actually really matters
-<span class="linenos"> 70</span>      //
-<span class="linenos"> 71</span>      // So we try to use dds_find_topic, and if that fails, try to go the other route using the writer&#39;s QoS
-<span class="linenos"> 72</span>      // as an approximation of the topic QoS.
-<span class="linenos"> 73</span>      if ((*topic = dds_find_topic (DDS_FIND_SCOPE_GLOBAL, participant, ep-&gt;topic_name, typeinfo, DDS_SECS (2))) &lt; 0)
-<span class="linenos"> 74</span>      {
-<span class="linenos"> 75</span>        fprintf (stderr, &quot;dds_find_topic: %s ... continuing on the assumptions that topic discovery is disabled\n&quot;, dds_strretcode (*topic));
-<span class="linenos"> 76</span>        dds_topic_descriptor_t *descriptor;
-<span class="linenos"> 77</span>        if ((ret = dds_create_topic_descriptor(DDS_FIND_SCOPE_GLOBAL, participant, typeinfo, DDS_SECS (10), &amp;descriptor)) &lt; 0)
-<span class="linenos"> 78</span>        {
-<span class="linenos"> 79</span>          fprintf (stderr, &quot;dds_create_topic_descriptor: %s\n&quot;, dds_strretcode (ret));
-<span class="linenos"> 80</span>          dds_return_loan (dcpspublication_reader, &amp;epraw, 1);
-<span class="linenos"> 81</span>          goto error;
-<span class="linenos"> 82</span>        }
-<span class="linenos"> 83</span>        if ((*topic = dds_create_topic (participant, descriptor, ep-&gt;topic_name, ep-&gt;qos, NULL)) &lt; 0)
-<span class="linenos"> 84</span>        {
-<span class="linenos"> 85</span>          fprintf (stderr, &quot;dds_create_topic_descriptor: %s (be sure to enable topic discovery in the configuration)\n&quot;, dds_strretcode (*topic));
-<span class="linenos"> 86</span>          dds_delete_topic_descriptor (descriptor);
-<span class="linenos"> 87</span>          dds_return_loan (dcpspublication_reader, &amp;epraw, 1);
-<span class="linenos"> 88</span>          goto error;
-<span class="linenos"> 89</span>        }
-<span class="linenos"> 90</span>        dds_delete_topic_descriptor (descriptor);
-<span class="linenos"> 91</span>      }
-<span class="linenos"> 92</span>      // The topic suffices for creating a reader, but we also need the TypeObject to make sense of the data
-<span class="linenos"> 93</span>      if ((*xtypeobj = load_type_with_deps (participant, typeinfo)) == NULL)
-<span class="linenos"> 94</span>      {
-<span class="linenos"> 95</span>        fprintf (stderr, &quot;loading type with all dependencies failed\n&quot;);
-<span class="linenos"> 96</span>        dds_return_loan (dcpspublication_reader, &amp;epraw, 1);
-<span class="linenos"> 97</span>        goto error;
-<span class="linenos"> 98</span>      }
-<span class="linenos"> 99</span>    }
-<span class="linenos">100</span>    dds_return_loan (dcpspublication_reader, &amp;epraw, 1);
-<span class="linenos">101</span>  }
-<span class="linenos">102</span>  if (*xtypeobj)
-<span class="linenos">103</span>  {
-<span class="linenos">104</span>    {
-<span class="linenos">105</span>      struct ppc ppc;
-<span class="linenos">106</span>      ppc_init (&amp;ppc);
-<span class="linenos">107</span>      ppc_print_to (&amp;ppc, &amp;(*xtypeobj)-&gt;_u.complete);
-<span class="linenos">108</span>    }
-<span class="linenos">109</span>
-<span class="linenos">110</span>    // If we got the type object, populate the type cache
-<span class="linenos">111</span>    size_t align, size;
-<span class="linenos">112</span>    build_typecache_to (&amp;(*xtypeobj)-&gt;_u.complete, &amp;align, &amp;size);
-<span class="linenos">113</span>    fflush (stdout);
-<span class="linenos">114</span>    struct typeinfo templ = { .key = { .key = (uintptr_t) *xtypeobj } } , *info;
-<span class="linenos">115</span>    if ((info = type_cache_lookup (&amp;templ)) != NULL)
-<span class="linenos">116</span>    {
-<span class="linenos">117</span>      assert (info-&gt;release == NULL);
-<span class="linenos">118</span>      info-&gt;release = *xtypeobj;
-<span class="linenos">119</span>    }
-<span class="linenos">120</span>    else
-<span class="linenos">121</span>    {
-<span class="linenos">122</span>      // not sure whether this is at all possible
-<span class="linenos">123</span>      info = malloc (sizeof (*info));
-<span class="linenos">124</span>      assert (info);
-<span class="linenos">125</span>      *info = (struct typeinfo){ .key = { .key = (uintptr_t) *xtypeobj }, .typeobj = &amp;(*xtypeobj)-&gt;_u.complete, .release = *xtypeobj, .align = align, .size = size };
-<span class="linenos">126</span>      type_cache_add (info);
+<span class="linenos"> 39</span>// Helper function to wait for a DCPSPublication/DCPSSubscription to show up with the desired topic name,
+<span class="linenos"> 40</span>// then calls dds_find_topic to create a topic for that data writer&#39;s/reader&#39;s type up the retrieves the
+<span class="linenos"> 41</span>// type object.
+<span class="linenos"> 42</span>static dds_return_t get_topic_and_typeobj (const char *topic_name, dds_duration_t timeout, dds_entity_t *topic, DDS_XTypes_TypeObject **xtypeobj)
+<span class="linenos"> 43</span>{
+<span class="linenos"> 44</span>  const dds_entity_t waitset = dds_create_waitset (participant);
+<span class="linenos"> 45</span>  const dds_entity_t dcpspublication_reader = dds_create_reader (participant, DDS_BUILTIN_TOPIC_DCPSPUBLICATION, NULL, NULL);
+<span class="linenos"> 46</span>  const dds_entity_t dcpspublication_readcond = dds_create_readcondition (dcpspublication_reader, DDS_ANY_STATE);
+<span class="linenos"> 47</span>  const dds_entity_t dcpssubscription_reader = dds_create_reader (participant, DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION, NULL, NULL);
+<span class="linenos"> 48</span>  const dds_entity_t dcpssubscription_readcond = dds_create_readcondition (dcpssubscription_reader, DDS_ANY_STATE);
+<span class="linenos"> 49</span>  (void) dds_waitset_attach (waitset, dcpspublication_readcond, dcpspublication_reader);
+<span class="linenos"> 50</span>  (void) dds_waitset_attach (waitset, dcpssubscription_readcond, dcpssubscription_reader);
+<span class="linenos"> 51</span>  const dds_time_t abstimeout = (timeout == DDS_INFINITY) ? DDS_NEVER : dds_time () + timeout;
+<span class="linenos"> 52</span>  dds_return_t ret = DDS_RETCODE_OK;
+<span class="linenos"> 53</span>  *xtypeobj = NULL;
+<span class="linenos"> 54</span>  struct ppc ppc;
+<span class="linenos"> 55</span>  ppc_init (&amp;ppc);
+<span class="linenos"> 56</span>  dds_attach_t triggered_reader_x;
+<span class="linenos"> 57</span>  while (*xtypeobj == NULL &amp;&amp; dds_waitset_wait_until (waitset, &amp;triggered_reader_x, 1, abstimeout) &gt; 0)
+<span class="linenos"> 58</span>  {
+<span class="linenos"> 59</span>    void *epraw = NULL;
+<span class="linenos"> 60</span>    dds_sample_info_t si;
+<span class="linenos"> 61</span>    dds_entity_t triggered_reader = (dds_entity_t) triggered_reader_x;
+<span class="linenos"> 62</span>    if (dds_take (triggered_reader, &amp;epraw, &amp;si, 1, 1) &lt;= 0)
+<span class="linenos"> 63</span>      continue;
+<span class="linenos"> 64</span>    dds_builtintopic_endpoint_t *ep = epraw;
+<span class="linenos"> 65</span>    const dds_typeinfo_t *typeinfo = NULL;
+<span class="linenos"> 66</span>    // We are only interested in DCPSPublications where the topic name matches and that carry type information
+<span class="linenos"> 67</span>    // (a non-XTypes capable DDS would not provide type information) because without that information there is
+<span class="linenos"> 68</span>    // no way we can do anything interesting with it.
+<span class="linenos"> 69</span>    if (strcmp (ep-&gt;topic_name, topic_name) == 0 &amp;&amp; dds_builtintopic_get_endpoint_type_info (ep, &amp;typeinfo) == 0 &amp;&amp; typeinfo)
+<span class="linenos"> 70</span>    {
+<span class="linenos"> 71</span>      // Using dds_find_topic allows us to &quot;clone&quot; the topic definition including the topic QoS, but it does
+<span class="linenos"> 72</span>      // require that topic discovery is enabled in the configuration.  The advantage of using dds_find_topic
+<span class="linenos"> 73</span>      // is that it creates a topic with the same name, type *and QoS*.  That distinction only matters if
+<span class="linenos"> 74</span>      // topic is discovery is enabled and/or if the topic has a durability kind of of transient or persistent:
+<span class="linenos"> 75</span>      // - using a different topic QoS might result in an incompatible QoS notification if topic discovery is
+<span class="linenos"> 76</span>      //   enabled (everything would still work).
+<span class="linenos"> 77</span>      // - transient/persistent data behaviour is defined in terms of the topic QoS actually really matters
+<span class="linenos"> 78</span>      //
+<span class="linenos"> 79</span>      // So we try to use dds_find_topic, and if that fails, try to go the other route using the writer&#39;s QoS
+<span class="linenos"> 80</span>      // as an approximation of the topic QoS.
+<span class="linenos"> 81</span>      if ((*topic = dds_find_topic (DDS_FIND_SCOPE_GLOBAL, participant, ep-&gt;topic_name, typeinfo, DDS_SECS (2))) &lt; 0)
+<span class="linenos"> 82</span>      {
+<span class="linenos"> 83</span>        fprintf (stderr, &quot;dds_find_topic: %s ... continuing on the assumptions that topic discovery is disabled\n&quot;, dds_strretcode (*topic));
+<span class="linenos"> 84</span>        dds_topic_descriptor_t *descriptor;
+<span class="linenos"> 85</span>        if ((ret = dds_create_topic_descriptor(DDS_FIND_SCOPE_GLOBAL, participant, typeinfo, DDS_SECS (10), &amp;descriptor)) &lt; 0)
+<span class="linenos"> 86</span>        {
+<span class="linenos"> 87</span>          fprintf (stderr, &quot;dds_create_topic_descriptor: %s\n&quot;, dds_strretcode (ret));
+<span class="linenos"> 88</span>          dds_return_loan (triggered_reader, &amp;epraw, 1);
+<span class="linenos"> 89</span>          goto error;
+<span class="linenos"> 90</span>        }
+<span class="linenos"> 91</span>        if ((*topic = dds_create_topic (participant, descriptor, ep-&gt;topic_name, ep-&gt;qos, NULL)) &lt; 0)
+<span class="linenos"> 92</span>        {
+<span class="linenos"> 93</span>          fprintf (stderr, &quot;dds_create_topic_descriptor: %s (be sure to enable topic discovery in the configuration)\n&quot;, dds_strretcode (*topic));
+<span class="linenos"> 94</span>          dds_delete_topic_descriptor (descriptor);
+<span class="linenos"> 95</span>          dds_return_loan (triggered_reader, &amp;epraw, 1);
+<span class="linenos"> 96</span>          goto error;
+<span class="linenos"> 97</span>        }
+<span class="linenos"> 98</span>        dds_delete_topic_descriptor (descriptor);
+<span class="linenos"> 99</span>      }
+<span class="linenos">100</span>      // The topic suffices for creating a reader, but we also need the TypeObject to make sense of the data
+<span class="linenos">101</span>      if ((*xtypeobj = load_type_with_deps (participant, typeinfo, &amp;ppc)) == NULL)
+<span class="linenos">102</span>      {
+<span class="linenos">103</span>        fprintf (stderr, &quot;loading type with all dependencies failed\n&quot;);
+<span class="linenos">104</span>        dds_return_loan (triggered_reader, &amp;epraw, 1);
+<span class="linenos">105</span>        goto error;
+<span class="linenos">106</span>      }
+<span class="linenos">107</span>      if (load_type_with_deps_min (participant, typeinfo, &amp;ppc) == NULL)
+<span class="linenos">108</span>      {
+<span class="linenos">109</span>        fprintf (stderr, &quot;loading minimal type with all dependencies failed\n&quot;);
+<span class="linenos">110</span>        dds_return_loan (triggered_reader, &amp;epraw, 1);
+<span class="linenos">111</span>        goto error;
+<span class="linenos">112</span>      }
+<span class="linenos">113</span>    }
+<span class="linenos">114</span>    dds_return_loan (triggered_reader, &amp;epraw, 1);
+<span class="linenos">115</span>  }
+<span class="linenos">116</span>  if (*xtypeobj)
+<span class="linenos">117</span>  {
+<span class="linenos">118</span>    // If we got the type object, populate the type cache
+<span class="linenos">119</span>    size_t align, size;
+<span class="linenos">120</span>    build_typecache_to (&amp;(*xtypeobj)-&gt;_u.complete, &amp;align, &amp;size);
+<span class="linenos">121</span>    fflush (stdout);
+<span class="linenos">122</span>    struct typeinfo templ = { .key = { .key = (uintptr_t) *xtypeobj } } , *info;
+<span class="linenos">123</span>    if ((info = type_cache_lookup (&amp;templ)) != NULL)
+<span class="linenos">124</span>    {
+<span class="linenos">125</span>      assert (info-&gt;release == NULL);
+<span class="linenos">126</span>      info-&gt;release = *xtypeobj;
 <span class="linenos">127</span>    }
-<span class="linenos">128</span>  }
-<span class="linenos">129</span>error:
-<span class="linenos">130</span>  dds_delete (dcpspublication_reader);
-<span class="linenos">131</span>  dds_delete (waitset);
-<span class="linenos">132</span>  return (*xtypeobj != NULL) ? DDS_RETCODE_OK : DDS_RETCODE_TIMEOUT;
-<span class="linenos">133</span>}
-<span class="linenos">134</span>
-<span class="linenos">135</span>int main (int argc, char **argv)
-<span class="linenos">136</span>{
-<span class="linenos">137</span>  dds_return_t ret = 0;
-<span class="linenos">138</span>  dds_entity_t topic = 0;
-<span class="linenos">139</span>
-<span class="linenos">140</span>  if (argc != 2)
-<span class="linenos">141</span>  {
-<span class="linenos">142</span>    fprintf (stderr, &quot;usage: %s topicname\n&quot;, argv[0]);
-<span class="linenos">143</span>    return 2;
-<span class="linenos">144</span>  }
-<span class="linenos">145</span>
-<span class="linenos">146</span>  participant = dds_create_participant (DDS_DOMAIN_DEFAULT, NULL, NULL);
-<span class="linenos">147</span>  if (participant &lt; 0)
-<span class="linenos">148</span>  {
-<span class="linenos">149</span>    fprintf (stderr, &quot;dds_create_participant: %s\n&quot;, dds_strretcode (participant));
-<span class="linenos">150</span>    return 1;
-<span class="linenos">151</span>  }
-<span class="linenos">152</span>
-<span class="linenos">153</span>  // The one magic step: get a topic and type object ...
-<span class="linenos">154</span>  DDS_XTypes_TypeObject *xtypeobj;
-<span class="linenos">155</span>  type_cache_init ();
-<span class="linenos">156</span>  if ((ret = get_topic_and_typeobj (argv[1], DDS_SECS (10), &amp;topic, &amp;xtypeobj)) &lt; 0)
+<span class="linenos">128</span>    else
+<span class="linenos">129</span>    {
+<span class="linenos">130</span>      // not sure whether this is at all possible
+<span class="linenos">131</span>      info = malloc (sizeof (*info));
+<span class="linenos">132</span>      assert (info);
+<span class="linenos">133</span>      *info = (struct typeinfo){ .key = { .key = (uintptr_t) *xtypeobj }, .typeobj = &amp;(*xtypeobj)-&gt;_u.complete, .release = *xtypeobj, .align = align, .size = size };
+<span class="linenos">134</span>      type_cache_add (info);
+<span class="linenos">135</span>    }
+<span class="linenos">136</span>  }
+<span class="linenos">137</span>error:
+<span class="linenos">138</span>  dds_delete (dcpspublication_reader);
+<span class="linenos">139</span>  dds_delete (dcpssubscription_reader);
+<span class="linenos">140</span>  dds_delete (waitset);
+<span class="linenos">141</span>  return (*xtypeobj != NULL) ? DDS_RETCODE_OK : DDS_RETCODE_TIMEOUT;
+<span class="linenos">142</span>}
+<span class="linenos">143</span>
+<span class="linenos">144</span>int main (int argc, char **argv)
+<span class="linenos">145</span>{
+<span class="linenos">146</span>  dds_return_t ret = 0;
+<span class="linenos">147</span>  dds_entity_t topic = 0;
+<span class="linenos">148</span>
+<span class="linenos">149</span>  if (argc != 2)
+<span class="linenos">150</span>  {
+<span class="linenos">151</span>    fprintf (stderr, &quot;usage: %s topicname\n&quot;, argv[0]);
+<span class="linenos">152</span>    return 2;
+<span class="linenos">153</span>  }
+<span class="linenos">154</span>
+<span class="linenos">155</span>  participant = dds_create_participant (DDS_DOMAIN_DEFAULT, NULL, NULL);
+<span class="linenos">156</span>  if (participant &lt; 0)
 <span class="linenos">157</span>  {
-<span class="linenos">158</span>    fprintf (stderr, &quot;get_topic_and_typeobj: %s\n&quot;, dds_strretcode (ret));
-<span class="linenos">159</span>    goto error;
+<span class="linenos">158</span>    fprintf (stderr, &quot;dds_create_participant: %s\n&quot;, dds_strretcode (participant));
+<span class="linenos">159</span>    return 1;
 <span class="linenos">160</span>  }
-<span class="linenos">161</span>  // ... given those, we can create a reader just like we do normally ...
-<span class="linenos">162</span>  const dds_entity_t reader = dds_create_reader (participant, topic, NULL, NULL);
-<span class="linenos">163</span>  // ... and create a waitset that allows us to wait for any incoming data ...
-<span class="linenos">164</span>  const dds_entity_t waitset = dds_create_waitset (participant);
-<span class="linenos">165</span>  const dds_entity_t readcond = dds_create_readcondition (reader, DDS_ANY_STATE);
-<span class="linenos">166</span>  (void) dds_waitset_attach (waitset, readcond, 0);
-<span class="linenos">167</span>  while (1)
-<span class="linenos">168</span>  {
-<span class="linenos">169</span>    (void) dds_waitset_wait (waitset, NULL, 0, DDS_INFINITY);
-<span class="linenos">170</span>    void *raw = NULL;
-<span class="linenos">171</span>    dds_sample_info_t si;
-<span class="linenos">172</span>    if ((ret = dds_take (reader, &amp;raw, &amp;si, 1, 1)) &lt; 0)
-<span class="linenos">173</span>      goto error;
-<span class="linenos">174</span>    else if (ret != 0)
-<span class="linenos">175</span>    {
-<span class="linenos">176</span>      // ... that we then print
-<span class="linenos">177</span>      print_sample (si.valid_data, raw, &amp;xtypeobj-&gt;_u.complete);
-<span class="linenos">178</span>      if ((ret = dds_return_loan (reader, &amp;raw, 1)) &lt; 0)
-<span class="linenos">179</span>        goto error;
-<span class="linenos">180</span>    }
-<span class="linenos">181</span>  }
-<span class="linenos">182</span>
-<span class="linenos">183</span> error:
-<span class="linenos">184</span>  type_cache_free ();
-<span class="linenos">185</span>  dds_delete (participant);
-<span class="linenos">186</span>  return ret &lt; 0;
-<span class="linenos">187</span>}
+<span class="linenos">161</span>
+<span class="linenos">162</span>  // The one magic step: get a topic and type object ...
+<span class="linenos">163</span>  DDS_XTypes_TypeObject *xtypeobj;
+<span class="linenos">164</span>  type_cache_init ();
+<span class="linenos">165</span>  if ((ret = get_topic_and_typeobj (argv[1], DDS_SECS (10), &amp;topic, &amp;xtypeobj)) &lt; 0)
+<span class="linenos">166</span>  {
+<span class="linenos">167</span>    fprintf (stderr, &quot;get_topic_and_typeobj: %s\n&quot;, dds_strretcode (ret));
+<span class="linenos">168</span>    goto error;
+<span class="linenos">169</span>  }
+<span class="linenos">170</span>  // ... given those, we can create a reader just like we do normally ...
+<span class="linenos">171</span>  const dds_entity_t reader = dds_create_reader (participant, topic, NULL, NULL);
+<span class="linenos">172</span>  // ... and create a waitset that allows us to wait for any incoming data ...
+<span class="linenos">173</span>  const dds_entity_t waitset = dds_create_waitset (participant);
+<span class="linenos">174</span>  const dds_entity_t readcond = dds_create_readcondition (reader, DDS_ANY_STATE);
+<span class="linenos">175</span>  (void) dds_waitset_attach (waitset, readcond, 0);
+<span class="linenos">176</span>  while (1)
+<span class="linenos">177</span>  {
+<span class="linenos">178</span>    (void) dds_waitset_wait (waitset, NULL, 0, DDS_INFINITY);
+<span class="linenos">179</span>    void *raw = NULL;
+<span class="linenos">180</span>    dds_sample_info_t si;
+<span class="linenos">181</span>    if ((ret = dds_take (reader, &amp;raw, &amp;si, 1, 1)) &lt; 0)
+<span class="linenos">182</span>      goto error;
+<span class="linenos">183</span>    else if (ret != 0)
+<span class="linenos">184</span>    {
+<span class="linenos">185</span>      // ... that we then print
+<span class="linenos">186</span>      print_sample (si.valid_data, raw, &amp;xtypeobj-&gt;_u.complete);
+<span class="linenos">187</span>      if ((ret = dds_return_loan (reader, &amp;raw, 1)) &lt; 0)
+<span class="linenos">188</span>        goto error;
+<span class="linenos">189</span>    }
+<span class="linenos">190</span>  }
+<span class="linenos">191</span>
+<span class="linenos">192</span> error:
+<span class="linenos">193</span>  type_cache_free ();
+<span class="linenos">194</span>  dds_delete (participant);
+<span class="linenos">195</span>  return ret &lt; 0;
+<span class="linenos">196</span>}
 </pre></div>
 </div>
 </div>
