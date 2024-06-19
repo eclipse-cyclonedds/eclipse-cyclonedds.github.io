@@ -262,7 +262,7 @@ a number of different types. Pass it the name of the type to publish. For exampl
 <span class="linenos"> 80</span>      // as an approximation of the topic QoS.
 <span class="linenos"> 81</span>      if ((*topic = dds_find_topic (DDS_FIND_SCOPE_GLOBAL, participant, ep-&gt;topic_name, typeinfo, DDS_SECS (2))) &lt; 0)
 <span class="linenos"> 82</span>      {
-<span class="linenos"> 83</span>        fprintf (stderr, &quot;dds_find_topic: %s ... continuing on the assumptions that topic discovery is disabled\n&quot;, dds_strretcode (*topic));
+<span class="linenos"> 83</span>        fprintf (stderr, &quot;dds_find_topic: %s ... continuing on the assumption that topic discovery is disabled\n&quot;, dds_strretcode (*topic));
 <span class="linenos"> 84</span>        dds_topic_descriptor_t *descriptor;
 <span class="linenos"> 85</span>        if ((ret = dds_create_topic_descriptor(DDS_FIND_SCOPE_GLOBAL, participant, typeinfo, DDS_SECS (10), &amp;descriptor)) &lt; 0)
 <span class="linenos"> 86</span>        {
