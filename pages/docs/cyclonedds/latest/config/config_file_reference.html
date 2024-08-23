@@ -1469,23 +1469,29 @@ Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 <section id="cyclonedds-domain-threads-thread-scheduling">
 <span id="id187"></span><h6>//CycloneDDS/Domain/Threads/Thread/Scheduling<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling" title="Permalink to this headline">¶</a></h6>
-<p>Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-class"><span class="std std-ref">Class</span></a>, <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-priority"><span class="std std-ref">Priority</span></a></p>
+<p>Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-affinity"><span class="std std-ref">Affinity</span></a>, <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-class"><span class="std std-ref">Class</span></a>, <a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-priority"><span class="std std-ref">Priority</span></a></p>
 <p>This element configures the scheduling properties of the thread.</p>
+<section id="cyclonedds-domain-threads-thread-scheduling-affinity">
+<span id="id188"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Affinity<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-affinity" title="Permalink to this headline">¶</a></h7>
+<p>Text</p>
+<p>This element specifies the thread affinity using a string of comma-separated unsigned 32-bit integers. The notional meaning of the string is that it lists the IDs of the CPU cores to use, but some platforms may use a different mapping. Ignored if unsupported by the platform.</p>
+<p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
+</section>
 <section id="cyclonedds-domain-threads-thread-scheduling-class">
-<span id="id188"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Class<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-class" title="Permalink to this headline">¶</a></h7>
+<span id="id189"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Class<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-class" title="Permalink to this headline">¶</a></h7>
 <p>One of: realtime, timeshare, default</p>
 <p>This element specifies the thread scheduling class (realtime, timeshare or default). The user may need special privileges from the underlying operating system to be able to assign some of the privileged scheduling classes.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 <section id="cyclonedds-domain-threads-thread-scheduling-priority">
-<span id="id189"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Priority<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-priority" title="Permalink to this headline">¶</a></h7>
+<span id="id190"></span><h7>//CycloneDDS/Domain/Threads/Thread/Scheduling/Priority<a class="headerlink" href="#cyclonedds-domain-threads-thread-scheduling-priority" title="Permalink to this headline">¶</a></h7>
 <p>Text</p>
 <p>This element specifies the thread priority (decimal integer or default). Only priorities supported by the underlying operating system can be assigned to this element. The user may need special privileges from the underlying operating system to be able to assign some of the privileged priorities.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
 </section>
 </section>
 <section id="cyclonedds-domain-threads-thread-stacksize">
-<span id="id190"></span><h6>//CycloneDDS/Domain/Threads/Thread/StackSize<a class="headerlink" href="#cyclonedds-domain-threads-thread-stacksize" title="Permalink to this headline">¶</a></h6>
+<span id="id191"></span><h6>//CycloneDDS/Domain/Threads/Thread/StackSize<a class="headerlink" href="#cyclonedds-domain-threads-thread-stacksize" title="Permalink to this headline">¶</a></h6>
 <p>Number-with-unit</p>
 <p>This element configures the stack size for this thread. The default value default leaves the stack size at the operating system default.</p>
 <p>The unit must be specified explicitly. Recognised units: B (bytes), kB &amp; KiB (2^10 bytes), MB &amp; MiB (2^20 bytes), GB &amp; GiB (2^30 bytes).</p>
@@ -1494,17 +1500,17 @@ Children: <a class="reference internal" href="#cyclonedds-domain-threads-thread-
 </section>
 </section>
 <section id="cyclonedds-domain-tracing">
-<span id="id191"></span><h4>//CycloneDDS/Domain/Tracing<a class="headerlink" href="#cyclonedds-domain-tracing" title="Permalink to this headline">¶</a></h4>
+<span id="id192"></span><h4>//CycloneDDS/Domain/Tracing<a class="headerlink" href="#cyclonedds-domain-tracing" title="Permalink to this headline">¶</a></h4>
 <p>Children: <a class="reference internal" href="#cyclonedds-domain-tracing-appendtofile"><span class="std std-ref">AppendToFile</span></a>, <a class="reference internal" href="#cyclonedds-domain-tracing-category"><span class="std std-ref">Category|EnableCategory</span></a>, <a class="reference internal" href="#cyclonedds-domain-tracing-outputfile"><span class="std std-ref">OutputFile</span></a>, <a class="reference internal" href="#cyclonedds-domain-tracing-packetcapturefile"><span class="std std-ref">PacketCaptureFile</span></a>, <a class="reference internal" href="#cyclonedds-domain-tracing-verbosity"><span class="std std-ref">Verbosity</span></a></p>
 <p>The Tracing element controls the amount and type of information that is written into the tracing log by the DDSI service. This is useful to track the DDSI service during application development.</p>
 <section id="cyclonedds-domain-tracing-appendtofile">
-<span id="id192"></span><h5>//CycloneDDS/Domain/Tracing/AppendToFile<a class="headerlink" href="#cyclonedds-domain-tracing-appendtofile" title="Permalink to this headline">¶</a></h5>
+<span id="id193"></span><h5>//CycloneDDS/Domain/Tracing/AppendToFile<a class="headerlink" href="#cyclonedds-domain-tracing-appendtofile" title="Permalink to this headline">¶</a></h5>
 <p>Boolean</p>
 <p>This option specifies whether the output should be appended to an existing log file. The default is to create a new log file each time, which is generally the best option if a detailed log is generated.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-category">
-<span id="id193"></span><h5>//CycloneDDS/Domain/Tracing/Category<a class="headerlink" href="#cyclonedds-domain-tracing-category" title="Permalink to this headline">¶</a></h5>
+<span id="id194"></span><h5>//CycloneDDS/Domain/Tracing/Category<a class="headerlink" href="#cyclonedds-domain-tracing-category" title="Permalink to this headline">¶</a></h5>
 <p>One of:
 * Comma-separated list of: fatal, error, warning, info, config, discovery, data, radmin, timing, traffic, topic, tcp, plist, whc, throttle, rhc, content, malformed, trace, user, user1, user2, user3
 * Or empty</p>
@@ -1540,19 +1546,19 @@ The categorisation of tracing output is incomplete and hence most of the verbosi
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-outputfile">
-<span id="id194"></span><h5>//CycloneDDS/Domain/Tracing/OutputFile<a class="headerlink" href="#cyclonedds-domain-tracing-outputfile" title="Permalink to this headline">¶</a></h5>
+<span id="id195"></span><h5>//CycloneDDS/Domain/Tracing/OutputFile<a class="headerlink" href="#cyclonedds-domain-tracing-outputfile" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>This option specifies where the logging is printed to. Note that stdout and stderr are treated as special values, representing “standard out” and “standard error” respectively. No file is created unless logging categories are enabled using the Tracing/Verbosity or Tracing/EnabledCategory settings.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">cyclonedds.log</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-packetcapturefile">
-<span id="id195"></span><h5>//CycloneDDS/Domain/Tracing/PacketCaptureFile<a class="headerlink" href="#cyclonedds-domain-tracing-packetcapturefile" title="Permalink to this headline">¶</a></h5>
+<span id="id196"></span><h5>//CycloneDDS/Domain/Tracing/PacketCaptureFile<a class="headerlink" href="#cyclonedds-domain-tracing-packetcapturefile" title="Permalink to this headline">¶</a></h5>
 <p>Text</p>
 <p>This option specifies the file to which received and sent packets will be logged in the “pcap” format suitable for analysis using common networking tools, such as WireShark. IP and UDP headers are fictitious, in particular the destination address of received packets. The TTL may be used to distinguish between sent and received packets: it is 255 for sent packets and 128 for received ones. Currently IPv4 only.</p>
 <p>The default value is: <code class="docutils literal notranslate"><span class="pre">&lt;empty&gt;</span></code></p>
 </section>
 <section id="cyclonedds-domain-tracing-verbosity">
-<span id="id196"></span><h5>//CycloneDDS/Domain/Tracing/Verbosity<a class="headerlink" href="#cyclonedds-domain-tracing-verbosity" title="Permalink to this headline">¶</a></h5>
+<span id="id197"></span><h5>//CycloneDDS/Domain/Tracing/Verbosity<a class="headerlink" href="#cyclonedds-domain-tracing-verbosity" title="Permalink to this headline">¶</a></h5>
 <p>One of: finest, finer, fine, config, info, warning, severe, none</p>
 <dl class="simple">
 <dt>This element enables standard groups of categories, based on a desired verbosity level. This is in addition to the categories enabled by the Tracing/Category setting. Recognised verbosity levels and the categories they map to are:</dt><dd><ul class="simple">
@@ -1820,6 +1826,7 @@ The categorisation of tracing output is incomplete and hence most of the verbosi
 <li><a class="reference internal" href="#cyclonedds-domain-threads-thread">//CycloneDDS/Domain/Threads/Thread</a></li>
 <li><a class="reference internal" href="#cyclonedds-domain-threads-thread-name">//CycloneDDS/Domain/Threads/Thread[&#64;Name]</a><ul>
 <li><a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling">//CycloneDDS/Domain/Threads/Thread/Scheduling</a><ul>
+<li><a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-affinity">//CycloneDDS/Domain/Threads/Thread/Scheduling/Affinity</a></li>
 <li><a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-class">//CycloneDDS/Domain/Threads/Thread/Scheduling/Class</a></li>
 <li><a class="reference internal" href="#cyclonedds-domain-threads-thread-scheduling-priority">//CycloneDDS/Domain/Threads/Thread/Scheduling/Priority</a></li>
 </ul>
