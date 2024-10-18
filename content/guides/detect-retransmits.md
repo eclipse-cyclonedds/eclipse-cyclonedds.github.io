@@ -35,11 +35,11 @@ In the Wireshark screenshot below, you can see an example of a retransmission.
 ## Tuning Heartbeat Intervals for Faster Recovery
 
 The speed at which lost data is detected and retransmitted depends on the heartbeat interval or the frequency of data transmission. By default, the heartbeat interval is set to 100 ms, but for low-rate periodic data, you can reduce this interval for example to 5 ms:
+
 ```xml
 <Internal>
   <HeartbeatInterval minsched="5ms" min="5ms">5ms</HeartbeatInterval>
 </Internal>
 ```
+
 With this adjustment, lost data can be recovered in approximately 5.1 ms (5 ms for the heartbeat, plus ~2x50µs for network processing).
-
-
