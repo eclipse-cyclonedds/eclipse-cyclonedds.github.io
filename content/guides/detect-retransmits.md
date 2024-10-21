@@ -16,7 +16,7 @@ DDS (Data Distribution Service) relies on UDP, meaning messages can be lost due 
 DDS retransmissions are not explicitly marked in the data stream. However, retransmissions are triggered by a NACK (Negative Acknowledgment). To identify NACKs in Wireshark, you can use the following filter `rtps.bitmap.num_bits > 0`.
 This filter allows you to focus on NACKs and, in most cases, is sufficient for detecting retransmits.
 
-You may also filter by submessage IDs:
+You may also filter by submessage IDs e.g., using `rtps.sm.id == 0x6`:
 
 - ACKNACK: 0x6
 - NACKFRAG: 0x12
