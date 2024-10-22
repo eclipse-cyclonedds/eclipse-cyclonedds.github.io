@@ -5,7 +5,8 @@
 <html lang="en">
   <head>
     
-    <title>Eclipse Cyclone DDS - Blog</title>
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
     <meta charset="utf-8" />
     <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
     <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
@@ -19,6 +20,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/syntax.css">
     
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/markdown.css">
+
   </head>
 
   <body>
@@ -59,7 +63,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/blog.html">Blog</a>
+            <a class="nav-link" href="/blog.html">Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/content/tools.html">Tools</a>
@@ -91,43 +95,50 @@
 
 
     
-    <main>
-      <div class="container">
-        <div class="row my-1">
-          <h1>Blog</h1>
-        </div>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3 markdown">
+        <h2 id="detecting-and-optimizing-dds-retransmissions-with-wireshark">Detecting and Optimizing DDS Retransmissions with Wireshark</h2>
+<h3 id="understanding-dds-retransmissions">Understanding DDS Retransmissions</h3>
+<p>DDS (Data Distribution Service) relies on UDP, meaning messages can be lost due to network conditions or QoS settings. With reliable QoS, lost messages must be retransmitted, which can introduce latency spikes. Retransmissions can only be detected through heartbeats, which are sent either at regular intervals or with every data message. These heartbeats signal which sequence numbers have been successfully received and indicate any missing messages that need to be retransmitted.</p>
+<h3 id="detecting-retransmissions-in-wireshark">Detecting Retransmissions in Wireshark</h3>
+<p>DDS retransmissions are not explicitly marked in the data stream. However, retransmissions are triggered by a NACK (Negative Acknowledgment). To identify NACKs in Wireshark, you can use the following filter <code>rtps.bitmap.num_bits &gt; 0</code>.
+This filter allows you to focus on NACKs and, in most cases, is sufficient for detecting retransmits.</p>
+<p>You may also filter by submessage IDs e.g., using <code>rtps.sm.id == 0x6</code>:</p>
+<ul>
+<li>ACKNACK: 0x6</li>
+<li>NACKFRAG: 0x12</li>
+</ul>
+<h4 id="wireshark-example-of-a-retransmit">Wireshark Example of a Retransmit</h4>
+<p>In the Wireshark screenshot below, you can see an example of a retransmission.</p>
+<ol>
+<li>A message with sequence number 7530 is received.</li>
+<li>Sequence number 7532 is received, but the heartbeat indicates that sequence 7531 was lost.</li>
+<li>Sequence number 7531 is retransmitted.</li>
+<li>Sequence number 7533 is received.</li>
+</ol>
+<p><img alt="wireshark retransmit" src="/images/wireshark-retransmit.jpg"></p>
+<h3 id="tuning-heartbeat-intervals-for-faster-recovery">Tuning Heartbeat Intervals for Faster Recovery</h3>
+<p>The speed at which lost data is detected and retransmitted depends on the heartbeat interval or the frequency of data transmission. By default, the heartbeat interval is set to 100 ms, but for low-rate periodic data, you can reduce this interval for example to 5 ms:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;Internal&gt;</span>
+  <span class="nt">&lt;HeartbeatInterval</span> <span class="na">minsched=</span><span class="s">&quot;5ms&quot;</span> <span class="na">min=</span><span class="s">&quot;5ms&quot;</span><span class="nt">&gt;</span>5ms<span class="nt">&lt;/HeartbeatInterval&gt;</span>
+<span class="nt">&lt;/Internal&gt;</span>
+</code></pre></div>
 
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/B2RKDDSModelThingsTheirRelationshipAndRelations.html"><h2 class="mb-2">Modeling Data, Metadata and their Relationships With DDS</h2></a>
-            By Ramzi KAROUI, posted on 2022-11-08.
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/B1RKWhatisDDSWhatMakesitUnik.html"><h2 class="mb-2">What makes DDS unique</h2></a>
-            By Ramzi KAROUI, posted on 2022-11-08.
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/xtypes-features.html"><h2 class="mb-2">What XTypes can do for you</h2></a>
-            By Thijs Miedema, posted on 2022-05-11.
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="/content/blog/hello-world.html"><h2 class="mb-2">Hello, World!</h2></a>
-            By Thijs Miedema, posted on 2022-05-04.
-          </div>
-        </div>
-
+<p>With this adjustment, lost data can be recovered in approximately 5.1 ms (5 ms for the heartbeat, plus ~2x50µs for network processing).</p>
       </div>
-    </main>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mx-auto px-5 mb-3">
+        <span class="text-muted">
+          By Sven Trittler, posted on 2024-10-18.</span>
+      </div>
+    </div>
+    
+  </div>
+</main>
 
         <footer class="ato-footer text-muted">
       <div class="container-fluid p-6 p-md-5">
