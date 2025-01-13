@@ -158,6 +158,7 @@
 <span class="kn">from</span> <span class="nn">ctypes.util</span> <span class="kn">import</span> <span class="n">find_library</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
 
 
 <span class="k">if</span> <span class="s1">&#39;CYCLONEDDS_PYTHON_NO_IMPORT_LIBS&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
@@ -418,6 +419,26 @@
     <span class="n">sample_info</span><span class="p">:</span> <span class="n">SampleInfo</span>
 
 
+<span class="k">class</span> <span class="nc">stat_kind</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+    <span class="n">DDS_STAT_KIND_UINT32</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">DDS_STAT_KIND_UINT64</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">DDS_STAT_KIND_LENGTHTIME</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">class</span> <span class="nc">stat_value</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Union</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;u32&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint32</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;u64&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint64</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;lengthtime&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint64</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">stat_keyvalue</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+    <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;kind&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">stat_value</span><span class="p">)</span>
+    <span class="p">]</span>
+
 <div class="viewcode-block" id="dds_c_t"><a class="viewcode-back" href="../../cyclonedds.internal.html#cyclonedds.internal.dds_c_t">[docs]</a><span class="k">class</span> <span class="nc">dds_c_t</span><span class="p">:</span>  <span class="c1"># noqa N801</span>
     <span class="n">entity</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int32</span>
     <span class="n">time</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int64</span>
@@ -528,7 +549,27 @@
         <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
             <span class="p">(</span><span class="s1">&#39;buf&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
             <span class="p">(</span><span class="s1">&#39;len&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">)</span>
-        <span class="p">]</span></div></div>
+        <span class="p">]</span></div>
+
+<div class="viewcode-block" id="dds_c_t.statistics"><a class="viewcode-back" href="../../cyclonedds.internal.html#cyclonedds.internal.dds_c_t.statistics">[docs]</a>    <span class="k">class</span> <span class="nc">statistics</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+        <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s1">&#39;entity&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int32</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;opaque&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint64</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int64</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;kv&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span>
+        <span class="p">]</span></div>
+
+<div class="viewcode-block" id="dds_c_t.stat_factory"><a class="viewcode-back" href="../../cyclonedds.internal.html#cyclonedds.internal.dds_c_t.stat_factory">[docs]</a>    <span class="k">def</span> <span class="nf">stat_factory</span><span class="p">(</span><span class="n">n_kv</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ct</span><span class="o">.</span><span class="n">Structure</span><span class="p">:</span>
+        <span class="k">class</span> <span class="nc">vstatistics</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+            <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">(</span><span class="s1">&#39;entity&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int32</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;opaque&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint64</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int64</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;kv&#39;</span><span class="p">,</span> <span class="n">stat_keyvalue</span> <span class="o">*</span> <span class="n">n_kv</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="k">return</span> <span class="n">vstatistics</span></div></div>
 
 
 <span class="k">try</span><span class="p">:</span>
@@ -566,7 +607,7 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
 

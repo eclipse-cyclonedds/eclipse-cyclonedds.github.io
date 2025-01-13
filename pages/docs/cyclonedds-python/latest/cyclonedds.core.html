@@ -1795,6 +1795,85 @@ Print the exception directly or convert it to string for a detailed description.
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="cyclonedds.core.Statistics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cyclonedds.core.</span></span><span class="sig-name descname"><span class="pre">Statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/core.html#Statistics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.core.Statistics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Statistics object for entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entity</strong> (<a class="reference internal" href="#cyclonedds.core.Entity" title="cyclonedds.core.Entity"><em>cyclonedds.core.Entity</em></a>) – </p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.core.Statistics.entity">
+<span class="sig-name descname"><span class="pre">entity</span></span><a class="headerlink" href="#cyclonedds.core.Statistics.entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>The handle of entity to which this set of statistics applies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cyclonedds.core.Entity" title="cyclonedds.core.Entity">Entity</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.core.Statistics.opaque">
+<span class="sig-name descname"><span class="pre">opaque</span></span><a class="headerlink" href="#cyclonedds.core.Statistics.opaque" title="Permalink to this definition">¶</a></dt>
+<dd><p>The internal data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.core.Statistics.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#cyclonedds.core.Statistics.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time stamp of lastest call to <cite>Statistics(entity).refresh()</cite> in nanoseconds since epoch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>datatime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.core.Statistics.count">
+<span class="sig-name descname"><span class="pre">count</span></span><a class="headerlink" href="#cyclonedds.core.Statistics.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of key-value pairs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cyclonedds.core.Statistics.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#cyclonedds.core.Statistics.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Statistics</span><span class="p">(</span><span class="n">datawriter</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Statistics</span><span class="p">(</span><span class="n">datawriter</span><span class="p">)</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="cyclonedds.core.Statistics.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cyclonedds/core.html#Statistics.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cyclonedds.core.Statistics.refresh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update a previously created statistics structure with current values.</p>
+<p>Only the time stamp and the values (and “opaque”) may change.
+The set of keys and the types of the values do not change.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -1825,7 +1904,7 @@ Print the exception directly or convert it to string for a detailed description.
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
 

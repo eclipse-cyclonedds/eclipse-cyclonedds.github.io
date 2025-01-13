@@ -157,8 +157,9 @@
 <span class="kn">import</span> <span class="nn">ctypes</span> <span class="k">as</span> <span class="nn">ct</span>
 <span class="kn">from</span> <span class="nn">weakref</span> <span class="kn">import</span> <span class="n">WeakValueDictionary</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">timedelta</span>
 
-<span class="kn">from</span> <span class="nn">.internal</span> <span class="kn">import</span> <span class="n">c_call</span><span class="p">,</span> <span class="n">c_callable</span><span class="p">,</span> <span class="n">dds_infinity</span><span class="p">,</span> <span class="n">dds_c_t</span><span class="p">,</span> <span class="n">DDS</span>
+<span class="kn">from</span> <span class="nn">.internal</span> <span class="kn">import</span> <span class="n">c_call</span><span class="p">,</span> <span class="n">c_callable</span><span class="p">,</span> <span class="n">dds_infinity</span><span class="p">,</span> <span class="n">dds_c_t</span><span class="p">,</span> <span class="n">DDS</span><span class="p">,</span> <span class="n">stat_keyvalue</span><span class="p">,</span> <span class="n">stat_kind</span>
 <span class="kn">from</span> <span class="nn">.qos</span> <span class="kn">import</span> <span class="n">Qos</span><span class="p">,</span> <span class="n">Policy</span><span class="p">,</span> <span class="n">_CQos</span>
 
 
@@ -1979,6 +1980,7 @@
         <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
             <span class="k">return</span> <span class="k">await</span> <span class="n">loop</span><span class="o">.</span><span class="n">run_in_executor</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span></div>
 
+
     <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_create_waitset&quot;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_create_waitset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain_participant</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">:</span>
         <span class="k">pass</span>
@@ -2022,6 +2024,93 @@
         <span class="k">pass</span></div>
 
 
+<div class="viewcode-block" id="Statistics"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Statistics">[docs]</a><span class="k">class</span> <span class="nc">Statistics</span><span class="p">(</span><span class="n">DDS</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Statistics object for entity.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    entity: Entity</span>
+<span class="sd">        The handle of entity to which this set of statistics applies.</span>
+<span class="sd">    opaque: int</span>
+<span class="sd">        The internal data.</span>
+<span class="sd">    time: datatime</span>
+<span class="sd">        Time stamp of lastest call to `Statistics(entity).refresh()` in nanoseconds since epoch.</span>
+<span class="sd">    count: int</span>
+<span class="sd">        Number of key-value pairs.</span>
+<span class="sd">    data: dict</span>
+<span class="sd">        Data.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; Statistics(datawriter)</span>
+<span class="sd">    &gt;&gt;&gt; Statistics(datawriter).refresh()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span>
+    <span class="n">opaque</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">time</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">Entity</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entity</span> <span class="o">=</span> <span class="n">entity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_statistics</span><span class="p">(</span><span class="n">entity</span><span class="o">.</span><span class="n">_ref</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">DDSException</span><span class="o">.</span><span class="n">DDS_RETCODE_ERROR</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Could not initialize statistics.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">stat_factory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_delete_statistics</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">statistics</span><span class="p">)))</span>
+
+    <span class="k">def</span> <span class="nf">_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opaque</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">opaque</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">kv</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>  <span class="c1"># ct.c_char_p</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">kv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">stat_kind</span><span class="o">.</span><span class="n">DDS_STAT_KIND_UINT32</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">u32</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">stat_kind</span><span class="o">.</span><span class="n">DDS_STAT_KIND_UINT64</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">u64</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">kv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">stat_kind</span><span class="o">.</span><span class="n">DDS_STAT_KIND_LENGTHTIME</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">u</span><span class="o">.</span><span class="n">lengthtime</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="Statistics.refresh"><a class="viewcode-back" href="../../cyclonedds.core.html#cyclonedds.core.Statistics.refresh">[docs]</a>    <span class="k">def</span> <span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update a previously created statistics structure with current values.</span>
+
+<span class="sd">        Only the time stamp and the values (and &quot;opaque&quot;) may change.</span>
+<span class="sd">        The set of keys and the types of the values do not change.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_refresh_statistics</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">statistics</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">stat_factory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_c_statistics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Statistics(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">entity</span><span class="si">}</span><span class="s2">, opaque=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">opaque</span><span class="si">}</span><span class="s2">, time=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s2">, data=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_create_statistics&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_create_statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entity</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">statistics</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_refresh_statistics&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_refresh_statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stat</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">statistics</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_delete_statistics&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_delete_statistics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stat</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">statistics</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="fm">__repr__</span> <span class="o">=</span> <span class="fm">__str__</span></div>
+
+
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;DDSException&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Entity&quot;</span><span class="p">,</span>
@@ -2036,6 +2125,7 @@
     <span class="s2">&quot;QueryCondition&quot;</span><span class="p">,</span>
     <span class="s2">&quot;GuardCondition&quot;</span><span class="p">,</span>
     <span class="s2">&quot;WaitSet&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Statistics&quot;</span>
 <span class="p">]</span>
 </pre></div>
 
@@ -2061,7 +2151,7 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
 
