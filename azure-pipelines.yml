@@ -22,12 +22,12 @@ schedules:
     - master
 
 pool:
-  vmImage: ubuntu-22.04
+  vmImage: ubuntu-24.04
 
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.10'
+      versionSpec: '3.12'
     name: install_python
     displayName: Install Python
   - bash: |
@@ -35,7 +35,7 @@ steps:
       sudo apt-get install -y doxygen
       git fetch origin ${BUILD_SOURCEBRANCHNAME}
       git checkout ${BUILD_SOURCEBRANCHNAME}
-      pip install setuptools poetry --user --upgrade
+      pip install poetry --user --upgrade
       poetry install
     name: install_project_deps
     displayName: Install project dependencies
