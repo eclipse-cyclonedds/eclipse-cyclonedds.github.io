@@ -52,13 +52,13 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navGuides">
 
-              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
-
-              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
 
               <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
 
-              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
 
             </ul>
           </li>
@@ -236,77 +236,77 @@
 <p>Explicitly <strong>unsupported</strong> right now are <code>wstring</code> and <code>fixed</code>. <code>map</code> is also unsupported by C and IDLC but you can use a <code>Dict</code> in Python, which will not inter-operate.</p>
 <h3 id="structs">Structs</h3>
 <p>A struct is a named collection of typed members.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>Any member can be turned into an array by adding <code>[$size]</code> after the member name.</p>
 <h4 id="inheritance">Inheritance</h4>
 <p>Structs support inheritance.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <h3 id="unions">Unions</h3>
 <p>A union in IDL is a discriminated union which maps labels to a single member. Multiple labels can map to a single member and you can define a default member.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">union</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">discriminator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">value</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">type1</span><span class="w"> </span><span class="n">member1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">othervalue</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="k">default</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">type2</span><span class="w"> </span><span class="n">member2</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">union</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">discriminator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">value</span><span class="p">:</span>
+<span class="w">        </span><span class="n">type1</span><span class="w"> </span><span class="n">member1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">othervalue</span><span class="p">:</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="n">type2</span><span class="w"> </span><span class="n">member2</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>The <code>discriminator</code> can be any integer type, char, octet, boolean or an enum. <code>value</code> can be any constant value expression which fits the discriminator type. Any member can be turned into an array by adding <code>[$size]</code> after the member name.</p>
 <h3 id="enums">Enums</h3>
 <p>An enum is a collection of literals.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="no">ALITERAL</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">BLITERAL</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">enum</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="no">ALITERAL</span><span class="p">,</span>
+<span class="w">    </span><span class="no">BLITERAL</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <h3 id="bitmasks">Bitmasks</h3>
 <p>A bitmask is a collection of boolean flags. They will be packed into integers, making them better than structs with a set of booleans when bandwidth matters.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">bitmask</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="no">flag_a</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">flag_b</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">bitmask</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="no">flag_a</span><span class="p">,</span>
+<span class="w">    </span><span class="no">flag_b</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <h3 id="typedefs">Typedefs</h3>
 <p>A typedef is a named alias for another type.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">typedef</span><span class="w"> </span><span class="kt">sequence</span><span class="p">&lt;</span><span class="kt">octet</span><span class="p">&gt;</span><span class="w"> </span><span class="n">blob</span><span class="p">;</span><span class="w"></span>
-<span class="kd">typedef</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Point3D</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="kd">typedef</span><span class="w"> </span><span class="kt">sequence</span><span class="p">&lt;</span><span class="kt">octet</span><span class="p">&gt;</span><span class="w"> </span><span class="n">blob</span><span class="p">;</span>
+<span class="kd">typedef</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Point3D</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
 </code></pre></div>
 
 <p>Any type can be turned into an array by adding <code>[$size]</code> after the typedef name.</p>
 <h3 id="modules">Modules</h3>
 <p>A module is a namespace that can contain structs, unions, enums, bitmasks, typedefs and other modules.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">module</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">C</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="kn">module</span><span class="w"> </span><span class="nn">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <h3 id="bitsets">Bitsets</h3>
 <p>Bitsets are not supported.</p>
 <h3 id="constants">Constants</h3>
 <p>A constant can be declared in IDL. It is purely for use inside IDL itself as it is not mapped to the target language.</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="no">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">42</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="no">some_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">42</span>
 </code></pre></div>
 
 <h2 id="annotations">Annotations</h2>
 <p>Annotations are an extension on the IDL syntax as introduced by <a href="https://www.omg.org/spec/DDS-XTypes/">XTypes</a>. What follows is an exhaustive set of everything we currently support.</p>
 <h3 id="key"><code>@key</code></h3>
 <p>Used to mark struct members as key.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">uint16</span><span class="w"> </span><span class="n">member</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">uint16</span><span class="w"> </span><span class="n">member</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>Limitations:</p>

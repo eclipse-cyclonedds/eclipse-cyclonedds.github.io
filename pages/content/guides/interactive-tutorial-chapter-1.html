@@ -53,13 +53,13 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navGuides">
 
-              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
-
-              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
 
               <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
 
-              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
 
             </ul>
           </li>
@@ -113,7 +113,7 @@
 </div>
 
 <p>All story fragments from the journal will be presented in boxes like the one above. Explanations and instructions are presented as normal text like this. Please enable "Live Code" by selecting the rocket in the top bar and then execute the code cell below to initialize your personal copy of Captain Corsaro's journal.</p>
-<div class="code-cell codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">questing</span> <span class="kn">import</span> <span class="n">Journal</span>
+<div class="code-cell codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">questing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Journal</span>
 
 <span class="n">journal</span> <span class="o">=</span> <span class="n">Journal</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">journal</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
@@ -162,7 +162,7 @@ The instantiation is `participant = DomainParticipant()`
 <div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;domain-participant&quot;</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
 <span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
 
 <span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;domain-participant&quot;</span><span class="p">,</span> <span class="n">participant</span><span class="p">)</span>
@@ -191,7 +191,7 @@ Then import <code>Topic</code> from <code>cyclonedds.topic</code> and create a <
 </p>
 </blockquote>
 <div class="codehilite"><pre><span></span><code><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">LogbookEntry</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LogbookEntry</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
     <span class="n">timestamp</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">author</span><span class="p">:</span> <span class="nb">str</span>
@@ -207,16 +207,16 @@ Then import <code>Topic</code> from <code>cyclonedds.topic</code> and create a <
 <div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;remain-on-topic&quot;</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlStruct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlStruct</span>
 
-<span class="k">class</span> <span class="nc">FishType</span><span class="p">(</span><span class="n">IdlEnum</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FishType</span><span class="p">(</span><span class="n">IdlEnum</span><span class="p">):</span>
     <span class="n">Shimmering</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">Matte</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">Metallic</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">CuriousFish</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CuriousFish</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
     <span class="n">fish_type</span><span class="p">:</span> <span class="n">FishType</span>
     <span class="c1"># define dorsal_fins</span>
     <span class="c1"># define fish_name</span>
@@ -254,23 +254,23 @@ The topic instantiation is `topic = Topic(participant, "followers", CuriousFish)
 <div class="codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;remain-on-topic&quot;</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlStruct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlStruct</span>
 
-<span class="k">class</span> <span class="nc">FishType</span><span class="p">(</span><span class="n">IdlEnum</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FishType</span><span class="p">(</span><span class="n">IdlEnum</span><span class="p">):</span>
     <span class="n">Shimmering</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">Matte</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">Metallic</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">CuriousFish</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CuriousFish</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
     <span class="n">fish_type</span><span class="p">:</span> <span class="n">FishType</span>
     <span class="n">dorsal_fins</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">fish_name</span><span class="p">:</span> <span class="nb">str</span>
 
 <span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;curious-fish&quot;</span><span class="p">,</span> <span class="n">CuriousFish</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">cyclonedds.topic</span> <span class="kn">import</span> <span class="n">Topic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.topic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Topic</span>
 <span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="s2">&quot;followers&quot;</span><span class="p">,</span> <span class="n">CuriousFish</span><span class="p">)</span>
 
 <span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;followers-topic&quot;</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
@@ -336,7 +336,7 @@ Taking a single fish from the reader is `fish = dr.take()[0]`
 <div class="codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;a-fishy-story&quot;</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">cyclonedds.sub</span> <span class="kn">import</span> <span class="n">DataReader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.sub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataReader</span>
 
 <span class="n">reader</span> <span class="o">=</span> <span class="n">DataReader</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;fish-reader&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="p">)</span>
@@ -411,7 +411,7 @@ Writing a fish can be done like this: `writer.write(fish)`.
 <div class="codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;grow-the-fish-supply&quot;</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">cyclonedds.pub</span> <span class="kn">import</span> <span class="n">DataWriter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.pub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataWriter</span>
 
 <span class="n">writer</span> <span class="o">=</span> <span class="n">DataWriter</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;fish-writer&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
@@ -454,17 +454,17 @@ Writing a fish can be done like this: `writer.write(fish)`.
 <div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;land-ahoy&quot;</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">cyclonedds.idl.annotations</span> <span class="kn">import</span> <span class="n">key</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.annotations</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
 
 <span class="c1"># You will have to annotate the Island.name as key. Here is an example of how to do that</span>
 
-<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
     <span class="n">a</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">key</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Island</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Island</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
     <span class="k">pass</span>
 
 <span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;island&quot;</span><span class="p">,</span> <span class="n">Island</span><span class="p">)</span>
@@ -493,13 +493,13 @@ Writing a fish can be done like this: `writer.write(fish)`.
 <summary> Click to show the solution.</summary>
 
 
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">cyclonedds.idl.annotations</span> <span class="kn">import</span> <span class="n">key</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.annotations</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
 
 <span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;land-ahoy&quot;</span><span class="p">)</span>
 <span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Island</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Island</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
     <span class="n">X</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">Y</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">size</span><span class="p">:</span> <span class="nb">float</span>

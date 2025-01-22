@@ -52,13 +52,13 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navGuides">
 
-              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
-
-              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
 
               <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
 
-              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
 
             </ul>
           </li>
@@ -103,73 +103,73 @@
 <p>With the Cyclone DDS 0.9.0 (Papillons) release we gained support for XTypes. This addition to DDS is covered by a long <a href="https://www.omg.org/spec/DDS-XTypes/">specification by the OMG</a> that, while quite useful as implementor, might not make immediately clear to you as application developer as to why it is useful. I've gathered here a non-exhaustive list of the new features you can now use.</p>
 <h3 id="evolving-datamodels">Evolving Datamodels</h3>
 <p>With XTypes comes support for <em>annotations</em> in IDL. These are applied to entities in IDL as to inform how they should be serialized. Our focus here are the new <code>@appendable</code> and <code>@mutable</code> which allow for updates to a datamodel while maintaining backwards compatibility. Closely related is <code>@final</code> which is the behaviour you're used to pre-XTypes.</p>
-<div class="codehilite"><pre><span></span><code><span class="nd">@appendable</span><span class="w"></span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@appendable</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="p">};</span>
 
-<span class="nd">@appendable</span><span class="w"></span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="nd">@appendable</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>With <code>@appendable</code> you can <em>append</em> fields at the end of a struct while still allowing communication. When receiving data with more fields then you have definitions for the extra data is simply ignored. When receiving less fields then you defined the missing fields are <em>zero-initialized</em>. You are not allowed to change the order of fields or remove any <code>@key</code> fields. (<code>@key</code> is the XTypes equivalent of the old <code>#pragma keylist</code> and you are encouraged to switch over).</p>
-<div class="codehilite"><pre><span></span><code><span class="nd">@mutable</span><span class="w"></span>
-<span class="nd">@autoid</span><span class="p">(</span><span class="n">HASH</span><span class="p">)</span><span class="w"></span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@mutable</span>
+<span class="nd">@autoid</span><span class="p">(</span><span class="n">HASH</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="p">};</span>
 
-<span class="nd">@mutable</span><span class="w"></span>
-<span class="nd">@autoid</span><span class="p">(</span><span class="n">HASH</span><span class="p">)</span><span class="w"></span>
-<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="nd">@mutable</span>
+<span class="nd">@autoid</span><span class="p">(</span><span class="n">HASH</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>With <code>@mutable</code> all bets are of with respect to ordering and fields present. The same story about ignoring extra and <em>zero-initializing</em> missing fields as with <code>@appendable</code> applies, as does the <code>@key</code> story. You might notice the <code>@autoid(HASH)</code> here, which I recommend you use but is not the default as per the OMG specification. To detect whether a field is present or missing <em>member-ids</em> are used, and by default they are <code>SEQUENTIAL</code>, meaning they are simply numbered from the start of the struct to the end. This gets <em>real</em> messy with inheritance and shuffling of fields in the mix, basically defeating the point of <code>@mutable</code> all together. You can also explicitly set the ids yourself by manually applying <code>@id(some_integer)</code> to each field, but that sounds like a hassle to me.</p>
 <h3 id="bitmasks">Bitmasks</h3>
 <p>Ever found yourself needing to send a set of booleans, something like this?</p>
-<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">runParticleSurveyor</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">dropLunarPinpointer</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">disableDisplacementEntangler</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">rectifyMesonScanner</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">douseKirchoffMixer</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">engorgeLockeDisentangler</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">heatIonOscillator</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">setBurnellTinkerer</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">runParticleSurveyor</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">dropLunarPinpointer</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">disableDisplacementEntangler</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">rectifyMesonScanner</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">douseKirchoffMixer</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">engorgeLockeDisentangler</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">heatIonOscillator</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">setBurnellTinkerer</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>And did you then realize, to your horror, this thing takes up eight bytes of space when encoded? Well, introducing the bitmask:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">bitmask</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="no">runParticleSurveyor</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">dropLunarPinpointer</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">disableDisplacementEntangler</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">rectifyMesonScanner</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">douseKirchoffMixer</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">engorgeLockeDisentangler</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">heatIonOscillator</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">setBurnellTinkerer</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">bitmask</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="no">runParticleSurveyor</span><span class="p">,</span>
+<span class="w">    </span><span class="no">dropLunarPinpointer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">disableDisplacementEntangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">rectifyMesonScanner</span><span class="p">,</span>
+<span class="w">    </span><span class="no">douseKirchoffMixer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">engorgeLockeDisentangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">heatIonOscillator</span><span class="p">,</span>
+<span class="w">    </span><span class="no">setBurnellTinkerer</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>The bitmask makes sure that the set of booleans is packed into a single integer. This of course comes at some runtime cost with the gains in lower bandwidth. Oh one more caveat: you might still be horrified that the above bitmask still costs four bytes to encode, since the default integer size used is a 32bit integer. This can be controlled with the <code>@bit_bound</code> annotation:</p>
-<div class="codehilite"><pre><span></span><code><span class="nd">@bit_bound</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
-<span class="k">bitmask</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="no">runParticleSurveyor</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">dropLunarPinpointer</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">disableDisplacementEntangler</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">rectifyMesonScanner</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">douseKirchoffMixer</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">engorgeLockeDisentangler</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">heatIonOscillator</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="no">setBurnellTinkerer</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="nd">@bit_bound</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="k">bitmask</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="no">runParticleSurveyor</span><span class="p">,</span>
+<span class="w">    </span><span class="no">dropLunarPinpointer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">disableDisplacementEntangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">rectifyMesonScanner</span><span class="p">,</span>
+<span class="w">    </span><span class="no">douseKirchoffMixer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">engorgeLockeDisentangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">heatIonOscillator</span><span class="p">,</span>
+<span class="w">    </span><span class="no">setBurnellTinkerer</span>
+<span class="p">};</span>
 </code></pre></div>
 
 <p>Now the bandwidth is minimized to one byte. The <code>@bit_bound</code> also works on <code>enum</code>s, which are also encoded as 32bit integer by default.</p>
