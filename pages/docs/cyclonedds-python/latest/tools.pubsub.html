@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Command line tool: pubsub &#8212; Eclipse Cyclone DDS: Python API, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/helpers.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -111,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -139,21 +138,21 @@
           <div class="body" role="main">
             
   <section id="command-line-tool-pubsub">
-<h1>Command line tool: pubsub<a class="headerlink" href="#command-line-tool-pubsub" title="Permalink to this headline">¶</a></h1>
+<h1>Command line tool: pubsub<a class="headerlink" href="#command-line-tool-pubsub" title="Permalink to this heading">¶</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>When using DDS, it’s sometimes useful to do some manual testing, publishing and subscribing to specific topics. Pubsub is the tool for that.</p>
 <p>For now, the <strong>pubsub</strong> can be used to read/write to a user-defined topic with customized QoS, and you can do the read/write by simply typing what to publish.</p>
 <p>In the future, with the support of XTypes, the <strong>pubsub</strong> will also be able to read/write to arbitrary topic that exists in the system. This way, you will be able to use the <strong>pubsub</strong> to read/write to any topics in the system.</p>
 </section>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
 <p>To use the <strong>pubsub</strong>, you can use:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub <span class="o">[</span>Options<span class="o">]</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span><span class="o">[</span>Options<span class="o">]</span>
 </pre></div>
 </div>
 <p>You can view what options you have with the <strong>pubsub</strong> by using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --help
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--help
 </pre></div>
 </div>
 <p>And the help message is as follows:</p>
@@ -225,14 +224,14 @@
 <p>You can also modify QoS using the <code class="docutils literal notranslate"><span class="pre">--qos</span></code> option, and use the <code class="docutils literal notranslate"><span class="pre">--entityqos</span></code> option if you want to modify the QoS for a particular entity. If you need help setting up the QoS, the <code class="docutils literal notranslate"><span class="pre">--qoshelp</span></code> option will show you some examples and the policies you can choose from.</p>
 <p>For additional options, you can use the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option to define the name of file you want to output the result to, the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to specify how long the <strong>pubsub</strong> will run.</p>
 <section id="topic">
-<h3>Topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<h3>Topic<a class="headerlink" href="#topic" title="Permalink to this heading">¶</a></h3>
 <p>To startup the pubsub tool, you need to use the <code class="docutils literal notranslate"><span class="pre">--topic</span></code> option to specify the topic you want to read/write to.</p>
 <p>For example, if you want the <strong>pubsub</strong> to read/write to the topic “HelloWord”, you can use the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic HelloWorld
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>HelloWorld
 </pre></div>
 </div>
 <section id="read-write-data">
-<h4>Read/write data<a class="headerlink" href="#read-write-data" title="Permalink to this headline">¶</a></h4>
+<h4>Read/write data<a class="headerlink" href="#read-write-data" title="Permalink to this heading">¶</a></h4>
 <p>After starting up the <strong>pubsub</strong> with a specif topic, you can read/write data by simply publishing your data in the terminal.</p>
 <p>For now, the supported data types for read/write are integer, string, integer and string array, integer and string sequence.</p>
 <p>For example, writing “420”, “test”, “[1, 8, 3]”, “[‘h’, ‘e’, ‘l’, ‘l’, ‘o’]”, “[20]”, “[‘test’]” to the terminal respectively, you can see the subscribed message with their datatype printing in the terminal.</p>
@@ -260,18 +259,18 @@
 </section>
 </section>
 <section id="qos">
-<h3>QoS<a class="headerlink" href="#qos" title="Permalink to this headline">¶</a></h3>
+<h3>QoS<a class="headerlink" href="#qos" title="Permalink to this heading">¶</a></h3>
 <p>By default, the <strong>pubsub</strong> uses the default QoS for DDS, but you can use the <code class="docutils literal notranslate"><span class="pre">--qos</span></code> option to change the QoS according to your needs.</p>
 <p>For example, if you want to set the Reliability QoS to best effort, you can run the <strong>pubsub</strong> with command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Reliability.BestEffort
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>hello<span class="w"> </span>--qos<span class="w"> </span>Reliability.BestEffort
 </pre></div>
 </div>
 <p>You can also change multiple QoS for the <strong>pubsub</strong>. For example, in addition to setting the Reliability QoS, you also want to set the History to keep the last 10 samples, you can use the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Reliability.BestEffort History.KeepLast <span class="m">10</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>hello<span class="w"> </span>--qos<span class="w"> </span>Reliability.BestEffort<span class="w"> </span>History.KeepLast<span class="w"> </span><span class="m">10</span>
 </pre></div>
 </div>
 <p>If a policy requires multiple arguments, simply use a space or comma to separate the arguments. For example, you can set the DurabilityService QoS by the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos DurabilityService <span class="m">1000</span>, History.KeepLast <span class="m">10</span>, <span class="m">100</span>, <span class="m">10</span>, <span class="m">10</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>hello<span class="w"> </span>--qos<span class="w"> </span>DurabilityService<span class="w"> </span><span class="m">1000</span>,<span class="w"> </span>History.KeepLast<span class="w"> </span><span class="m">10</span>,<span class="w"> </span><span class="m">100</span>,<span class="w"> </span><span class="m">10</span>,<span class="w"> </span><span class="m">10</span>
 </pre></div>
 </div>
 <p>There are some freedom to type the QoS and the arguments on the command line:</p>
@@ -283,10 +282,10 @@
 </ul>
 </section>
 <section id="entity-qos">
-<h3>Entity QoS<a class="headerlink" href="#entity-qos" title="Permalink to this headline">¶</a></h3>
+<h3>Entity QoS<a class="headerlink" href="#entity-qos" title="Permalink to this heading">¶</a></h3>
 <p>When setting the QoS in the <strong>pubsub</strong>, it will set the QoS for all the entities by default. However, you can also use the <code class="docutils literal notranslate"><span class="pre">--entityqos</span></code> option to set the QoS for a certain entity. You can choose to set the desired QoS on topic, subscriber, publisher, data reader or data writer.</p>
 <p>For example, to set the Durability QoS to TransientLocal on the data writer, use the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Durability.TransientLocal --entityqos datawriter
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>hello<span class="w"> </span>--qos<span class="w"> </span>Durability.TransientLocal<span class="w"> </span>--entityqos<span class="w"> </span>datawriter
 </pre></div>
 </div>
 <div class="admonition note">
@@ -294,11 +293,11 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">--entityqos</span></code> option needs to be used together with the <code class="docutils literal notranslate"><span class="pre">--qos</span></code> option.</p>
 </div>
 <section id="inapplicable-qos-for-entity">
-<h4>Inapplicable QoS for entity<a class="headerlink" href="#inapplicable-qos-for-entity" title="Permalink to this headline">¶</a></h4>
+<h4>Inapplicable QoS for entity<a class="headerlink" href="#inapplicable-qos-for-entity" title="Permalink to this heading">¶</a></h4>
 <p>Some QoS policy has limitation as to which entity it can apply to, such as the Topicdata QoS can only be applied to the topic.</p>
 <p>If you selected a QoS policy that is not applicable to the entity you selected, the QoS will be ignored and use the default QoS policy value for the entity.</p>
 <p>For example, if you set Topicdata QoS on data reader, using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Topicdata <span class="nb">test</span> --entityqos datareader
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>hello<span class="w"> </span>--qos<span class="w"> </span>Topicdata<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--entityqos<span class="w"> </span>datareader
 </pre></div>
 </div>
 <p>It will show a warning stating that the policy is not applicable and will be ignored, like this:</p>
@@ -307,11 +306,11 @@
 </div>
 </section>
 <section id="incompatible-qos">
-<h4>Incompatible QoS<a class="headerlink" href="#incompatible-qos" title="Permalink to this headline">¶</a></h4>
+<h4>Incompatible QoS<a class="headerlink" href="#incompatible-qos" title="Permalink to this heading">¶</a></h4>
 <p>To publish and subscribe to data, some QoS need to be compatible between the publisher and subscriber ends, this is the RxO (Requested/Offered) property.</p>
 <p>When setting the entity QoS in the <strong>pubsub</strong>, if the QoS you set has RxO property, and if the QoS policy is incompatible between what is requested by the subscriber and what is offered by the publisher, the <strong>pubsub</strong> will print out a warning message, stating that it detects request/offer incompatibility, may not be able to publish and subscribe successfully.</p>
 <p>For example, if you set the Durability QoS to TransientLocal for data reader, using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --qos Durability.TransientLocal --entityqos datareader
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>hello<span class="w"> </span>--qos<span class="w"> </span>Durability.TransientLocal<span class="w"> </span>--entityqos<span class="w"> </span>datareader
 </pre></div>
 </div>
 <p>The <strong>pubsub</strong> will print out a warning message for incompatible QoS, like this:</p>
@@ -322,35 +321,35 @@
 </section>
 </section>
 <section id="write-to-file">
-<h3>Write to file<a class="headerlink" href="#write-to-file" title="Permalink to this headline">¶</a></h3>
+<h3>Write to file<a class="headerlink" href="#write-to-file" title="Permalink to this heading">¶</a></h3>
 <p>When data is subscribed in the <strong>pubsub</strong>, the subscribed data will be printed out in the terminal. There is an option to also write the subscribed data to a file, using the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option to provide the name of the file you want to write to. The outputted file will be written in JSON format.</p>
 <p>For example, you can choose to write the result to a file named “pubsub_data.json” using the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pubsub --topic hello --filename pubsub_data.json
 </pre></div>
 </div>
 <p>When publishing data in the terminal, you can view the subscribed results in the terminal and the results will be written to the “pubsub_data.json” file when the <strong>pubsub</strong> stops running. The “pubsub_data.json” file will look like this:</p>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;sequence 0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">420</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;sequence 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;sequence 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;sequence 3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int_array&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="mi">3</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sequence 0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">420</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;sequence 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;sequence 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;sequence 3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int_array&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;keyval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">            </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">            </span><span class="mi">3</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>In the output file:</p>
@@ -361,10 +360,10 @@
 </ul>
 </section>
 <section id="runtime">
-<h3>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h3>
+<h3>Runtime<a class="headerlink" href="#runtime" title="Permalink to this heading">¶</a></h3>
 <p>By default, the <strong>pubsub</strong> will run indefinitely until there is an interrupt, but you can also use the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to stop the <strong>pubsub</strong> after running for a certain time.</p>
 <p>For example, if you want to run the <strong>pubsub</strong> for 5 seconds, you can use the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub --topic hello --runtime <span class="m">5</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pubsub<span class="w"> </span>--topic<span class="w"> </span>hello<span class="w"> </span>--runtime<span class="w"> </span><span class="m">5</span>
 </pre></div>
 </div>
 <p>And the <strong>pubsub</strong> will be run for 5 seconds, publish and subscribe to data in the terminal within the 5 seconds, then automatically exit the tool after 5 seconds.</p>
@@ -428,7 +427,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2025, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

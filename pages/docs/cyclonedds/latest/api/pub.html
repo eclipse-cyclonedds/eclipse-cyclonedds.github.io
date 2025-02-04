@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Publication &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -165,7 +163,7 @@
           <div class="body" role="main">
             
   <section id="publication">
-<h1>Publication<a class="headerlink" href="#publication" title="Permalink to this headline">¶</a></h1>
+<h1>Publication<a class="headerlink" href="#publication" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__publication"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">publication</span></span></dt>
@@ -178,13 +176,13 @@
 <dd><p>Waits at most for the duration timeout for acks for data in the publisher or writer.</p>
 <p>This operation blocks the calling thread until either all data written by the publisher or writer is acknowledged by all matched reliable reader entities, or else the duration specified by the timeout parameter elapses, whichever happens first. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>publisher_or_writer</strong> – <strong>[in]</strong> Publisher or writer whose acknowledgments must be waited for </p></li>
 <li><p><strong>timeout</strong> – <strong>[in]</strong> How long to wait for acknowledgments before time out</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – All acknowledgments successfully received with the timeout. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The publisher_or_writer is not a valid publisher or writer. </p></li>
@@ -192,7 +190,7 @@
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Operation is not supported. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -204,19 +202,19 @@
 <dd><p>Begin coherent publishing or begin accessing a coherent set in a subscriber</p>
 <p>Invoking on a Writer or Reader behaves as if dds_begin_coherent was invoked on its parent Publisher or Subscriber respectively. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> The entity that is prepared for coherent access.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The provided entity is invalid or not supported. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -228,18 +226,18 @@
 <dd><p>End coherent publishing or end accessing a coherent set in a subscriber</p>
 <p>Invoking on a Writer or Reader behaves as if dds_end_coherent was invoked on its parent Publisher or Subscriber respectively. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> The entity on which coherent access is finished.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The provided entity is invalid or not supported. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -249,7 +247,7 @@
 </dd></dl>
 
 <section id="publisher">
-<h2>Publisher<a class="headerlink" href="#publisher" title="Permalink to this headline">¶</a></h2>
+<h2>Publisher<a class="headerlink" href="#publisher" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__publisher"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">publisher</span></span></dt>
@@ -261,20 +259,20 @@
 <span class="target" id="group__publisher_1gaee9b84a9ece24ea0999da4ff314b18f9"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_publisher</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_publisher" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a new instance of a DDS publisher. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant</strong> – <strong>[in]</strong> The participant to create a publisher for. </p></li>
 <li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new publisher (can be NULL). </p></li>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new publisher (can be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid publisher handle. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid publisher handle or an error code.</p>
 </dd>
 </dl>
@@ -291,19 +289,19 @@
 </div>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>publisher</strong> – <strong>[in]</strong> The publisher for which all publications will be suspended.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Publications suspended successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The pub parameter is not a valid publisher. </p></li>
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Operation is not supported. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -320,12 +318,12 @@
 </div>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>publisher</strong> – <strong>[in]</strong> The publisher for which all publications will be resumed.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Publications resumed successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The pub parameter is not a valid publisher. </p></li>
@@ -333,7 +331,7 @@
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Operation is not supported. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -344,7 +342,7 @@
 
 </section>
 <section id="writer">
-<h2>Writer<a class="headerlink" href="#writer" title="Permalink to this headline">¶</a></h2>
+<h2>Writer<a class="headerlink" href="#writer" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__writer"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">writer</span></span></dt>
@@ -359,7 +357,7 @@
 <p>
 DOC_TODO: Complete list of error codes </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant_or_publisher</strong> – <strong>[in]</strong> The participant or publisher on which the writer is being created. </p></li>
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic to write. </p></li>
@@ -367,13 +365,13 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new writer (can be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A valid writer handle or an error code.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>&gt;0 A valid writer handle. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>DDS_RETCODE_ERROR An internal error occurred.</p>
 </dd>
 </dl>
@@ -383,7 +381,7 @@ DOC_TODO: Complete list of error codes </p>
 </dd></dl>
 
 <section id="writing-operations">
-<h3>Writing Operations<a class="headerlink" href="#writing-operations" title="Permalink to this headline">¶</a></h3>
+<h3>Writing Operations<a class="headerlink" href="#writing-operations" title="Permalink to this heading">¶</a></h3>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__writing"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">writing</span></span></dt>
@@ -396,21 +394,21 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Registers an instance</p>
 <p>This operation registers an instance with a key value to the data writer and returns an instance handle that could be used for successive write &amp; dispose operations. When the handle is not allocated, the function will return an error and the handle will be un-touched. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to which instance has be associated. </p></li>
 <li><p><strong>handle</strong> – <strong>[out]</strong> The instance handle. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> The instance with the key value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -422,20 +420,20 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Unregisters an instance by instance</p>
 <p>This operation reverses the action of register instance, removes all information regarding the instance and unregisters an instance with a key value from the data writer. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to which instance is associated. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> The instance with the key value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -447,20 +445,20 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Unregisters an instance by instance handle</p>
 <p>This operation unregisters the instance which is identified by the key fields of the given typed instance handle. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to which instance is associated. </p></li>
 <li><p><strong>handle</strong> – <strong>[in]</strong> The instance handle.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -472,21 +470,21 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Unregisters an instance by instance with timestamp</p>
 <p>This operation reverses the action of register instance, removes all information regarding the instance and unregisters an instance with a key value from the data writer. It also provides a value for the timestamp explicitly. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to which instance is associated. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> The instance with the key value. </p></li>
 <li><p><strong>timestamp</strong> – <strong>[in]</strong> The timestamp for the unregistration (&gt;= 0).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid. </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -498,21 +496,21 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Unregisters an instance by instance handle with timestamp</p>
 <p>This operation unregisters an instance with a key value from the handle. Instance can be identified from instance handle. If an unregistered key ID is passed as an instance data, an error is logged and not flagged as return value. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to which instance is associated. </p></li>
 <li><p><strong>handle</strong> – <strong>[in]</strong> The instance handle. </p></li>
 <li><p><strong>timestamp</strong> – <strong>[in]</strong> The timestamp for the unregistration (&gt;= 0).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the given arguments is not valid </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -529,13 +527,13 @@ DOC_TODO: Complete list of error codes </p>
 </dl>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to dispose the data instance from. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> The data to be written and disposed.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The sample is written and the instance is marked for deletion. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -545,7 +543,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_TIMEOUT</strong> – Either the current action overflowed the available resources as specified by the combination of the reliability QoS policy, history QoS policy and resource_limits QoS policy, or the current action was waiting for data delivery acknowledgement by synchronous readers. This caused blocking of this operation, which could not be resolved before max_blocking_time of the reliability QoS policy elapsed. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -557,14 +555,14 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>This operation modifies and disposes a data instance with a specific timestamp.</p>
 <p>This operation performs the same functions as <a class="reference internal" href="#group__writing_1gad16fb6bd42165796bd3f88c52a9c23c1"><span class="std std-ref">dds_writedispose()</span></a> except that the application provides the value for the source_timestamp that is made available to connected reader objects. This timestamp is important for the interpretation of the destination_order QoS policy. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to dispose the data instance from. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> The data to be written and disposed. </p></li>
 <li><p><strong>timestamp</strong> – <strong>[in]</strong> The timestamp used as source timestamp (&gt;= 0).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The sample is written and the instance is marked for deletion. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -574,7 +572,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_TIMEOUT</strong> – Either the current action overflowed the available resources as specified by the combination of the reliability QoS policy, history QoS policy and resource_limits QoS policy, or the current action was waiting for data delivery acknowledgement by synchronous readers. This caused blocking of this operation, which could not be resolved before max_blocking_time of the reliability QoS policy elapsed. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -591,13 +589,13 @@ DOC_TODO: Complete list of error codes </p>
 </dl>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to dispose the data instance from. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> The data sample that identifies the instance to be disposed.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The sample is written and the instance is marked for deletion. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -607,7 +605,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_TIMEOUT</strong> – Either the current action overflowed the available resources as specified by the combination of the reliability QoS policy, history QoS policy and resource_limits QoS policy, or the current action was waiting for data delivery acknowledgement by synchronous readers. This caused blocking of this operation, which could not be resolved before max_blocking_time of the reliability QoS policy elapsed. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -619,14 +617,14 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>This operation disposes an instance with a specific timestamp, identified by the data sample.</p>
 <p>This operation performs the same functions as <a class="reference internal" href="#group__writing_1ga2e377fedacacf71276f0f77a31e6fa09"><span class="std std-ref">dds_dispose()</span></a> except that the application provides the value for the source_timestamp that is made available to connected reader objects. This timestamp is important for the interpretation of the destination_order QoS policy. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to dispose the data instance from. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> The data sample that identifies the instance to be disposed. </p></li>
 <li><p><strong>timestamp</strong> – <strong>[in]</strong> The timestamp used as source timestamp (&gt;= 0).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The sample is written and the instance is marked for deletion </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred </p></li>
@@ -636,7 +634,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_TIMEOUT</strong> – Either the current action overflowed the available resources as specified by the combination of the reliability QoS policy, history QoS policy and resource_limits QoS policy, or the current action was waiting for data delivery acknowledgment by synchronous readers. This caused blocking of this operation, which could not be resolved before max_blocking_time of the reliability QoS policy elapsed. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -653,13 +651,13 @@ DOC_TODO: Complete list of error codes </p>
 </dl>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to dispose the data instance from. </p></li>
 <li><p><strong>handle</strong> – <strong>[in]</strong> The handle to identify an instance.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The sample is written and the instance is marked for deletion. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -669,7 +667,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this writer </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -681,14 +679,14 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>This operation disposes an instance with a specific timestamp, identified by the instance handle.</p>
 <p>This operation performs the same functions as <a class="reference internal" href="#group__writing_1ga271346d9d0c2b9ef1807101ffc6bf19a"><span class="std std-ref">dds_dispose_ih()</span></a> except that the application provides the value for the source_timestamp that is made available to connected reader objects. This timestamp is important for the interpretation of the destination_order QoS policy. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer to dispose the data instance from. </p></li>
 <li><p><strong>handle</strong> – <strong>[in]</strong> The handle to identify an instance. </p></li>
 <li><p><strong>timestamp</strong> – <strong>[in]</strong> The timestamp used as source timestamp (&gt;= 0).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The sample is written and the instance is marked for deletion. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -698,7 +696,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this writer. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -710,13 +708,13 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Write the value of a data instance</p>
 <p>With this API, the value of the source timestamp is automatically made available to the data reader by the service. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer entity. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> Value to be written.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>dds_return_t indicating success or failure. </p>
 </dd>
 </dl>
@@ -728,12 +726,12 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Flush a writers batched writes</p>
 <p>When using write batching you can manually batch small writes into larger datapackets for network efficiency. The normal <code class="docutils literal notranslate"><a class="reference internal" href="#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref"><span class="pre">dds_write()</span></span></a></code> no longer guarantee that data is sent on the network automatically. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> The writer entity.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The writer successfully forwarded to the network. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -742,7 +740,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure. </p>
 </dd>
 </dl>
@@ -754,13 +752,13 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Write a serialized value of a data instance</p>
 <p>This call causes the writer to write the serialized value that is provided in the serdata argument. Timestamp and statusinfo fields are set to the current time and 0 (indicating a regular write), respectively. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer entity. </p></li>
 <li><p><strong>serdata</strong> – <strong>[in]</strong> Serialized value to be written.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The writer successfully wrote the serialized value. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -770,7 +768,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_TIMEOUT</strong> – The writer failed to write the serialized value reliably within the specified max_blocking_time. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure. On error, some writers failed to flush buffered messages.</p>
 </dd>
 </dl>
@@ -782,13 +780,13 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Write a serialized value of a data instance</p>
 <p>This call causes the writer to write the serialized value that is provided in the serdata argument. Timestamp and statusinfo are used as is. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer entity. </p></li>
 <li><p><strong>serdata</strong> – <strong>[in]</strong> Serialized value to be written.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The writer successfully wrote the serialized value. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -798,7 +796,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_TIMEOUT</strong> – The writer failed to write the serialized value reliably within the specified max_blocking_time. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -809,14 +807,14 @@ DOC_TODO: Complete list of error codes </p>
 <span class="target" id="group__writing_1gad8da7ce46558c6317d796f2cac923cd1"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_write_ts</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span>, <span class="n"><span class="pre">dds_time_t</span></span><span class="w"> </span><span class="n"><span class="pre">timestamp</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_write_ts" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Write the value of a data instance along with the source timestamp passed. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer entity. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> Value to be written. </p></li>
 <li><p><strong>timestamp</strong> – <strong>[in]</strong> Source timestamp (&gt;= 0).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dds_return_t indicating success or failure. </p>
 </dd>
 </dl>
@@ -878,8 +876,8 @@ DOC_TODO: Complete list of error codes </p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

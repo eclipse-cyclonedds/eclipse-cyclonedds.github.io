@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Instance Handles &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -165,18 +163,18 @@
           <div class="body" role="main">
             
   <section id="instance-handles">
-<h1>Instance Handles<a class="headerlink" href="#instance-handles" title="Permalink to this headline">¶</a></h1>
+<h1>Instance Handles<a class="headerlink" href="#instance-handles" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__instance__handle"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">instance_handle</span></span></dt>
-<dd><p>Instance handle &lt;=&gt; key value mapping. Functions exactly as read w.r.t. treatment of data parameter. On output, only key values set. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
-<span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="n">dds_instance_handle_t</span><span class="w"> </span><span class="n">ih</span><span class="p">;</span><span class="w"></span>
-<span class="n">ih</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_lookup_instance</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
-<span class="n">dds_instance_get_key</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ih</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<dd><p>Instance handle &lt;=&gt; key value mapping. Functions exactly as read w.r.t. treatment of data parameter. On output, only key values set. <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
+<span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="n">dds_instance_handle_t</span><span class="w"> </span><span class="n">ih</span><span class="p">;</span>
+<span class="n">ih</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_lookup_instance</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="n">dds_instance_get_key</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">ih</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
 </pre></div>
 </div>
- </p>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="c function">
@@ -184,13 +182,13 @@
 <span class="target" id="group__instance__handle_1ga114ab5b5663757cca34766768af2b9c2"></span><a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lookup_instance</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lookup_instance" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This operation takes a sample and returns an instance handle to be used for subsequent operations. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> Reader or Writer entity. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> Sample with a key fields set.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>instance handle or DDS_HANDLE_NIL if instance could not be found from key. </p>
 </dd>
 </dl>
@@ -203,21 +201,21 @@
 <p>
 DOC_TODO: Check return codes for completeness </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> Reader, writer, readcondition or querycondition entity. </p></li>
 <li><p><strong>ih</strong> – <strong>[in]</strong> Instance handle. </p></li>
 <li><p><strong>data</strong> – <strong>[out]</strong> pointer to an instance, to which the key ID corresponding to the instance handle will be returned, the sample in the instance should be ignored.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the parameters was invalid or the topic does not exist. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -256,8 +254,8 @@ DOC_TODO: Check return codes for completeness </p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

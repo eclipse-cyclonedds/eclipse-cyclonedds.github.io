@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>HelloWorld IDL &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -12,9 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/helpers.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/tabs.js"></script>
     <script src="../../_static/js/helpers.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -113,7 +112,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -153,17 +152,17 @@
           <div class="body" role="main">
             
   <section id="helloworld-idl">
-<span id="index-0"></span><span id="id1"></span><h1>HelloWorld IDL<a class="headerlink" href="#helloworld-idl" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>HelloWorld IDL<a class="headerlink" href="#helloworld-idl" title="Permalink to this heading">¶</a></h1>
 <p>The HelloWorld data type is described in a language-independent way and stored
 in the HelloWorldData.idl file:</p>
-<div class="highlight-omg-idl notranslate"><div class="highlight"><pre><span></span><span class="kn">module</span><span class="w"> </span><span class="nn">HelloWorldData</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Msg</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="highlight-omg-idl notranslate"><div class="highlight"><pre><span></span><span class="kn">module</span><span class="w"> </span><span class="nn">HelloWorldData</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Msg</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>The data definition language used for DDS corresponds to a subset of
@@ -182,85 +181,85 @@ file, but the application business logic determines it at runtime.</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-0-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><p>The IDL compiler translates the IDL datatype into a C struct with a name made
 of the<code class="docutils literal notranslate"><span class="pre">&lt;ModuleName&gt;_&lt;DataTypeName&gt;</span></code> .</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldData</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Msg</span><span class="w"> </span><span class="n">OSPL_DDS_FINAL</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">        </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID_</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message_</span><span class="p">;</span><span class="w"></span>
+</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldData</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Msg</span><span class="w"> </span><span class="n">OSPL_DDS_FINAL</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID_</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message_</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">Msg</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
-<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="o">:</span>
+<span class="w">        </span><span class="n">Msg</span><span class="p">()</span><span class="w"> </span><span class="o">:</span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="w">        </span><span class="k">explicit</span><span class="w"> </span><span class="n">Msg</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
-<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="n">userID</span><span class="p">),</span><span class="w"></span>
-<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">        </span><span class="k">explicit</span><span class="w"> </span><span class="n">Msg</span><span class="p">(</span>
+<span class="w">            </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">,</span>
+<span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="n">userID</span><span class="p">),</span>
+<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
-<span class="w">        </span><span class="n">Msg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
-<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">),</span><span class="w"></span>
-<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">        </span><span class="n">Msg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">),</span>
+<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="cp">#ifdef OSPL_DDS_C++11</span>
-<span class="w">        </span><span class="n">Msg</span><span class="p">(</span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
-<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">)),</span><span class="w"></span>
-<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
-<span class="w">        </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">);</span><span class="w"></span>
-<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">Msg</span><span class="p">(</span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">                </span><span class="n">userID_</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">)),</span>
+<span class="w">                </span><span class="n">message_</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">        </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">_other</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">);</span>
+<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="cp">#endif</span>
-<span class="w">        </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="p">;</span>
+<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">userID_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"></span>
-<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">userID_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">userID_</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+<span class="w">                </span><span class="n">message_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">.</span><span class="n">message_</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Msg</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_other</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">int32_t</span><span class="o">&amp;</span><span class="w"> </span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">userID</span><span class="p">(</span><span class="kt">int32_t</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">int32_t</span><span class="o">&amp;</span><span class="w"> </span><span class="n">userID</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">userID</span><span class="p">(</span><span class="kt">int32_t</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">userID_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">message</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="cp">#ifdef OSPL_DDS_C++11</span>
-<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">_val_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">message_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_val_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="cp">#endif</span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span>
 
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></div>
 <section id="generated-files-with-the-idl-compiler">
-<h2>Generated files with the IDL compiler<a class="headerlink" href="#generated-files-with-the-idl-compiler" title="Permalink to this headline">¶</a></h2>
+<h2>Generated files with the IDL compiler<a class="headerlink" href="#generated-files-with-the-idl-compiler" title="Permalink to this heading">¶</a></h2>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-1-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-1-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-1-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><p>The IDL compiler is a C program that processes .idl files.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">idlc HelloWorldData.idl</span>
@@ -277,20 +276,20 @@ application developer’s perspective.</p>
 <p><code class="docutils literal notranslate"><span class="pre">HelloWorldData.h</span></code>* needs to be included in the application code as
 it contains the actual message type and contains helper macros to
 allocate and free memory space for the <code class="docutils literal notranslate"><span class="pre">HelloWorldData_Msg</span></code> type.</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span>
 
-<span class="n">HelloWorldData_Msg_alloc</span><span class="p">()</span><span class="w"></span>
-<span class="n">HelloWorldData_Msg_free</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">o</span><span class="p">)</span><span class="w"></span>
+<span class="n">HelloWorldData_Msg_alloc</span><span class="p">()</span>
+<span class="n">HelloWorldData_Msg_free</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">o</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The header file also contains an extra variable that describes the data
 type to the DDS middleware. This variable needs to be used by the
 application when creating the topic.</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData_Msg_desc</span><span class="w"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorldData_Msg_desc</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-1-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-Qysr" name="Qysr" role="tabpanel" tabindex="0"><p>The IDL compiler is a bison-based parser written in pure C and should be
@@ -315,7 +314,7 @@ type of messages that are shared.</p>
 </div></div>
 </section>
 <section id="helloworld-business-logic">
-<h2>HelloWorld business logic<a class="headerlink" href="#helloworld-business-logic" title="Permalink to this headline">¶</a></h2>
+<h2>HelloWorld business logic<a class="headerlink" href="#helloworld-business-logic" title="Permalink to this heading">¶</a></h2>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-2-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-2-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-2-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><p>As well as the HelloWorldData.h/c generated files, the HelloWorld example
 also contains two application-level source files (subscriber.c and
@@ -375,8 +374,8 @@ logic.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

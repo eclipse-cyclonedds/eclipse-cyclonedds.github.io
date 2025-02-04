@@ -10,9 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/helpers.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/helpers.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -110,7 +109,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -150,24 +149,24 @@
 <span class="sd"> * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">ctypes</span> <span class="k">as</span> <span class="nn">ct</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">AnyStr</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ctypes</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">AnyStr</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
 
-<span class="kn">from</span> <span class="nn">.internal</span> <span class="kn">import</span> <span class="n">DDS</span><span class="p">,</span> <span class="n">c_call</span><span class="p">,</span> <span class="n">c_callable</span><span class="p">,</span> <span class="n">dds_c_t</span>
-<span class="kn">from</span> <span class="nn">.core</span> <span class="kn">import</span> <span class="n">Entity</span><span class="p">,</span> <span class="n">DDSException</span><span class="p">,</span> <span class="n">Listener</span>
-<span class="kn">from</span> <span class="nn">.qos</span> <span class="kn">import</span> <span class="n">_CQos</span><span class="p">,</span> <span class="n">Qos</span><span class="p">,</span> <span class="n">LimitedScopeQos</span><span class="p">,</span> <span class="n">TopicQos</span>
-<span class="kn">from</span> <span class="nn">.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span><span class="p">,</span> <span class="n">IdlUnion</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.internal</span><span class="w"> </span><span class="kn">import</span> <span class="n">DDS</span><span class="p">,</span> <span class="n">c_call</span><span class="p">,</span> <span class="n">c_callable</span><span class="p">,</span> <span class="n">dds_c_t</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Entity</span><span class="p">,</span> <span class="n">DDSException</span><span class="p">,</span> <span class="n">Listener</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.qos</span><span class="w"> </span><span class="kn">import</span> <span class="n">_CQos</span><span class="p">,</span> <span class="n">Qos</span><span class="p">,</span> <span class="n">LimitedScopeQos</span><span class="p">,</span> <span class="n">TopicQos</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span><span class="p">,</span> <span class="n">IdlUnion</span>
 
-<span class="kn">from</span> <span class="nn">cyclonedds._clayer</span> <span class="kn">import</span> <span class="n">ddspy_topic_create</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds._clayer</span><span class="w"> </span><span class="kn">import</span> <span class="n">ddspy_topic_create</span>
 
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">cyclonedds</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">cyclonedds</span>
 
 
 <span class="n">_S</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_S&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">Union</span><span class="p">[</span><span class="n">IdlStruct</span><span class="p">,</span> <span class="n">IdlUnion</span><span class="p">])</span>
 
-<span class="k">class</span> <span class="nc">Sample</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Sample</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
     <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">(</span><span class="s1">&#39;usample&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">),</span>
         <span class="p">(</span><span class="s1">&#39;usample_size&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">)</span>
@@ -176,10 +175,10 @@
 <span class="n">_filter_fn</span> <span class="o">=</span> <span class="n">c_callable</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">c_bool</span><span class="p">,</span> <span class="p">[</span><span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">Sample</span><span class="p">),</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">])</span>
 
 
-<div class="viewcode-block" id="Topic"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic">[docs]</a><span class="k">class</span> <span class="nc">Topic</span><span class="p">(</span><span class="n">Entity</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">_S</span><span class="p">]):</span>
-    <span class="sd">&quot;&quot;&quot;Representing a Topic&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Topic"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">Topic</span><span class="p">(</span><span class="n">Entity</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">_S</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Representing a Topic&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">domain_participant</span><span class="p">:</span> <span class="s1">&#39;cyclonedds.domain.DomainParticipant&#39;</span><span class="p">,</span>
             <span class="n">topic_name</span><span class="p">:</span> <span class="n">AnyStr</span><span class="p">,</span>
@@ -221,7 +220,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_keepalive_entities</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">participant</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Topic.get_name"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.get_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Topic.get_name"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.get_name">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">c_char</span> <span class="o">*</span> <span class="n">max_size</span><span class="p">)()</span>
         <span class="n">name_pt</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">)</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">name_pt</span><span class="p">,</span> <span class="n">max_size</span><span class="p">)</span>
@@ -231,7 +230,7 @@
 
     <span class="n">name</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_name</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Get topic name&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Topic.get_type_name"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.get_type_name">[docs]</a>    <span class="k">def</span> <span class="nf">get_type_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="Topic.get_type_name"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.get_type_name">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_type_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">c_char</span> <span class="o">*</span> <span class="n">max_size</span><span class="p">)()</span>
         <span class="n">name_pt</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">)</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_type_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">name_pt</span><span class="p">,</span> <span class="n">max_size</span><span class="p">)</span>
@@ -241,8 +240,8 @@
 
     <span class="n">typename</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_type_name</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Get topic type name&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Topic.set_topic_filter"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.set_topic_filter">[docs]</a>    <span class="k">def</span> <span class="nf">set_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callable</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="s1">&#39;cyclonedds.topic&#39;</span><span class="p">,</span> <span class="n">Sample</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]):</span>
-        <span class="sd">&quot;&quot;&quot;Sets a filter and filter argument on a topic.</span>
+<div class="viewcode-block" id="Topic.set_topic_filter"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.set_topic_filter">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">callable</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="s1">&#39;cyclonedds.topic&#39;</span><span class="p">,</span> <span class="n">Sample</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets a filter and filter argument on a topic.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -258,22 +257,22 @@
 <span class="sd">        bool</span>
 <span class="sd">            Whether this sample is filtered.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">callable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">callable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">csample</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="n">csample</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_type</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span>
                 <span class="n">ct</span><span class="o">.</span><span class="n">string_at</span><span class="p">(</span><span class="n">csample</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">usample</span><span class="p">,</span> <span class="n">csample</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">usample_size</span><span class="p">)))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_topic_filter</span> <span class="o">=</span> <span class="n">_filter_fn</span><span class="p">(</span><span class="n">call</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topic_filter</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Topic.set_c_topic_filter"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.set_c_topic_filter">[docs]</a>    <span class="k">def</span> <span class="nf">set_c_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c_callable</span><span class="p">):</span>
+<div class="viewcode-block" id="Topic.set_c_topic_filter"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.set_c_topic_filter">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">set_c_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c_callable</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_c_topic_filter</span> <span class="o">=</span> <span class="n">c_callable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c_topic_filter</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Topic.get_inconsistent_topic_status"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.get_inconsistent_topic_status">[docs]</a>    <span class="k">def</span> <span class="nf">get_inconsistent_topic_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get INCONSISTENT_TOPIC status</span>
+<div class="viewcode-block" id="Topic.get_inconsistent_topic_status"><a class="viewcode-back" href="../../cyclonedds.topic.html#cyclonedds.topic.Topic.get_inconsistent_topic_status">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_inconsistent_topic_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get INCONSISTENT_TOPIC status</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -295,19 +294,19 @@
 
 
     <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_get_name&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
         <span class="k">pass</span>
 
     <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_get_type_name&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_get_type_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_type_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
         <span class="k">pass</span>
 
     <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_set_topic_filter_and_arg&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_set_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">_filter_fn</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_set_topic_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">_filter_fn</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
         <span class="k">pass</span>
 
     <span class="nd">@c_call</span><span class="p">(</span><span class="s2">&quot;dds_get_inconsistent_topic_status&quot;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_get_inconsistent_topic_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">inconsistent_topic_status</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_inconsistent_topic_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">entity</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">dds_c_t</span><span class="o">.</span><span class="n">inconsistent_topic_status</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">returnv</span><span class="p">:</span>
         <span class="k">pass</span></div>
 </pre></div>
 
@@ -334,7 +333,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2025, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

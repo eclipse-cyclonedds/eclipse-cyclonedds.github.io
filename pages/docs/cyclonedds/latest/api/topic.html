@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Topics &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -159,7 +157,7 @@
           <div class="body" role="main">
             
   <section id="topics">
-<span id="topic-bm"></span><span id="index-0"></span><h1>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h1>
+<span id="topic-bm"></span><span id="index-0"></span><h1>Topics<a class="headerlink" href="#topics" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__topic"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">topic</span></span></dt>
@@ -178,7 +176,7 @@
 <dl class="c type">
 <dt class="sig sig-object c" id="c.dds_find_scope_t">
 <span class="target" id="group__topic_1ga04c22a0103dfbcdf214cd812a2f70b72"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_find_scope" title="dds_find_scope"><span class="n"><span class="pre">dds_find_scope</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_scope_t</span></span></span><a class="headerlink" href="#c.dds_find_scope_t" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Scope for <a class="reference internal" href="#group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"><span class="std std-ref">dds_find_topic()</span></a> </p>
+<dd><p>Scope for <a class="reference internal" href="#group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"><span class="std std-ref">dds_find_topic()</span></a></p>
 </dd></dl>
 
 </div>
@@ -187,7 +185,7 @@
 <dl class="c enum">
 <dt class="sig sig-object c" id="c.dds_find_scope">
 <span class="target" id="group__topic_1ga7624dd31126da620c50c3c48b7d03112"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_find_scope</span></span></span><a class="headerlink" href="#c.dds_find_scope" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Scope for <a class="reference internal" href="#group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"><span class="std std-ref">dds_find_topic()</span></a> </p>
+<dd><p>Scope for <a class="reference internal" href="#group__topic_1gad4edcf5979d832c2e9a0276c32d3499e"><span class="std std-ref">dds_find_topic()</span></a></p>
 <p><em>Values:</em></p>
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_find_scope.DDS_FIND_SCOPE_GLOBAL">
@@ -218,7 +216,7 @@
 <dd><p>Creates a new topic with default type handling.</p>
 <p>The type name for the topic is taken from the generated descriptor. Topic matching is done on a combination of topic name and type name. Each successful call to dds_create_topic creates a new topic entity sharing the same QoS settings with all other topics of the same name. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant</strong> – <strong>[in]</strong> Participant on which to create the topic. </p></li>
 <li><p><strong>descriptor</strong> – <strong>[in]</strong> An IDL generated topic descriptor. </p></li>
@@ -227,7 +225,7 @@
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new topic (can be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – A valid unique topic handle. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Either participant, descriptor, name or qos is invalid. </p></li>
@@ -235,7 +233,7 @@
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Mismatch between type name in descriptor and pre-existing topic’s type name. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid, unique topic handle or an error code.</p>
 </dd>
 </dl>
@@ -248,7 +246,7 @@
 <p>The name for the type is taken from the provided “sertype” object. Type matching is done on a combination of topic name and type name. Each successful call to dds_create_topic creates a new topic entity sharing the same QoS settings with all other topics of the same name. </p>
 <p>In case this function returns a valid handle, the ownership of the provided sertype is handed over to Cyclone. On return, the caller gets in the sertype parameter a pointer to the sertype that is actually used by the topic. This can be the provided sertype (if this sertype was not yet known in the domain), or a sertype thas was already known in the domain.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant</strong> – <strong>[in]</strong> Participant on which to create the topic. </p></li>
 <li><p><strong>name</strong> – <strong>[in]</strong> Topic name </p></li>
@@ -258,7 +256,7 @@
 <li><p><strong>sedp_plist</strong> – <strong>[in]</strong> Ignored (should be NULL, may be enforced in the future).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – A valid unique topic handle. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Either participant, descriptor, name or qos is invalid. </p></li>
@@ -266,7 +264,7 @@
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Mismatch between type name in sertype and pre-existing topic’s type name. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid, unique topic handle or an error code. Iff a valid handle, the domain takes ownership of provided serdata.</p>
 </dd>
 </dl>
@@ -282,7 +280,7 @@
 <p>In case no type information is provided and multiple (discovered) topics exist with the provided name, an arbitrary topic with that name will be returned. In this scenario, it would be better to read DCPSTopic data and use that to get the required topic meta-data.</p>
 <p>The returned topic should be released with dds_delete.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the topic. In case topic discovery is not enabled in the build, SCOPE_GLOBAL cannot be used. </p></li>
 <li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant the found topic will be created in </p></li>
@@ -291,7 +289,7 @@
 <li><p><strong>timeout</strong> – <strong>[in]</strong> The timeout for waiting for the topic to become available</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid topic handle. </p></li>
 <li><p><strong>0</strong> – No topic of this name exists </p></li>
@@ -299,7 +297,7 @@
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type could not be found. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid topic handle or an error code.</p>
 </dd>
 </dl>
@@ -310,7 +308,7 @@
 <span class="target" id="group__topic_1ga4fffa2d2d5f7ee98c994550bcc3c750e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_topic_descriptor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_find_scope_t" title="dds_find_scope_t"><span class="n"><span class="pre">dds_find_scope_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">scope</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span>, <a class="reference internal" href="internal.html#c.dds_topic_descriptor_t" title="dds_topic_descriptor_t"><span class="n"><span class="pre">dds_topic_descriptor_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">descriptor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_topic_descriptor" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates topic descriptor for the provided type_info. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the type: DDS_FIND_SCOPE_LOCAL_DOMAIN or DDS_FIND_SCOPE_GLOBAL. In case DDS_FIND_SCOPE_GLOBAL is used, a type lookup request will be sent to other nodes. </p></li>
 <li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant. </p></li>
@@ -319,7 +317,7 @@
 <li><p><strong>descriptor</strong> – <strong>[out]</strong> - Pointer to a dds_topic_descriptor_t pointer that will be allocated and populated. To free allocated memory for this descriptor, use dds_delete_topic_descriptor.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The topic descriptor has been succesfully created. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Type_info or descriptor parameter not provided, invalid entity (not a participant) or scope invalid. </p></li>
@@ -328,7 +326,7 @@
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -339,19 +337,19 @@
 <span class="target" id="group__topic_1ga674234ac31b89e96306458bdaeecf60c"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_delete_topic_descriptor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="internal.html#c.dds_topic_descriptor_t" title="dds_topic_descriptor_t"><span class="n"><span class="pre">dds_topic_descriptor_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">descriptor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_delete_topic_descriptor" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Delete memory allocated to the provided topic descriptor. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>descriptor</strong> – <strong>[in]</strong> - Pointer to a dds_topic_descriptor_t</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The topic descriptor has been succesfully deleted. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – No descriptor provided </p></li>
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -362,17 +360,17 @@
 <span class="target" id="group__topic_1ga3327b2fd1f96c9427568f46471270cd7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_name" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns the name of a given topic. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic. </p></li>
 <li><p><strong>name</strong> – <strong>[out]</strong> Buffer to write the topic name to. </p></li>
 <li><p><strong>size</strong> – <strong>[in]</strong> Number of bytes available in the buffer.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dds_return_t indicating success or failure.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Actual length of topic name (name is truncated if return value &gt;= size) or error </p>
 </dd>
 </dl>
@@ -383,17 +381,17 @@
 <span class="target" id="group__topic_1ga118e07ef2c3e23f94aa6ac523613b472"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_type_name</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_type_name" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Returns the type name of a given topic. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic. </p></li>
 <li><p><strong>name</strong> – <strong>[out]</strong> Buffer to write the topic type name to. </p></li>
 <li><p><strong>size</strong> – <strong>[in]</strong> Number of bytes available in the buffer.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A dds_return_t indicating success or failure.</p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Actual length of type name (name is truncated if return value &gt;= size) or error </p>
 </dd>
 </dl>
@@ -512,25 +510,25 @@
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE">
 <span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471ab9fd967bd10859617ae155e9ed95719a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLE</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_fn"><span class="std std-ref">dds_topic_filter_sample_fn</span></a> </p>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_fn"><span class="std std-ref">dds_topic_filter_sample_fn</span></a></p>
 </dd></dl>
 
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_ARG">
 <span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471a1bad11bf6e4020188d73e69cd75c71d3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLE_ARG</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_ARG" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_arg_fn"><span class="std std-ref">dds_topic_filter_sample_arg_fn</span></a> </p>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_arg_fn"><span class="std std-ref">dds_topic_filter_sample_arg_fn</span></a></p>
 </dd></dl>
 
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLEINFO_ARG">
 <span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471a9416770b307433848488ee9d812c589b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLEINFO_ARG</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLEINFO_ARG" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sampleinfo_arg_fn"><span class="std std-ref">dds_topic_filter_sampleinfo_arg_fn</span></a> </p>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sampleinfo_arg_fn"><span class="std std-ref">dds_topic_filter_sampleinfo_arg_fn</span></a></p>
 </dd></dl>
 
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG">
 <span class="target" id="group__topic__filter_1gga5dce8061f5224b7972231541363cd471a2e5de2c204d8bb166d25b7f077da396e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG</span></span></span><a class="headerlink" href="#c.dds_topic_filter_mode.DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_sampleinfo_arg_fn"><span class="std std-ref">dds_topic_filter_sample_sampleinfo_arg_fn</span></a> </p>
+<dd><p>Use with <a class="reference internal" href="#group__topic__filter_1dds_topic_filter_sample_sampleinfo_arg_fn"><span class="std std-ref">dds_topic_filter_sample_sampleinfo_arg_fn</span></a></p>
 </dd></dl>
 
 </dd></dl>
@@ -549,20 +547,20 @@ Not thread-safe with respect to data being read/written using readers/writers us
 <p>Unstable API To be replaced by proper filtering on readers.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic on which the content filter is set. </p></li>
 <li><p><strong>filter</strong> – <strong>[in]</strong> The filter function used to filter topic samples. </p></li>
 <li><p><strong>arg</strong> – <strong>[in]</strong> Argument for the filter function.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The topic handle is invalid </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -579,19 +577,19 @@ Not thread-safe with respect to data being read/written using readers/writers us
 <p>Unstable API To be replaced by proper filtering on readers.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic on which the content filter is set. </p></li>
 <li><p><strong>filter</strong> – <strong>[in]</strong> The filter specification.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The topic handle is invalid </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -608,14 +606,14 @@ To be replaced by proper filtering on readers</p>
 <p>Unstable API</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic from which to get the filter. </p></li>
 <li><p><strong>fn</strong> – <strong>[out]</strong> The topic filter function (fn may be NULL). </p></li>
 <li><p><strong>arg</strong> – <strong>[out]</strong> Filter function argument (arg may be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – Filter is not of “none” or “sample_arg” </p></li>
@@ -636,13 +634,13 @@ To be replaced by proper filtering on readers</p>
 <p>Unstable API</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic from which to get the filter. </p></li>
 <li><p><strong>filter</strong> – <strong>[out]</strong> The topic filter specification.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Filter set successfully </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The topic handle is invalid </p></li>
@@ -756,8 +754,8 @@ To be replaced by proper filtering on readers</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Data path configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -157,9 +155,9 @@
           <div class="body" role="main">
             
   <section id="data-path-configuration">
-<span id="data-path-config"></span><h1>Data path configuration<a class="headerlink" href="#data-path-configuration" title="Permalink to this headline">¶</a></h1>
+<span id="data-path-config"></span><h1>Data path configuration<a class="headerlink" href="#data-path-configuration" title="Permalink to this heading">¶</a></h1>
 <span class="target" id="re-transmission-merging"></span><section id="index-0">
-<span id="id1"></span><h2>Re-transmission merging<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Re-transmission merging<a class="headerlink" href="#index-0" title="Permalink to this heading">¶</a></h2>
 <p>A remote reader can request re-transmission whenever it receives a heartbeat and detects
 missing samples. If a sample is lost on the network for many or all readers, the
 next heartbeat can trigger a large number of re-transmission requests. Therefore, to avoid
@@ -185,7 +183,7 @@ bandwidth limiting causes a backlog of samples to be re-transmitted.</p></li>
 </ul>
 <span class="target" id="re-transmit-backlogs"></span></section>
 <section id="re-transmission-backlogs">
-<span id="index-1"></span><h2>Re-transmission backlogs<a class="headerlink" href="#re-transmission-backlogs" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Re-transmission backlogs<a class="headerlink" href="#re-transmission-backlogs" title="Permalink to this heading">¶</a></h2>
 <p>A reader can request re-transmission of many samples at once. When the writer queues
 all these samples for re-transmission, it can cause a large backlog of samples. As a
 result, the samples near the queue’s end may be delayed so much that the reader issues
@@ -205,7 +203,7 @@ is an approximation of the time until the next re-transmission request from the 
 </ul>
 <span class="target" id="controlling-fragmentation"></span></section>
 <section id="fragmentation">
-<span id="index-2"></span><h2>Fragmentation<a class="headerlink" href="#fragmentation" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Fragmentation<a class="headerlink" href="#fragmentation" title="Permalink to this heading">¶</a></h2>
 <p>Samples in DDS can be arbitrarily large, and do not always fit within a single datagram.
 DDSI can fragment samples so they can fit in UDP datagrams. IP has facilities to fragment
 UDP datagrams into network packets. The DDSI specification (see <a href="https://www.omg.org/spec/DDSI-RTPS/2.5" target="_blank">DDSI-RTPS 2.5</a> section 8.4.14.1.2)
@@ -235,7 +233,7 @@ into multiple packets.</p>
 of DDSI fragmentation is larger than that of UDP fragmentation.</p>
 <span class="target" id="receive-processing"></span></section>
 <section id="index-3">
-<span id="id4"></span><h2>Receive processing<a class="headerlink" href="#index-3" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Receive processing<a class="headerlink" href="#index-3" title="Permalink to this heading">¶</a></h2>
 <p>Receiving of data is split into multiple threads:</p>
 <ul>
 <li><p>A single receive thread, which is responsible for:</p>
@@ -288,7 +286,7 @@ number of samples that can be defragmented simultaneously is limited:</p>
 </ul>
 <span class="target" id="minimising-receive-latency"></span></section>
 <section id="index-4">
-<span id="id5"></span><h2>Minimising receive latency<a class="headerlink" href="#index-4" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Minimising receive latency<a class="headerlink" href="#index-4" title="Permalink to this heading">¶</a></h2>
 <p>In low-latency environments, a few microseconds can be gained by processing the
 application data either:</p>
 <ul class="simple">
@@ -302,7 +300,7 @@ are <code class="docutils literal notranslate"><span class="pre">inf</span></cod
 for all data.</p>
 <span class="target" id="maximum-sample-size"></span></section>
 <section id="index-5">
-<span id="id6"></span><h2>Maximum sample size<a class="headerlink" href="#index-5" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Maximum sample size<a class="headerlink" href="#index-5" title="Permalink to this heading">¶</a></h2>
 <p>To control the maximum size of samples that the service can process, set:
 <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-internal-maxsamplesize"><span class="std std-ref">Internal/MaxSampleSize</span></a>.
 The size is the size of the Common Data Representation (<a class="reference internal" href="../glossary.html#term-CDR"><span class="xref std std-term">CDR</span></a>) serialised payload,
@@ -388,8 +386,8 @@ to a very small size (to the point that the discovery data can no longer be comm
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

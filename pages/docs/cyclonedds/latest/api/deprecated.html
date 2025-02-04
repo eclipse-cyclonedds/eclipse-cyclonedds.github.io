@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Deprecated functionality &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -159,7 +157,7 @@
           <div class="body" role="main">
             
   <section id="deprecated-functionality">
-<h1>Deprecated functionality<a class="headerlink" href="#deprecated-functionality" title="Permalink to this headline">¶</a></h1>
+<h1>Deprecated functionality<a class="headerlink" href="#deprecated-functionality" title="Permalink to this heading">¶</a></h1>
 <p>All functionality in this section is considered deprecated. They will generate warnings and could be removed in a major release.</p>
 <dl>
 <dt class="sig sig-object cpp">
@@ -181,7 +179,7 @@
 <p>In case multiple (discovered) topics exist with the provided name, this function will return randomly one of these topic. The caller can decide to read DCPSTopic data and select one of the topic definitions to create the topic.</p>
 <p>The returned topic should be released with dds_delete.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>scope</strong> – <strong>[in]</strong> The scope used to find the topic </p></li>
 <li><p><strong>participant</strong> – <strong>[in]</strong> The handle of the participant the found topic will be created in </p></li>
@@ -189,14 +187,14 @@
 <li><p><strong>timeout</strong> – <strong>[in]</strong> The timeout for waiting for the topic to become available</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid topic handle. </p></li>
 <li><p><strong>0</strong> – No topic of this name existed yet </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Participant handle or scope invalid </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid topic handle or an error code.</p>
 </dd>
 </dl>
@@ -219,12 +217,12 @@
 <p>dds_loan_sample can be used if and only if dds_is_loan_available returns true.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> the handle of the entity</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>loan available or not </p>
 </dd>
 </dl>
@@ -237,7 +235,7 @@
 <p><dl>
 <dt class="sig sig-object cpp">
 <em><span class="pre">Deprecated:</span></em></dt>
-<dd><p>Use <a class="reference internal" href="loan.html#group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"><span class="std std-ref">dds_request_loan</span></a> </p>
+<dd><p>Use <a class="reference internal" href="loan.html#group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"><span class="std std-ref">dds_request_loan</span></a></p>
 </dd></dl>
 
 </p>
@@ -250,13 +248,13 @@
 <p>The function can only be used if dds_is_loan_available is true for the writer.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> the writer to loan the buffer from </p></li>
 <li><p><strong>sample</strong> – <strong>[out]</strong> the loaned sample</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>DDS_RETCODE_OK if successful, DDS_RETCODE_ERROR otherwise </p>
 </dd>
 </dl>
@@ -295,8 +293,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>IDL &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -12,9 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/tabs.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -113,7 +112,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -164,7 +163,7 @@
           <div class="body" role="main">
             
   <section id="idl-bm">
-<span id="index-0"></span><span id="idl"></span><h1>IDL<a class="headerlink" href="#idl-bm" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="idl"></span><h1>IDL<a class="headerlink" href="#idl-bm" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <p>IDL is a language to defined data types and interfaces that are platform and language
@@ -174,40 +173,40 @@ code and infrastructure that allows you target a specific platform or language.<
 enables you to use it even in contexts where you do not need the full
 Eclipse Cyclone DDS ecosystem.</p>
 <p>For example, the following IDL code:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>module HelloWorldData
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>HelloWorldData
 <span class="o">{</span>
-struct Msg
+struct<span class="w"> </span>Msg
 <span class="o">{</span>
-   @key
-   long userID<span class="p">;</span>
-   string message<span class="p">;</span>
+<span class="w">   </span>@key
+<span class="w">   </span>long<span class="w"> </span>userID<span class="p">;</span>
+<span class="w">   </span>string<span class="w"> </span>message<span class="p">;</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="o">}</span><span class="p">;</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">idlc</span></code> (the <a class="reference internal" href="idl_compilers.html#idl-compiler"><span class="std std-ref">IDL compiler</span></a>) converts this to:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button><button aria-controls="panel-0-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-0-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span><span class="w"></span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button><button aria-controls="panel-0-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-0-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-0-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HelloWorldData_Msg</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">HelloWorldData_Msg</span><span class="p">;</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldData</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">Msg</span><span class="w"> </span><span class="n">OSPL_DDS_FINAL</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">      </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID_</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message_</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="cm">/** SNIP THE REST OF THE METHODS **/</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+</div><div aria-labelledby="tab-0-Qysr" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-Qysr" name="Qysr" role="tabpanel" tabindex="0"><div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">HelloWorldData</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">Msg</span><span class="w"> </span><span class="n">OSPL_DDS_FINAL</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span>
+<span class="w">      </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">userID_</span><span class="p">;</span>
+<span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message_</span><span class="p">;</span>
+<span class="w">   </span><span class="cm">/** SNIP THE REST OF THE METHODS **/</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">HelloWorld</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">,</span> <span class="n">typename</span><span class="o">=</span><span class="s2">&quot;HelloWorld.Msg&quot;</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HelloWorld</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">,</span> <span class="n">typename</span><span class="o">=</span><span class="s2">&quot;HelloWorld.Msg&quot;</span><span class="p">):</span>
    <span class="n">usedID</span><span class="p">:</span> <span class="n">int32</span>
    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
 </pre></div>
@@ -244,8 +243,8 @@ struct Msg
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Introduction &#8212; Eclipse Cyclone DDS: Python API, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/helpers.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -113,7 +112,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -141,10 +140,10 @@
           <div class="body" role="main">
             
   <section id="introduction">
-<span id="intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<span id="intro"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h1>
 <p>This is the documentation for Eclipse Cyclone DDS: Python API, wrapping the Eclipse Cyclone DDS C API for easy creation of DDS applications.</p>
 <section id="prerequisites">
-<span id="installing"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<span id="installing"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <p>Cyclone DDS Python requires Python version 3.7 or higher, with 3.11 support provisional. The wheels on PyPi contain a pre-built binary of the Eclipse Cyclone DDS C library and IDL compiler. These have a couple of caveats. The pre-built package:</p>
 <blockquote>
 <div><ul class="simple">
@@ -156,40 +155,40 @@
 <p>If you need these features or cannot use the binaries for other reasons you can install the Eclipse Cyclone DDS: Python API library from source. You will need to set the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to allow the installer to locate the Eclipse Cyclone DDS C library if it is on a non-standard path. At runtime we leverage several mechanisms to locate the library that are appropriate for the platform. If you get an exception about non-locatable libraries or wish to manage multiple Eclipse Cyclone DDS installations you can use the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code> to override the load location.</p>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h2>
 <p>Simply install with pip from PyPi.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install cyclonedds
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cyclonedds
 </pre></div>
 </div>
 <p>You can install from the github link directly:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CYCLONEDDS_HOME</span><span class="o">=</span><span class="s2">&quot;/path/to/cyclonedds&quot;</span> pip install git+https://github.com/eclipse-cyclonedds/cyclonedds-python
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CYCLONEDDS_HOME</span><span class="o">=</span><span class="s2">&quot;/path/to/cyclonedds&quot;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/eclipse-cyclonedds/cyclonedds-python
 </pre></div>
 </div>
 <p>If you wish to run the testsuite or build the documentation you will need additional dependencies. These can be installed by means of Python installation optional components:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/eclipse-cyclonedds/cyclonedds-python
-<span class="nb">cd</span> cyclonedds-python
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/eclipse-cyclonedds/cyclonedds-python
+<span class="nb">cd</span><span class="w"> </span>cyclonedds-python
 
 <span class="c1"># Testsuite:</span>
-pip install .<span class="o">[</span>dev<span class="o">]</span>
+pip<span class="w"> </span>install<span class="w"> </span>.<span class="o">[</span>dev<span class="o">]</span>
 pytest
 
 <span class="c1"># Documentation</span>
-pip install .<span class="o">[</span>docs<span class="o">]</span>
-<span class="nb">cd</span> docs
-sphinx-build ./source ./build
-python -m http.server --directory build
+pip<span class="w"> </span>install<span class="w"> </span>.<span class="o">[</span>docs<span class="o">]</span>
+<span class="nb">cd</span><span class="w"> </span>docs
+sphinx-build<span class="w"> </span>./source<span class="w"> </span>./build
+python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span>--directory<span class="w"> </span>build
 </pre></div>
 </div>
 <p>If you get permission errors you are using your system python. This is not recommended, we recommend using <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">a virtual environment</a>, <a class="reference external" href="https://python-poetry.org/">poetry</a>, <a class="reference external" href="https://pipenv.pypa.io/en/latest/">pipenv</a> or <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>. If you <em>just</em> want to get going, you can add <code class="docutils literal notranslate"><span class="pre">--user</span></code> to your pip command to install for the current user. See the <a class="reference external" href="https://docs.python.org/3/installing/index.html">Installing Python Modules</a> documentation.</p>
 </section>
 <section id="your-first-python-dds-application">
-<span id="first-app"></span><h2>Your first Python DDS application<a class="headerlink" href="#your-first-python-dds-application" title="Permalink to this headline">¶</a></h2>
+<span id="first-app"></span><h2>Your first Python DDS application<a class="headerlink" href="#your-first-python-dds-application" title="Permalink to this heading">¶</a></h2>
 <p>Let’s make our entry into the world of DDS by making our presence known. We will not worry about configuration or what DDS does under the hood but just write a single message. To publish anything to DDS we need to define the type of message first. If you are worried about talking to other applications that are not necessarily running Python you would use the IDL compiler, but for now we will just manually define our message type directly in Python using the <code class="docutils literal notranslate"><span class="pre">cyclonedds.idl</span></code> tools:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="nd">@dataclass</span>
-<span class="linenos"> 5</span><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">Message</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos"> 6</span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
 <span class="linenos"> 7</span>
 <span class="linenos"> 8</span>
@@ -207,9 +206,9 @@ python -m http.server --directory build
 <li><p>And finally publish the message.</p></li>
 </ul>
 </div></blockquote>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
-<span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.topic</span> <span class="kn">import</span> <span class="n">Topic</span>
-<span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.pub</span> <span class="kn">import</span> <span class="n">DataWriter</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.topic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Topic</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.pub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataWriter</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
 <span class="linenos">6</span><span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="s2">&quot;Announcements&quot;</span><span class="p">,</span> <span class="n">Message</span><span class="p">)</span>
@@ -219,15 +218,15 @@ python -m http.server --directory build
 </pre></div>
 </div>
 <p>Hurray, we have published are first message! However, it is hard to tell if that actually did anything, since we don’t have anything set up that is listening. Let’s make a second script that takes messages from DDS and prints them to the terminal:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
-<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">cyclonedds.topic</span> <span class="kn">import</span> <span class="n">Topic</span>
-<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">cyclonedds.sub</span> <span class="kn">import</span> <span class="n">DataReader</span>
-<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">cyclonedds.util</span> <span class="kn">import</span> <span class="n">duration</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.topic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Topic</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.sub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataReader</span>
+<span class="linenos"> 5</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">duration</span>
+<span class="linenos"> 6</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
 <span class="linenos"> 7</span>
 <span class="linenos"> 8</span><span class="nd">@dataclass</span>
-<span class="linenos"> 9</span><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos"> 9</span><span class="k">class</span><span class="w"> </span><span class="nc">Message</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">10</span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
 <span class="linenos">11</span>
 <span class="linenos">12</span><span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
@@ -291,7 +290,7 @@ python -m http.server --directory build
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2025, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

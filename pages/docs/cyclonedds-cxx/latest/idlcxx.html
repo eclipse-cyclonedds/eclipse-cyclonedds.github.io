@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Custom Containers &#8212; Eclipse Cyclone DDS: C++ API, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/helpers.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -136,7 +134,7 @@
           <div class="body" role="main">
             
   <section id="custom-containers">
-<h1>Custom Containers<a class="headerlink" href="#custom-containers" title="Permalink to this headline">¶</a></h1>
+<h1>Custom Containers<a class="headerlink" href="#custom-containers" title="Permalink to this heading">¶</a></h1>
 <p>IDLCXX enables users to supply their own container classes, replacing the default containers
 used for IDL sequences (bounded and unbounded), strings (bounded and unbounded), arrays and
 unions. All custom containers templates are set through the <code class="docutils literal notranslate"><span class="pre">-f</span></code> command line option, followed
@@ -149,15 +147,15 @@ varying number of tags, which are indicated by the following strings:</p>
 </ul>
 <p>For example, to set a custom container for the bounded sequence, you must add the following
 to the command line options of <code class="docutils literal notranslate"><span class="pre">idlc</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-f bounded-sequence-template<span class="o">=</span><span class="s2">&quot;company_name::special_bounded_sequence_impl&lt;{TYPE}, {BOUND}&gt;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-f<span class="w"> </span>bounded-sequence-template<span class="o">=</span><span class="s2">&quot;company_name::special_bounded_sequence_impl&lt;{TYPE}, {BOUND}&gt;&quot;</span>
 </pre></div>
 </div>
 <p>Supplying this command line option converts the following IDL code from:</p>
-<div class="highlight-IDL notranslate"><div class="highlight"><pre><span></span>sequence<span class="o">&lt;</span><span class="nb">long</span>,<span class="mi">255</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight-IDL notranslate"><div class="highlight"><pre><span></span>sequence<span class="o">&lt;</span><span class="nb">long</span>,<span class="mi">255</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>to the following C++ code:</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">company_name</span><span class="o">::</span><span class="n">special_bounded_sequence_impl</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">company_name</span><span class="o">::</span><span class="n">special_bounded_sequence_impl</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>For each template, the ordering of the tags is not important, the generator will replace based
@@ -165,11 +163,11 @@ on tags, not positions, all other text is inserted into the generated code verba
 custom allocators to also be added.</p>
 <p>For more information on all command line options, run <code class="docutils literal notranslate"><span class="pre">idlc</span></code> with the <code class="docutils literal notranslate"><span class="pre">-h</span></code> option, while loading
 the idlcxx library. For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>idlc -l libdidlcxx.so -h
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>idlc<span class="w"> </span>-l<span class="w"> </span>libdidlcxx.so<span class="w"> </span>-h
 </pre></div>
 </div>
 <section id="sequences">
-<h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
+<h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this heading">¶</a></h2>
 <p>The default container for both bounded and unbounded IDL sequences is <code class="docutils literal notranslate"><span class="pre">std::vector</span></code>.
 The custom containers for bounded and unbounded sequences can be defined independently.
 Any user-supplied container class that replaces <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> must comply
@@ -210,7 +208,7 @@ with the following interface (with the same effect as these functions in std::ve
 </ul>
 </section>
 <section id="strings">
-<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">¶</a></h2>
 <p>The default container used for both bounded and unbounded IDL strings is <code class="docutils literal notranslate"><span class="pre">std::string</span></code>.
 The custom containers for bounded and unbounded strings can be defined independently.
 Any user-supplied container class that replaces <code class="docutils literal notranslate"><span class="pre">std::string</span></code> must comply
@@ -253,7 +251,7 @@ with the following interface (with the same effect as these functions in <code c
 </ul>
 </section>
 <section id="arrays">
-<h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this heading">¶</a></h2>
 <p>The default container used for IDL arrays is <code class="docutils literal notranslate"><span class="pre">std::array</span></code>.
 Any user-supplied container class that replaces <code class="docutils literal notranslate"><span class="pre">std::array</span></code> must comply
 with the following interface (with the same effect as these functions in <code class="docutils literal notranslate"><span class="pre">std::array</span></code>):</p>
@@ -281,10 +279,10 @@ with the following interface (with the same effect as these functions in <code c
 </ul>
 </section>
 <section id="unions">
-<h2>Unions<a class="headerlink" href="#unions" title="Permalink to this headline">¶</a></h2>
+<h2>Unions<a class="headerlink" href="#unions" title="Permalink to this heading">¶</a></h2>
 <p>IDL unions use the <code class="docutils literal notranslate"><span class="pre">std::variant</span></code> class by default as the container for the union values.
 The only function needed from the custom union container is the templated getter function:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="n">T</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="n">var</span><span class="p">)</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="n">T</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">variant</span><span class="o">&amp;</span><span class="w"> </span><span class="n">var</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The command line options for custom variant containers are:</p>
@@ -356,8 +354,8 @@ The only function needed from the custom union container is the templated getter
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

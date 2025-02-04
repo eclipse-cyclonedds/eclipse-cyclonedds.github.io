@@ -8,13 +8,10 @@
     <title>Index &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/tabs.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/helpers.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -110,7 +107,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -1266,8 +1263,6 @@
 </li>
       <li><a href="api/serialization.html#c.DDS_PLM_FLAGS_MASK">DDS_PLM_FLAGS_MASK (C macro)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/qos.html#c.dds_presentation_access_scope_kind">dds_presentation_access_scope_kind (C enum)</a>
 </li>
       <li><a href="api/qos.html#c.dds_presentation_access_scope_kind.DDS_PRESENTATION_GROUP">dds_presentation_access_scope_kind.DDS_PRESENTATION_GROUP (C enumerator)</a>
@@ -1284,6 +1279,8 @@
 </li>
       <li><a href="api/psmx.html#c.dds_psmx.instance_name">dds_psmx.instance_name (C var)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/psmx.html#c.dds_psmx.locator">dds_psmx.locator (C var)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx.ops">dds_psmx.ops (C var)</a>
@@ -1298,9 +1295,13 @@
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_create_topic_fn">dds_psmx_create_topic_fn (C type)</a>
 </li>
+      <li><a href="api/psmx.html#c.dds_psmx_create_topic_with_type_fn">dds_psmx_create_topic_with_type_fn (C type)</a>
+</li>
       <li><a href="api/psmx.html#c.dds_psmx_deinit_fn">dds_psmx_deinit_fn (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_delete_endpoint_fn">dds_psmx_delete_endpoint_fn (C type)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_delete_fn">dds_psmx_delete_fn (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_delete_topic_fn">dds_psmx_delete_topic_fn (C type)</a>
 </li>
@@ -1315,6 +1316,10 @@
       <li><a href="api/psmx.html#c.dds_psmx_endpoint_on_data_available_fn">dds_psmx_endpoint_on_data_available_fn (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_endpoint_ops">dds_psmx_endpoint_ops (C struct)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_endpoint_ops.write">dds_psmx_endpoint_ops.write (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_endpoint_ops.write_with_key">dds_psmx_endpoint_ops.write_with_key (C var)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_endpoint_ops_t">dds_psmx_endpoint_ops_t (C type)</a>
 </li>
@@ -1336,6 +1341,10 @@
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_endpoint_write_fn">dds_psmx_endpoint_write_fn (C type)</a>
 </li>
+      <li><a href="api/psmx.html#c.dds_psmx_endpoint_write_with_key_fn">dds_psmx_endpoint_write_with_key_fn (C type)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_get_config_option_value">dds_psmx_get_config_option_value (C function)</a>
+</li>
       <li><a href="api/psmx.html#c.dds_psmx_get_node_identifier_fn">dds_psmx_get_node_identifier_fn (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_init_generic">dds_psmx_init_generic (C function)</a>
@@ -1343,6 +1352,24 @@
       <li><a href="api/psmx.html#c.dds_psmx_instance_id_t">dds_psmx_instance_id_t (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_metadata">dds_psmx_metadata (C struct)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.cdr_identifier">dds_psmx_metadata.cdr_identifier (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.cdr_options">dds_psmx_metadata.cdr_options (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.data_type">dds_psmx_metadata.data_type (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.guid">dds_psmx_metadata.guid (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.instance_id">dds_psmx_metadata.instance_id (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.sample_size">dds_psmx_metadata.sample_size (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.sample_state">dds_psmx_metadata.sample_state (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.statusinfo">dds_psmx_metadata.statusinfo (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_metadata.timestamp">dds_psmx_metadata.timestamp (C var)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_metadata_t">dds_psmx_metadata_t (C type)</a>
 </li>
@@ -1352,9 +1379,15 @@
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_ops">dds_psmx_ops (C struct)</a>
 </li>
-      <li><a href="api/psmx.html#c.dds_psmx_ops_t">dds_psmx_ops_t (C type)</a>
+      <li><a href="api/psmx.html#c.dds_psmx_ops.create_topic">dds_psmx_ops.create_topic (C var)</a>
 </li>
-      <li><a href="api/psmx.html#c.dds_psmx_supported_features">dds_psmx_supported_features (C function)</a>
+      <li><a href="api/psmx.html#c.dds_psmx_ops.create_topic_with_type">dds_psmx_ops.create_topic_with_type (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_ops.deinit">dds_psmx_ops.deinit (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_ops.delete_psmx">dds_psmx_ops.delete_psmx (C var)</a>
+</li>
+      <li><a href="api/psmx.html#c.dds_psmx_ops_t">dds_psmx_ops_t (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_supported_features_fn">dds_psmx_supported_features_fn (C type)</a>
 </li>
@@ -1639,10 +1672,6 @@
       <li><a href="api/qos.html#c.dds_reliability_kind.DDS_RELIABILITY_RELIABLE">dds_reliability_kind.DDS_RELIABILITY_RELIABLE (C enumerator)</a>
 </li>
       <li><a href="api/qos.html#c.dds_reliability_kind_t">dds_reliability_kind_t (C type)</a>
-</li>
-      <li><a href="api/psmx.html#c.dds_remove_psmx_endpoint_from_list">dds_remove_psmx_endpoint_from_list (C function)</a>
-</li>
-      <li><a href="api/psmx.html#c.dds_remove_psmx_topic_from_list">dds_remove_psmx_topic_from_list (C function)</a>
 </li>
       <li><a href="api/loan.html#c.dds_request_loan">dds_request_loan (C function)</a>
 </li>
@@ -2773,8 +2802,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

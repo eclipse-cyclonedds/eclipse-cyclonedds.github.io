@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Example DDS security configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -153,7 +151,7 @@
           <div class="body" role="main">
             
   <section id="example-dds-security-configuration">
-<span id="example-security-configuration"></span><span id="index-0"></span><h1>Example DDS security configuration<a class="headerlink" href="#example-dds-security-configuration" title="Permalink to this headline">¶</a></h1>
+<span id="example-security-configuration"></span><span id="index-0"></span><h1>Example DDS security configuration<a class="headerlink" href="#example-dds-security-configuration" title="Permalink to this heading">¶</a></h1>
 <p>This section shows an example Cyclone DDS configuration for DDS Security.</p>
 <p>The steps for configuring DDS Security are:</p>
 <ol class="arabic simple">
@@ -170,7 +168,7 @@
 </ul>
 </div></blockquote>
 <section id="create-a-permissions-certificate-authority-ca">
-<span id="create-certificate-authority"></span><span id="index-1"></span><h2>Create a permissions Certificate Authority (CA)<a class="headerlink" href="#create-a-permissions-certificate-authority-ca" title="Permalink to this headline">¶</a></h2>
+<span id="create-certificate-authority"></span><span id="index-1"></span><h2>Create a permissions Certificate Authority (CA)<a class="headerlink" href="#create-a-permissions-certificate-authority-ca" title="Permalink to this heading">¶</a></h2>
 <p>To generate the CA for identity management (authentication):</p>
 <ol class="arabic">
 <li><p>Create the private key for the CA:</p>
@@ -197,7 +195,7 @@ configuration files):</p>
 </ol>
 </section>
 <section id="create-an-identity-certificate">
-<span id="create-identity-certificate"></span><span id="index-2"></span><h2>Create an identity certificate<a class="headerlink" href="#create-an-identity-certificate" title="Permalink to this headline">¶</a></h2>
+<span id="create-identity-certificate"></span><span id="index-2"></span><h2>Create an identity certificate<a class="headerlink" href="#create-an-identity-certificate" title="Permalink to this heading">¶</a></h2>
 <p>Create an identity certificate (signed by the CA), and the private key corresponding to an identity named <em>Alice</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -233,36 +231,36 @@ for the <a class="reference internal" href="../config/config_file_reference.html
 </ol>
 </section>
 <section id="create-a-signed-governance-document">
-<span id="create-governance-document"></span><span id="index-3"></span><h2>Create a signed governance document<a class="headerlink" href="#create-a-signed-governance-document" title="Permalink to this headline">¶</a></h2>
+<span id="create-governance-document"></span><span id="index-3"></span><h2>Create a signed governance document<a class="headerlink" href="#create-a-signed-governance-document" title="Permalink to this heading">¶</a></h2>
 <p>The following shows an example of a governance document that uses <em>signing for submessage</em> and an encrypted payload:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=\&quot;utf-8\&quot;?&gt;</span>
-<span class="linenos"> 2</span><span class="nt">&lt;dds</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;https://www.omg.org/spec/DDS-SECURITY/20170901/omg_shared_ca_governance.xsd&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 3</span>  <span class="nt">&lt;domain_access_rules&gt;</span>
-<span class="linenos"> 4</span>    <span class="nt">&lt;domain_rule&gt;</span>
-<span class="linenos"> 5</span>      <span class="nt">&lt;domains&gt;</span>
-<span class="linenos"> 6</span>        <span class="nt">&lt;id_range&gt;</span>
-<span class="linenos"> 7</span>          <span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
-<span class="linenos"> 8</span>          <span class="nt">&lt;max&gt;</span>230<span class="nt">&lt;/max&gt;</span>
-<span class="linenos"> 9</span>        <span class="nt">&lt;/id_range&gt;</span>
-<span class="linenos">10</span>      <span class="nt">&lt;/domains&gt;</span>
-<span class="linenos">11</span>      <span class="nt">&lt;allow_unauthenticated_participants&gt;</span>false<span class="nt">&lt;/allow_unauthenticated_participants&gt;</span>
-<span class="linenos">12</span>      <span class="nt">&lt;enable_join_access_control&gt;</span>true<span class="nt">&lt;/enable_join_access_control&gt;</span>
-<span class="linenos">13</span>      <span class="nt">&lt;discovery_protection_kind&gt;</span>NONE<span class="nt">&lt;/discovery_protection_kind&gt;</span>
-<span class="linenos">14</span>      <span class="nt">&lt;liveliness_protection_kind&gt;</span>NONE<span class="nt">&lt;/liveliness_protection_kind&gt;</span>
-<span class="linenos">15</span>      <span class="nt">&lt;rtps_protection_kind&gt;</span>NONE<span class="nt">&lt;/rtps_protection_kind&gt;</span>
-<span class="linenos">16</span>      <span class="nt">&lt;topic_access_rules&gt;</span>
-<span class="linenos">17</span>        <span class="nt">&lt;topic_rule&gt;</span>
-<span class="linenos">18</span>          <span class="nt">&lt;topic_expression&gt;</span>*<span class="nt">&lt;/topic_expression&gt;</span>
-<span class="linenos">19</span>          <span class="nt">&lt;enable_discovery_protection&gt;</span>true<span class="nt">&lt;/enable_discovery_protection&gt;</span>
-<span class="linenos">20</span>          <span class="nt">&lt;enable_liveliness_protection&gt;</span>true<span class="nt">&lt;/enable_liveliness_protection&gt;</span>
-<span class="linenos">21</span>          <span class="nt">&lt;enable_read_access_control&gt;</span>true<span class="nt">&lt;/enable_read_access_control&gt;</span>
-<span class="linenos">22</span>          <span class="nt">&lt;enable_write_access_control&gt;</span>true<span class="nt">&lt;/enable_write_access_control&gt;</span>
-<span class="linenos">23</span>          <span class="nt">&lt;metadata_protection_kind&gt;</span>SIGN<span class="nt">&lt;/metadata_protection_kind&gt;</span>
-<span class="linenos">24</span>          <span class="nt">&lt;data_protection_kind&gt;</span>ENCRYPT<span class="nt">&lt;/data_protection_kind&gt;</span>
-<span class="linenos">25</span>        <span class="nt">&lt;/topic_rule&gt;</span>
-<span class="linenos">26</span>      <span class="nt">&lt;/topic_access_rules&gt;</span>
-<span class="linenos">27</span>    <span class="nt">&lt;/domain_rule&gt;</span>
-<span class="linenos">28</span>  <span class="nt">&lt;/domain_access_rules&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;dds</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="w"> </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;https://www.omg.org/spec/DDS-SECURITY/20170901/omg_shared_ca_governance.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="nt">&lt;domain_access_rules&gt;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="nt">&lt;domain_rule&gt;</span>
+<span class="linenos"> 5</span><span class="w">      </span><span class="nt">&lt;domains&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="nt">&lt;id_range&gt;</span>
+<span class="linenos"> 7</span><span class="w">          </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="linenos"> 8</span><span class="w">          </span><span class="nt">&lt;max&gt;</span>230<span class="nt">&lt;/max&gt;</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="nt">&lt;/id_range&gt;</span>
+<span class="linenos">10</span><span class="w">      </span><span class="nt">&lt;/domains&gt;</span>
+<span class="linenos">11</span><span class="w">      </span><span class="nt">&lt;allow_unauthenticated_participants&gt;</span>false<span class="nt">&lt;/allow_unauthenticated_participants&gt;</span>
+<span class="linenos">12</span><span class="w">      </span><span class="nt">&lt;enable_join_access_control&gt;</span>true<span class="nt">&lt;/enable_join_access_control&gt;</span>
+<span class="linenos">13</span><span class="w">      </span><span class="nt">&lt;discovery_protection_kind&gt;</span>NONE<span class="nt">&lt;/discovery_protection_kind&gt;</span>
+<span class="linenos">14</span><span class="w">      </span><span class="nt">&lt;liveliness_protection_kind&gt;</span>NONE<span class="nt">&lt;/liveliness_protection_kind&gt;</span>
+<span class="linenos">15</span><span class="w">      </span><span class="nt">&lt;rtps_protection_kind&gt;</span>NONE<span class="nt">&lt;/rtps_protection_kind&gt;</span>
+<span class="linenos">16</span><span class="w">      </span><span class="nt">&lt;topic_access_rules&gt;</span>
+<span class="linenos">17</span><span class="w">        </span><span class="nt">&lt;topic_rule&gt;</span>
+<span class="linenos">18</span><span class="w">          </span><span class="nt">&lt;topic_expression&gt;</span>*<span class="nt">&lt;/topic_expression&gt;</span>
+<span class="linenos">19</span><span class="w">          </span><span class="nt">&lt;enable_discovery_protection&gt;</span>true<span class="nt">&lt;/enable_discovery_protection&gt;</span>
+<span class="linenos">20</span><span class="w">          </span><span class="nt">&lt;enable_liveliness_protection&gt;</span>true<span class="nt">&lt;/enable_liveliness_protection&gt;</span>
+<span class="linenos">21</span><span class="w">          </span><span class="nt">&lt;enable_read_access_control&gt;</span>true<span class="nt">&lt;/enable_read_access_control&gt;</span>
+<span class="linenos">22</span><span class="w">          </span><span class="nt">&lt;enable_write_access_control&gt;</span>true<span class="nt">&lt;/enable_write_access_control&gt;</span>
+<span class="linenos">23</span><span class="w">          </span><span class="nt">&lt;metadata_protection_kind&gt;</span>SIGN<span class="nt">&lt;/metadata_protection_kind&gt;</span>
+<span class="linenos">24</span><span class="w">          </span><span class="nt">&lt;data_protection_kind&gt;</span>ENCRYPT<span class="nt">&lt;/data_protection_kind&gt;</span>
+<span class="linenos">25</span><span class="w">        </span><span class="nt">&lt;/topic_rule&gt;</span>
+<span class="linenos">26</span><span class="w">      </span><span class="nt">&lt;/topic_access_rules&gt;</span>
+<span class="linenos">27</span><span class="w">    </span><span class="nt">&lt;/domain_rule&gt;</span>
+<span class="linenos">28</span><span class="w">  </span><span class="nt">&lt;/domain_access_rules&gt;</span>
 <span class="linenos">29</span><span class="nt">&lt;/dds&gt;</span>
 </pre></div>
 </div>
@@ -273,49 +271,49 @@ for the <a class="reference internal" href="../config/config_file_reference.html
 </div>
 </section>
 <section id="create-a-signed-permissions-document">
-<span id="create-permissions-document"></span><span id="index-4"></span><h2>Create a signed permissions document<a class="headerlink" href="#create-a-signed-permissions-document" title="Permalink to this headline">¶</a></h2>
+<span id="create-permissions-document"></span><span id="index-4"></span><h2>Create a signed permissions document<a class="headerlink" href="#create-a-signed-permissions-document" title="Permalink to this heading">¶</a></h2>
 <p>The permissions document is an XML document that contains the permissions of the participant and
 binds them to the subject name in the identity certificate (distinguished name) for the participant
 as defined in the DDS <a href="https://github.com/eclipse-cyclonedds/cyclonedds/tree/master/src/security/builtin_plugins/authentication" target="_blank">authentication plugin</a>.</p>
 <p>An example of a permissions document:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
-<span class="linenos"> 2</span><span class="nt">&lt;dds</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="linenos"> 3</span>     <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;https://www.omg.org/spec/DDS-SECURITY/20170901/omg_shared_ca_permissions.xsd&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 4</span>  <span class="nt">&lt;permissions&gt;</span>
-<span class="linenos"> 5</span>    <span class="nt">&lt;grant</span> <span class="na">name=</span><span class="s">&quot;default_permissions&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 6</span>      <span class="nt">&lt;subject_name&gt;</span>emailAddress=alice@cycloneddssecurity.adlinktech.com,CN=Alice Example,O=Example Organization,OU=Organizational Unit Name,L=Locality Name,ST=OV,C=NL<span class="nt">&lt;/subject_name&gt;</span>
-<span class="linenos"> 7</span>      <span class="nt">&lt;validity&gt;</span>
-<span class="linenos"> 8</span>        <span class="cm">&lt;!-- Format is CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] in GMT --&gt;</span>
-<span class="linenos"> 9</span>        <span class="nt">&lt;not_before&gt;</span>2020-01-01T01:00:00<span class="nt">&lt;/not_before&gt;</span>
-<span class="linenos">10</span>        <span class="nt">&lt;not_after&gt;</span>2120-01-01T01:00:00<span class="nt">&lt;/not_after&gt;</span>
-<span class="linenos">11</span>      <span class="nt">&lt;/validity&gt;</span>
-<span class="linenos">12</span>      <span class="nt">&lt;allow_rule&gt;</span>
-<span class="linenos">13</span>        <span class="nt">&lt;domains&gt;</span>
-<span class="linenos">14</span>          <span class="nt">&lt;id_range&gt;</span>
-<span class="linenos">15</span>            <span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
-<span class="linenos">16</span>            <span class="nt">&lt;max&gt;</span>230<span class="nt">&lt;/max&gt;</span>
-<span class="linenos">17</span>          <span class="nt">&lt;/id_range&gt;</span>
-<span class="linenos">18</span>        <span class="nt">&lt;/domains&gt;</span>
-<span class="linenos">19</span>        <span class="nt">&lt;publish&gt;</span>
-<span class="linenos">20</span>          <span class="nt">&lt;topics&gt;</span>
-<span class="linenos">21</span>            <span class="nt">&lt;topic&gt;</span>*<span class="nt">&lt;/topic&gt;</span>
-<span class="linenos">22</span>          <span class="nt">&lt;/topics&gt;</span>
-<span class="linenos">23</span>          <span class="nt">&lt;partitions&gt;</span>
-<span class="linenos">24</span>            <span class="nt">&lt;partition&gt;</span>*<span class="nt">&lt;/partition&gt;</span>
-<span class="linenos">25</span>          <span class="nt">&lt;/partitions&gt;</span>
-<span class="linenos">26</span>        <span class="nt">&lt;/publish&gt;</span>
-<span class="linenos">27</span>        <span class="nt">&lt;subscribe&gt;</span>
-<span class="linenos">28</span>          <span class="nt">&lt;topics&gt;</span>
-<span class="linenos">29</span>            <span class="nt">&lt;topic&gt;</span>*<span class="nt">&lt;/topic&gt;</span>
-<span class="linenos">30</span>          <span class="nt">&lt;/topics&gt;</span>
-<span class="linenos">31</span>          <span class="nt">&lt;partitions&gt;</span>
-<span class="linenos">32</span>            <span class="nt">&lt;partition&gt;</span>*<span class="nt">&lt;/partition&gt;</span>
-<span class="linenos">33</span>          <span class="nt">&lt;/partitions&gt;</span>
-<span class="linenos">34</span>        <span class="nt">&lt;/subscribe&gt;</span>
-<span class="linenos">35</span>      <span class="nt">&lt;/allow_rule&gt;</span>
-<span class="linenos">36</span>      <span class="nt">&lt;default&gt;</span>DENY<span class="nt">&lt;/default&gt;</span>
-<span class="linenos">37</span>    <span class="nt">&lt;/grant&gt;</span>
-<span class="linenos">38</span>  <span class="nt">&lt;/permissions&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;dds</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="linenos"> 3</span><span class="w">     </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;https://www.omg.org/spec/DDS-SECURITY/20170901/omg_shared_ca_permissions.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="nt">&lt;permissions&gt;</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="nt">&lt;grant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;default_permissions&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="nt">&lt;subject_name&gt;</span>emailAddress=alice@cycloneddssecurity.adlinktech.com,CN=Alice<span class="w"> </span>Example,O=Example<span class="w"> </span>Organization,OU=Organizational<span class="w"> </span>Unit<span class="w"> </span>Name,L=Locality<span class="w"> </span>Name,ST=OV,C=NL<span class="nt">&lt;/subject_name&gt;</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="nt">&lt;validity&gt;</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="cm">&lt;!-- Format is CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] in GMT --&gt;</span>
+<span class="linenos"> 9</span><span class="w">        </span><span class="nt">&lt;not_before&gt;</span>2020-01-01T01:00:00<span class="nt">&lt;/not_before&gt;</span>
+<span class="linenos">10</span><span class="w">        </span><span class="nt">&lt;not_after&gt;</span>2120-01-01T01:00:00<span class="nt">&lt;/not_after&gt;</span>
+<span class="linenos">11</span><span class="w">      </span><span class="nt">&lt;/validity&gt;</span>
+<span class="linenos">12</span><span class="w">      </span><span class="nt">&lt;allow_rule&gt;</span>
+<span class="linenos">13</span><span class="w">        </span><span class="nt">&lt;domains&gt;</span>
+<span class="linenos">14</span><span class="w">          </span><span class="nt">&lt;id_range&gt;</span>
+<span class="linenos">15</span><span class="w">            </span><span class="nt">&lt;min&gt;</span>0<span class="nt">&lt;/min&gt;</span>
+<span class="linenos">16</span><span class="w">            </span><span class="nt">&lt;max&gt;</span>230<span class="nt">&lt;/max&gt;</span>
+<span class="linenos">17</span><span class="w">          </span><span class="nt">&lt;/id_range&gt;</span>
+<span class="linenos">18</span><span class="w">        </span><span class="nt">&lt;/domains&gt;</span>
+<span class="linenos">19</span><span class="w">        </span><span class="nt">&lt;publish&gt;</span>
+<span class="linenos">20</span><span class="w">          </span><span class="nt">&lt;topics&gt;</span>
+<span class="linenos">21</span><span class="w">            </span><span class="nt">&lt;topic&gt;</span>*<span class="nt">&lt;/topic&gt;</span>
+<span class="linenos">22</span><span class="w">          </span><span class="nt">&lt;/topics&gt;</span>
+<span class="linenos">23</span><span class="w">          </span><span class="nt">&lt;partitions&gt;</span>
+<span class="linenos">24</span><span class="w">            </span><span class="nt">&lt;partition&gt;</span>*<span class="nt">&lt;/partition&gt;</span>
+<span class="linenos">25</span><span class="w">          </span><span class="nt">&lt;/partitions&gt;</span>
+<span class="linenos">26</span><span class="w">        </span><span class="nt">&lt;/publish&gt;</span>
+<span class="linenos">27</span><span class="w">        </span><span class="nt">&lt;subscribe&gt;</span>
+<span class="linenos">28</span><span class="w">          </span><span class="nt">&lt;topics&gt;</span>
+<span class="linenos">29</span><span class="w">            </span><span class="nt">&lt;topic&gt;</span>*<span class="nt">&lt;/topic&gt;</span>
+<span class="linenos">30</span><span class="w">          </span><span class="nt">&lt;/topics&gt;</span>
+<span class="linenos">31</span><span class="w">          </span><span class="nt">&lt;partitions&gt;</span>
+<span class="linenos">32</span><span class="w">            </span><span class="nt">&lt;partition&gt;</span>*<span class="nt">&lt;/partition&gt;</span>
+<span class="linenos">33</span><span class="w">          </span><span class="nt">&lt;/partitions&gt;</span>
+<span class="linenos">34</span><span class="w">        </span><span class="nt">&lt;/subscribe&gt;</span>
+<span class="linenos">35</span><span class="w">      </span><span class="nt">&lt;/allow_rule&gt;</span>
+<span class="linenos">36</span><span class="w">      </span><span class="nt">&lt;default&gt;</span>DENY<span class="nt">&lt;/default&gt;</span>
+<span class="linenos">37</span><span class="w">    </span><span class="nt">&lt;/grant&gt;</span>
+<span class="linenos">38</span><span class="w">  </span><span class="nt">&lt;/permissions&gt;</span>
 <span class="linenos">39</span><span class="nt">&lt;/dds&gt;</span>
 </pre></div>
 </div>
@@ -325,57 +323,57 @@ as defined in the DDS <a href="https://github.com/eclipse-cyclonedds/cyclonedds/
 </div>
 </section>
 <section id="set-the-security-properties-in-participant-qos">
-<span id="set-security-properties"></span><h2>Set the security properties in participant QoS<a class="headerlink" href="#set-the-security-properties-in-participant-qos" title="Permalink to this headline">¶</a></h2>
+<span id="set-security-properties"></span><h2>Set the security properties in participant QoS<a class="headerlink" href="#set-the-security-properties-in-participant-qos" title="Permalink to this heading">¶</a></h2>
 <p>The following code fragment shows how to set the security properties to a QoS object, and
 use this QoS when creating a participant:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">dds_qos_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos</span><span class="p">();</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">dds_qos_t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos</span><span class="p">();</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.library.path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_security_auth&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos"> 4</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.library.init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;init_authentication&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos"> 5</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.library.finalize&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;finalize_authentication&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos"> 6</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.identity_ca&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_id_ca_cert.pem&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos"> 7</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.private_key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_alice_priv_key.pem&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos"> 8</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.identity_certificate&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_alice_cert.pem&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 3</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.library.path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_security_auth&quot;</span><span class="p">);</span>
+<span class="linenos"> 4</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.library.init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;init_authentication&quot;</span><span class="p">);</span>
+<span class="linenos"> 5</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.library.finalize&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;finalize_authentication&quot;</span><span class="p">);</span>
+<span class="linenos"> 6</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.identity_ca&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_id_ca_cert.pem&quot;</span><span class="p">);</span>
+<span class="linenos"> 7</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.private_key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_alice_priv_key.pem&quot;</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.auth.identity_certificate&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_alice_cert.pem&quot;</span><span class="p">);</span>
 <span class="linenos"> 9</span>
-<span class="linenos">10</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.crypto.library.path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_security_crypto&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">11</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.crypto.library.init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;init_crypto&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">12</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.crypto.library.finalize&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;finalize_crypto&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">10</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.crypto.library.path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_security_crypto&quot;</span><span class="p">);</span>
+<span class="linenos">11</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.crypto.library.init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;init_crypto&quot;</span><span class="p">);</span>
+<span class="linenos">12</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.crypto.library.finalize&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;finalize_crypto&quot;</span><span class="p">);</span>
 <span class="linenos">13</span>
-<span class="linenos">14</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.library.path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_security_ac&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">15</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.library.init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;init_access_control&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">16</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.library.finalize&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;finalize_access_control&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">17</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.permissions_ca&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_perm_ca_cert.pem&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">18</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.governance&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_governance.p7s&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">19</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.permissions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_permissions.p7s&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">14</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.library.path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds_security_ac&quot;</span><span class="p">);</span>
+<span class="linenos">15</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.library.init&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;init_access_control&quot;</span><span class="p">);</span>
+<span class="linenos">16</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.library.finalize&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;finalize_access_control&quot;</span><span class="p">);</span>
+<span class="linenos">17</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.permissions_ca&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_perm_ca_cert.pem&quot;</span><span class="p">);</span>
+<span class="linenos">18</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.governance&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_governance.p7s&quot;</span><span class="p">);</span>
+<span class="linenos">19</span><span class="n">dds_qset_prop</span><span class="p">(</span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dds.sec.access.permissions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file:/path/to/example_permissions.p7s&quot;</span><span class="p">);</span>
 <span class="linenos">20</span>
-<span class="linenos">21</span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">21</span><span class="n">dds_entity_t</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_participant</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">qos</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
 <section id="apply-security-settings">
-<span id="id1"></span><h2>Apply security settings<a class="headerlink" href="#apply-security-settings" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Apply security settings<a class="headerlink" href="#apply-security-settings" title="Permalink to this heading">¶</a></h2>
 <p>As an alternative for using the QoS, security settings can also be applied using the Cyclone DDS
 configuration XML. If both QoS and the configuration XML contain security settings, the values
 from the QoS is used and the security settings in the configuration XML are ignored.</p>
 <p>The following XML fragment shows how to set security settings through configuration:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;Domain</span> <span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 2</span>  <span class="nt">&lt;DDSSecurity&gt;</span>
-<span class="linenos"> 3</span>    <span class="nt">&lt;Authentication&gt;</span>
-<span class="linenos"> 4</span>      <span class="nt">&lt;Library</span> <span class="na">initFunction=</span><span class="s">&quot;init_authentication&quot;</span> <span class="na">finalizeFunction=</span><span class="s">&quot;finalize_authentication&quot;</span> <span class="na">path=</span><span class="s">&quot;dds_security_auth&quot;</span><span class="nt">/&gt;</span>
-<span class="linenos"> 5</span>      <span class="nt">&lt;IdentityCA&gt;</span>file:/path/to/example_id_ca_cert.pem<span class="nt">&lt;/IdentityCA&gt;</span>
-<span class="linenos"> 6</span>      <span class="nt">&lt;IdentityCertificate&gt;</span>file:/path/to/example_alice_cert.pem<span class="nt">&lt;/IdentityCertificate&gt;</span>
-<span class="linenos"> 7</span>      <span class="nt">&lt;PrivateKey&gt;</span>file:/path/to/example_alice_priv_key.pem<span class="nt">&lt;/PrivateKey&gt;</span>
-<span class="linenos"> 8</span>    <span class="nt">&lt;/Authentication&gt;</span>
-<span class="linenos"> 9</span>    <span class="nt">&lt;Cryptographic&gt;</span>
-<span class="linenos">10</span>      <span class="nt">&lt;Library</span> <span class="na">initFunction=</span><span class="s">&quot;init_crypto&quot;</span> <span class="na">finalizeFunction=</span><span class="s">&quot;finalize_crypto&quot;</span> <span class="na">path=</span><span class="s">&quot;dds_security_crypto&quot;</span><span class="nt">/&gt;</span>
-<span class="linenos">11</span>    <span class="nt">&lt;/Cryptographic&gt;</span>
-<span class="linenos">12</span>    <span class="nt">&lt;AccessControl&gt;</span>
-<span class="linenos">13</span>      <span class="nt">&lt;Library</span> <span class="na">initFunction=</span><span class="s">&quot;init_access_control&quot;</span> <span class="na">finalizeFunction=</span><span class="s">&quot;finalize_access_control&quot;</span> <span class="na">path=</span><span class="s">&quot;dds_security_ac&quot;</span><span class="nt">/&gt;</span>
-<span class="linenos">14</span>      <span class="nt">&lt;PermissionsCA&gt;</span>file:/path/to/example_perm_ca_cert.pem<span class="nt">&lt;/PermissionsCA&gt;</span>
-<span class="linenos">15</span>      <span class="nt">&lt;Governance&gt;</span>file:/path/to/example_governance.p7s<span class="nt">&lt;/Governance&gt;</span>
-<span class="linenos">16</span>      <span class="nt">&lt;Permissions&gt;</span>file:/path/to/example_permissions.p7s<span class="nt">&lt;/Permissions&gt;</span>
-<span class="linenos">17</span>    <span class="nt">&lt;/AccessControl&gt;</span>
-<span class="linenos">18</span>  <span class="nt">&lt;/DDSSecurity&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 2</span><span class="w">  </span><span class="nt">&lt;DDSSecurity&gt;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="nt">&lt;Authentication&gt;</span>
+<span class="linenos"> 4</span><span class="w">      </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_authentication&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_authentication&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_auth&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos"> 5</span><span class="w">      </span><span class="nt">&lt;IdentityCA&gt;</span>file:/path/to/example_id_ca_cert.pem<span class="nt">&lt;/IdentityCA&gt;</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="nt">&lt;IdentityCertificate&gt;</span>file:/path/to/example_alice_cert.pem<span class="nt">&lt;/IdentityCertificate&gt;</span>
+<span class="linenos"> 7</span><span class="w">      </span><span class="nt">&lt;PrivateKey&gt;</span>file:/path/to/example_alice_priv_key.pem<span class="nt">&lt;/PrivateKey&gt;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="nt">&lt;/Authentication&gt;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="nt">&lt;Cryptographic&gt;</span>
+<span class="linenos">10</span><span class="w">      </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_crypto&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_crypto&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_crypto&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="nt">&lt;/Cryptographic&gt;</span>
+<span class="linenos">12</span><span class="w">    </span><span class="nt">&lt;AccessControl&gt;</span>
+<span class="linenos">13</span><span class="w">      </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_access_control&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_access_control&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_ac&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">14</span><span class="w">      </span><span class="nt">&lt;PermissionsCA&gt;</span>file:/path/to/example_perm_ca_cert.pem<span class="nt">&lt;/PermissionsCA&gt;</span>
+<span class="linenos">15</span><span class="w">      </span><span class="nt">&lt;Governance&gt;</span>file:/path/to/example_governance.p7s<span class="nt">&lt;/Governance&gt;</span>
+<span class="linenos">16</span><span class="w">      </span><span class="nt">&lt;Permissions&gt;</span>file:/path/to/example_permissions.p7s<span class="nt">&lt;/Permissions&gt;</span>
+<span class="linenos">17</span><span class="w">    </span><span class="nt">&lt;/AccessControl&gt;</span>
+<span class="linenos">18</span><span class="w">  </span><span class="nt">&lt;/DDSSecurity&gt;</span>
 <span class="linenos">19</span><span class="nt">&lt;/Domain&gt;</span>
 </pre></div>
 </div>
@@ -443,8 +441,8 @@ these security settings.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

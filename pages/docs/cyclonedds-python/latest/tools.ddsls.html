@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Command line tool: ddsls &#8212; Eclipse Cyclone DDS: Python API, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/helpers.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -111,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -139,19 +138,19 @@
           <div class="body" role="main">
             
   <section id="command-line-tool-ddsls">
-<h1>Command line tool: ddsls<a class="headerlink" href="#command-line-tool-ddsls" title="Permalink to this headline">¶</a></h1>
+<h1>Command line tool: ddsls<a class="headerlink" href="#command-line-tool-ddsls" title="Permalink to this heading">¶</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>When using DDS, it’s sometimes useful to know what DDS entities are running in the system. The ddsls is a tool that subscribes to the Built-in topics, and shows the information of the domain participants, data readers and data writers in the system.</p>
 </section>
 <section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
 <p>To run the <strong>ddsls</strong>, you can use:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls <span class="o">[</span>Options<span class="o">]</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span><span class="o">[</span>Options<span class="o">]</span>
 </pre></div>
 </div>
 <p>You can view what options you have with the <strong>ddsls</strong> by using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --help
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--help
 </pre></div>
 </div>
 <p>And the help message is as follows:</p>
@@ -177,12 +176,12 @@
 <p>For viewing options, you can use the <code class="docutils literal notranslate"><span class="pre">--json</span></code> option to view the output data in JSON format, the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option to view the full sample information when the entity’s QoS changes.</p>
 <p>For additional options, you can use the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option to define the name of file you want to output the result to, the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to specify how long the <strong>ddsls</strong> will run.</p>
 <section id="topic">
-<h3>Topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<h3>Topic<a class="headerlink" href="#topic" title="Permalink to this heading">¶</a></h3>
 <p>To use the <strong>ddsls</strong>, you need to specify the topic you’re subscribing to using the <code class="docutils literal notranslate"><span class="pre">--topic</span></code> or <code class="docutils literal notranslate"><span class="pre">--all</span></code> option.</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">--topic</span></code> option, you can choose from <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code>, <code class="docutils literal notranslate"><span class="pre">dcpssubscription</span></code> and <code class="docutils literal notranslate"><span class="pre">dcpspublication</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code>, <code class="docutils literal notranslate"><span class="pre">dcpssubscription</span></code> and <code class="docutils literal notranslate"><span class="pre">dcpspublication</span></code> subscribes to the <strong>BuiltinTopicDcpsParticipant</strong>, <strong>BuiltinTopicSubscription</strong> and <strong>BuiltinTopicDcpsPublication</strong> topic respectively, and will show the information of all the participants, subscribers and publishers in the domain respectively.</p>
 <p>Here’s an example of running <strong>ddsls</strong> with the <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code> topic, run the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --all
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--all
 </pre></div>
 </div>
 <p>If there are DDS participant, data reader and data writer running in the default domain, it will show up in the <strong>ddsls</strong> like this:</p>
@@ -213,7 +212,7 @@
 </pre></div>
 </div>
 <section id="comprehend-output">
-<h4>Comprehend output<a class="headerlink" href="#comprehend-output" title="Permalink to this headline">¶</a></h4>
+<h4>Comprehend output<a class="headerlink" href="#comprehend-output" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>The result above shows that there is two participant, one data reader and one data writer running in the default domain;</p></li>
 <li><p><strong>New</strong> in “New PARTICIPANT”, “New SUBSCRIPTION”, “New PUBLICATION” indicates that the entities are alive. If the entities are no longer alive, the message will be <strong>Disposed</strong> instead, such as “Disposed PARTICIPANT”.</p></li>
@@ -240,18 +239,18 @@
 </section>
 </section>
 <section id="domain-participant-id">
-<h3>Domain participant id<a class="headerlink" href="#domain-participant-id" title="Permalink to this headline">¶</a></h3>
+<h3>Domain participant id<a class="headerlink" href="#domain-participant-id" title="Permalink to this heading">¶</a></h3>
 <p>By default, the <strong>ddsls</strong> subscribes to the default domain (domain 0 unless otherwise configured) and displays information of entities in that domain. However, if you want to view the entity information in another domain, you can use the option <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">id</span></code> to change the domain to which the <strong>ddsls</strong> subscribes.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--id</span></code> option will set the id of the <strong>ddsls</strong> domain participant, allowing the <strong>ddsls</strong> to view entities in the domain you chooses.</p>
 <p>For example, if you run a small script using domain 1 as the domain participant:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">cyclonedds.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
 <span class="linenos">2</span>
 <span class="linenos">3</span><span class="n">dp</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you run <code class="docutils literal notranslate"><span class="pre">ddsls</span> <span class="pre">--topic</span> <span class="pre">dcpsparticipant</span></code>, the participant you’ve just created will not be there, since it’s only viewing entities in the default domain.</p>
 <p>To view this participant information, you need to use:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic dcpsparticipant --id <span class="m">1</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--topic<span class="w"> </span>dcpsparticipant<span class="w"> </span>--id<span class="w"> </span><span class="m">1</span>
 </pre></div>
 </div>
 <p>And the result of the participant in domain 1 will be:</p>
@@ -262,11 +261,11 @@
 </div>
 </section>
 <section id="watch-mode">
-<h3>Watch mode<a class="headerlink" href="#watch-mode" title="Permalink to this headline">¶</a></h3>
+<h3>Watch mode<a class="headerlink" href="#watch-mode" title="Permalink to this heading">¶</a></h3>
 <p>By default, the <strong>ddsls</strong> will run for 1 second and then automatically exit. However, if you want to monitor the entities in the system, you can use the <code class="docutils literal notranslate"><span class="pre">--watch</span></code> option to enable the watch mode.</p>
 <p>In watch mode, the <strong>ddsls</strong> will not automatically exit (if the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option is not selected).  The watch mode monitors entities and displays entity information as they are created and disposed, or as their QoS changes.</p>
 <p>For example, if you have the <strong>ddsls</strong> monitoring the <code class="docutils literal notranslate"><span class="pre">dcpsparticipant</span></code> topic, using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic dcpsparticipant --watch
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--topic<span class="w"> </span>dcpsparticipant<span class="w"> </span>--watch
 </pre></div>
 </div>
 <p>Then start and exit a script that creates a domain participant entity in the default domain, you can get a result like this:</p>
@@ -286,7 +285,7 @@
 </ul>
 </section>
 <section id="verbose-mode">
-<h3>Verbose mode<a class="headerlink" href="#verbose-mode" title="Permalink to this headline">¶</a></h3>
+<h3>Verbose mode<a class="headerlink" href="#verbose-mode" title="Permalink to this heading">¶</a></h3>
 <p>Verbose mode is an optional mode for the <strong>ddsls</strong>. By default, the <strong>ddsls</strong> will only display information of the specific QoS policies that has been changed. But you can use the <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> option to enable to verbose mode, to not only view the specific information, but also the complete information of the entity that has QoS changed.</p>
 <p>By default, when the QoS changes in an entity, the <strong>ddsls</strong> will display which policy has been changed, on which topic and which entity, and the old and new value for the policy.</p>
 <p>For example, when QoS changes in a data writer, you can get a result like this:</p>
@@ -303,7 +302,7 @@
 <li><p>The changed QoS <strong>policy</strong> are OwnershipStrength” and “Userdata”, “OwnershipStrength” changed from 10 to 20 and “Userdata” changed from “Old” to “New”.</p></li>
 </ul>
 <p>When verbose mode is activated, using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --all --watch --verbose
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--all<span class="w"> </span>--watch<span class="w"> </span>--verbose
 </pre></div>
 </div>
 <p>The <strong>ddsls</strong> will not only display the specific QoS change information, but also display the entity information on which the QoS changes occurs.</p>
@@ -328,26 +327,26 @@
 </ul>
 </section>
 <section id="json-mode">
-<h3>JSON mode<a class="headerlink" href="#json-mode" title="Permalink to this headline">¶</a></h3>
+<h3>JSON mode<a class="headerlink" href="#json-mode" title="Permalink to this heading">¶</a></h3>
 <p>For better viewing the entity information, you can use the <code class="docutils literal notranslate"><span class="pre">--json</span></code> option to view the results in JSON format.</p>
 <p>For example, start up the <strong>ddsls</strong> in JSON mode using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic participant --json
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--topic<span class="w"> </span>participant<span class="w"> </span>--json
 </pre></div>
 </div>
 <p>And you can get a result in JSON format like this:</p>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PARTICIPANT&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5dc81001-75dc-1fe3-5468-48b3000001c1&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;764e1001-d9da-53dd-ca0b-ab06000001c1&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}]</span><span class="w"></span>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PARTICIPANT&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5dc81001-75dc-1fe3-5468-48b3000001c1&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;764e1001-d9da-53dd-ca0b-ab06000001c1&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}]</span>
 </pre></div>
 </div>
 <p>In JSON mode, the output result is divided into 3 parts:</p>
@@ -358,27 +357,27 @@
 </ul>
 </section>
 <section id="write-to-file">
-<h3>Write to file<a class="headerlink" href="#write-to-file" title="Permalink to this headline">¶</a></h3>
+<h3>Write to file<a class="headerlink" href="#write-to-file" title="Permalink to this heading">¶</a></h3>
 <p>Other than printing the results in the terminal, you can also choose to write the results to a file using the <code class="docutils literal notranslate"><span class="pre">--filename</span></code> option, providing the name of the file you want to write to. The results will be written to the file in JSON format.</p>
 <p>For example, you can choose to write the result to a file named “test.json” using the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --topic participant --watch --filename ddsls_data.json
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--topic<span class="w"> </span>participant<span class="w"> </span>--watch<span class="w"> </span>--filename<span class="w"> </span>ddsls_data.json
 </pre></div>
 </div>
 <p>After stopping the <strong>ddsls</strong>, the results will be written to the test.json file in your current directory. And the ddsls_data.json file will look like this:</p>
-<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;PARTICIPANT&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;New&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;da531001-77b3-aef6-0cb8-647f000001c1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;da531001-77b3-aef6-0cb8-647f000001c1&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;Disposed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;8e281001-e010-0c8d-305c-20a3000001c1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8e281001-e010-0c8d-305c-20a3000001c1&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;PARTICIPANT&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;New&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;da531001-77b3-aef6-0cb8-647f000001c1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;da531001-77b3-aef6-0cb8-647f000001c1&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;Disposed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;8e281001-e010-0c8d-305c-20a3000001c1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8e281001-e010-0c8d-305c-20a3000001c1&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>In the output file:</p>
@@ -389,10 +388,10 @@
 </ul>
 </section>
 <section id="runtime">
-<h3>Runtime<a class="headerlink" href="#runtime" title="Permalink to this headline">¶</a></h3>
+<h3>Runtime<a class="headerlink" href="#runtime" title="Permalink to this heading">¶</a></h3>
 <p>Besides using the <strong>ddsls</strong> by default, which will only run for 1 seconds, and using the <strong>ddsls</strong> in watch mode, which will run indefinitely until there is an interrupt, you can use the <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option to customize the running time according to your needs.</p>
 <p>For example, if you want to run the <strong>ddsls</strong> for 10 seconds, you can use the command:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls --all --runtime <span class="m">10</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ddsls<span class="w"> </span>--all<span class="w"> </span>--runtime<span class="w"> </span><span class="m">10</span>
 </pre></div>
 </div>
 <p>And the tool will automatically shut down after running for 10 seconds. This <code class="docutils literal notranslate"><span class="pre">--runtime</span></code> option can also apply to watch mode.</p>
@@ -454,7 +453,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2025, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

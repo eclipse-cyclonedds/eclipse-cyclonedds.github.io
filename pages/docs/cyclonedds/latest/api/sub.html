@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Subscription &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -165,7 +163,7 @@
           <div class="body" role="main">
             
   <section id="subscription">
-<h1>Subscription<a class="headerlink" href="#subscription" title="Permalink to this headline">¶</a></h1>
+<h1>Subscription<a class="headerlink" href="#subscription" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__subscription"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">subscription</span></span></dt>
@@ -173,7 +171,7 @@
 </dd></dl>
 
 <section id="subscriber">
-<h2>Subscriber<a class="headerlink" href="#subscriber" title="Permalink to this headline">¶</a></h2>
+<h2>Subscriber<a class="headerlink" href="#subscriber" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__subscriber"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">subscriber</span></span></dt>
@@ -185,21 +183,21 @@
 <span class="target" id="group__subscriber_1ga0db962ce956278f1cb704d90e59bb859"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_subscriber</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_subscriber" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a new instance of a DDS subscriber. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant</strong> – <strong>[in]</strong> The participant on which the subscriber is being created. </p></li>
 <li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new subscriber (can be NULL). </p></li>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new subscriber (can be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid subscriber handle. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the parameters is invalid. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid subscriber handle or an error code.</p>
 </dd>
 </dl>
@@ -211,18 +209,18 @@
 <dd><p>Trigger DATA_AVAILABLE event on contained readers</p>
 <p>The DATA_AVAILABLE event is broadcast to all readers owned by this subscriber that currently have new data available. Any on_data_available listener callbacks attached to respective readers are invoked. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>subscriber</strong> – <strong>[in]</strong> A valid subscriber handle.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The provided subscriber is invalid. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -233,7 +231,7 @@
 
 </section>
 <section id="reader">
-<h2>Reader<a class="headerlink" href="#reader" title="Permalink to this headline">¶</a></h2>
+<h2>Reader<a class="headerlink" href="#reader" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__reader"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">reader</span></span></dt>
@@ -248,7 +246,7 @@
 <p>
 DOC_TODO: Complete list of error codes </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant_or_subscriber</strong> – <strong>[in]</strong> The participant or subscriber on which the reader is being created. </p></li>
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read. </p></li>
@@ -256,13 +254,13 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new reader (can be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid reader handle. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid reader handle or an error code.</p>
 </dd>
 </dl>
@@ -276,7 +274,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>
 DOC_TODO: Complete list of error codes </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant_or_subscriber</strong> – <strong>[in]</strong> The participant or subscriber on which the reader is being created. </p></li>
 <li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read. </p></li>
@@ -285,13 +283,13 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>rhc</strong> – <strong>[in]</strong> Reader history cache to use, reader becomes the owner</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid reader handle. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred.</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid reader handle or an error code.</p>
 </dd>
 </dl>
@@ -305,13 +303,13 @@ DOC_TODO: Complete list of error codes </p>
 <p>
 DOC_TODO: Complete list of error codes </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader on which to wait for historical data. </p></li>
 <li><p><strong>max_wait</strong> – <strong>[in]</strong> How long to wait for historical data before time out.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a status, 0 on success, TIMEOUT on timeout or a negative value to indicate error.</p>
 </dd>
 </dl>
@@ -321,7 +319,7 @@ DOC_TODO: Complete list of error codes </p>
 </dd></dl>
 
 <section id="reading-ops">
-<h3>Reading Ops<a class="headerlink" href="#reading-ops" title="Permalink to this headline">¶</a></h3>
+<h3>Reading Ops<a class="headerlink" href="#reading-ops" title="Permalink to this heading">¶</a></h3>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__reading"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">reading</span></span></dt>
@@ -344,25 +342,25 @@ DOC_TODO: Complete list of error codes </p>
 <p>This defines the function type used by <a class="reference internal" href="#group__reading_1ga02a32adeb1ed2b000f46c2aeb957981c"><span class="std std-ref">dds_read_with_collector</span></a> and <a class="reference internal" href="#group__reading_1ga5762c02a9119b219fa5a7417d33d951e"><span class="std std-ref">dds_take_with_collector</span></a> for passing samples to be included in the result to an application defined function for collecting them in whatever way it needs. The function is called for each sample while the RHC is locked, and so it is advisable to only perform a small amount of work. Calling Cyclone DDS API functions is not supported. </p>
 <p>It is called for the samples in the order compatible with the requirements of the DDS specification, in particular that means instances are contiguous.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Param arg</dt>
+<dt class="field-odd">Param arg<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>[in]</strong> A pointer to the application-defined argument passed to read/take </p>
 </dd>
-<dt class="field-even">Param si</dt>
+<dt class="field-even">Param si<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>[in]</strong> A fully initialized sample info object </p>
 </dd>
-<dt class="field-odd">Param st</dt>
+<dt class="field-odd">Param st<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>[in]</strong> The underlying ddsi_sertype (needed only if si.valid_data is false) </p>
 </dd>
-<dt class="field-even">Param sd</dt>
+<dt class="field-even">Param sd<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>[in]</strong> The sample, if si.valid_data is false, the type has been erased (hence the “st” argument)</p>
 </dd>
-<dt class="field-odd">Retval DDS_RETCODE_OK</dt>
+<dt class="field-odd">Retval DDS_RETCODE_OK<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the sample was successfully handled and reading can continue </p>
 </dd>
-<dt class="field-even">Retval otherwise</dt>
+<dt class="field-even">Retval otherwise<span class="colon">:</span></dt>
 <dd class="field-even"><p>an error, this will propagated to the caller if it occurs on the first call otherwise the return valu eof read/take will be the number of samples successfully collected </p>
 </dd>
-<dt class="field-odd">Return</dt>
+<dt class="field-odd">Return<span class="colon">:</span></dt>
 <dd class="field-odd"><p>An indication of success or failure </p>
 </dd>
 </dl>
@@ -403,7 +401,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>The loans returned by <code class="docutils literal notranslate"><span class="pre">dds_peek</span></code> operation are potentially shared copies of the data and the contents may not be modified. If a private copy is required, pass in non-null pointers to memory as in the third case above.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">si</span></code> array is filled with sample information on all returned samples. If the <code class="docutils literal notranslate"><span class="pre">valid_data</span></code> flag is set in the sample info for a particular sample, all fields of that sample are valid. Otherwise, only the key value is valid. For the C binding, all other fields will be set to 0.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples (see above). </p></li>
@@ -412,7 +410,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -421,7 +419,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -434,7 +432,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>See <a class="reference internal" href="#group__reading_1gaa98247d83a73d8b71399b5c82835d571"><span class="std std-ref">dds_peek</span></a>. The matching criterion referred to there is that the sample/view/instance states must match the specification in the <code class="docutils literal notranslate"><span class="pre">mask</span></code> parameter. </p>
 <p>If the sample/view/instance state component in the mask is 0 and <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a data reader (as opposed to a read or query condition), it is treated as equivalent to any sample/view/instance state. If <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a read or query condition, the matching states are the union of <code class="docutils literal notranslate"><span class="pre">mask</span></code> and the condition’s mask.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -444,7 +442,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -453,7 +451,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -465,7 +463,7 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Read data for a specific instance from the data reader, read or query condition without updating state</p>
 <p>See <a class="reference internal" href="#group__reading_1gaa98247d83a73d8b71399b5c82835d571"><span class="std std-ref">dds_peek</span></a>. The matching criterion referred to there is that the instance handle must equal the <code class="docutils literal notranslate"><span class="pre">handle</span></code> parameter. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -475,7 +473,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -485,7 +483,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -503,7 +501,7 @@ DOC_TODO: Complete list of error codes </p>
 </p>
 <p>If the sample/view/instance state component in the mask is 0 and <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a data reader (as opposed to a read or query condition), it is treated as equivalent to any sample/view/instance state. If <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a read or query condition, the matching states are the union of <code class="docutils literal notranslate"><span class="pre">mask</span></code> and the condition’s mask.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -514,7 +512,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -524,7 +522,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -536,14 +534,14 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Read the first unread sample without updating state</p>
 <p>Equivalent to <code class="docutils literal notranslate"><span class="pre">dds_peek_mask(reader,</span> <span class="pre">buf,</span> <span class="pre">si,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">DDS_NOT_READ_SAMPLE_STATE)</span></code>. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> A pointer to a sample. </p></li>
 <li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
@@ -551,7 +549,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -589,7 +587,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>The loans returned by <code class="docutils literal notranslate"><span class="pre">dds_read</span></code> operation are potentially shared copies of the data and the contents may not be modified. If a private copy is required, pass in non-null pointers to memory as in the third case above.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">si</span></code> array is filled with sample information on all returned samples. If the <code class="docutils literal notranslate"><span class="pre">valid_data</span></code> flag is set in the sample info for a particular sample, all fields of that sample are valid. Otherwise, only the key value is valid. For the C binding, all other fields will be set to 0.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples (see above). </p></li>
@@ -598,7 +596,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -607,7 +605,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -625,7 +623,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -633,7 +631,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -642,7 +640,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code</p>
 </dd>
 </dl>
@@ -655,7 +653,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>See <a class="reference internal" href="#group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"><span class="std std-ref">dds_read</span></a>. The matching criterion referred to there is that the sample/view/instance states must match the specification in the <code class="docutils literal notranslate"><span class="pre">mask</span></code> parameter. </p>
 <p>If the sample/view/instance state component in the mask is 0 and <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a data reader (as opposed to a read or query condition), it is treated as equivalent to any sample/view/instance state. If <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a read or query condition, the matching states are the union of <code class="docutils literal notranslate"><span class="pre">mask</span></code> and the condition’s mask.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -665,7 +663,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -674,7 +672,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -692,7 +690,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -701,7 +699,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -710,7 +708,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -722,7 +720,7 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Read data for a specific instance from the data reader, read or query condition</p>
 <p>See <a class="reference internal" href="#group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"><span class="std std-ref">dds_read</span></a>. The matching criterion referred to there is that the instance handle must equal the <code class="docutils literal notranslate"><span class="pre">handle</span></code> parameter. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -732,7 +730,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -742,7 +740,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -760,7 +758,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -769,7 +767,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -779,7 +777,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -797,7 +795,7 @@ DOC_TODO: Complete list of error codes </p>
 </p>
 <p>If the sample/view/instance state component in the mask is 0 and <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a data reader (as opposed to a read or query condition), it is treated as equivalent to any sample/view/instance state. If <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a read or query condition, the matching states are the union of <code class="docutils literal notranslate"><span class="pre">mask</span></code> and the condition’s mask.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -808,7 +806,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -818,7 +816,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -836,7 +834,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -846,7 +844,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -856,7 +854,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -868,14 +866,14 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Read the first unread sample</p>
 <p>Equivalent to <code class="docutils literal notranslate"><span class="pre">dds_read_mask(reader,</span> <span class="pre">buf,</span> <span class="pre">si,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">DDS_NOT_READ_SAMPLE_STATE)</span></code>. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> A pointer to a sample. </p></li>
 <li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
@@ -883,7 +881,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -901,14 +899,14 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> A pointer to a sample. </p></li>
 <li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
@@ -916,7 +914,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -954,7 +952,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>The loans returned by <code class="docutils literal notranslate"><span class="pre">dds_take</span></code> operation are potentially shared copies of the data and the contents may not be modified. If a private copy is required, pass in non-null pointers to memory as in the third case above.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">si</span></code> array is filled with sample information on all returned samples. If the <code class="docutils literal notranslate"><span class="pre">valid_data</span></code> flag is set in the sample info for a particular sample, all fields of that sample are valid. Otherwise, only the key value is valid. For the C binding, all other fields will be set to 0.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples (see above). </p></li>
@@ -963,7 +961,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -972,7 +970,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -990,7 +988,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -998,7 +996,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1007,7 +1005,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1020,7 +1018,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>See <a class="reference internal" href="#group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"><span class="std std-ref">dds_take</span></a>. The matching criterion referred to there is that the sample/view/instance states must match the specification in the <code class="docutils literal notranslate"><span class="pre">mask</span></code> parameter. </p>
 <p>If the sample/view/instance state component in the mask is 0 and <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a data reader (as opposed to a read or query condition), it is treated as equivalent to any sample/view/instance state. If <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a read or query condition, the matching states are the union of <code class="docutils literal notranslate"><span class="pre">mask</span></code> and the condition’s mask.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -1030,7 +1028,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1039,7 +1037,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1057,7 +1055,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -1066,7 +1064,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1075,7 +1073,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1087,7 +1085,7 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Take data for a specific instance from the data reader, read or query condition</p>
 <p>See <a class="reference internal" href="#group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"><span class="std std-ref">dds_take</span></a>. The matching criterion referred to there is that the instance handle must equal the <code class="docutils literal notranslate"><span class="pre">handle</span></code> parameter. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -1097,7 +1095,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1107,7 +1105,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1125,7 +1123,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -1134,7 +1132,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>handle</strong> – <strong>[in]</strong> Instance handle related to the samples to read.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1144,7 +1142,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1162,7 +1160,7 @@ DOC_TODO: Complete list of error codes </p>
 </p>
 <p>If the sample/view/instance state component in the mask is 0 and <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a data reader (as opposed to a read or query condition), it is treated as equivalent to any sample/view/instance state. If <code class="docutils literal notranslate"><span class="pre">reader_or_condition</span></code> references a read or query condition, the matching states are the union of <code class="docutils literal notranslate"><span class="pre">mask</span></code> and the condition’s mask.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">bufsz</span></code> pointers to samples. </p></li>
@@ -1173,7 +1171,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1183,7 +1181,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1201,7 +1199,7 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> An array of <code class="docutils literal notranslate"><span class="pre">maxs</span></code> pointers to samples. </p></li>
@@ -1211,7 +1209,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=</strong> – 0 Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1221,7 +1219,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples or an error code.</p>
 </dd>
 </dl>
@@ -1233,14 +1231,14 @@ DOC_TODO: Complete list of error codes </p>
 <dd><p>Take the first unread sample</p>
 <p>Equivalent to <code class="docutils literal notranslate"><span class="pre">dds_take_mask(reader,</span> <span class="pre">buf,</span> <span class="pre">si,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">DDS_NOT_READ_SAMPLE_STATE)</span></code>. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> A pointer to a sample. </p></li>
 <li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
@@ -1248,7 +1246,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -1266,14 +1264,14 @@ DOC_TODO: Complete list of error codes </p>
 
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[inout]</strong> A pointer to a sample. </p></li>
 <li><p><strong>si</strong> – <strong>[out]</strong> The pointer to <a class="reference internal" href="#group__subdata_1ga2e3f15a60e9c8da042fe383e0d20accb"><span class="std std-ref">dds_sample_info_t</span></a> returned for a data value.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter. </p></li>
@@ -1281,7 +1279,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -1295,7 +1293,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Collected samples are not marked as read.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Handle of a reader or a read/query condition </p></li>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples (1 .. INT32_MAX) </p></li>
@@ -1305,7 +1303,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>collect_sample_arg</strong> – <strong>[in]</strong> Arbitrary argument passed to “collect_sample” </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;</strong> – 0 number of samples passed successfully collected by collect_sample </p></li>
 <li><p><strong>0</strong> – success, no matching data </p></li>
@@ -1316,7 +1314,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>&lt;</strong> – 0 Return value of failing collect_sample on first invocation </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The number of returned samples or an error code </p>
 </dd>
 </dl>
@@ -1330,7 +1328,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Collected samples are marked as read.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Handle of a reader or a read/query condition </p></li>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples (1 .. INT32_MAX) </p></li>
@@ -1340,7 +1338,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>collect_sample_arg</strong> – <strong>[in]</strong> Arbitrary argument passed to “collect_sample” </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;</strong> – 0 number of samples passed successfully collected by collect_sample </p></li>
 <li><p><strong>0</strong> – success, no matching data </p></li>
@@ -1351,7 +1349,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>&lt;</strong> – 0 Return value of failing collect_sample on first invocation </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The number of returned samples or an error code </p>
 </dd>
 </dl>
@@ -1365,7 +1363,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Collected samples are removed from the history cache.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Handle of a reader or a read/query condition </p></li>
 <li><p><strong>maxs</strong> – <strong>[in]</strong> Maximum number of samples (1 .. INT32_MAX) </p></li>
@@ -1375,7 +1373,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>collect_sample_arg</strong> – <strong>[in]</strong> Arbitrary argument passed to “collect_sample” </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;</strong> – 0 number of samples passed successfully collected by collect_sample </p></li>
 <li><p><strong>0</strong> – success, no matching data </p></li>
@@ -1386,7 +1384,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>&lt;</strong> – 0 Return value of failing collect_sample on first invocation </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The number of returned samples or an error code </p>
 </dd>
 </dl>
@@ -1403,7 +1401,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Note that this is a simple wrapper around <a class="reference internal" href="#group__reading_1gae7f349ecb5999d9cf90dbe020b6b4c61"><span class="std std-ref">dds_peek_with_collector</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[out]</strong> Filled with references ddsi_serdata structures. </p></li>
@@ -1412,7 +1410,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1422,7 +1420,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The precondition for this operation is not met. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1439,7 +1437,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Note that this is a simple wrapper around <a class="reference internal" href="#group__reading_1gae7f349ecb5999d9cf90dbe020b6b4c61"><span class="std std-ref">dds_peek_with_collector</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[out]</strong> Filled with references ddsi_serdata structures. </p></li>
@@ -1449,7 +1447,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1459,7 +1457,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1476,7 +1474,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Note that this is a simple wrapper around <a class="reference internal" href="#group__reading_1ga02a32adeb1ed2b000f46c2aeb957981c"><span class="std std-ref">dds_read_with_collector</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[out]</strong> Filled with references ddsi_serdata structures. </p></li>
@@ -1485,7 +1483,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1495,7 +1493,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The precondition for this operation is not met. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1512,7 +1510,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Note that this is a simple wrapper around <a class="reference internal" href="#group__reading_1ga02a32adeb1ed2b000f46c2aeb957981c"><span class="std std-ref">dds_read_with_collector</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[out]</strong> Filled with references ddsi_serdata structures. </p></li>
@@ -1522,7 +1520,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1532,7 +1530,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1549,7 +1547,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Note that this is a simple wrapper around <a class="reference internal" href="#group__reading_1ga5762c02a9119b219fa5a7417d33d951e"><span class="std std-ref">dds_take_with_collector</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[out]</strong> Filled with references ddsi_serdata structures. </p></li>
@@ -1558,7 +1556,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1568,7 +1566,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The precondition for this operation is not met. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1585,7 +1583,7 @@ DOC_TODO: Complete list of error codes </p>
 <p>If the sample/view/instance state component in the mask is 0 and there is no read or query condition, to combine it with, it is treated as equivalent to any sample/view/instance state.</p>
 <p>Note that this is a simple wrapper around <a class="reference internal" href="#group__reading_1ga5762c02a9119b219fa5a7417d33d951e"><span class="std std-ref">dds_take_with_collector</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader_or_condition</strong> – <strong>[in]</strong> Reader, readcondition or querycondition entity. </p></li>
 <li><p><strong>buf</strong> – <strong>[out]</strong> Filled with references ddsi_serdata structures. </p></li>
@@ -1595,7 +1593,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Filter the data based on dds_sample_state_t|dds_view_state_t|dds_instance_state_t.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of samples read. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -1605,7 +1603,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The instance handle has not been registered with this reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of samples read or an error code.</p>
 </dd>
 </dl>
@@ -1615,14 +1613,16 @@ DOC_TODO: Complete list of error codes </p>
 <dt class="sig sig-object c">
 <span class="target" id="group__reading_1ga274058b5b9d6ad73113b84081e5c336a"></span><span class="sig-name descname"><span class="pre">dds_return_t</span> <span class="pre">dds_reader_store_loaned_sample</span> <span class="pre">(dds_entity_t</span> <span class="pre">reader,</span> <span class="pre">dds_loaned_sample_t</span> <span class="pre">*data)</span> <span class="pre">ddsrt_nonnull_all</span></span></dt>
 <dd><p>insert data from a loaned sample into the reader history cache </p>
+<p>Constructs a serdata of the reader’s type from the loaned sample and stores it in the reader’s history cache. If the serdata references the loan, <code class="docutils literal notranslate"><span class="pre">dds_loaned_sample_ref</span></code> is used to increment its reference count.</p>
+<p>If data is not from a known writer, this is a no-op.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> Pointer to the loaned sample of the entity received</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more parameters are invalid. </p></li>
@@ -1630,7 +1630,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The reader entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -1640,8 +1640,10 @@ DOC_TODO: Complete list of error codes </p>
 <dt class="sig sig-object c">
 <span class="target" id="group__reading_1ga3b00d946ebd665a097ae1c58c33f9369"></span><span class="sig-name descname"><span class="pre">dds_return_t</span> <span class="pre">dds_reader_store_loaned_sample_wr_metadata</span> <span class="pre">(dds_entity_t</span> <span class="pre">reader,</span> <span class="pre">dds_loaned_sample_t</span> <span class="pre">*data,</span> <span class="pre">int32_t</span> <span class="pre">ownership_strength,</span> <span class="pre">bool</span> <span class="pre">autodispose_unregistered_instances,</span> <span class="pre">dds_duration_t</span> <span class="pre">lifespan_duration)</span> <span class="pre">ddsrt_nonnull_all</span></span></dt>
 <dd><p>insert data from a loaned sample into the reader history cache using the provided writer meta-data </p>
+<p>Constructs a serdata of the reader’s type from the loaned sample and stores it in the reader’s history cache. If the serdata references the loan, <code class="docutils literal notranslate"><span class="pre">dds_loaned_sample_ref</span></code> is used to increment its reference count.</p>
+<p>It is equivalent to <code class="docutils literal notranslate"><span class="pre">dds_reader_store_loaned_sample</span></code>, except that for this function no writer look-up takes place (it doesn’t need to because the required information is passed in directly) and data unknown writers is accepted.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader entity. </p></li>
 <li><p><strong>data</strong> – <strong>[in]</strong> Pointer to the loaned sample of the entity received </p></li>
@@ -1650,7 +1652,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>lifespan_duration</strong> – <strong>[in]</strong> Lifespan duration value configured for the writer</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more parameters are invalid. </p></li>
@@ -1658,7 +1660,7 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The reader entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -1670,7 +1672,7 @@ DOC_TODO: Complete list of error codes </p>
 </section>
 </section>
 <section id="subscription-data">
-<h2>Subscription Data<a class="headerlink" href="#subscription-data" title="Permalink to this headline">¶</a></h2>
+<h2>Subscription Data<a class="headerlink" href="#subscription-data" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__subdata"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">subdata</span></span></dt>
@@ -1910,8 +1912,8 @@ DOC_TODO: Complete list of error codes </p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
