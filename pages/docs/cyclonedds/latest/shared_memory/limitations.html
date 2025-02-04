@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Limitations of shared memory &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -149,12 +147,12 @@
           <div class="body" role="main">
             
   <section id="limitations-of-shared-memory">
-<span id="shared-mem-limits"></span><span id="index-0"></span><h1>Limitations of shared memory<a class="headerlink" href="#limitations-of-shared-memory" title="Permalink to this headline">¶</a></h1>
+<span id="shared-mem-limits"></span><span id="index-0"></span><h1>Limitations of shared memory<a class="headerlink" href="#limitations-of-shared-memory" title="Permalink to this heading">¶</a></h1>
 <p>Due to the manner in which data is exchanged over shared memory, there are some
 limitations to the types of data that may be exchanged, and delivery are required to ensure their correct
 functioning.</p>
 <section id="fixed-size-data-types">
-<h2>Fixed size data types<a class="headerlink" href="#fixed-size-data-types" title="Permalink to this headline">¶</a></h2>
+<h2>Fixed size data types<a class="headerlink" href="#fixed-size-data-types" title="Permalink to this heading">¶</a></h2>
 <p>The data types to be exchanged need to have a fixed size. This precludes the
 use of strings and sequences at any level in the data type. This does not prevent
 the use of arrays, as their size is fixed at compile time. If any of these types
@@ -165,14 +163,14 @@ instead of strings (and arrays of other types in stead of sequences), and accept
 the overhead.</p>
 </section>
 <section id="iceoryx-data-exchange">
-<span id="index-1"></span><h2>iceoryx data exchange<a class="headerlink" href="#iceoryx-data-exchange" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>iceoryx data exchange<a class="headerlink" href="#iceoryx-data-exchange" title="Permalink to this heading">¶</a></h2>
 <p>The manner in which the <a href="https://projects.eclipse.org/proposals/eclipse-iceoryx/" target="_blank">Eclipse iceoryx</a> memory pool keeps track of exchanged data puts a
 number of limitations on the QoS settings. For Writers, the following QoS settings
 are prerequisites for shared memory exchange:</p>
-<table class="colwidths-given docutils align-left">
+<table class="docutils align-left">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Liveliness</p></td>
@@ -201,10 +199,10 @@ some code paths can differ, and be more efficient.</p>
 </tbody>
 </table>
 <p>For Readers, the following QoS settings are prerequisites for shared memory exchange:</p>
-<table class="colwidths-given docutils align-left">
+<table class="docutils align-left">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Liveliness</p></td>
@@ -232,7 +230,7 @@ and data transfer falls back to the network interface.</p>
 iceoryx service is 127.</p>
 </section>
 <section id="operating-system-limitations">
-<h2>Operating system limitations<a class="headerlink" href="#operating-system-limitations" title="Permalink to this headline">¶</a></h2>
+<h2>Operating system limitations<a class="headerlink" href="#operating-system-limitations" title="Permalink to this heading">¶</a></h2>
 <p>The limit on the operating system. iceoryx has no functioning implementation for the
 Windows operating system. Refer to <a href="https://github.com/eclipse/iceoryx/issues/33" target="_blank">iceoryx issues</a> for further information.</p>
 </section>
@@ -285,8 +283,8 @@ Windows operating system. Refer to <a href="https://github.com/eclipse/iceoryx/i
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

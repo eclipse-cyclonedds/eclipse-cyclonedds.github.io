@@ -10,9 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/helpers.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/helpers.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/js/petite-vue.js"></script>
@@ -110,7 +109,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -150,23 +149,23 @@
 <span class="sd"> * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">concurrent.futures</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">concurrent.futures</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_clayer</span> <span class="k">as</span> <span class="n">cl</span>
-<span class="kn">from</span> <span class="nn">.internal</span> <span class="kn">import</span> <span class="n">feature_type_discovery</span>
-<span class="kn">from</span> <span class="nn">.core</span> <span class="kn">import</span> <span class="n">DDSException</span>
-<span class="kn">from</span> <span class="nn">.domain</span> <span class="kn">import</span> <span class="n">DomainParticipant</span>
-<span class="kn">from</span> <span class="nn">.idl</span> <span class="kn">import</span> <span class="n">IdlBitmask</span><span class="p">,</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span>
-<span class="kn">from</span> <span class="nn">.idl._xt_builder</span> <span class="kn">import</span> <span class="n">XTInterpreter</span><span class="p">,</span> <span class="n">XTTypeIdScanner</span>
-<span class="kn">from</span> <span class="nn">.idl._typesupport.DDS.XTypes._ddsi_xt_type_object</span> <span class="kn">import</span> <span class="n">TypeIdentifier</span><span class="p">,</span> <span class="n">TypeObject</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">_clayer</span> <span class="k">as</span> <span class="n">cl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.internal</span><span class="w"> </span><span class="kn">import</span> <span class="n">feature_type_discovery</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">DDSException</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlBitmask</span><span class="p">,</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.idl._xt_builder</span><span class="w"> </span><span class="kn">import</span> <span class="n">XTInterpreter</span><span class="p">,</span> <span class="n">XTTypeIdScanner</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.idl._typesupport.DDS.XTypes._ddsi_xt_type_object</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeIdentifier</span><span class="p">,</span> <span class="n">TypeObject</span>
 
 
-<div class="viewcode-block" id="get_types_for_typeid"><a class="viewcode-back" href="../../cyclonedds.dynamic.html#cyclonedds.dynamic.get_types_for_typeid">[docs]</a><span class="k">def</span> <span class="nf">get_types_for_typeid</span><span class="p">(</span><span class="n">participant</span><span class="p">:</span> <span class="n">DomainParticipant</span><span class="p">,</span> <span class="n">type_id</span><span class="p">:</span> <span class="n">TypeIdentifier</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> \
+<div class="viewcode-block" id="get_types_for_typeid"><a class="viewcode-back" href="../../cyclonedds.dynamic.html#cyclonedds.dynamic.get_types_for_typeid">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">get_types_for_typeid</span><span class="p">(</span><span class="n">participant</span><span class="p">:</span> <span class="n">DomainParticipant</span><span class="p">,</span> <span class="n">type_id</span><span class="p">:</span> <span class="n">TypeIdentifier</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> \
         <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span><span class="p">,</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlBitmask</span><span class="p">]]]:</span>
-    <span class="sd">&quot;&quot;&quot;Attempt to gather the Python types that match a TypeIdentifier. This might involve several</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Attempt to gather the Python types that match a TypeIdentifier. This might involve several</span>
 <span class="sd">    network roundtrips to request necessary type information.</span>
 
 <span class="sd">    Returns</span>
@@ -199,7 +198,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">type_object</span> <span class="o">=</span> <span class="n">TypeObject</span><span class="o">.</span><span class="n">deserialize</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">has_header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_version_2</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">DDSException</span><span class="o">.</span><span class="n">DDS_RETCODE_ERROR</span><span class="p">,</span> <span class="s2">&quot;Got invalid TypeObject from C layer.&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+            <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">DDSException</span><span class="o">.</span><span class="n">DDS_RETCODE_ERROR</span><span class="p">,</span> <span class="s2">&quot;Got invalid TypeObject from C layer.&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 
         <span class="k">for</span> <span class="n">dep_tid</span> <span class="ow">in</span> <span class="n">XTTypeIdScanner</span><span class="o">.</span><span class="n">find_all_typeids</span><span class="p">(</span><span class="n">type_object</span><span class="p">):</span>
             <span class="n">to_resolve</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dep_tid</span><span class="p">)</span>
@@ -209,9 +208,9 @@
     <span class="k">return</span> <span class="n">XTInterpreter</span><span class="o">.</span><span class="n">xt_to_class</span><span class="p">(</span><span class="n">type_id</span><span class="p">,</span> <span class="n">typemap</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="async_get_types_for_typeid"><a class="viewcode-back" href="../../cyclonedds.dynamic.html#cyclonedds.dynamic.async_get_types_for_typeid">[docs]</a><span class="k">async</span> <span class="k">def</span> <span class="nf">async_get_types_for_typeid</span><span class="p">(</span><span class="n">participant</span><span class="p">:</span> <span class="n">DomainParticipant</span><span class="p">,</span> <span class="n">type_id</span><span class="p">:</span> <span class="n">TypeIdentifier</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> \
+<div class="viewcode-block" id="async_get_types_for_typeid"><a class="viewcode-back" href="../../cyclonedds.dynamic.html#cyclonedds.dynamic.async_get_types_for_typeid">[docs]</a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">async_get_types_for_typeid</span><span class="p">(</span><span class="n">participant</span><span class="p">:</span> <span class="n">DomainParticipant</span><span class="p">,</span> <span class="n">type_id</span><span class="p">:</span> <span class="n">TypeIdentifier</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> \
         <span class="n">Tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span><span class="p">,</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlBitmask</span><span class="p">]]]:</span>
-    <span class="sd">&quot;&quot;&quot;Async version of get_types_for_typeid. Runs in separate thread.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Async version of get_types_for_typeid. Runs in separate thread.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">feature_type_discovery</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span><span class="n">DDSException</span><span class="o">.</span><span class="n">DDS_RETCODE_ILLEGAL_OPERATION</span><span class="p">,</span> <span class="s2">&quot;CycloneDDS was not compiled with type support&quot;</span><span class="p">)</span>
 
@@ -243,7 +242,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2025, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

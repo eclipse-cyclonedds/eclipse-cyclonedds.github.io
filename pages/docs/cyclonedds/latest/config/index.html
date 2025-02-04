@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Configuration guide &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -12,9 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/tabs.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -113,7 +112,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -158,7 +157,7 @@
           <div class="body" role="main">
             
   <section id="configuration-guide">
-<span id="config-docs"></span><h1>Configuration guide<a class="headerlink" href="#configuration-guide" title="Permalink to this headline">¶</a></h1>
+<span id="config-docs"></span><h1>Configuration guide<a class="headerlink" href="#configuration-guide" title="Permalink to this heading">¶</a></h1>
 <p>Configuration parameters for Cyclone DDS are expressed in XML and grouped together in an
 XML file. To use a custom XML configuration in an application, you must set the <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_URI</span></code>
 environment variable to the location of the configuration file. For example:</p>
@@ -175,26 +174,26 @@ environment variable to the location of the configuration file. For example:</p>
 <div class="code-block-caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">/path/to/dds/configuration.xml</span></code></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="linenos"> 2</span><span class="nt">&lt;CycloneDDS</span>
-<span class="linenos"> 3</span>  <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
-<span class="linenos"> 4</span>  <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class="linenos"> 5</span>  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+<span class="linenos"> 4</span><span class="w">  </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="linenos"> 5</span><span class="w">  </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd&quot;</span>
 <span class="linenos"> 6</span><span class="nt">&gt;</span>
-<span class="linenos"> 7</span>  <span class="nt">&lt;Domain</span> <span class="na">Id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 8</span>    <span class="nt">&lt;General&gt;</span>
-<span class="linenos"> 9</span>      <span class="nt">&lt;Interfaces&gt;</span>
-<span class="linenos">10</span>        <span class="nt">&lt;NetworkInterface</span> <span class="na">autodetermine=</span><span class="s">&quot;true&quot;</span> <span class="na">priority=</span><span class="s">&quot;default&quot;</span>
-<span class="linenos">11</span>        <span class="na">multicast=</span><span class="s">&quot;default&quot;</span> <span class="nt">/&gt;</span>
-<span class="linenos">12</span>      <span class="nt">&lt;/Interfaces&gt;</span>
-<span class="linenos">13</span>      <span class="nt">&lt;AllowMulticast&gt;</span>default<span class="nt">&lt;/AllowMulticast&gt;</span>
-<span class="linenos">14</span>      <span class="nt">&lt;MaxMessageSize&gt;</span>65500B<span class="nt">&lt;/MaxMessageSize&gt;</span>
-<span class="linenos">15</span>    <span class="nt">&lt;/General&gt;</span>
-<span class="linenos">16</span>    <span class="nt">&lt;Tracing&gt;</span>
-<span class="linenos">17</span>      <span class="nt">&lt;Verbosity&gt;</span>config<span class="nt">&lt;/Verbosity&gt;</span>
-<span class="linenos">18</span>      <span class="nt">&lt;OutputFile&gt;</span>
-<span class="linenos">19</span>        ${HOME}/dds/log/cdds.log.${CYCLONEDDS_PID}
-<span class="linenos">20</span>      <span class="nt">&lt;/OutputFile&gt;</span>
-<span class="linenos">21</span>    <span class="nt">&lt;/Tracing&gt;</span>
-<span class="linenos">22</span>  <span class="nt">&lt;/Domain&gt;</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">Id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="nt">&lt;General&gt;</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="nt">&lt;Interfaces&gt;</span>
+<span class="linenos">10</span><span class="w">        </span><span class="nt">&lt;NetworkInterface</span><span class="w"> </span><span class="na">autodetermine=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">priority=</span><span class="s">&quot;default&quot;</span>
+<span class="linenos">11</span><span class="w">        </span><span class="na">multicast=</span><span class="s">&quot;default&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">      </span><span class="nt">&lt;/Interfaces&gt;</span>
+<span class="linenos">13</span><span class="w">      </span><span class="nt">&lt;AllowMulticast&gt;</span>default<span class="nt">&lt;/AllowMulticast&gt;</span>
+<span class="linenos">14</span><span class="w">      </span><span class="nt">&lt;MaxMessageSize&gt;</span>65500B<span class="nt">&lt;/MaxMessageSize&gt;</span>
+<span class="linenos">15</span><span class="w">    </span><span class="nt">&lt;/General&gt;</span>
+<span class="linenos">16</span><span class="w">    </span><span class="nt">&lt;Tracing&gt;</span>
+<span class="linenos">17</span><span class="w">      </span><span class="nt">&lt;Verbosity&gt;</span>config<span class="nt">&lt;/Verbosity&gt;</span>
+<span class="linenos">18</span><span class="w">      </span><span class="nt">&lt;OutputFile&gt;</span>
+<span class="linenos">19</span><span class="w">        </span>${HOME}/dds/log/cdds.log.${CYCLONEDDS_PID}
+<span class="linenos">20</span><span class="w">      </span><span class="nt">&lt;/OutputFile&gt;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="nt">&lt;/Tracing&gt;</span>
+<span class="linenos">22</span><span class="w">  </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="linenos">23</span><span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
@@ -218,7 +217,7 @@ directly after the <code class="docutils literal notranslate"><span class="pre">
 Otherwise it would not be possible to send and receive messages between apps on the local machine.
 The ip <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> expresses that the communication shall be restricted to your pc only (localhost).</p>
 <section id="configuration-log-files">
-<h2>Configuration log files<a class="headerlink" href="#configuration-log-files" title="Permalink to this headline">¶</a></h2>
+<h2>Configuration log files<a class="headerlink" href="#configuration-log-files" title="Permalink to this heading">¶</a></h2>
 <p>When editing configuration files, the <code class="docutils literal notranslate"><span class="pre">cdds.log</span></code> can be very useful for providing information about the build.
 To determine the information included in the log file, change the <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-tracing-verbosity"><span class="std std-ref">Tracing/Verbosity</span></a> settings.</p>
 <div class="toctree-wrapper compound">
@@ -271,8 +270,8 @@ To determine the information included in the log file, change the <a class="refe
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

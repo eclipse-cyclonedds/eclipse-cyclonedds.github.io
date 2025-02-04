@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Domains &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -159,7 +157,7 @@
           <div class="body" role="main">
             
   <section id="domains">
-<h1>Domains<a class="headerlink" href="#domains" title="Permalink to this headline">¶</a></h1>
+<h1>Domains<a class="headerlink" href="#domains" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__domain"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">domain</span></span></dt>
@@ -193,20 +191,20 @@
 <p>The domain configuration is constructed by amending the default configuration with the Domain configuration (fragments) for which the domain id is specifed as “any” and those for which the domain id matches the specified domain id in the order in which they are encountered in the configuration.</p>
 <p>Using NULL or “” as config will create a domain with default settings.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>domain</strong> – <strong>[in]</strong> The domain to be created. DDS_DEFAULT_DOMAIN is not allowed. </p></li>
 <li><p><strong>config</strong> – <strong>[in]</strong> A configuration string containing file names and/or XML fragments representing the configuration.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Illegal value for domain id or the configfile parameter is NULL. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The domain already existed and cannot be created again. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid entity handle or an error code.</p>
 </dd>
 </dl>
@@ -220,20 +218,20 @@
 <p>It will not be created if a domain with the given domain id already exists. This could have been created implicitly by a previous call to this function, <a class="reference internal" href="#group__domain__participant_1gacfc6838d5a6081c7de2371a61479c254"><span class="std std-ref">dds_create_participant</span></a> or <a class="reference internal" href="#group__domain_1ga9d331f2cc40cd4a4287efe274046a5c1"><span class="std std-ref">dds_create_domain_with_rawconfig</span></a>.</p>
 <p>Please be aware that the given domain_id always takes precedence over the configuration.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>domain</strong> – <strong>[in]</strong> The domain to be created. DDS_DEFAULT_DOMAIN is not allowed. </p></li>
 <li><p><strong>config</strong> – <strong>[in]</strong> A configuration initializer. The lifetime of any pointers in config must be at least that of the lifetime of the domain.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – Illegal value for domain id or the config parameter is NULL. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The domain already existed and cannot be created again. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid entity handle or an error code.</p>
 </dd>
 </dl>
@@ -246,21 +244,21 @@
 <p>This operation acquires the participants created on a domain and returns the number of found participants. </p>
 <p>This function takes a domain id with the size of pre-allocated participant’s list in and will return the number of found participants. It is possible that the given size of the list is not the same as the number of found participants. If less participants are found, then the last few entries in an array stay untouched. If more participants are found and the array is too small, then the participants returned are undefined.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>domain_id</strong> – <strong>[in]</strong> The domain id. </p></li>
 <li><p><strong>participants</strong> – <strong>[out]</strong> The participant for domain. </p></li>
 <li><p><strong>size</strong> – <strong>[in]</strong> Size of the pre-allocated participant’s list.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – Number of participants found. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The participant parameter is NULL, while a size is provided. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of participants found or and error code.</p>
 </dd>
 </dl>
@@ -270,7 +268,7 @@
 </dd></dl>
 
 <section id="domain-participant">
-<h2>Domain Participant<a class="headerlink" href="#domain-participant" title="Permalink to this headline">¶</a></h2>
+<h2>Domain Participant<a class="headerlink" href="#domain-participant" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__domain__participant"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">domain_participant</span></span></dt>
@@ -284,14 +282,14 @@
 <p>The domain id may be specified as DDS_DOMAIN_DEFAULT, in which case the behaviour depends on whether some domain entity already exists or not. If there is at least one, the one with the lowest id will be used. If there are none, one is created with the domain id taken from the first domain id specified in the configuration file (i.e., with a Domain element with the id attribute not “any”), and if no domain id is specified in the configuration file, domain id 0 is used.</p>
 <p>The domain configuration is constructed by amending the default configuration with the Domain configuration (fragments) for which the domain id is specifed as “any” and those for which the domain id matches the specified domain id (not DDS_DOMAIN_DEFAULT) in the order in which they are encountered in the configuration.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>domain</strong> – <strong>[in]</strong> The domain in which to create the participant. </p></li>
 <li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new participant (can be NULL). </p></li>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new participant (can be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid participant handle. </p></li>
 <li><p><strong>DDS_RETCODE_NOT_ALLOWED_BY_SECURITY</strong> – An invalid DDS Security configuration was specified (whether that be missing or incorrect entries, expired certificates, or anything else related to the security settings and implementation). </p></li>
@@ -300,7 +298,7 @@
 <li><p><strong>DDS_RETCODE_ERROR</strong> – The “CYCLONEDDS_URI” environment variable lists non-existent or invalid configuration files, or contains invalid embedded configuration items; or an unspecified internal error has occurred. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid participant handle or an error code.</p>
 </dd>
 </dl>
@@ -357,8 +355,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

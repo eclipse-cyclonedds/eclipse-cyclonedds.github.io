@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Builtin Topic Support &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -159,7 +157,7 @@
           <div class="body" role="main">
             
   <section id="builtin-topic-support">
-<h1>Builtin Topic Support<a class="headerlink" href="#builtin-topic-support" title="Permalink to this headline">¶</a></h1>
+<h1>Builtin Topic Support<a class="headerlink" href="#builtin-topic-support" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__builtintopic__constants"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">builtintopic_constants</span></span></dt>
@@ -272,21 +270,21 @@
 <dd><p>Get instance handles of the data readers matching a writer</p>
 <p>This operation fills the provided array with the instance handles of the data readers that match the writer. On successful output, the number of entries of “rds” set is the minimum of the return value and the value of “nrds”. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer. </p></li>
 <li><p><strong>rds</strong> – <strong>[in]</strong> The array to be filled. </p></li>
 <li><p><strong>nrds</strong> – <strong>[in]</strong> The size of the rds array, at most the first nrds entries will be filled. rds = NULL and nrds = 0 is a valid way of determining the number of matched readers, but inefficient compared to relying on the matched publication status.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – The number of matching readers. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not valid or rds = NULL and nrds &gt; 0. </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating the number of matched readers or failure. The return value may be larger than nrds if there are more matching readers than the array can hold.</p>
 </dd>
 </dl>
@@ -294,24 +292,24 @@
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_matched_subscription_data">
-<span class="target" id="group__builtintopic_1ga9f9f89092376926d1e1a26e51f1bd2c5"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_subscription_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_subscription_data" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__builtintopic_1ga90cf5e302abf32bdb019b13ca16541fe"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_subscription_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_subscription_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get a description of a reader matched with the provided writer</p>
 <p>This operation looks up the reader instance handle in the set of readers matched with the specified writer, returning a freshly allocated sample of the DCPSSubscription built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint. </p>
 <p>This operation is similar to performing a read of the given instance handle on a reader of the DCPSSubscription built-in topic, but this operation additionally filters on whether the reader is matched by the provided writer.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>writer</strong> – <strong>[in]</strong> The writer. </p></li>
 <li><p><strong>ih</strong> – <strong>[in]</strong> The instance handle of a reader.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>!=</strong> – NULL The requested data </p></li>
 <li><p><strong>NULL</strong> – The writer is not valid or ih is not an instance handle of a matched reader. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A newly allocated sample containing the information on the reader, or a NULL pointer for any kind of failure.</p>
 </dd>
 </dl>
@@ -323,21 +321,21 @@
 <dd><p>Get instance handles of the data writers matching a reader</p>
 <p>This operation fills the provided array with the instance handles of the data writers that match the reader. On successful output, the number of entries of “wrs” set is the minimum of the return value and the value of “nwrs”. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader. </p></li>
 <li><p><strong>wrs</strong> – <strong>[in]</strong> The array to be filled. </p></li>
 <li><p><strong>nwrs</strong> – <strong>[in]</strong> The size of the wrs array, at most the first nwrs entries will be filled. wrs = NULL and wrds = 0 is a valid way of determining the number of matched readers, but inefficient compared to relying on the matched publication status.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – The number of matching writers. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not valid or wrs = NULL and nwrs &gt; 0. </p></li>
 <li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating the number of matched writers or failure. The return value may be larger than nwrs if there are more matching writers than the array can hold.</p>
 </dd>
 </dl>
@@ -345,24 +343,24 @@
 
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_get_matched_publication_data">
-<span class="target" id="group__builtintopic_1gaad987077400ac0d217bfccbc0c21dae0"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_publication_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_publication_data" title="Permalink to this definition">¶</a><br /></dt>
+<span class="target" id="group__builtintopic_1ga10521f4e16d313d8a4cbcf1fb561f1e3"></span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_matched_publication_data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">reader</span></span>, <a class="reference internal" href="internal.html#c.dds_instance_handle_t" title="dds_instance_handle_t"><span class="n"><span class="pre">dds_instance_handle_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ih</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_matched_publication_data" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get a description of a writer matched with the provided reader</p>
 <p>This operation looks up the writer instance handle in the set of writers matched with the specified reader, returning a freshly allocated sample of the DCPSPublication built-in topic if found, and NULL if not. The caller is responsible for freeing the memory allocated, e.g. using dds_builtintopic_free_endpoint. </p>
 <p>This operation is similar to performing a read of the given instance handle on a reader of the DCPSPublication built-in topic, but this operation additionally filters on whether the writer is matched by the provided reader.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> The reader. </p></li>
 <li><p><strong>ih</strong> – <strong>[in]</strong> The instance handle of a writer.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>!=</strong> – NULL The requested data </p></li>
 <li><p><strong>NULL</strong> – The reader is not valid or ih is not an instance handle of a matched writer. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A newly allocated sample containing the information on the writer, or a NULL pointer for any kind of failure.</p>
 </dd>
 </dl>
@@ -373,19 +371,19 @@
 <span class="target" id="group__builtintopic_1gac9fb2a2ccb48473796565ac71de9d8f9"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_builtintopic_get_endpoint_type_info</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_builtintopic_endpoint_t" title="dds_builtintopic_endpoint_t"><span class="n"><span class="pre">dds_builtintopic_endpoint_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">builtintopic_endpoint</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_builtintopic_get_endpoint_type_info" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Gets the type information from endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>builtintopic_endpoint</strong> – <strong>[in]</strong> The builtintopic endpoint struct </p></li>
 <li><p><strong>type_info</strong> – <strong>[out]</strong> Type information that will be allocated by this function in case of success.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more parameters are invalid </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -397,7 +395,7 @@
 <dd><p>Free the endpoint information that was retrieved by dds_get_matched_subscription_data or dds_get_matched_publication_data</p>
 <p>This operation deallocates the memory of the fields in a dds_builtintopic_endpoint_t struct and deallocates the struct itself. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>builtintopic_endpoint</strong> – <strong>[in]</strong> The builtintopic endpoint struct </p></li>
 </ul>
@@ -411,7 +409,7 @@
 <dd><p>Free the provided topic information</p>
 <p>This operation deallocates the memory of the fields in a dds_builtintopic_topic_t struct and deallocates the struct itself. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>builtintopic_topic</strong> – <strong>[in]</strong> The builtintopic topic struct </p></li>
 </ul>
@@ -425,7 +423,7 @@
 <dd><p>Free the provided participant information</p>
 <p>This operation deallocates the memory of the fields in a dds_builtintopic_participant_t struct and deallocates the struct itself. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>builtintopic_participant</strong> – <strong>[in]</strong> The builtintopic participant struct </p></li>
 </ul>
@@ -586,7 +584,7 @@
 <span class="target" id="group__xtypes_1gaf207cd40a5e7bf2541e422c33aec609e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_typeobj</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">dds_typeid_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_id</span></span>, <span class="n"><span class="pre">dds_duration_t</span></span><span class="w"> </span><span class="n"><span class="pre">timeout</span></span>, <span class="n"><span class="pre">dds_typeobj_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_typeobj" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This function resolves the type for the provided type identifier, which can e.g. be retrieved from endpoint or topic discovery data. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> A domain entity or an entity bound to a domain, such as a participant, reader or writer. </p></li>
 <li><p><strong>type_id</strong> – <strong>[in]</strong> Type identifier </p></li>
@@ -594,7 +592,7 @@
 <li><p><strong>type_obj</strong> – <strong>[out]</strong> The type information, untouched if type is not resolved</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The entity parameter is not a valid parameter, type_id or type name is not provided, or the sertype out parameter is NULL </p></li>
@@ -603,7 +601,7 @@
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -614,19 +612,19 @@
 <span class="target" id="group__xtypes_1gab609c72307e34c755b4dc7fb8b071b8a"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_free_typeobj</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">dds_typeobj_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_obj</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_free_typeobj" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Free the type object that was retrieved using dds_get_typeobj. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type_obj</strong> – <strong>[in]</strong> The type object</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The type_obj parameter is NULL </p></li>
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPE_DISCOVERY) </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -637,13 +635,13 @@
 <span class="target" id="group__xtypes_1ga665539ad3bb166118840730d04cae6f7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_get_typeinfo</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_get_typeinfo" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This function gets the type information from the provided topic, reader or writer. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> A topic/reader/writer entity </p></li>
 <li><p><strong>type_info</strong> – <strong>[out]</strong> The type information, untouched if returncode indicates failure</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The type_info parameter is null </p></li>
@@ -652,7 +650,7 @@
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPELIB) </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -663,19 +661,19 @@
 <span class="target" id="group__xtypes_1ga761c550b954097271cb4b3e28ded1d0a"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_free_typeinfo</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">dds_typeinfo_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_free_typeinfo" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Free the type information that was retrieved using dds_get_typeinfo. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type_info</strong> – <strong>[in]</strong> The type information</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – The type_info parameter is NULL </p></li>
 <li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – Cyclone DDS built without type discovery (cf. DDS_HAS_TYPELIB) </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -714,8 +712,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

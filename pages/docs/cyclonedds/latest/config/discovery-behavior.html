@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Discovery behaviour &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -157,9 +155,9 @@
           <div class="body" role="main">
             
   <section id="discovery-behaviour">
-<span id="index-0"></span><span id="id1"></span><h1>Discovery behaviour<a class="headerlink" href="#discovery-behaviour" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Discovery behaviour<a class="headerlink" href="#discovery-behaviour" title="Permalink to this heading">¶</a></h1>
 <section id="proxy-participants-and-endpoints">
-<span id="proxy-participants-endpoints"></span><h2>Proxy participants and endpoints<a class="headerlink" href="#proxy-participants-and-endpoints" title="Permalink to this headline">¶</a></h2>
+<span id="proxy-participants-endpoints"></span><h2>Proxy participants and endpoints<a class="headerlink" href="#proxy-participants-and-endpoints" title="Permalink to this heading">¶</a></h2>
 <p>In the <a href="https://www.omg.org/spec/DDSI-RTPS" target="_blank">DDSI specification</a>, Eclipse Cyclone DDS is known as a <em>stateful</em> implementation. writers
 only send data to discovered readers, and readers only accept data from discovered
 writers. There is one exception: the <code class="docutils literal notranslate"><span class="pre">writer</span></code> may choose to multicast the data so
@@ -183,7 +181,7 @@ participant also creates special messages that allow the peers to immediately re
 resources instead of waiting for the lease to expire.</p>
 </section>
 <section id="sharing-of-discovery-information">
-<span id="sharing-discovery-info"></span><h2>Sharing of discovery information<a class="headerlink" href="#sharing-of-discovery-information" title="Permalink to this headline">¶</a></h2>
+<span id="sharing-discovery-info"></span><h2>Sharing of discovery information<a class="headerlink" href="#sharing-of-discovery-information" title="Permalink to this heading">¶</a></h2>
 <p>Eclipse Cyclone DDS handles any number of participants in an integrated manner, the discovery
 protocol as described in <a class="reference internal" href="#proxy-participants-endpoints"><span class="std std-ref">Proxy participants and endpoints</span></a> can be wasteful. It is not
 necessary for each participant in a Eclipse Cyclone DDS process to run the full discovery protocol
@@ -206,7 +204,7 @@ communicate with these peers. If these peers take significant time to discover t
 participant or endpoint, it can generate some redundant network traffic.</p>
 </section>
 <section id="lingering-writers">
-<span id="index-1"></span><h2>Lingering writers<a class="headerlink" href="#lingering-writers" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Lingering writers<a class="headerlink" href="#lingering-writers" title="Permalink to this heading">¶</a></h2>
 <p>When an application deletes a reliable DCPS writer, there is no guarantee that all
 its readers have already acknowledged the correct receipt of all samples. Eclipse Cyclone DDS
 lets the writer (and the owning participant if necessary) linger in the system for some time,
@@ -220,7 +218,7 @@ is requested to terminate.</p>
 </div>
 <span class="target" id="writer-history-qos-and-throttling"></span></section>
 <section id="index-2">
-<span id="id2"></span><h2>Writer history QoS and throttling<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Writer history QoS and throttling<a class="headerlink" href="#index-2" title="Permalink to this heading">¶</a></h2>
 <p>The <a href="https://www.omg.org/spec/DDSI-RTPS" target="_blank">DDSI specification</a> relies on the writer History Cache (WHC), in which a sequence number
 uniquely identifies each sample. The WHC integrates two different indices on the samples
 published by a writer:</p>
@@ -248,7 +246,7 @@ while maintaining only the most recent samples for late-joining readers. This en
 the data that is available for late-joining readers is the same for transient-local and for
 transient data.</p>
 <section id="writer-throttling">
-<span id="index-3"></span><h3>Writer throttling<a class="headerlink" href="#writer-throttling" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3>Writer throttling<a class="headerlink" href="#writer-throttling" title="Permalink to this heading">¶</a></h3>
 <p>Writer throttling is based on the WHC size. The following settings control writer throttling:</p>
 <p>When the WHC contains at least <code class="docutils literal notranslate"><span class="pre">high</span></code> bytes in unacknowledged samples, it stalls the
 writer until the number of bytes in unacknowledged samples drops below the value set in:
@@ -322,8 +320,8 @@ things can continue at a much lower rate.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

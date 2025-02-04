@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Dynamic Type API &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -159,7 +157,7 @@
           <div class="body" role="main">
             
   <section id="dynamic-type-api">
-<h1>Dynamic Type API<a class="headerlink" href="#dynamic-type-api" title="Permalink to this headline">¶</a></h1>
+<h1>Dynamic Type API<a class="headerlink" href="#dynamic-type-api" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__dynamic__type"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">dynamic_type</span></span></dt>
@@ -491,13 +489,13 @@
 <dd><p>Create a new Dynamic Type</p>
 <p>Creates a new Dynamic Type, using the properties that are set in the type descriptor. In case these properties include a base-type, element-type or discriminator type, the ownership of these types is transferred to the newly created type. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>entity</strong> – <strong>[in]</strong> A DDS entity (any entity, except the pseudo root entity identified by DDS_CYCLONEDDS_HANDLE). This entity is used to get the type library of the entity’s domain, to add the type to. </p></li>
 <li><p><strong>descriptor</strong> – <strong>[in]</strong> The Dynamic Type descriptor.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The type is created successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
@@ -505,7 +503,7 @@
 <li><p><strong>DDS_RETCODE_OUT_OF_RESOURCES</strong> – Not enough resources to create the type. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_dynamic_type_t A Dynamic Type reference for the created type.</p>
 </dd>
 </dl>
@@ -516,20 +514,20 @@
 <span class="target" id="group__dynamic__type_1ga50cd441b635922af99da82a5c63b091d"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_type_set_extensibility</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_dynamic_type_extensibility" title="dds_dynamic_type_extensibility"><span class="n"><span class="pre">dds_dynamic_type_extensibility</span></span></a><span class="w"> </span><span class="n"><span class="pre">extensibility</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_type_set_extensibility" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the extensibility of a Dynamic Type. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type to set the extensibility for. This can be a structure, union, bitmask or enum type. This type must be in the CONSTRUCTING state and have no members added. </p></li>
 <li><p><strong>extensibility</strong> – <strong>[in]</strong> The extensibility to set (<a class="reference internal" href="#group__dynamic__type_1gad08fb1ca43c8156f6b186c2abe348509"><span class="std std-ref">dds_dynamic_type_extensibility</span></a>).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The extensibility is set successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -540,20 +538,20 @@
 <span class="target" id="group__dynamic__type_1gaa35021be041b5004785a7a4965c1b2bc"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_type_set_bit_bound</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">bit_bound</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_type_set_bit_bound" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the bit-bound of a Dynamic Type. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type to set the bit-bound for. This can be a bitmask or enum type. </p></li>
 <li><p><strong>bit_bound</strong> – <strong>[in]</strong> The bit-bound value to set, in the (including) range 1..32 for enum and 1..64 for bitmask.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The bit-bound is set successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -564,20 +562,20 @@
 <span class="target" id="group__dynamic__type_1gae8ff96678f301e133c75abc247ef9647"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_type_set_nested</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">is_nested</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_type_set_nested" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the nested flag of a Dynamic Type. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type to set the nested flag for. This can be a structure or union type. </p></li>
 <li><p><strong>is_nested</strong> – <strong>[in]</strong> Whether the nested flag is set.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The flag is set successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -588,20 +586,20 @@
 <span class="target" id="group__dynamic__type_1ga0f22a9037621166f0ed758848a1e120f"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_type_set_autoid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_dynamic_type_autoid" title="dds_dynamic_type_autoid"><span class="n"><span class="pre">dds_dynamic_type_autoid</span></span></a><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_type_set_autoid" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the auto-id kind of a Dynamic Type. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type to set the auto-id kind for. This can be a structure or union type. </p></li>
 <li><p><strong>value</strong> – <strong>[in]</strong> The auto-id kind, see <a class="reference internal" href="#group__dynamic__type_1ga851768c5e93a1068b351e6efb5881157"><span class="std std-ref">dds_dynamic_type_autoid</span></a>.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The value is set successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -622,20 +620,20 @@
 </div>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> The Dynamic type to add the member to. </p></li>
 <li><p><strong>member_descriptor</strong> – <strong>[in]</strong> The member descriptor that has the properties of the member to add, </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The member is added successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type (non the member type) is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -652,7 +650,7 @@
 </div>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> The Dynamic enum type to add the member to. </p></li>
 <li><p><strong>name</strong> – <strong>[in]</strong> The name of the literal to add. </p></li>
@@ -660,14 +658,14 @@
 <li><p><strong>is_default</strong> – <strong>[in]</strong> Indicates if the literal if default for the enum.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The member is added successfully </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -684,21 +682,21 @@
 </div>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> The Dynamic bitmask type to add the field to. </p></li>
 <li><p><strong>name</strong> – <strong>[in]</strong> The name of the field to add. </p></li>
 <li><p><strong>position</strong> – <strong>[in]</strong> The position for the field (</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The member is added successfully </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -709,21 +707,21 @@
 <span class="target" id="group__dynamic__type_1ga2adefd4d49a0148830c0532ae077ff8f"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_member_set_key</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">member_id</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">is_key</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_member_set_key" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the key flag for a Dynamic Type member. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the key flag for (must be a structure type). </p></li>
 <li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag for. </p></li>
 <li><p><strong>is_key</strong> – <strong>[in]</strong> Indicates whether the key flag should be set or cleared.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The flag is updated successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -734,21 +732,21 @@
 <span class="target" id="group__dynamic__type_1ga4571b767fe233dfef34f1b330ea38573"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_member_set_optional</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">member_id</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">is_optional</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_member_set_optional" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the optional flag for a Dynamic Type member. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the optional flag for (must be a structure type). </p></li>
 <li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag for. </p></li>
 <li><p><strong>is_optional</strong> – <strong>[in]</strong> Indicates whether the optional flag should be set or cleared.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The flag is updated successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -759,21 +757,21 @@
 <span class="target" id="group__dynamic__type_1ga4527554f9cd7f24b33c07d45c5fbf288"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_member_set_external</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">member_id</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">is_external</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_member_set_external" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the external flag for a Dynamic Type member. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the external flag for (must be a structure or union type). </p></li>
 <li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag for. </p></li>
 <li><p><strong>is_external</strong> – <strong>[in]</strong> Indicates whether the external flag should be set or cleared.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The flag is updated successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -784,21 +782,21 @@
 <span class="target" id="group__dynamic__type_1ga7836d2ed52f0bac82a73d1cadc2220dc"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_member_set_hashid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">member_id</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">hash_member_name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_member_set_hashid" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the hash ID flag and hash field name for a Dynamic Type member. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the flag and hash-name for (must be a structure or union type). </p></li>
 <li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag and hash-name for. </p></li>
 <li><p><strong>hash_member_name</strong> – <strong>[in]</strong> The hash-name that should be used for calculating the member ID.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The flag is updated successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -809,21 +807,21 @@
 <span class="target" id="group__dynamic__type_1ga0db638dcab293e4f2c4254fd5510a72d"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_member_set_must_understand</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">member_id</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">is_must_understand</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_member_set_must_understand" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the must-understand flag for a Dynamic Type member. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the must-understand flag for (must be a structure type). </p></li>
 <li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag for. </p></li>
 <li><p><strong>is_must_understand</strong> – <strong>[in]</strong> Indicates whether the must-understand flag should be set or cleared.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The flag is updated successfully. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
 </dd>
 </dl>
@@ -835,13 +833,13 @@
 <dd><p>Registers a Dynamic Type</p>
 <p>This function registers a dynamic type, making it immutable and finalizing its definition. A type that is registered, get the state ‘RESOLVED’ and is stored in the type library. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – <strong>[in]</strong> A pointer to the dynamic type to be registered. </p></li>
 <li><p><strong>type_info</strong> – <strong>[out]</strong> A pointer to a pointer to a ddsi_typeinfo structure that holds information about the registered type.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The type was successfully registered. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
@@ -849,7 +847,7 @@
 <li><p><strong>DDS_RETCODE_OUT_OF_RESOURCES</strong> – Not enough resources to create the type. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dds_return_t Return code.</p>
 </dd>
 </dl>
@@ -861,12 +859,12 @@
 <dd><p>Reference a Dynamic Type</p>
 <p>References a Dynamic Type and increases the ref-count of the type. This can e.g. be used to re-use a subtype when constructing a type. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>type</strong> – Dynamic Type to reference</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>dds_dynamic_type_t Dynamic Type with increased ref-count </p>
 </dd>
 </dl>
@@ -878,12 +876,12 @@
 <dd><p>Duplicate a Dynamic Type</p>
 <p>Duplicates a Dynamic Type. Dependencies of the type are not duplicated, but their ref-count is increased. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>src</strong> – The type to duplicate.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>dds_dynamic_type_t A duplicate of the source type. </p>
 </dd>
 </dl>
@@ -1068,8 +1066,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

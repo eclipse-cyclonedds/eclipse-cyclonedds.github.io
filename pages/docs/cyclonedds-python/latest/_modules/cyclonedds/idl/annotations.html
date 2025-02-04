@@ -10,9 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/helpers.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/helpers.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <script src="../../../_static/js/petite-vue.js"></script>
@@ -110,7 +109,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -150,12 +149,12 @@
 <span class="sd"> * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">TypeVar</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">IdlStruct</span><span class="p">,</span> <span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlBitmask</span><span class="p">,</span> <span class="n">IdlEnum</span>
-<span class="kn">from</span> <span class="nn">._main</span> <span class="kn">import</span> <span class="n">IDLNamespaceScope</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Type</span><span class="p">,</span> <span class="n">TypeVar</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span><span class="p">,</span> <span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlBitmask</span><span class="p">,</span> <span class="n">IdlEnum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._main</span><span class="w"> </span><span class="kn">import</span> <span class="n">IDLNamespaceScope</span>
 
 
-<span class="k">class</span> <span class="nc">AnnotationException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AnnotationException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="k">pass</span>
 
 
@@ -165,11 +164,11 @@
 <span class="n">TIBE</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;TIBE&#39;</span><span class="p">,</span> <span class="n">Type</span><span class="p">[</span><span class="n">IdlEnum</span><span class="p">],</span> <span class="n">Type</span><span class="p">[</span><span class="n">IdlBitmask</span><span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">annotation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">annotation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="bp">cls</span><span class="o">.</span><span class="n">__idl_annotations__</span><span class="p">[</span><span class="n">annotation</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
 
-<span class="k">def</span> <span class="nf">__field_annotate</span><span class="p">(</span><span class="n">pfield</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">annotation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__field_annotate</span><span class="p">(</span><span class="n">pfield</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">annotation</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">IDLNamespaceScope</span><span class="o">.</span><span class="n">current</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot annotate fields while not in class scope&quot;</span><span class="p">)</span>
 
@@ -182,101 +181,101 @@
     <span class="n">IDLNamespaceScope</span><span class="o">.</span><span class="n">current</span><span class="p">[</span><span class="s2">&quot;__idl_field_annotations__&quot;</span><span class="p">][</span><span class="n">pfield</span><span class="p">][</span><span class="n">annotation</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
 
-<span class="k">def</span> <span class="nf">default_literal</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="kc">None</span><span class="p">]:</span>
-    <span class="k">def</span> <span class="nf">apply_default_literal</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">default_literal</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_default_literal</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">__field_annotate</span><span class="p">(</span><span class="n">apply_to</span><span class="p">,</span> <span class="s2">&quot;default_literal&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">apply_default_literal</span>
 
 
-<div class="viewcode-block" id="key"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.key">[docs]</a><span class="k">def</span> <span class="nf">key</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="key"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.key">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">key</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">__field_annotate</span><span class="p">(</span><span class="n">apply_to</span><span class="p">,</span> <span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="position"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.position">[docs]</a><span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="position"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.position">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">position</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">__field_annotate</span><span class="p">(</span><span class="n">apply_to</span><span class="p">,</span> <span class="s2">&quot;position&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="member_id"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.member_id">[docs]</a><span class="k">def</span> <span class="nf">member_id</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="member_id"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.member_id">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">member_id</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">__field_annotate</span><span class="p">(</span><span class="n">apply_to</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
 <span class="c1">#Reserved Python keywords support (Issue 105):</span>
-<span class="k">def</span> <span class="nf">member_name</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">member_name</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">__field_annotate</span><span class="p">(</span><span class="n">apply_to</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
-<div class="viewcode-block" id="member_hash_id"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.member_hash_id">[docs]</a><span class="k">def</span> <span class="nf">member_hash_id</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="member_hash_id"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.member_hash_id">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">member_hash_id</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">__field_annotate</span><span class="p">(</span><span class="n">apply_to</span><span class="p">,</span> <span class="s2">&quot;hash_id&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">external</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">external</span><span class="p">(</span><span class="n">apply_to</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">__field_annotate</span><span class="p">(</span><span class="n">apply_to</span><span class="p">,</span> <span class="s2">&quot;external&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="xcdrv2"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.xcdrv2">[docs]</a><span class="k">def</span> <span class="nf">xcdrv2</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="xcdrv2"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.xcdrv2">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">xcdrv2</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
     <span class="n">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;xcdrv2&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">cls</span></div>
 
 
-<div class="viewcode-block" id="cdrv0"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.cdrv0">[docs]</a><span class="k">def</span> <span class="nf">cdrv0</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="cdrv0"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.cdrv0">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">cdrv0</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
     <span class="n">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;xcdrv2&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">cls</span></div>
 
 
-<div class="viewcode-block" id="nested"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.nested">[docs]</a><span class="k">def</span> <span class="nf">nested</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="nested"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.nested">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">nested</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
     <span class="n">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;nested&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">cls</span></div>
 
 
-<div class="viewcode-block" id="must_understand"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.must_understand">[docs]</a><span class="k">def</span> <span class="nf">must_understand</span><span class="p">(</span><span class="nb">str</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="must_understand"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.must_understand">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">must_understand</span><span class="p">(</span><span class="nb">str</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">__field_annotate</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;must_understand&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="autoid"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.autoid">[docs]</a><span class="k">def</span> <span class="nf">autoid</span><span class="p">(</span><span class="n">autoid_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">T</span><span class="p">]:</span>
+<div class="viewcode-block" id="autoid"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.autoid">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">autoid</span><span class="p">(</span><span class="n">autoid_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">T</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">autoid_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;hash&quot;</span><span class="p">,</span> <span class="s2">&quot;sequential&quot;</span><span class="p">]:</span>
         <span class="k">raise</span> <span class="n">AnnotationException</span><span class="p">(</span><span class="s2">&quot;Autoid is either &#39;hash&#39; or &#39;sequential&#39;.&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">autoid_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">autoid_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
         <span class="n">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;autoid&quot;</span><span class="p">,</span> <span class="n">autoid_type</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span>
 
     <span class="k">return</span> <span class="n">autoid_inner</span></div>
 
 
-<div class="viewcode-block" id="extensibility"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.extensibility">[docs]</a><span class="k">def</span> <span class="nf">extensibility</span><span class="p">(</span><span class="n">extensibility_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">T</span><span class="p">]:</span>
+<div class="viewcode-block" id="extensibility"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.extensibility">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">extensibility</span><span class="p">(</span><span class="n">extensibility_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">T</span><span class="p">],</span> <span class="n">T</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">extensibility_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;final&quot;</span><span class="p">,</span> <span class="s2">&quot;mutable&quot;</span><span class="p">,</span> <span class="s2">&quot;appendable&quot;</span><span class="p">]:</span>
         <span class="k">raise</span> <span class="n">AnnotationException</span><span class="p">(</span><span class="s2">&quot;Extensibility is either &#39;final&#39;, &#39;appendable&#39; or &#39;mutable&#39;.&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">extensibility_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">extensibility_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
         <span class="n">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;extensibility&quot;</span><span class="p">,</span> <span class="n">extensibility_type</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span>
 
     <span class="k">return</span> <span class="n">extensibility_inner</span></div>
 
 
-<div class="viewcode-block" id="final"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.final">[docs]</a><span class="k">def</span> <span class="nf">final</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="final"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.final">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">final</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">extensibility</span><span class="p">(</span><span class="s2">&quot;final&quot;</span><span class="p">)(</span><span class="bp">cls</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="appendable"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.appendable">[docs]</a><span class="k">def</span> <span class="nf">appendable</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="appendable"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.appendable">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">appendable</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">extensibility</span><span class="p">(</span><span class="s2">&quot;appendable&quot;</span><span class="p">)(</span><span class="bp">cls</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mutable"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.mutable">[docs]</a><span class="k">def</span> <span class="nf">mutable</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<div class="viewcode-block" id="mutable"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.mutable">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">mutable</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">extensibility</span><span class="p">(</span><span class="s2">&quot;mutable&quot;</span><span class="p">)(</span><span class="bp">cls</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="keylist"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.keylist">[docs]</a><span class="k">def</span> <span class="nf">keylist</span><span class="p">(</span><span class="n">list_of_keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">TIS</span><span class="p">],</span> <span class="n">TIS</span><span class="p">]:</span>
-    <span class="k">def</span> <span class="nf">keylist_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">TIS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TIS</span><span class="p">:</span>
+<div class="viewcode-block" id="keylist"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.keylist">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">keylist</span><span class="p">(</span><span class="n">list_of_keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">TIS</span><span class="p">],</span> <span class="n">TIS</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">keylist_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">TIS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TIS</span><span class="p">:</span>
         <span class="n">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;keylist&quot;</span><span class="p">,</span> <span class="n">list_of_keys</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span>
 
     <span class="k">return</span> <span class="n">keylist_inner</span></div>
 
 
-<div class="viewcode-block" id="bit_bound"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.bit_bound">[docs]</a><span class="k">def</span> <span class="nf">bit_bound</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">TIBE</span><span class="p">],</span> <span class="n">TIBE</span><span class="p">]:</span>
+<div class="viewcode-block" id="bit_bound"><a class="viewcode-back" href="../../../cyclonedds.idl.html#cyclonedds.idl.annotations.bit_bound">[docs]</a><span class="k">def</span><span class="w"> </span><span class="nf">bit_bound</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">TIBE</span><span class="p">],</span> <span class="n">TIBE</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">64</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">AnnotationException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2"> is not a valid bit_bound, must be between 1 and 64 inclusive.&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">bit_bound_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">TIBE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TIBE</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">bit_bound_inner</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">TIBE</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TIBE</span><span class="p">:</span>
         <span class="n">__annotate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;bit_bound&quot;</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;__idl_highest_position__&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__idl_highest_position__</span><span class="p">:</span>
@@ -316,7 +315,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2025, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

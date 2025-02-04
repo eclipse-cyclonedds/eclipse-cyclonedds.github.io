@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Access control configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -157,7 +155,7 @@
           <div class="body" role="main">
             
   <section id="access-control-configuration">
-<span id="index-0"></span><span id="id1"></span><h1>Access control configuration<a class="headerlink" href="#access-control-configuration" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Access control configuration<a class="headerlink" href="#access-control-configuration" title="Permalink to this heading">¶</a></h1>
 <p>Access Control configuration consists of a <a class="reference internal" href="#id2">governance document</a> and a <a class="reference internal" href="#id3">permissions document</a>.
 Both documents must be signed by the Permissions CA in S/MIME format.
 To validate remote permissions, Participants use their own permissions CA.</p>
@@ -177,7 +175,7 @@ To validate remote permissions, Participants use their own permissions CA.</p>
 <p>The signer certificate should be be included within the signature.</p>
 </div>
 <section id="governance-document">
-<span id="index-1"></span><span id="id2"></span><h2>Governance document<a class="headerlink" href="#governance-document" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><span id="id2"></span><h2>Governance document<a class="headerlink" href="#governance-document" title="Permalink to this heading">¶</a></h2>
 <p>The governance document is an XML file that defines the security behavior of domains and topics.
 It is specified in OMG <a href="https://www.omg.org/spec/DDS-SECURITY/" target="_blank">DDS security</a> (Version 1.1 Section 9.4.1.2.3). For an example of a
 governance document, see <a class="reference internal" href="example_configuration.html#create-governance-document"><span class="std std-ref">Create a signed governance document</span></a>.</p>
@@ -187,7 +185,7 @@ governance document, see <a class="reference internal" href="example_configurati
 document must match with those in the remote node.</p>
 </div>
 <section id="protection-kinds">
-<span id="index-2"></span><h3>Protection kinds<a class="headerlink" href="#protection-kinds" title="Permalink to this headline">¶</a></h3>
+<span id="index-2"></span><h3>Protection kinds<a class="headerlink" href="#protection-kinds" title="Permalink to this heading">¶</a></h3>
 <p>The domain governance document provides a means for the application to configure the kinds of
 cryptographic transformation applied to the complete <a class="reference internal" href="../glossary.html#term-RTPS"><span class="xref std std-term">RTPS</span></a> message, certain RTPS submessages, and
 the SerializedPayload RTPS submessage element that appears within the data.</p>
@@ -224,7 +222,7 @@ Protection Kind is <strong>SIGN_WITH_ORIGIN_AUTHENTICATION</strong>.</p>
 </ul>
 </section>
 <section id="participant-attributes">
-<span id="index-3"></span><h3>Participant attributes<a class="headerlink" href="#participant-attributes" title="Permalink to this headline">¶</a></h3>
+<span id="index-3"></span><h3>Participant attributes<a class="headerlink" href="#participant-attributes" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><strong>Allow Unauthenticated Participants</strong></p>
 <p>For communication with non-secure participants.
@@ -254,7 +252,7 @@ RTPS, there is no need to encrypt submessages (metadata_protection_kind) and pay
 </ul>
 </section>
 <section id="topic-attributes">
-<h3>Topic attributes<a class="headerlink" href="#topic-attributes" title="Permalink to this headline">¶</a></h3>
+<h3>Topic attributes<a class="headerlink" href="#topic-attributes" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><p><strong>Enable Discovery protection</strong></p>
 <p>If enabled, discovery is protected according to Discovery
@@ -288,10 +286,6 @@ rules match, the first rule that matches is the only one that applies.</p>
 that applies.</p>
 <p>fnmatch pattern matching can be used for topic expressions including the following patterns:</p>
 <span id="index-4"></span><table class="docutils align-default" id="fnmatch-pattern-matching">
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 79%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Meaning</p></th>
@@ -315,13 +309,13 @@ that applies.</p>
 </section>
 </section>
 <section id="permissions-document">
-<span id="index-5"></span><span id="id3"></span><h2>Permissions document<a class="headerlink" href="#permissions-document" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><span id="id3"></span><h2>Permissions document<a class="headerlink" href="#permissions-document" title="Permalink to this heading">¶</a></h2>
 <p>The permissions document is an XML file that contains the permissions of the domain participant
 and binds them to the subject name of the <code class="docutils literal notranslate"><span class="pre">DomainParticipant</span></code>. It is specified in OMG
 <a href="https://www.omg.org/spec/DDS-SECURITY/" target="_blank">DDS security</a> (Version 1.1 Section 9.4.1.3).</p>
 <p>For an example of a permissions document, refer to: <a class="reference internal" href="example_configuration.html#create-permissions-document"><span class="std std-ref">Create a signed permissions document</span></a>.</p>
 <section id="validity-period">
-<span id="index-6"></span><h3>Validity period<a class="headerlink" href="#validity-period" title="Permalink to this headline">¶</a></h3>
+<span id="index-6"></span><h3>Validity period<a class="headerlink" href="#validity-period" title="Permalink to this heading">¶</a></h3>
 <p>The validity period is checked before creating a participant. The validity period is also
 checked during handshake with a remote participant.</p>
 <div class="admonition note">
@@ -330,7 +324,7 @@ checked during handshake with a remote participant.</p>
 </div>
 </section>
 <section id="subject-name">
-<span id="index-7"></span><h3>Subject name<a class="headerlink" href="#subject-name" title="Permalink to this headline">¶</a></h3>
+<span id="index-7"></span><h3>Subject name<a class="headerlink" href="#subject-name" title="Permalink to this heading">¶</a></h3>
 <p>The subject name must match with Identity Certificate subject. It is checked during a create
 participant, and during handshake with a remote participant. Use the following openssl command to get
 subject name from identity certificate:</p>
@@ -339,7 +333,7 @@ subject name from identity certificate:</p>
 </div></blockquote>
 </section>
 <section id="participant-permissions-rules">
-<span id="index-8"></span><h3>Participant permissions rules<a class="headerlink" href="#participant-permissions-rules" title="Permalink to this headline">¶</a></h3>
+<span id="index-8"></span><h3>Participant permissions rules<a class="headerlink" href="#participant-permissions-rules" title="Permalink to this heading">¶</a></h3>
 <p>Participant permissions are defined by set of rules. The rules are applied in the same order
 that appear in the document.</p>
 <p>If the criteria for the rule matches the domain_id join and/or publish or subscribe operation
@@ -417,8 +411,8 @@ an <em>OR</em> of the expressions with the &lt;Topics&gt; section).</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

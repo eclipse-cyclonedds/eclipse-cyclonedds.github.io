@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>WaitSets and Conditions &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -164,7 +162,7 @@
           <div class="body" role="main">
             
   <section id="waitsets-and-conditions">
-<span id="waitset-conditions"></span><h1>WaitSets and Conditions<a class="headerlink" href="#waitsets-and-conditions" title="Permalink to this headline">¶</a></h1>
+<span id="waitset-conditions"></span><h1>WaitSets and Conditions<a class="headerlink" href="#waitsets-and-conditions" title="Permalink to this heading">¶</a></h1>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__waitset"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">waitset</span></span></dt>
@@ -186,12 +184,12 @@
 <dd><p>Create a waitset and allocate the resources required</p>
 <p>A WaitSet object allows an application to wait until one or more of the conditions of the attached entities evaluates to TRUE or until the timeout expires. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>owner</strong> – <strong>[in]</strong> Domain participant which the WaitSet contains.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – A valid waitset handle. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -199,7 +197,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid waitset handle or an error code.</p>
 </dd>
 </dl>
@@ -211,14 +209,14 @@
 <dd><p>Acquire previously attached entities.</p>
 <p>This functions takes a pre-allocated list to put the entities in and will return the number of found entities. It is possible that the given size of the list is not the same as the number of found entities. If less entities are found, then the last few entries in the list are untouched. When more entities are found, then only ‘size’ number of entries are inserted into the list, but still the complete count of the found entities is returned. Which entities are returned in the latter case is undefined. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waitset</strong> – <strong>[in]</strong> Waitset from which to get its attached entities. </p></li>
 <li><p><strong>entities</strong> – <strong>[out]</strong> Pre-allocated array to contain the found entities. </p></li>
 <li><p><strong>size</strong> – <strong>[in]</strong> Size of the pre-allocated entities’ list.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – Number of children found (can be larger than ‘size’). </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -227,7 +225,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The waitset has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of children or an error code.</p>
 </dd>
 </dl>
@@ -255,14 +253,14 @@
 </p>
 <p>Multiple entities can be attached to a single waitset. A particular entity can be attached to multiple waitsets. However, a particular entity can not be attached to a particular waitset multiple times.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waitset</strong> – <strong>[in]</strong> The waitset to attach the given entity to. </p></li>
 <li><p><strong>entity</strong> – <strong>[in]</strong> The entity to attach. </p></li>
 <li><p><strong>x</strong> – <strong>[in]</strong> Blob that will be supplied when the waitset wait is triggered by the given entity.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Entity attached. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -272,7 +270,7 @@
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The entity was already attached. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -283,13 +281,13 @@
 <span class="target" id="group__waitset_1ga8bd29f7b6db7f3fc53d93aabe2970885"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_waitset_detach</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">waitset</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_waitset_detach" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This operation detaches an Entity from the WaitSet. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waitset</strong> – <strong>[in]</strong> The waitset to detach the given entity from. </p></li>
 <li><p><strong>entity</strong> – <strong>[in]</strong> The entity to detach.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Entity detached. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -299,7 +297,7 @@
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The entity is not attached. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -313,13 +311,13 @@
 <p>This can be used to forcefully wake up a waitset, for instance when the application wants to shut down. So, when the trigger value is true, the waitset will wake up or not wait at all.</p>
 <p>The trigger value will remain true until the application sets it false again deliberately.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waitset</strong> – <strong>[in]</strong> The waitset to set the trigger value on. </p></li>
 <li><p><strong>trigger</strong> – <strong>[in]</strong> The trigger value to set.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Trigger value set. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -328,7 +326,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The waitset has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -361,7 +359,7 @@
 <p>An empty waitset never triggers (i.e., dds_waitset_wait on an empty waitset is essentially equivalent to a sleep).</p>
 <p>The “dds_waitset_wait_until” operation is the same as the “dds_waitset_wait” except that it takes an absolute timeout.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waitset</strong> – <strong>[in]</strong> The waitset to set the trigger value on. </p></li>
 <li><p><strong>xs</strong> – <strong>[out]</strong> Pre-allocated list to store the ‘blobs’ that were provided during the attach of the triggered entities. </p></li>
@@ -369,7 +367,7 @@
 <li><p><strong>reltimeout</strong> – <strong>[in]</strong> Relative timeout</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – Number of entities triggered. </p></li>
 <li><p><strong>0</strong> – Time out (no entities were triggered). </p></li>
@@ -379,7 +377,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The waitset has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of entities triggered or an error code</p>
 </dd>
 </dl>
@@ -413,7 +411,7 @@
 <p>The “dds_waitset_wait” operation is the same as the “dds_waitset_wait_until” except that it takes an relative timeout.</p>
 <p>The “dds_waitset_wait” operation is the same as the “dds_wait” except that it takes an absolute timeout.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waitset</strong> – <strong>[in]</strong> The waitset to set the trigger value on. </p></li>
 <li><p><strong>xs</strong> – <strong>[out]</strong> Pre-allocated list to store the ‘blobs’ that were provided during the attach of the triggered entities. </p></li>
@@ -421,7 +419,7 @@
 <li><p><strong>abstimeout</strong> – <strong>[in]</strong> Absolute timeout</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – Number of entities triggered. </p></li>
 <li><p><strong>0</strong> – Time out (no entities were triggered). </p></li>
@@ -431,7 +429,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The waitset has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t with the number of entities triggered or an error code.</p>
 </dd>
 </dl>
@@ -441,7 +439,7 @@
 </dd></dl>
 
 <section id="conditions">
-<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h2>
+<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__condition"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">condition</span></span></dt>
@@ -454,13 +452,13 @@
 <dd><p>Get the mask of a condition.</p>
 <p>This operation returns the mask that was used to create the given condition. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>condition</strong> – <strong>[in]</strong> Read or Query condition that has a mask. </p></li>
 <li><p><strong>mask</strong> – <strong>[out]</strong> Where to store the mask of the condition.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Success (given mask is set). </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -469,7 +467,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
 </dd>
 </dl>
@@ -565,7 +563,7 @@
 </dd></dl>
 
 <section id="readcondition">
-<h3>ReadCondition<a class="headerlink" href="#readcondition" title="Permalink to this headline">¶</a></h3>
+<h3>ReadCondition<a class="headerlink" href="#readcondition" title="Permalink to this heading">¶</a></h3>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__readcondition"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">readcondition</span></span></dt>
@@ -583,13 +581,13 @@
 <p>The parent reader and every of its associated conditions (whether they are readconditions or queryconditions) share the same resources. This means that one of these entities reads or takes data, the states of the data will change for other entities automatically. For instance, if one reads a sample, then the sample state will become ‘read’ for all associated reader/conditions. Or if one takes a sample, then it’s not available to any other associated reader/condition.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> Reader to associate the condition to. </p></li>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Interest (dds_sample_state_t|dds_view_state_t|dds_instance_state_t).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid condition handle </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -597,7 +595,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid condition handle or an error code.</p>
 </dd>
 </dl>
@@ -608,7 +606,7 @@
 
 </section>
 <section id="querycondition">
-<h3>QueryCondition<a class="headerlink" href="#querycondition" title="Permalink to this headline">¶</a></h3>
+<h3>QueryCondition<a class="headerlink" href="#querycondition" title="Permalink to this heading">¶</a></h3>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__querycondition"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">querycondition</span></span></dt>
@@ -635,14 +633,14 @@
 <p>The parent reader and every of its associated conditions (whether they are readconditions or queryconditions) share the same resources. This means that one of these entities reads or takes data, the states of the data will change for other entities automatically. For instance, if one reads a sample, then the sample state will become ‘read’ for all associated reader/conditions. Or if one takes a sample, then it’s not available to any other associated reader/condition.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>reader</strong> – <strong>[in]</strong> Reader to associate the condition to. </p></li>
 <li><p><strong>mask</strong> – <strong>[in]</strong> Interest (dds_sample_state_t|dds_view_state_t|dds_instance_state_t). </p></li>
 <li><p><strong>filter</strong> – <strong>[in]</strong> Callback that the application can use to filter specific samples.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;=0</strong> – A valid condition handle. </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -650,7 +648,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid condition handle or an error code</p>
 </dd>
 </dl>
@@ -661,7 +659,7 @@
 
 </section>
 <section id="guardcondition">
-<h3>GuardCondition<a class="headerlink" href="#guardcondition" title="Permalink to this headline">¶</a></h3>
+<h3>GuardCondition<a class="headerlink" href="#guardcondition" title="Permalink to this heading">¶</a></h3>
 <dl>
 <dt class="sig sig-object cpp">
 <span class="target" id="group__guardcondition"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">guardcondition</span></span></dt>
@@ -673,12 +671,12 @@
 <dd><p>Creates a guardcondition.</p>
 <p>Waitsets allow waiting for an event on some of any set of entities. This means that the guardcondition can be used to wake up a waitset when data is in the reader history with states that matches the given mask. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>owner</strong> – <strong>[in]</strong> Participant on which to create the guardcondition.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid condition handle </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -686,7 +684,7 @@
 <li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A valid condition handle or an error code.</p>
 </dd>
 </dl>
@@ -697,13 +695,13 @@
 <span class="target" id="group__guardcondition_1gabdbe5fc4b2bd6573a09ceb3512e186ad"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_set_guardcondition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">guardcond</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">triggered</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_set_guardcondition" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Sets the trigger status of a guardcondition. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>guardcond</strong> – <strong>[in]</strong> Guard condition to set the trigger status of. </p></li>
 <li><p><strong>triggered</strong> – <strong>[in]</strong> The triggered status to set.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Operation successful </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -719,13 +717,13 @@
 <span class="target" id="group__guardcondition_1ga01af36a3fcdb29a2c553f072616129e1"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_read_guardcondition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">guardcond</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">triggered</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_read_guardcondition" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Reads the trigger status of a guardcondition. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>guardcond</strong> – <strong>[in]</strong> Guard condition to read the trigger status of. </p></li>
 <li><p><strong>triggered</strong> – <strong>[out]</strong> The triggered status read from the guard condition.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Operation successful </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -741,13 +739,13 @@
 <span class="target" id="group__guardcondition_1ga2882791b660d4da6cb7f19d46bfd575f"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_take_guardcondition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">guardcond</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">triggered</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_take_guardcondition" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Reads and resets the trigger status of a guardcondition. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>guardcond</strong> – <strong>[in]</strong> Guard condition to read and reset the trigger status of. </p></li>
 <li><p><strong>triggered</strong> – <strong>[out]</strong> The triggered status read from the guard condition.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values</dt>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – Operation successful </p></li>
 <li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
@@ -815,8 +813,8 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

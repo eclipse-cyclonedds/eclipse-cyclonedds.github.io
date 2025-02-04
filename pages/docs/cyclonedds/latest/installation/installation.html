@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Installation &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -12,9 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/tabs.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -113,7 +112,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -143,7 +142,7 @@
           <div class="body" role="main">
             
   <section id="installation">
-<span id="installation-bm"></span><span id="index-0"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<span id="installation-bm"></span><span id="index-0"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
 <p>The core of Eclipse Cyclone DDS is implemented in C and provides C-APIs to applications.
 Additional language bindings are:</p>
 <ul class="simple">
@@ -162,7 +161,7 @@ of modern, idiomatic Python. For further information, refer to <a href="https://
 </li>
 </ul>
 <section id="supported-platforms">
-<h2>Supported platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this headline">¶</a></h2>
+<h2>Supported platforms<a class="headerlink" href="#supported-platforms" title="Permalink to this heading">¶</a></h2>
 <p>The Cyclone DDS supports three primary platforms:</p>
 <ul class="simple">
 <li><p>Linux</p></li>
@@ -195,7 +194,7 @@ therefore there may be unexpected results.</p>
 </div>
 </section>
 <section id="prerequisites">
-<span id="software-prerequisites"></span><span id="index-1"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<span id="software-prerequisites"></span><span id="index-1"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
 <p>Install the following software on your machine:</p>
 <blockquote>
 <div><ul class="simple">
@@ -213,7 +212,7 @@ Clang on macOS).</p></li>
 <span class="go">    yum install git cmake gcc</span>
 <span class="go">    apt-get install git cmake gcc</span>
 <span class="go">    aptitude install git cmake gcc</span>
-<span class="gp">    # </span>or others
+<span class="gp">    # </span>or<span class="w"> </span>others
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-1-bWFjT1M=" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-bWFjT1M=" name="bWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Install XCode from the App Store.</span>
@@ -229,7 +228,7 @@ Clang on macOS).</p></li>
 <p>Alternatively, to install the dependencies, use <a href="https://scoop.sh/" target="_blank">Scoop</a>.</p>
 </div></div>
 <section id="additional-tools">
-<span id="tools"></span><h3>Additional tools<a class="headerlink" href="#additional-tools" title="Permalink to this headline">¶</a></h3>
+<span id="tools"></span><h3>Additional tools<a class="headerlink" href="#additional-tools" title="Permalink to this heading">¶</a></h3>
 <p>While developing for Eclipse Cyclone DDS, additional tools and dependencies may be required. The following is a list of the suggested tools:</p>
 <blockquote>
 <div><ul class="simple">
@@ -253,7 +252,7 @@ Clang on macOS).</p></li>
 </section>
 </section>
 <section id="language-specific-installation">
-<h2>Language-specific installation<a class="headerlink" href="#language-specific-installation" title="Permalink to this headline">¶</a></h2>
+<h2>Language-specific installation<a class="headerlink" href="#language-specific-installation" title="Permalink to this heading">¶</a></h2>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-Q29yZSBERFMgKEMp" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tab" tabindex="0">Core DDS (C)</button><button aria-controls="panel-2-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button><button aria-controls="panel-2-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-2-Q29yZSBERFMgKEMp" class="sphinx-tabs-panel group-tab" id="panel-2-Q29yZSBERFMgKEMp" name="Q29yZSBERFMgKEMp" role="tabpanel" tabindex="0"><p id="installing-dds-core">Obtain Cyclone DDS via Git from the repository hosted on GitHub:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/eclipse-cyclonedds/cyclonedds.git</span>
@@ -387,18 +386,18 @@ If you get an exception about non-locatable libraries, or need to manage multipl
 <p>If you need these features, or cannot use the binaries for other reasons, install the Cyclone DDS Python API from source (see below).
 If the Cyclone DDS C library is not on the <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, set the environment variable <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_HOME</span></code>.</p>
 <p>Install Cyclone DDS using pip directly from PyPi.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install cyclonedds
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cyclonedds
 </pre></div>
 </div>
 <p><strong>Installing from source</strong></p>
 <p>Install Cyclone DDS directly from the GitHub link:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CYCLONEDDS_HOME</span><span class="o">=</span><span class="s2">&quot;&lt;cyclonedds-install-location&gt;&quot;</span> pip install git+https://github.com/eclipse-cyclonedds/cyclonedds-python
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">CYCLONEDDS_HOME</span><span class="o">=</span><span class="s2">&quot;&lt;cyclonedds-install-location&gt;&quot;</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/eclipse-cyclonedds/cyclonedds-python
 </pre></div>
 </div>
 </div></div>
 </section>
 <section id="windows-environment-variables">
-<h2>Windows environment variables<a class="headerlink" href="#windows-environment-variables" title="Permalink to this headline">¶</a></h2>
+<h2>Windows environment variables<a class="headerlink" href="#windows-environment-variables" title="Permalink to this heading">¶</a></h2>
 <p>To run Cyclone DDS executables on Windows, the required libraries (<code class="docutils literal notranslate"><span class="pre">ddsc.dll</span></code> and so on) must be available to the executables.
 Typically, these libraries are installed in system default locations and work out of the box.
 However, if they are not installed in those locations, you must change the library search path, either:</p>
@@ -418,7 +417,7 @@ executables’ directory. This is not recommended.</p>
 </div>
 </section>
 <section id="test-your-installation">
-<span id="test-install"></span><span id="index-3"></span><h2>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this headline">¶</a></h2>
+<span id="test-install"></span><span id="index-3"></span><h2>Test your installation<a class="headerlink" href="#test-your-installation" title="Permalink to this heading">¶</a></h2>
 <p>To test if your installation and configuration are working correctly, either:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -433,7 +432,7 @@ executables’ directory. This is not recommended.</p>
 </li>
 </ul>
 <section id="the-ddsperf-tool">
-<span id="dsperf-tool"></span><h3>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool<a class="headerlink" href="#the-ddsperf-tool" title="Permalink to this headline">¶</a></h3>
+<span id="dsperf-tool"></span><h3>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool<a class="headerlink" href="#the-ddsperf-tool" title="Permalink to this heading">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">ddsperf</span></code> tool is pre-installed within <code class="docutils literal notranslate"><span class="pre">&lt;installation-dir&gt;/bin</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -469,7 +468,7 @@ preventing communication.</p>
 This behavior can be overridden by changing the configuration file.</p>
 </section>
 <section id="helloworld">
-<span id="helloworld-test"></span><span id="index-4"></span><h3>HelloWorld<a class="headerlink" href="#helloworld" title="Permalink to this headline">¶</a></h3>
+<span id="helloworld-test"></span><span id="index-4"></span><h3>HelloWorld<a class="headerlink" href="#helloworld" title="Permalink to this heading">¶</a></h3>
 <p>To test your installation, Eclipse Cyclone DDS includes a simple <strong>HelloWorld!</strong> application
 (see also the <a class="reference internal" href="../examples/helloworld.html#helloworld-bm"><span class="std std-ref">HelloWorld</span></a> example). <strong>HelloWorld!</strong> consists of two executables:</p>
 <blockquote>
@@ -535,7 +534,7 @@ information, refer to <a class="reference internal" href="../config/index.html#c
 </section>
 </section>
 <section id="uninstalling-var-project-short">
-<span id="uninstalling"></span><h2>Uninstalling Cyclone DDS<a class="headerlink" href="#uninstalling-var-project-short" title="Permalink to this headline">¶</a></h2>
+<span id="uninstalling"></span><h2>Uninstalling Cyclone DDS<a class="headerlink" href="#uninstalling-var-project-short" title="Permalink to this heading">¶</a></h2>
 <p>To uninstall Cyclone DDS, manually remove the install and build directories:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-7-TGludXg=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-7-TGludXg=" name="TGludXg=" role="tab" tabindex="0">Linux</button><button aria-controls="panel-7-bWFjT1M=" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-7-bWFjT1M=" name="bWFjT1M=" role="tab" tabindex="-1">macOS</button><button aria-controls="panel-7-V2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-7-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-7-TGludXg=" class="sphinx-tabs-panel group-tab" id="panel-7-TGludXg=" name="TGludXg=" role="tabpanel" tabindex="0"><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rm -rf cyclonedds</span>
@@ -611,8 +610,8 @@ information, refer to <a class="reference internal" href="../config/index.html#c
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Shared memory configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -149,7 +147,7 @@
           <div class="body" role="main">
             
   <section id="shared-memory-configuration">
-<span id="shared-mem-config"></span><span id="index-0"></span><h1>Shared memory configuration<a class="headerlink" href="#shared-memory-configuration" title="Permalink to this headline">¶</a></h1>
+<span id="shared-mem-config"></span><span id="index-0"></span><h1>Shared memory configuration<a class="headerlink" href="#shared-memory-configuration" title="Permalink to this heading">¶</a></h1>
 <p>There are two levels of configuration for Cyclone DDS with shared memory
 support, the shared memory service (<a href="https://projects.eclipse.org/proposals/eclipse-iceoryx/" target="_blank">Eclipse iceoryx</a>) level, and the
 Cyclone DDS level.</p>
@@ -175,14 +173,14 @@ from the pool is 64 bytes larger than the data type being exchanged. iceoryx req
 that the blocks are aligned to 4 bytes.</p>
 <p>The following is an example of an iceoryx configuration file that has a memory pool of 2^15
 blocks, which can store data types of 16384 bytes (+ 64 byte header = 16448 byte block):</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[general]</span><span class="w"></span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[general]</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="k">[[segment]]</span><span class="w"></span>
+<span class="k">[[segment]]</span>
 
-<span class="k">[[segment.mempool]]</span><span class="w"></span>
-<span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16448</span><span class="w"></span>
-<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32768</span><span class="w"></span>
+<span class="k">[[segment.mempool]]</span>
+<span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16448</span>
+<span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32768</span>
 </pre></div>
 </div>
 <p>The configuration file is supplied to iceoryx using the <code class="docutils literal notranslate"><span class="pre">-c</span></code> parameter.</p>
@@ -199,16 +197,16 @@ blocks, which can store data types of 16384 bytes (+ 64 byte header = 16448 byte
 <p>The following is an example of a Cyclone DDS configuration file supporting shared memory exchange through iceoryx.
 Please check <a class="reference internal" href="../config/config_file_reference.html#cyclonedds-domain-general-interfaces-pubsubmessageexchange"><span class="std std-ref">//CycloneDDS/Domain/General/Interfaces/PubSubMessageExchange</span></a> for all configuration details.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
-<span class="nt">&lt;CycloneDDS</span> <span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
-            <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-            <span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/iceoryx/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;Domain</span> <span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;General&gt;</span>
-            <span class="nt">&lt;Interfaces&gt;</span>
-                <span class="nt">&lt;PubSubMessageExchange</span> <span class="na">name=</span><span class="s">&quot;iox&quot;</span> <span class="na">library=</span><span class="s">&quot;psmx_iox&quot;</span> <span class="na">config=</span><span class="s">&quot;LOG_LEVEL=INFO;&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;/Interfaces&gt;</span>
-        <span class="nt">&lt;/General&gt;</span>
-    <span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;CycloneDDS</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
+<span class="w">            </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">            </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/iceoryx/etc/cyclonedds.xsd&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;General&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Interfaces&gt;</span>
+<span class="w">                </span><span class="nt">&lt;PubSubMessageExchange</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;iox&quot;</span><span class="w"> </span><span class="na">library=</span><span class="s">&quot;psmx_iox&quot;</span><span class="w"> </span><span class="na">config=</span><span class="s">&quot;LOG_LEVEL=INFO;&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/Interfaces&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/General&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
@@ -247,8 +245,8 @@ Please check <a class="reference internal" href="../config/config_file_reference
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

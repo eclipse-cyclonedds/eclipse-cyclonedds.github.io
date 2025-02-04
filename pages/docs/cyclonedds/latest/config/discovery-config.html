@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Discovery configuration &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -157,9 +155,9 @@
           <div class="body" role="main">
             
   <section id="discovery-configuration">
-<span id="discovery-config"></span><h1>Discovery configuration<a class="headerlink" href="#discovery-configuration" title="Permalink to this headline">¶</a></h1>
+<span id="discovery-config"></span><h1>Discovery configuration<a class="headerlink" href="#discovery-configuration" title="Permalink to this heading">¶</a></h1>
 <section id="discovery-addresses">
-<span id="index-0"></span><span id="id1"></span><h2>Discovery addresses<a class="headerlink" href="#discovery-addresses" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><span id="id1"></span><h2>Discovery addresses<a class="headerlink" href="#discovery-addresses" title="Permalink to this heading">¶</a></h2>
 <p>The DDSI discovery protocols:</p>
 <ul class="simple">
 <li><p>Simple Participant Discovery Protocol (SPDP) for the <em>domain participants</em> (usually
@@ -197,7 +195,7 @@ DDSI implementation is listening on, also edit the participant index by setting:
 (see the description of “PI” in <a class="reference internal" href="port_numbers.html#port-numbers"><span class="std std-ref">Port numbers</span></a>).</p>
 </section>
 <section id="asymmetrical-discovery">
-<span id="index-1"></span><h2>Asymmetrical discovery<a class="headerlink" href="#asymmetrical-discovery" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>Asymmetrical discovery<a class="headerlink" href="#asymmetrical-discovery" title="Permalink to this heading">¶</a></h2>
 <p>On receipt of an SPDP packet, the addresses in the packet are added to the set of
 addresses to which SPDP packets are periodically sent. For example:</p>
 <p>If SPDP multicasting is disabled entirely:</p>
@@ -211,7 +209,7 @@ allowing A to discover B. This takes longer than normal multicast based discover
 and risks Writers being blocked by unresponsive Readers.</p>
 </section>
 <section id="timing-of-spdp-packets">
-<span id="index-2"></span><h2>Timing of SPDP packets<a class="headerlink" href="#timing-of-spdp-packets" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>Timing of SPDP packets<a class="headerlink" href="#timing-of-spdp-packets" title="Permalink to this heading">¶</a></h2>
 <p>To configure the interval with which the SPDP packets are transmitted, set
 <a class="reference internal" href="config_file_reference.html#cyclonedds-domain-discovery-spdpinterval"><span class="std std-ref">Discovery/SPDPInterval</span></a>.</p>
 <div class="admonition note">
@@ -221,7 +219,7 @@ and risks Writers being blocked by unresponsive Readers.</p>
 </div>
 </section>
 <section id="endpoint-discovery">
-<span id="index-3"></span><span id="id3"></span><h2>Endpoint discovery<a class="headerlink" href="#endpoint-discovery" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><span id="id3"></span><h2>Endpoint discovery<a class="headerlink" href="#endpoint-discovery" title="Permalink to this heading">¶</a></h2>
 <p>Although the SEDP protocol never requires any configuration, network partitioning does
 interact with it.</p>
 <p>To completely ignore specific DCPS topics and partition combinations, set the
@@ -279,8 +277,8 @@ and from the network.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

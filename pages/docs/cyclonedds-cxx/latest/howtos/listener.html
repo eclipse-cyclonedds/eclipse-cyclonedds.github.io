@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Listeners &#8212; Eclipse Cyclone DDS: C++ API, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -143,21 +141,13 @@
           <div class="body" role="main">
             
   <section id="listeners">
-<h1>Listeners<a class="headerlink" href="#listeners" title="Permalink to this headline">¶</a></h1>
+<h1>Listeners<a class="headerlink" href="#listeners" title="Permalink to this heading">¶</a></h1>
 <p>Listeners enable the code to react to changes in state of DDS entities such as readers, writers, and so on.
 CycloneDDS-CXX implements different listeners for different entities.
 Some types’ listeners inherit from other types’ listeners, allowing the listener of one type to react to changes in state on subordinate entities.
 For example, by implementing the required callback functions for Topics and Subscribers in a DomainParticipantListener, this listener only needs to be set once at the DomainParticipant, and the Topic and Subscriber will then propagate the events to this Listener.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">CycloneDDS Entities and associated listeners</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 16%" />
-<col style="width: 14%" />
-<col style="width: 19%" />
-<col style="width: 17%" />
-<col style="width: 20%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>CDDS-CXX Entity Type</p></th>
 <th class="head"><p>Listener Type</p></th>
@@ -255,32 +245,32 @@ For example, the DataReaderListener has an unimplemented virtual on_data_availab
 DDS entities can be passed to a listener during creation, together with a StatusMask that describes which status changes to pass to the listener.</p>
 <p>To make use of the listener functionality, create a class deriving from the type of listener necessary and implement the virtual functions.
 To simplify the use of listeners, there are also NoOp listeners that implements all virtual functions with empty contents, which enables you to implement the functions you are interested in.</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="nl">ExampleListener</span><span class="p">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">NoOpDataReaderListener</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">                </span><span class="kt">void</span><span class="w"> </span><span class="n">on_data_available</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">reader</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="cm">/* you also get a reference to the reader the callback originated from */</span><span class="w"></span>
-<span class="w">                        </span><span class="k">auto</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">take</span><span class="p">();</span><span class="w"></span>
-<span class="w">                        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I have &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">samples</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; new samples available.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">                        </span><span class="kt">int</span><span class="w"> </span><span class="n">invsamples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">                        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">sample</span><span class="o">:</span><span class="n">samples</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">sample</span><span class="p">.</span><span class="n">info</span><span class="p">().</span><span class="n">valid</span><span class="p">())</span><span class="w"></span>
-<span class="w">                                        </span><span class="n">invsamples</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">                        </span><span class="p">}</span><span class="w"></span>
-<span class="w">                        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Of which &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invsamples</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; were invalid samples.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<span class="nl">ExampleListener</span><span class="p">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">NoOpDataReaderListener</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="o">:</span>
+<span class="w">                </span><span class="kt">void</span><span class="w"> </span><span class="n">on_data_available</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">reader</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="cm">/* you also get a reference to the reader the callback originated from */</span>
+<span class="w">                        </span><span class="k">auto</span><span class="w"> </span><span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">take</span><span class="p">();</span>
+<span class="w">                        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;I have &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">samples</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; new samples available.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">                        </span><span class="kt">int</span><span class="w"> </span><span class="n">invsamples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">                        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">sample</span><span class="o">:</span><span class="n">samples</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">sample</span><span class="p">.</span><span class="n">info</span><span class="p">().</span><span class="n">valid</span><span class="p">())</span>
+<span class="w">                                        </span><span class="n">invsamples</span><span class="o">++</span><span class="p">;</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Of which &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invsamples</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; were invalid samples.&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>By passing this listener to a reader and setting the correct status mask, the message “I have $N new samples available.”, and then “Of which $I were invalid samples.”, where $N is the number of new samples and $I the number of invalid samples, appears each time the associated reader receives data:</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drqos</span><span class="p">;</span><span class="w"></span>
-<span class="n">ExampleListener</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">listener</span><span class="p">;</span><span class="w"></span>
-<span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">drqos</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">listener</span><span class="p">,</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">StatusMask</span><span class="o">::</span><span class="n">data_available</span><span class="p">());</span><span class="w"></span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">qos</span><span class="o">::</span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drqos</span><span class="p">;</span>
+<span class="n">ExampleListener</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">listener</span><span class="p">;</span>
+<span class="n">dds</span><span class="o">::</span><span class="n">sub</span><span class="o">::</span><span class="n">DataReader</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">reader</span><span class="p">(</span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">drqos</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">listener</span><span class="p">,</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">StatusMask</span><span class="o">::</span><span class="n">data_available</span><span class="p">());</span>
 </pre></div>
 </div>
 <p>Some listeners’ callback functions pass references to the entities that the callback originated from and/or status objects and contain information relevant to the status change.
 For example, the listener for DataWriters has the following callback function that is triggered when the Deadline QoS Policy is not complied with:</p>
-<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">offered_deadline_missed</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">AnyDataWriter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">OfferedDeadlineMissedStatus</span><span class="o">&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">offered_deadline_missed</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">pub</span><span class="o">::</span><span class="n">AnyDataWriter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">status</span><span class="o">::</span><span class="n">OfferedDeadlineMissedStatus</span><span class="o">&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -313,8 +303,8 @@ For example, the listener for DataWriters has the following callback function th
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

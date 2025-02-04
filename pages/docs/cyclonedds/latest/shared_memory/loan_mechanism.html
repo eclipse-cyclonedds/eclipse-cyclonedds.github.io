@@ -4,17 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Loan mechanism &#8212; Eclipse Cyclone DDS, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
-    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/helpers.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
@@ -112,7 +110,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -149,13 +147,13 @@
           <div class="body" role="main">
             
   <section id="loan-mechanism">
-<span id="loan-machanism"></span><span id="index-0"></span><h1>Loan mechanism<a class="headerlink" href="#loan-mechanism" title="Permalink to this headline">¶</a></h1>
+<span id="loan-machanism"></span><span id="index-0"></span><h1>Loan mechanism<a class="headerlink" href="#loan-mechanism" title="Permalink to this heading">¶</a></h1>
 <p>When using shared memory exchange, additional performance gains can be made by using
 the loan mechanism on the writer side. The loan mechanism directly allocates memory
 from the <a href="https://projects.eclipse.org/proposals/eclipse-iceoryx/" target="_blank">Eclipse iceoryx</a> shared memory pool, and provides this to the user as a
 message data type. This eliminates a copy step in the publication process.</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">message_type</span><span class="w"> </span><span class="o">*</span><span class="n">loaned_sample</span><span class="p">;</span><span class="w"></span>
-<span class="n">dds_return_t</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_loan_sample</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">loaned_sample</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">message_type</span><span class="w"> </span><span class="o">*</span><span class="n">loaned_sample</span><span class="p">;</span>
+<span class="n">dds_return_t</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_loan_sample</span><span class="w"> </span><span class="p">(</span><span class="n">writer</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">loaned_sample</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>If <em>status</em> returns <a class="reference internal" href="../api/basics.html#c.DDS_RETCODE_OK" title="DDS_RETCODE_OK"><code class="xref c c-macro docutils literal notranslate"><span class="pre">DDS_RETCODE_OK</span></code></a>, then <em>loaned_sample</em> contains a pointer
@@ -208,8 +206,8 @@ of the published sample is copied into it.</p>
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2024, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>

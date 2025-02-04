@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Working with IDL &#8212; Eclipse Cyclone DDS: Python API, 0.11.0</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=0.7.0-1" />
     <link rel="stylesheet" type="text/css" href="_static/css/helpers.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/helpers.js"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/js/petite-vue.js"></script>
@@ -113,7 +112,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
     </nav>
 </div>
@@ -141,26 +140,26 @@
           <div class="body" role="main">
             
   <section id="working-with-idl">
-<h1>Working with IDL<a class="headerlink" href="#working-with-idl" title="Permalink to this headline">¶</a></h1>
+<h1>Working with IDL<a class="headerlink" href="#working-with-idl" title="Permalink to this heading">¶</a></h1>
 <p>All IDL type support is contained within the subpackage <cite>cyclonedds.idl</cite>, which enables you to use it even in contexts where you do not need the full Eclipse Cyclone DDS: Python API ecosystem.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There is no official OMG specification for mapping IDL to Python. The solutions here are therefore not standardized and are not compatible with other DDS implementations. However, they are based purely on the standard library type-hinting functionality as introduced in Python 3.5, so that any Python tooling that works with type-hints is also compatible with our implementation. To generate initializers and string representations use the <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html#module-dataclasses" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataclasses</span></code></a> standard library module. This is applied outside of the other IDL machinery, therefore you can control immutability, equality checking, or even use a different <code class="docutils literal notranslate"><span class="pre">dataclasses</span></code> representation, for example <a class="reference external" href="https://pypi.org/project/runtype/">runtype</a>.</p>
 </div>
 <section id="working-with-the-idl-compiler">
-<h2>Working with the IDL compiler<a class="headerlink" href="#working-with-the-idl-compiler" title="Permalink to this headline">¶</a></h2>
+<h2>Working with the IDL compiler<a class="headerlink" href="#working-with-the-idl-compiler" title="Permalink to this heading">¶</a></h2>
 <p>Use the IDL compiler if you already have an IDL file that defines your types, or if you require interoperability with non-Python projects. The <code class="docutils literal notranslate"><span class="pre">idlpy</span></code> library is built as part of the python package.</p>
 <p>After installing the CycloneDDS Python backend you can run <code class="docutils literal notranslate"><span class="pre">idlc</span></code> with the <code class="docutils literal notranslate"><span class="pre">-l</span> <span class="pre">py</span></code> flag to generate Python code:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>idlc -l py your_file.idl
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>idlc<span class="w"> </span>-l<span class="w"> </span>py<span class="w"> </span>your_file.idl
 </pre></div>
 </div>
 <p>To nest the resulting Python module inside an existing package, you can specify the path from the intended root. If you have a package ‘wubble’ with a submodule ‘fruzzy’ and want the generated modules and types under there you can pass <code class="docutils literal notranslate"><span class="pre">py-root-prefix</span></code>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>idlc -l py -p py-root-prefix<span class="o">=</span>wubble.fruzzy your_file.idl
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>idlc<span class="w"> </span>-l<span class="w"> </span>py<span class="w"> </span>-p<span class="w"> </span>py-root-prefix<span class="o">=</span>wubble.fruzzy<span class="w"> </span>your_file.idl
 </pre></div>
 </div>
 </section>
 <section id="idl-datatypes-in-python">
-<h2>IDL Datatypes in Python<a class="headerlink" href="#idl-datatypes-in-python" title="Permalink to this headline">¶</a></h2>
+<h2>IDL Datatypes in Python<a class="headerlink" href="#idl-datatypes-in-python" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">cyclonedds.idl</span></code> package implements the IDL unions, structs, and their OMG XCDR-V1 encoding, in python. In most cases, the IDL compiler writes the code that references this package without the need to edit the objects. However, for python-only projects it is possible to write the objects manually (where cross-language interactions are not required). To manually write IDL objects, you can make your classes inherit from the following classes:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlStruct</span></code></a></p></li>
@@ -169,11 +168,11 @@
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlStruct</span></code></p></li>
 </ul>
 <p>The following is a basic example of how to use dataclasses (For further information refer to the standard library documentation of <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html#module-dataclasses" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dataclasses</span></code></a>):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="nd">@dataclass</span>
-<span class="linenos"> 5</span><span class="k">class</span> <span class="nc">Point2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">Point2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos"> 6</span>   <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos"> 7</span>   <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos"> 8</span>
@@ -185,17 +184,17 @@
 <p>The <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dataclass</span></code></a> decorator turns a class with just names and types into a dataclass. The <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlStruct</span></code></a> parent class makes use of the type information defined in the dataclass to <a class="reference internal" href="#serialization"><span class="std std-ref">(de)serialize messages</span></a>. All normal dataclasses functionality is preserved, therefore to define default factories use <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html#dataclasses.field" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">field</span></code></a> from the dataclasses module, or add a <cite>__post_init__</cite> method for more complicated construction scenarios.</p>
 </section>
 <section id="types">
-<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this heading">¶</a></h2>
 <p>Not all Python types are encodable with OMG XCDR-V1. Therefore, there are limitations to what you can put in an <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlStruct</span></code></a> class. The following is an exhaustive list of types:</p>
 <section id="integers">
-<h3>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">¶</a></h3>
+<h3>Integers<a class="headerlink" href="#integers" title="Permalink to this heading">¶</a></h3>
 <p>The default Python <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> type maps to an OMG XCDR-V1 64-bit integer. The <code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code> module has all the other integers types that are supported in python.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
-<span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">int8</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">int16</span><span class="p">,</span> <span class="n">uint16</span><span class="p">,</span> <span class="n">int32</span><span class="p">,</span> <span class="n">uint32</span><span class="p">,</span> <span class="n">int64</span><span class="p">,</span> <span class="n">uint64</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">int8</span><span class="p">,</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">int16</span><span class="p">,</span> <span class="n">uint16</span><span class="p">,</span> <span class="n">int32</span><span class="p">,</span> <span class="n">uint32</span><span class="p">,</span> <span class="n">int64</span><span class="p">,</span> <span class="n">uint64</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="nd">@dataclass</span>
-<span class="linenos">6</span><span class="k">class</span> <span class="nc">SmallPoint2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">6</span><span class="k">class</span><span class="w"> </span><span class="nc">SmallPoint2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">7</span>   <span class="n">x</span><span class="p">:</span> <span class="n">int8</span>
 <span class="linenos">8</span>   <span class="n">y</span><span class="p">:</span> <span class="n">int8</span>
 </pre></div>
@@ -206,32 +205,32 @@
 </div>
 </section>
 <section id="floats">
-<h3>Floats<a class="headerlink" href="#floats" title="Permalink to this headline">¶</a></h3>
+<h3>Floats<a class="headerlink" href="#floats" title="Permalink to this heading">¶</a></h3>
 <p>The Python <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> type maps to a 64-bit float, which is a <cite>double</cite> in C-style languages. The <code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code> module has a <code class="docutils literal notranslate"><span class="pre">float32</span></code> and <code class="docutils literal notranslate"><span class="pre">float64</span></code> type, <code class="docutils literal notranslate"><span class="pre">float128</span></code> is not supported.</p>
 </section>
 <section id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">¶</a></h3>
 <p>The Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> type maps directly to the XCDR string. It is encoded with utf-8. Inside <code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code> there is the <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.types.bounded_str" title="cyclonedds.idl.types.bounded_str"><code class="xref py py-class docutils literal notranslate"><span class="pre">bounded_str</span></code></a> type for a string with maximum length.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
-<span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">bounded_str</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">bounded_str</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="nd">@dataclass</span>
-<span class="linenos">6</span><span class="k">class</span> <span class="nc">Textual</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">6</span><span class="k">class</span><span class="w"> </span><span class="nc">Textual</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">7</span>   <span class="n">x</span><span class="p">:</span> <span class="nb">str</span>
 <span class="linenos">8</span>   <span class="n">y</span><span class="p">:</span> <span class="n">bounded_str</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="lists">
-<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">¶</a></h3>
 <p>The Python <code class="xref py py-func docutils literal notranslate"><span class="pre">list</span></code> is a versatile type. In normal python, a list is able to contain other types, but to be able to encode it, all of the contents must be the same type, and this type must be known beforehand. This can be achieved by using the <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.types.sequence" title="cyclonedds.idl.types.sequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">sequence</span></code></a> type.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
-<span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">sequence</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">sequence</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="nd">@dataclass</span>
-<span class="linenos">6</span><span class="k">class</span> <span class="nc">Names</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">6</span><span class="k">class</span><span class="w"> </span><span class="nc">Names</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">7</span>   <span class="n">names</span><span class="p">:</span> <span class="n">sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 <span class="linenos">8</span>
 <span class="linenos">9</span><span class="n">n</span> <span class="o">=</span> <span class="n">Names</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;baz&quot;</span><span class="p">])</span>
@@ -242,30 +241,30 @@
 <li><p>A ‘bounded sequence’. For example, to limit the maximum allowed number of items.</p></li>
 <li><p>An ‘array’. For example, if the length of the list is always the same.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos">2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
-<span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">sequence</span><span class="p">,</span> <span class="n">array</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">sequence</span><span class="p">,</span> <span class="n">array</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="nd">@dataclass</span>
-<span class="linenos">6</span><span class="k">class</span> <span class="nc">Numbers</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">6</span><span class="k">class</span><span class="w"> </span><span class="nc">Numbers</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">7</span>   <span class="n">ThreeNumbers</span><span class="p">:</span> <span class="n">array</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="linenos">8</span>   <span class="n">MaxFourNumbers</span><span class="p">:</span> <span class="n">sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="dictionaries">
-<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Currently, dictionaries are not supported by the IDL compiler. However, if your project is pure python there is no problem in using them.</p>
 </div>
 <p>Unlike the built-in Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a> both the key and the value must have a constant type. To define a dictionary, use the <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a> from the <a class="reference external" href="https://docs.python.org/3/library/typing.html#module-typing" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> module.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-<span class="linenos">2</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos">3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos">3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
 <span class="linenos">4</span>
 <span class="linenos">5</span><span class="nd">@dataclasses</span>
-<span class="linenos">6</span><span class="k">class</span> <span class="nc">ColourMap</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">6</span><span class="k">class</span><span class="w"> </span><span class="nc">ColourMap</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">7</span>   <span class="n">mapping</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
 <span class="linenos">8</span>
 <span class="linenos">9</span><span class="n">c</span> <span class="o">=</span> <span class="n">ColourMap</span><span class="p">({</span><span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="s2">&quot;#0000ff&quot;</span><span class="p">})</span>
@@ -273,7 +272,7 @@
 </div>
 </section>
 <section id="unions">
-<h3>Unions<a class="headerlink" href="#unions" title="Permalink to this headline">¶</a></h3>
+<h3>Unions<a class="headerlink" href="#unions" title="Permalink to this heading">¶</a></h3>
 <p>Unions in IDL are different to the unions defined in the <a class="reference external" href="https://docs.python.org/3/library/typing.html#module-typing" title="(in Python v3.13)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">typing</span></code></a> module. IDL unions are <em>discriminated</em>, which means that they have a value that indicates which of the possibilities is active.</p>
 <p>To write discriminated unions, use the following:</p>
 <ul class="simple">
@@ -282,20 +281,20 @@
 <li><p><a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.types.default" title="cyclonedds.idl.types.default"><code class="xref py py-func docutils literal notranslate"><span class="pre">default</span></code></a> helper type.</p></li>
 </ul>
 <p>Write the class in a dataclass style, except only one of the values can be active at a time. The <code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;union</span></code> decorator takes one type as argument, which determines the type of what is differentiating the cases.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span>
-<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">union</span><span class="p">,</span> <span class="n">case</span><span class="p">,</span> <span class="n">default</span><span class="p">,</span> <span class="n">MaxLen</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">auto</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlUnion</span><span class="p">,</span> <span class="n">IdlStruct</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">uint8</span><span class="p">,</span> <span class="n">union</span><span class="p">,</span> <span class="n">case</span><span class="p">,</span> <span class="n">default</span><span class="p">,</span> <span class="n">MaxLen</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="k">class</span> <span class="nc">Direction</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="linenos"> 7</span><span class="k">class</span><span class="w"> </span><span class="nc">Direction</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
 <span class="linenos"> 8</span>   <span class="n">North</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 <span class="linenos"> 9</span>   <span class="n">East</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 <span class="linenos">10</span>   <span class="n">South</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 <span class="linenos">11</span>   <span class="n">West</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span>
-<span class="linenos">14</span><span class="k">class</span> <span class="nc">WalkInstruction</span><span class="p">(</span><span class="n">IdlUnion</span><span class="p">,</span> <span class="n">discriminator</span><span class="o">=</span><span class="n">Direction</span><span class="p">):</span>
+<span class="linenos">14</span><span class="k">class</span><span class="w"> </span><span class="nc">WalkInstruction</span><span class="p">(</span><span class="n">IdlUnion</span><span class="p">,</span> <span class="n">discriminator</span><span class="o">=</span><span class="n">Direction</span><span class="p">):</span>
 <span class="linenos">15</span>   <span class="n">steps_n</span><span class="p">:</span> <span class="n">case</span><span class="p">[</span><span class="n">Direction</span><span class="o">.</span><span class="n">North</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
 <span class="linenos">16</span>   <span class="n">steps_e</span><span class="p">:</span> <span class="n">case</span><span class="p">[</span><span class="n">Direction</span><span class="o">.</span><span class="n">East</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
 <span class="linenos">17</span>   <span class="n">steps_s</span><span class="p">:</span> <span class="n">case</span><span class="p">[</span><span class="n">Direction</span><span class="o">.</span><span class="n">South</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
@@ -303,7 +302,7 @@
 <span class="linenos">19</span>   <span class="n">jumps</span><span class="p">:</span> <span class="n">default</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
 <span class="linenos">20</span>
 <span class="linenos">21</span><span class="nd">@dataclass</span>
-<span class="linenos">22</span><span class="k">class</span> <span class="nc">TreasureMap</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">22</span><span class="k">class</span><span class="w"> </span><span class="nc">TreasureMap</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">23</span>   <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
 <span class="linenos">24</span>   <span class="n">steps</span><span class="p">:</span> <span class="n">sequence</span><span class="p">[</span><span class="n">WalkInstruction</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 <span class="linenos">25</span>
@@ -323,25 +322,25 @@
 </div>
 </section>
 <section id="objects">
-<h3>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h3>
+<h3>Objects<a class="headerlink" href="#objects" title="Permalink to this heading">¶</a></h3>
 <p>To reference other classes as member a type, use <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlStruct</span></code></a> or <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlUnion" title="cyclonedds.idl.IdlUnion"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlUnion</span></code></a> classes that only contain serializable members.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
-<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.types</span> <span class="kn">import</span> <span class="n">sequence</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">sequence</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="nd">@dataclass</span>
-<span class="linenos"> 6</span><span class="k">class</span> <span class="nc">Point2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos"> 6</span><span class="k">class</span><span class="w"> </span><span class="nc">Point2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos"> 7</span>   <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos"> 8</span>   <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos"> 9</span>
 <span class="linenos">10</span><span class="nd">@dataclass</span>
-<span class="linenos">11</span><span class="k">class</span> <span class="nc">Cloud</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">11</span><span class="k">class</span><span class="w"> </span><span class="nc">Cloud</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">12</span>   <span class="n">points</span><span class="p">:</span> <span class="n">sequence</span><span class="p">[</span><span class="n">Point</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="serialization">
-<span id="id1"></span><h3>Serialization<a class="headerlink" href="#serialization" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>Serialization<a class="headerlink" href="#serialization" title="Permalink to this heading">¶</a></h3>
 <p>Serialization and deserialization automatically occur within the backend. For debug purposes, or outside a DDS context it can be useful to look at the serialized data, or create Python objects from raw bytes. By inheriting from <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlStruct" title="cyclonedds.idl.IdlStruct"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlStruct</span></code></a> or <a class="reference internal" href="cyclonedds.idl.html#cyclonedds.idl.IdlUnion" title="cyclonedds.idl.IdlUnion"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdlUnion</span></code></a>, the defined classes automatically gain <code class="docutils literal notranslate"><span class="pre">instance.serialize()</span> <span class="pre">-&gt;</span> <span class="pre">bytes</span></code> and <code class="docutils literal notranslate"><span class="pre">cls.deserialize(data:</span> <span class="pre">bytes)</span> <span class="pre">-&gt;</span> <span class="pre">cls</span></code> functions.</p>
 <ul class="simple">
 <li><p>Serialize is a member function that returns <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> with the serialized object.</p></li>
@@ -350,11 +349,11 @@
 <blockquote>
 <div><p>To inspect the member types, use the built-in Python <code class="docutils literal notranslate"><span class="pre">cls.__annotations__</span></code>, and for for idl information, use the <code class="docutils literal notranslate"><span class="pre">cls.__idl_annotations__</span></code> and <code class="docutils literal notranslate"><span class="pre">cls.__idl_field_annotations__</span></code>.</p>
 </div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="nd">@dataclass</span>
-<span class="linenos"> 5</span><span class="k">class</span> <span class="nc">Point2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos"> 5</span><span class="k">class</span><span class="w"> </span><span class="nc">Point2D</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos"> 6</span>   <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos"> 7</span>   <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos"> 8</span>
@@ -367,21 +366,21 @@
 </div>
 </section>
 <section id="idl-annotations">
-<h3>Idl Annotations<a class="headerlink" href="#idl-annotations" title="Permalink to this headline">¶</a></h3>
+<h3>Idl Annotations<a class="headerlink" href="#idl-annotations" title="Permalink to this heading">¶</a></h3>
 <p>In IDL you can annotate structs and members with several different annotations, for example <code class="docutils literal notranslate"><span class="pre">&#64;key</span></code>. In Python we have decorators, but they only apply to classes not to fields. This is the reason why the syntax in Python for a class or field annotation differ slightly. Note: The IDL <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">keylist</span></code> is a class annotation in python, but functions in exactly the same way.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">cyclonedds.idl</span> <span class="kn">import</span> <span class="n">IdlStruct</span>
-<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">cyclonedds.idl.annotations</span> <span class="kn">import</span> <span class="n">key</span><span class="p">,</span> <span class="n">keylist</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.annotations</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span><span class="p">,</span> <span class="n">keylist</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="nd">@dataclass</span>
-<span class="linenos"> 6</span><span class="k">class</span> <span class="nc">Type1</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos"> 6</span><span class="k">class</span><span class="w"> </span><span class="nc">Type1</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos"> 7</span>   <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos"> 8</span>   <span class="n">key</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
 <span class="linenos"> 9</span>   <span class="n">value</span><span class="p">:</span> <span class="nb">str</span>
 <span class="linenos">10</span>
 <span class="linenos">11</span><span class="nd">@dataclass</span>
 <span class="linenos">12</span><span class="nd">@keylist</span><span class="p">([</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
-<span class="linenos">13</span><span class="k">class</span> <span class="nc">Type2</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+<span class="linenos">13</span><span class="k">class</span><span class="w"> </span><span class="nc">Type2</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
 <span class="linenos">14</span>   <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
 <span class="linenos">15</span>   <span class="n">value</span><span class="p">:</span> <span class="nb">str</span>
 </pre></div>
@@ -449,7 +448,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2025, Eclipse Cyclone DDS committers.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
 <p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
