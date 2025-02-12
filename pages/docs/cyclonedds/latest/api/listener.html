@@ -1735,44 +1735,10 @@ DOC_TODO: Link to (generic) Listener and status information. </p>
 <p>This operation attaches a dds_listener_t to the dds_entity_t. Only one Listener can be attached to each Entity. If a Listener was already attached, this operation will replace it with the new one. In other words, all related callbacks are replaced (possibly with NULL). </p>
 <p>A call to this operation will immediately invoke any listener callbacks for which the corresponding status flag is set. It may cause spurious invocations, including multiple invocations for one listener. For most cases this is unlikely, but for the DATA_ON_READERS listeners it is quite likely, though not certain.</p>
 <p>When listener parameter is NULL, all listener callbacks that were possibly set on the Entity will be removed.</p>
-<section id="group__entity__listener_1autotoc_md0_1s1">
-<h3><a class="headerlink" href="#group__entity__listener_1autotoc_md0_1s1" title="Permalink to this heading">¶</a></h3>
-<section id="group__entity__listener_1autotoc_md0">
-<span id="group__entity__listener_1autotoc_md0_1s1"></span><h4>Communication Status<a class="headerlink" href="#group__entity__listener_1autotoc_md0" title="Permalink to this heading">¶</a></h4>
-<p id="group__entity__listener_1autotoc_md0">For each communication status, the StatusChangedFlag flag is initially set to FALSE. It becomes TRUE whenever that plain communication status changes. For each plain communication status activated in the mask, the associated Listener callback is invoked and the communication status is reset to FALSE, as the listener implicitly accesses the status which is passed as a parameter to that operation. The status is reset prior to calling the listener, so if the application calls the get_&lt;status_name&gt; from inside the listener it will see the status already reset.</p>
-</section>
-</section>
-<section id="group__entity__listener_1autotoc_md1_1s1">
-<h3><a class="headerlink" href="#group__entity__listener_1autotoc_md1_1s1" title="Permalink to this heading">¶</a></h3>
-<section id="group__entity__listener_1autotoc_md1">
-<span id="group__entity__listener_1autotoc_md1_1s1"></span><h4>Status Propagation<a class="headerlink" href="#group__entity__listener_1autotoc_md1" title="Permalink to this heading">¶</a></h4>
-<p id="group__entity__listener_1autotoc_md1">In case a related callback within the Listener is not set, the Listener of the Parent entity is called recursively, until a Listener with the appropriate callback set has been found and called. This allows the application to set (for instance) a default behaviour in the Listener of the containing Publisher and a DataWriter specific behaviour when needed. In case the callback is not set in the Publishers’ Listener either, the communication status will be propagated to the Listener of the DomainParticipant of the containing DomainParticipant. In case the callback is not set in the DomainParticipants’ Listener either, the Communication Status flag will be set, resulting in a possible WaitSet trigger.</p>
-<p></p>
-</section>
-</section>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Not all listener callbacks are related to all entities.</p>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>entity</strong> – <strong>[in]</strong> Entity on which to get the listeners. </p></li>
-<li><p><strong>listener</strong> – <strong>[in]</strong> Pointer to the listener structure that contains the set of listener callbacks (maybe NULL).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return values<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>DDS_RETCODE_OK</strong> – The listeners of to the entity have been successfully been copied into the specified listener parameter. </p></li>
-<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error has occurred. </p></li>
-<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
-<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. DOC_TODO: Link to (generic) Listener and status information. </p></li>
-</ul>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
-</dd>
-</dl>
 </dd></dl>
 
 </div>

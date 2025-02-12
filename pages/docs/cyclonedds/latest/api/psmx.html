@@ -187,15 +187,13 @@
 <span class="p">};</span>
 </pre></div>
 </div>
-</p>
-<p>The creator function mentioned above is required to be called NAME_create_psmx, where NAME is the value of the “name” attribute of the PubSubMessageExchange interface configuration element. It must have the following signature: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">NAME_create_psmx</span><span class="w"> </span><span class="p">(</span>
+ The creator function mentioned above is required to be called NAME_create_psmx, where NAME is the value of the “name” attribute of the PubSubMessageExchange interface configuration element. It must have the following signature: <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">NAME_create_psmx</span><span class="w"> </span><span class="p">(</span>
 <span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">dds_psmx</span><span class="w"> </span><span class="o">**</span><span class="n">psmx_instance</span><span class="p">,</span>
 <span class="w">  </span><span class="n">dds_psmx_instance_id_t</span><span class="w"> </span><span class="n">identifier</span><span class="p">,</span>
 <span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">config</span><span class="p">)</span>
 </pre></div>
 </div>
-</p>
-<p>Where</p>
+ Where</p>
 <p>*psmx_instance must be set point to a new PSMX Instance on success and may be left undefined on error identifier contains the numeric PSMX Instance ID config the PSMX configuration from the “config” attribute of the PubSubMessageExchange interface configuration element.</p>
 <p>The “config” argument is a contiguous sequence of characters terminated by the first double-\0. Each \0-terminated character sequence is a string that consists of KEY=VALUE pairs, where each K-V pair is terminated by a semicolon.</p>
 <p>If the configuration string as set in Cyclone DDS configuration contains a “INSTANCE_NAME” key, its value is used as the PSMX Instance Name. If the key is not included, the value of the “name” attribute of the corresponding PubSubMessageExchange element in configuration is used as the PSMX Instance Name. In all cases, looking up the “INSTANCE_NAME” key in the configuration string using <a class="reference internal" href="#group__psmx_1ga0b3f81fb7ec82c1a1548e9420a666e5a"><span class="std std-ref">dds_psmx_get_config_option_value</span></a> will return the PSMX Instance Name as its value.</p>
