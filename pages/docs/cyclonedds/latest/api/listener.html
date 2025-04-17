@@ -718,6 +718,11 @@
 <dt class="sig sig-object c" id="c.dds_lset_data_available_arg">
 <span class="target" id="group__listener__setters_1ga34c65e0e15fb3ebed55edf361dd543f5"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_data_available_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_available_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_data_available_arg" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the data_available callback and argument in the listener structure. </p>
+<p><div class="remark admonition">
+<p class="admonition-title">Remark</p>
+<p>: See also the remark on <a class="reference internal" href="status.html#group__entity__status_1DDS_DATA_AVAILABLE_STATUS"><span class="std std-ref">DDS_DATA_AVAILABLE_STATUS</span></a>)</p>
+</div>
+</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -740,6 +745,11 @@
 <dt class="sig sig-object c" id="c.dds_lset_data_on_readers_arg">
 <span class="target" id="group__listener__setters_1ga466699bb6b4c010d473d364a6813a856"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_data_on_readers_arg</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_on_readers_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_data_on_readers_arg" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the data_on_readers callback and argument in the listener structure. </p>
+<p><div class="remark admonition">
+<p class="admonition-title">Remark</p>
+<p>: See also the remark on <a class="reference internal" href="status.html#group__entity__status_1DDS_DATA_AVAILABLE_STATUS"><span class="std std-ref">DDS_DATA_AVAILABLE_STATUS</span></a>)</p>
+</div>
+</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1094,7 +1104,12 @@
 <dt class="sig sig-object c" id="c.dds_lset_data_available">
 <span class="target" id="group__listener__setters_1gadd64bb8e641bcb8646e055dfa56f6465"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lset_data_available</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_available_fn</span></span><span class="w"> </span><span class="n"><span class="pre">callback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lset_data_available" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set the data_available callback in the listener structure. </p>
-<p>Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga34c65e0e15fb3ebed55edf361dd543f5"><span class="std std-ref">dds_lset_data_available_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1ga0afe644225ac2874269877816eca7e33"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.</p>
+<p>
+Equivalent to calling <a class="reference internal" href="#group__listener__setters_1ga34c65e0e15fb3ebed55edf361dd543f5"><span class="std std-ref">dds_lset_data_available_arg</span></a> with arg set to the argument passed in <a class="reference internal" href="#group__listener_1ga0afe644225ac2874269877816eca7e33"><span class="std std-ref">dds_create_listener()</span></a> and reset_on_invoke to true, and throwing away the result.<div class="remark admonition">
+<p class="admonition-title">Remark</p>
+<p>: See also the remark on <a class="reference internal" href="status.html#group__entity__status_1DDS_DATA_AVAILABLE_STATUS"><span class="std std-ref">DDS_DATA_AVAILABLE_STATUS</span></a>)</p>
+</div>
+</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1232,6 +1247,11 @@
 <dt class="sig sig-object c" id="c.dds_lget_data_on_readers_arg">
 <span class="target" id="group__listener__getters_1ga943cc25866e47ecafadf314c8ad9a304"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_lget_data_on_readers_arg</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="n"><span class="pre">dds_on_data_on_readers_fn</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">callback</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">arg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">reset_on_invoke</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_lget_data_on_readers_arg" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Get the data_on_readers callback from the listener structure. </p>
+<p><div class="remark admonition">
+<p class="admonition-title">Remark</p>
+<p>: See also the remark on <a class="reference internal" href="status.html#group__entity__status_1DDS_DATA_AVAILABLE_STATUS"><span class="std std-ref">DDS_DATA_AVAILABLE_STATUS</span></a>)</p>
+</div>
+</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

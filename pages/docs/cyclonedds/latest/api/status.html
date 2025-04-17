@@ -220,13 +220,13 @@
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_ON_READERS_STATUS">
 <span class="target" id="group__entity__status_1ga9d1ca1ac4c5bc82ca39437b3b618e519"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_ON_READERS_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba01823c1f7c5a1e4371da35b546d5430d"><span class="std std-ref"><span class="pre">DDS_DATA_ON_READERS_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_ON_READERS_STATUS" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="target" id="group__entity__status_1DDS_DATA_ON_READERS_STATUS"></span>New information is available in some of the data readers of a subscriber. </p>
+<dd><p><span class="target" id="group__entity__status_1DDS_DATA_ON_READERS_STATUS"></span>New information is available in some of the data readers of a subscriber. (See also the remark on <a class="reference internal" href="#group__entity__status_1DDS_DATA_AVAILABLE_STATUS"><span class="std std-ref">DDS_DATA_AVAILABLE_STATUS</span></a>) </p>
 </dd></dl>
 
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_DATA_AVAILABLE_STATUS">
 <span class="target" id="group__entity__status_1ga3dbf0808cdf4e2d8c2f8a38cac6e4e79"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DATA_AVAILABLE_STATUS</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <a class="reference internal" href="#group__entity__status_1ggaec8b373be18767e18e92e861288befeba182657725b33308a5f58e878e2ada915"><span class="std std-ref"><span class="pre">DDS_DATA_AVAILABLE_STATUS_ID</span></span></a><span class="pre">)</span><a class="headerlink" href="#c.DDS_DATA_AVAILABLE_STATUS" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><span class="target" id="group__entity__status_1DDS_DATA_AVAILABLE_STATUS"></span>New information is available in a data reader. </p>
+<dd><p><span class="target" id="group__entity__status_1DDS_DATA_AVAILABLE_STATUS"></span>New information is available in a data reader. When a data-available status is triggered or a data-available listener is invoked, it’s possible that a sample has already been taken from the reader history cache (RHC), leaving no sample available for reading. This can occur because updating the RHC with a newly arrived sample and triggering the status update or listener callback are not performed atomically. As a result, another thread may have consumed the data from the RHC before the status update or listener invocation has occurred. </p>
 </dd></dl>
 
 <dl class="c macro">
