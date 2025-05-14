@@ -211,11 +211,18 @@
 <li><p>ops</p></li>
 </ul>
 </p>
-<p>All other fields will be initialized by the Cyclone DDS after succesful return and the “get_node_id” operation also will be invoked after the constructor returned.</p>
+<p>All other fields will be initialized by Cyclone DDS after succesful return and the “get_node_id” operation also will be invoked after the constructor returned.</p>
 </li>
 </ul>
 </p>
 <p>Whether the plugin implements version 0 or version 1 of the interface is controlled by the function pointers in “dds_psmx_ops_t”. If “create_topic” and “deinit” are non-null, it is version 0; if both are null it is version 1. Neither “create_topic_type” nor “delete_psmx” is touched by Cyclone DDS if the interface is version 0, allowing for binary backwards compatibility.</p>
+<p>For creation and deletion of PSMX topics and endpoints, the expected behaviour of the plugin for version 0 and version 1 is described in the documentation sections of the create functions:</p>
+<p><ul class="simple">
+<li><p><a class="reference internal" href="#group__psmx_1ga2fc15984ad002ce952cf065e148c1a5a"><span class="std std-ref">dds_psmx_create_topic_fn</span></a> (v0)</p></li>
+<li><p><a class="reference internal" href="#group__psmx_1ga8cdbad17643b6c2d0ea50cdc9bc29954"><span class="std std-ref">dds_psmx_create_topic_with_type_fn</span></a> (v1)</p></li>
+<li><p><a class="reference internal" href="#group__psmx_1ga5cb3a31c2cc9222f02b1c3227362344d"><span class="std std-ref">dds_psmx_create_endpoint_fn</span></a></p></li>
+</ul>
+</p>
 <p>&amp;#8212; Footnotes: &amp;#8212;</p>
 <p>[^1]: In particular including shared-memory based mechanisms.</p>
 <p>[^2]: Internally, the name is not used for anything other than the generation of the numeric id.</p>
@@ -280,9 +287,9 @@
 <span class="target" id="group__psmx_1ga8cdbad17643b6c2d0ea50cdc9bc29954"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_create_topic_with_type_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">topic_name</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_name</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">dds_data_type_properties_t</span></span><span class="w"> </span><span class="n"><span class="pre">data_type_props</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_definition</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">sizeof_type</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_create_topic_with_type_fn" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Definition of the function for creating a PSMX Topic (interface version 1) </p>
 <p>Definition for a function that is called to construct a new PSMX Topic in a PSMX Instance representing a new topic in the DDS Domain Entity.</p>
-<p>The PSMX Plugin is expected to represent a PSMX Topic using an extended version of the <code class="docutils literal notranslate"><a class="reference internal" href="#structdds__psmx__topic"><span class="std std-ref"><span class="pre">dds_psmx_topic</span></span></a></code> structure.</p>
+<p>The PSMX Plugin is expected to represent a PSMX Topic using an extended version of the <code class="docutils literal notranslate"><a class="reference internal" href="#structdds__psmx__topic"><span class="std std-ref"><span class="pre">dds_psmx_topic</span></span></a></code> structure. The plugin is responsible for setting <code class="docutils literal notranslate"><span class="pre">ops</span></code> to the addresses of the various functions implementing the operations. The other members of the <code class="docutils literal notranslate"><a class="reference internal" href="#structdds__psmx__topic"><span class="std std-ref"><span class="pre">dds_psmx_topic</span></span></a></code> structure are initialized by Cyclone DDS and should not be initialized by the plugin.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">type_definition</span></code> is not a null pointer, it points into the Cyclone type library. A (default, C) serializer can be constructed using <code class="docutils literal notranslate"><span class="pre">ddsi_topic_descriptor_from_type</span></code>, an XTypes TypeObject using <code class="docutils literal notranslate"><span class="pre">ddsi_type_get_typeobj</span></code>.</p>
-<p>If the function returns failure, creation of the DDS Entity fails.</p>
+<p>If the function returns failure (a null pointer), creation of the DDS Entity fails.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Param psmx_instance<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>[in]</strong> The PSMX instance. </p>
@@ -313,7 +320,7 @@
 <span class="target" id="group__psmx_1gaae49c77314252e61fff450b0bb482cfc"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_delete_topic_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_delete_topic_fn" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Definition of the function for destructing and freeing a PSMX Topic. </p>
 <p>Definition for a function that is called on deleting the topic in the DDS Domain. Called exactly once for each successful invocation of <code class="docutils literal notranslate"><span class="pre">dds_psmx_create_topic</span></code>/ <code class="docutils literal notranslate"><span class="pre">dds_psmx_create_topic_with_type</span></code>, all PSMX Endpoints related to this PSMX Topic will have been destructed prior to calling this function.</p>
-<p>If the PSMX Topic was created using <code class="docutils literal notranslate"><span class="pre">dds_psmx_create_topic</span></code>, the PSMX Plugin is required to call <code class="docutils literal notranslate"><span class="pre">dds_psmx_cleanup_topic_generic</span></code> and to do so prior to invalidating the memory associated with the PSMX Topic and releasing any memory allocated for it during construction.</p>
+<p>When using interface version 0 (so the PSMX Topic was created using <code class="docutils literal notranslate"><span class="pre">dds_psmx_create_topic</span></code>), the PSMX Plugin is required to call <code class="docutils literal notranslate"><span class="pre">dds_psmx_topic_cleanup_generic</span></code> and to do so prior to invalidating the memory associated with the PSMX Topic and releasing any memory allocated for it during construction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Param psmx_topic<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>[in]</strong> The PSMX Topic to destruct </p>
@@ -353,7 +360,6 @@
 <span class="target" id="group__psmx_1ga6b8c83843b29ed8e4c6cf472fce0400b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_delete_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx" title="dds_psmx"><span class="n"><span class="pre">dds_psmx</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_instance</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_delete_fn" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Definition of the function for destructing and freeing a PSMX Instance (interface version 1) </p>
 <p>Function called on shutdown of a DDS Domain Entity, before unloading the PSMX Plugin and after all other operations have completed and all objects created in the PSMX Instance have been destructed using the various “delete” functions.</p>
-<p>The PSMX Plugin is required to call <code class="docutils literal notranslate"><span class="pre">dds_psmx_fini</span></code> and to do so prior to invalidating the memory associated with the PSMX Instance and releasing any memory allocated for it during construction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Param psmx_instance<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>[in]</strong> The PSMX Instance to de-initialize </p>
@@ -418,6 +424,22 @@
 <dt class="sig sig-object c" id="c.dds_psmx_create_endpoint_fn">
 <span class="target" id="group__psmx_1ga5cb3a31c2cc9222f02b1c3227362344d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint" title="dds_psmx_endpoint"><span class="n"><span class="pre">dds_psmx_endpoint</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">dds_psmx_create_endpoint_fn</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_topic" title="dds_psmx_topic"><span class="n"><span class="pre">dds_psmx_topic</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">psmx_topic</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_qos</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_psmx_endpoint_type_t" title="dds_psmx_endpoint_type_t"><span class="n"><span class="pre">dds_psmx_endpoint_type_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">endpoint_type</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.dds_psmx_create_endpoint_fn" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Definition of the function for constructing a PSMX Endpoint for a PSMX Topic. </p>
+<p>The PSMX Plugin is expected to represent a PSMX Endpoint using an extended version of the <code class="docutils literal notranslate"><a class="reference internal" href="#structdds__psmx__endpoint"><span class="std std-ref"><span class="pre">dds_psmx_endpoint</span></span></a></code> structure. The behaviour of the plugin is dependent on the interface version it implements:</p>
+<p><ul>
+<li><p>For version 0, it is responsible for setting:<ul class="simple">
+<li><p>ops to the addresses of the various functions implementing the operations</p></li>
+<li><p>endpoint_type to the value that is passed in the <code class="docutils literal notranslate"><span class="pre">endpoint_type</span></code> parameter</p></li>
+<li><p>psmx_topic to the PSMX Topic that is passed in the <code class="docutils literal notranslate"><span class="pre">psmx_topic</span></code> parameter</p></li>
+</ul>
+</p></li>
+<li><p>For version 1, it is responsible for setting:<ul class="simple">
+<li><p>ops</p></li>
+</ul>
+</p>
+<p>The other members of the <code class="docutils literal notranslate"><a class="reference internal" href="#structdds__psmx__endpoint"><span class="std std-ref"><span class="pre">dds_psmx_endpoint</span></span></a></code> structure are initialized by Cyclone DDS.</p>
+</li>
+</ul>
+</p>
 <dl class="field-list simple">
 <dt class="field-odd">Param psmx_topic<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>[in]</strong> The PSMX Topic to create the PSMX Endpoint for </p>
@@ -558,7 +580,7 @@
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ls</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">dds_reader_store_loaned_sample</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">ls</span><span class="p">);</span>
 <span class="p">}</span>
-<span class="n">dds_loaned_sample_unref</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">dds_loaned_sample_unref</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
 </pre></div>
 </div>
  (alternatively calling <code class="docutils literal notranslate"><span class="pre">dds_reader_store_loaned_sample_wr_metadata</span></code> for each sample)</p>
