@@ -409,7 +409,7 @@
         <span class="n">handle</span> <span class="o">=</span> <span class="n">dds_c_t</span><span class="o">.</span><span class="n">instance_handle</span><span class="p">()</span>
         <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_instance_handle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ref</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">byref</span><span class="p">(</span><span class="n">handle</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">handle</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
         <span class="k">raise</span> <span class="n">DDSException</span><span class="p">(</span>
             <span class="n">ret</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Occurred when getting the instance handle for </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span></div>
