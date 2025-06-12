@@ -177,7 +177,7 @@
 </div>
 </li>
 <li><p>Create the certificate for the identity CA (which is a self-signed certificate):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -x509 -key example_id_ca_priv_key.pem -out example_id_ca_cert.pem -days 3650 -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example ID CA Organization/CN=Example ID CA/emailAddress=authority@cycloneddssecurity.zettascale.com&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -x509 -key example_id_ca_priv_key.pem -out example_id_ca_cert.pem -days 3650 -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example ID CA Organization/CN=Example ID CA/emailAddress=authority@example.com&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -188,7 +188,7 @@ configuration files):</p>
 </div>
 </li>
 <li><p>Create the self-signed certificate for the permissions CA:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -x509 -key example_perm_ca_priv_key.pem -out example_perm_ca_cert.pem -days 3650 -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example CA Organization/CN=Example Permissions CA/emailAddress=authority@cycloneddssecurity.zettascale.com&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -x509 -key example_perm_ca_priv_key.pem -out example_perm_ca_cert.pem -days 3650 -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Example OU/O=Example CA Organization/CN=Example Permissions CA/emailAddress=authority@example.com&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -209,7 +209,7 @@ configuration files):</p>
 </div>
 </li>
 <li><p>To request that the identity CA generates a certificate, create a Certificate Signing Request (<a class="reference internal" href="../glossary.html#term-CSR"><span class="xref std std-term">CSR</span></a>):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -new -key example_alice_priv_key.pem -out example_alice.csr -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Organizational Unit Name/O=Example Organization/CN=Alice Example/emailAddress=alice@cycloneddssecurity.zettascale.com&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl req -new -key example_alice_priv_key.pem -out example_alice.csr -subj &quot;/C=NL/ST=OV/L=Locality Name/OU=Organizational Unit Name/O=Example Organization/CN=Alice Example/emailAddress=alice@example.com&quot;</span>
 </pre></div>
 </div>
 </li>
@@ -281,7 +281,7 @@ as defined in the DDS <a href="https://github.com/eclipse-cyclonedds/cyclonedds/
 <span class="linenos"> 3</span><span class="w">     </span><span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;https://www.omg.org/spec/DDS-SECURITY/20170901/omg_shared_ca_permissions.xsd&quot;</span><span class="nt">&gt;</span>
 <span class="linenos"> 4</span><span class="w">  </span><span class="nt">&lt;permissions&gt;</span>
 <span class="linenos"> 5</span><span class="w">    </span><span class="nt">&lt;grant</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;default_permissions&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 6</span><span class="w">      </span><span class="nt">&lt;subject_name&gt;</span>emailAddress=alice@cycloneddssecurity.adlinktech.com,CN=Alice<span class="w"> </span>Example,O=Example<span class="w"> </span>Organization,OU=Organizational<span class="w"> </span>Unit<span class="w"> </span>Name,L=Locality<span class="w"> </span>Name,ST=OV,C=NL<span class="nt">&lt;/subject_name&gt;</span>
+<span class="linenos"> 6</span><span class="w">      </span><span class="nt">&lt;subject_name&gt;</span>emailAddress=alice@example.com,CN=Alice<span class="w"> </span>Example,O=Example<span class="w"> </span>Organization,OU=Organizational<span class="w"> </span>Unit<span class="w"> </span>Name,L=Locality<span class="w"> </span>Name,ST=OV,C=NL<span class="nt">&lt;/subject_name&gt;</span>
 <span class="linenos"> 7</span><span class="w">      </span><span class="nt">&lt;validity&gt;</span>
 <span class="linenos"> 8</span><span class="w">        </span><span class="cm">&lt;!-- Format is CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] in GMT --&gt;</span>
 <span class="linenos"> 9</span><span class="w">        </span><span class="nt">&lt;not_before&gt;</span>2020-01-01T01:00:00<span class="nt">&lt;/not_before&gt;</span>
@@ -356,25 +356,27 @@ use this QoS when creating a participant:</p>
 configuration XML. If both QoS and the configuration XML contain security settings, the values
 from the QoS is used and the security settings in the configuration XML are ignored.</p>
 <p>The following XML fragment shows how to set security settings through configuration:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
-<span class="linenos"> 2</span><span class="w">  </span><span class="nt">&lt;DDSSecurity&gt;</span>
-<span class="linenos"> 3</span><span class="w">    </span><span class="nt">&lt;Authentication&gt;</span>
-<span class="linenos"> 4</span><span class="w">      </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_authentication&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_authentication&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_auth&quot;</span><span class="nt">/&gt;</span>
-<span class="linenos"> 5</span><span class="w">      </span><span class="nt">&lt;IdentityCA&gt;</span>file:/path/to/example_id_ca_cert.pem<span class="nt">&lt;/IdentityCA&gt;</span>
-<span class="linenos"> 6</span><span class="w">      </span><span class="nt">&lt;IdentityCertificate&gt;</span>file:/path/to/example_alice_cert.pem<span class="nt">&lt;/IdentityCertificate&gt;</span>
-<span class="linenos"> 7</span><span class="w">      </span><span class="nt">&lt;PrivateKey&gt;</span>file:/path/to/example_alice_priv_key.pem<span class="nt">&lt;/PrivateKey&gt;</span>
-<span class="linenos"> 8</span><span class="w">    </span><span class="nt">&lt;/Authentication&gt;</span>
-<span class="linenos"> 9</span><span class="w">    </span><span class="nt">&lt;Cryptographic&gt;</span>
-<span class="linenos">10</span><span class="w">      </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_crypto&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_crypto&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_crypto&quot;</span><span class="nt">/&gt;</span>
-<span class="linenos">11</span><span class="w">    </span><span class="nt">&lt;/Cryptographic&gt;</span>
-<span class="linenos">12</span><span class="w">    </span><span class="nt">&lt;AccessControl&gt;</span>
-<span class="linenos">13</span><span class="w">      </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_access_control&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_access_control&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_ac&quot;</span><span class="nt">/&gt;</span>
-<span class="linenos">14</span><span class="w">      </span><span class="nt">&lt;PermissionsCA&gt;</span>file:/path/to/example_perm_ca_cert.pem<span class="nt">&lt;/PermissionsCA&gt;</span>
-<span class="linenos">15</span><span class="w">      </span><span class="nt">&lt;Governance&gt;</span>file:/path/to/example_governance.p7s<span class="nt">&lt;/Governance&gt;</span>
-<span class="linenos">16</span><span class="w">      </span><span class="nt">&lt;Permissions&gt;</span>file:/path/to/example_permissions.p7s<span class="nt">&lt;/Permissions&gt;</span>
-<span class="linenos">17</span><span class="w">    </span><span class="nt">&lt;/AccessControl&gt;</span>
-<span class="linenos">18</span><span class="w">  </span><span class="nt">&lt;/DDSSecurity&gt;</span>
-<span class="linenos">19</span><span class="nt">&lt;/Domain&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">&lt;CycloneDDS&gt;</span>
+<span class="linenos"> 2</span><span class="w">  </span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="nt">&lt;Security&gt;</span>
+<span class="linenos"> 4</span><span class="w">      </span><span class="nt">&lt;Authentication&gt;</span>
+<span class="linenos"> 5</span><span class="w">        </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_authentication&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_authentication&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_auth&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos"> 6</span><span class="w">        </span><span class="nt">&lt;IdentityCA&gt;</span>file:/path/to/example_id_ca_cert.pem<span class="nt">&lt;/IdentityCA&gt;</span>
+<span class="linenos"> 7</span><span class="w">        </span><span class="nt">&lt;IdentityCertificate&gt;</span>file:/path/to/example_alice_cert.pem<span class="nt">&lt;/IdentityCertificate&gt;</span>
+<span class="linenos"> 8</span><span class="w">        </span><span class="nt">&lt;PrivateKey&gt;</span>file:/path/to/example_alice_priv_key.pem<span class="nt">&lt;/PrivateKey&gt;</span>
+<span class="linenos"> 9</span><span class="w">      </span><span class="nt">&lt;/Authentication&gt;</span>
+<span class="linenos">10</span><span class="w">      </span><span class="nt">&lt;Cryptographic&gt;</span>
+<span class="linenos">11</span><span class="w">        </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_crypto&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_crypto&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_crypto&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">      </span><span class="nt">&lt;/Cryptographic&gt;</span>
+<span class="linenos">13</span><span class="w">      </span><span class="nt">&lt;AccessControl&gt;</span>
+<span class="linenos">14</span><span class="w">        </span><span class="nt">&lt;Library</span><span class="w"> </span><span class="na">initFunction=</span><span class="s">&quot;init_access_control&quot;</span><span class="w"> </span><span class="na">finalizeFunction=</span><span class="s">&quot;finalize_access_control&quot;</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;dds_security_ac&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">15</span><span class="w">        </span><span class="nt">&lt;PermissionsCA&gt;</span>file:/path/to/example_perm_ca_cert.pem<span class="nt">&lt;/PermissionsCA&gt;</span>
+<span class="linenos">16</span><span class="w">        </span><span class="nt">&lt;Governance&gt;</span>file:/path/to/example_governance.p7s<span class="nt">&lt;/Governance&gt;</span>
+<span class="linenos">17</span><span class="w">        </span><span class="nt">&lt;Permissions&gt;</span>file:/path/to/example_permissions.p7s<span class="nt">&lt;/Permissions&gt;</span>
+<span class="linenos">18</span><span class="w">      </span><span class="nt">&lt;/AccessControl&gt;</span>
+<span class="linenos">19</span><span class="w">    </span><span class="nt">&lt;/Security&gt;</span>
+<span class="linenos">20</span><span class="w">  </span><span class="nt">&lt;/Domain&gt;</span>
+<span class="linenos">21</span><span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
 </div>
 <p>To use this configuration file for an application, set the <code class="docutils literal notranslate"><span class="pre">CYCLONEDDS_URI</span></code> environment
