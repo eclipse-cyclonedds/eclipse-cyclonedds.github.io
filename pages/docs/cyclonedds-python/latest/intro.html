@@ -144,7 +144,7 @@
 <p>This is the documentation for Eclipse Cyclone DDS: Python API, wrapping the Eclipse Cyclone DDS C API for easy creation of DDS applications.</p>
 <section id="prerequisites">
 <span id="installing"></span><h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
-<p>Cyclone DDS Python requires Python version 3.7 or higher, with 3.11 support provisional. The wheels on PyPi contain a pre-built binary of the Eclipse Cyclone DDS C library and IDL compiler. These have a couple of caveats. The pre-built package:</p>
+<p>Cyclone DDS Python requires Python version 3.7 or higher, with 3.11 support provisional. The wheels on PyPi contain a pre-built binary of the Eclipse Cyclone DDS C library and IDL compiler; However, these have a couple of caveats in that the pre-built package:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>has no support for DDS Security,</p></li>
@@ -217,7 +217,7 @@ python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="
 <span class="linenos">9</span><span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Hurray, we have published are first message! However, it is hard to tell if that actually did anything, since we don’t have anything set up that is listening. Let’s make a second script that takes messages from DDS and prints them to the terminal:</p>
+<p>Hurray, we have published our first message! However, it is hard to tell if that actually did anything, since we don’t have anything set up that is listening. Let’s make a second script that takes messages from DDS and prints them to the terminal:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 <span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
 <span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.topic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Topic</span>
