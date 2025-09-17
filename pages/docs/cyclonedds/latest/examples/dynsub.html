@@ -342,7 +342,7 @@ a number of different types. Pass it the name of the type to publish. For exampl
 <span class="linenos">161</span>  {
 <span class="linenos">162</span>    // ... that we then print
 <span class="linenos">163</span>    print_sample (si.valid_data, raw, &amp;xtypeobj-&gt;_u.complete);
-<span class="linenos">164</span>    if ((ret = dds_return_loan (reader, &amp;raw, 1)) &lt; 0)
+<span class="linenos">164</span>    if (dds_return_loan (reader, &amp;raw, 1) &lt; 0)
 <span class="linenos">165</span>      return false;
 <span class="linenos">166</span>  }
 <span class="linenos">167</span>  return true;
