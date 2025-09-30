@@ -353,11 +353,11 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argv</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// provider will contains:</span>
-<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
-<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
-<span class="w">  </span><span class="c1">// myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
-<span class="w">  </span><span class="c1">// myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
-<span class="w">  </span><span class="c1">// myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
 <span class="w">  </span><span class="n">dds_qos_provider_t</span><span class="w"> </span><span class="o">*</span><span class="n">provider</span><span class="p">;</span>
 <span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos_provider</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">provider</span><span class="p">);</span>
 <span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span>
@@ -387,15 +387,18 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="c1">// provider will contains:</span>
-<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
-<span class="w">  </span><span class="c1">// myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
-<span class="w">  </span><span class="c1">// myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
-<span class="w">  </span><span class="c1">// myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
-<span class="w">  </span><span class="c1">// myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
-<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">topic_qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">provider</span><span class="p">.</span><span class="n">topic_qos</span><span class="p">(</span><span class="s">&quot;myqoslib::bar_profile::my_topic&quot;</span><span class="p">);</span>
-<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">writer_qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">provider</span><span class="p">.</span><span class="n">datawriter_qos</span><span class="p">(</span><span class="s">&quot;myqoslib::bar_profile&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// foo_provider will contains:</span>
+<span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">// bar_provider will contains:</span>
+<span class="w">  </span><span class="c1">//    myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
+<span class="w">  </span><span class="c1">//    myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
+
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;myqoslib::foo_profile&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">bar_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;myqoslib::bar_profile&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">topic_qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar_provider</span><span class="p">.</span><span class="n">topic_qos</span><span class="p">(</span><span class="s">&quot;my_topic&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">writer_qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar_provider</span><span class="p">.</span><span class="n">datawriter_qos</span><span class="p">();</span>
 
 <span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">domain</span><span class="o">::</span><span class="n">DomainParticipant</span><span class="w"> </span><span class="n">participant</span><span class="p">(</span><span class="n">domain</span><span class="o">::</span><span class="n">default_id</span><span class="p">());</span>
 <span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">topic</span><span class="o">::</span><span class="n">Topic</span><span class="o">&lt;</span><span class="n">DataType</span><span class="o">::</span><span class="n">Msg</span><span class="o">&gt;</span><span class="w"> </span><span class="n">topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;topic_A&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">topic_qos</span><span class="p">);</span>
@@ -407,8 +410,12 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 </pre></div>
 </div>
 </div></div>
-<p>Also C API allows you to specify which library, profile QoS Provider should contains.
-Let’s extend XML file example above, and omit QoS settings details for simplicity.</p>
+<p>Also C API allows you to specify which library, profile QoS Provider should contains.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>CXX API doesn’t allow wild cards and have strict initialization/access format</p>
+</div>
+<p>Let’s extend XML file example above, and omit QoS settings details for simplicity.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dds</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://www.omg.org/dds/&quot;</span>
 <span class="w">     </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
 <span class="w">     </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;file://DDS_QoSProfile.xsd&quot;</span><span class="nt">&gt;</span>
@@ -449,22 +456,22 @@ Let’s extend XML file example above, and omit QoS settings details for simplic
 <span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argv</span><span class="p">;</span>
 
 <span class="w">  </span><span class="c1">// foo_provider will contains:</span>
-<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     READER</span>
-<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     TOPIC</span>
-<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     READER</span>
-<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     TOPIC</span>
 <span class="w">  </span><span class="n">dds_qos_provider_t</span><span class="w"> </span><span class="o">*</span><span class="n">foo_provider</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">foo_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::foo_profile&quot;</span><span class="p">;</span>
 <span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos_provider_scope</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo_provider</span><span class="p">,</span><span class="w"> </span><span class="n">foo_scope</span><span class="p">);</span>
 <span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span>
 
 <span class="w">  </span><span class="c1">// bar_provider will contains:</span>
-<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     TOPIC</span>
-<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::bar_profile                     TOPIC</span>
 <span class="w">  </span><span class="n">dds_qos_provider_t</span><span class="w"> </span><span class="o">*</span><span class="n">bar_provider</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">bar_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::bar_profile&quot;</span><span class="p">;</span>
 <span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos_provider_scope</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bar_provider</span><span class="p">,</span><span class="w"> </span><span class="n">bar_scope</span><span class="p">);</span>
@@ -484,23 +491,25 @@ Let’s extend XML file example above, and omit QoS settings details for simplic
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="c1">// foo_provider will contains:</span>
-<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     READER</span>
-<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos1_lib::foo_profile                     TOPIC</span>
-<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     READER</span>
-<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos2_lib::foo_profile                     TOPIC</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">foo_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::foo_profile&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">foo_scope</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// foo_provider1 will contains:</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">// foo_provider2 will contains:</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     READER</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     TOPIC</span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider1</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qos1_lib::foo_profile&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider2</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qos2_lib::foo_profile&quot;</span><span class="p">);</span>
 
 <span class="w">  </span><span class="c1">// bar_provider will contains:</span>
-<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos1_lib::bar_profile                     TOPIC</span>
-<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     WRITER</span>
-<span class="w">  </span><span class="c1">// qos2_lib::bar_profile                     TOPIC</span>
-<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">bar_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::bar_profile&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">bar_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">bar_scope</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="c1">// bar_provider2 will contains:</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::bar_profile                     WRITER</span>
+<span class="w">  </span><span class="c1">//    qos2_lib::bar_profile                     TOPIC</span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">bar_provider1</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qos1_lib::bar_profile&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">bar_provider2</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qos2_lib::bar_profile&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="p">...</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -513,8 +522,7 @@ Let’s extend XML file example above, and omit QoS settings details for simplic
 <ul class="simple">
 <li><p>Inheritance of QoS policies and QoS profiles in XML using the “base_name” attribute is not supported</p></li>
 <li><p>The “topic_filter” attribute for writer, reader and topic QoSes to associate a set of topics to a specific QoS when that QoS is part of a DDS profile, is not supported yet.</p></li>
-<li><p>The “entity_factory” attribute  for participant, writer and reader QoSes, is not supported yet.</p></li>
-<li><p>The &lt;(user|topic|group)_data&gt; base64 syntax is not supported yet.</p></li>
+<li><p>The “entity_factory” attribute  for participant, writer and reader QoSes, support only “true” for “&lt;autoenable_created_entities&gt;”.</p></li>
 <li><p>The C++ API QosProvider may throw an UnsupportedError when trying to access a policy that is not supported yet.</p></li>
 </ul>
 </section>
