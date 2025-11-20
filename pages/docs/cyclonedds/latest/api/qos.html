@@ -926,6 +926,22 @@
 </dd></dl>
 
 <dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_prop_propagate">
+<span class="target" id="group__qos__setters_1gae90c231021fa9c074aa43aeeeefda3e5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_prop_propagate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">propagate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_prop_propagate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores a property with the provided name and string value and propagate in a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to a (null-terminated) string that will be stored </p></li>
+<li><p><strong>propagate</strong> – <strong>[in]</strong> - Whether to propagate the property over discovery or not </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
 <dt class="sig sig-object c" id="c.dds_qunset_prop">
 <span class="target" id="group__qos__setters_1ga114b4a4a8ee942c91165dbcf12d17d61"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qunset_prop</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qunset_prop" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Removes the property with the provided name from a qos structure. </p>
@@ -952,6 +968,23 @@
 <li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
 <li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to data to be stored in the property </p></li>
 <li><p><strong>sz</strong> – <strong>[in]</strong> - Size of the data </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qset_bprop_propagate">
+<span class="target" id="group__qos__setters_1gacddfb6fcdb7dc652296616e8df49ec8a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qset_bprop_propagate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">sz</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">propagate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qset_bprop_propagate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the provided binary data and propagate as a property in a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that will store the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> - Pointer to data to be stored in the property </p></li>
+<li><p><strong>sz</strong> – <strong>[in]</strong> - Size of the data </p></li>
+<li><p><strong>propagate</strong> – <strong>[in]</strong> - Whether to propagate the property over discovery or not </p></li>
 </ul>
 </dd>
 </dl>
@@ -1493,6 +1526,25 @@
 </dd></dl>
 
 <dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_prop_propagate">
+<span class="target" id="group__qos__getters_1ga2e8903def9162d5fe192971ebaf16d5b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_prop_propagate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">propagate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_prop_propagate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the value of the property with the provided name and propagate from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the property </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer to a string that will store the value of the property. The memory for storing the string value will be allocated by this function and the caller gets ownership of the allocated memory </p></li>
+<li><p><strong>propagate</strong> – <strong>[inout]</strong> - Pointer that will store if property gets propagated or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>- false if any of the arguments is invalid, the qos is not present in the qos object or there was no property found with the provided name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
 <dt class="sig sig-object c" id="c.dds_qget_bpropnames">
 <span class="target" id="group__qos__getters_1gafe7b97bf6909b000e75eaef3ab25781e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_bpropnames</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">n</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_bpropnames" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Gets the names of the binary properties from a qos structure. </p>
@@ -1522,6 +1574,26 @@
 <li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the binary property </p></li>
 <li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer to a buffer that will store the value of the property. If sz = 0 then a NULL pointer. The memory for storing the value will be allocated by this function and the caller gets ownership of the allocated memory </p></li>
 <li><p><strong>sz</strong> – <strong>[inout]</strong> - Pointer that will store the size of the returned buffer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>- false iff any of the arguments is invalid, the qos is not present in the qos object or there was no binary property found with the provided name </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_qget_bprop_propagate">
+<span class="target" id="group__qos__getters_1ga34b0874feb8eb1e0ab728876ec05af96"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_qget_bprop_propagate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sz</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">propagate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_qget_bprop_propagate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the value of the binary property with the provided name and propagate from a qos structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qos</strong> – <strong>[inout]</strong> - Pointer to a dds_qos_t structure that contains the property </p></li>
+<li><p><strong>name</strong> – <strong>[in]</strong> - Pointer to name of the binary property </p></li>
+<li><p><strong>value</strong> – <strong>[inout]</strong> - Pointer to a buffer that will store the value of the property. If sz = 0 then a NULL pointer. The memory for storing the value will be allocated by this function and the caller gets ownership of the allocated memory </p></li>
+<li><p><strong>sz</strong> – <strong>[inout]</strong> - Pointer that will store the size of the returned buffer. </p></li>
+<li><p><strong>propagate</strong> – <strong>[inout]</strong> - Pointer that will store if property gets propagated or not</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
