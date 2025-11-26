@@ -1,0 +1,54 @@
+
+.. _program_listing_file_ddsc_dds_loan_api.h:
+
+Program Listing for File dds_loan_api.h
+=======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_ddsc_dds_loan_api.h>` (``ddsc/dds_loan_api.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * Copyright(c) 2021 Apex.AI, Inc
+    *
+    * This program and the accompanying materials are made available under the
+    * terms of the Eclipse Public License v. 2.0 which is available at
+    * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+    * v. 1.0 which is available at
+    * http://www.eclipse.org/org/documents/edl-v10.php.
+    *
+    * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+    */
+   
+   // API extension
+   // defines functions needed for loaning and shared memory usage
+   
+   #ifndef _DDS_LOAN_API_H_
+   #define _DDS_LOAN_API_H_
+   
+   #include "dds/ddsc/dds_basic_types.h"
+   #include "dds/ddsrt/retcode.h"
+   #include "dds/export.h"
+   
+   #if defined(__cplusplus)
+   extern "C" {
+   #endif
+   
+   DDS_EXPORT bool dds_is_loan_available(const dds_entity_t entity);
+   
+   DDS_EXPORT bool dds_is_shared_memory_available(const dds_entity_t entity);
+   
+   DDS_DEPRECATED_EXPORT bool is_loan_available(const dds_entity_t entity);
+   
+   DDS_EXPORT dds_return_t dds_loan_shared_memory_buffer(dds_entity_t writer,
+                                                         size_t size,
+                                                         void **buffer);
+   
+   DDS_EXPORT dds_return_t dds_loan_sample(dds_entity_t writer, void **sample);
+   
+   #if defined(__cplusplus)
+   }
+   #endif
+   #endif
