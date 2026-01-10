@@ -424,12 +424,22 @@
     <span class="n">DDS_STAT_KIND_LENGTHTIME</span> <span class="o">=</span> <span class="mi">2</span>
 
 
+<span class="k">class</span><span class="w"> </span><span class="nc">qos_kind</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+    <span class="n">DDS_PARTICIPANT_QOS</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">DDS_PUBLISHER_QOS</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">DDS_SUBSCRIBER_QOS</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">DDS_TOPIC_QOS</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">DDS_READER_QOS</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">DDS_WRITER_QOS</span> <span class="o">=</span> <span class="mi">5</span>
+
+
 <span class="k">class</span><span class="w"> </span><span class="nc">stat_value</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Union</span><span class="p">):</span>
     <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">(</span><span class="s1">&#39;u32&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint32</span><span class="p">),</span>
         <span class="p">(</span><span class="s1">&#39;u64&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint64</span><span class="p">),</span>
         <span class="p">(</span><span class="s1">&#39;lengthtime&#39;</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_uint64</span><span class="p">)</span>
     <span class="p">]</span>
+
 
 <span class="k">class</span><span class="w"> </span><span class="nc">stat_keyvalue</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">Structure</span><span class="p">):</span>
     <span class="n">_fields_</span> <span class="o">=</span> <span class="p">[</span>
@@ -458,6 +468,8 @@
     <span class="n">destination_order</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int</span>
     <span class="n">data_representation_id</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int16</span>
     <span class="n">qos_p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span>
+    <span class="n">qos_provider_p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span>
+    <span class="n">qos_kind</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_int32</span>
     <span class="n">attach</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span>
     <span class="n">listener_p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span>
     <span class="n">topic_descriptor_p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">c_void_p</span>
@@ -606,7 +618,7 @@
 
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2025, Eclipse Cyclone DDS committers.
+        &#169; Copyright 2026, Eclipse Cyclone DDS committers.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
     </div>
 
