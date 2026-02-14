@@ -1,0 +1,395 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
+    <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
+    <meta name="author" content="Eclipse Cyclone DDS Committers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/markdown.css">
+
+  </head>
+
+  <body>
+    
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
+      <a class="navbar-brand" href="/">
+        <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
+      </a>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/docs">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/deep-dives.html">Deep Dives</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/tools.html">Tools</a>
+          </li>
+        </ul>
+      </div>
+
+    
+    
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/eclipse-cyclonedds/cyclonedds" target="_blank" rel="noopener" aria-label="GitHub">
+            <span class="fab fa-github fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="fab fa-twitter fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://discord.gg/BkRYQPpZVV" target="_blank" rel="noopener" aria-label="Discord">
+            <span class="fab fa-discord fa-lg"></span>
+           </a>
+        </li>
+      </ul>
+    </header>
+
+
+    
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3 markdown">
+        <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p>This FAQ is based on the captured interactions on Github (related to both open as well as closed issues) and as such includes reference(s) to Github for more details related to the posed questions (and/or answers)</p>
+<div class="toc">
+<ul>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a><ul>
+<li><a href="#api">API</a><ul>
+<li><a href="#how-do-i-specify-a-domain-id">How do I specify a domain id?</a></li>
+</ul>
+</li>
+<li><a href="#patterns">Patterns</a><ul>
+<li><a href="#how-do-i-filter-out-self-sent-data">How do I filter out 'self-sent' data?</a></li>
+</ul>
+</li>
+<li><a href="#best-practices">Best Practices</a><ul>
+<li><a href="#a-take-operation-returns-no-data">A take() operation returns no data?</a></li>
+</ul>
+</li>
+<li><a href="#datamodel-idl">DataModel / IDL</a><ul>
+<li><a href="#what-idl-is-supported">What IDL is supported?</a></li>
+<li><a href="#what-characters-are-allowed-for-topic-names">What characters are allowed for topic-names?</a></li>
+</ul>
+</li>
+<li><a href="#concepts">Concepts</a><ul>
+<li><a href="#what-is-the-difference-between-read-and-take">What is the difference between read() and take()?</a></li>
+<li><a href="#how-do-i-assure-that-all-subscribers-get-the-data-from-a-short-lived-publisher">How do I assure that all subscribers get the data from a short-lived publisher?</a></li>
+<li><a href="#writer-history-qos-keep_all-doesnt-result-in-late-joining-readers-to-receive-the-data">(Writer-)History QoS KEEP_ALL doesn't result in late-joining reader(s) to receive the data</a></li>
+<li><a href="#how-to-communicate-between-dds-domains">How to communicate between DDS-domains?</a></li>
+<li><a href="#is-dds-useful-for-intermittent-local-communications-without-a-fixed-network">Is DDS useful for intermittent local communications without a fixed network?</a></li>
+<li><a href="#what-are-the-semantics-behind-on_data_available">What are the semantics behind on_data_available?</a></li>
+</ul>
+</li>
+<li><a href="#performance">Performance</a><ul>
+<li><a href="#why-are-there-huge-latency-outliers-when-sending-huge-samples">Why are there huge latency outliers when sending huge samples ?</a></li>
+</ul>
+</li>
+<li><a href="#language-support">Language Support</a><ul>
+<li><a href="#is-rust-an-available-language-binding">Is 'Rust' an available language binding?</a></li>
+<li><a href="#is-c-an-available-language-binding">Is 'C#' an available language binding?</a></li>
+</ul>
+</li>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#how-do-i-use-multiple-network-partitions-in-a-custom-profile">How do I use multiple (network) partitions in a custom profile?</a></li>
+<li><a href="#how-do-i-configure-multiple-network-interfaces">How do I configure multiple network interfaces?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="api">API</h3>
+<h4 id="how-do-i-specify-a-domain-id">How do I specify a <em>domain id</em>?</h4>
+<p>There's some confusion w.r.t. the multiple ways to specify a <em>domain id</em> for Cyclone DDS.</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>When specifying DDS_DOMAIN_DEFAULT upon creating a participant, the value as specified in the configuration (pointed to by the CYCLONEDDS_URI env. variable) will be used or 0 if not specified there.</li>
+<li>Not hardcoding the <em>domain_id</em> is seen as good practice yet its (now) also allowed to specify the (now default) value '<em>any</em>' in the configuration which implies that a (or better any) <em>domain id</em> can be used in <em>dds_create_participant()</em></li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/23">cyclonedds#23</a></li>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/pull/24">cyclonedds#24</a></li>
+</ul>
+<h3 id="patterns">Patterns</h3>
+<h4 id="how-do-i-filter-out-self-sent-data">How do I filter out 'self-sent' data?</h4>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Set the <code>IgnoreLocal</code> QoS on your reader to discard any samples written by readers local to your publisher or participant scope.</li>
+<li>The <em>publication_handle</em> can be checked on equality with the one returned by the <em>get_instance_handle()</em> on the writer-side.</li>
+<li>Use a ContentFilter to check the publisher id on the sample info.</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/8">cyclonedds#8</a></li>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/78">cyclonedds#78</a></li>
+</ul>
+<h3 id="best-practices">Best Practices</h3>
+<h4 id="a-take-operation-returns-no-data">A <code>take()</code> operation returns no data?</h4>
+<p>A take() in combination with <code>TRANSIENT_LOCAL</code> QoS and <code>BEST_EFFORT</code> reliability sometimes returns no data.</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Proper <code>TRANSIENT_LOCAL</code> durability-behavior requires <code>RELIABLE</code> delivery so the use-case is actually a anti-pattern</li>
+<li>Note that the (re-)used pingpong example is messy w.r.t. either data-arrival or handling a signal could trigger the <em>waitset</em> (where in the latter case, no data would be returned)</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/154">cyclonedds#154</a></li>
+</ul>
+<h3 id="datamodel-idl">DataModel / IDL</h3>
+<h4 id="what-idl-is-supported">What IDL is supported?</h4>
+<p><strong>Answer</strong></p>
+<ul>
+<li>See <a href="/content/guides/supported-idl.html">this guide</a> on what is supported.</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/350">cyclonedds#350</a></li>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/795">cyclonedds#795</a></li>
+</ul>
+<h4 id="what-characters-are-allowed-for-topic-names">What characters are allowed for topic-names?</h4>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Only alphanumeric characters, '/' and '_' are allowed in topic-names</li>
+<li>Using a hyphen ('-') in a topic-name isn't accepted</li>
+<li>Contrary to the DDS spec (<a href="https://www.omg.org/spec/DDS/1.4/PDF">https://www.omg.org/spec/DDS/1.4/PDF</a>) somehow both Cyclone DDS and OpenSpliceDDS support "_" rather than "-" as the spec prescribes</li>
+<li>An open question is: will/can we ever correct this and also: does this impact interoperability with other DDS implementations where topics with a "-" in the name might 'emerge' ?</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/657">cyclonedds#657</a></li>
+</ul>
+<h3 id="concepts">Concepts</h3>
+<h4 id="what-is-the-difference-between-read-and-take">What is the difference between <code>read()</code> and <code>take()</code>?</h4>
+<p>When looking at the examples, its unclear what the difference between them is and when to use one or the other</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li><code>read()</code> is non-destructive meaning you can read the data again (as it remains in your reader-history) whereas <code>take()</code> actually removes the 'taken' samples from that history</li>
+<li>Typical usecases: when exploiting DDS as a shared-dataspace that (often) captures shared-state, a <code>read()</code> operation is appropriate to access the most recent state whereas when using DDS for pub/sub event-distribution the <code>take()</code> operation is more appropriate</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/17">cyclonedds#17</a></li>
+</ul>
+<h4 id="how-do-i-assure-that-all-subscribers-get-the-data-from-a-short-lived-publisher">How do I assure that all subscribers get the data from a short-lived publisher?</h4>
+<p>When starting many subscribers of the HelloWorld example, not all get all published data</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>By default, data is volatile meaning that when data is published/written before subscribers/readers are present, data won't be delivered</li>
+<li>Multiple reasons/remedies can be identified for this 'seeming data-loss': (1) the writer may be gone already before the reader emerges, remedy is exploiting <code>TRANSIENT</code> QoS for the data, (2) as discovery takes time, some data might already be published before the match between publisher/subscriber is discovered (even when both are started at the same time), remedy is to exploit 'endpoint-awareness' as provided by <code>dds_get_publication_matched_status()</code> and wait in the publisher until the <em>current_count</em> equals the number of required/expected subscribers</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/25">cyclonedds#25</a></li>
+</ul>
+<h4 id="writer-history-qos-keep_all-doesnt-result-in-late-joining-readers-to-receive-the-data">(Writer-)History QoS <code>KEEP_ALL</code> doesn't result in late-joining reader(s) to receive the data</h4>
+<p>The (in the OMG-spec) specified <code>KEEP_ALL</code> behavior seems to suggest that data is kept available for (later) delivery</p>
+<p><strong>Answer</strong></p>
+<p>For preserving published data for late-joining subscribers, the <code>DURABILITY</code> QoS should be used (that works in conjuction with <code>HISTORY</code> but isn't the same)</p>
+<ul>
+<li><code>History</code> and <code>Durability</code> are orthogonal concepts meaning that <code>KEEP_ALL</code> writer-history allows for a system 'in steady state' (in this case relating to existing readers) to 'eventually' deliver all samples from that writer-history to the history-cache of such an EXISTING reader. If on the other hand, data needs to be preserve for 'late-joining' readers, Durability features of DDS can be exploited (i.e. <code>TRANSIENT_LOCAL</code> or <code>TRANSIENT</code> QoS) to assure that such non-volatile data will be preserved and delivered to late-joining NEW readers (and in case of <code>TRANSIENT</code> data even if the publisher/writer of that data has already 'gone', noting that <code>TRANSIENT</code> QoS is still under development as of feb'22)</li>
+</ul>
+<p><strong>See also</strong>
+ - <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/49">cyclonedds#49</a></p>
+<h4 id="how-to-communicate-between-dds-domains">How to communicate between DDS-domains?</h4>
+<p><strong>Answer</strong></p>
+<p>Cyclone DDS relies on <a href="www.zenoh.io">Zenoh</a> for that</p>
+<ul>
+<li>note that the question was asked in the ROS2 context which doesn't exploit the full DDS feature-set</li>
+<li>on each to-be-connected DDS domain a 'Zenoh bridge for DDS' can be deployed to bridge those two domains</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1094">cyclonedds#1094</a></li>
+<li><a href="https://github.com/eclipse-zenoh/zenoh-plugin-dds">zenoh-plugin-dds</a></li>
+<li><a href="https://zenoh.io/blog/2021-04-28-ros2-integration/">the zenoh blog on ROS2 integration</a></li>
+</ul>
+<h4 id="is-dds-useful-for-intermittent-local-communications-without-a-fixed-network">Is DDS useful for intermittent local communications without a fixed network?</h4>
+<p>This is useful to cases related to mobile devices that regularly go in and out of range</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>For such use-cases, the combination of Eclipse’s Cyclone DDS and <a href="www.zenoh.io">Zenoh</a> products is suggested</li>
+<li>Sister project <a href="www.zenoh.io">Zenoh</a> explicitly targets dynamic connectivity and allows for transparent integration with an (otherwise) DDS-based system</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/524">cyclonedds#524</a></li>
+<li><a href="www.zenoh.io">Zenoh</a></li>
+</ul>
+<h4 id="what-are-the-semantics-behind-on_data_available">What are the semantics behind <code>on_data_available</code>?</h4>
+<ul>
+<li>It seems that on_data_available is triggered not just on actual new data arriving</li>
+</ul>
+<p><strong>Answer</strong></p>
+<ul>
+<li>the <code>on_data_available</code> callback applies to both data as well as (instance-lifecycle)meta-data</li>
+<li>following an on_data_available callback, a <code>read</code> (or <code>take</code>) will return either valid data (when new data arrived) or an invalid-sample to convey a lifecycle change related to the writer (typically for an empty instance i.e. one for which the data was already ‘taken’ by a previous call-back response</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1084">cyclonedds#1084</a></li>
+</ul>
+<h3 id="performance">Performance</h3>
+<h4 id="why-are-there-huge-latency-outliers-when-sending-huge-samples">Why are there huge latency outliers when sending huge samples ?</h4>
+<p>When sending 1MB samples on a 'standard' Ubuntu distro, latencies can spike from a typical 2 milliseconds towards 150 milliseconds</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Although Cyclone DDS 'asks' the operating system for a 1 megabyte socket-receive-buffer, in many cases it will give out a smaller buffer and thus requires the user to configure a higher allowed maximum receive-buffer-size</li>
+<li>Inspecting <em>/proc/sys/net/core/rmem_max</em> (on Linux) typically shows that such a maximum is insufficient for the intended sample-sizes and thus needs to be 'upped' i.e. using <em>sysctl -w net.core.rmem_max=<appropriate_size_in_bytes></em></li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/294">cyclonedds#294</a></li>
+</ul>
+<h3 id="language-support">Language Support</h3>
+<h4 id="is-rust-an-available-language-binding">Is 'Rust' an available language binding?</h4>
+<p>As Cyclone DDS is about the only open source DDS implementation written in 'C', it should (at least theoretically) be possible to create a 'Rust' binding on-top of it</p>
+<p><strong>Answer</strong></p>
+<ul>
+<li>At the time of asking (aug/2020), there was an initiative to add an open source Rust-binding to Cyclone DDS</li>
+<li>See below that current (jan'22) version is 0.1.2 with last update in sept'20</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/573">cyclonedds#573</a></li>
+<li><a href="https://github.com/atolab/cdds-rust">https://github.com/atolab/cdds-rust</a></li>
+</ul>
+<h4 id="is-c-an-available-language-binding">Is 'C#' an available language binding?</h4>
+<p><strong>Answer</strong></p>
+<ul>
+<li>At time of writing (august/2022) there is a C# language binding in the works by ZettaScale Technology.</li>
+</ul>
+<h3 id="configuration">Configuration</h3>
+<h4 id="how-do-i-use-multiple-network-partitions-in-a-custom-profile">How do I use multiple (network) partitions in a custom profile?</h4>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Cyclone DDS allows you to map logical DDS-partitions on physical ‘network-partitions’ (typically multicast-groups)</li>
+<li>Although the question was driven by reducing discovery, the below reference still contains a nice write-up on how to exploit network-partitions in Cyclone DDS</li>
+</ul>
+<p><strong>See also</strong>
+ - <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/883">cyclonedds#883</a></p>
+<h4 id="how-do-i-configure-multiple-network-interfaces">How do I configure multiple network interfaces?</h4>
+<p><strong>Answer</strong></p>
+<ul>
+<li>Automatic routing might prevent correct communication in case of multiple configured interfaces</li>
+<li>Setting the ‘General/DontRoute’ config-option typically prevents the issue reported here</li>
+<li>Multi-homing and routing is slated for a ‘deep-dive’ topic as its likely to pop up regularly in more complex setups</li>
+</ul>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1190">cyclonedds#1190</a></li>
+</ul>
+      </div>
+    </div>
+    
+  </div>
+</main>
+
+        <footer class="ato-footer text-muted">
+      <div class="container-fluid p-6 p-md-5">
+        <div class="row">
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Eclipse Incubation</h5>
+            <p><img src="/images/eclipse-incubation.png" style="width:100px;"></p>
+            <p>Eclipse Cyclone DDS &trade; is an incubating project under the Eclipse Foundation.</p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>More Information</h5>
+            <p><a href="https://www.eclipse.org/legal" target="_blank">Legal</a></p>
+            <p><a href="https://www.eclipse.org/legal/privacy.php" target="_blank">Privacy policy</a></p>
+            <p><a href="https://www.eclipse.org/legal/termsofuse.php" target="_blank">Terms of use</a></p>
+            <p><a href="https://www.eclipse.org/legal/copyright.php" target="_blank">Copyright</a></p>
+            <p><a href="https://www.eclipse.org/security/" target="_blank">Report a security issue</a></p>
+            <p><a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">Eclipse Public License 2.0</a></p>
+            <p><a href="https://www.eclipse.org/org/documents/edl-v10.php" target="_blank">Eclipse Distribution License 1.0</a></p>
+            <p><a href="https://www.eclipse.org/" target="_blank">Eclipse Foundation</a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Sponsored by:</h5>
+            <p><a href="https://www.eclipse.org/" target="_blank"><img src="/images/eclipse-foundation.svg" alt="Eclipse Foundation" class="img-fluid w-75"></a></p>
+            <p><a href="https://zettascale.tech/" target="_blank"><img src="/images/zettascale.svg" alt="ZettaScale Technology" class="img-fluid w-75"></a></p>
+            <p><a href="https://www.adlinktech.com" target="_blank"><img src="/images/company_logo.svg" alt="ADLINK Technology" class="img-fluid w-75"></a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Follow us</h5>
+            <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
+            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
+            <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
+          </div>
+
+          <div class="col-12 col-md-4 pb-2">
+            <p>Eclipse Cyclone DDS &trade; is free, open source and always will be.</p>
+            <p>Copyright &copy; 2022 Eclipse Foundation</p>
+            <p>Theme inspired by: <a href="https://tokio.rs/" target="_blank">Tokio website theme</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,646 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
+    <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
+    <meta name="author" content="Eclipse Cyclone DDS Committers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/interactive.css">
+
+  </head>
+
+  <body>
+    
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
+      <a class="navbar-brand" href="/">
+        <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
+      </a>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/docs">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/deep-dives.html">Deep Dives</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/tools.html">Tools</a>
+          </li>
+        </ul>
+      </div>
+
+    
+<span class="navbar-text me-3 fs-4">
+  <button role="button" class="btn btn-secondary" data-interactive-activator="1"><i class="fas fa-rocket text-danger"></i></button>
+</span>
+
+    
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/eclipse-cyclonedds/cyclonedds" target="_blank" rel="noopener" aria-label="GitHub">
+            <span class="fab fa-github fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="fab fa-twitter fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://discord.gg/BkRYQPpZVV" target="_blank" rel="noopener" aria-label="Discord">
+            <span class="fab fa-discord fa-lg"></span>
+           </a>
+        </li>
+      </ul>
+    </header>
+
+
+    
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3 markdown">
+        <h2 id="chapter-1-getting-your-feet-wet">Chapter 1: Getting your feet wet</h2>
+<p>Welcome! This interactive tutorial teaches you the basics of DDS and the Cyclone DDS Python backend. To give it a fun spin, we will use DDS to follow along on the journey of Captain Corsaro with his ship Cyclone.</p>
+<div class="interactive-journal">
+    <div class="interactive-date">June 2nd, 1674</div>
+    This morning we left the harbour of Palermo, setting sail for Tunis. Weather conditions are outstanding, I hope they will hold. Getting some dry-dock time in Palermo was worth it, sailing the Cyclone with a cleaned hull for the first time in years is invigorating. It was expensive though, we need to make a capture as soon as possible.
+    <div class="interactive-signature">Captain A. Corsaro</div>
+</div>
+
+<p>All story fragments from the journal will be presented in boxes like the one above. Explanations and instructions are presented as normal text like this. Please enable "Live Code" by selecting the rocket in the top bar and then execute the code cell below to initialize your personal copy of Captain Corsaro's journal.</p>
+<div class="code-cell codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">questing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Journal</span>
+
+<span class="n">journal</span> <span class="o">=</span> <span class="n">Journal</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">journal</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="sailing-the-dds-sea">Sailing the DDS sea</h3>
+<p>DDS is a publish-subscribe based networking system that allows you to write applications that talk to eachother without worrying about shipping the bits and bytes around and retaining compatibility between platforms and programming languages. We will first explore the different entities central to a DDS system and learn how to create and use them in Python.</p>
+<div class="interactive-journal">
+    <div class="interactive-date">June 7th, 1674</div>
+    A dreadfull storm has blown us off course, I don't even recognize the stars anymore. We have picked a random direction counter the wind direction of the past few days and hope to find land in not too long. For now I have dubbed the waters here the DDS sea.
+</div>
+
+<p>To join our captain on the DDS sea, or rather <em>DDS Domain</em> we use a <code>DomainParticipant</code>. A <code>DomainParticipant</code> is the central entity in any DDS application. The Domain itself is more of a virtual concept, not directly created but made up of all the participants on a network. You can have multiple domains running next to each other, identified by a <em>domain id</em>. They will remain completely separated.</p>
+<hr>
+
+<blockquote>
+<p>Tasks:</p>
+<ul>
+<li>Import the <code>DomainParticipant</code> from <code>cyclonedds.domain</code> and instantiate it without arguments.</li>
+<li>Pass the <code>DomainParticipant</code> to <code>quest.check("domain-participant", participant)</code></li>
+</ul>
+</blockquote>
+<div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;domain-participant&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># The import:</span>
+
+<span class="c1"># Make participant</span>
+<span class="n">participant</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;domain-participant&quot;</span><span class="p">,</span> <span class="n">participant</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+<details><summary>Click to show hint 1.</summary>
+The import is `from cyclonedds.domain import DomainParticipant`
+</details>
+
+<details><summary>Click to show hint 2.</summary>
+The instantiation is `participant = DomainParticipant()`
+</details>
+
+<details><summary>Click to show the solution.</summary>
+
+
+<div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;domain-participant&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;domain-participant&quot;</span><span class="p">,</span> <span class="n">participant</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+</details>
+
+<h3 id="remaining-on-topic">Remaining on-topic</h3>
+<div class="interactive-journal">
+    <div class="interactive-date">June 8th, 1674</div>
+    First Mate Boasson and I have been discussing the curious fish that jump out of the waters all around. We have observed Shimmering, Matte and Metallic looking ones with a varying number of dorsal fins. A group of them seem to be following the ship and we have taken pleasure in naming them.
+</div>
+
+<p>In order for DDS applications to talk to each other they have to be talking about the same thing: the same <code>Topic</code>. A <code>Topic</code> in DDS consists of a <em>name</em> and a <em>type</em>. The types are usually defined using the <strong>Object Management Group Interface Definition Language</strong>, OMG IDL or just IDL for short. With the powerful introspection and duck-typing we don't have to rely on an IDL compiler to help us define these types, we can write Python classes directly and let Cyclone DDS Python directly generate the DDS necessities behind the scenes. If you want to learn IDL so you can interop with other languages there are other tutorials available.</p>
+<p>You can turn Python classes into IDL structs by inheriting from <code>IdlStruct</code> from <code>cyclonedds.idl</code> and type hinting the class attributes, as if you are using <a href="https://docs.python.org/3/library/dataclasses.html">python dataclasses</a>. You can then implement an <code>__init__</code> method or generate one by applying <code>@dataclass</code>.</p>
+<hr>
+
+<blockquote>
+<p>Create a datatype for the <code>CuriousFish</code> that has a <code>FishType</code> (Shimmering, Matte or Metallic), an integer number of dorsal fins and a string name.
+Then import <code>Topic</code> from <code>cyclonedds.topic</code> and create a <code>Topic</code> named <code>followers</code>. A <code>Topic</code> takes three arguments: a <code>DomainParticipant</code>, a name and the datatype.</p>
+<p><strong>Note</strong>: your variables persist between cells, you can use the participant from the previous quest! However, a time-out can occur, which will usually result in a DDS_PRECONDITION_NOT_MET error. Try to re-run previous cells to re-initialize variables if this happens.</p>
+<p>Example datatype:
+</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LogbookEntry</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">author</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div>
+
+<blockquote>
+<p>Tasks:</p>
+<ul>
+<li>Pass the <code>CuriousFish</code> datatype to <code>quest.check("curious-fish", CuriousFish)</code></li>
+<li>Pass the <code>Topic</code> you created to <code>quest.check("followers-topic", topic)</code></li>
+</ul>
+</blockquote>
+<div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;remain-on-topic&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlStruct</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FishType</span><span class="p">(</span><span class="n">IdlEnum</span><span class="p">):</span>
+    <span class="n">Shimmering</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Matte</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Metallic</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CuriousFish</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+    <span class="n">fish_type</span><span class="p">:</span> <span class="n">FishType</span>
+    <span class="c1"># define dorsal_fins</span>
+    <span class="c1"># define fish_name</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;curious-fish&quot;</span><span class="p">,</span> <span class="n">CuriousFish</span><span class="p">)</span>
+
+<span class="c1"># import</span>
+
+<span class="c1"># create the topic</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;followers-topic&quot;</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+<details>
+<summary>Click to show hint 1.</summary>
+The fields are `dorsal_fins: int` and `fish_name: str`.
+</details>
+
+<details>
+<summary>Click to show hint 2.</summary>
+The topic import is `from cyclonedds.topic import Topic`.
+</details>
+
+<details>
+<summary>Click to show hint 3.</summary>
+The topic instantiation is `topic = Topic(participant, "followers", CuriousFish)`
+</details>
+
+<details>
+<summary>Click to show the solution.</summary>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;remain-on-topic&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlEnum</span><span class="p">,</span> <span class="n">IdlStruct</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FishType</span><span class="p">(</span><span class="n">IdlEnum</span><span class="p">):</span>
+    <span class="n">Shimmering</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Matte</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Metallic</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CuriousFish</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+    <span class="n">fish_type</span><span class="p">:</span> <span class="n">FishType</span>
+    <span class="n">dorsal_fins</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">fish_name</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;curious-fish&quot;</span><span class="p">,</span> <span class="n">CuriousFish</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.topic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Topic</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="s2">&quot;followers&quot;</span><span class="p">,</span> <span class="n">CuriousFish</span><span class="p">)</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;followers-topic&quot;</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+
+</details>
+
+<h3 id="taken-a-fishy-story">Taken, a fishy story</h3>
+<div class="interactive-journal">
+    <div class="interactive-date">June 12th, 1674</div>
+    One of the crew finally managed to catch a fish, hopefully we can catch more so we can stretch our food supplies. We have been sailing for five days now without seeing any land or other ship. Are we going the right direction or are we doomed to sail the endless oceans?
+</div>
+
+<p>We will now finally interact with the DDS system. By subscribing to the <code>follower-fish</code> topic and <code>taking</code> a sample we will discover what the fish our captain talked about actually looked like. This is done through <code>Subscribers</code> and <code>DataReaders</code>. We will disregard the <code>Subscriber</code> for now and only work with a <code>DataReader</code>. It has several reading and taking methods that allow you to receive data from the network. They are <code>read</code>, <code>take</code>, <code>read_next</code>, <code>take_next</code>, <code>read_iter</code>, <code>take_iter</code>, <code>read_aiter</code> and <code>take_aiter</code>. We will stick with a simple <code>take</code> for now, which gives you a list of available samples. A <em>sample</em> is simply an instance of the datatype of the <code>Topic</code>.</p>
+<hr>
+
+<blockquote>
+<p>Create a <code>DataReader</code>, imported from <code>cyclonedds.sub</code> using the participant and the topic as arguments, then take a fish.</p>
+<p>Tasks:</p>
+<ul>
+<li>Pass the <code>DataReader</code> you created to <code>quest.check("fish-reader", reader)</code></li>
+<li>Pass the <code>CuriousFish</code> you took to <code>quest.check("freshly-caught", fish)</code></li>
+</ul>
+</blockquote>
+<div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;a-fishy-story&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># The import</span>
+
+<span class="c1"># Create the reader</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;fish-reader&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="p">)</span>
+
+<span class="c1"># Take the fish</span>
+<span class="n">fish</span> <span class="o">=</span> <span class="o">...</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fish</span><span class="p">)</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;freshly-caught&quot;</span><span class="p">,</span> <span class="n">fish</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+<details>
+<summary>Click to show hint 1.</summary>
+The `DataReader` import is `from cyclonedds.sub import DataReader`
+</details>
+
+<details>
+<summary>Click to show hint 2.</summary>
+The `DataReader` instantiation is `reader = DataReader(participant, topic)`
+</details>
+
+<details>
+<summary>Click to show hint 3.</summary>
+Taking a single fish from the reader is `fish = dr.take()[0]`
+</details>
+
+<details>
+<summary>Click to show the solution.</summary>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;a-fishy-story&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.sub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataReader</span>
+
+<span class="n">reader</span> <span class="o">=</span> <span class="n">DataReader</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;fish-reader&quot;</span><span class="p">,</span> <span class="n">reader</span><span class="p">)</span>
+
+<span class="n">fish</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">take</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;freshly-caught&quot;</span><span class="p">,</span> <span class="n">fish</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+</details>
+
+<h3 id="growing-the-fish-supply">Growing the fish supply</h3>
+<div class="interactive-journal">
+    <div class="interactive-date">June 15th, 1674</div>
+    Still no land in sight, but at least the fish are tasty. The supply does seem to be dwindling though, that is slightly concerning.
+</div>
+
+<p>We now know how to take a sample but normally these samples don't appear out of thin air: something somewhere has to be <em>writing</em> them. This is done with <code>Publishers</code> and <code>DataWriters</code>, where we again will leave the <code>Publisher</code> out for now. A <code>DataWriter</code> is instantiated the exact same way as a <code>DataReader</code>. A writer can <code>write</code> a sample and <code>dispose</code> a sample, or do both right after each other with <code>write_dispose</code>.</p>
+<hr>
+
+<blockquote>
+<p>Create a <code>DataWriter</code>, imported from <code>cyclonedds.pub</code> using the participant and the topic as arguments, then write a <code>CuriousFish</code>.</p>
+<p>Tasks:</p>
+<ul>
+<li>Pass the <code>DataWriter</code> you created to <code>quest.check("fish-writer", writer)</code></li>
+<li>Write a <code>CuriousFish</code> with parameters of your choosing.</li>
+</ul>
+</blockquote>
+<div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;grow-the-fish-supply&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="c1"># The import</span>
+
+<span class="c1"># Create the writer</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;fish-writer&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+
+<span class="c1"># Create a fish</span>
+<span class="n">fish</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Write the fish</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+<details>
+<summary>Click to show hint 1.</summary>
+The `DataWriter` import is `from cyclonedds.pub import DataWriter`.
+</details>
+
+<details>
+<summary>Click to show hint 2.</summary>
+The `DataWriter` instantiation is `writer = DataWriter(participant, topic)`.
+</details>
+
+<details>
+<summary>Click to show hint 3.</summary>
+Instantiating a fish can be done like this: `fish = CuriousFish(fish_type=FishType.Matte, dorsal_fins=6, fish_name="Harry")`.
+</details>
+
+<details>
+<summary>Click to show hint 4.</summary>
+Writing a fish can be done like this: `writer.write(fish)`.
+</details>
+
+<details>
+<summary>Click to show the solution.</summary>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;grow-the-fish-supply&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.pub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataWriter</span>
+
+<span class="n">writer</span> <span class="o">=</span> <span class="n">DataWriter</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;fish-writer&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+
+<span class="n">fish</span> <span class="o">=</span> <span class="n">CuriousFish</span><span class="p">(</span><span class="n">fish_type</span><span class="o">=</span><span class="n">FishType</span><span class="o">.</span><span class="n">Matte</span><span class="p">,</span> <span class="n">dorsal_fins</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">fish_name</span><span class="o">=</span><span class="s2">&quot;Harry&quot;</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fish</span><span class="p">)</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+</details>
+
+<h3 id="land-ahoy">Land ahoy!</h3>
+<div class="interactive-journal">
+    <div class="interactive-date">June 19th, 1674</div>
+    Quartermaster Koekkoek spotted a small island on the horizon! We are setting sail towards them, and now that we are getting closer we have spotted several other islands. Hopefully we can find some fresh water to replenish our stores and some additions to our food supply would be very appreciated too.
+</div>
+
+<p>Let's put together what we learned so far. Create a new <code>Island</code> datatype with an X and Y coordinate as floating points, a floating point Size and a string name. Then create a topic named <code>DisposedAtolls</code> and write a new island within <code>10</code> near the center <code>(0,0)</code> with a size between 1 and 10. Lastly create a reader and read all the samples.</p>
+<hr>
+
+<blockquote>
+<p>Tasks:</p>
+<ul>
+<li>Create the <code>Island</code> datatype and pass it to <code>quest.check("island", Island)</code>.</li>
+<li>You will have to annotate the <code>Island.name</code> as <code>key</code>. An example is provided.</li>
+<li>Create the <code>DisposedAtolls</code> topic.</li>
+<li>Create a <code>DataWriter</code> and write a central island. Then check the writer with <code>quest.check("writer-written", writer)</code></li>
+<li>Create a <code>DataReader</code> and read all samples. Check your resulting set of samples with <code>quest.check("the-disposed-atolls", islands)</code></li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>You will have to create the reader before you write the new island sample to be able to receive it.</li>
+<li>You can use <code>reader.take(N=100)</code></li>
+<li><code>N=100</code> means a maximum of 100 but doesn't block, it returns how many it has now.</li>
+</ul>
+</blockquote>
+<div class="code-cell codehilite"><pre><span></span><code><span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;land-ahoy&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.annotations</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
+
+<span class="c1"># You will have to annotate the Island.name as key. Here is an example of how to do that</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">key</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Island</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;island&quot;</span><span class="p">,</span> <span class="n">Island</span><span class="p">)</span>
+<span class="n">participant</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># create central island</span>
+<span class="n">island</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># write central island</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;writer-written&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+
+<span class="c1"># read all islands</span>
+<span class="n">islands</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;the-disposed-atolls&quot;</span><span class="p">,</span> <span class="n">islands</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+<blockquote>
+<p>There are no hints for this quest, it is composed of familiar parts. Try to go back to previous quests for inspiration.</p>
+</blockquote>
+<details>
+<summary> Click to show the solution.</summary>
+
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl.annotations</span><span class="w"> </span><span class="kn">import</span> <span class="n">key</span>
+
+<span class="n">quest</span> <span class="o">=</span> <span class="n">journal</span><span class="o">.</span><span class="n">quest</span><span class="p">(</span><span class="s2">&quot;land-ahoy&quot;</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Island</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">Y</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">size</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">key</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;island&quot;</span><span class="p">,</span> <span class="n">Island</span><span class="p">)</span>
+<span class="n">participant</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="s2">&quot;DisposedAtolls&quot;</span><span class="p">,</span> <span class="n">Island</span><span class="p">)</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">DataWriter</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">DataReader</span><span class="p">(</span><span class="n">participant</span><span class="p">,</span> <span class="n">topic</span><span class="p">)</span>
+
+<span class="c1"># write central island</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">Island</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">Y</span><span class="o">=-</span><span class="mf">6.6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Dominio&quot;</span><span class="p">))</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;writer-written&quot;</span><span class="p">,</span> <span class="n">writer</span><span class="p">)</span>
+
+<span class="c1"># read all islands</span>
+<span class="n">islands</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">quest</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">&quot;the-disposed-atolls&quot;</span><span class="p">,</span> <span class="n">islands</span><span class="p">)</span>
+
+<span class="n">quest</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+</details>
+
+<p>Well that covers some of the DDS basics, enough to write a simple application. There is much more to explore, you can continue to the next chapter to continue learning.</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mx-auto px-5 mb-3">
+        <span class="text-muted">
+          By Thijs Miedema, posted on 2022-05-04.</span>
+      </div>
+    </div>
+    
+  </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+<script>
+var button = document.querySelector("[data-interactive-activator]");
+
+var bootstrapThebe = function() {
+    button.innerHTML = "booting <i class=\"fas fa-rocket text-warning\"></i>";
+    thebelab.bootstrap({
+        requestKernel: true,
+        binderOptions: {
+            repo: "thijsmie/cyclonedds-python-runtime",
+        },
+        mountActivateWidget: false,
+        mountStatusWidget: false,
+        selector: ".code-cell",
+    });
+    Array(...document.querySelectorAll(".thebelab-run-button")).forEach((e) => {
+      e.className += " btn btn-link btn-sm";
+      e.innerHTML = "<i class=\"fas fa-play-circle text-success runner\"></i>"
+    });
+    Array(...document.querySelectorAll(".thebelab-restart-button")).forEach((e) => {
+      e.remove();
+    });
+    Array(...document.querySelectorAll(".thebelab-restartall-button")).forEach((e) => {
+      e.remove();
+    });
+}
+
+if (button) {
+  button.addEventListener('click', bootstrapThebe);
+  thebelab.on("status", function (evt, data) {
+    if (data.status === "building") {
+      button.innerHTML = "building <i class=\"fas fa-rocket text-warning\"></i>";
+    } else if (data.status === "built") {
+      button.innerHTML = "built <i class=\"fas fa-rocket text-warning\"></i>";
+    } else if (data.status === "launching") {
+      button.innerHTML = "launching <i class=\"fas fa-rocket text-warning\"></i>";
+    } else if (data.status === "starting") {
+      button.innerHTML = "starting <i class=\"fas fa-rocket text-warning\"></i>";
+    } if (data.status === "ready") {
+      button.innerHTML = "<i class=\"fas fa-rocket text-success\"></i>";
+    }
+  });
+}
+</script>
+
+        <footer class="ato-footer text-muted">
+      <div class="container-fluid p-6 p-md-5">
+        <div class="row">
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Eclipse Incubation</h5>
+            <p><img src="/images/eclipse-incubation.png" style="width:100px;"></p>
+            <p>Eclipse Cyclone DDS &trade; is an incubating project under the Eclipse Foundation.</p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>More Information</h5>
+            <p><a href="https://www.eclipse.org/legal" target="_blank">Legal</a></p>
+            <p><a href="https://www.eclipse.org/legal/privacy.php" target="_blank">Privacy policy</a></p>
+            <p><a href="https://www.eclipse.org/legal/termsofuse.php" target="_blank">Terms of use</a></p>
+            <p><a href="https://www.eclipse.org/legal/copyright.php" target="_blank">Copyright</a></p>
+            <p><a href="https://www.eclipse.org/security/" target="_blank">Report a security issue</a></p>
+            <p><a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">Eclipse Public License 2.0</a></p>
+            <p><a href="https://www.eclipse.org/org/documents/edl-v10.php" target="_blank">Eclipse Distribution License 1.0</a></p>
+            <p><a href="https://www.eclipse.org/" target="_blank">Eclipse Foundation</a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Sponsored by:</h5>
+            <p><a href="https://www.eclipse.org/" target="_blank"><img src="/images/eclipse-foundation.svg" alt="Eclipse Foundation" class="img-fluid w-75"></a></p>
+            <p><a href="https://zettascale.tech/" target="_blank"><img src="/images/zettascale.svg" alt="ZettaScale Technology" class="img-fluid w-75"></a></p>
+            <p><a href="https://www.adlinktech.com" target="_blank"><img src="/images/company_logo.svg" alt="ADLINK Technology" class="img-fluid w-75"></a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Follow us</h5>
+            <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
+            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
+            <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
+          </div>
+
+          <div class="col-12 col-md-4 pb-2">
+            <p>Eclipse Cyclone DDS &trade; is free, open source and always will be.</p>
+            <p>Copyright &copy; 2022 Eclipse Foundation</p>
+            <p>Theme inspired by: <a href="https://tokio.rs/" target="_blank">Tokio website theme</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+  </body>
+</html>
