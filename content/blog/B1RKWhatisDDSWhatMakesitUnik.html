@@ -1,0 +1,260 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
+    <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
+    <meta name="author" content="Eclipse Cyclone DDS Committers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/markdown.css">
+
+  </head>
+
+  <body>
+    
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
+      <a class="navbar-brand" href="/">
+        <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
+      </a>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/docs">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/deep-dives.html">Deep Dives</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/tools.html">Tools</a>
+          </li>
+        </ul>
+      </div>
+
+    
+    
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/eclipse-cyclonedds/cyclonedds" target="_blank" rel="noopener" aria-label="GitHub">
+            <span class="fab fa-github fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="fab fa-twitter fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://discord.gg/BkRYQPpZVV" target="_blank" rel="noopener" aria-label="Discord">
+            <span class="fab fa-discord fa-lg"></span>
+           </a>
+        </li>
+      </ul>
+    </header>
+
+
+    
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3 markdown">
+        <h2 id="what-is-dds-and-what-makes-it-unique">What is DDS and what makes it unique</h2>
+<p>The OMG-DDS Data Distribution Service is an Object-Management-Group
+standard and technology to share any kind of data in ways that makes it
+interoperable, scalable, real-time, and fault-tolerant ways over
+arbitrary networks. DDS allows system designers to build stateful or
+stateless systems. The system's state is caught and represented in the
+data modeled by DDS.</p>
+<p>DDS allows application developers to create digital twins of their
+systems' entities to share or query their states, share Commands or
+Replies, Events, data streams, videos, audios, structured documents and
+files, or simply share their messages on the network in real-time and
+in fault-tolerant ways.</p>
+<p>With DDS, Data and their associated Quality of Services are the only
+contract that binds and integrates distributed applications together.
+From that perspective, DDS helps build decoupled and flexible
+distributed architectures where applications do not have to expose their
+location, their APIs, their internal behavior, nor need to be active and
+alive at the same time. With DDS, the decoupling is bidimensional, it
+happens both in Space and Time.\
+This disruptive technology provides, secure, low-latency and ultra--high
+throughput data exchange rates.</p>
+<p>Depending on the QoS (Quality of Services) in use, DDS behaves as an
+<strong>in-Memory database</strong> where, on behalf of every DDS-aware application,
+DDS replicates and maintains a local copy of the data based on the
+application's interest, which is expressed in the concept of <em>data topic</em>.
+DDS can manage the last data value or an arbitrary history of the updates.
+It can also store the data on persistent media to make it available
+for later use. When data is consistently propagated in the network,
+Applications can <em>Query</em> it, typically with a subset of the Structured
+Query Language (<strong>SQL</strong>), or use their own querying language.</p>
+<p>In its minimalistic use, DDS behaves as a <strong>Message-oriented
+Middleware</strong>, where data throughput and latency performance can be
+considered more important than data consistency and coherency. In this
+case, applications can apply a filter to receive only the relevant data.
+These typical use-cases are not exclusive and can be combined within the
+same system or application.</p>
+<p>As a standard-based technology with open specification, the OMG DDS
+technology fosters the development of secure interoperate open systems
+through the adoption of a common protocol (<strong>DDSI-RTPS</strong>)
+(<strong>DDS-Security</strong>). The technology also defines an application
+integration framework with intuitive and productive <strong>APIs</strong> available
+in the most popular and programming languages, ranging from <strong>C/C#/C++</strong>
+to <strong>Python/Java/Scala</strong> and <strong>Javascript,</strong> etc... With such
+well-defined APIs, applications can be ported across compliant DDS
+implantations with minimal effort. Such standard APIs avoid the vendor
+locking situation.</p>
+<p>In the next blog, we provide the ten most-distinguishing features that
+make DDS unique when comparing it to other Message-oriented Middleware
+or Distributed Databases Systems. We will discuss how DDS:</p>
+<ol>
+<li>
+<p><strong>simultaneously models system Things, their Relationships and
+    Metadata,</strong></p>
+</li>
+<li>
+<p><strong>manages the best-effort deterministic data distribution on non-deterministic
+    network transport layers,</strong></p>
+</li>
+<li>
+<p><strong>manages the last, or the history states, or both, and organizes them
+    in the desired order,</strong></p>
+</li>
+<li>
+<p><strong>ensures Data Eventual Consistency and Coherency,</strong></p>
+</li>
+<li>
+<p><strong>provides Dynamic discovery with no single point of failure Defines
+    Independent,</strong></p>
+</li>
+<li>
+<p><strong>manages best-effort deterministic data distribution on non-deterministic
+    network transport layers Fault-tolerance and Horizontal
+    scalability,</strong></p>
+</li>
+<li>
+<p><strong>builds complex information from basic data elements,</strong></p>
+</li>
+<li>
+<p><strong>manages integrity Rules on the Writing and Reading applications Ability to
+    share data as well as the context in which it is published.</strong></p>
+</li>
+<li>
+<p><strong>provides a very rich Quality of Service Framework,</strong></p>
+</li>
+<li>
+<p><strong>provides Secure Data Distribution.</strong></p>
+</li>
+</ol>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mx-auto px-5 mb-3">
+        <span class="text-muted">
+          By Ramzi KAROUI, posted on 2022-11-08.</span>
+      </div>
+    </div>
+    
+  </div>
+</main>
+
+        <footer class="ato-footer text-muted">
+      <div class="container-fluid p-6 p-md-5">
+        <div class="row">
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Eclipse Incubation</h5>
+            <p><img src="/images/eclipse-incubation.png" style="width:100px;"></p>
+            <p>Eclipse Cyclone DDS &trade; is an incubating project under the Eclipse Foundation.</p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>More Information</h5>
+            <p><a href="https://www.eclipse.org/legal" target="_blank">Legal</a></p>
+            <p><a href="https://www.eclipse.org/legal/privacy.php" target="_blank">Privacy policy</a></p>
+            <p><a href="https://www.eclipse.org/legal/termsofuse.php" target="_blank">Terms of use</a></p>
+            <p><a href="https://www.eclipse.org/legal/copyright.php" target="_blank">Copyright</a></p>
+            <p><a href="https://www.eclipse.org/security/" target="_blank">Report a security issue</a></p>
+            <p><a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">Eclipse Public License 2.0</a></p>
+            <p><a href="https://www.eclipse.org/org/documents/edl-v10.php" target="_blank">Eclipse Distribution License 1.0</a></p>
+            <p><a href="https://www.eclipse.org/" target="_blank">Eclipse Foundation</a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Sponsored by:</h5>
+            <p><a href="https://www.eclipse.org/" target="_blank"><img src="/images/eclipse-foundation.svg" alt="Eclipse Foundation" class="img-fluid w-75"></a></p>
+            <p><a href="https://zettascale.tech/" target="_blank"><img src="/images/zettascale.svg" alt="ZettaScale Technology" class="img-fluid w-75"></a></p>
+            <p><a href="https://www.adlinktech.com" target="_blank"><img src="/images/company_logo.svg" alt="ADLINK Technology" class="img-fluid w-75"></a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Follow us</h5>
+            <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
+            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
+            <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
+          </div>
+
+          <div class="col-12 col-md-4 pb-2">
+            <p>Eclipse Cyclone DDS &trade; is free, open source and always will be.</p>
+            <p>Copyright &copy; 2022 Eclipse Foundation</p>
+            <p>Theme inspired by: <a href="https://tokio.rs/" target="_blank">Tokio website theme</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+  </body>
+</html>

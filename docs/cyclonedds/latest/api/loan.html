@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Loaning &#8212; Eclipse Cyclone DDS, 11.0.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Instance Handles" href="instance_handles.html" />
+    <link rel="prev" title="Subscription" href="sub.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 11.0.0</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../idl/about.html">IDL (Interface Definition Language)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/dds_security.html">DDS security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../ddsc.html">C API reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">Entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qos.html">QoS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qosprovider.html">QosProvider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html">Domains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topic.html">Topics</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="data.html">Data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pub.html">Publication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sub.html">Subscription</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Loaning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="instance_handles.html">Instance Handles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="status_conditions.html">Status &amp; Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="builtin.html">Builtin Topic Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="serialization.html">Serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal.html">Internal functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html">Deprecated functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psmx.html">Publish Subscribe Message Exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dynamic.html">Dynamic Type API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="loaning">
+<h1>Loaning<a class="headerlink" href="#loaning" title="Permalink to this heading">¶</a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__loan"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">loan</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_request_loan">
+<span class="target" id="group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_request_loan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_request_loan" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Request a loan from an entity. </p>
+<p>Borrow a sample from the entity, which currently must be a writer. This sample can then be returned using <a class="reference internal" href="#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan</span></a> or can be used to publish data using <a class="reference internal" href="pub.html#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref">dds_write</span></a> or <a class="reference internal" href="pub.html#group__writing_1gad16fb6bd42165796bd3f88c52a9c23c1"><span class="std std-ref">dds_writedispose</span></a>.</p>
+<p>If the topic type has a fixed size (and so no internal pointers) and a PSMX interface is configured, the memory will be borrowed from the PSMX implementation, which allows Cyclone to avoid copies and/or serialization if there is no need for sending the data over a network interface or storing it in the WHC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> The entity to request loans from. </p></li>
+<li><p><strong>sample</strong> – <strong>[out]</strong> Where to store the address of the loaned sample.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The operation was successful. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more parameters are invalid. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – The operation is invoked on an inappropriate object. </p></li>
+<li><p><strong>DDS_RETCODE_ALREADY_DELETED</strong> – The entity has already been deleted. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An unfortunate incident occurred. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_return_loan">
+<span class="target" id="group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_return_loan</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buf</span></span>, <span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="n"><span class="pre">bufsz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_return_loan" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return loaned samples to a reader or writer</p>
+<p>Used to release middleware-owned samples returned by a read/take operation and samples borrowed from the writer using <a class="reference internal" href="#group__loan_1ga8181368a8a6a651fd0a55a99abdbebb7"><span class="std std-ref">dds_request_loan</span></a>. </p>
+<p>For reader loans, the <a class="reference internal" href="sub.html#group__reading_1gaf63eb369dc6e7d78896abbbc58d9f7fc"><span class="std std-ref">dds_read</span></a> and <a class="reference internal" href="sub.html#group__reading_1ga0dec2431770c3af7d4e7e3528badfa88"><span class="std std-ref">dds_take</span></a> operations implicitly return outstanding loans referenced by the sample array passed in. Looping until no data is returned therefore often eliminates the need for calling this function.</p>
+<p>For writer loans, a <a class="reference internal" href="pub.html#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref">dds_write</span></a> operation takes over the loan. Consequently, this function is only needed in the exceptional case where a loan is taken but ultimately not used to publish data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> The entity that the loan(s) belong to. If a read or query condition is passed in for the entity, the reader for that condition is used. </p></li>
+<li><p><strong>buf</strong> – <strong>[inout]</strong> An array of (pointers to) samples, some or all of which will be set to null pointers. </p></li>
+<li><p><strong>bufsz</strong> – <strong>[in]</strong> The size of the buffer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – <ul>
+<li><p>the operation was successful</p></li>
+<li><p>a no-op if bufsz &lt;= 0, otherwise</p></li>
+<li><p>buf[0] .. buf[k-1] were successfully returned loans, k = bufsz or buf[k] = null</p></li>
+<li><p>buf[0] is set to a null pointer, buf[k &gt; 0] undefined </p></li>
+</ul>
+</p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – <ul>
+<li><p>the entity parameter is not a valid parameter</p></li>
+<li><p>buf is null, or bufsz &gt; 0 and buf[0] = null</p></li>
+<li><p>a non-loan was encountered (all loans are still returned) </p></li>
+</ul>
+</p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – <ul>
+<li><p>bufsz &gt; 0 and buf[0] != null but not a loan, nothing done </p></li>
+</ul>
+</p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – <ul>
+<li><p>(for writer loans) invoked on a writer not supporting loans. </p></li>
+</ul>
+</p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – <ul>
+<li><p>the operation is invoked on an inappropriate object. </p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dds_return_t indicating success or failure </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_is_shared_memory_available">
+<span class="target" id="group__loan_1ga476b64d60d4f5c30c982e8874a9abf0c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_is_shared_memory_available</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_is_shared_memory_available" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a shared memory is available to reader/writer. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>dds_request_loan_of_size can be used if and only if dds_is_shared_memory_available returns true.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entity</strong> – <strong>[in]</strong> the handle of the entity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if shared memory is available, false otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_request_loan_of_size">
+<span class="target" id="group__loan_1ga15bd17fe3eebde129ce1acbb406c9487"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_request_loan_of_size</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">writer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">sample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_request_loan_of_size" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Request a loan of a specified size from an entity. </p>
+<p>Borrow a sample of a specified size from the entity, which currently must be a writer. This sample can then be returned using <a class="reference internal" href="#group__loan_1ga0ed544785f99a2856b7d81f9e7219b4e"><span class="std std-ref">dds_return_loan</span></a> or can be used to publish data using <a class="reference internal" href="pub.html#group__writing_1ga781eb275c5194b48ee52fbe16a8088fd"><span class="std std-ref">dds_write</span></a> or <a class="reference internal" href="pub.html#group__writing_1gad16fb6bd42165796bd3f88c52a9c23c1"><span class="std std-ref">dds_writedispose</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function can only be used if dds_is_shared_memory_available is true for the writer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer</strong> – <strong>[in]</strong> The entity to request loans from. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> the requested loan size </p></li>
+<li><p><strong>sample</strong> – <strong>[out]</strong> Where to store the address of the loaned sample.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DDS_RETCODE_OK if successful, DDS_RETCODE_ERROR otherwise </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<section id="loaned-samples">
+<h2>Loaned Samples<a class="headerlink" href="#loaned-samples" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__loaned__sample"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">loaned_sample</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state_t">
+<span class="target" id="group__loaned__sample_1ga2bbc7acd71b1da5c655e22a4076fd22b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_loaned_sample_state" title="dds_loaned_sample_state"><span class="n"><span class="pre">dds_loaned_sample_state</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_state_t</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>State of the data contained in a Loaned Sample. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loan_data_type_t">
+<span class="target" id="group__loaned__sample_1ga3ecf0e0d5482de4271177b419397fcc1"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loan_data_type_t</span></span></span><a class="headerlink" href="#c.dds_loan_data_type_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Identifier used to distinguish between raw data types (C/C++/Python/…) in a Loaned Sample. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c">
+<span class="target" id="group__loaned__sample_1ga1ebe848060febd0fdcce8d64773be93a"></span><span class="sig-name descname"><span class="pre">void(*</span> <span class="pre">dds_loaned_sample_free_f</span> <span class="pre">)(struct</span> <span class="pre">dds_loaned_sample</span> <span class="pre">*loaned_sample)</span> <span class="pre">ddsrt_nonnull_all</span></span></dt>
+<dd><p>Definition for function to free a Loaned Sample. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param loaned_sample<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>[in]</strong> A loaned sample </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_ops_t">
+<span class="target" id="group__loaned__sample_1gaf207813556159e6cfeb19efa54d9b1a6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_loaned_sample_ops" title="dds_loaned_sample_ops"><span class="n"><span class="pre">dds_loaned_sample_ops</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_ops_t</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_ops_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Container for implementation specific operations. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_t">
+<span class="target" id="group__loaned__sample_1gab48085ad09a630c251bd6b9a283409cb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_loaned_sample" title="dds_loaned_sample"><span class="n"><span class="pre">dds_loaned_sample</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_t</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The definition of a Loaned Sample. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state">
+<span class="target" id="group__loaned__sample_1ga1b9b5b66e7f3cc680239d1a1e759359d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_state</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>State of the data contained in a Loaned Sample. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_UNITIALIZED">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359da52da4baa215bc984233d513f71b06e86"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_UNITIALIZED</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_UNITIALIZED" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>state not set yet; not passed through PSMX interface </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_KEY">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359dab09737bcf5dc08e162302b2f43192d9b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_RAW_KEY</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_KEY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>application representation, only key fields initialized </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_DATA">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359dafdb03fb142c4a84dabbbfc2856da7d57"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_RAW_DATA</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_RAW_DATA" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>application representation, full sample initialized </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_KEY">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359da1dd3c2a22175f67f07ba19bd0be9eda2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_SERIALIZED_KEY</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_KEY" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>CDR/XCDR1/XCDR2-serialized key value serialized. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_DATA">
+<span class="target" id="group__loaned__sample_1gga1b9b5b66e7f3cc680239d1a1e759359daa4e153baaa40093ea3d23674b64b9524"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_LOANED_SAMPLE_STATE_SERIALIZED_DATA</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_state.DDS_LOANED_SAMPLE_STATE_SERIALIZED_DATA" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>CDR/XCDR1/XCDR2-serialized sample value serialized. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c">
+<span class="target" id="group__loaned__sample_1gac1334cf3d6e9fae70517041eead5a636"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">DDS_INLINE_EXPORT</span> <span class="pre">void</span> <span class="pre">ddsrt_nonnull_all</span> <span class="pre">dds_loaned_sample_ref</span> <span class="pre">(dds_loaned_sample_t</span> <span class="pre">*loaned_sample)</span></span></dt>
+<dd><p>Generic function to increase the refcount for a loaned sample. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loaned_sample</strong> – <strong>[in]</strong> A loaned sample </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c">
+<span class="target" id="group__loaned__sample_1gaccee3b7ab82e1514790c664c4f72061f"></span><span class="sig-name descname"><span class="pre">inline</span> <span class="pre">DDS_INLINE_EXPORT</span> <span class="pre">void</span> <span class="pre">ddsrt_nonnull_all</span> <span class="pre">dds_loaned_sample_unref</span> <span class="pre">(dds_loaned_sample_t</span> <span class="pre">*loaned_sample)</span></span></dt>
+<dd><p>Generic function to decrease the refcount for a loaned sample. </p>
+<p>Calls the PSMX plugin specific free function once the reference count reaches 0.</p>
+<p>Loaned Samples are freed in the order in which their reference counts drop to 0.</p>
+<p>On the writing side, writing (or “returning”) Loaned Samples in the order in which they were requested will ensure that the “free” operations is also invoked in the that order.</p>
+<p>On the reading side, the <code class="docutils literal notranslate"><span class="pre">serdata</span></code> constructed by <code class="docutils literal notranslate"><span class="pre">dds_reader_store_loaned_sample</span></code> may or may not reference the Loaned Sample, and if not the Loaned Sample will be dropped once the PSMX Plugin invokes <code class="docutils literal notranslate"><span class="pre">dds_loaned_sample_unref</span></code> on it.</p>
+<p>Otherwise, the Loaned Sample will be referenced by a sample in the reader history cache and stay there until it gets dropped (and the PSMX Plugin also invokes <code class="docutils literal notranslate"><span class="pre">dds_loaned_sample_unref</span></code> on it). If the reading application does not use loans in the reads/takes, that will be once it is pushed out of the history or taken. If the application uses <code class="docutils literal notranslate"><span class="pre">takecdr</span></code> or <code class="docutils literal notranslate"><span class="pre">take_with_collector</span></code>, then it is dependent on when the application logic drops the serdata via <code class="docutils literal notranslate"><span class="pre">ddsi_serdata_unref</span></code>.</p>
+<p>If the application does use loans in reads/takes, and Cyclone DDS decides to hand the data in the Loaned Sample to the application, the earliest time at which it can be dropped is when it is removed from the reader history cache <em>and</em> the loan is returned by the application using <code class="docutils literal notranslate"><span class="pre">dds_return_loan</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loaned_sample</strong> – <strong>[in]</strong> A loaned sample </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_loaned_sample_ops">
+<span class="target" id="structdds__loaned__sample__ops"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample_ops</span></span></span><a class="headerlink" href="#c.dds_loaned_sample_ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_loaned_sample.h&gt;</em></div>
+<p>Container for implementation specific operations. </p>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.dds_loaned_sample">
+<span class="target" id="structdds__loaned__sample"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_loaned_sample</span></span></span><a class="headerlink" href="#c.dds_loaned_sample" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;dds_loaned_sample.h&gt;</em></div>
+<p>The definition of a Loaned Sample. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.ops">
+<span class="target" id="structdds__loaned__sample_1a92bd5d1de4683ed7e7687f676eb296b4"></span><a class="reference internal" href="#c.dds_loaned_sample_ops_t" title="dds_loaned_sample_ops_t"><span class="n"><span class="pre">dds_loaned_sample_ops_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ops</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.ops" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the implementation specific ops for this sample </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.loan_origin">
+<span class="target" id="structdds__loaned__sample_1a84921a6f6c32b7f30df8520ba18d29b5"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_loaned_sample_origin</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">loan_origin</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.loan_origin" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the origin of the loan </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.metadata">
+<span class="target" id="structdds__loaned__sample_1a35a1de9d37117afe7ca443e5d59946da"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="psmx.html#c.dds_psmx_metadata" title="dds_psmx_metadata"><span class="n"><span class="pre">dds_psmx_metadata</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">metadata</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.metadata" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>pointer to the associated metadata </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.sample_ptr">
+<span class="target" id="structdds__loaned__sample_1ad68e55939a283cadf715fa2c83d7f796"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sample_ptr</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.sample_ptr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>pointer to the loaned sample </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.dds_loaned_sample.refc">
+<span class="target" id="structdds__loaned__sample_1a2adaa155a293f41cda16042d9e1fe9b2"></span><span class="n"><span class="pre">ddsrt_atomic_uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">refc</span></span></span><a class="headerlink" href="#c.dds_loaned_sample.refc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the number of references to this loan </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Loaning</a><ul>
+<li><a class="reference internal" href="#loaned-samples">Loaned Samples</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="sub.html">
+                    <span class="icon"><</span><span>Subscription</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="instance_handles.html"><span>Instance Handles</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

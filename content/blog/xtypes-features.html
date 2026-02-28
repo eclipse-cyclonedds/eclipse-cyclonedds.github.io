@@ -1,0 +1,248 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+    <title>Eclipse Cyclone DDS - FAQ</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
+    <meta name="keywords" content="eclipse, cyclone, dds, pub, sub, pubsub, iot, cyclonedds, cdr, omg, idl, middleware, ros" />
+    <meta name="author" content="Eclipse Cyclone DDS Committers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+<link rel="stylesheet" href="/css/pygments.css">
+<link rel="stylesheet" href="/css/markdown.css">
+
+  </head>
+
+  <body>
+    
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
+      <a class="navbar-brand" href="/">
+        <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
+      </a>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/docs">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/faq.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/deep-dives.html">Deep Dives</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navGuides" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Guides
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navGuides">
+
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/content/tools.html">Tools</a>
+          </li>
+        </ul>
+      </div>
+
+    
+    
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/eclipse-cyclonedds/cyclonedds" target="_blank" rel="noopener" aria-label="GitHub">
+            <span class="fab fa-github fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
+            <span class="fab fa-twitter fa-lg"></span>
+           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://discord.gg/BkRYQPpZVV" target="_blank" rel="noopener" aria-label="Discord">
+            <span class="fab fa-discord fa-lg"></span>
+           </a>
+        </li>
+      </ul>
+    </header>
+
+
+    
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mx-auto px-5 my-3 markdown">
+        <h2 id="what-xtypes-can-do-for-you">What XTypes can do for you</h2>
+<p>With the Cyclone DDS 0.9.0 (Papillons) release we gained support for XTypes. This addition to DDS is covered by a long <a href="https://www.omg.org/spec/DDS-XTypes/">specification by the OMG</a> that, while quite useful as implementor, might not make immediately clear to you as application developer as to why it is useful. I've gathered here a non-exhaustive list of the new features you can now use.</p>
+<h3 id="evolving-datamodels">Evolving Datamodels</h3>
+<p>With XTypes comes support for <em>annotations</em> in IDL. These are applied to entities in IDL as to inform how they should be serialized. Our focus here are the new <code>@appendable</code> and <code>@mutable</code> which allow for updates to a datamodel while maintaining backwards compatibility. Closely related is <code>@final</code> which is the behaviour you're used to pre-XTypes.</p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@appendable</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nd">@appendable</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>With <code>@appendable</code> you can <em>append</em> fields at the end of a struct while still allowing communication. When receiving data with more fields then you have definitions for the extra data is simply ignored. When receiving less fields then you defined the missing fields are <em>zero-initialized</em>. You are not allowed to change the order of fields or remove any <code>@key</code> fields. (<code>@key</code> is the XTypes equivalent of the old <code>#pragma keylist</code> and you are encouraged to switch over).</p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@mutable</span>
+<span class="nd">@autoid</span><span class="p">(</span><span class="n">HASH</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nd">@mutable</span>
+<span class="nd">@autoid</span><span class="p">(</span><span class="n">HASH</span><span class="p">)</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Foo_v2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="nd">@key</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>With <code>@mutable</code> all bets are of with respect to ordering and fields present. The same story about ignoring extra and <em>zero-initializing</em> missing fields as with <code>@appendable</code> applies, as does the <code>@key</code> story. You might notice the <code>@autoid(HASH)</code> here, which I recommend you use but is not the default as per the OMG specification. To detect whether a field is present or missing <em>member-ids</em> are used, and by default they are <code>SEQUENTIAL</code>, meaning they are simply numbered from the start of the struct to the end. This gets <em>real</em> messy with inheritance and shuffling of fields in the mix, basically defeating the point of <code>@mutable</code> all together. You can also explicitly set the ids yourself by manually applying <code>@id(some_integer)</code> to each field, but that sounds like a hassle to me.</p>
+<h3 id="bitmasks">Bitmasks</h3>
+<p>Ever found yourself needing to send a set of booleans, something like this?</p>
+<div class="codehilite"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">runParticleSurveyor</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">dropLunarPinpointer</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">disableDisplacementEntangler</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">rectifyMesonScanner</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">douseKirchoffMixer</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">engorgeLockeDisentangler</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">heatIonOscillator</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">setBurnellTinkerer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>And did you then realize, to your horror, this thing takes up eight bytes of space when encoded? Well, introducing the bitmask:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">bitmask</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="no">runParticleSurveyor</span><span class="p">,</span>
+<span class="w">    </span><span class="no">dropLunarPinpointer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">disableDisplacementEntangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">rectifyMesonScanner</span><span class="p">,</span>
+<span class="w">    </span><span class="no">douseKirchoffMixer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">engorgeLockeDisentangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">heatIonOscillator</span><span class="p">,</span>
+<span class="w">    </span><span class="no">setBurnellTinkerer</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>The bitmask makes sure that the set of booleans is packed into a single integer. This of course comes at some runtime cost with the gains in lower bandwidth. Oh one more caveat: you might still be horrified that the above bitmask still costs four bytes to encode, since the default integer size used is a 32bit integer. This can be controlled with the <code>@bit_bound</code> annotation:</p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@bit_bound</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="k">bitmask</span><span class="w"> </span><span class="nc">Settings</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="no">runParticleSurveyor</span><span class="p">,</span>
+<span class="w">    </span><span class="no">dropLunarPinpointer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">disableDisplacementEntangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">rectifyMesonScanner</span><span class="p">,</span>
+<span class="w">    </span><span class="no">douseKirchoffMixer</span><span class="p">,</span>
+<span class="w">    </span><span class="no">engorgeLockeDisentangler</span><span class="p">,</span>
+<span class="w">    </span><span class="no">heatIonOscillator</span><span class="p">,</span>
+<span class="w">    </span><span class="no">setBurnellTinkerer</span>
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Now the bandwidth is minimized to one byte. The <code>@bit_bound</code> also works on <code>enum</code>s, which are also encoded as 32bit integer by default.</p>
+<h3 id="dynamic-type-discovery">Dynamic type discovery</h3>
+<p>At the time of writing dynamic type discovery is only implemented on the <code>Python</code> language backend. It allows you to dynamically construct the datatype with serializers from so-called type identifiers which can be discovered over the network. These type identifiers are included in the <code>DCPSPublication</code> and <code>DCPSSubscription</code> built-in topics and can be passed to <code>cyclonedds.dynamic.get_types_for_typeid</code> to construct the datatype. This gives you the power to build tools that do not require pre-compilation of IDL files for <code>Python</code> but dynamically discover and subscribe to topics and, for example, format the data as human-readable text. Please note that you need to enable topic and type discovery at compile time using CMake options ENABLE_TOPIC_DISCOVERY and ENABLE_TYPE_DISCOVERY if you build the library yourself, they are enabled by default in the Python wheels available on PyPi.</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 mx-auto px-5 mb-3">
+        <span class="text-muted">
+          By Thijs Miedema, posted on 2022-05-11.</span>
+      </div>
+    </div>
+    
+  </div>
+</main>
+
+        <footer class="ato-footer text-muted">
+      <div class="container-fluid p-6 p-md-5">
+        <div class="row">
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Eclipse Incubation</h5>
+            <p><img src="/images/eclipse-incubation.png" style="width:100px;"></p>
+            <p>Eclipse Cyclone DDS &trade; is an incubating project under the Eclipse Foundation.</p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>More Information</h5>
+            <p><a href="https://www.eclipse.org/legal" target="_blank">Legal</a></p>
+            <p><a href="https://www.eclipse.org/legal/privacy.php" target="_blank">Privacy policy</a></p>
+            <p><a href="https://www.eclipse.org/legal/termsofuse.php" target="_blank">Terms of use</a></p>
+            <p><a href="https://www.eclipse.org/legal/copyright.php" target="_blank">Copyright</a></p>
+            <p><a href="https://www.eclipse.org/security/" target="_blank">Report a security issue</a></p>
+            <p><a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">Eclipse Public License 2.0</a></p>
+            <p><a href="https://www.eclipse.org/org/documents/edl-v10.php" target="_blank">Eclipse Distribution License 1.0</a></p>
+            <p><a href="https://www.eclipse.org/" target="_blank">Eclipse Foundation</a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Sponsored by:</h5>
+            <p><a href="https://www.eclipse.org/" target="_blank"><img src="/images/eclipse-foundation.svg" alt="Eclipse Foundation" class="img-fluid w-75"></a></p>
+            <p><a href="https://zettascale.tech/" target="_blank"><img src="/images/zettascale.svg" alt="ZettaScale Technology" class="img-fluid w-75"></a></p>
+            <p><a href="https://www.adlinktech.com" target="_blank"><img src="/images/company_logo.svg" alt="ADLINK Technology" class="img-fluid w-75"></a></p>
+          </div>
+
+          <div class="col-6 col-md-2 pb-2">
+            <h5>Follow us</h5>
+            <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
+            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
+            <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
+          </div>
+
+          <div class="col-12 col-md-4 pb-2">
+            <p>Eclipse Cyclone DDS &trade; is free, open source and always will be.</p>
+            <p>Copyright &copy; 2022 Eclipse Foundation</p>
+            <p>Theme inspired by: <a href="https://tokio.rs/" target="_blank">Tokio website theme</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+    <script> $(function () {
+      $("pre code").each(function (i, block) {
+        hljs.highlightBlock(block);
+      });
+    });
+    </script>
+  </body>
+</html>
