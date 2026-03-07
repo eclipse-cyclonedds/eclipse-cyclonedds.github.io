@@ -127,6 +127,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="dds_security.html">DDS security</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Public-key infrastructure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dds_security_config.html">DDS security configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkcs11_hsm.html">PKCS#11 and Hardware Security Module (HSM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging_tracing.html">Logging and tracing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_comms_handshake.html">Data communication and handshake process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dds_secure_discovery.html">DDS secure discovery</a></li>
@@ -167,6 +168,18 @@ It consists of:</p>
 <p>Data is encrypted with the user’s public key and decrypted with their private key.</p>
 <p>Digital signatures are also generated using public key cryptography (used for non-repudiation,
 authentication and data integrity).</p>
+<p id="index-1"><strong>Hardware-based key protection</strong></p>
+<p>Private keys are the most sensitive component of a PKI deployment. If compromised, an attacker
+can impersonate the key owner. For high-security deployments, private keys can be stored on
+Hardware Security Modules (HSMs).</p>
+<p>These devices:</p>
+<ul class="simple">
+<li><p>Generate and store private keys in tamper-resistant hardware.</p></li>
+<li><p>Perform cryptographic operations internally, so the private key never leaves the device.</p></li>
+<li><p>Provide physical protection against key extraction.</p></li>
+</ul>
+<p>Cyclone DDS supports loading credentials from PKCS#11-compatible devices. See
+<a class="reference internal" href="pkcs11_hsm.html#pkcs11-hsm"><span class="std std-ref">PKCS#11 and Hardware Security Module (HSM)</span></a> for configuration details.</p>
 <p id="identity-certificate"><strong>Identity certificate</strong></p>
 <p>This is an electronic document that proves the ownership of a public key. The certificate
 includes:</p>
@@ -196,7 +209,7 @@ subject. For example:</p>
 <div><p>emailAddress=alice&#64;example.com,CN=Alice,OU=IST,O=ADLink,ST=OV,C=NL</p>
 </div></blockquote>
 <section id="example-pki-usage-in-dds-security">
-<span id="index-1"></span><h2>Example PKI usage in DDS security<a class="headerlink" href="#example-pki-usage-in-dds-security" title="Permalink to this heading">¶</a></h2>
+<span id="index-2"></span><h2>Example PKI usage in DDS security<a class="headerlink" href="#example-pki-usage-in-dds-security" title="Permalink to this heading">¶</a></h2>
 <p>Alice and Bob are the DDS participants who have their private and public keys. Identitity
 Certificate Authority (ID CA) has its own self-signed certificate (<cite>IdentityCA</cite> in the diagram).
 <strong>ID CA</strong> gets Alice’s subject information and public key and generates an <cite>IdentityCertificate</cite> for her.
@@ -226,6 +239,8 @@ identity and its permissions, the subject name of an identity certificate can ap
 a permissions document.</p>
 <p>There are several ways to set up the certificates and signed configuration files to be used with
 Cyclone DDS Security, see <a class="reference internal" href="example_configuration.html#example-security-configuration"><span class="std std-ref">Example DDS security configuration</span></a>.</p>
+<p>For deployments requiring hardware-based key protection, see <a class="reference internal" href="pkcs11_hsm.html#pkcs11-hsm"><span class="std std-ref">PKCS#11 and Hardware Security Module (HSM)</span></a> and
+<a class="reference internal" href="example_configuration.html#hsm-security-configuration"><span class="std std-ref">Using Hardware Security Modules (HSM) or tokens</span></a>.</p>
 </section>
 </section>
 

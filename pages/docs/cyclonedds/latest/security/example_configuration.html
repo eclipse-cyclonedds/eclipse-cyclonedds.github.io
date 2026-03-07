@@ -127,6 +127,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="dds_security.html">DDS security</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="public_key_infrastructure.html">Public-key infrastructure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dds_security_config.html">DDS security configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkcs11_hsm.html">PKCS#11 and Hardware Security Module (HSM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging_tracing.html">Logging and tracing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_comms_handshake.html">Data communication and handshake process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dds_secure_discovery.html">DDS secure discovery</a></li>
@@ -392,6 +393,46 @@ that is created (which implicitly creates a domain) in an application using this
 these security settings.</p>
 </div>
 </section>
+<section id="using-hardware-security-modules-hsm-or-tokens">
+<span id="hsm-security-configuration"></span><span id="index-5"></span><h2>Using Hardware Security Modules (HSM) or tokens<a class="headerlink" href="#using-hardware-security-modules-hsm-or-tokens" title="Permalink to this heading">¶</a></h2>
+<p>For deployments requiring hardware-based protection of private keys, Cyclone DDS
+supports loading cryptographic credentials from PKCS#11-compatible devices. This section
+demonstrates configuration using credentials stored on an HSM or token.</p>
+<p>See <a class="reference internal" href="pkcs11_hsm.html#pkcs11-hsm"><span class="std std-ref">PKCS#11 and Hardware Security Module (HSM)</span></a> for more information.</p>
+<section id="hsm-configuration-example">
+<h3>HSM configuration example<a class="headerlink" href="#hsm-configuration-example" title="Permalink to this heading">¶</a></h3>
+<p>The following configuration uses PKCS#11 for the private key and identity certificate,
+while keeping CA certificates and policy documents on the filesystem:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;CycloneDDS</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Security&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Authentication&gt;</span>
+<span class="w">                </span><span class="nt">&lt;IdentityCertificate&gt;</span>pkcs11:token=DDSToken;object=alice_cert?pin-value=1234<span class="nt">&lt;/IdentityCertificate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;IdentityCA&gt;</span>file:example_id_ca_cert.pem<span class="nt">&lt;/IdentityCA&gt;</span>
+<span class="w">                </span><span class="nt">&lt;PrivateKey&gt;</span>pkcs11:token=DDSToken;object=alice_key;type=private?pin-value=1234<span class="nt">&lt;/PrivateKey&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/Authentication&gt;</span>
+<span class="w">            </span><span class="nt">&lt;AccessControl&gt;</span>
+<span class="w">                </span><span class="nt">&lt;PermissionsCA&gt;</span>file:example_perm_ca_cert.pem<span class="nt">&lt;/PermissionsCA&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Governance&gt;</span>file:example_governance.p7s<span class="nt">&lt;/Governance&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Permissions&gt;</span>file:example_permissions.p7s<span class="nt">&lt;/Permissions&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/AccessControl&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Security&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The PIN is embedded directly in the configuration when using <code class="docutils literal notranslate"><span class="pre">pin-value</span></code>. For
+production deployments, restrict access to the configuration file (e.g., mode 0400)
+and consider using configuration management tools that support secret injection.</p>
+</div>
+<p>The Permissions CA certificate can also be stored on the HSM if required by your
+security policy. Loading arbitrary data from the HSM is not supported, therefore
+the governance and permissions documents must remain as files or inline data.</p>
+</section>
+</section>
 </section>
 
 
@@ -415,6 +456,10 @@ these security settings.</p>
 <li><a class="reference internal" href="#create-a-signed-permissions-document">Create a signed permissions document</a></li>
 <li><a class="reference internal" href="#set-the-security-properties-in-participant-qos">Set the security properties in participant QoS</a></li>
 <li><a class="reference internal" href="#apply-security-settings">Apply security settings</a></li>
+<li><a class="reference internal" href="#using-hardware-security-modules-hsm-or-tokens">Using Hardware Security Modules (HSM) or tokens</a><ul>
+<li><a class="reference internal" href="#hsm-configuration-example">HSM configuration example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

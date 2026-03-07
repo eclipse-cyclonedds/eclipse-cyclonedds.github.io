@@ -131,6 +131,7 @@
 <li class="toctree-l3"><a class="reference internal" href="access_control_config.html">Access control configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="pkcs11_hsm.html">PKCS#11 and Hardware Security Module (HSM)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging_tracing.html">Logging and tracing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_comms_handshake.html">Data communication and handshake process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dds_secure_discovery.html">DDS secure discovery</a></li>
@@ -180,9 +181,15 @@ is configured in <a class="reference internal" href="../config/config_file_refer
 or a 256-bit Elliptic Curve key for the prime256v1 curve. The identity CA certificate can be
 a self-signed certificate.</p>
 <p>The identity certificate, private key and the identity CA should be a X509 document in PEM
-format. It may either be specified directly in the configuration file (as CDATA, prefixed
-with <code class="docutils literal notranslate"><span class="pre">data:,</span></code>), or the configuration file should contain a reference to a corresponding
-file (prefixed with <code class="docutils literal notranslate"><span class="pre">file:</span></code>).</p>
+format. These values can be specified using one of the following URI schemes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file:</span></code>: Reference to a PEM file on the filesystem (e.g., <code class="docutils literal notranslate"><span class="pre">file:identity_cert.pem</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data:,</span></code>: Inline PEM data embedded directly in the configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pkcs11:</span></code>: Reference to an object on a PKCS#11 token or HSM (e.g., <code class="docutils literal notranslate"><span class="pre">pkcs11:token=MyHSM;object=identity_cert</span></code>)</p></li>
+</ul>
+<p>For deployments requiring hardware-based key protection, the <code class="docutils literal notranslate"><span class="pre">pkcs11:</span></code> scheme enables
+storing private keys and certificates on Hardware Security Modules (HSMs). See <a class="reference internal" href="pkcs11_hsm.html#pkcs11-hsm"><span class="std std-ref">PKCS#11 and Hardware Security Module (HSM)</span></a>
+for configuration details.</p>
 <p>Optionally, the private key can be protected by a
 <a class="reference internal" href="../config/config_file_reference.html#cyclonedds-domain-security-authentication-password"><span class="std std-ref">password</span></a>.</p>
 <p>To enable multiple identity CAs throughout the system, you can configure a directory that
@@ -195,10 +202,14 @@ instances
 <p>The following are are required for the access control plugin:</p>
 <ul class="simple">
 <li><p>A governance document (<a class="reference internal" href="../config/config_file_reference.html#cyclonedds-domain-security-accesscontrol-governance"><span class="std std-ref">//CycloneDDS/Domain/Security/AccessControl/Governance</span></a>).</p></li>
-<li><p>a permissions document (<a class="reference internal" href="../config/config_file_reference.html#cyclonedds-domain-security-accesscontrol-permissions"><span class="std std-ref">//CycloneDDS/Domain/Security/AccessControl/Permissions</span></a>).</p></li>
+<li><p>A permissions document (<a class="reference internal" href="../config/config_file_reference.html#cyclonedds-domain-security-accesscontrol-permissions"><span class="std std-ref">//CycloneDDS/Domain/Security/AccessControl/Permissions</span></a>).</p></li>
 <li><p>The permissions CA certificate (<a class="reference internal" href="../config/config_file_reference.html#cyclonedds-domain-security-accesscontrol-permissionsca"><span class="std std-ref">//CycloneDDS/Domain/Security/AccessControl/PermissionsCA</span></a>).</p></li>
 </ul>
-<p>These values can be provided as CDATA or by using a path to a file (Similar to the authentication plugin properties).</p>
+<p>The <strong>permissions CA certificate</strong> supports the same URI schemes as the authentication properties,
+including <code class="docutils literal notranslate"><span class="pre">pkcs11:</span></code> for HSM-based storage.</p>
+<p>The <strong>governance and permissions documents</strong> are signed XML policy files. These must be provided
+using <code class="docutils literal notranslate"><span class="pre">file:</span></code> or <code class="docutils literal notranslate"><span class="pre">data:,</span></code> URIs; PKCS#11 is not supported for retrieving these documents. Their
+integrity is protected by PKCS#7 signatures, which are verified using the permissions CA certificate.</p>
 </section>
 <section id="cryptography-properties">
 <span id="index-3"></span><span id="id3"></span><h2>Cryptography properties<a class="headerlink" href="#cryptography-properties" title="Permalink to this heading">¶</a></h2>
