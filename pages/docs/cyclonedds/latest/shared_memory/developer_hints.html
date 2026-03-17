@@ -163,7 +163,7 @@ is a useful tool from iceoryx called <a href="https://github.com/eclipse-iceoryx
 </li>
 <li><p>Cyclone DDS can be configured to show logging information from shared memory.</p>
 <ul class="simple">
-<li><p>Setting Tracing::Category to <em>shm</em> shows the Cyclone DDS log related to shared memory, while SharedMemory::LogLevel decides which log level iceoryx shows:</p></li>
+<li><p>Setting Tracing::Category to <em>shm</em> shows the Cyclone DDS log related to shared memory. The iceoryx log level is set via the <code class="docutils literal notranslate"><span class="pre">config</span></code> attribute on the <code class="docutils literal notranslate"><span class="pre">PubSubMessageExchange</span></code> element (e.g., <code class="docutils literal notranslate"><span class="pre">LOG_LEVEL=INFO</span></code>):</p></li>
 </ul>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
 <span class="nt">&lt;CycloneDDS</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span>
@@ -174,10 +174,11 @@ is a useful tool from iceoryx called <a href="https://github.com/eclipse-iceoryx
 <span class="w">            </span><span class="nt">&lt;Category&gt;</span>shm<span class="nt">&lt;/Category&gt;</span>
 <span class="w">            </span><span class="nt">&lt;OutputFile&gt;</span>stdout<span class="nt">&lt;/OutputFile&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/Tracing&gt;</span>
-<span class="w">        </span><span class="nt">&lt;SharedMemory&gt;</span>
-<span class="w">            </span><span class="nt">&lt;Enable&gt;</span>true<span class="nt">&lt;/Enable&gt;</span>
-<span class="w">            </span><span class="nt">&lt;LogLevel&gt;</span>info<span class="nt">&lt;/LogLevel&gt;</span>
-<span class="w">        </span><span class="nt">&lt;/SharedMemory&gt;</span>
+<span class="w">        </span><span class="nt">&lt;General&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Interfaces&gt;</span>
+<span class="w">                </span><span class="nt">&lt;PubSubMessageExchange</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;iox&quot;</span><span class="w"> </span><span class="na">config=</span><span class="s">&quot;LOG_LEVEL=INFO;&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/Interfaces&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/General&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
 <span class="nt">&lt;/CycloneDDS&gt;</span>
 </pre></div>
