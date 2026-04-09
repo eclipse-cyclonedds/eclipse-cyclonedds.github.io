@@ -157,7 +157,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">ctypes.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_library</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntEnum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntEnum</span><span class="p">,</span> <span class="n">IntFlag</span>
 
 
 <span class="k">if</span> <span class="s1">&#39;CYCLONEDDS_PYTHON_NO_IMPORT_LIBS&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
@@ -582,6 +582,52 @@
             <span class="p">]</span>
         <span class="k">return</span> <span class="n">vstatistics</span></div></div>
 
+<span class="k">class</span><span class="w"> </span><span class="nc">LogCategory</span><span class="p">(</span><span class="n">IntFlag</span><span class="p">):</span>
+    <span class="n">FATAL</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">ERROR</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">WARNING</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">INFO</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">CONFIG</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="n">DISCOVERY</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">DATA</span> <span class="o">=</span> <span class="mi">64</span>
+    <span class="n">TRACE</span> <span class="o">=</span> <span class="mi">128</span>
+    <span class="n">RADMIN</span> <span class="o">=</span> <span class="mi">256</span>
+    <span class="n">TIMING</span> <span class="o">=</span> <span class="mi">512</span>
+    <span class="n">TRAFFIC</span> <span class="o">=</span> <span class="mi">1024</span>
+    <span class="n">TOPIC</span> <span class="o">=</span> <span class="mi">2048</span>
+    <span class="n">TCP</span> <span class="o">=</span> <span class="mi">4096</span>
+    <span class="n">PLIST</span> <span class="o">=</span> <span class="mi">8192</span>
+    <span class="n">WHC</span> <span class="o">=</span> <span class="mi">16384</span>
+    <span class="n">THROTTLE</span> <span class="o">=</span> <span class="mi">32768</span>
+    <span class="n">RHC</span> <span class="o">=</span> <span class="mi">65536</span>
+    <span class="n">CONTENT</span> <span class="o">=</span> <span class="mi">131072</span>
+    <span class="n">MALFORMED</span> <span class="o">=</span> <span class="mi">262144</span>
+    <span class="n">SYSDEF</span> <span class="o">=</span> <span class="mi">524288</span>
+    <span class="n">QOSPROV</span> <span class="o">=</span> <span class="mi">1048576</span>
+    <span class="n">USER1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">29</span>
+    <span class="n">USER2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">30</span>
+    <span class="n">USER3</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LogData</span><span class="p">:</span>
+    <span class="n">priority</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">domid</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">line</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">function</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">size</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">hdrsize</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">category</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LogCategory</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">LogCategory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">priority</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_log_sink</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">userdata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">_clayer</span><span class="o">.</span><span class="n">ddspy_set_log_sink</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">userdata</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">set_trace_sink</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">userdata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">_clayer</span><span class="o">.</span><span class="n">ddspy_set_trace_sink</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">userdata</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">cyclonedds._clayer</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">_clayer</span>  <span class="c1"># noqa E402</span>
