@@ -481,6 +481,28 @@
 
 </dd></dl>
 
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.dds_dynamic_type_try_construct">
+<span class="target" id="group__dynamic__type_1gad453dcee18d7702577a8fd4fa471c2ad"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_type_try_construct</span></span></span><a class="headerlink" href="#c.dds_dynamic_type_try_construct" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Dynamic Type try construct kind </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_DISCARD">
+<span class="target" id="group__dynamic__type_1ggad453dcee18d7702577a8fd4fa471c2adadf95c1ff6b9e836791fef0a0d90b6d4b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_DISCARD</span></span></span><a class="headerlink" href="#c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_DISCARD" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_USE_DEFAULT">
+<span class="target" id="group__dynamic__type_1ggad453dcee18d7702577a8fd4fa471c2ada69077c36dabae200ff7b5bdf4660126f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_USE_DEFAULT</span></span></span><a class="headerlink" href="#c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_USE_DEFAULT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_TRIM">
+<span class="target" id="group__dynamic__type_1ggad453dcee18d7702577a8fd4fa471c2adabd71527ce2893ea8bd9c7d6d774ba224"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_TRIM</span></span></span><a class="headerlink" href="#c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_TRIM" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
@@ -548,6 +570,30 @@
 <dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The bit-bound is set successfully. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_dynamic_type_set_try_construct">
+<span class="target" id="group__dynamic__type_1gafcdc2810198a1cd698fd538d3129fbb6"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_type_set_try_construct</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_dynamic_type_try_construct" title="dds_dynamic_type_try_construct"><span class="n"><span class="pre">dds_dynamic_type_try_construct</span></span></a><span class="w"> </span><span class="n"><span class="pre">try_construct</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_type_set_try_construct" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the try-construct for sequence elements. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type to set the bit-bound for. This must be a bounded sequence type. </p></li>
+<li><p><strong>try_construct</strong> – <strong>[in]</strong> The try-construct value to set.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The try-construct value is set successfully on the element type. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
 <li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
 </ul>
@@ -813,6 +859,31 @@
 <li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the must-understand flag for (must be a structure type). </p></li>
 <li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag for. </p></li>
 <li><p><strong>is_must_understand</strong> – <strong>[in]</strong> Indicates whether the must-understand flag should be set or cleared.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>DDS_RETCODE_OK</strong> – The flag is updated successfully. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dds_return_t Return code. In case of an error, the return code field in the provided type is also set to this value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.dds_dynamic_member_set_try_construct">
+<span class="target" id="group__dynamic__type_1gafab8c5ad6fb2490d64cfbebfaad50689"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_member_set_try_construct</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">member_id</span></span>, <span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_dynamic_type_try_construct" title="dds_dynamic_type_try_construct"><span class="n"><span class="pre">dds_dynamic_type_try_construct</span></span></a><span class="w"> </span><span class="n"><span class="pre">try_construct</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_member_set_try_construct" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the try_construct mode for a Dynamic Type member. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the must-understand flag for (must be a structure type). </p></li>
+<li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag for. </p></li>
+<li><p><strong>try_construct</strong> – <strong>[in]</strong> Indicates whether the must-understand flag should be set or cleared.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return values<span class="colon">:</span></dt>

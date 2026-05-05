@@ -563,6 +563,8 @@
 </li>
       <li><a href="api/dynamic.html#c.dds_dynamic_member_set_optional">dds_dynamic_member_set_optional (C function)</a>
 </li>
+      <li><a href="api/dynamic.html#c.dds_dynamic_member_set_try_construct">dds_dynamic_member_set_try_construct (C function)</a>
+</li>
       <li><a href="api/dynamic.html#c.dds_dynamic_type">dds_dynamic_type (C struct)</a>
 </li>
       <li><a href="api/dynamic.html#c.dds_dynamic_type_add_bitmask_field">dds_dynamic_type_add_bitmask_field (C function)</a>
@@ -679,6 +681,8 @@
 </li>
       <li><a href="api/dynamic.html#c.dds_dynamic_type_set_nested">dds_dynamic_type_set_nested (C function)</a>
 </li>
+      <li><a href="api/dynamic.html#c.dds_dynamic_type_set_try_construct">dds_dynamic_type_set_try_construct (C function)</a>
+</li>
       <li><a href="api/dynamic.html#c.DDS_DYNAMIC_TYPE_SPEC">DDS_DYNAMIC_TYPE_SPEC (C macro)</a>
 </li>
       <li><a href="api/dynamic.html#c.dds_dynamic_type_spec">dds_dynamic_type_spec (C struct)</a>
@@ -696,6 +700,14 @@
       <li><a href="api/dynamic.html#c.dds_dynamic_type_spec_t">dds_dynamic_type_spec_t (C type)</a>
 </li>
       <li><a href="api/dynamic.html#c.dds_dynamic_type_t">dds_dynamic_type_t (C type)</a>
+</li>
+      <li><a href="api/dynamic.html#c.dds_dynamic_type_try_construct">dds_dynamic_type_try_construct (C enum)</a>
+</li>
+      <li><a href="api/dynamic.html#c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_DISCARD">dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_DISCARD (C enumerator)</a>
+</li>
+      <li><a href="api/dynamic.html#c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_TRIM">dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_TRIM (C enumerator)</a>
+</li>
+      <li><a href="api/dynamic.html#c.dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_USE_DEFAULT">dds_dynamic_type_try_construct.DDS_DYNAMIC_MEMBER_TRY_CONSTRUCT_USE_DEFAULT (C enumerator)</a>
 </li>
       <li><a href="api/dynamic.html#c.DDS_DYNAMIC_UNION_MEMBER_">DDS_DYNAMIC_UNION_MEMBER_ (C macro)</a>
 </li>
@@ -1307,12 +1319,12 @@
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_create_endpoint_fn">dds_psmx_create_endpoint_fn (C type)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/psmx.html#c.dds_psmx_create_topic_fn">dds_psmx_create_topic_fn (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_create_topic_with_type_fn">dds_psmx_create_topic_with_type_fn (C type)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/psmx.html#c.dds_psmx_deinit_fn">dds_psmx_deinit_fn (C type)</a>
 </li>
       <li><a href="api/psmx.html#c.dds_psmx_delete_endpoint_fn">dds_psmx_delete_endpoint_fn (C type)</a>
@@ -1969,137 +1981,143 @@
 </li>
       <li><a href="api/serialization.html#c.dds_stream_opcode">dds_stream_opcode (C enum)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_ADR">dds_stream_opcode.DDS_OP_ADR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_ADR">dds_stream_opcode.DDS_SOP_ADR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_DLC">dds_stream_opcode.DDS_OP_DLC (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_DLC">dds_stream_opcode.DDS_SOP_DLC (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_JEQ">dds_stream_opcode.DDS_OP_JEQ (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_JEQ">dds_stream_opcode.DDS_SOP_JEQ (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_JEQ4">dds_stream_opcode.DDS_OP_JEQ4 (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_JEQ4">dds_stream_opcode.DDS_SOP_JEQ4 (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_JSR">dds_stream_opcode.DDS_OP_JSR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_JSR">dds_stream_opcode.DDS_SOP_JSR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_KOF">dds_stream_opcode.DDS_OP_KOF (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_KOF">dds_stream_opcode.DDS_SOP_KOF (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_MID">dds_stream_opcode.DDS_OP_MID (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_MID">dds_stream_opcode.DDS_SOP_MID (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_PLC">dds_stream_opcode.DDS_OP_PLC (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_PLC">dds_stream_opcode.DDS_SOP_PLC (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_PLM">dds_stream_opcode.DDS_OP_PLM (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_PLM">dds_stream_opcode.DDS_SOP_PLM (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_OP_RTS">dds_stream_opcode.DDS_OP_RTS (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_opcode.DDS_SOP_RTS">dds_stream_opcode.DDS_SOP_RTS (C enumerator)</a>
 </li>
       <li><a href="api/serialization.html#c.dds_stream_typecode">dds_stream_typecode (C enum)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_1BY">dds_stream_typecode.DDS_OP_VAL_1BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_16BY">dds_stream_typecode.DDS_SOP_VAL_16BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_2BY">dds_stream_typecode.DDS_OP_VAL_2BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_1BY">dds_stream_typecode.DDS_SOP_VAL_1BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_4BY">dds_stream_typecode.DDS_OP_VAL_4BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_2BY">dds_stream_typecode.DDS_SOP_VAL_2BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_8BY">dds_stream_typecode.DDS_OP_VAL_8BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_4BY">dds_stream_typecode.DDS_SOP_VAL_4BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_ARR">dds_stream_typecode.DDS_OP_VAL_ARR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_8BY">dds_stream_typecode.DDS_SOP_VAL_8BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_BLN">dds_stream_typecode.DDS_OP_VAL_BLN (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_ARR">dds_stream_typecode.DDS_SOP_VAL_ARR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_BMK">dds_stream_typecode.DDS_OP_VAL_BMK (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_BLN">dds_stream_typecode.DDS_SOP_VAL_BLN (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_BSQ">dds_stream_typecode.DDS_OP_VAL_BSQ (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_BMK">dds_stream_typecode.DDS_SOP_VAL_BMK (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_BST">dds_stream_typecode.DDS_OP_VAL_BST (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_BSQ">dds_stream_typecode.DDS_SOP_VAL_BSQ (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_BWSTR">dds_stream_typecode.DDS_OP_VAL_BWSTR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_BST">dds_stream_typecode.DDS_SOP_VAL_BST (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_ENU">dds_stream_typecode.DDS_OP_VAL_ENU (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_BWSTR">dds_stream_typecode.DDS_SOP_VAL_BWSTR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_EXT">dds_stream_typecode.DDS_OP_VAL_EXT (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_ENU">dds_stream_typecode.DDS_SOP_VAL_ENU (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_SEQ">dds_stream_typecode.DDS_OP_VAL_SEQ (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_EXT">dds_stream_typecode.DDS_SOP_VAL_EXT (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_STR">dds_stream_typecode.DDS_OP_VAL_STR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_SEQ">dds_stream_typecode.DDS_SOP_VAL_SEQ (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_STU">dds_stream_typecode.DDS_OP_VAL_STU (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_STR">dds_stream_typecode.DDS_SOP_VAL_STR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_UNI">dds_stream_typecode.DDS_OP_VAL_UNI (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_STU">dds_stream_typecode.DDS_SOP_VAL_STU (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_WCHAR">dds_stream_typecode.DDS_OP_VAL_WCHAR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_UNI">dds_stream_typecode.DDS_SOP_VAL_UNI (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_OP_VAL_WSTR">dds_stream_typecode.DDS_OP_VAL_WSTR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_WCHAR">dds_stream_typecode.DDS_SOP_VAL_WCHAR (C enumerator)</a>
+</li>
+      <li><a href="api/serialization.html#c.dds_stream_typecode.DDS_SOP_VAL_WSTR">dds_stream_typecode.DDS_SOP_VAL_WSTR (C enumerator)</a>
 </li>
       <li><a href="api/serialization.html#c.dds_stream_typecode_primary">dds_stream_typecode_primary (C enum)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_1BY">dds_stream_typecode_primary.DDS_OP_TYPE_1BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_16BY">dds_stream_typecode_primary.DDS_SOP_TYPE_16BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_2BY">dds_stream_typecode_primary.DDS_OP_TYPE_2BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_1BY">dds_stream_typecode_primary.DDS_SOP_TYPE_1BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_4BY">dds_stream_typecode_primary.DDS_OP_TYPE_4BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_2BY">dds_stream_typecode_primary.DDS_SOP_TYPE_2BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_8BY">dds_stream_typecode_primary.DDS_OP_TYPE_8BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_4BY">dds_stream_typecode_primary.DDS_SOP_TYPE_4BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_ARR">dds_stream_typecode_primary.DDS_OP_TYPE_ARR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_8BY">dds_stream_typecode_primary.DDS_SOP_TYPE_8BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_BLN">dds_stream_typecode_primary.DDS_OP_TYPE_BLN (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_ARR">dds_stream_typecode_primary.DDS_SOP_TYPE_ARR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_BMK">dds_stream_typecode_primary.DDS_OP_TYPE_BMK (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_BLN">dds_stream_typecode_primary.DDS_SOP_TYPE_BLN (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_BSQ">dds_stream_typecode_primary.DDS_OP_TYPE_BSQ (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_BMK">dds_stream_typecode_primary.DDS_SOP_TYPE_BMK (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_BST">dds_stream_typecode_primary.DDS_OP_TYPE_BST (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_BSQ">dds_stream_typecode_primary.DDS_SOP_TYPE_BSQ (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_BWSTR">dds_stream_typecode_primary.DDS_OP_TYPE_BWSTR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_BST">dds_stream_typecode_primary.DDS_SOP_TYPE_BST (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_ENU">dds_stream_typecode_primary.DDS_OP_TYPE_ENU (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_BWSTR">dds_stream_typecode_primary.DDS_SOP_TYPE_BWSTR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_EXT">dds_stream_typecode_primary.DDS_OP_TYPE_EXT (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_ENU">dds_stream_typecode_primary.DDS_SOP_TYPE_ENU (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_SEQ">dds_stream_typecode_primary.DDS_OP_TYPE_SEQ (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_EXT">dds_stream_typecode_primary.DDS_SOP_TYPE_EXT (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_STR">dds_stream_typecode_primary.DDS_OP_TYPE_STR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_SEQ">dds_stream_typecode_primary.DDS_SOP_TYPE_SEQ (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_STU">dds_stream_typecode_primary.DDS_OP_TYPE_STU (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_STR">dds_stream_typecode_primary.DDS_SOP_TYPE_STR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_UNI">dds_stream_typecode_primary.DDS_OP_TYPE_UNI (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_STU">dds_stream_typecode_primary.DDS_SOP_TYPE_STU (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_WCHAR">dds_stream_typecode_primary.DDS_OP_TYPE_WCHAR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_UNI">dds_stream_typecode_primary.DDS_SOP_TYPE_UNI (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_OP_TYPE_WSTR">dds_stream_typecode_primary.DDS_OP_TYPE_WSTR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_WCHAR">dds_stream_typecode_primary.DDS_SOP_TYPE_WCHAR (C enumerator)</a>
+</li>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_primary.DDS_SOP_TYPE_WSTR">dds_stream_typecode_primary.DDS_SOP_TYPE_WSTR (C enumerator)</a>
 </li>
       <li><a href="api/serialization.html#c.dds_stream_typecode_subtype">dds_stream_typecode_subtype (C enum)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_1BY">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_1BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_16BY">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_16BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_2BY">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_2BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_1BY">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_1BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_4BY">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_4BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_2BY">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_2BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_8BY">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_8BY (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_4BY">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_4BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ARR">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ARR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_8BY">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_8BY (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BLN">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BLN (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_ARR">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_ARR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BMK">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BMK (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BLN">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BLN (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BSQ">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BSQ (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BMK">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BMK (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BST">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BST (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BSQ">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BSQ (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BWSTR">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_BWSTR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BST">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BST (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ENU">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_ENU (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BWSTR">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_BWSTR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_SEQ">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_SEQ (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_ENU">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_ENU (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STR">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_SEQ">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_SEQ (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STU">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_STU (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_STR">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_STR (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_UNI">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_UNI (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_STU">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_STU (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_WCHAR">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_WCHAR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_UNI">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_UNI (C enumerator)</a>
 </li>
-      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_OP_SUBTYPE_WSTR">dds_stream_typecode_subtype.DDS_OP_SUBTYPE_WSTR (C enumerator)</a>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_WCHAR">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_WCHAR (C enumerator)</a>
+</li>
+      <li><a href="api/serialization.html#c.dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_WSTR">dds_stream_typecode_subtype.DDS_SOP_SUBTYPE_WSTR (C enumerator)</a>
 </li>
       <li><a href="api/basics.html#c.dds_strretcode">dds_strretcode (C function)</a>
 </li>
