@@ -182,7 +182,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_create_subscriber">
 <span class="target" id="group__subscriber_1ga0db962ce956278f1cb704d90e59bb859"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_subscriber</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_subscriber" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a new instance of a DDS subscriber. </p>
+<dd><p>Creates a new instance of a DDS subscriber</p>
+<p>The subscriber created by this function is explicit. It is not deleted automatically merely because it has no readers; it must be deleted explicitly, or by deleting the participant that contains it. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -243,14 +244,21 @@
 <dt class="sig sig-object c" id="c.dds_create_reader">
 <span class="target" id="group__reader_1gaf7c29c4f89250e9190fab44ff0eff5ef"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_reader</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant_or_subscriber</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_reader" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a new instance of a DDS reader.</p>
-<p>When a participant is used to create a reader, an implicit subscriber is created. This implicit subscriber will be deleted automatically when the created reader is deleted. </p>
-<p>
-DOC_TODO: Complete list of error codes </p>
+<p>When a participant is used to create a reader for a normal topic, an implicit subscriber is created as the reader’s parent. This implicit subscriber is deleted automatically when its last child is deleted, which is when the created reader is deleted unless additional children were added to the implicit subscriber. It is also deleted as part of the recursive deletion of the participant. </p>
+<p>The topic may be a normal topic handle or one of the built-in topic pseudo handles:<ul class="simple">
+<li><p><a class="reference internal" href="builtin.html#group__builtintopic__constants_1gab69a1a154fbc9ef83a3544188c1df4ef"><span class="std std-ref">DDS_BUILTIN_TOPIC_DCPSPARTICIPANT</span></a> reads <a class="reference internal" href="builtin.html#group__builtintopic_1gaf15305ba67e6de60ddc94e18f75e3c87"><span class="std std-ref">dds_builtintopic_participant_t</span></a> samples.</p></li>
+<li><p><a class="reference internal" href="builtin.html#group__builtintopic__constants_1ga394f1c6e91862269d9dea80d7000a80e"><span class="std std-ref">DDS_BUILTIN_TOPIC_DCPSTOPIC</span></a> reads <a class="reference internal" href="builtin.html#group__builtintopic_1ga83ceb39a7ccdceefdc8d06b0343e252a"><span class="std std-ref">dds_builtintopic_topic_t</span></a> samples.</p></li>
+<li><p><a class="reference internal" href="builtin.html#group__builtintopic__constants_1gabd383981d0521d09e50715c06378a4db"><span class="std std-ref">DDS_BUILTIN_TOPIC_DCPSPUBLICATION</span></a> reads <a class="reference internal" href="builtin.html#group__builtintopic_1gae1bc85235431ea631558447090a7a6af"><span class="std std-ref">dds_builtintopic_endpoint_t</span></a> samples for writers.</p></li>
+<li><p><a class="reference internal" href="builtin.html#group__builtintopic__constants_1gadd7c0701f36acf61c6cdf9d4d2c4c8de"><span class="std std-ref">DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION</span></a> reads <a class="reference internal" href="builtin.html#group__builtintopic_1gae1bc85235431ea631558447090a7a6af"><span class="std std-ref">dds_builtintopic_endpoint_t</span></a> samples for readers.</p></li>
+</ul>
+</p>
+<p>Creating a reader for a built-in topic uses the participant’s built-in subscriber. If a subscriber is provided, its participant is used to locate that built-in subscriber; the provided subscriber itself does not become the parent of the reader. The built-in subscriber is shared by built-in topic readers for that participant and is deleted when the participant is deleted, not when an individual built-in topic reader is deleted. The built-in topic handles are pseudo handles, not normal topic entities: <a class="reference internal" href="entity.html#group__entity_1gadc092c814a34dc6e1c95ac5037f86d29"><span class="std std-ref">dds_get_topic</span></a> on such a reader returns the same pseudo handle, and the internal topic entity cannot be used directly to create another reader.</p>
+<p>Reader QoS for built-in topics must be compatible with the corresponding built-in topic writer and must not impose resource limits, because otherwise discovery data could be rejected. When <code class="docutils literal notranslate"><span class="pre">qos</span></code> is NULL, Cyclone DDS supplies a compatible default built-in topic QoS. The DCPSTopic built-in topic is only available when Cyclone DDS was built with topic discovery support; otherwise creating a reader for <a class="reference internal" href="builtin.html#group__builtintopic__constants_1ga394f1c6e91862269d9dea80d7000a80e"><span class="std std-ref">DDS_BUILTIN_TOPIC_DCPSTOPIC</span></a> returns <a class="reference internal" href="basics.html#group__retcode_1gaff391b4aa37fb3f3872fb6349daccfb4"><span class="std std-ref">DDS_RETCODE_UNSUPPORTED</span></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant_or_subscriber</strong> – <strong>[in]</strong> The participant or subscriber on which the reader is being created. </p></li>
-<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read. </p></li>
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read, or a built-in topic pseudo handle. </p></li>
 <li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new reader (can be NULL). </p></li>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new reader (can be NULL).</p></li>
 </ul>
@@ -258,7 +266,12 @@ DOC_TODO: Complete list of error codes </p>
 <dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid reader handle. </p></li>
-<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred.</p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the parameters is invalid, or the participant and topic do not belong to the same domain participant. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – participant_or_subscriber is neither a participant nor a subscriber, or the operation is otherwise inappropriate for the supplied entity. </p></li>
+<li><p><strong>DDS_RETCODE_INCONSISTENT_POLICY</strong> – The requested QoS is inconsistent, including a built-in topic reader QoS that is incompatible with the built-in topic writer or has finite resource limits. </p></li>
+<li><p><strong>DDS_RETCODE_UNSUPPORTED</strong> – The requested built-in topic requires a feature that is not enabled in this build, such as topic discovery for <a class="reference internal" href="builtin.html#group__builtintopic__constants_1ga394f1c6e91862269d9dea80d7000a80e"><span class="std std-ref">DDS_BUILTIN_TOPIC_DCPSTOPIC</span></a>. </p></li>
+<li><p><strong>DDS_RETCODE_NOT_ALLOWED_BY_SECURITY</strong> – The configured DDS Security access control plugin denied creation of the reader. </p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -271,14 +284,17 @@ DOC_TODO: Complete list of error codes </p>
 <dt class="sig sig-object c" id="c.dds_create_reader_rhc">
 <span class="target" id="group__reader_1ga13fa4702e4c7e2964c626278f70b59a8"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_reader_rhc</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant_or_subscriber</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">dds_rhc</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">rhc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_reader_rhc" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a new instance of a DDS reader with a custom history cache.</p>
-<p>When a participant is used to create a reader, an implicit subscriber is created. This implicit subscriber will be deleted automatically when the created reader is deleted. </p>
-<p>
-DOC_TODO: Complete list of error codes </p>
+<p>This function follows the same parent-selection rules as <a class="reference internal" href="#group__reader_1gaf7c29c4f89250e9190fab44ff0eff5ef"><span class="std std-ref">dds_create_reader</span></a>. When a participant is used to create a reader for a normal topic, an implicit subscriber is created as the reader’s parent and is deleted automatically when its last child is deleted, or as part of the recursive deletion of the participant. A reader for a built-in topic uses the participant’s shared built-in subscriber instead; that subscriber is deleted when the participant is deleted. </p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#group__reader_1gaf7c29c4f89250e9190fab44ff0eff5ef"><span class="std std-ref">dds_create_reader</span></a> for the full set of possible return codes. </p>
+</div>
+</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participant_or_subscriber</strong> – <strong>[in]</strong> The participant or subscriber on which the reader is being created. </p></li>
-<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read. </p></li>
+<li><p><strong>topic</strong> – <strong>[in]</strong> The topic to read, or a built-in topic pseudo handle. </p></li>
 <li><p><strong>qos</strong> – <strong>[in]</strong> The QoS to set on the new reader (can be NULL). </p></li>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new reader (can be NULL). </p></li>
 <li><p><strong>rhc</strong> – <strong>[in]</strong> Reader history cache to use, reader becomes the owner</p></li>
@@ -287,7 +303,7 @@ DOC_TODO: Complete list of error codes </p>
 <dt class="field-even">Return values<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>&gt;0</strong> – A valid reader handle. </p></li>
-<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred.</p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred. </p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>

@@ -258,7 +258,8 @@
 <dl class="c function">
 <dt class="sig sig-object c" id="c.dds_create_publisher">
 <span class="target" id="group__publisher_1gaee9b84a9ece24ea0999da4ff314b18f9"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_publisher</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_publisher" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Creates a new instance of a DDS publisher. </p>
+<dd><p>Creates a new instance of a DDS publisher</p>
+<p>The publisher created by this function is explicit. It is not deleted automatically merely because it has no writers; it must be deleted explicitly, or by deleting the participant that contains it. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -354,9 +355,7 @@
 <dt class="sig sig-object c" id="c.dds_create_writer">
 <span class="target" id="group__writer_1ga96270d570da2764a9d00656214e0a130"></span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_create_writer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">participant_or_publisher</span></span>, <a class="reference internal" href="entity.html#c.dds_entity_t" title="dds_entity_t"><span class="n"><span class="pre">dds_entity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">topic</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="qos.html#c.dds_qos_t" title="dds_qos_t"><span class="n"><span class="pre">dds_qos_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">qos</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="listener.html#c.dds_listener_t" title="dds_listener_t"><span class="n"><span class="pre">dds_listener_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">listener</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_create_writer" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Creates a new instance of a DDS writer.</p>
-<p>When a participant is used to create a writer, an implicit publisher is created. This implicit publisher will be deleted automatically when the created writer is deleted. </p>
-<p>
-DOC_TODO: Complete list of error codes </p>
+<p>When a participant is used to create a writer, an implicit publisher is created as the writer’s parent. This implicit publisher is deleted automatically when its last child is deleted, which is when the created writer is deleted unless additional children were added to the implicit publisher. It is also deleted as part of the recursive deletion of the participant. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -366,14 +365,18 @@ DOC_TODO: Complete list of error codes </p>
 <li><p><strong>listener</strong> – <strong>[in]</strong> Any listener functions associated with the new writer (can be NULL).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A valid writer handle or an error code.</p>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>&gt;0</strong> – A valid writer handle. </p></li>
+<li><p><strong>DDS_RETCODE_ERROR</strong> – An internal error occurred. </p></li>
+<li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One of the parameters is invalid, or the participant and topic do not belong to the same domain participant. </p></li>
+<li><p><strong>DDS_RETCODE_ILLEGAL_OPERATION</strong> – participant_or_publisher is neither a participant nor a publisher, or the operation is otherwise inappropriate for the supplied entity. </p></li>
+<li><p><strong>DDS_RETCODE_INCONSISTENT_POLICY</strong> – The requested QoS is inconsistent. </p></li>
+<li><p><strong>DDS_RETCODE_NOT_ALLOWED_BY_SECURITY</strong> – The configured DDS Security access control plugin denied creation of the writer. </p></li>
+</ul>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>&gt;0 A valid writer handle. </p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>DDS_RETCODE_ERROR An internal error occurred.</p>
+<dd class="field-odd"><p>A valid writer handle or an error code.</p>
 </dd>
 </dl>
 </dd></dl>
