@@ -161,13 +161,19 @@
             
   <section id="qos-provider">
 <span id="index-0"></span><span id="id1"></span><h1>QoS Provider<a class="headerlink" href="#qos-provider" title="Permalink to this heading">¶</a></h1>
-<p>This page provides information on using the QoS provider API of Eclipse Cyclone DDS. The QoS provider API allows users to specify the QoS settings of their DDS entities outside of application code in XML. This can be seen as a useful feature where code recompilation is restricted during the later stages of application development / during application support. The following sections explain the API and explain how to build QoS Profiles in XML.</p>
+<p>This page provides information on using the QoS provider API of Eclipse Cyclone DDS.
+The QoS provider API allows users to specify the QoS settings of their DDS
+entities outside of application code in XML. This can be seen as a useful
+feature where code recompilation is restricted during the later stages of
+application development / during application support. The following sections
+explain the API and explain how to build QoS Profiles in XML.</p>
 <section id="xml-file-syntax">
 <h2>XML file syntax<a class="headerlink" href="#xml-file-syntax" title="Permalink to this heading">¶</a></h2>
 <p>The syntax for the XML configuration file is defined in <a href="https://www.omg.org/spec/DDS-XML/1.0/" target="_blank">DDS Consolidated XML Syntax</a>.</p>
 <section id="entity-qos">
 <h3>Entity QoS<a class="headerlink" href="#entity-qos" title="Permalink to this heading">¶</a></h3>
-<p>To configure the QoS for a DDS Entity using XML, the following tags have to be used:</p>
+<p>To configure the QoS for a DDS Entity using XML, the following tags have to be
+used:</p>
 <ul class="simple">
 <li><p><cite>&lt;domainparticipant_qos&gt;</cite></p></li>
 <li><p><cite>&lt;publisher_qos&gt;</cite></p></li>
@@ -176,12 +182,16 @@
 <li><p><cite>&lt;datawriter_qos&gt;</cite></p></li>
 <li><p><cite>&lt;datareader_qos&gt;</cite></p></li>
 </ul>
-<p>Each XML tag with or without an associated name can be uniquely identified by its fully qualified name in C++ style.
-In case of unnamed XML tag, only one tag of this kind is allowed in scope of parent <cite>&lt;qos_profile&gt;</cite>.</p>
+<p>Each XML tag with or without an associated name can be uniquely identified by
+its fully qualified name in C++ style.
+In case of unnamed XML tag, only one tag of this kind is allowed in scope of
+parent <cite>&lt;qos_profile&gt;</cite>.</p>
 </section>
 <section id="qos-policies">
 <h3>QoS Policies<a class="headerlink" href="#qos-policies" title="Permalink to this heading">¶</a></h3>
-<p>The fields in a Qos policy are described in XML using a 1-to-1 mapping with the equivalent IDL representation in the DDS specification. For example, the Reliability Qos policy is represented with the following structures:</p>
+<p>The fields in a Qos policy are described in XML using a 1-to-1 mapping with the
+equivalent IDL representation in the DDS specification. For example, the
+Reliability Qos policy is represented with the following structures:</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Duration_t</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">sec</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">nanosec</span><span class="p">;</span>
@@ -205,7 +215,8 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 </section>
 <section id="sequences">
 <h3>Sequences<a class="headerlink" href="#sequences" title="Permalink to this heading">¶</a></h3>
-<p>In general, the sequences contained in the QoS policies are described with the following XML format:</p>
+<p>In general, the sequences contained in the QoS policies are described with the
+following XML format:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;a_sequence_member_name&gt;</span>
 <span class="w">  </span><span class="nt">&lt;element&gt;</span>...<span class="nt">&lt;/element&gt;</span>
 <span class="w">  </span><span class="nt">&lt;element&gt;</span>...<span class="nt">&lt;/element&gt;</span>
@@ -213,7 +224,8 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <span class="nt">&lt;/a_sequence_member_name&gt;</span>
 </pre></div>
 </div>
-<p>Each element of the sequence is enclosed in an &lt;element&gt; tag, as shown in the following example:</p>
+<p>Each element of the sequence is enclosed in an &lt;element&gt; tag, as shown in the
+following example:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;property&gt;</span>
 <span class="w">  </span><span class="nt">&lt;value&gt;</span>
 <span class="w">    </span><span class="nt">&lt;element&gt;</span>
@@ -231,7 +243,8 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 </section>
 <section id="enumerations">
 <h3>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this heading">¶</a></h3>
-<p>Enumeration values are represented using their IDL string representation. For example:</p>
+<p>Enumeration values are represented using their IDL string representation. For
+example:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;history&gt;</span>
 <span class="w">  </span><span class="nt">&lt;kind&gt;</span>KEEP_ALL_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
 <span class="nt">&lt;/history&gt;</span>
@@ -274,6 +287,39 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <span class="nt">&lt;/qos_profile&gt;</span>
 </pre></div>
 </div>
+<p>QoS profiles may inherit from each other, parent profile are specified via
+<cite>base_name</cite> attribute. For example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;qos_profile</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;AAA&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;datareader_qos&gt;</span>
+<span class="w">    </span><span class="nt">&lt;history&gt;</span>
+<span class="w">      </span><span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+<span class="w">      </span><span class="nt">&lt;depth&gt;</span>5<span class="nt">&lt;/depth&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/history&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/datareader_qos&gt;</span>
+<span class="w">  </span><span class="nt">&lt;datawriter_qos&gt;</span>
+<span class="w">   </span><span class="nt">&lt;history&gt;</span>
+<span class="w">      </span><span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+<span class="w">      </span><span class="nt">&lt;depth&gt;</span>1<span class="nt">&lt;/depth&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/history&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/datawriter_qos&gt;</span>
+<span class="nt">&lt;/qos_profile&gt;</span>
+
+<span class="nt">&lt;qos_profile</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;BBB&quot;</span><span class="w"> </span><span class="na">base_name=</span><span class="s">&quot;AAA&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;datareader_qos&gt;</span>
+<span class="w">    </span><span class="nt">&lt;history&gt;</span>
+<span class="w">      </span><span class="nt">&lt;kind&gt;</span>KEEP_LAST_HISTORY_QOS<span class="nt">&lt;/kind&gt;</span>
+<span class="w">      </span><span class="nt">&lt;depth&gt;</span>2<span class="nt">&lt;/depth&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/history&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/datareader_qos&gt;</span>
+<span class="nt">&lt;/qos_profile&gt;</span>
+</pre></div>
+</div>
+<p>In that particular case profile <cite>BBB</cite> derived from profile <cite>AAA</cite>, and override
+it’s <cite>datareader_qos.history.depth</cite> QoS value, but as a result <cite>BBB</cite> profile not
+only contains updated <cite>datareader_qos</cite> but merge <cite>datawriter_qos</cite> (from <cite>AAA</cite>
+profile) also.
+For inheritance over different <cite>qos_library</cite> <cite>base_name</cite> should contains full
+profile name e.g. <cite>&lt;qos_library-name&gt;::&lt;qos_profile-name&gt;</cite>.</p>
 </section>
 <section id="xml-example">
 <h3>XML Example<a class="headerlink" href="#xml-example" title="Permalink to this heading">¶</a></h3>
@@ -343,7 +389,7 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <h2>Code Example<a class="headerlink" href="#code-example" title="Permalink to this heading">¶</a></h2>
 <p>The following C application is an example to illustrate how the QoS settings from the above XML could be accessed.</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Qw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Qw==" name="Qw==" role="tab" tabindex="0">C</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-0-Qw==" class="sphinx-tabs-panel group-tab" id="panel-0-Qw==" name="Qw==" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Qw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-Qw==" name="Qw==" role="tab" tabindex="0">C</button><button aria-controls="panel-0-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button><button aria-controls="panel-0-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-0-Qw==" class="sphinx-tabs-panel group-tab" id="panel-0-Qw==" name="Qw==" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/ddsc/dds_qos_provider.h&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;datatypes.h&quot;</span>
 
@@ -352,7 +398,7 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argc</span><span class="p">;</span>
 <span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argv</span><span class="p">;</span>
 
-<span class="w">  </span><span class="c1">// provider will contains:</span>
+<span class="w">  </span><span class="c1">// provider will contain:</span>
 <span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
 <span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
 <span class="w">  </span><span class="c1">//    myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
@@ -387,14 +433,13 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="c1">// foo_provider will contains:</span>
+<span class="w">  </span><span class="c1">// foo_provider will contain:</span>
 <span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
 <span class="w">  </span><span class="c1">//    myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
 <span class="w">  </span><span class="c1">//    myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
-<span class="w">  </span><span class="c1">// bar_provider will contains:</span>
+<span class="w">  </span><span class="c1">// bar_provider will contain:</span>
 <span class="w">  </span><span class="c1">//    myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
 <span class="w">  </span><span class="c1">//    myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
-
 <span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;myqoslib::foo_profile&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">bar_provider</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;myqoslib::bar_profile&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">topic_qos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bar_provider</span><span class="p">.</span><span class="n">topic_qos</span><span class="p">(</span><span class="s">&quot;my_topic&quot;</span><span class="p">);</span>
@@ -407,6 +452,39 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">writer</span><span class="p">;</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.pub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataWriter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.sub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataReader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.topic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Topic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.qos_provider</span><span class="w"> </span><span class="kn">import</span> <span class="n">QosProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.qos</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DataReaderQos</span><span class="p">,</span> <span class="n">DataWriterQos</span><span class="p">,</span> <span class="n">DomainParticipantQos</span><span class="p">,</span> <span class="n">PublisherQos</span><span class="p">,</span> <span class="n">Qos</span><span class="p">,</span>
+    <span class="n">SubscriberQos</span><span class="p">,</span> <span class="n">TopicQos</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DataType</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">,</span> <span class="n">typename</span><span class="o">=</span><span class="s2">&quot;DataType&quot;</span><span class="p">):</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="c1"># provider will contain:</span>
+<span class="c1">#    myqoslib::foo_profile                     READER (KEEP_LAST 5)</span>
+<span class="c1">#    myqoslib::foo_profile                     WRITER (KEEP_LAST 1)</span>
+<span class="c1">#    myqoslib::foo_profile::my_topic           TOPIC  (KEEP_ALL)</span>
+<span class="c1">#    myqoslib::bar_profile                     WRITER (KEEP_ALL)</span>
+<span class="c1">#    myqoslib::bar_profile::my_topic           TOPIC  (KEEP_LAST 10)</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">QosProvider</span><span class="p">(</span><span class="s2">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">)</span>
+<span class="c1"># qos can be accessed by &lt;lib_name&gt;::&lt;profile_name&gt;::[entity_name] if exist.</span>
+<span class="n">tp_qos</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_topic_qos</span><span class="p">(</span><span class="s2">&quot;myqoslib::bar_profile::my_topic&quot;</span><span class="p">)</span>
+<span class="c1"># or if entity_qos is unnamed only by &lt;lib_name&gt;::&lt;profile_name&gt;.</span>
+<span class="n">wr_qos</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">get_writer_qos</span><span class="p">(</span><span class="s2">&quot;myqoslib::bar_profile&quot;</span><span class="p">)</span>
+
+<span class="n">dp</span> <span class="o">=</span> <span class="n">DomainParticipant</span><span class="p">()</span>
+<span class="n">tp</span> <span class="o">=</span> <span class="n">Topic</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="s2">&quot;topic_A&quot;</span><span class="p">,</span> <span class="n">DataType</span><span class="p">,</span> <span class="n">tp_qos</span><span class="p">)</span>
+<span class="n">dw</span> <span class="o">=</span> <span class="n">DataWriter</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">wr_qos</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></div>
@@ -445,8 +523,12 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 </pre></div>
 </div>
 <p>Let’s create QoS Provider that contains versions of both profiles from different libraries.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>CXX API doesn’t allow wild cards and have strict initialization/access format, that’s why we can’t mix profiles from different libraries and required to initialize each profile instance.</p>
+</div>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Qw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Qw==" name="Qw==" role="tab" tabindex="0">C</button><button aria-controls="panel-1-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button></div><div aria-labelledby="tab-1-Qw==" class="sphinx-tabs-panel group-tab" id="panel-1-Qw==" name="Qw==" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-Qw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-Qw==" name="Qw==" role="tab" tabindex="0">C</button><button aria-controls="panel-1-Qysr" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-Qysr" name="Qysr" role="tab" tabindex="-1">C++</button><button aria-controls="panel-1-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button></div><div aria-labelledby="tab-1-Qw==" class="sphinx-tabs-panel group-tab" id="panel-1-Qw==" name="Qw==" role="tabpanel" tabindex="0"><div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.h&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/ddsc/dds_qos_provider.h&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;datatypes.h&quot;</span>
 
@@ -455,19 +537,20 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argc</span><span class="p">;</span>
 <span class="w">  </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="n">argv</span><span class="p">;</span>
 
-<span class="w">  </span><span class="c1">// foo_provider will contains:</span>
+<span class="w">  </span><span class="c1">// foo_provider will contain:</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     READER</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     WRITER</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     TOPIC</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     READER</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     WRITER</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     TOPIC</span>
+
 <span class="w">  </span><span class="n">dds_qos_provider_t</span><span class="w"> </span><span class="o">*</span><span class="n">foo_provider</span><span class="p">;</span>
 <span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">foo_scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*::foo_profile&quot;</span><span class="p">;</span>
 <span class="w">  </span><span class="n">dds_return_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dds_create_qos_provider_scope</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">foo_provider</span><span class="p">,</span><span class="w"> </span><span class="n">foo_scope</span><span class="p">);</span>
 <span class="w">  </span><span class="n">assert</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DDS_RETCODE_OK</span><span class="p">);</span>
 
-<span class="w">  </span><span class="c1">// bar_provider will contains:</span>
+<span class="w">  </span><span class="c1">// bar_provider will contain:</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     WRITER</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     TOPIC</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::bar_profile                     WRITER</span>
@@ -491,21 +574,21 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="c1">// foo_provider1 will contains:</span>
+<span class="w">  </span><span class="c1">// foo_provider1 will contain:</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     READER</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     WRITER</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::foo_profile                     TOPIC</span>
-<span class="w">  </span><span class="c1">// foo_provider2 will contains:</span>
+<span class="w">  </span><span class="c1">// foo_provider2 will contain:</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     READER</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     WRITER</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::foo_profile                     TOPIC</span>
 <span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider1</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qos1_lib::foo_profile&quot;</span><span class="p">);</span>
 <span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">foo_provider2</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qos2_lib::foo_profile&quot;</span><span class="p">);</span>
 
-<span class="w">  </span><span class="c1">// bar_provider will contains:</span>
+<span class="w">  </span><span class="c1">// bar_provider will contain:</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     WRITER</span>
 <span class="w">  </span><span class="c1">//    qos1_lib::bar_profile                     TOPIC</span>
-<span class="w">  </span><span class="c1">// bar_provider2 will contains:</span>
+<span class="w">  </span><span class="c1">// bar_provider2 will contain:</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::bar_profile                     WRITER</span>
 <span class="w">  </span><span class="c1">//    qos2_lib::bar_profile                     TOPIC</span>
 <span class="w">  </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">QosProvider</span><span class="w"> </span><span class="n">bar_provider1</span><span class="p">(</span><span class="s">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;qos1_lib::bar_profile&quot;</span><span class="p">);</span>
@@ -515,15 +598,52 @@ In case of unnamed XML tag, only one tag of this kind is allowed in scope of par
 <span class="p">}</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-UHl0aG9u" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.domain</span><span class="w"> </span><span class="kn">import</span> <span class="n">DomainParticipant</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.pub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataWriter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.sub</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataReader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.topic</span><span class="w"> </span><span class="kn">import</span> <span class="n">Topic</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.qos_provider</span><span class="w"> </span><span class="kn">import</span> <span class="n">QosProvider</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.qos</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DataReaderQos</span><span class="p">,</span> <span class="n">DataWriterQos</span><span class="p">,</span> <span class="n">DomainParticipantQos</span><span class="p">,</span> <span class="n">PublisherQos</span><span class="p">,</span> <span class="n">Qos</span><span class="p">,</span>
+    <span class="n">SubscriberQos</span><span class="p">,</span> <span class="n">TopicQos</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cyclonedds.idl</span><span class="w"> </span><span class="kn">import</span> <span class="n">IdlStruct</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DataType</span><span class="p">(</span><span class="n">IdlStruct</span><span class="p">,</span> <span class="n">typename</span><span class="o">=</span><span class="s2">&quot;DataType&quot;</span><span class="p">):</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="c1"># foo_provider will contain:</span>
+<span class="c1">#    qos1_lib::foo_profile                     READER</span>
+<span class="c1">#    qos1_lib::foo_profile                     WRITER</span>
+<span class="c1">#    qos1_lib::foo_profile                     TOPIC</span>
+<span class="c1">#    qos2_lib::foo_profile                     READER</span>
+<span class="c1">#    qos2_lib::foo_profile                     WRITER</span>
+<span class="c1">#    qos2_lib::foo_profile                     TOPIC</span>
+<span class="n">foo_provider</span> <span class="o">=</span> <span class="n">QosProvider</span><span class="p">(</span><span class="s2">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;*::foo_profile&quot;</span><span class="p">)</span>
+
+<span class="c1"># bar_provider will contain:</span>
+<span class="c1">#    qos1_lib::bar_profile                     WRITER</span>
+<span class="c1">#    qos1_lib::bar_profile                     TOPIC</span>
+<span class="c1">#    qos2_lib::bar_profile                     WRITER</span>
+<span class="c1">#    qos2_lib::bar_profile                     TOPIC</span>
+<span class="n">bar_provider</span> <span class="o">=</span> <span class="n">QosProvider</span><span class="p">(</span><span class="s2">&quot;/path/to/qos_definitions.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;*::bar_profile&quot;</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
 </div></div>
 </section>
 <section id="known-limitations">
 <h2>Known limitations<a class="headerlink" href="#known-limitations" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Inheritance of QoS policies and QoS profiles in XML using the “base_name” attribute is not supported</p></li>
-<li><p>The “topic_filter” attribute for writer, reader and topic QoSes to associate a set of topics to a specific QoS when that QoS is part of a DDS profile, is not supported yet.</p></li>
-<li><p>The “entity_factory” attribute  for participant, writer and reader QoSes, support only “true” for “&lt;autoenable_created_entities&gt;”.</p></li>
-<li><p>The C++ API QosProvider may throw an UnsupportedError when trying to access a policy that is not supported yet.</p></li>
+<li><p>The “topic_filter” attribute for writer, reader and topic QoSes to associate a
+set of topics to a specific QoS when that QoS is part of a DDS profile, is not
+supported yet.</p></li>
+<li><p>The “entity_factory” attribute  for participant, writer and reader QoSes, support
+only “true” for “&lt;autoenable_created_entities&gt;”.</p></li>
+<li><p>The C++ API QosProvider may throw an UnsupportedError when trying to access a
+policy that is not supported yet.</p></li>
 </ul>
 </section>
 </section>
