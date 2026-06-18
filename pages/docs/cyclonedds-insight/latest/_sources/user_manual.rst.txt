@@ -20,6 +20,7 @@ User Manual
    user_manual/tester
    user_manual/listener
    user_manual/statistics
+   user_manual/split_view
    user_manual/node_view
    user_manual/proxy_settings
    user_manual/config_editor
