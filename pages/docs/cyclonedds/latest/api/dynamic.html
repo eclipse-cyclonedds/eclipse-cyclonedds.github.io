@@ -587,7 +587,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type to set the bit-bound for. This must be a bounded sequence type. </p></li>
+<li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type to set the try-construct value for. This must be a bounded sequence type. </p></li>
 <li><p><strong>try_construct</strong> – <strong>[in]</strong> The try-construct value to set.</p></li>
 </ul>
 </dd>
@@ -881,9 +881,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the must-understand flag for (must be a structure type). </p></li>
-<li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the flag for. </p></li>
-<li><p><strong>try_construct</strong> – <strong>[in]</strong> Indicates whether the must-understand flag should be set or cleared.</p></li>
+<li><p><strong>type</strong> – <strong>[inout]</strong> Dynamic Type that contains the member to set the try-construct mode for (must be a structure or union type). </p></li>
+<li><p><strong>member_id</strong> – <strong>[in]</strong> The ID of the member to set the try-construct mode for. </p></li>
+<li><p><strong>try_construct</strong> – <strong>[in]</strong> The try-construct value to set.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return values<span class="colon">:</span></dt>
@@ -903,7 +903,7 @@
 <dt class="sig sig-object c" id="c.dds_dynamic_type_register">
 <span class="target" id="group__dynamic__type_1ga191ec5a38cee51735a8aad940bbd8508"></span><span class="n"><span class="pre">dds_return_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_dynamic_type_register</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.dds_dynamic_type_t" title="dds_dynamic_type_t"><span class="n"><span class="pre">dds_dynamic_type_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="n"><span class="pre">ddsi_typeinfo</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">type_info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.dds_dynamic_type_register" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Registers a Dynamic Type</p>
-<p>This function registers a dynamic type, making it immutable and finalizing its definition. A type that is registered, get the state ‘RESOLVED’ and is stored in the type library. </p>
+<p>This function registers a dynamic type, making it immutable and finalizing its definition. A type that is registered, get the state ‘RESOLVED’ and is stored in the type library. A type that has already been finalized as part of registering a recursive group of types can be registered again to obtain its TypeInformation. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -915,7 +915,7 @@
 <dd class="field-even"><ul class="simple">
 <li><p><strong>DDS_RETCODE_OK</strong> – The type was successfully registered. </p></li>
 <li><p><strong>DDS_RETCODE_BAD_PARAMETER</strong> – One or more of the provided parameters are invalid. </p></li>
-<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type is not in the CONSTRUCTING state. </p></li>
+<li><p><strong>DDS_RETCODE_PRECONDITION_NOT_MET</strong> – The provided type cannot be finalized. </p></li>
 <li><p><strong>DDS_RETCODE_OUT_OF_RESOURCES</strong> – Not enough resources to create the type. </p></li>
 </ul>
 </dd>
