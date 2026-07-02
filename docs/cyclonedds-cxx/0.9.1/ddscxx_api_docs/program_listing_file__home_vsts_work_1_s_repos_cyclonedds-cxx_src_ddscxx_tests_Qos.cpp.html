@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Program Listing for File Qos.cpp &#8212; Eclipse Cyclone DDS C++ 0.9.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" type="text/css" href="/css/docu.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="/js/docu.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+  </head><body>
+<nav id="top_nav">
+    <p id="toggle_sidebar">
+        <a href="#" title="Toggle sidebar">|||</a>
+    </p>
+    <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS C++</a></h1>
+
+    <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script src="../_static/js/petite-vue.js"></script>
+
+<script>
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.body.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.body.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+</script>
+        <p class="mobile_search_link">
+            <a href="../search.html" title="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                </svg>
+            </a>
+        </p>
+    
+
+    <div class="searchbox_wrapper">
+        
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+    </div>
+</nav>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ddscxx.html">Eclipse Cyclone DDS C++ API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../idlcxx.html">Custom Containers</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="program-listing-for-file-qos-cpp">
+<span id="program-listing-file-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-qos-cpp"></span><h1>Program Listing for File Qos.cpp<a class="headerlink" href="#program-listing-for-file-qos-cpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_Qos.cpp.html#file-home-vsts-work-1-s-repos-cyclonedds-cxx-src-ddscxx-tests-qos-cpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/Qos.cpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Copyright(c) 2006 to 2021 ADLINK Technology Limited and others</span>
+<span class="cm"> *</span>
+<span class="cm"> * This program and the accompanying materials are made available under the</span>
+<span class="cm"> * terms of the Eclipse Public License v. 2.0 which is available at</span>
+<span class="cm"> * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License</span>
+<span class="cm"> * v. 1.0 which is available at</span>
+<span class="cm"> * http://www.eclipse.org/org/documents/edl-v10.php.</span>
+<span class="cm"> *</span>
+<span class="cm"> * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dds/dds.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">dds</span><span class="o">::</span><span class="nn">pub</span><span class="o">::</span><span class="nn">qos</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">dds</span><span class="o">::</span><span class="nn">sub</span><span class="o">::</span><span class="nn">qos</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">dds</span><span class="o">::</span><span class="nn">topic</span><span class="o">::</span><span class="nn">qos</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">dds</span><span class="o">::</span><span class="nn">domain</span><span class="o">::</span><span class="nn">qos</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">dds</span><span class="o">::</span><span class="nn">core</span><span class="o">::</span><span class="nn">policy</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">org</span><span class="o">::</span><span class="nn">eclipse</span><span class="o">::</span><span class="nn">cyclonedds</span><span class="o">::</span><span class="nn">core</span><span class="o">::</span><span class="nn">policy</span><span class="p">;</span><span class="w"></span>
+
+
+
+<span class="cm">/*</span>
+<span class="cm"> * Just some fantasy policy values that are different than default.</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">ByteSeq</span><span class="w"> </span><span class="nf">nonDefaultByteSeq</span><span class="p">(</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mh">0xAA</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="n">UserData</span><span class="w">               </span><span class="nf">nonDefaultUserData</span><span class="p">(</span><span class="n">nonDefaultByteSeq</span><span class="p">);</span><span class="w"></span>
+<span class="n">EntityFactory</span><span class="w">          </span><span class="nf">nonDefaultEntityFactory</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="w"></span>
+<span class="n">TopicData</span><span class="w">              </span><span class="nf">nonDefaultTopicData</span><span class="p">(</span><span class="n">nonDefaultByteSeq</span><span class="p">);</span><span class="w"></span>
+<span class="n">Durability</span><span class="w">             </span><span class="nf">nonDefaultDurability</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DurabilityKind</span><span class="o">::</span><span class="n">TRANSIENT_LOCAL</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="n">DurabilityService</span><span class="w"> </span><span class="nf">nonDefaultDurabilityService</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"></span>
+<span class="w">                                              </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">HistoryKind</span><span class="o">::</span><span class="n">KEEP_ALL</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                              </span><span class="mi">10</span><span class="p">,</span><span class="w">  </span><span class="cm">/* depth */</span><span class="w"></span>
+<span class="w">                                              </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="cm">/* max_samples */</span><span class="w"></span>
+<span class="w">                                              </span><span class="mi">5</span><span class="p">,</span><span class="w">   </span><span class="cm">/* max_instances */</span><span class="w"></span>
+<span class="w">                                              </span><span class="mi">25</span><span class="w">   </span><span class="cm">/* max_samples_per_instance */</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="n">Deadline</span><span class="w">               </span><span class="nf">nonDefaultDeadline</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">));</span><span class="w"></span>
+<span class="n">LatencyBudget</span><span class="w">          </span><span class="nf">nonDefaultBudget</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span><span class="w"></span>
+<span class="n">Liveliness</span><span class="w">             </span><span class="nf">nonDefaultLiveliness</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">LivelinessKind</span><span class="o">::</span><span class="n">MANUAL_BY_PARTICIPANT</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                            </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">));</span><span class="w"></span>
+<span class="n">Reliability</span><span class="w">            </span><span class="nf">nonDefaultReliability</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">ReliabilityKind</span><span class="o">::</span><span class="n">RELIABLE</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                             </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">));</span><span class="w"></span>
+<span class="n">DestinationOrder</span><span class="w">       </span><span class="nf">nonDefaultOrder</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DestinationOrderKind</span><span class="o">::</span><span class="n">BY_SOURCE_TIMESTAMP</span><span class="p">);</span><span class="w"></span>
+<span class="n">History</span><span class="w">                </span><span class="nf">nonDefaultHistory</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">HistoryKind</span><span class="o">::</span><span class="n">KEEP_ALL</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                         </span><span class="mi">17</span><span class="w"> </span><span class="cm">/* depth */</span><span class="p">);</span><span class="w"></span>
+<span class="n">ResourceLimits</span><span class="w">         </span><span class="nf">nonDefaultResources</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="cm">/* max_samples */</span><span class="w"></span>
+<span class="w">                                           </span><span class="mi">10</span><span class="p">,</span><span class="w">  </span><span class="cm">/* max_instances */</span><span class="w"></span>
+<span class="w">                                           </span><span class="mi">50</span><span class="w">   </span><span class="cm">/* max_samples_per_instance */</span><span class="p">);</span><span class="w"></span>
+<span class="n">TransportPriority</span><span class="w">      </span><span class="nf">nonDefaultPriority</span><span class="p">(</span><span class="mi">19</span><span class="w"> </span><span class="cm">/* priority */</span><span class="p">);</span><span class="w"></span>
+<span class="n">Lifespan</span><span class="w">               </span><span class="nf">nonDefaultLifespan</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="o">::</span><span class="n">zero</span><span class="p">());</span><span class="w"></span>
+<span class="n">Ownership</span><span class="w">              </span><span class="nf">nonDefaultOwnership</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">OwnershipKind</span><span class="o">::</span><span class="n">EXCLUSIVE</span><span class="p">);</span><span class="w"></span>
+<span class="n">Presentation</span><span class="w">           </span><span class="nf">nonDefaultPresentation</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">PresentationAccessScopeKind</span><span class="o">::</span><span class="n">TOPIC</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                       </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="cm">/* coherent access */</span><span class="w"></span>
+<span class="w">                                       </span><span class="nb">false</span><span class="w">  </span><span class="cm">/* ordered access */</span><span class="p">);</span><span class="w"></span>
+<span class="n">Partition</span><span class="w">              </span><span class="nf">nonDefaultPartition</span><span class="p">(</span><span class="s">&quot;ExamplePartition&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">GroupData</span><span class="w">              </span><span class="nf">nonDefaultGdata</span><span class="p">(</span><span class="n">nonDefaultByteSeq</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="n">OwnershipStrength</span><span class="w">      </span><span class="nf">nonDefaultStrength</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="n">WriterDataLifecycle</span><span class="w">    </span><span class="nf">nonDefaultWdLifecycle</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
+<span class="n">TimeBasedFilter</span><span class="w">        </span><span class="nf">nonDefaultTbFilter</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">));</span><span class="w"></span>
+<span class="n">ReaderDataLifecycle</span><span class="w">    </span><span class="nf">nonDefaultRdLifecycle</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">                                             </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">Duration</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="n">DataRepresentation</span><span class="w">     </span><span class="nf">nonDefaultRepresentation</span><span class="p">({</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DataRepresentationId</span><span class="o">::</span><span class="n">XCDR1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                                 </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DataRepresentationId</span><span class="o">::</span><span class="n">XML</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                                 </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DataRepresentationId</span><span class="o">::</span><span class="n">XCDR2</span><span class="p">});</span><span class="w"></span>
+<span class="n">TypeConsistencyEnforcement</span><span class="w"> </span><span class="nf">nonDefaultTypeConsistencyEnforcement</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">TypeConsistencyKind</span><span class="o">::</span><span class="n">ALLOW_TYPE_COERCION</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+
+
+
+<span class="cm">/*</span>
+<span class="cm"> * Temporary policy holders.</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="n">UserData</span><span class="w">            </span><span class="n">tmpUserData</span><span class="p">;</span><span class="w"></span>
+<span class="n">EntityFactory</span><span class="w">       </span><span class="n">tmpEntityFactory</span><span class="p">;</span><span class="w"></span>
+<span class="n">TopicData</span><span class="w">           </span><span class="n">tmpTopicData</span><span class="p">;</span><span class="w"></span>
+<span class="n">Durability</span><span class="w">          </span><span class="n">tmpDurability</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="n">DurabilityService</span><span class="w">   </span><span class="n">tmpDurabilityService</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="n">Deadline</span><span class="w">            </span><span class="n">tmpDeadline</span><span class="p">;</span><span class="w"></span>
+<span class="n">LatencyBudget</span><span class="w">       </span><span class="n">tmpBudget</span><span class="p">;</span><span class="w"></span>
+<span class="n">Liveliness</span><span class="w">          </span><span class="n">tmpLiveliness</span><span class="p">;</span><span class="w"></span>
+<span class="n">Reliability</span><span class="w">         </span><span class="n">tmpReliability</span><span class="p">;</span><span class="w"></span>
+<span class="n">DestinationOrder</span><span class="w">    </span><span class="n">tmpOrder</span><span class="p">;</span><span class="w"></span>
+<span class="n">History</span><span class="w">             </span><span class="n">tmpHistory</span><span class="p">;</span><span class="w"></span>
+<span class="n">ResourceLimits</span><span class="w">      </span><span class="n">tmpResources</span><span class="p">;</span><span class="w"></span>
+<span class="n">TransportPriority</span><span class="w">   </span><span class="n">tmpPriority</span><span class="p">;</span><span class="w"></span>
+<span class="n">Lifespan</span><span class="w">            </span><span class="n">tmpLifespan</span><span class="p">;</span><span class="w"></span>
+<span class="n">Ownership</span><span class="w">           </span><span class="n">tmpOwnership</span><span class="p">;</span><span class="w"></span>
+<span class="n">Presentation</span><span class="w">        </span><span class="n">tmpPresentation</span><span class="p">;</span><span class="w"></span>
+<span class="n">Partition</span><span class="w">           </span><span class="n">tmpPartition</span><span class="p">;</span><span class="w"></span>
+<span class="n">GroupData</span><span class="w">           </span><span class="n">tmpGdata</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="n">OwnershipStrength</span><span class="w">   </span><span class="n">tmpStrength</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="n">WriterDataLifecycle</span><span class="w"> </span><span class="n">tmpWdLifecycle</span><span class="p">;</span><span class="w"></span>
+<span class="n">TimeBasedFilter</span><span class="w">     </span><span class="n">tmpTbFilter</span><span class="p">;</span><span class="w"></span>
+<span class="n">ReaderDataLifecycle</span><span class="w"> </span><span class="n">tmpRdLifecycle</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="n">DataRepresentation</span><span class="w">  </span><span class="n">tmpRepresentation</span><span class="p">;</span><span class="w"></span>
+<span class="n">TypeConsistencyEnforcement</span><span class="w">  </span><span class="n">tmpEnforcement</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">DomainParticipant</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">DomainParticipantQos</span><span class="w"> </span><span class="n">dpQosDefault</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Get non-default QoSses in different ways. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">DomainParticipantQos</span><span class="w"> </span><span class="n">dpQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dpQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultEntityFactory</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultUserData</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DomainParticipantQos</span><span class="w"> </span><span class="nf">dpQosConstructed</span><span class="p">(</span><span class="n">dpQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">DomainParticipantQos</span><span class="w"> </span><span class="n">dpQosAssigned</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dpQosAssigned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dpQosShifted</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the QoSses. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dpQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">dpQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dpQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">dpQosAssigned</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dpQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">dpQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dpQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">dpQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dpQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">dpQosAssigned</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the Policies (getting them in different ways). */</span><span class="w"></span>
+<span class="w">    </span><span class="n">dpQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpUserData</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dpQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpEntityFactory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultUserData</span><span class="p">,</span><span class="w">      </span><span class="n">tmpUserData</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultEntityFactory</span><span class="p">,</span><span class="w"> </span><span class="n">tmpEntityFactory</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultUserData</span><span class="p">,</span><span class="w">      </span><span class="n">dpQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">UserData</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultEntityFactory</span><span class="p">,</span><span class="w"> </span><span class="n">dpQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">EntityFactory</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">Topic</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">TopicQos</span><span class="w"> </span><span class="n">tQosDefault</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Get non-default QoSses in different ways. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">TopicQos</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTopicData</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurability</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurabilityService</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDeadline</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultBudget</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLiveliness</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultReliability</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOrder</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultHistory</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultResources</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPriority</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLifespan</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOwnership</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultRepresentation</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">TopicQos</span><span class="w"> </span><span class="nf">tQosConstructed</span><span class="p">(</span><span class="n">tQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">TopicQos</span><span class="w"> </span><span class="n">tQosAssigned</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosAssigned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the QoSses. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">tQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">tQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">tQosAssigned</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">tQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">tQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">tQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">tQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">tQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">tQosAssigned</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the Policies (getting them in different ways). */</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpTopicData</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpDurability</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpDeadline</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpBudget</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpLiveliness</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpReliability</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpOrder</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpResources</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpPriority</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpLifespan</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpOwnership</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpRepresentation</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpEnforcement</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTopicData</span><span class="p">,</span><span class="w">   </span><span class="n">tmpTopicData</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurability</span><span class="p">,</span><span class="w">  </span><span class="n">tmpDurability</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDeadline</span><span class="p">,</span><span class="w">    </span><span class="n">tmpDeadline</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultBudget</span><span class="p">,</span><span class="w">      </span><span class="n">tmpBudget</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLiveliness</span><span class="p">,</span><span class="w">  </span><span class="n">tmpLiveliness</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultReliability</span><span class="p">,</span><span class="w"> </span><span class="n">tmpReliability</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOrder</span><span class="p">,</span><span class="w">       </span><span class="n">tmpOrder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultHistory</span><span class="p">,</span><span class="w">     </span><span class="n">tmpHistory</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultResources</span><span class="p">,</span><span class="w">   </span><span class="n">tmpResources</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPriority</span><span class="p">,</span><span class="w">    </span><span class="n">tmpPriority</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLifespan</span><span class="p">,</span><span class="w">    </span><span class="n">tmpLifespan</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOwnership</span><span class="p">,</span><span class="w">   </span><span class="n">tmpOwnership</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRepresentation</span><span class="p">,</span><span class="w"> </span><span class="n">tmpRepresentation</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="p">,</span><span class="w"> </span><span class="n">tmpEnforcement</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTopicData</span><span class="p">,</span><span class="w">   </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">TopicData</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurability</span><span class="p">,</span><span class="w">  </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Durability</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDeadline</span><span class="p">,</span><span class="w">    </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Deadline</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultBudget</span><span class="p">,</span><span class="w">      </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">LatencyBudget</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLiveliness</span><span class="p">,</span><span class="w">  </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Liveliness</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultReliability</span><span class="p">,</span><span class="w"> </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Reliability</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOrder</span><span class="p">,</span><span class="w">       </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">DestinationOrder</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultHistory</span><span class="p">,</span><span class="w">     </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">History</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultResources</span><span class="p">,</span><span class="w">   </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">ResourceLimits</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPriority</span><span class="p">,</span><span class="w">    </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">TransportPriority</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLifespan</span><span class="p">,</span><span class="w">    </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Lifespan</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOwnership</span><span class="p">,</span><span class="w">   </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Ownership</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRepresentation</span><span class="p">,</span><span class="w"> </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">DataRepresentation</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="p">,</span><span class="w"> </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">TypeConsistencyEnforcement</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+
+<span class="cp">#ifdef  OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpDurabilityService</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurabilityService</span><span class="p">,</span><span class="w"> </span><span class="n">tmpDurabilityService</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurabilityService</span><span class="p">,</span><span class="w"> </span><span class="n">tQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">DurabilityService</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">Publisher</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">PublisherQos</span><span class="w"> </span><span class="n">pQosDefault</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Get non-default QoSses in different ways. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">PublisherQos</span><span class="w"> </span><span class="n">pQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultEntityFactory</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPresentation</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPartition</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultGdata</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">PublisherQos</span><span class="w"> </span><span class="nf">pQosConstructed</span><span class="p">(</span><span class="n">pQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">PublisherQos</span><span class="w"> </span><span class="n">pQosAssigned</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pQosAssigned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pQosShifted</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the QoSses. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">pQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">pQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">pQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">pQosAssigned</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">pQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">pQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">pQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">pQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">pQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">pQosAssigned</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the Policies (getting them in different ways). */</span><span class="w"></span>
+<span class="w">    </span><span class="n">pQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpEntityFactory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpPresentation</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpPartition</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpGdata</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultEntityFactory</span><span class="p">,</span><span class="w"> </span><span class="n">tmpEntityFactory</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPresentation</span><span class="p">,</span><span class="w">  </span><span class="n">tmpPresentation</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPartition</span><span class="p">,</span><span class="w">     </span><span class="n">tmpPartition</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultGdata</span><span class="p">,</span><span class="w">         </span><span class="n">tmpGdata</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultEntityFactory</span><span class="p">,</span><span class="w"> </span><span class="n">pQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">EntityFactory</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPresentation</span><span class="p">,</span><span class="w">  </span><span class="n">pQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Presentation</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPartition</span><span class="p">,</span><span class="w">     </span><span class="n">pQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Partition</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultGdata</span><span class="p">,</span><span class="w">         </span><span class="n">pQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">GroupData</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">Subscriber</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SubscriberQos</span><span class="w"> </span><span class="n">sQosDefault</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Get non-default QoSses in different ways. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">SubscriberQos</span><span class="w"> </span><span class="n">sQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultEntityFactory</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPresentation</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPartition</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultGdata</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">SubscriberQos</span><span class="w"> </span><span class="nf">sQosConstructed</span><span class="p">(</span><span class="n">sQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">SubscriberQos</span><span class="w"> </span><span class="n">sQosAssigned</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sQosAssigned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sQosShifted</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the QoSses. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">sQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">sQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">sQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">sQosAssigned</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">sQosDefault</span><span class="p">,</span><span class="w"> </span><span class="n">sQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">sQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">sQosConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">sQosShifted</span><span class="p">,</span><span class="w"> </span><span class="n">sQosAssigned</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the Policies (getting them in different ways). */</span><span class="w"></span>
+<span class="w">    </span><span class="n">sQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpEntityFactory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpPresentation</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpPartition</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">sQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpGdata</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultEntityFactory</span><span class="p">,</span><span class="w"> </span><span class="n">tmpEntityFactory</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPresentation</span><span class="p">,</span><span class="w">  </span><span class="n">tmpPresentation</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPartition</span><span class="p">,</span><span class="w">     </span><span class="n">tmpPartition</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultGdata</span><span class="p">,</span><span class="w">         </span><span class="n">tmpGdata</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultEntityFactory</span><span class="p">,</span><span class="w"> </span><span class="n">sQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">EntityFactory</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPresentation</span><span class="p">,</span><span class="w">  </span><span class="n">sQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Presentation</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPartition</span><span class="p">,</span><span class="w">     </span><span class="n">sQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Partition</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultGdata</span><span class="p">,</span><span class="w">         </span><span class="n">sQosConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">GroupData</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">DataWriter</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="n">dwQosDefault</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">TopicQos</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTopicData</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurability</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurabilityService</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDeadline</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultBudget</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLiveliness</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultReliability</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOrder</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultHistory</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultResources</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPriority</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLifespan</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOwnership</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultRepresentation</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                  </span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Get non-default QoSses in different ways. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="n">dwQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultUserData</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurability</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDeadline</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultBudget</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLiveliness</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultReliability</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOrder</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultHistory</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultResources</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPriority</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLifespan</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOwnership</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultStrength</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultWdLifecycle</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultRepresentation</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                  </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="nf">dwQosWConstructed</span><span class="p">(</span><span class="n">dwQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="n">dwQosWAssigned1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dwQosShifted</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Actually calls copy constructor. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="n">dwQosWAssigned2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="nf">dwQosTConstructed</span><span class="p">(</span><span class="n">tQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="n">dwQosTAssigned1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Actually calls copy constructor. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w"> </span><span class="n">dwQosTAssigned2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosWAssigned2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dwQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosTAssigned2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the QoSses. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dwQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">dwQosWConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dwQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">dwQosWAssigned1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dwQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">dwQosWAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dwQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">dwQosTConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dwQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">dwQosTAssigned1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dwQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">dwQosTAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">dwQosWConstructed</span><span class="p">,</span><span class="w"> </span><span class="n">dwQosTConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dwQosWConstructed</span><span class="p">,</span><span class="w"> </span><span class="n">dwQosWAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dwQosWAssigned1</span><span class="p">,</span><span class="w">   </span><span class="n">dwQosWAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dwQosTConstructed</span><span class="p">,</span><span class="w"> </span><span class="n">dwQosTAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dwQosTAssigned1</span><span class="p">,</span><span class="w">   </span><span class="n">dwQosTAssigned2</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the Policies (getting them in different ways). */</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpUserData</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpDurability</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpDeadline</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpBudget</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpLiveliness</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpReliability</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpOrder</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpResources</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpPriority</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpLifespan</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpOwnership</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpWdLifecycle</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpRepresentation</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpEnforcement</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultUserData</span><span class="p">,</span><span class="w">    </span><span class="n">tmpUserData</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurability</span><span class="p">,</span><span class="w">  </span><span class="n">tmpDurability</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDeadline</span><span class="p">,</span><span class="w">    </span><span class="n">tmpDeadline</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultBudget</span><span class="p">,</span><span class="w">      </span><span class="n">tmpBudget</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLiveliness</span><span class="p">,</span><span class="w">  </span><span class="n">tmpLiveliness</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultReliability</span><span class="p">,</span><span class="w"> </span><span class="n">tmpReliability</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOrder</span><span class="p">,</span><span class="w">       </span><span class="n">tmpOrder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultHistory</span><span class="p">,</span><span class="w">     </span><span class="n">tmpHistory</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultResources</span><span class="p">,</span><span class="w">   </span><span class="n">tmpResources</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPriority</span><span class="p">,</span><span class="w">    </span><span class="n">tmpPriority</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLifespan</span><span class="p">,</span><span class="w">    </span><span class="n">tmpLifespan</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOwnership</span><span class="p">,</span><span class="w">   </span><span class="n">tmpOwnership</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultWdLifecycle</span><span class="p">,</span><span class="w"> </span><span class="n">tmpWdLifecycle</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRepresentation</span><span class="p">,</span><span class="w"> </span><span class="n">tmpRepresentation</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="p">,</span><span class="w"> </span><span class="n">tmpEnforcement</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultUserData</span><span class="p">,</span><span class="w">    </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">UserData</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurability</span><span class="p">,</span><span class="w">  </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Durability</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDeadline</span><span class="p">,</span><span class="w">    </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Deadline</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultBudget</span><span class="p">,</span><span class="w">      </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">LatencyBudget</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLiveliness</span><span class="p">,</span><span class="w">  </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Liveliness</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultReliability</span><span class="p">,</span><span class="w"> </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Reliability</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOrder</span><span class="p">,</span><span class="w">       </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">DestinationOrder</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultHistory</span><span class="p">,</span><span class="w">     </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">History</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultResources</span><span class="p">,</span><span class="w">   </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">ResourceLimits</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultPriority</span><span class="p">,</span><span class="w">    </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">TransportPriority</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLifespan</span><span class="p">,</span><span class="w">    </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Lifespan</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOwnership</span><span class="p">,</span><span class="w">   </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Ownership</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultWdLifecycle</span><span class="p">,</span><span class="w"> </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">WriterDataLifecycle</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRepresentation</span><span class="p">,</span><span class="w"> </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">DataRepresentation</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="p">,</span><span class="w"> </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">TypeConsistencyEnforcement</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+
+<span class="cp">#ifdef  OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="w">    </span><span class="n">dwQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpStrength</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultStrength</span><span class="p">,</span><span class="w">    </span><span class="n">tmpStrength</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultStrength</span><span class="p">,</span><span class="w">    </span><span class="n">dwQosWConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">OwnershipStrength</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">DataReader</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drQosDefault</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">TopicQos</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTopicData</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurability</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurabilityService</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDeadline</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultBudget</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLiveliness</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultReliability</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOrder</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultHistory</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultResources</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultPriority</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLifespan</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOwnership</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultRepresentation</span><span class="w"></span>
+<span class="w">                </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                </span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Get non-default QoSses in different ways. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultUserData</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDurability</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultDeadline</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultBudget</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultLiveliness</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultReliability</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOrder</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultHistory</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultResources</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultOwnership</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTbFilter</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultRdLifecycle</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultRepresentation</span><span class="w"></span>
+<span class="w">                 </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">                  </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="nf">drQosRConstructed</span><span class="p">(</span><span class="n">drQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drQosRAssigned1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">drQosShifted</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Actually calls copy constructor. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drQosRAssigned2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="nf">drQosTConstructed</span><span class="p">(</span><span class="n">tQosShifted</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drQosTAssigned1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Actually calls copy constructor. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w"> </span><span class="n">drQosTAssigned2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosRAssigned2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">drQosShifted</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosTAssigned2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tQosShifted</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the QoSses. */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">drQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">drQosRConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">drQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">drQosRAssigned1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">drQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">drQosRAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">drQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">drQosTConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">drQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">drQosTAssigned1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">drQosDefault</span><span class="p">,</span><span class="w">      </span><span class="n">drQosTAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_NE</span><span class="p">(</span><span class="n">drQosRConstructed</span><span class="p">,</span><span class="w"> </span><span class="n">drQosTConstructed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">drQosRConstructed</span><span class="p">,</span><span class="w"> </span><span class="n">drQosRAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">drQosRAssigned1</span><span class="p">,</span><span class="w">   </span><span class="n">drQosRAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">drQosTConstructed</span><span class="p">,</span><span class="w"> </span><span class="n">drQosTAssigned2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">drQosTAssigned1</span><span class="p">,</span><span class="w">   </span><span class="n">drQosTAssigned2</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Compare the Policies (getting them in different ways). */</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpUserData</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpDurability</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpDeadline</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpBudget</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpLiveliness</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpReliability</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpOrder</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpResources</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpOwnership</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpTbFilter</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpRdLifecycle</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpRepresentation</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">drQosShifted</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">tmpEnforcement</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultUserData</span><span class="p">,</span><span class="w">    </span><span class="n">tmpUserData</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurability</span><span class="p">,</span><span class="w">  </span><span class="n">tmpDurability</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDeadline</span><span class="p">,</span><span class="w">    </span><span class="n">tmpDeadline</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultBudget</span><span class="p">,</span><span class="w">      </span><span class="n">tmpBudget</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLiveliness</span><span class="p">,</span><span class="w">  </span><span class="n">tmpLiveliness</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultReliability</span><span class="p">,</span><span class="w"> </span><span class="n">tmpReliability</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOrder</span><span class="p">,</span><span class="w">       </span><span class="n">tmpOrder</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultHistory</span><span class="p">,</span><span class="w">     </span><span class="n">tmpHistory</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultResources</span><span class="p">,</span><span class="w">   </span><span class="n">tmpResources</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOwnership</span><span class="p">,</span><span class="w">   </span><span class="n">tmpOwnership</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTbFilter</span><span class="p">,</span><span class="w">    </span><span class="n">tmpTbFilter</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRdLifecycle</span><span class="p">,</span><span class="w"> </span><span class="n">tmpRdLifecycle</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRepresentation</span><span class="p">,</span><span class="w"> </span><span class="n">tmpRepresentation</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="p">,</span><span class="w"> </span><span class="n">tmpEnforcement</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultUserData</span><span class="p">,</span><span class="w">    </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">UserData</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDurability</span><span class="p">,</span><span class="w">  </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Durability</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultDeadline</span><span class="p">,</span><span class="w">    </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Deadline</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultBudget</span><span class="p">,</span><span class="w">      </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">LatencyBudget</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultLiveliness</span><span class="p">,</span><span class="w">  </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Liveliness</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultReliability</span><span class="p">,</span><span class="w"> </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Reliability</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOrder</span><span class="p">,</span><span class="w">       </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">DestinationOrder</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultHistory</span><span class="p">,</span><span class="w">     </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">History</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultResources</span><span class="p">,</span><span class="w">   </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">ResourceLimits</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultOwnership</span><span class="p">,</span><span class="w">   </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">Ownership</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTbFilter</span><span class="p">,</span><span class="w">    </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">TimeBasedFilter</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRdLifecycle</span><span class="p">,</span><span class="w"> </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">ReaderDataLifecycle</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultRepresentation</span><span class="p">,</span><span class="w"> </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">DataRepresentation</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">nonDefaultTypeConsistencyEnforcement</span><span class="p">,</span><span class="w"> </span><span class="n">drQosRConstructed</span><span class="p">.</span><span class="n">policy</span><span class="o">&lt;</span><span class="n">TypeConsistencyEnforcement</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">invalid_values</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">History</span><span class="w">        </span><span class="n">invalidHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ResourceLimits</span><span class="w"> </span><span class="n">invalidResources</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">invalidHistory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">History</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">HistoryKind</span><span class="o">::</span><span class="n">KEEP_LAST</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                 </span><span class="mi">0</span><span class="w"> </span><span class="cm">/* depth */</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InconsistentPolicyError</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">invalidResources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ResourceLimits</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="cm">/* max_samples */</span><span class="w"></span>
+<span class="w">                                          </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="cm">/* max_instances */</span><span class="w"></span>
+<span class="w">                                          </span><span class="mi">0</span><span class="w">   </span><span class="cm">/* max_samples_per_instance */</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InvalidArgumentError</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">invalid_policies</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">TopicQos</span><span class="w">             </span><span class="n">tQos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataWriterQos</span><span class="w">        </span><span class="n">dwQos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DataReaderQos</span><span class="w">        </span><span class="n">drQos</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">History</span><span class="w">        </span><span class="n">invalidHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">invalidHistory</span><span class="p">.</span><span class="n">kind</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">HistoryKind</span><span class="o">::</span><span class="n">KEEP_LAST</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">invalidHistory</span><span class="p">.</span><span class="n">depth</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">tQos</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invalidHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InconsistentPolicyError</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">dwQos</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invalidHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InconsistentPolicyError</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">drQos</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invalidHistory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InconsistentPolicyError</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ResourceLimits</span><span class="w"> </span><span class="n">invalidResources</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">invalidResources</span><span class="p">.</span><span class="n">max_samples</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">invalidResources</span><span class="p">.</span><span class="n">max_instances</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">invalidResources</span><span class="p">.</span><span class="n">max_samples_per_instance</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">tQos</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invalidResources</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InvalidArgumentError</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">dwQos</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invalidResources</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InvalidArgumentError</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ASSERT_THROW</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="n">drQos</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">invalidResources</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">InvalidArgumentError</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">Qos</span><span class="p">,</span><span class="w"> </span><span class="n">policy_name</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">UserData</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">            </span><span class="s">&quot;UserData&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Durability</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">          </span><span class="s">&quot;Durability&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Presentation</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">        </span><span class="s">&quot;Presentation&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Deadline</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">            </span><span class="s">&quot;Deadline&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">LatencyBudget</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">       </span><span class="s">&quot;LatencyBudget&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">TimeBasedFilter</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">     </span><span class="s">&quot;TimeBasedFilter&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Ownership</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">           </span><span class="s">&quot;Ownership&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">OwnershipStrength</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">   </span><span class="s">&quot;OwnershipStrength&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_OWNERSHIP_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Liveliness</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">          </span><span class="s">&quot;Liveliness&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Partition</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">           </span><span class="s">&quot;Partition&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Reliability</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">         </span><span class="s">&quot;Reliability&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">DestinationOrder</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">    </span><span class="s">&quot;DestinationOrder&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">History</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">             </span><span class="s">&quot;History&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">ResourceLimits</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">      </span><span class="s">&quot;ResourceLimits&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">EntityFactory</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">       </span><span class="s">&quot;EntityFactory&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">WriterDataLifecycle</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;WriterDataLifecycle&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">ReaderDataLifecycle</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;ReaderDataLifecycle&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">TopicData</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">           </span><span class="s">&quot;TopicData&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">GroupData</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">           </span><span class="s">&quot;GroupData&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">TransportPriority</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">   </span><span class="s">&quot;TransportPriority&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">Lifespan</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">            </span><span class="s">&quot;Lifespan&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#ifdef  OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">DurabilityService</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">   </span><span class="s">&quot;DurabilityService&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif  </span><span class="c1">// OMG_DDS_PERSISTENCE_SUPPORT</span>
+<span class="cp">#ifdef OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">DataRepresentation</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">  </span><span class="s">&quot;DataRepresentation&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASSERT_EQ</span><span class="p">(</span><span class="n">dds</span><span class="o">::</span><span class="n">core</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">policy_name</span><span class="o">&lt;</span><span class="n">TypeConsistencyEnforcement</span><span class="o">&gt;::</span><span class="n">name</span><span class="p">(),</span><span class="w">  </span><span class="s">&quot;TypeConsistencyEnforcement&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="cp">#endif </span><span class="c1">//  OMG_DDS_EXTENSIBLE_AND_DYNAMIC_TOPIC_TYPE_SUPPORT</span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav">
+        <div class="left">
+            
+        </div>
+
+        <div class="right">
+            
+        </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Eclipse Cyclone DDS C++ committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>
