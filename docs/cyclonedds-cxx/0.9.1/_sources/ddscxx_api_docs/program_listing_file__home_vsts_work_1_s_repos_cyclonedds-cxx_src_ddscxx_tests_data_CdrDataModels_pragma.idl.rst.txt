@@ -1,0 +1,32 @@
+
+.. _program_listing_file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_data_CdrDataModels_pragma.idl:
+
+Program Listing for File CdrDataModels_pragma.idl
+=================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_data_CdrDataModels_pragma.idl>` (``/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/data/CdrDataModels_pragma.idl``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: idl
+
+   
+   module CDR_testing {
+   
+     struct sub_1 {
+       long l_1;
+       long l_2;
+     };
+   
+     struct sub_2 {
+       sub_1 s_1;
+       sub_1 s_2;
+     };
+   
+     struct pragma_keys {
+       sub_2 c;
+       sub_2 d;
+     };
+     #pragma keylist pragma_keys c.s_1.l_2 c.s_2.l_2 d.s_1.l_2 d.s_2.l_2
+   
+   };
