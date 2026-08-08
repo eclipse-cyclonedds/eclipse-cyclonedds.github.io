@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>PKCS#11 and Hardware Security Module (HSM) &#8212; Eclipse Cyclone DDS, 11.0.1</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/helpers.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/helpers.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging and tracing" href="logging_tracing.html" />
+    <link rel="prev" title="Access control configuration" href="access_control_config.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Eclipse Cyclone DDS, 11.0.1</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_dds/eclipse_cyclone_dds.html">Eclipse Cyclone DDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../idl/about.html">IDL (Interface Definition Language)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">Configuration guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dds_security.html">DDS security</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="public_key_infrastructure.html">Public-key infrastructure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dds_security_config.html">DDS security configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PKCS#11 and Hardware Security Module (HSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging_tracing.html">Logging and tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_comms_handshake.html">Data communication and handshake process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dds_secure_discovery.html">DDS secure discovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proprietary_builtin_endpoints.html">Proprietary builtin endpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_configuration.html">Example DDS security configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external_plugin_dev.html">External plugin development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="error_codes.html">Security plugin error codes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory/shared_memory.html">Shared memory exchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">C API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary of terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="pkcs-11-and-hardware-security-module-hsm">
+<span id="pkcs11-hsm"></span><span id="index-0"></span><h1>PKCS#11 and Hardware Security Module (HSM)<a class="headerlink" href="#pkcs-11-and-hardware-security-module-hsm" title="Permalink to this heading">¶</a></h1>
+<p>Cyclone DDS supports loading cryptographic credentials from PKCS#11-compatible
+devices, including Hardware Security Modules (HSMs). This enables deployments where
+private keys never leave the hardware device, providing stronger protection against
+key extraction.</p>
+<p>PKCS#11 is a platform-independent API (also known as “Cryptoki”) originally developed
+by RSA Security for interfacing with cryptographic tokens. The standard defines how
+applications communicate with devices that store cryptographic objects such as
+certificates, public keys, and private keys.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#supported-security-settings" id="id1">Supported security settings</a></p></li>
+<li><p><a class="reference internal" href="#uri-format" id="id2">URI format</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id3">Prerequisites</a></p>
+<ul>
+<li><p><a class="reference internal" href="#openssl-version-differences" id="id4">OpenSSL version differences</a></p></li>
+<li><p><a class="reference internal" href="#pkcs-11-module" id="id5">PKCS#11 module</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#example-configuration" id="id6">Example configuration</a></p></li>
+<li><p><a class="reference internal" href="#troubleshooting" id="id7">Troubleshooting</a></p>
+<ul>
+<li><p><a class="reference internal" href="#verifying-openssl-pkcs-11-support" id="id8">Verifying OpenSSL PKCS#11 support</a></p></li>
+<li><p><a class="reference internal" href="#testing-certificate-access" id="id9">Testing certificate access</a></p></li>
+<li><p><a class="reference internal" href="#common-errors" id="id10">Common errors</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#security-considerations" id="id11">Security considerations</a></p></li>
+</ul>
+</nav>
+<section id="supported-security-settings">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Supported security settings</a><a class="headerlink" href="#supported-security-settings" title="Permalink to this heading">¶</a></h2>
+<p>The following security configuration properties accept <code class="docutils literal notranslate"><span class="pre">pkcs11:</span></code> URIs:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">IdentityCertificate</span></code></p></td>
+<td><p>Participant Identity certificate</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IdentityCA</span></code></p></td>
+<td><p>Participant Identity Certificate Authority certificate</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PrivateKey</span></code></p></td>
+<td><p>Participant Private Key corresponding to it’s identity certificate</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PermissionsCA</span></code></p></td>
+<td><p>Permissions Certificate Authority certificate</p></td>
+</tr>
+</tbody>
+</table>
+<p>The following properties do <strong>not</strong> support PKCS#11 and must use <code class="docutils literal notranslate"><span class="pre">file:</span></code> or <code class="docutils literal notranslate"><span class="pre">data:,</span></code> URIs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Governance</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Permissions</span></code></p></li>
+</ul>
+<p>Governance and Permissions documents are signed XML files. Their integrity is protected
+cryptographically via PKCS#7 signatures, verified using the Permissions CA certificate
+(which can be stored on an HSM).</p>
+</section>
+<section id="uri-format">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">URI format</a><a class="headerlink" href="#uri-format" title="Permalink to this heading">¶</a></h2>
+<p>PKCS#11 URIs follow <span class="target" id="index-1"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7512.html"><strong>RFC 7512</strong></a> and identify objects stored on a token. The general format is:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">pkcs11</span><span class="p">:[</span><span class="n">path</span><span class="o">-</span><span class="n">attr</span><span class="p">[;</span><span class="n">path</span><span class="o">-</span><span class="n">attr</span><span class="p">...]][</span><span class="o">?</span><span class="n">query</span><span class="o">-</span><span class="n">attr</span><span class="p">[</span><span class="o">&amp;</span><span class="n">query</span><span class="o">-</span><span class="n">attr</span><span class="p">...]]</span>
+</pre></div>
+</div>
+<p>Common path components:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">token</span></code></p></td>
+<td><p>Label of the token</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+<td><p>Label of the object (certificate or key)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>Object type: <code class="docutils literal notranslate"><span class="pre">cert</span></code>, <code class="docutils literal notranslate"><span class="pre">public</span></code>, <code class="docutils literal notranslate"><span class="pre">private</span></code>, or <code class="docutils literal notranslate"><span class="pre">secret-key</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pin-value</span></code></p></td>
+<td><p>PIN for token login</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pin-source</span></code> attribute defined in <span class="target" id="index-2"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7512.html"><strong>RFC 7512</strong></a> is not currently supported by
+Cyclone DDS. The PIN must be specified using <code class="docutils literal notranslate"><span class="pre">pin-value</span></code> in the URI.</p>
+</div>
+<p>Examples:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">pkcs11</span><span class="p">:</span><span class="n">token</span><span class="o">=</span><span class="n">MyHSM</span><span class="p">;</span><span class="n">object</span><span class="o">=</span><span class="n">identity_cert</span>
+<span class="nl">pkcs11</span><span class="p">:</span><span class="n">token</span><span class="o">=</span><span class="n">MyHSM</span><span class="p">;</span><span class="n">object</span><span class="o">=</span><span class="n">identity_key</span><span class="p">;</span><span class="n">type</span><span class="o">=</span><span class="n">private</span>
+<span class="nl">pkcs11</span><span class="p">:</span><span class="n">token</span><span class="o">=</span><span class="n">MyHSM</span><span class="p">;</span><span class="n">object</span><span class="o">=</span><span class="n">identity_key</span><span class="o">?</span><span class="n">pin</span><span class="o">-</span><span class="n">value</span><span class="o">=</span><span class="mi">1234</span>
+</pre></div>
+</div>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this heading">¶</a></h2>
+<section id="openssl-version-differences">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">OpenSSL version differences</a><a class="headerlink" href="#openssl-version-differences" title="Permalink to this heading">¶</a></h3>
+<p>The mechanism for PKCS#11 integration differs between OpenSSL versions:</p>
+<section id="openssl-1-x-engine-api">
+<h4>OpenSSL 1.x (ENGINE API)<a class="headerlink" href="#openssl-1-x-engine-api" title="Permalink to this heading">¶</a></h4>
+<p>OpenSSL 1.x uses the deprecated ENGINE API. Install the <code class="docutils literal notranslate"><span class="pre">libp11</span></code> engine package for your
+distribution (for example, <code class="docutils literal notranslate"><span class="pre">libengine-pkcs11-openssl</span></code> on Debian/Ubuntu or <code class="docutils literal notranslate"><span class="pre">openssl-pkcs11</span></code>
+on Fedora/RHEL).</p>
+<p>Configure OpenSSL to use the engine by adding it to <code class="docutils literal notranslate"><span class="pre">/etc/ssl/openssl.cnf</span></code> (or equivalent):</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">openssl_conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">openssl_init</span>
+
+<span class="k">[openssl_init]</span>
+<span class="na">engines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">engine_section</span>
+
+<span class="k">[engine_section]</span>
+<span class="na">pkcs11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pkcs11_section</span>
+
+<span class="k">[pkcs11_section]</span>
+<span class="na">engine_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pkcs11</span>
+<span class="na">MODULE_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/usr/lib/pkcs11/opensc-pkcs11.so</span>
+<span class="na">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span>
+</pre></div>
+</div>
+<p>Adjust <code class="docutils literal notranslate"><span class="pre">MODULE_PATH</span></code> to point to your PKCS#11 module.</p>
+</section>
+<section id="openssl-3-x-provider-api">
+<h4>OpenSSL 3.x (Provider API)<a class="headerlink" href="#openssl-3-x-provider-api" title="Permalink to this heading">¶</a></h4>
+<p>OpenSSL 3.x uses the Provider architecture. Install a provider
+and configure openssl to use it.</p>
+<p>Configure the provider in <code class="docutils literal notranslate"><span class="pre">/etc/ssl/openssl.cnf</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">openssl_conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">openssl_init</span>
+
+<span class="k">[openssl_init]</span>
+<span class="na">providers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">provider_section</span>
+
+<span class="k">[provider_section]</span>
+<span class="na">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">default_section</span>
+<span class="na">pkcs11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pkcs11_section</span>
+
+<span class="k">[default_section]</span>
+<span class="na">activate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1</span>
+
+<span class="k">[pkcs11_section]</span>
+<span class="na">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/usr/lib/ossl-modules/pkcs11.so</span>
+<span class="na">pkcs11-module-path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/usr/lib/pkcs11/opensc-pkcs11.so</span>
+<span class="na">activate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pkcs-11-module">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">PKCS#11 module</a><a class="headerlink" href="#pkcs-11-module" title="Permalink to this heading">¶</a></h3>
+<p>A PKCS#11 module (shared library) is required to communicate with the token. Common options are:</p>
+<ul class="simple">
+<li><p><strong>OpenSC</strong> (<code class="docutils literal notranslate"><span class="pre">opensc-pkcs11.so</span></code>): Smart cards and USB tokens</p></li>
+<li><p><strong>SoftHSM</strong> (<code class="docutils literal notranslate"><span class="pre">libsofthsm2.so</span></code>): Software-based HSM for testing</p></li>
+<li><p><strong>Vendor modules</strong>: Provided by HSM vendors (Thales, Utimaco, etc.)</p></li>
+</ul>
+</section>
+</section>
+<section id="example-configuration">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Example configuration</a><a class="headerlink" href="#example-configuration" title="Permalink to this heading">¶</a></h2>
+<p>The following configuration uses PKCS#11 for the private key and identity certificate
+while keeping policy documents on the filesystem:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class="nt">&lt;CycloneDDS</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;https://cdds.io/config&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Domain</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;any&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;Security&gt;</span>
+<span class="w">            </span><span class="nt">&lt;Authentication&gt;</span>
+<span class="w">                </span><span class="nt">&lt;IdentityCertificate&gt;</span>pkcs11:token=DDSTestToken;object=alice_cert?pin-value=1234<span class="nt">&lt;/IdentityCertificate&gt;</span>
+<span class="w">                </span><span class="nt">&lt;IdentityCA&gt;</span>file:identity_ca_cert.pem<span class="nt">&lt;/IdentityCA&gt;</span>
+<span class="w">                </span><span class="nt">&lt;PrivateKey&gt;</span>pkcs11:token=DDSTestToken;object=alice_key;type=private?pin-value=1234<span class="nt">&lt;/PrivateKey&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/Authentication&gt;</span>
+<span class="w">            </span><span class="nt">&lt;AccessControl&gt;</span>
+<span class="w">                </span><span class="nt">&lt;PermissionsCA&gt;</span>pkcs11:token=DDSTestToken;object=permissions_ca?pin-value=1234<span class="nt">&lt;/PermissionsCA&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Governance&gt;</span>file:governance.p7s<span class="nt">&lt;/Governance&gt;</span>
+<span class="w">                </span><span class="nt">&lt;Permissions&gt;</span>file:permissions.p7s<span class="nt">&lt;/Permissions&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/AccessControl&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/Security&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Domain&gt;</span>
+<span class="nt">&lt;/CycloneDDS&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The PIN is embedded directly in the configuration when using <code class="docutils literal notranslate"><span class="pre">pin-value</span></code>. For
+production deployments, restrict access to the configuration file and consider
+using environment variable substitution or other mechanisms to avoid storing
+PINs in plain text.</p>
+</div>
+</section>
+<section id="troubleshooting">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h2>
+<section id="verifying-openssl-pkcs-11-support">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Verifying OpenSSL PKCS#11 support</a><a class="headerlink" href="#verifying-openssl-pkcs-11-support" title="Permalink to this heading">¶</a></h3>
+<p><strong>OpenSSL 1.x:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl engine pkcs11 -t</span>
+</pre></div>
+</div>
+<p>Expected output includes “available”.</p>
+<p><strong>OpenSSL 3.x:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl list -providers</span>
+</pre></div>
+</div>
+<p>The pkcs11 provider should be listed.</p>
+</section>
+<section id="testing-certificate-access">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Testing certificate access</a><a class="headerlink" href="#testing-certificate-access" title="Permalink to this heading">¶</a></h3>
+<p><strong>OpenSSL 3.x:</strong> Verify that OpenSSL can load a certificate from the token using its URI
+(requires <code class="docutils literal notranslate"><span class="pre">pkcs11-provider</span></code> configured in <code class="docutils literal notranslate"><span class="pre">openssl.cnf</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">openssl x509 -in &quot;pkcs11:token=DDSTestToken;object=alice_cert?pin-value=1234&quot; -text -noout</span>
+</pre></div>
+</div>
+<p><strong>OpenSSL 1.x:</strong> The ENGINE API does not support loading certificates via the <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">x509</span></code>
+command. Use <code class="docutils literal notranslate"><span class="pre">pkcs11-tool</span></code> to verify the certificate is present on the token instead:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pkcs11-tool --module /usr/lib/softhsm/libsofthsm2.so \</span>
+<span class="go">    --token-label &quot;DDSTestToken&quot; --pin 1234 --list-objects --type cert</span>
+</pre></div>
+</div>
+</section>
+<section id="common-errors">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Common errors</a><a class="headerlink" href="#common-errors" title="Permalink to this heading">¶</a></h3>
+<p><strong>“Failed to find pkcs11 engine”</strong> (OpenSSL 1.x)</p>
+<p>The PKCS#11 engine is not installed or not configured in <code class="docutils literal notranslate"><span class="pre">openssl.cnf</span></code>. Verify the
+engine is available with <code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">engine</span> <span class="pre">-t</span> <span class="pre">pkcs11</span></code>.</p>
+<p><strong>“Failed to open OSSL_STORE”</strong> (OpenSSL 3.x)</p>
+<p>The PKCS#11 provider is not installed or configured. Verify provider
+configuration (<code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">list</span> <span class="pre">-providers</span></code>) and ensure the
+<code class="docutils literal notranslate"><span class="pre">pkcs11-module-path</span></code> points to a valid PKCS#11 module.</p>
+<p><strong>“CKR_PIN_INCORRECT”</strong></p>
+<p>The PIN is incorrect. Verify the PIN and check if the token is locked due to
+too many failed attempts.</p>
+<p><strong>“CKR_TOKEN_NOT_PRESENT”</strong></p>
+<p>The token is not connected or recognized. Check the connection and verify
+the PKCS#11 module path is correct.</p>
+<p><strong>“Failed to find certificate”</strong></p>
+<p>The object label does not match any certificate on the token. Use <code class="docutils literal notranslate"><span class="pre">pkcs11-tool</span> <span class="pre">--list-objects</span></code>
+to verify object labels.</p>
+</section>
+</section>
+<section id="security-considerations">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Security considerations</a><a class="headerlink" href="#security-considerations" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The PIN must currently be specified via <code class="docutils literal notranslate"><span class="pre">pin-value</span></code> in the URI. Restrict access to
+configuration files containing PINs (e.g., mode 0400) and consider using configuration
+management tools that support secret injection.</p></li>
+<li><p>Ensure the PKCS#11 module is from a trusted source. A malicious module has full access
+to cryptographic operations.</p></li>
+<li><p>For HSMs, configure appropriate policies for key usage, including restrictions on
+export and the operations permitted with each key.</p></li>
+<li><p>Consider the security of the system where Cyclone DDS runs. An attacker with
+sufficient access to the host can still perform cryptographic operations using
+the HSM, even without extracting the key.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">PKCS#11 and Hardware Security Module (HSM)</a><ul>
+<li><a class="reference internal" href="#supported-security-settings">Supported security settings</a></li>
+<li><a class="reference internal" href="#uri-format">URI format</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#openssl-version-differences">OpenSSL version differences</a><ul>
+<li><a class="reference internal" href="#openssl-1-x-engine-api">OpenSSL 1.x (ENGINE API)</a></li>
+<li><a class="reference internal" href="#openssl-3-x-provider-api">OpenSSL 3.x (Provider API)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pkcs-11-module">PKCS#11 module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-configuration">Example configuration</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#verifying-openssl-pkcs-11-support">Verifying OpenSSL PKCS#11 support</a></li>
+<li><a class="reference internal" href="#testing-certificate-access">Testing certificate access</a></li>
+<li><a class="reference internal" href="#common-errors">Common errors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#security-considerations">Security considerations</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="access_control_config.html">
+                    <span class="icon"><</span><span>Access control configuration</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="logging_tracing.html"><span>Logging and tracing</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2026, Eclipse Cyclone DDS committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.0.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

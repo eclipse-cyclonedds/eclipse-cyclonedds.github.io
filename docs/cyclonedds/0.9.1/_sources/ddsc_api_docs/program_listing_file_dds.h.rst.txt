@@ -1,0 +1,998 @@
+
+.. _program_listing_file_dds.h:
+
+Program Listing for File dds.h
+==============================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_dds.h>` (``dds.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * Copyright(c) 2006 to 2018 ADLINK Technology Limited and others
+    *
+    * This program and the accompanying materials are made available under the
+    * terms of the Eclipse Public License v. 2.0 which is available at
+    * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+    * v. 1.0 which is available at
+    * http://www.eclipse.org/org/documents/edl-v10.php.
+    *
+    * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+    */
+   #ifndef DDS_H
+   #define DDS_H
+   
+   #if defined (__cplusplus)
+   #define restrict
+   #endif
+   
+   #include "dds/export.h"
+   #include "dds/features.h"
+   
+   #include "dds/ddsc/dds_basic_types.h"
+   
+   /* Sub components */
+   
+   #include "dds/ddsrt/time.h"
+   #include "dds/ddsrt/retcode.h"
+   #include "dds/ddsrt/log.h"
+   #include "dds/ddsc/dds_public_impl.h"
+   #include "dds/ddsc/dds_public_alloc.h"
+   #include "dds/ddsc/dds_public_qos.h"
+   #include "dds/ddsc/dds_public_error.h"
+   #include "dds/ddsc/dds_public_status.h"
+   #include "dds/ddsc/dds_public_listener.h"
+   
+   #if defined (__cplusplus)
+   extern "C" {
+   #endif
+   
+   typedef struct ddsi_typeid dds_typeid_t;
+   typedef struct ddsi_typeobj dds_typeobj_t;
+   
+   struct dds_rhc;
+   struct ddsi_plist;
+   struct ddsi_sertype;
+   struct ddsi_serdata;
+   struct ddsi_sertopic; // deprecated, binary compatibility only
+   
+   #define DDS_HAS_DDSI_SERTYPE 1
+   
+   #define DDS_BUILTIN_TOPIC_DCPSPARTICIPANT  ((dds_entity_t) (DDS_MIN_PSEUDO_HANDLE + 1))
+   #define DDS_BUILTIN_TOPIC_DCPSTOPIC        ((dds_entity_t) (DDS_MIN_PSEUDO_HANDLE + 2))
+   #define DDS_BUILTIN_TOPIC_DCPSPUBLICATION  ((dds_entity_t) (DDS_MIN_PSEUDO_HANDLE + 3))
+   #define DDS_BUILTIN_TOPIC_DCPSSUBSCRIPTION ((dds_entity_t) (DDS_MIN_PSEUDO_HANDLE + 4))
+   
+   #define DDS_DATA_ALLOCATOR_ALLOC_ON_HEAP   ((dds_entity_t) (DDS_MIN_PSEUDO_HANDLE + 257))
+   
+   typedef enum dds_status_id {
+     DDS_INCONSISTENT_TOPIC_STATUS_ID,
+     DDS_OFFERED_DEADLINE_MISSED_STATUS_ID,
+     DDS_REQUESTED_DEADLINE_MISSED_STATUS_ID,
+     DDS_OFFERED_INCOMPATIBLE_QOS_STATUS_ID,
+     DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS_ID,
+     DDS_SAMPLE_LOST_STATUS_ID,
+     DDS_SAMPLE_REJECTED_STATUS_ID,
+     DDS_DATA_ON_READERS_STATUS_ID,
+     DDS_DATA_AVAILABLE_STATUS_ID,
+     DDS_LIVELINESS_LOST_STATUS_ID,
+     DDS_LIVELINESS_CHANGED_STATUS_ID,
+     DDS_PUBLICATION_MATCHED_STATUS_ID,
+     DDS_SUBSCRIPTION_MATCHED_STATUS_ID
+   } dds_status_id_t;
+   #define DDS_STATUS_ID_MAX (DDS_SUBSCRIPTION_MATCHED_STATUS_ID)
+   
+   #define DDS_INCONSISTENT_TOPIC_STATUS          (1u << DDS_INCONSISTENT_TOPIC_STATUS_ID)
+   
+   #define DDS_OFFERED_DEADLINE_MISSED_STATUS     (1u << DDS_OFFERED_DEADLINE_MISSED_STATUS_ID)
+   
+   #define DDS_REQUESTED_DEADLINE_MISSED_STATUS   (1u << DDS_REQUESTED_DEADLINE_MISSED_STATUS_ID)
+   
+   #define DDS_OFFERED_INCOMPATIBLE_QOS_STATUS    (1u << DDS_OFFERED_INCOMPATIBLE_QOS_STATUS_ID)
+   
+   #define DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS  (1u << DDS_REQUESTED_INCOMPATIBLE_QOS_STATUS_ID)
+   
+   #define DDS_SAMPLE_LOST_STATUS                 (1u << DDS_SAMPLE_LOST_STATUS_ID)
+   
+   #define DDS_SAMPLE_REJECTED_STATUS             (1u << DDS_SAMPLE_REJECTED_STATUS_ID)
+   
+   #define DDS_DATA_ON_READERS_STATUS             (1u << DDS_DATA_ON_READERS_STATUS_ID)
+   
+   #define DDS_DATA_AVAILABLE_STATUS              (1u << DDS_DATA_AVAILABLE_STATUS_ID)
+   
+   #define DDS_LIVELINESS_LOST_STATUS             (1u << DDS_LIVELINESS_LOST_STATUS_ID)
+   
+   #define DDS_LIVELINESS_CHANGED_STATUS          (1u << DDS_LIVELINESS_CHANGED_STATUS_ID)
+   
+   #define DDS_PUBLICATION_MATCHED_STATUS         (1u << DDS_PUBLICATION_MATCHED_STATUS_ID)
+   
+   #define DDS_SUBSCRIPTION_MATCHED_STATUS        (1u << DDS_SUBSCRIPTION_MATCHED_STATUS_ID)
+   
+   typedef enum dds_sample_state
+   {
+     DDS_SST_READ = DDS_READ_SAMPLE_STATE, 
+     DDS_SST_NOT_READ = DDS_NOT_READ_SAMPLE_STATE 
+   }
+   dds_sample_state_t;
+   
+   typedef enum dds_view_state
+   {
+     DDS_VST_NEW = DDS_NEW_VIEW_STATE,
+     DDS_VST_OLD = DDS_NOT_NEW_VIEW_STATE
+   }
+   dds_view_state_t;
+   
+   typedef enum dds_instance_state
+   {
+     DDS_IST_ALIVE = DDS_ALIVE_INSTANCE_STATE,
+     DDS_IST_NOT_ALIVE_DISPOSED = DDS_NOT_ALIVE_DISPOSED_INSTANCE_STATE,
+     DDS_IST_NOT_ALIVE_NO_WRITERS = DDS_NOT_ALIVE_NO_WRITERS_INSTANCE_STATE
+   }
+   dds_instance_state_t;
+   
+   typedef struct dds_sample_info
+   {
+     dds_sample_state_t sample_state;
+     dds_view_state_t view_state;
+     dds_instance_state_t instance_state;
+     bool valid_data;
+     dds_time_t source_timestamp;
+     dds_instance_handle_t instance_handle;
+     dds_instance_handle_t publication_handle;
+     uint32_t disposed_generation_count;
+     uint32_t no_writers_generation_count;
+     uint32_t sample_rank;
+     uint32_t generation_rank;
+     uint32_t absolute_generation_rank;
+   }
+   dds_sample_info_t;
+   
+   typedef struct dds_builtintopic_guid
+   {
+     uint8_t v[16];
+   }
+   dds_builtintopic_guid_t;
+   
+   /* "dds_builtintopic_guid_t" is a bit of a weird name for what everyone just calls a GUID,
+      so let us try and switch to using the more logical one */
+   typedef struct dds_builtintopic_guid dds_guid_t;
+   
+   typedef struct dds_builtintopic_participant
+   {
+     dds_guid_t key;
+     dds_qos_t *qos;
+   }
+   dds_builtintopic_participant_t;
+   
+   typedef struct dds_builtintopic_topic_key {
+     unsigned char d[16];
+   } dds_builtintopic_topic_key_t;
+   
+   typedef struct dds_builtintopic_topic
+   {
+     dds_builtintopic_topic_key_t key;
+     char *topic_name;
+     char *type_name;
+     dds_qos_t *qos;
+   }
+   dds_builtintopic_topic_t;
+   
+   typedef struct dds_builtintopic_endpoint
+   {
+     dds_guid_t key;
+     dds_guid_t participant_key;
+     dds_instance_handle_t participant_instance_handle;
+     char *topic_name;
+     char *type_name;
+     dds_qos_t *qos;
+   }
+   dds_builtintopic_endpoint_t;
+   
+   /*
+     All entities are represented by a process-private handle, with one
+     call to enable an entity when it was created disabled.
+     An entity is created enabled by default.
+     Note: disabled creation is currently not supported.
+   */
+   
+   DDS_EXPORT dds_return_t
+   dds_enable(dds_entity_t entity);
+   
+   /*
+     All entities are represented by a process-private handle, with one
+     call to delete an entity and all entities it logically contains.
+     That is, it is equivalent to combination of
+     delete_contained_entities and delete_xxx in the DCPS API.
+   */
+   
+   /* TODO: Link to generic dds entity relations documentation. */
+   DDS_EXPORT dds_return_t
+   dds_delete(dds_entity_t entity);
+   
+   /* TODO: Link to generic dds entity relations documentation. */
+   DDS_EXPORT dds_entity_t
+   dds_get_publisher(dds_entity_t writer);
+   
+   /* TODO: Link to generic dds entity relations documentation. */
+   DDS_EXPORT dds_entity_t
+   dds_get_subscriber(dds_entity_t entity);
+   
+   /* TODO: Link to generic dds entity relations documentation. */
+   DDS_EXPORT dds_entity_t
+   dds_get_datareader(dds_entity_t condition);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_mask(dds_entity_t condition, uint32_t *mask);
+   
+   /* TODO: Check list of return codes is complete. */
+   DDS_EXPORT dds_return_t
+   dds_get_instance_handle(dds_entity_t entity, dds_instance_handle_t *ihdl);
+   
+   /* TODO: Check list of return codes is complete. */
+   DDS_EXPORT dds_return_t
+   dds_get_guid (dds_entity_t entity, dds_guid_t *guid);
+   
+   /*
+     All entities have a set of "status conditions" (following the DCPS
+     spec), read peeks, take reads & resets (analogously to read & take
+     operations on reader). The "mask" allows operating only on a subset
+     of the statuses. Enabled status analogously to DCPS spec.
+   */
+   
+   DDS_EXPORT dds_return_t
+   dds_read_status(dds_entity_t entity, uint32_t *status, uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_status(dds_entity_t entity, uint32_t *status, uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_status_changes(dds_entity_t entity, uint32_t *status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_status_mask(dds_entity_t entity, uint32_t *mask);
+   
+   DDS_DEPRECATED_EXPORT dds_return_t
+   dds_get_enabled_status(dds_entity_t entity, uint32_t *mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_set_status_mask(dds_entity_t entity, uint32_t mask);
+   
+   DDS_DEPRECATED_EXPORT dds_return_t
+   dds_set_enabled_status(dds_entity_t entity, uint32_t mask);
+   
+   /*
+     Almost all entities have get/set qos operations defined on them,
+     again following the DCPS spec. But unlike the DCPS spec, the
+     "present" field in qos_t allows one to initialize just the one QoS
+     one wants to set & pass it to set_qos.
+   */
+   
+   /* TODO: Link to generic QoS information documentation. */
+   DDS_EXPORT dds_return_t
+   dds_get_qos(dds_entity_t entity, dds_qos_t *qos);
+   
+   /* TODO: Link to generic QoS information documentation. */
+   DDS_EXPORT dds_return_t
+   dds_set_qos(dds_entity_t entity, const dds_qos_t * qos);
+   
+   /*
+     Get or set listener associated with an entity, type of listener
+     provided much match type of entity.
+   */
+   
+   /* TODO: Link to (generic) Listener and status information. */
+   DDS_EXPORT dds_return_t
+   dds_get_listener(dds_entity_t entity, dds_listener_t * listener);
+   
+   /* TODO: Link to (generic) Listener and status information. */
+   DDS_EXPORT dds_return_t
+   dds_set_listener(dds_entity_t entity, const dds_listener_t * listener);
+   
+   /*
+     Creation functions for various entities. Creating a subscriber or
+     publisher is optional: if one creates a reader as a descendant of a
+     participant, it is as if a subscriber is created specially for
+     that reader.
+   
+     QoS default values are those of the DDS specification, but the
+     inheritance rules are different:
+   
+       * publishers and subscribers inherit from the participant QoS
+       * readers and writers always inherit from the topic QoS
+       * the QoS's present in the "qos" parameter override the inherited values
+   */
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_participant(
+     const dds_domainid_t domain,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener);
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_domain(const dds_domainid_t domain, const char *config);
+   
+   struct ddsi_config;
+   DDS_EXPORT dds_entity_t
+   dds_create_domain_with_rawconfig(const dds_domainid_t domain, const struct ddsi_config *config);
+   
+   /* TODO: Link to generic dds entity relations documentation. */
+   DDS_EXPORT dds_entity_t
+   dds_get_parent(dds_entity_t entity);
+   
+   DDS_EXPORT dds_entity_t
+   dds_get_participant(dds_entity_t entity);
+   
+   /* TODO: Link to generic dds entity relations documentation. */
+   DDS_EXPORT dds_return_t
+   dds_get_children(dds_entity_t entity, dds_entity_t *children, size_t size);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_domainid(dds_entity_t entity, dds_domainid_t *id);
+   
+   DDS_EXPORT dds_return_t
+   dds_lookup_participant(
+     dds_domainid_t domain_id,
+     dds_entity_t *participants,
+     size_t size);
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_topic(
+     dds_entity_t participant,
+     const dds_topic_descriptor_t *descriptor,
+     const char *name,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener);
+   
+   #define DDS_HAS_CREATE_TOPIC_SERTYPE 1
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_topic_sertype (
+     dds_entity_t participant,
+     const char *name,
+     struct ddsi_sertype **sertype,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener,
+     const struct ddsi_plist *sedp_plist);
+   
+   #define DDS_HAS_CREATE_TOPIC_GENERIC 1
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_topic_generic (
+     dds_entity_t participant,
+     struct ddsi_sertopic **sertopic,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener,
+     const struct ddsi_plist *sedp_plist);
+   
+   DDS_DEPRECATED_EXPORT dds_entity_t
+   dds_create_topic_arbitrary (
+     dds_entity_t participant,
+     struct ddsi_sertopic *sertopic,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener,
+     const struct ddsi_plist *sedp_plist);
+   
+   DDS_DEPRECATED_EXPORT dds_entity_t
+   dds_find_topic(dds_entity_t participant, const char *name);
+   
+   DDS_EXPORT dds_entity_t
+   dds_find_topic_scoped (dds_find_scope_t scope, dds_entity_t participant, const char *name, dds_duration_t timeout);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_name(dds_entity_t topic, char *name, size_t size);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_type_name(dds_entity_t topic, char *name, size_t size);
+   
+   typedef bool (*dds_topic_filter_sample_fn) (const void * sample);
+   typedef bool (*dds_topic_filter_sample_arg_fn) (const void * sample, void * arg);
+   typedef bool (*dds_topic_filter_sampleinfo_arg_fn) (const dds_sample_info_t * sampleinfo, void * arg);
+   typedef bool (*dds_topic_filter_sample_sampleinfo_arg_fn) (const void * sample, const dds_sample_info_t * sampleinfo, void * arg);
+   typedef dds_topic_filter_sample_fn dds_topic_filter_fn;
+   typedef dds_topic_filter_sample_arg_fn dds_topic_filter_arg_fn;
+   
+   enum dds_topic_filter_mode {
+     DDS_TOPIC_FILTER_NONE,
+     DDS_TOPIC_FILTER_SAMPLE,
+     DDS_TOPIC_FILTER_SAMPLE_ARG,
+     DDS_TOPIC_FILTER_SAMPLEINFO_ARG,
+     DDS_TOPIC_FILTER_SAMPLE_SAMPLEINFO_ARG,
+   };
+   
+   union dds_topic_filter_function_union {
+     dds_topic_filter_sample_fn sample;
+     dds_topic_filter_sample_arg_fn sample_arg;
+     dds_topic_filter_sampleinfo_arg_fn sampleinfo_arg;
+     dds_topic_filter_sample_sampleinfo_arg_fn sample_sampleinfo_arg;
+   };
+   
+   struct dds_topic_filter {
+     enum dds_topic_filter_mode mode;
+     union dds_topic_filter_function_union f;
+     void *arg;
+   };
+   
+   DDS_DEPRECATED_EXPORT void
+   dds_set_topic_filter(dds_entity_t topic, dds_topic_filter_fn filter);
+   
+   DDS_DEPRECATED_EXPORT void
+   dds_topic_set_filter(dds_entity_t topic, dds_topic_filter_fn filter);
+   
+   DDS_EXPORT dds_return_t
+   dds_set_topic_filter_and_arg(
+     dds_entity_t topic,
+     dds_topic_filter_arg_fn filter,
+     void *arg);
+   
+   DDS_EXPORT dds_return_t
+   dds_set_topic_filter_extended(
+     dds_entity_t topic,
+     const struct dds_topic_filter *filter);
+   
+   DDS_DEPRECATED_EXPORT dds_topic_filter_fn
+   dds_get_topic_filter(dds_entity_t topic);
+   
+   DDS_DEPRECATED_EXPORT dds_topic_filter_fn
+   dds_topic_get_filter(dds_entity_t topic);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_topic_filter_and_arg (
+     dds_entity_t topic,
+     dds_topic_filter_arg_fn *fn,
+     void **arg);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_topic_filter_extended (
+     dds_entity_t topic,
+     struct dds_topic_filter *filter);
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_subscriber(
+     dds_entity_t participant,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener);
+   
+   /* TODO: Check list of error codes is complete. */
+   DDS_EXPORT dds_entity_t
+   dds_create_publisher(
+     dds_entity_t participant,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener);
+   
+   DDS_EXPORT dds_return_t
+   dds_suspend(dds_entity_t publisher);
+   
+   DDS_EXPORT dds_return_t
+   dds_resume(dds_entity_t publisher);
+   
+   DDS_EXPORT dds_return_t
+   dds_wait_for_acks(dds_entity_t publisher_or_writer, dds_duration_t timeout);
+   
+   /* TODO: Complete list of error codes */
+   DDS_EXPORT dds_entity_t
+   dds_create_reader(
+     dds_entity_t participant_or_subscriber,
+     dds_entity_t topic,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener);
+   
+   /* TODO: Complete list of error codes */
+   DDS_EXPORT dds_entity_t
+   dds_create_reader_rhc(
+     dds_entity_t participant_or_subscriber,
+     dds_entity_t topic,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener,
+     struct dds_rhc *rhc);
+   
+   /* TODO: Complete list of error codes */
+   DDS_EXPORT dds_return_t
+   dds_reader_wait_for_historical_data(
+     dds_entity_t reader,
+     dds_duration_t max_wait);
+   
+   /* TODO: Complete list of error codes */
+   DDS_EXPORT dds_entity_t
+   dds_create_writer(
+     dds_entity_t participant_or_publisher,
+     dds_entity_t topic,
+     const dds_qos_t *qos,
+     const dds_listener_t *listener);
+   
+   /*
+     Writing data (and variants of it) is straightforward. The first set
+     is equivalent to the second set with -1 passed for "timestamp",
+     meaning, substitute the result of a call to time(). The dispose
+     and unregister operations take an object of the topic's type, but
+     only touch the key fields; the remained may be undefined.
+   */
+   DDS_EXPORT dds_return_t
+   dds_register_instance(
+     dds_entity_t writer,
+     dds_instance_handle_t *handle,
+     const void *data);
+   
+   DDS_EXPORT dds_return_t
+   dds_unregister_instance(dds_entity_t writer, const void *data);
+   
+   DDS_EXPORT dds_return_t
+   dds_unregister_instance_ih(dds_entity_t writer, dds_instance_handle_t handle);
+   
+   DDS_EXPORT dds_return_t
+   dds_unregister_instance_ts(
+     dds_entity_t writer,
+     const void *data,
+     dds_time_t timestamp);
+   
+   DDS_EXPORT dds_return_t
+   dds_unregister_instance_ih_ts(
+     dds_entity_t writer,
+     dds_instance_handle_t handle,
+     dds_time_t timestamp);
+   
+   DDS_EXPORT dds_return_t
+   dds_writedispose(dds_entity_t writer, const void *data);
+   
+   DDS_EXPORT dds_return_t
+   dds_writedispose_ts(
+     dds_entity_t writer,
+     const void *data,
+     dds_time_t timestamp);
+   
+   DDS_EXPORT dds_return_t
+   dds_dispose(dds_entity_t writer, const void *data);
+   
+   DDS_EXPORT dds_return_t
+   dds_dispose_ts(
+     dds_entity_t writer,
+     const void *data,
+     dds_time_t timestamp);
+   
+   DDS_EXPORT dds_return_t
+   dds_dispose_ih(dds_entity_t writer, dds_instance_handle_t handle);
+   
+   DDS_EXPORT dds_return_t
+   dds_dispose_ih_ts(
+     dds_entity_t writer,
+     dds_instance_handle_t handle,
+     dds_time_t timestamp);
+   
+   DDS_EXPORT dds_return_t
+   dds_write(dds_entity_t writer, const void *data);
+   
+   /*TODO: What is it for and is it really needed? */
+   DDS_EXPORT void
+   dds_write_flush(dds_entity_t writer);
+   
+   DDS_EXPORT dds_return_t
+   dds_writecdr(dds_entity_t writer, struct ddsi_serdata *serdata);
+   
+   DDS_EXPORT dds_return_t
+   dds_forwardcdr(dds_entity_t writer, struct ddsi_serdata *serdata);
+   
+   DDS_EXPORT dds_return_t
+   dds_write_ts(
+     dds_entity_t writer,
+     const void *data,
+     dds_time_t timestamp);
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_readcondition(dds_entity_t reader, uint32_t mask);
+   
+   typedef bool (*dds_querycondition_filter_fn) (const void * sample);
+   
+   /* TODO: Explain the filter (aka expression & parameters) of the (to be
+    *       implemented) new querycondition implementation.
+    * TODO: Update parameters when new querycondition is introduced.
+    */
+   DDS_EXPORT dds_entity_t
+   dds_create_querycondition(
+     dds_entity_t reader,
+     uint32_t mask,
+     dds_querycondition_filter_fn filter);
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_guardcondition(dds_entity_t participant);
+   
+   DDS_EXPORT dds_return_t
+   dds_set_guardcondition(dds_entity_t guardcond, bool triggered);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_guardcondition(dds_entity_t guardcond, bool *triggered);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_guardcondition(dds_entity_t guardcond, bool *triggered);
+   
+   typedef intptr_t dds_attach_t;
+   
+   DDS_EXPORT dds_entity_t
+   dds_create_waitset(dds_entity_t participant);
+   
+   DDS_EXPORT dds_return_t
+   dds_waitset_get_entities(
+     dds_entity_t waitset,
+     dds_entity_t *entities,
+     size_t size);
+   
+   DDS_EXPORT dds_return_t
+   dds_waitset_attach(
+     dds_entity_t waitset,
+     dds_entity_t entity,
+     dds_attach_t x);
+   
+   DDS_EXPORT dds_return_t
+   dds_waitset_detach(
+     dds_entity_t waitset,
+     dds_entity_t entity);
+   
+   DDS_EXPORT dds_return_t
+   dds_waitset_set_trigger(
+     dds_entity_t waitset,
+     bool trigger);
+   
+   DDS_EXPORT dds_return_t
+   dds_waitset_wait(
+     dds_entity_t waitset,
+     dds_attach_t *xs,
+     size_t nxs,
+     dds_duration_t reltimeout);
+   
+   DDS_EXPORT dds_return_t
+   dds_waitset_wait_until(
+     dds_entity_t waitset,
+     dds_attach_t *xs,
+     size_t nxs,
+     dds_time_t abstimeout);
+   
+   /*
+     There are a number of read and take variations.
+   
+     Return value is the number of elements returned. "max_samples"
+     should have the same type, as one can't return more than MAX_INT
+     this way, anyway. X, Y, CX, CY return to the various filtering
+     options, see the DCPS spec.
+   
+     O ::= read | take
+   
+     X             => CX
+     (empty)          (empty)
+     _next_instance   instance_handle_t prev
+   
+     Y             => CY
+     (empty)          uint32_t mask
+     _cond            cond_t cond -- refers to a read condition (or query if implemented)
+    */
+   
+   DDS_EXPORT dds_return_t
+   dds_read(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_mask(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_mask_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_instance(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs,
+     dds_instance_handle_t handle);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_instance_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs,
+     dds_instance_handle_t handle);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_instance_mask(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs,
+     dds_instance_handle_t handle,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_instance_mask_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs,
+     dds_instance_handle_t handle,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_take(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_mask(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_mask_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs,
+     uint32_t mask);
+   
+   #define DDS_HAS_READCDR 1
+   
+   DDS_EXPORT dds_return_t
+   dds_readcdr(
+     dds_entity_t reader_or_condition,
+     struct ddsi_serdata **buf,
+     uint32_t maxs,
+     dds_sample_info_t *si,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_readcdr_instance (
+       dds_entity_t reader_or_condition,
+       struct ddsi_serdata **buf,
+       uint32_t maxs,
+       dds_sample_info_t *si,
+       dds_instance_handle_t handle,
+       uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_takecdr(
+     dds_entity_t reader_or_condition,
+     struct ddsi_serdata **buf,
+     uint32_t maxs,
+     dds_sample_info_t *si,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_takecdr_instance (
+       dds_entity_t reader_or_condition,
+       struct ddsi_serdata **buf,
+       uint32_t maxs,
+       dds_sample_info_t *si,
+       dds_instance_handle_t handle,
+       uint32_t mask);
+   
+   
+   DDS_EXPORT dds_return_t
+   dds_take_instance(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs,
+     dds_instance_handle_t handle);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_instance_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs,
+     dds_instance_handle_t handle);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_instance_mask(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     size_t bufsz,
+     uint32_t maxs,
+     dds_instance_handle_t handle,
+     uint32_t mask);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_instance_mask_wl(
+     dds_entity_t reader_or_condition,
+     void **buf,
+     dds_sample_info_t *si,
+     uint32_t maxs,
+     dds_instance_handle_t handle,
+     uint32_t mask);
+   
+   /*
+     The read/take next functions return a single sample. The returned sample
+     has a sample state of NOT_READ, a view state of ANY_VIEW_STATE and an
+     instance state of ANY_INSTANCE_STATE.
+   */
+   
+   DDS_EXPORT dds_return_t
+   dds_take_next(
+     dds_entity_t reader,
+     void **buf,
+     dds_sample_info_t *si);
+   
+   DDS_EXPORT dds_return_t
+   dds_take_next_wl(
+     dds_entity_t reader,
+     void **buf,
+     dds_sample_info_t *si);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_next(
+     dds_entity_t reader,
+     void **buf,
+     dds_sample_info_t *si);
+   
+   DDS_EXPORT dds_return_t
+   dds_read_next_wl(
+     dds_entity_t reader,
+     void **buf,
+     dds_sample_info_t *si);
+   
+   DDS_EXPORT dds_return_t
+   dds_return_loan(
+     dds_entity_t entity,
+     void **buf,
+     int32_t bufsz);
+   
+   /*
+     Instance handle <=> key value mapping.
+     Functions exactly as read w.r.t. treatment of data
+     parameter. On output, only key values set.
+   
+       T x = { ... };
+       T y;
+       dds_instance_handle_t ih;
+       ih = dds_lookup_instance (e, &x);
+       dds_instance_get_key (e, ih, &y);
+   */
+   
+   DDS_EXPORT dds_instance_handle_t
+   dds_lookup_instance(dds_entity_t entity, const void *data);
+   
+   DDS_DEPRECATED_EXPORT dds_instance_handle_t
+   dds_instance_lookup(dds_entity_t entity, const void *data);
+   
+   /* TODO: Check return codes for completeness */
+   DDS_EXPORT dds_return_t
+   dds_instance_get_key(
+     dds_entity_t entity,
+     dds_instance_handle_t inst,
+     void *data);
+   
+   DDS_EXPORT dds_return_t
+   dds_begin_coherent(dds_entity_t entity);
+   
+   DDS_EXPORT dds_return_t
+   dds_end_coherent(dds_entity_t entity);
+   
+   DDS_EXPORT dds_return_t
+   dds_notify_readers(dds_entity_t subscriber);
+   
+   DDS_EXPORT dds_return_t
+   dds_triggered(dds_entity_t entity);
+   
+   DDS_EXPORT dds_entity_t
+   dds_get_topic(dds_entity_t entity);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_matched_subscriptions (
+     dds_entity_t writer,
+     dds_instance_handle_t *rds,
+     size_t nrds);
+   
+   DDS_EXPORT dds_builtintopic_endpoint_t *
+   dds_get_matched_subscription_data (
+     dds_entity_t writer,
+     dds_instance_handle_t ih);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_matched_publications (
+     dds_entity_t reader,
+     dds_instance_handle_t *wrs,
+     size_t nwrs);
+   
+   DDS_EXPORT dds_builtintopic_endpoint_t *
+   dds_get_matched_publication_data (
+     dds_entity_t reader,
+     dds_instance_handle_t ih);
+   
+   #ifdef DDS_HAS_TYPE_DISCOVERY
+   
+   DDS_EXPORT dds_return_t
+   dds_builtintopic_get_endpoint_typeid (
+     dds_builtintopic_endpoint_t * builtintopic_endpoint,
+     dds_typeid_kind_t kind,
+     dds_typeid_t **type_identifier);
+   #endif
+   
+   DDS_EXPORT void
+   dds_builtintopic_free_endpoint (
+     dds_builtintopic_endpoint_t * builtintopic_endpoint);
+   
+   DDS_EXPORT void
+   dds_builtintopic_free_topic (
+     dds_builtintopic_topic_t * builtintopic_topic);
+   
+   DDS_EXPORT void
+   dds_builtintopic_free_participant (
+     dds_builtintopic_participant_t * builtintopic_participant);
+   
+   DDS_EXPORT dds_return_t
+   dds_assert_liveliness (
+     dds_entity_t entity);
+   
+   DDS_EXPORT dds_return_t
+   dds_domain_set_deafmute (
+     dds_entity_t entity,
+     bool deaf,
+     bool mute,
+     dds_duration_t reset_after);
+   
+   
+   #ifdef DDS_HAS_TYPE_DISCOVERY
+   
+   DDS_EXPORT dds_return_t
+   dds_resolve_type (
+     dds_entity_t entity,
+     const dds_typeid_t *type_id,
+     dds_duration_t timeout,
+     struct ddsi_sertype **sertype);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_typeobj (
+     dds_entity_t entity,
+     const dds_typeid_t *type_id,
+     dds_duration_t timeout,
+     dds_typeobj_t **type_obj);
+   
+   DDS_EXPORT dds_return_t
+   dds_free_typeobj (
+     dds_typeobj_t *type_obj);
+   
+   
+   #endif /* DDS_HAS_TYPE_DISCOVERY */
+   
+   #if defined (__cplusplus)
+   }
+   #endif
+   #endif /* DDS_H */
