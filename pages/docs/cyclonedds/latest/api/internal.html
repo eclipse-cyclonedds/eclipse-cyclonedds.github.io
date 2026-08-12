@@ -629,7 +629,11 @@ This is a support function for testing and, other special uses and is subject to
 <dl class="c type">
 <dt class="sig sig-object c" id="c.dds_sequence_t">
 <span class="target" id="group__implementation_1ga7063a1462c8140e2381d2b7669dc084b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#c.dds_sequence" title="dds_sequence"><span class="n"><span class="pre">dds_sequence</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sequence_t</span></span></span><a class="headerlink" href="#c.dds_sequence_t" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Datastructure of a Sequence type Container for a sequence of bytes. The general model of this type is also used in IDL output, where the uint8_t * _buffer is replaced by the appropriate subtype of what is contained. </p>
+<dd><p>Representation of an IDL sequence in the C binding. </p>
+<p>The IDL compiler emits the same layout for every IDL sequence type. In generated type definitions, the <code class="docutils literal notranslate"><span class="pre">uint8_t</span> <span class="pre">*</span></code> buffer used here is replaced by a pointer to the sequence element type.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_maximum</span></code> is the number of elements for which <code class="docutils literal notranslate"><span class="pre">_buffer</span></code> has storage and <code class="docutils literal notranslate"><span class="pre">_length</span></code> is the number of elements currently in use. A sequence with all fields set to 0 is a valid empty sequence; when such a sequence is passed to a read operation, Cyclone DDS may allocate a new buffer and set <code class="docutils literal notranslate"><span class="pre">_release</span></code> to true.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_release</span></code> describes ownership of this sequence object’s <code class="docutils literal notranslate"><span class="pre">_buffer</span></code>. Generated type-specific free macros and dds_sample_free free the buffer only when <code class="docutils literal notranslate"><span class="pre">_release</span></code> is true. When <code class="docutils literal notranslate"><span class="pre">_release</span></code> is false, the application owns the buffer and remains responsible for freeing it.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">sequence&lt;string&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">sequence&lt;wstring&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">_release</span></code> also controls the strings stored in the sequence buffer: if <code class="docutils literal notranslate"><span class="pre">_release</span></code> is true they are freed, if it is false they are left untouched. For sequences of complex elements such as structs, unions, arrays or nested sequences, the elements are part of the sequence buffer but their owned contents are still freed recursively. This means a nested sequence with <code class="docutils literal notranslate"><span class="pre">_release</span></code> true can have its buffer freed even when the containing sequence has <code class="docutils literal notranslate"><span class="pre">_release</span></code> false. </p>
 </dd></dl>
 
 <dl class="c type">
@@ -644,31 +648,35 @@ This is a support function for testing and, other special uses and is subject to
 <span class="target" id="structdds__sequence"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_sequence</span></span></span><a class="headerlink" href="#c.dds_sequence" title="Permalink to this definition">¶</a><br /></dt>
 <dd><div class="docutils container">
 <em>#include &lt;dds_public_impl.h&gt;</em></div>
-<p>Datastructure of a Sequence type Container for a sequence of bytes. The general model of this type is also used in IDL output, where the uint8_t * _buffer is replaced by the appropriate subtype of what is contained. </p>
+<p>Representation of an IDL sequence in the C binding. </p>
+<p>The IDL compiler emits the same layout for every IDL sequence type. In generated type definitions, the <code class="docutils literal notranslate"><span class="pre">uint8_t</span> <span class="pre">*</span></code> buffer used here is replaced by a pointer to the sequence element type.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_maximum</span></code> is the number of elements for which <code class="docutils literal notranslate"><span class="pre">_buffer</span></code> has storage and <code class="docutils literal notranslate"><span class="pre">_length</span></code> is the number of elements currently in use. A sequence with all fields set to 0 is a valid empty sequence; when such a sequence is passed to a read operation, Cyclone DDS may allocate a new buffer and set <code class="docutils literal notranslate"><span class="pre">_release</span></code> to true.</p>
+<p><code class="docutils literal notranslate"><span class="pre">_release</span></code> describes ownership of this sequence object’s <code class="docutils literal notranslate"><span class="pre">_buffer</span></code>. Generated type-specific free macros and dds_sample_free free the buffer only when <code class="docutils literal notranslate"><span class="pre">_release</span></code> is true. When <code class="docutils literal notranslate"><span class="pre">_release</span></code> is false, the application owns the buffer and remains responsible for freeing it.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">sequence&lt;string&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">sequence&lt;wstring&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">_release</span></code> also controls the strings stored in the sequence buffer: if <code class="docutils literal notranslate"><span class="pre">_release</span></code> is true they are freed, if it is false they are left untouched. For sequences of complex elements such as structs, unions, arrays or nested sequences, the elements are part of the sequence buffer but their owned contents are still freed recursively. This means a nested sequence with <code class="docutils literal notranslate"><span class="pre">_release</span></code> true can have its buffer freed even when the containing sequence has <code class="docutils literal notranslate"><span class="pre">_release</span></code> false. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="c var">
 <dt class="sig sig-object c" id="c.dds_sequence._maximum">
 <span class="target" id="structdds__sequence_1a74b92ca596bfe7df28f3ace719ba2b94"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_maximum</span></span></span><a class="headerlink" href="#c.dds_sequence._maximum" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Allocated space in _buffer </p>
+<dd><p>Number of elements for which _buffer has storage. </p>
 </dd></dl>
 
 <dl class="c var">
 <dt class="sig sig-object c" id="c.dds_sequence._length">
 <span class="target" id="structdds__sequence_1a1d67343f4f6a2aa02515f0f12121ff35"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_length</span></span></span><a class="headerlink" href="#c.dds_sequence._length" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Used space in _buffer </p>
+<dd><p>Number of elements currently in use. </p>
 </dd></dl>
 
 <dl class="c var">
 <dt class="sig sig-object c" id="c.dds_sequence._buffer">
 <span class="target" id="structdds__sequence_1a1012d7ff357546d028089bbf912a3f53"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">_buffer</span></span></span><a class="headerlink" href="#c.dds_sequence._buffer" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Sequence of bytes </p>
+<dd><p>Pointer to the first element, or NULL for an empty sequence. </p>
 </dd></dl>
 
 <dl class="c var">
 <dt class="sig sig-object c" id="c.dds_sequence._release">
 <span class="target" id="structdds__sequence_1a24b352af7703fdb321aa2f3c2422e565"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">_release</span></span></span><a class="headerlink" href="#c.dds_sequence._release" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Whether a CycloneDDS _free method should free the contained buffer. if you put in your own allocated _buffer set this to false to avoid CycloneDDS calling free() on it. </p>
+<dd><p>Whether the sample free functions may free _buffer. </p>
 </dd></dl>
 
 </div>

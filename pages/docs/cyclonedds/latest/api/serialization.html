@@ -335,10 +335,38 @@
 </dd></dl>
 
 <dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_TYPE_TC_DEF">
+<span class="target" id="group__serialization_1gab944d9be89cac9b22a10573e30f9e5c0"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_TYPE_TC_DEF</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">21)</span><a class="headerlink" href="#c.DDS_OP_FLAG_TYPE_TC_DEF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>this flag indicates that the type has &#64;try_construct(USE_DEFAULT) in effect (combining TC_DEF and TC_TRIM means an out-of-range input is considered erroneous) </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_TYPE_TC_DEF"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_TYPE_TC_TRIM">
+<span class="target" id="group__serialization_1gadf834a64ba0a3eeea383c437f96c0ad6"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_TYPE_TC_TRIM</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">22)</span><a class="headerlink" href="#c.DDS_OP_FLAG_TYPE_TC_TRIM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>this flag indicates that the type has &#64;try_construct(TRIM) in effect (combining TC_DEF and TC_TRIM means an out-of-range input is considered erroneous) </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_TYPE_TC_TRIM"></span></p>
+</dd></dl>
+
+<dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_OP_FLAG_EXT">
 <span class="target" id="group__serialization_1ga7a7752dadb8e7a511022fc88f4c4d234"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_EXT</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">23)</span><a class="headerlink" href="#c.DDS_OP_FLAG_EXT" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>This flag indicates that the type has external data (i.e. a mapped to a pointer type), which can be the case because of (1) the &#64;external annotation in idl or (2) the &#64;optional annotation (optional fields are also mapped to pointer types as described in the XTypes spec). This flag is stored in the most-significant bit of the ‘type’ part of the serializer instruction. </p>
 <p><span class="target" id="group__serialization_1DDS_OP_FLAG_EXT"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_SUBTYPE_TC_DEF">
+<span class="target" id="group__serialization_1gabade11399ff0d24e719c5575c29a5946"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_SUBTYPE_TC_DEF</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">13)</span><a class="headerlink" href="#c.DDS_OP_FLAG_SUBTYPE_TC_DEF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>this flag indicates that the subtype has &#64;try_construct(USE_DEFAULT) in effect (combining TC_DEF and TC_TRIM means an out-of-range input is considered erroneous) </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_SUBTYPE_TC_DEF"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_FLAG_SUBTYPE_TC_TRIM">
+<span class="target" id="group__serialization_1gab2b5257d8b04bd340fdec7f0426031d3"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_SUBTYPE_TC_TRIM</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">14)</span><a class="headerlink" href="#c.DDS_OP_FLAG_SUBTYPE_TC_TRIM" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>this flag indicates that the subtype has &#64;try_construct(TRIM) in effect (combining TC_DEF and TC_TRIM means an out-of-range input is considered erroneous) </p>
+<p><span class="target" id="group__serialization_1DDS_OP_FLAG_SUBTYPE_TC_TRIM"></span></p>
 </dd></dl>
 
 <dl class="c macro">
@@ -373,7 +401,7 @@
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_OP_FLAG_SGN">
 <span class="target" id="group__serialization_1gae91d07f3c6d96a96ca9165cc54b92e60"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_FLAG_SGN</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">2)</span><a class="headerlink" href="#c.DDS_OP_FLAG_SGN" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>signed, applicable to {1,2,4,8,16}BY and arrays, sequences of them over </p>
+<dd><p>signed, applicable to {1,2,4,8,16}BY and arrays, sequences of them </p>
 <p><span class="target" id="group__serialization_1DDS_OP_FLAG_SGN"></span></p>
 </dd></dl>
 
@@ -463,7 +491,7 @@
 <li><p>must-understand (DDS_OP_FLAG_MU)</p></li>
 <li><p>storage size, only for ENU and BMK (n &lt;&lt; DDS_OP_FLAG_SZ_SHIFT)</p></li>
 <li><p>floating-point instead of integer (DDS_OP_FLAG_FP)</p></li>
-<li><p>signed integer instead of unsigned (DDS_OP_FLAG_SGN) [offset] = field offset from start of element in memory [elem-size] = element size in memory (elem-size is only included in case ‘external’ flag is set) [max-size] = string bound + 1 [max] = max enum value [bits-..] = identified bits in the bitmask, split into high and low 32 bits [alen] = array length, number of cases [sbound] = bounded sequence maximum number of elements [next-insn] = (unsigned 16 bits) offset to instruction for next field, from start of insn [elem-insn] = (unsigned 16 bits) offset to first instruction for element, from start of insn [cases] = (unsigned 16 bits) offset to first case label, from start of insn </p></li>
+<li><p>signed integer instead of unsigned (DDS_OP_FLAG_SGN) [offset] = field offset from start of element in memory [elem-size] = element size in memory (elem-size is only included in case ‘external’ flag is set) [max-size] = string bound + 1 [max] = max enum value [bits-..] = identified bits in the bitmask, split into high and low 32 bits [alen] = array length, number of cases [sbound] = bounded sequence maximum number of elements [next-insn] = (unsigned 16 bits) offset to instruction for next field, from start of insn [elem-insn] = (signed 16 bits) offset to first instruction for element, from start of insn [cases] = (signed 16 bits) offset to first case label, from start of insn </p></li>
 </ul>
 </p>
 </dd></dl>
@@ -477,7 +505,7 @@
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_SOP_JEQ">
 <span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1a3a3fe4c4bd9ded3053b427925aef813a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SOP_JEQ</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_SOP_JEQ" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>jump-if-equal, used for union cases: [JEQ, nBY, 0] [disc] [offset] [JEQ, BLN, 0] [disc] [offset] [JEQ, STR, 0] [disc] [offset] [JEQ, s, i] [disc] [offset] [JEQ4, e | nBY, 0] [disc] [offset] 0 [JEQ4, e | STR, 0] [disc] [offset] 0 [JEQ4, e | ENU, f] [disc] [offset] [max] [JEQ4, EXT, 0] *** not supported, use STU/UNI for external defined types [JEQ4, e | s, i] [disc] [offset] [elem-size iff “external” flag e is set, else 0] where e = external: stored as external data (pointer) (DDS_OP_FLAG_EXT) s = subtype other than {nBY,STR} for JEQ and {nBY,STR,ENU,EXT} for JEQ4 (note that BMK cannot be inline, because it needs 2 additional instructions for the bits that are identified in the bitmask type) i = (unsigned 16 bits) offset to first instruction for case, from start of insn instruction sequence must end in RTS, at which point executes continues at the next field’s instruction as specified by the union f = size flags for ENU instruction</p>
+<dd><p>jump-if-equal, used for union cases: [JEQ, nBY, 0] [disc] [offset] [JEQ, BLN, 0] [disc] [offset] [JEQ, STR, 0] [disc] [offset] [JEQ, s, i] [disc] [offset] [JEQ4, e | nBY, 0] [disc] [offset] 0 [JEQ4, e | STR, 0] [disc] [offset] 0 [JEQ4, e | ENU, f] [disc] [offset] [max] [JEQ4, EXT, 0] *** not supported, use STU/UNI for external defined types [JEQ4, e | s, i] [disc] [offset] [elem-size iff “external” flag e is set, else 0] where e = external: stored as external data (pointer) (DDS_OP_FLAG_EXT) s = subtype other than {nBY,STR} for JEQ and {nBY,STR,ENU,EXT} for JEQ4 (note that BMK cannot be inline, because it needs 2 additional instructions for the bits that are identified in the bitmask type) i = (signed 16 bits) offset to first instruction for case, from start of insn instruction sequence must end in RTS, at which point execution continues at the next field’s instruction as specified by the union f = size flags for ENU instruction</p>
 <p>Note that the JEQ instruction is deprecated and replaced by the JEQ4 instruction. The IDL compiler only generates JEQ4 for union cases, the JEQ instruction is included here for backwards compatibility (topic descriptors generated with a previous version of IDLC) </p>
 </dd></dl>
 
@@ -490,14 +518,14 @@
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_SOP_PLC">
 <span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1ad8c26e33c98add8fa3450059b45a55a5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SOP_PLC</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_SOP_PLC" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>XCDR2 parameter list CDR (inserts DHEADER before type and EMHEADER before each member) [PLC, 0, 0] followed by a list of JEQ instructions </p>
+<dd><p>Parameter-list CDR for mutable aggregates. For structures this is followed by a list of PLM instructions. For unions this prefixes an ADR | UNI instruction. [PLC, 0, 0] followed by a list of PLM instructions or an ADR | UNI instruction </p>
 </dd></dl>
 
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_SOP_PLM">
 <span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1ac7f29fc74f43ccb9aac4b530d2eb623c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SOP_PLM</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_SOP_PLM" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>[PLM, f, elem-insn] [member id] for members of aggregated mutable types (pl-cdr): where f = flags:<ul class="simple">
-<li><p>jump to base type (DDS_OP_FLAG_BASE) [elem-insn] = (unsigned 16 bits) offset to instruction for element, from start of insn when FLAG_BASE is set, this is the offset of the PLM list of the base type [member id] = id for this member (0 in case FLAG_BASE is set) </p></li>
+<li><p>jump to base type (DDS_OP_FLAG_BASE) [elem-insn] = (signed 16 bits) offset to instruction for element, from start of insn when FLAG_BASE is set, this is the offset of the PLM list of the base type [member id] = id for this member (0 in case FLAG_BASE is set) </p></li>
 </ul>
 </p>
 </dd></dl>
@@ -517,7 +545,7 @@
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_SOP_MID">
 <span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1aefb1779825ed75633b650e16035507ef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SOP_MID</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_SOP_MID" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>[MID, 0, elem-insn] [member id] For members of aggregated final and appendable types. Currently only for optional members the member ID is included, to facilitate adding the parameter header in XCDR1 data representation. where [elem-insn] = (unsigned 16 bits) offset to instruction for element, from start of insn [member id] = id for this member </p>
+<dd><p>[MID, 0, op-index] [member id] For members of aggregated final and appendable types. Currently only for optional members the member ID is included, to facilitate adding the parameter header in XCDR1 data representation. where [op-index] = (unsigned 16 bits) index of the member instruction, from start of descriptor [member id] = id for this member </p>
 </dd></dl>
 
 </dd></dl>
@@ -646,7 +674,7 @@
 <dl class="c enum">
 <dt class="sig sig-object c" id="c.dds_stream_typecode_primary">
 <span class="target" id="group__serialization_1gae71ade828fcfb6d53a96b2aa5f29463f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dds_stream_typecode_primary</span></span></span><a class="headerlink" href="#c.dds_stream_typecode_primary" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>primary type code for DDS_OP_ADR, DDS_OP_JEQ Convinience pre-bitshifted values. </p>
+<dd><p>primary type code for DDS_OP_ADR, DDS_OP_JEQ Convenience pre-bitshifted values. </p>
 <p><em>Values:</em></p>
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_stream_typecode_primary.DDS_SOP_TYPE_1BY">
@@ -770,7 +798,7 @@
 <dd><p>sub-type code </p>
 <p><ul class="simple">
 <li><p>encodes element type for DDS_OP_TYPE_{SEQ,ARR},</p></li>
-<li><p>discriminant type for DDS_OP_TYPE_UNI Convinience pre-bitshifted values. </p></li>
+<li><p>discriminant type for DDS_OP_TYPE_UNI Convenience pre-bitshifted values. </p></li>
 </ul>
 </p>
 <p><em>Values:</em></p>
@@ -929,7 +957,7 @@
 <dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_TOPIC_FIXED_SIZE">
 <span class="target" id="group__topic__flags_1ga845240e87c0d57ecf4dac746f91569c4"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_FIXED_SIZE</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">4)</span><a class="headerlink" href="#c.DDS_TOPIC_FIXED_SIZE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The size in memory of a sample of this topic type is fully fixed. </p>
+<dd><p>The in-memory sample representation has no value-dependent storage. This is not a guarantee that the serialized CDR size is constant: unions and bounded strings can still produce different serialized sizes. </p>
 <p><span class="target" id="group__topic__flags_1DDS_TOPIC_FIXED_SIZE"></span></p>
 </dd></dl>
 
@@ -989,6 +1017,13 @@
 <span class="target" id="group__topic__flags_1gaafc2e2208be3772792a666b3b38eb58a"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_KEY_ARRAY_NONPRIM</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">12)</span><a class="headerlink" href="#c.DDS_TOPIC_KEY_ARRAY_NONPRIM" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Set if any of the key fields of a type is an array with an element type that is not a primitive, bitmask or enum. </p>
 <p><span class="target" id="group__topic__flags_1DDS_TOPIC_KEY_ARRAY_NONPRIM"></span></p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_TOPIC_KEY_UNION">
+<span class="target" id="group__topic__flags_1gae5f9a021ad548339e964847d4430e8dd"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_TOPIC_KEY_UNION</span></span></span> <span class="pre">(1u</span> <span class="pre">&lt;&lt;</span> <span class="pre">13)</span><a class="headerlink" href="#c.DDS_TOPIC_KEY_UNION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set if any of the key fields of a type is a union type. </p>
+<p><span class="target" id="group__topic__flags_1DDS_TOPIC_KEY_UNION"></span></p>
 </dd></dl>
 
 <dl class="c macro">
