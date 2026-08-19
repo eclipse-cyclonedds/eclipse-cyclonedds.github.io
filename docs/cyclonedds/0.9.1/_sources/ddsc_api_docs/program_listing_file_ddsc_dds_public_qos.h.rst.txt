@@ -1,0 +1,388 @@
+
+.. _program_listing_file_ddsc_dds_public_qos.h:
+
+Program Listing for File dds_public_qos.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_ddsc_dds_public_qos.h>` (``ddsc/dds_public_qos.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * Copyright(c) 2006 to 2018 ADLINK Technology Limited and others
+    *
+    * This program and the accompanying materials are made available under the
+    * terms of the Eclipse Public License v. 2.0 which is available at
+    * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+    * v. 1.0 which is available at
+    * http://www.eclipse.org/org/documents/edl-v10.php.
+    *
+    * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+    */
+   
+   #ifndef DDS_QOS_H
+   #define DDS_QOS_H
+   
+   #include "dds/export.h"
+   #include "dds/ddsc/dds_public_qosdefs.h"
+   
+   /* Whether or not the "property list" QoS setting is supported in this version.  If it is,
+      the "dds.sec." properties are treated specially, preventing the accidental creation of
+      an non-secure participant by an implementation built without support for DDS Security. */
+   #define DDS_HAS_PROPERTY_LIST_QOS 1
+   
+   #if defined (__cplusplus)
+   extern "C" {
+   #endif
+   
+   DDS_EXPORT
+   dds_qos_t * dds_create_qos (void);
+   DDS_DEPRECATED_EXPORT
+   dds_qos_t * dds_qos_create (void);
+   
+   DDS_EXPORT void
+   dds_delete_qos (dds_qos_t * __restrict qos);
+   
+   DDS_DEPRECATED_EXPORT void
+   dds_qos_delete (dds_qos_t * __restrict qos);
+   
+   DDS_EXPORT void
+   dds_reset_qos(dds_qos_t * __restrict qos);
+   
+   DDS_DEPRECATED_EXPORT
+   void dds_qos_reset (dds_qos_t * __restrict qos
+   );
+   
+   DDS_EXPORT dds_return_t
+   dds_copy_qos (dds_qos_t * __restrict dst, const dds_qos_t * __restrict src);
+   
+   DDS_DEPRECATED_EXPORT dds_return_t
+   dds_qos_copy (dds_qos_t * __restrict dst, const dds_qos_t * __restrict src);
+   
+   DDS_EXPORT void
+   dds_merge_qos (dds_qos_t * __restrict dst, const dds_qos_t * __restrict src);
+   
+   DDS_DEPRECATED_EXPORT void
+   dds_qos_merge (dds_qos_t * __restrict dst, const dds_qos_t * __restrict src);
+   
+   DDS_EXPORT bool
+   dds_qos_equal (const dds_qos_t * __restrict a, const dds_qos_t * __restrict b);
+   
+   DDS_EXPORT void
+   dds_qset_userdata (
+     dds_qos_t * __restrict qos,
+     const void * __restrict value,
+     size_t sz);
+   
+   DDS_EXPORT void
+   dds_qset_topicdata (
+     dds_qos_t * __restrict qos,
+     const void * __restrict value,
+     size_t sz);
+   
+   DDS_EXPORT void
+   dds_qset_groupdata (
+     dds_qos_t * __restrict qos,
+     const void * __restrict value,
+     size_t sz);
+   
+   DDS_EXPORT void
+   dds_qset_durability (dds_qos_t * __restrict qos, dds_durability_kind_t kind);
+   
+   DDS_EXPORT void
+   dds_qset_history (
+     dds_qos_t * __restrict qos,
+     dds_history_kind_t kind,
+     int32_t depth);
+   
+   DDS_EXPORT void
+   dds_qset_resource_limits (
+     dds_qos_t * __restrict qos,
+     int32_t max_samples,
+     int32_t max_instances,
+     int32_t max_samples_per_instance);
+   
+   DDS_EXPORT void
+   dds_qset_presentation (
+     dds_qos_t * __restrict qos,
+     dds_presentation_access_scope_kind_t access_scope,
+     bool coherent_access,
+     bool ordered_access);
+   
+   DDS_EXPORT void
+   dds_qset_lifespan (
+     dds_qos_t * __restrict qos,
+     dds_duration_t lifespan);
+   
+   DDS_EXPORT void
+   dds_qset_deadline (
+     dds_qos_t * __restrict qos,
+     dds_duration_t deadline);
+   
+   DDS_EXPORT void
+   dds_qset_latency_budget (
+     dds_qos_t * __restrict qos,
+     dds_duration_t duration);
+   
+   DDS_EXPORT void
+   dds_qset_ownership (
+     dds_qos_t * __restrict qos,
+     dds_ownership_kind_t kind);
+   
+   DDS_EXPORT void
+   dds_qset_ownership_strength (dds_qos_t * __restrict qos, int32_t value);
+   
+   DDS_EXPORT void
+   dds_qset_liveliness (
+     dds_qos_t * __restrict qos,
+     dds_liveliness_kind_t kind,
+     dds_duration_t lease_duration);
+   
+   DDS_EXPORT void
+   dds_qset_time_based_filter (
+     dds_qos_t * __restrict qos,
+     dds_duration_t minimum_separation);
+   
+   DDS_EXPORT void
+   dds_qset_partition (
+     dds_qos_t * __restrict qos,
+     uint32_t n,
+     const char ** __restrict ps);
+   
+   DDS_EXPORT void
+   dds_qset_partition1 (
+     dds_qos_t * __restrict qos,
+     const char * __restrict name);
+   
+   DDS_EXPORT void
+   dds_qset_reliability (
+     dds_qos_t * __restrict qos,
+     dds_reliability_kind_t kind,
+     dds_duration_t max_blocking_time);
+   
+   DDS_EXPORT void
+   dds_qset_transport_priority (dds_qos_t * __restrict qos, int32_t value);
+   
+   DDS_EXPORT void
+   dds_qset_destination_order (
+     dds_qos_t * __restrict qos,
+     dds_destination_order_kind_t kind);
+   
+   DDS_EXPORT void
+   dds_qset_writer_data_lifecycle (dds_qos_t * __restrict qos, bool autodispose);
+   
+   DDS_EXPORT void
+   dds_qset_reader_data_lifecycle (
+     dds_qos_t * __restrict qos,
+     dds_duration_t autopurge_nowriter_samples_delay,
+     dds_duration_t autopurge_disposed_samples_delay);
+   
+   DDS_EXPORT void
+   dds_qset_durability_service (
+     dds_qos_t * __restrict qos,
+     dds_duration_t service_cleanup_delay,
+     dds_history_kind_t history_kind,
+     int32_t history_depth,
+     int32_t max_samples,
+     int32_t max_instances,
+     int32_t max_samples_per_instance);
+   
+   DDS_EXPORT void
+   dds_qset_ignorelocal (
+     dds_qos_t * __restrict qos,
+     dds_ignorelocal_kind_t ignore);
+   
+   DDS_EXPORT void
+   dds_qset_prop (
+     dds_qos_t * __restrict qos,
+     const char * name,
+     const char * value);
+   
+   DDS_EXPORT void
+   dds_qunset_prop (
+     dds_qos_t * __restrict qos,
+     const char * name);
+   
+   DDS_EXPORT void
+   dds_qset_bprop (
+     dds_qos_t * __restrict qos,
+     const char * name,
+     const void * value,
+     const size_t sz);
+   
+   DDS_EXPORT void
+   dds_qunset_bprop (
+     dds_qos_t * __restrict qos,
+     const char * name);
+   
+   DDS_EXPORT void
+   dds_qset_type_consistency (
+     dds_qos_t * __restrict qos,
+     dds_type_consistency_kind_t kind,
+     bool ignore_sequence_bounds,
+     bool ignore_string_bounds,
+     bool ignore_member_names,
+     bool prevent_type_widening,
+     bool force_type_validation);
+   
+   DDS_EXPORT void
+   dds_qset_data_representation (
+     dds_qos_t * __restrict qos,
+     uint32_t n,
+     const dds_data_representation_id_t *values);
+   
+   DDS_EXPORT bool dds_qget_userdata (const dds_qos_t * __restrict qos, void **value, size_t *sz);
+   
+   DDS_EXPORT bool dds_qget_topicdata (const dds_qos_t * __restrict qos, void **value, size_t *sz);
+   
+   DDS_EXPORT bool dds_qget_groupdata (const dds_qos_t * __restrict qos, void **value, size_t *sz);
+   
+   DDS_EXPORT bool dds_qget_durability (const dds_qos_t * __restrict qos, dds_durability_kind_t *kind);
+   
+   DDS_EXPORT bool dds_qget_history (const dds_qos_t * __restrict qos, dds_history_kind_t *kind, int32_t *depth);
+   
+   DDS_EXPORT bool
+   dds_qget_resource_limits (
+     const dds_qos_t * __restrict qos,
+     int32_t *max_samples,
+     int32_t *max_instances,
+     int32_t *max_samples_per_instance);
+   
+   DDS_EXPORT bool
+   dds_qget_presentation (
+     const dds_qos_t * __restrict qos,
+     dds_presentation_access_scope_kind_t *access_scope,
+     bool *coherent_access,
+     bool *ordered_access);
+   
+   DDS_EXPORT bool
+   dds_qget_lifespan (
+     const dds_qos_t * __restrict qos,
+     dds_duration_t *lifespan);
+   
+   DDS_EXPORT bool
+   dds_qget_deadline (
+     const dds_qos_t * __restrict qos,
+     dds_duration_t *deadline);
+   
+   DDS_EXPORT bool
+   dds_qget_latency_budget (
+     const dds_qos_t * __restrict qos,
+     dds_duration_t *duration);
+   
+   DDS_EXPORT bool
+   dds_qget_ownership (
+     const dds_qos_t * __restrict qos,
+     dds_ownership_kind_t *kind);
+   
+   DDS_EXPORT bool
+   dds_qget_ownership_strength (
+     const dds_qos_t * __restrict qos,
+     int32_t *value);
+   
+   DDS_EXPORT bool
+   dds_qget_liveliness (
+     const dds_qos_t * __restrict qos,
+     dds_liveliness_kind_t *kind,
+     dds_duration_t *lease_duration);
+   
+   DDS_EXPORT bool
+   dds_qget_time_based_filter (
+     const dds_qos_t * __restrict qos,
+     dds_duration_t *minimum_separation);
+   
+   DDS_EXPORT bool
+   dds_qget_partition (
+     const dds_qos_t * __restrict qos,
+     uint32_t *n,
+     char ***ps);
+   
+   DDS_EXPORT bool
+   dds_qget_reliability (
+     const dds_qos_t * __restrict qos,
+     dds_reliability_kind_t *kind,
+     dds_duration_t *max_blocking_time);
+   
+   DDS_EXPORT bool
+   dds_qget_transport_priority (
+     const dds_qos_t * __restrict qos,
+     int32_t *value);
+   
+   DDS_EXPORT bool
+   dds_qget_destination_order (
+     const dds_qos_t * __restrict qos,
+     dds_destination_order_kind_t *kind);
+   
+   DDS_EXPORT bool
+   dds_qget_writer_data_lifecycle (
+     const dds_qos_t * __restrict qos,
+     bool *autodispose);
+   
+   DDS_EXPORT bool
+   dds_qget_reader_data_lifecycle (
+     const dds_qos_t * __restrict qos,
+     dds_duration_t *autopurge_nowriter_samples_delay,
+     dds_duration_t *autopurge_disposed_samples_delay);
+   
+   DDS_EXPORT bool
+   dds_qget_durability_service (
+     const dds_qos_t * __restrict qos,
+     dds_duration_t *service_cleanup_delay,
+     dds_history_kind_t *history_kind,
+     int32_t *history_depth,
+     int32_t *max_samples,
+     int32_t *max_instances,
+     int32_t *max_samples_per_instance);
+   
+   DDS_EXPORT bool
+   dds_qget_ignorelocal (
+     const dds_qos_t * __restrict qos,
+     dds_ignorelocal_kind_t *ignore);
+   
+   DDS_EXPORT bool
+   dds_qget_propnames (
+     const dds_qos_t * __restrict qos,
+     uint32_t * n,
+     char *** names);
+   
+   DDS_EXPORT bool
+   dds_qget_prop (
+     const dds_qos_t * __restrict qos,
+     const char * name,
+     char ** value);
+   
+   DDS_EXPORT bool
+   dds_qget_bpropnames (
+     const dds_qos_t * __restrict qos,
+     uint32_t * n,
+     char *** names);
+   
+   DDS_EXPORT bool
+   dds_qget_bprop (
+     const dds_qos_t * __restrict qos,
+     const char * name,
+     void ** value,
+     size_t * sz);
+   
+   DDS_EXPORT bool
+   dds_qget_type_consistency (
+     const dds_qos_t * __restrict qos,
+     dds_type_consistency_kind_t *kind,
+     bool *ignore_sequence_bounds,
+     bool *ignore_string_bounds,
+     bool *ignore_member_names,
+     bool *prevent_type_widening,
+     bool *force_type_validation);
+   
+   DDS_EXPORT bool
+   dds_qget_data_representation (
+     const dds_qos_t * __restrict qos,
+     uint32_t *n,
+     dds_data_representation_id_t **values);
+   
+   #if defined (__cplusplus)
+   }
+   #endif
+   #endif
