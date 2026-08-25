@@ -300,6 +300,14 @@
 </dd></dl>
 
 <dl class="c macro">
+<dt class="sig sig-object c" id="c.DDS_OP_DLC_REQUIRED_PREFIX">
+<span class="target" id="group__serialization_1ga9f2f36f6dee093b8013e00dff12d5f21"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_DLC_REQUIRED_PREFIX</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span> <span class="pre">((uint16_t)</span> <span class="pre">((o)</span> <span class="pre">&amp;</span> <a class="reference internal" href="#group__serialization_1gaf2bf231dd2acd64f63b26638d475c48a"><span class="std std-ref"><span class="pre">DDS_OP_JMP_MASK</span></span></a><span class="pre">))</span><a class="headerlink" href="#c.DDS_OP_DLC_REQUIRED_PREFIX" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the offset past the required appendable prefix. </p>
+<p><span class="target" id="group__serialization_1DDS_OP_DLC_REQUIRED_PREFIX"></span></p>
+<p>For DLC instructions, this is an unsigned offset from the DLC instruction to the first instruction past the required prefix in the delimited scope. This prefix covers the first member, if any, and all key or non-optional must-understand members. A value of 0 means there is no required prefix. </p>
+</dd></dl>
+
+<dl class="c macro">
 <dt class="sig sig-object c" id="c.DDS_OP_JUMP">
 <span class="target" id="group__serialization_1gaac4258cbb9076592363f9947cf5dd233"></span><span class="sig-name descname"><span class="n"><span class="pre">DDS_OP_JUMP</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">o</span></span><span class="sig-paren">)</span> <span class="pre">((int16_t)</span> <span class="pre">((o)</span> <span class="pre">&amp;</span> <a class="reference internal" href="#group__serialization_1gaf2bf231dd2acd64f63b26638d475c48a"><span class="std std-ref"><span class="pre">DDS_OP_JMP_MASK</span></span></a><span class="pre">))</span><a class="headerlink" href="#c.DDS_OP_JUMP" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Extract the JUMP from a uint32 DOC_TODO: meaning? </p>
@@ -512,7 +520,7 @@
 <dl class="c enumerator">
 <dt class="sig sig-object c" id="c.dds_stream_opcode.DDS_SOP_DLC">
 <span class="target" id="group__serialization_1gga3408a192a4fba825f21d27a5a0fe0bb1aa212fa9c924445c42592267cff21c6ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DDS_SOP_DLC</span></span></span><a class="headerlink" href="#c.dds_stream_opcode.DDS_SOP_DLC" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>XCDR2 delimited CDR (inserts DHEADER before type) [DLC, 0, 0] </p>
+<dd><p>delimited CDR (inserts DHEADER before type for XCDR2) [DLC, 0, e] where e = (unsigned 16 bits) offset to first instruction past the required prefix in the delimited scope, from the start of the DLC instruction. The prefix covers the first member, if any, and all key or non-optional must-understand members. A value of 0 means there is no required prefix. </p>
 </dd></dl>
 
 <dl class="c enumerator">
