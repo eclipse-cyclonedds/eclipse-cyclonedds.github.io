@@ -158,6 +158,25 @@
 </ol>
 <img alt="../_images/listener.png" src="../_images/listener.png" />
 </section>
+<section id="sample-views">
+<h2>Sample views<a class="headerlink" href="#sample-views" title="Permalink to this heading">¶</a></h2>
+<p>Use the view selector next to “Clear” to switch between “Message log” (every
+received sample) and “Latest per instance” (one row per DDS instance per reader).
+In the instance view, samples with the same DDS key update the existing row,
+including its timestamp and sample information. Topics without keys have one
+instance per reader. Instance state notifications also update that row.</p>
+<p>You can switch views at any time. The full message log continues to be retained
+and is used for sample export; the instance view reduces displayed rows, not log
+memory usage. “Clear” clears both views.</p>
+</section>
+<section id="searching-messages">
+<h2>Searching messages<a class="headerlink" href="#searching-messages" title="Permalink to this heading">¶</a></h2>
+<p>Enter text in the search field next to the view selector and press Enter to
+filter message contents. Matching is case-insensitive and works in both views,
+together with the reader selection. Incoming samples and instance updates are
+checked against the applied search. Empty the field and press Enter to remove
+the filter. Searching does not change the stored log or sample export.</p>
+</section>
 <section id="presets">
 <h2>Presets<a class="headerlink" href="#presets" title="Permalink to this heading">¶</a></h2>
 <p>To quickly set up listeners for common scenarios, presets can be used to create multiple readers with predefined configurations.
@@ -181,6 +200,8 @@ Use the “Import” and “Export” buttons to share presets between different
                 <ul>
 <li><a class="reference internal" href="#">Listener</a><ul>
 <li><a class="reference internal" href="#general">General</a></li>
+<li><a class="reference internal" href="#sample-views">Sample views</a></li>
+<li><a class="reference internal" href="#searching-messages">Searching messages</a></li>
 <li><a class="reference internal" href="#presets">Presets</a></li>
 </ul>
 </li>
