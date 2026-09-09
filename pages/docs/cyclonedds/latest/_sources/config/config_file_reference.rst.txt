@@ -188,7 +188,7 @@ The default value is: ``lax``
 //CycloneDDS/Domain/Discovery
 =============================
 
-Children: :ref:`DSGracePeriod<//CycloneDDS/Domain/Discovery/DSGracePeriod>`, :ref:`DefaultMulticastAddress<//CycloneDDS/Domain/Discovery/DefaultMulticastAddress>`, :ref:`DiscoveredLocatorPruneDelay<//CycloneDDS/Domain/Discovery/DiscoveredLocatorPruneDelay>`, :ref:`EnableTopicDiscoveryEndpoints<//CycloneDDS/Domain/Discovery/EnableTopicDiscoveryEndpoints>`, :ref:`ExternalDomainId<//CycloneDDS/Domain/Discovery/ExternalDomainId>`, :ref:`InitialLocatorPruneDelay<//CycloneDDS/Domain/Discovery/InitialLocatorPruneDelay>`, :ref:`LeaseDuration<//CycloneDDS/Domain/Discovery/LeaseDuration>`, :ref:`MaxAutoParticipantIndex<//CycloneDDS/Domain/Discovery/MaxAutoParticipantIndex>`, :ref:`ParticipantIndex<//CycloneDDS/Domain/Discovery/ParticipantIndex>`, :ref:`Peers<//CycloneDDS/Domain/Discovery/Peers>`, :ref:`Ports<//CycloneDDS/Domain/Discovery/Ports>`, :ref:`SPDPInterval<//CycloneDDS/Domain/Discovery/SPDPInterval>`, :ref:`SPDPMulticastAddress<//CycloneDDS/Domain/Discovery/SPDPMulticastAddress>`, :ref:`Tag<//CycloneDDS/Domain/Discovery/Tag>`
+Children: :ref:`DSGracePeriod<//CycloneDDS/Domain/Discovery/DSGracePeriod>`, :ref:`DefaultMulticastAddress<//CycloneDDS/Domain/Discovery/DefaultMulticastAddress>`, :ref:`DiscoveredLocatorPruneDelay<//CycloneDDS/Domain/Discovery/DiscoveredLocatorPruneDelay>`, :ref:`EnableTopicDiscoveryEndpoints<//CycloneDDS/Domain/Discovery/EnableTopicDiscoveryEndpoints>`, :ref:`ExternalDomainId<//CycloneDDS/Domain/Discovery/ExternalDomainId>`, :ref:`InitialLocatorPruneDelay<//CycloneDDS/Domain/Discovery/InitialLocatorPruneDelay>`, :ref:`InterfaceFiltering<//CycloneDDS/Domain/Discovery/InterfaceFiltering>`, :ref:`LeaseDuration<//CycloneDDS/Domain/Discovery/LeaseDuration>`, :ref:`MaxAutoParticipantIndex<//CycloneDDS/Domain/Discovery/MaxAutoParticipantIndex>`, :ref:`ParticipantIndex<//CycloneDDS/Domain/Discovery/ParticipantIndex>`, :ref:`Peers<//CycloneDDS/Domain/Discovery/Peers>`, :ref:`Ports<//CycloneDDS/Domain/Discovery/Ports>`, :ref:`SPDPInterval<//CycloneDDS/Domain/Discovery/SPDPInterval>`, :ref:`SPDPMulticastAddress<//CycloneDDS/Domain/Discovery/SPDPMulticastAddress>`, :ref:`Tag<//CycloneDDS/Domain/Discovery/Tag>`
 
 The Discovery element allows you to specify various parameters related to the discovery of peers.
 
@@ -269,6 +269,27 @@ This element specifies the default time for configured peer locators are initial
 Valid values are finite durations with an explicit unit or the keyword 'inf' for infinity. Recognised units: ns, us, ms, s, min, hr, day.
 
 The default value is: ``30s``
+
+
+.. _`//CycloneDDS/Domain/Discovery/InterfaceFiltering`:
+
+//CycloneDDS/Domain/Discovery/InterfaceFiltering
+------------------------------------------------
+
+One of: off, strict, normal
+
+This element decides how strictly the participant discovery filters 
+on reception interface (requires extended packet info to be enabled, see 
+Internal/ExtendedPacketInfo:
+ * off: no filtering
+
+ * normal: only the configured interfaces and loopback
+
+ * strict: only the configured interfaces
+
+
+
+The default value is: ``normal``
 
 
 .. _`//CycloneDDS/Domain/Discovery/LeaseDuration`:
@@ -2997,14 +3018,14 @@ The categorisation of tracing output is incomplete and hence most of the verbosi
 The default value is: ``none``
 
 ..
-   generated from ddsi_config.h[296c449e5f567df1dad1ac3d0db7c8f079ee9cc3]
-   generated from ddsi_config.c[898d7e396b2d99b164e14562b1fa6c33910f2cc7]
-   generated from ddsi__cfgelems.h[0224b00c31124b7d7148a6cb4bf179561fbba4e7]
+   generated from ddsi_config.h[f91973dc418c2652cde7f01c7f643d93abe523b9]
+   generated from ddsi_config.c[7da74c5d75c9ed5b87f7260a8dc487f57b34eba2]
+   generated from ddsi__cfgelems.h[e6bc98ae723fac5cfac16b3793ae64c655e7a90f]
    generated from cfgunits.h[05f093223fce107d24dd157ebaafa351dc9df752]
-   generated from _confgen.h[bb9a0fc6ef1f7f7c46790ee00132e340e5fff36d]
+   generated from _confgen.h[e0b7a072621df43c0e7419d52359ddf4b98b202f]
    generated from _confgen.c[500178f92fc0791a8de2234cea5b277820e6b40b]
    generated from generate_rnc.c[b50e4b7ab1d04b2bc1d361a0811247c337b74934]
    generated from generate_md.c[789b92e422631684352909cfb8bf43f6ceb16a01]
    generated from generate_rst.c[3c4b523fbb57c8e4a7e247379d06a8021ccc21c4]
    generated from generate_xsd.c[9bb91084fff7495aee9c025db3108549a0141957]
-   generated from generate_defconfig.c[02afff6935d72b7f04dc64c8a649b09f9f6143ac]
+   generated from generate_defconfig.c[ab6586fcd43cc01814507db687575914686943dc]
