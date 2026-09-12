@@ -1,0 +1,69 @@
+
+.. _program_listing_file_ddsc_dds_data_allocator.h:
+
+Program Listing for File dds_data_allocator.h
+=============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_ddsc_dds_data_allocator.h>` (``ddsc/dds_data_allocator.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * Copyright(c) 2021 ADLINK Technology Limited and others
+    *
+    * This program and the accompanying materials are made available under the
+    * terms of the Eclipse Public License v. 2.0 which is available at
+    * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+    * v. 1.0 which is available at
+    * http://www.eclipse.org/org/documents/edl-v10.php.
+    *
+    * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+    */
+   
+   #ifndef DDS_DATA_ALLOCATOR_H
+   #define DDS_DATA_ALLOCATOR_H
+   
+   /* A quick-and-dirty provisional interface */
+   
+   #include "dds/dds.h"
+   #include "dds/ddsrt/attributes.h"
+   #include "dds/export.h"
+   
+   #if defined (__cplusplus)
+   extern "C" {
+   #endif
+   
+   // macOS' mutexes require quite a lot of space, but it is not quite enough
+   // to make this system-dependent
+   #define DDS_DATA_ALLOCATOR_MAX_SIZE (12 * sizeof (void *))
+   
+   typedef struct dds_data_allocator {
+     dds_entity_t entity;
+     union {
+       unsigned char bytes[DDS_DATA_ALLOCATOR_MAX_SIZE];
+       void *align_ptr;
+       uint64_t align_u64;
+     } opaque;
+   } dds_data_allocator_t;
+   
+   DDS_EXPORT dds_return_t dds_data_allocator_init (dds_entity_t entity, dds_data_allocator_t *data_allocator);
+   
+   DDS_EXPORT dds_return_t dds_data_allocator_init_heap (dds_data_allocator_t *data_allocator);
+   
+   DDS_EXPORT dds_return_t dds_data_allocator_fini (dds_data_allocator_t *data_allocator);
+   
+   DDS_EXPORT void *dds_data_allocator_alloc (dds_data_allocator_t *data_allocator, size_t size)
+     ddsrt_attribute_warn_unused_result ddsrt_attribute_malloc;
+   
+   DDS_EXPORT dds_return_t dds_data_allocator_free (dds_data_allocator_t *data_allocator, void *ptr);
+   
+   DDS_EXPORT bool dds_is_loan_available(const dds_entity_t entity);
+   
+   DDS_EXPORT bool is_loan_available(const dds_entity_t entity);
+   
+   #if defined (__cplusplus)
+   }
+   #endif
+   #endif

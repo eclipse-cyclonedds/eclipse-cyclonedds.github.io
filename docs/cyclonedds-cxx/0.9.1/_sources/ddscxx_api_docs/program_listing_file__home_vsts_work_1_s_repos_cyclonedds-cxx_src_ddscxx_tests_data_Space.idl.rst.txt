@@ -1,0 +1,68 @@
+
+.. _program_listing_file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_data_Space.idl:
+
+Program Listing for File Space.idl
+==================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__home_vsts_work_1_s_repos_cyclonedds-cxx_src_ddscxx_tests_data_Space.idl>` (``/home/vsts/work/1/s/repos/cyclonedds-cxx/src/ddscxx/tests/data/Space.idl``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: idl
+
+   
+   module Space {
+       enum Enumeration
+       {
+           VALUE1,
+           VALUE2
+       };
+   
+       struct Type1 {
+           @key long long_1;
+           long long_2;
+           long long_3;
+       };
+   
+       struct Type2 {
+           @key long long_1;
+           long long_2;
+           long long_3;
+           Enumeration enum_1;
+       };
+   };
+   
+   module TraitTest {
+       struct StructDefault {
+           long l;
+       };
+   
+       @nested struct StructNested {
+           long l;
+       };
+   
+       @topic struct StructTopic {
+           long l;
+       };
+   
+       union UnionDefault switch(long) {
+           case 1:
+               long l;
+           case 2:
+               double d;
+       };
+   
+       @nested union UnionNested switch(long) {
+           case 1:
+               long l;
+           case 2:
+               double d;
+       };
+   
+       @topic union UnionTopic switch(long) {
+           case 1:
+               long l;
+           case 2:
+               double d;
+       };
+   };

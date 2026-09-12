@@ -1,0 +1,74 @@
+
+.. _program_listing_file_ddsc_dds_statistics.h:
+
+Program Listing for File dds_statistics.h
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_ddsc_dds_statistics.h>` (``ddsc/dds_statistics.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * Copyright(c) 2020 ADLINK Technology Limited and others
+    *
+    * This program and the accompanying materials are made available under the
+    * terms of the Eclipse Public License v. 2.0 which is available at
+    * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+    * v. 1.0 which is available at
+    * http://www.eclipse.org/org/documents/edl-v10.php.
+    *
+    * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+    */
+   
+   #ifndef DDS_STATISTICS_H
+   #define DDS_STATISTICS_H
+   
+   /* A quick-and-dirty provisional interface */
+   
+   #include "dds/dds.h"
+   #include "dds/ddsrt/attributes.h"
+   #include "dds/export.h"
+   
+   #if defined (__cplusplus)
+   extern "C" {
+   #endif
+   
+   enum dds_stat_kind {
+     DDS_STAT_KIND_UINT32,          
+     DDS_STAT_KIND_UINT64,          
+     DDS_STAT_KIND_LENGTHTIME       
+   };
+   
+   struct dds_stat_keyvalue {
+     const char *name;              
+     enum dds_stat_kind kind;       
+     union {
+       uint32_t u32;
+       uint64_t u64;
+       uint64_t lengthtime;
+     } u;
+   };
+   
+   struct dds_statistics {
+     dds_entity_t entity;           
+     uint64_t opaque;               
+     dds_time_t time;               
+     size_t count;                  
+     struct dds_stat_keyvalue kv[]; 
+   };
+   
+   DDS_EXPORT struct dds_statistics *dds_create_statistics (dds_entity_t entity);
+   
+   DDS_EXPORT dds_return_t dds_refresh_statistics (struct dds_statistics *stat);
+   
+   DDS_EXPORT void dds_delete_statistics (struct dds_statistics *stat);
+   
+   DDS_EXPORT const struct dds_stat_keyvalue *dds_lookup_statistic (const struct dds_statistics *stat, const char *name)
+     ddsrt_nonnull ((2));
+   
+   #if defined (__cplusplus)
+   }
+   #endif
+   #endif

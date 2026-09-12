@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>DDSI Concepts &#8212; @PROJECT_NAME@ @PROJECT_VERSION@ documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=0.7.0-1" />
+    <link rel="stylesheet" type="text/css" href="/_static/style.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Eclipse Cyclone DDS Specifics" href="cyclonedds_specifics.html" />
+    <link rel="prev" title="Eclipse Cyclone DDS Configuration Options" href="../config.html" /> 
+  </head><body>
+
+<div id="top_nav">
+    
+
+    <nav>
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">@PROJECT_NAME@ @PROJECT_VERSION@ documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../config.html">Eclipse Cyclone DDS Configuration Options</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DDSI Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cyclonedds_specifics.html">Eclipse Cyclone DDS Specifics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../security.html">DDS Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shared_memory.html">Shared Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ddsc.html">Eclipse Cyclone DDS C API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ddsi-concepts">
+<span id="id1"></span><h1>DDSI Concepts<a class="headerlink" href="#ddsi-concepts" title="Permalink to this headline">¶</a></h1>
+<p>The DDSI standard is intimately related to the DDS 1.2 and 1.4 standards, with a clear
+correspondence between the entities in DDSI and those in DCPS.  However, this
+correspondence is not one-to-one.</p>
+<p>In this section we give a high-level description of the concepts of the DDSI
+specification, with hardly any reference to the specifics of the Eclipse Cyclone DDS
+implementation (addressed in <a class="reference internal" href="cyclonedds_specifics.html#eclipse-cyclone-dds-specifics"><span class="std std-ref">Eclipse Cyclone DDS Specifics</span></a>). This division
+aids readers interested in interoperability in understanding where the specification ends
+and the Eclipse Cyclone DDS implementation begins.</p>
+<section id="mapping-of-dcps-domains-to-ddsi-domains">
+<span id="id2"></span><h2>Mapping of DCPS Domains to DDSI Domains<a class="headerlink" href="#mapping-of-dcps-domains-to-ddsi-domains" title="Permalink to this headline">¶</a></h2>
+<p>In DCPS, a domain is uniquely identified by a non-negative integer, the domain id.  In
+the UDP/IP mapping, this domain id is mapped to port numbers to be used for
+communicating with the peer nodes — these port numbers are particularly important for
+the discovery protocol — and this mapping of domain ids to UDP/IP port numbers ensures
+that accidental cross-domain communication is impossible with the default mapping.</p>
+<p>DDSI does not communicate the DCPS port number in the discovery protocol; it assumes
+that each domain id maps to a unique port number.  While it is unusual to change the
+mapping, the specification requires this to be possible, and this means that two
+different DCPS domain ids can be mapped to a single DDSI domain.</p>
+</section>
+<section id="mapping-of-dcps-entities-to-ddsi-entities">
+<span id="id3"></span><h2>Mapping of DCPS Entities to DDSI Entities<a class="headerlink" href="#mapping-of-dcps-entities-to-ddsi-entities" title="Permalink to this headline">¶</a></h2>
+<p>Each DCPS domain participant in a domain is mirrored in DDSI as a DDSI participant.
+These DDSI participants drive the discovery of participants, readers, and writers in DDSI
+via the discovery protocols.  By default, each DDSI participant has a unique address on
+the network in the form of its own UDP/IP socket with a unique port number.</p>
+<p>Any data reader or data writer created by a DCPS domain participant is mirrored in DDSI
+as a DDSI reader or writer.  In this translation, some of the structure of the DCPS
+domain is obscured because the standardized parts of DDSI have no knowledge of DCPS
+Subscribers and Publishers.  Instead, each DDSI reader is the combination of the
+corresponding DCPS data reader and the DCPS subscriber it belongs to; similarly, each
+DDSI writer is a combination of the corresponding DCPS data writer and DCPS publisher.
+This corresponds to the way the standardized DCPS built-in topics describe the DCPS data
+readers and data writers, as there are no standardized built-in topics for describing
+the DCPS subscribers and publishers either.  Implementations can (and do) offer
+additional built-in topics for describing these entities and include them in the
+discovery, but these are non-standard extensions.</p>
+<p>In addition to the application-created readers and writers (referred to as <em>endpoints</em>),
+DDSI participants have a number of DDSI built-in endpoints used for discovery and
+liveliness checking/asserting.  The most important ones are those absolutely required
+for discovery: readers and writers for the discovery data concerning DDSI participants,
+DDSI readers and DDSI writers.  Some other ones exist as well, and a DDSI implementation
+can leave out some of these if it has no use for them.  For example, if a participant
+has no writers, it doesn’t strictly need the DDSI built-in endpoints for describing
+writers, nor the DDSI built-in endpoint for learning of readers of other participants.</p>
+</section>
+<section id="reliable-communication">
+<span id="id4"></span><h2>Reliable Communication<a class="headerlink" href="#reliable-communication" title="Permalink to this headline">¶</a></h2>
+<p><em>Best-effort</em> communication is simply a wrapper around UDP/IP: the packet(s) containing
+a sample are sent to the addresses at which the readers reside.  No state is maintained
+on the writer.  If a packet is lost, the reader will simply ignore the samples
+contained in the lost packet and continue with the next one.</p>
+<p>When <em>reliable</em> communication is used, the writer maintains a copy of the sample, in
+case a reader detects it has lost packets and requests a re-transmission.  These copies
+are stored in the writer history cache (or <em>WHC</em>) of the DDSI writer.  The DDSI writer
+is required to periodically send <em>Heartbeats</em> to its readers to ensure that all readers
+will learn of the presence of new samples in the WHC even when packets get lost.  It is
+allowed to suppress these periodic Heartbeats if all samples in the WHC have
+been acknowledged by all matched readers. Eclipse Cyclone DDS exploits this freedom.</p>
+<p>If a reader receives a Heartbeat and detects it did not receive all samples, it requests
+a re-transmission by sending an <em>AckNack</em> message to the writer.  The timing of this is
+somewhat adjustable and it is worth remarking that a roundtrip latency longer than the
+Heartbeat interval easily results in multiple re-transmit requests for a single sample.
+In addition to requesting re-transmission of some samples, a reader also uses the AckNack
+messages to inform the writer up to which sample it has received everything, and which
+ones it has not yet received.  Whenever the writer indicates it requires a response to a
+Heartbeat the readers will send an AckNack message even when no samples are missing.  In
+this case, it becomes a pure acknowledgement.</p>
+<p>The combination of these behaviours in principle allows the writer to remove old samples
+from its WHC when it fills up the cache, and allows readers to reliably receive all data.  A
+complication exists in the case of unresponsive readers, readers that do not respond to
+a Heartbeat at all, or that for some reason fail to receive some samples despite
+re-sending them.  The specification does not define how to handle these situations.  The
+default behaviour of Eclipse Cyclone DDS is to never consider readers unresponsive, but it can
+be configured to consider them so after a certain length of time has passed at which
+point the participant containing the reader is undiscovered.</p>
+<p>Note that while this Heartbeat/AckNack mechanism is straightforward, the
+specification actually allows suppressing heartbeats, merging of AckNacks and
+re-transmissions, etc.  The use of these techniques is required to allow for a performant
+DDSI implementation, whilst avoiding the need for sending redundant messages.</p>
+</section>
+<section id="ddsi-specific-transient-local-behaviour">
+<span id="id5"></span><h2>DDSI-Specific Transient-Local Behaviour<a class="headerlink" href="#ddsi-specific-transient-local-behaviour" title="Permalink to this headline">¶</a></h2>
+<p>The above describes the essentials of the mechanism used for samples of the <em>volatile</em>
+durability kind, but the DCPS specification also provides <em>transient-local</em>, <em>transient</em>
+and <em>persistent</em> data.  Of these, the DDSI specification at present only covers
+<em>transient-local</em>, and this is the only form of durable data available when
+inter-operating across vendors.</p>
+<p>In DDSI, transient-local data is implemented using the WHC that is normally used for
+reliable communication.  For transient-local data, samples are retained even when all
+readers have acknowledged them. With the default history setting of <code class="docutils literal notranslate"><span class="pre">KEEP_LAST</span></code> with
+<code class="docutils literal notranslate"><span class="pre">history_depth</span> <span class="pre">=</span> <span class="pre">1</span></code>, this means that late-joining readers can still obtain the latest
+sample for each existing instance.</p>
+<p>Naturally, once the DCPS writer is deleted (or disappears for whatever reason), the DDSI
+writer disappears as well, and with it, its history.  For this reason, transient data is
+generally preferred over transient-local data.  Eclipse Cyclone DDS has a facility
+for retrieving transient data from an suitably configured OpenSplice node, but does not
+yet include a native service for managing transient data.</p>
+</section>
+<section id="discovery-of-participants-endpoints">
+<span id="id6"></span><h2>Discovery of Participants &amp; Endpoints<a class="headerlink" href="#discovery-of-participants-endpoints" title="Permalink to this headline">¶</a></h2>
+<p>DDSI participants discover each other by means of the <em>Simple Participant Discovery
+Protocol</em> or <em>SPDP</em> for short.  This protocol is based on periodically sending a message
+containing the specifics of the participant to a set of known addresses.  By default,
+this is a standardised multicast address (<code class="docutils literal notranslate"><span class="pre">239.255.0.1</span></code>; the port number is derived
+from the domain id) that all DDSI implementations listen to.</p>
+<p>Particularly important in the SPDP message are the unicast and multicast addresses at
+which the participant can be reached.  Typically, each participant has a unique unicast
+address, which in practice means all participants on a node all have a different UDP/IP
+port number in their unicast address.  In a multicast-capable network, it doesn’t matter
+what the actual address (including port number) is, because all participants will learn
+them through these SPDP messages.</p>
+<p>The protocol does allow for unicast-based discovery, which requires listing the
+addresses of machines where participants may be located and ensuring each participant
+uses one of a small set of port numbers.  Because of this, some of the port numbers are
+derived not only from the domain id, but also from a <em>participant index</em>, which is a
+small non-negative integer, unique to a participant within a node.  (Eclipse Cyclone DDS adds an
+indirection and uses at most one participant index for a domain for each process,
+regardless of how many DCPS participants are created by the process.)</p>
+<p>Once two participants have discovered each other and both have matched the DDSI built-in
+endpoints their peer is advertising in the SPDP message, the <em>Simple Endpoint Discovery
+Protocol</em> or <em>SEDP</em> takes over, exchanging information on the DCPS data readers and data
+writers (and for Eclipse Cyclone DDS, also publishers, subscribers and topics in a manner
+compatible with OpenSplice) in the two participants.</p>
+<p>The SEDP data is handled as reliable, transient-local data.  Therefore, the SEDP writers
+send Heartbeats, the SEDP readers detect they have not yet received all samples and send
+AckNacks requesting retransmissions, the writer responds to these and eventually
+receives a pure acknowledgement informing it that the reader has now received the
+complete set.</p>
+<p>Note that the discovery process necessarily creates a burst of traffic each time a
+participant is added to the system: <em>all</em> existing participants respond to the SPDP
+message, following which all start exchanging SEDP data.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon"><</span><span>Page contents<span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">></span><span>Page contents:<span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">DDSI Concepts</a><ul>
+<li><a class="reference internal" href="#mapping-of-dcps-domains-to-ddsi-domains">Mapping of DCPS Domains to DDSI Domains</a></li>
+<li><a class="reference internal" href="#mapping-of-dcps-entities-to-ddsi-entities">Mapping of DCPS Entities to DDSI Entities</a></li>
+<li><a class="reference internal" href="#reliable-communication">Reliable Communication</a></li>
+<li><a class="reference internal" href="#ddsi-specific-transient-local-behaviour">DDSI-Specific Transient-Local Behaviour</a></li>
+<li><a class="reference internal" href="#discovery-of-participants-endpoints">Discovery of Participants &amp; Endpoints</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../config.html">
+                    <span class="icon"><</span><span>Eclipse Cyclone DDS Configuration Options</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="cyclonedds_specifics.html"><span>Eclipse Cyclone DDS Specifics</span><span class="icon">></span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, @PROJECT_NAME@ committers.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
