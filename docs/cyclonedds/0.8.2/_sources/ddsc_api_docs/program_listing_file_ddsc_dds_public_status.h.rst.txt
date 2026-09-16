@@ -1,0 +1,204 @@
+
+.. _program_listing_file_ddsc_dds_public_status.h:
+
+Program Listing for File dds_public_status.h
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_ddsc_dds_public_status.h>` (``ddsc/dds_public_status.h``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   /*
+    * Copyright(c) 2006 to 2018 ADLINK Technology Limited and others
+    *
+    * This program and the accompanying materials are made available under the
+    * terms of the Eclipse Public License v. 2.0 which is available at
+    * http://www.eclipse.org/legal/epl-2.0, or the Eclipse Distribution License
+    * v. 1.0 which is available at
+    * http://www.eclipse.org/org/documents/edl-v10.php.
+    *
+    * SPDX-License-Identifier: EPL-2.0 OR BSD-3-Clause
+    */
+   
+   #ifndef DDS_STATUS_H
+   #define DDS_STATUS_H
+   
+   #include "dds/export.h"
+   
+   #if defined (__cplusplus)
+   extern "C" {
+   #endif
+   
+   /*
+     Listeners implemented as structs containing callback functions
+     that take listener status types as arguments.
+   */
+   
+   /* Listener status types */
+   typedef struct dds_offered_deadline_missed_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+     dds_instance_handle_t last_instance_handle;
+   }
+   dds_offered_deadline_missed_status_t;
+   
+   typedef struct dds_offered_incompatible_qos_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+     uint32_t last_policy_id;
+   }
+   dds_offered_incompatible_qos_status_t;
+   
+   typedef struct dds_publication_matched_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+     uint32_t current_count;
+     int32_t current_count_change;
+     dds_instance_handle_t last_subscription_handle;
+   }
+   dds_publication_matched_status_t;
+   
+   typedef struct dds_liveliness_lost_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+   }
+   dds_liveliness_lost_status_t;
+   
+   typedef struct dds_subscription_matched_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+     uint32_t current_count;
+     int32_t current_count_change;
+     dds_instance_handle_t last_publication_handle;
+   }
+   dds_subscription_matched_status_t;
+   
+   typedef enum
+   {
+     DDS_NOT_REJECTED,
+     DDS_REJECTED_BY_INSTANCES_LIMIT,
+     DDS_REJECTED_BY_SAMPLES_LIMIT,
+     DDS_REJECTED_BY_SAMPLES_PER_INSTANCE_LIMIT
+   }
+   dds_sample_rejected_status_kind;
+   
+   typedef struct dds_sample_rejected_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+     dds_sample_rejected_status_kind last_reason;
+     dds_instance_handle_t last_instance_handle;
+   }
+   dds_sample_rejected_status_t;
+   
+   typedef struct dds_liveliness_changed_status
+   {
+     uint32_t alive_count;
+     uint32_t not_alive_count;
+     int32_t alive_count_change;
+     int32_t not_alive_count_change;
+     dds_instance_handle_t last_publication_handle;
+   }
+   dds_liveliness_changed_status_t;
+   
+   typedef struct dds_requested_deadline_missed_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+     dds_instance_handle_t last_instance_handle;
+   }
+   dds_requested_deadline_missed_status_t;
+   
+   typedef struct dds_requested_incompatible_qos_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+     uint32_t last_policy_id;
+   }
+   dds_requested_incompatible_qos_status_t;
+   
+   typedef struct dds_sample_lost_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+   }
+   dds_sample_lost_status_t;
+   
+   typedef struct dds_inconsistent_topic_status
+   {
+     uint32_t total_count;
+     int32_t total_count_change;
+   }
+   dds_inconsistent_topic_status_t;
+   
+   
+   /*
+     get_<status> APIs return the status of an entity and resets the status
+   */
+   
+   DDS_EXPORT dds_return_t
+   dds_get_inconsistent_topic_status (
+     dds_entity_t topic,
+     dds_inconsistent_topic_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_publication_matched_status (
+     dds_entity_t writer,
+     dds_publication_matched_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_liveliness_lost_status (
+     dds_entity_t writer,
+     dds_liveliness_lost_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_offered_deadline_missed_status(
+     dds_entity_t writer,
+     dds_offered_deadline_missed_status_t *status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_offered_incompatible_qos_status (
+     dds_entity_t writer,
+     dds_offered_incompatible_qos_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_subscription_matched_status (
+     dds_entity_t reader,
+     dds_subscription_matched_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_liveliness_changed_status (
+     dds_entity_t reader,
+     dds_liveliness_changed_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_sample_rejected_status (
+     dds_entity_t reader,
+     dds_sample_rejected_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_sample_lost_status (
+     dds_entity_t reader,
+     dds_sample_lost_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_requested_deadline_missed_status (
+     dds_entity_t reader,
+     dds_requested_deadline_missed_status_t * status);
+   
+   DDS_EXPORT dds_return_t
+   dds_get_requested_incompatible_qos_status (
+     dds_entity_t reader,
+     dds_requested_incompatible_qos_status_t * status);
+   
+   #if defined (__cplusplus)
+   }
+   #endif
+   #endif
