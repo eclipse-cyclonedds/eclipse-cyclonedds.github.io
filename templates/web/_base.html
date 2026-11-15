@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% block head %}
+{% block head %}
     <title>{% block title %}{{ title }}{% endblock title %}</title>
     <meta charset="utf-8" />
     <meta name="description" content="Eclipse Cyclone DDS, High performant and robust open source OMG DDS implementation" />
@@ -16,16 +16,16 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/syntax.css">
-    {% endblock head %}
+{% endblock head %}
   </head>
 
   <body>
-    {{ header.header_start }}
-    {% block navbar_extensions %}{% endblock %}
-    {{ header.header_end }}
+{{ header.header_start }}
+{% block navbar_extensions %}{% endblock %}
+{{ header.header_end }}
 
-    {% block content %}{% endblock %}
-    {% include '_footer.html' with context %}
+{% block content %}{% endblock %}
+{% include '_footer.html' with context %}
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="/js/jquery.min.js"></script>

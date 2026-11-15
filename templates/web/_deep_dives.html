@@ -1,0 +1,15 @@
+{# Keep the rendered Markdown intact; group its existing topic headings for presentation. #}
+{% set sections = content.html.split('<h4 ') %}
+<main class="deep-dives-page">
+  <header class="deep-dives-intro deep-dives-container">
+    {{ sections[0] | safe }}
+  </header>
+  <div class="deep-dives-topics deep-dives-container">
+    {% for section in sections[1:] -%}
+    <section class="deep-dive-topic">
+      <span class="deep-dive-number" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>
+      <div class="deep-dive-content">{{ ('<h4 ' + section) | safe }}</div>
+    </section>
+    {% endfor -%}
+  </div>
+</main>

@@ -2,6 +2,8 @@ Title:       What makes DDS unique
 Author:      Ramzi KAROUI
 Date:        2022-11-08
 Template:    plain_markdown
+Topic:       DDS fundamentals
+Summary:     Explore the data-centric approach behind DDS and how it supports interoperable, real-time communication across distributed systems.
 ---
 
 

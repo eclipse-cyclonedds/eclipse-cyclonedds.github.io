@@ -3,6 +3,8 @@ Title:       What XTypes can do for you
 Author:      Thijs Miedema
 Date:        2022-05-11
 Template:    plain_markdown
+Topic:       Type evolution
+Summary:     See how XTypes brings evolving data models, bitmasks and dynamic type discovery to Cyclone DDS, with practical IDL examples.
 ---
 
 # What XTypes can do for you

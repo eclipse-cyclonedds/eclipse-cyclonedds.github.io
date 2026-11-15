@@ -36,7 +36,7 @@ class ContentProvider:
             ]
         )
 
-        for file in content_dir.rglob("*.md"):
+        for file in sorted(content_dir.rglob("*.md")):
             md = file.read_text()
             html = markdowner.convert(md)
             meta = markdowner.Meta if hasattr(markdowner, 'Meta') else {}

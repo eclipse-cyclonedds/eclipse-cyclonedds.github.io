@@ -2,56 +2,52 @@
 {% set title = "Eclipse Cyclone DDS - Documentation" %}
 {% extends "_base.html" %}
 
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/css/docs.css">
+{% endblock head %}
+
 {% block content %}
-    <main>
-      <div class="container">
-        <div class="row my-1">
-          <h1>Documentation</h1>
-          Here you can find the documentation of all Eclipse Cyclone DDS Projects.
+<main class="docs-page docs-container">
+  <header class="docs-intro">
+    <h1>Documentation</h1>
+    <p>Here you can find the documentation of all Eclipse Cyclone DDS Projects.</p>
+  </header>
+
+  <section class="docs-version docs-latest" aria-labelledby="docs-latest-title">
+    <header class="docs-version-heading"><h2 id="docs-latest-title">Latest (master branch)</h2></header>
+    <ul class="docs-project-list">
+      {% for name, version_db in projects.items() -%}
+      <li class="docs-project docs-master-project">
+        <strong class="docs-project-name">{{ config.projects[name].short }}</strong>
+        <div class="docs-actions">
+          <a class="docs-link docs-link-primary" href="/docs/{{ name }}/latest">Documentation</a>
+          <a class="docs-link" href="{{ config.projects[name].repository }}/tree/{{ version_db.master_commit }}">Code</a>
         </div>
+        <span class="docs-commit">{{ version_db.master_commit }}</span>
+      </li>
+      {% endfor -%}
+    </ul>
+  </section>
 
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <h2 class="mb-2">Latest (master branch)</h2>
-            <div class="row my-2">
-              <hr class="my-2"/>
-
-              {%- for name, version_db in projects.items() %}
-              <div class="col-6 col-md-2 mb-1"><strong>{{ config.projects[name].short }}</strong></div>
-              <div class="col-6 col-md-4 mb-1">
-                <div class="btn-group">
-                  <a class="btn btn-outline-primary btn-sm" href="/docs/{{ name }}/latest">Documentation</a>
-                  <a class="btn btn-outline-primary btn-sm"  href="{{ config.projects[name].repository }}/tree/{{ version_db.master_commit }}">Code</a>
-                </div>
-              </div>
-              <div class="col-12 col-md-6 mb-1">
-                <span class="text-muted">{{ version_db.master_commit }}</span>
-              </div>
-              {%- endfor %}
-            </div>
+  <div class="docs-releases">
+    {% for release, versiondb in releases -%}
+    <section class="docs-version" aria-labelledby="docs-release-{{ loop.index }}">
+      <header class="docs-version-heading"><h2 id="docs-release-{{ loop.index }}">{{ config.releases.get(release, "Unknown") }} ({{ release }})</h2></header>
+      <ul class="docs-project-list">
+        {% for project, version in versiondb.items() -%}
+        <li class="docs-project docs-release-project">
+          <strong class="docs-project-name">{{ config.projects[project].short }} <span class="docs-project-version">({{ version | string }})</span></strong>
+          <div class="docs-actions">
+            <a class="docs-link docs-link-primary" href="/docs/{{ project }}/{{ version | string }}">Documentation</a>
+            <a class="docs-link" href="{{ config.projects[project].repository }}/tree/{{ version | string }}">Code</a>
+            <a class="docs-link" href="{{ config.projects[project].repository }}/releases/tag/{{ version | string }}">Notes</a>
           </div>
-        </div>
-
-        {% for release, versiondb in releases %}
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <h2 class="mb-2">{{ config.releases.get(release, "Unknown") }} ({{ release }})</h2>
-            <div class="row my-2">
-              {%- for project, version in versiondb.items() %}
-              <div class="col-12 col-md-2 mb-1"><strong>{{ config.projects[project].short }} <span class="text-muted">({{ version | string }})</span></strong></div>
-              <div class="col-12 col-md-10 mb-1">
-                <div class="btn-group">
-                  <a class="btn btn-outline-primary btn-sm" href="/docs/{{ project }}/{{ version | string }}">Documentation</a>
-                  <a class="btn btn-outline-primary btn-sm"  href="{{ config.projects[project].repository }}/tree/{{ version | string }}">Code</a>
-                  <a class="btn btn-outline-primary btn-sm"  href="{{ config.projects[project].repository }}/releases/tag/{{ version | string }}">Notes</a>
-                </div>
-              </div>
-              {%- endfor %}
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-
-      </div>
-    </main>
+        </li>
+        {% endfor -%}
+      </ul>
+    </section>
+    {% endfor -%}
+  </div>
+</main>
 {% endblock content %}

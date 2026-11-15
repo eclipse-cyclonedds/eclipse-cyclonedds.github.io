@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
+
 
     <title>Eclipse Cyclone DDS - FAQ</title>
     <meta charset="utf-8" />
@@ -19,14 +19,16 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/syntax.css">
-    
+
 <link rel="stylesheet" href="/css/pygments.css">
 <link rel="stylesheet" href="/css/markdown.css">
+
+<link rel="stylesheet" href="/css/faq.css">
 
   </head>
 
   <body>
-    
+
     <header class="navbar navbar-expand navbar-dark flex-column flex-md-row ato-navbar px-5">
       <a class="navbar-brand" href="/">
         <img src="/images/cyclonedds-light.png" class="m-1 align-middle" alt="" height="30">
@@ -41,7 +43,7 @@
             <a class="nav-link" href="/docs">Documentation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/content/faq.html">FAQ</a>
+            <a class="nav-link active" href="/content/faq.html">FAQ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/content/deep-dives.html">Deep Dives</a>
@@ -52,13 +54,13 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navGuides">
 
-              <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
-
-              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
+              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
 
               <li><a class="dropdown-item" href="/content/guides/interactive-tutorial-chapter-1.html">Python Interactive Tutorial, Chapter 1</a></li>
 
-              <li><a class="dropdown-item" href="/content/guides/detect-retransmits.html">Detect Retransmits</a></li>
+              <li><a class="dropdown-item" href="/content/guides/supported-idl.html">What syntax and datatypes are supported in IDL</a></li>
+
+              <li><a class="dropdown-item" href="/content/guides/tracefile.html">Cyclone DDS trace files</a></li>
 
             </ul>
           </li>
@@ -71,8 +73,8 @@
         </ul>
       </div>
 
-    
-    
+
+
 
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
         <li class="nav-item">
@@ -81,8 +83,8 @@
            </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link p-2" href="https://twitter.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="Twitter">
-            <span class="fab fa-twitter fa-lg"></span>
+          <a class="nav-link p-2" href="https://x.com/EclipseCyclone" target="_blank" rel="noopener" aria-label="X">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align: -.125em"><path d="M18.901 1.153h3.68l-8.041 9.19L24 23.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.601-9.835L0 1.154h7.594l5.243 6.932Zm-1.291 20.491h2.039L6.486 3.24H4.298Z"/></svg>
            </a>
         </li>
         <li class="nav-item">
@@ -94,14 +96,20 @@
     </header>
 
 
-    
-<main>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 mx-auto px-5 my-3 markdown">
-        <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+
+
+
+
+<main class="faq-page">
+  <header class="faq-intro faq-container">
+    <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 <p>This FAQ is based on the captured interactions on Github (related to both open as well as closed issues) and as such includes reference(s) to Github for more details related to the posed questions (and/or answers)</p>
-<div class="toc">
+
+  </header>
+  <div class="faq-layout faq-container">
+    <aside class="faq-index">
+      <nav aria-label="Frequently Asked Questions">
 <ul>
 <li><a href="#frequently-asked-questions">Frequently Asked Questions</a><ul>
 <li><a href="#api">API</a><ul>
@@ -147,9 +155,13 @@
 </ul>
 </li>
 </ul>
-</div>
-<h3 id="api">API</h3>
-<h4 id="how-do-i-specify-a-domain-id">How do I specify a <em>domain id</em>?</h4>
+</nav>
+    </aside>
+    <div class="faq-content">
+      <section class="faq-category">
+        <h3 id="api">API</h3>
+
+        <article class="faq-question"><h4 id="how-do-i-specify-a-domain-id">How do I specify a <em>domain id</em>?</h4>
 <p>There's some confusion w.r.t. the multiple ways to specify a <em>domain id</em> for Cyclone DDS.</p>
 <p><strong>Answer</strong></p>
 <ul>
@@ -161,8 +173,12 @@
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/23">cyclonedds#23</a></li>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/pull/24">cyclonedds#24</a></li>
 </ul>
-<h3 id="patterns">Patterns</h3>
-<h4 id="how-do-i-filter-out-self-sent-data">How do I filter out 'self-sent' data?</h4>
+</article>
+        </section>
+      <section class="faq-category">
+        <h3 id="patterns">Patterns</h3>
+
+        <article class="faq-question"><h4 id="how-do-i-filter-out-self-sent-data">How do I filter out 'self-sent' data?</h4>
 <p><strong>Answer</strong></p>
 <ul>
 <li>Set the <code>IgnoreLocal</code> QoS on your reader to discard any samples written by readers local to your publisher or participant scope.</li>
@@ -174,8 +190,12 @@
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/8">cyclonedds#8</a></li>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/78">cyclonedds#78</a></li>
 </ul>
-<h3 id="best-practices">Best Practices</h3>
-<h4 id="a-take-operation-returns-no-data">A <code>take()</code> operation returns no data?</h4>
+</article>
+        </section>
+      <section class="faq-category">
+        <h3 id="best-practices">Best Practices</h3>
+
+        <article class="faq-question"><h4 id="a-take-operation-returns-no-data">A <code>take()</code> operation returns no data?</h4>
 <p>A take() in combination with <code>TRANSIENT_LOCAL</code> QoS and <code>BEST_EFFORT</code> reliability sometimes returns no data.</p>
 <p><strong>Answer</strong></p>
 <ul>
@@ -186,8 +206,12 @@
 <ul>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/154">cyclonedds#154</a></li>
 </ul>
-<h3 id="datamodel-idl">DataModel / IDL</h3>
-<h4 id="what-idl-is-supported">What IDL is supported?</h4>
+</article>
+        </section>
+      <section class="faq-category">
+        <h3 id="datamodel-idl">DataModel / IDL</h3>
+
+        <article class="faq-question"><h4 id="what-idl-is-supported">What IDL is supported?</h4>
 <p><strong>Answer</strong></p>
 <ul>
 <li>See <a href="/content/guides/supported-idl.html">this guide</a> on what is supported.</li>
@@ -197,7 +221,8 @@
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/350">cyclonedds#350</a></li>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/795">cyclonedds#795</a></li>
 </ul>
-<h4 id="what-characters-are-allowed-for-topic-names">What characters are allowed for topic-names?</h4>
+</article>
+        <article class="faq-question"><h4 id="what-characters-are-allowed-for-topic-names">What characters are allowed for topic-names?</h4>
 <p><strong>Answer</strong></p>
 <ul>
 <li>Only alphanumeric characters, '/' and '_' are allowed in topic-names</li>
@@ -209,8 +234,12 @@
 <ul>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/657">cyclonedds#657</a></li>
 </ul>
-<h3 id="concepts">Concepts</h3>
-<h4 id="what-is-the-difference-between-read-and-take">What is the difference between <code>read()</code> and <code>take()</code>?</h4>
+</article>
+        </section>
+      <section class="faq-category">
+        <h3 id="concepts">Concepts</h3>
+
+        <article class="faq-question"><h4 id="what-is-the-difference-between-read-and-take">What is the difference between <code>read()</code> and <code>take()</code>?</h4>
 <p>When looking at the examples, its unclear what the difference between them is and when to use one or the other</p>
 <p><strong>Answer</strong></p>
 <ul>
@@ -221,7 +250,8 @@
 <ul>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/17">cyclonedds#17</a></li>
 </ul>
-<h4 id="how-do-i-assure-that-all-subscribers-get-the-data-from-a-short-lived-publisher">How do I assure that all subscribers get the data from a short-lived publisher?</h4>
+</article>
+        <article class="faq-question"><h4 id="how-do-i-assure-that-all-subscribers-get-the-data-from-a-short-lived-publisher">How do I assure that all subscribers get the data from a short-lived publisher?</h4>
 <p>When starting many subscribers of the HelloWorld example, not all get all published data</p>
 <p><strong>Answer</strong></p>
 <ul>
@@ -232,7 +262,8 @@
 <ul>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/25">cyclonedds#25</a></li>
 </ul>
-<h4 id="writer-history-qos-keep_all-doesnt-result-in-late-joining-readers-to-receive-the-data">(Writer-)History QoS <code>KEEP_ALL</code> doesn't result in late-joining reader(s) to receive the data</h4>
+</article>
+        <article class="faq-question"><h4 id="writer-history-qos-keep_all-doesnt-result-in-late-joining-readers-to-receive-the-data">(Writer-)History QoS <code>KEEP_ALL</code> doesn't result in late-joining reader(s) to receive the data</h4>
 <p>The (in the OMG-spec) specified <code>KEEP_ALL</code> behavior seems to suggest that data is kept available for (later) delivery</p>
 <p><strong>Answer</strong></p>
 <p>For preserving published data for late-joining subscribers, the <code>DURABILITY</code> QoS should be used (that works in conjuction with <code>HISTORY</code> but isn't the same)</p>
@@ -241,7 +272,8 @@
 </ul>
 <p><strong>See also</strong>
  - <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/49">cyclonedds#49</a></p>
-<h4 id="how-to-communicate-between-dds-domains">How to communicate between DDS-domains?</h4>
+</article>
+        <article class="faq-question"><h4 id="how-to-communicate-between-dds-domains">How to communicate between DDS-domains?</h4>
 <p><strong>Answer</strong></p>
 <p>Cyclone DDS relies on <a href="www.zenoh.io">Zenoh</a> for that</p>
 <ul>
@@ -254,7 +286,8 @@
 <li><a href="https://github.com/eclipse-zenoh/zenoh-plugin-dds">zenoh-plugin-dds</a></li>
 <li><a href="https://zenoh.io/blog/2021-04-28-ros2-integration/">the zenoh blog on ROS2 integration</a></li>
 </ul>
-<h4 id="is-dds-useful-for-intermittent-local-communications-without-a-fixed-network">Is DDS useful for intermittent local communications without a fixed network?</h4>
+</article>
+        <article class="faq-question"><h4 id="is-dds-useful-for-intermittent-local-communications-without-a-fixed-network">Is DDS useful for intermittent local communications without a fixed network?</h4>
 <p>This is useful to cases related to mobile devices that regularly go in and out of range</p>
 <p><strong>Answer</strong></p>
 <ul>
@@ -266,7 +299,8 @@
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/524">cyclonedds#524</a></li>
 <li><a href="www.zenoh.io">Zenoh</a></li>
 </ul>
-<h4 id="what-are-the-semantics-behind-on_data_available">What are the semantics behind <code>on_data_available</code>?</h4>
+</article>
+        <article class="faq-question"><h4 id="what-are-the-semantics-behind-on_data_available">What are the semantics behind <code>on_data_available</code>?</h4>
 <ul>
 <li>It seems that on_data_available is triggered not just on actual new data arriving</li>
 </ul>
@@ -279,8 +313,12 @@
 <ul>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1084">cyclonedds#1084</a></li>
 </ul>
-<h3 id="performance">Performance</h3>
-<h4 id="why-are-there-huge-latency-outliers-when-sending-huge-samples">Why are there huge latency outliers when sending huge samples ?</h4>
+</article>
+        </section>
+      <section class="faq-category">
+        <h3 id="performance">Performance</h3>
+
+        <article class="faq-question"><h4 id="why-are-there-huge-latency-outliers-when-sending-huge-samples">Why are there huge latency outliers when sending huge samples ?</h4>
 <p>When sending 1MB samples on a 'standard' Ubuntu distro, latencies can spike from a typical 2 milliseconds towards 150 milliseconds</p>
 <p><strong>Answer</strong></p>
 <ul>
@@ -291,8 +329,12 @@
 <ul>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/294">cyclonedds#294</a></li>
 </ul>
-<h3 id="language-support">Language Support</h3>
-<h4 id="is-rust-an-available-language-binding">Is 'Rust' an available language binding?</h4>
+</article>
+        </section>
+      <section class="faq-category">
+        <h3 id="language-support">Language Support</h3>
+
+        <article class="faq-question"><h4 id="is-rust-an-available-language-binding">Is 'Rust' an available language binding?</h4>
 <p>As Cyclone DDS is about the only open source DDS implementation written in 'C', it should (at least theoretically) be possible to create a 'Rust' binding on-top of it</p>
 <p><strong>Answer</strong></p>
 <ul>
@@ -304,13 +346,18 @@
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/573">cyclonedds#573</a></li>
 <li><a href="https://github.com/atolab/cdds-rust">https://github.com/atolab/cdds-rust</a></li>
 </ul>
-<h4 id="is-c-an-available-language-binding">Is 'C#' an available language binding?</h4>
+</article>
+        <article class="faq-question"><h4 id="is-c-an-available-language-binding">Is 'C#' an available language binding?</h4>
 <p><strong>Answer</strong></p>
 <ul>
 <li>At time of writing (august/2022) there is a C# language binding in the works by ZettaScale Technology.</li>
 </ul>
-<h3 id="configuration">Configuration</h3>
-<h4 id="how-do-i-use-multiple-network-partitions-in-a-custom-profile">How do I use multiple (network) partitions in a custom profile?</h4>
+</article>
+        </section>
+      <section class="faq-category">
+        <h3 id="configuration">Configuration</h3>
+
+        <article class="faq-question"><h4 id="how-do-i-use-multiple-network-partitions-in-a-custom-profile">How do I use multiple (network) partitions in a custom profile?</h4>
 <p><strong>Answer</strong></p>
 <ul>
 <li>Cyclone DDS allows you to map logical DDS-partitions on physical ‘network-partitions’ (typically multicast-groups)</li>
@@ -318,7 +365,8 @@
 </ul>
 <p><strong>See also</strong>
  - <a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/883">cyclonedds#883</a></p>
-<h4 id="how-do-i-configure-multiple-network-interfaces">How do I configure multiple network interfaces?</h4>
+</article>
+        <article class="faq-question"><h4 id="how-do-i-configure-multiple-network-interfaces">How do I configure multiple network interfaces?</h4>
 <p><strong>Answer</strong></p>
 <ul>
 <li>Automatic routing might prevent correct communication in case of multiple configured interfaces</li>
@@ -328,14 +376,14 @@
 <p><strong>See also</strong></p>
 <ul>
 <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds/issues/1190">cyclonedds#1190</a></li>
-</ul>
+</ul></article>
+        </section>
       </div>
-    </div>
-    
   </div>
 </main>
 
-        <footer class="ato-footer text-muted">
+
+    <footer class="ato-footer text-muted">
       <div class="container-fluid p-6 p-md-5">
         <div class="row">
           <div class="col-6 col-md-2 pb-2">
@@ -366,7 +414,7 @@
           <div class="col-6 col-md-2 pb-2">
             <h5>Follow us</h5>
             <p><a href="https://github.com/eclipse-cyclonedds/cyclonedds"><span class="fab fa-github"></span>&nbsp;GitHub</a></p>
-            <p><a href="https://twitter.com/EclipseCyclone"><span class="fab fa-twitter"></span>&nbsp;Twitter</a></p>
+            <p><a href="https://x.com/EclipseCyclone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="vertical-align: -.125em"><path d="M18.901 1.153h3.68l-8.041 9.19L24 23.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.601-9.835L0 1.154h7.594l5.243 6.932Zm-1.291 20.491h2.039L6.486 3.24H4.298Z"/></svg>&nbsp;X</a></p>
             <p><a href="https://discord.gg/BkRYQPpZVV"><span class="fab fa-discord"></span>&nbsp;Discord</a></p>
             <p><a href="/docs"><span class="fa fa-info-circle"></span>&nbsp;About</a></p>
           </div>

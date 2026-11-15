@@ -2,6 +2,8 @@ Title:       Modeling Data, Metadata and their Relationships With DDS
 Author:      Ramzi KAROUI
 Date:        2022-11-08
 Template:    plain_markdown
+Topic:       Data modeling
+Summary:     A closer look at how DDS represents entities, metadata and relationships, and what this means for designing type-safe distributed systems.
 ---
 
 # DDS Models simultaneously system's Things, their Metadata, and Relationships

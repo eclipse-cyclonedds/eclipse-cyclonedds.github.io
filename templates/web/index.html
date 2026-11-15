@@ -2,30 +2,137 @@
 {% set title = "Eclipse Cyclone DDS - Home" %}
 {% extends "_base.html" %}
 
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/css/home.css">
+{% endblock head %}
+
 {% block content %}
 <main>
-  <div class="container-fluid section" id="summary">
-    <div class="row align-items-center my-5 section" id="row">
-      <div class="col-12 col-md-6 mx-auto px-5 mb-3 text-center">
-        <img src="/images/cyclonedds.png" alt="cyclonedds" class="img-fluid w-50 align-middle"/>
-      </div>
-
-      <div class="col-12 col-md-6 order-md-2 text-center text-md-start pr-md-5 section"
-        id="building-portable-interoperable-distributed-datacentric-systems">
-        <h4>Building Portable &amp; Interoperable Distributed Datacentric Systems</h4>
-        <p>
-          Cyclone DDS is a high performing, OMG-DDS standard based data sharing technology which allows system
-          designers to create digital twins of their systems' entities to share their states, events, data-streams and
-          messages on the network in real-time and fault-tolerant way.
-        </p>
-        <p>
-          <a class="btn btn-sm ato-button" href="/docs/cyclonedds/latest/getting_started/index.html">
-            Get Started
-          </a>
-        </p>
+  <section class="home-summary" id="summary" aria-label="Welcome to Cyclone DDS">
+    <div class="home-intro" id="building-portable-interoperable-distributed-datacentric-systems">
+      <p class="home-eyebrow">Eclipse Cyclone DDS</p>
+      <h4>Building Portable &amp; Interoperable Distributed Datacentric Systems</h4>
+      <div class="home-intro-details">
+        <div class="home-hero-visual">
+          <img id="home-cyclone" src="/images/cyclone-still.png" width="600" height="600" alt="Cyclone DDS — a swirling blue cyclone" fetchpriority="high">
+          <button id="home-cyclone-toggle" class="home-hero-toggle" type="button" aria-controls="home-cyclone" hidden>Play animation</button>
+        </div>
+        <div class="home-intro-copy">
+          <p>Cyclone DDS is a high performing, OMG-DDS standard based data sharing technology which allows system
+            designers to create digital twins of their systems' entities to share their states, events, data-streams and
+            messages on the network in real-time and fault-tolerant way.</p>
+          <a class="btn btn-sm ato-button" href="/docs/cyclonedds/latest/getting_started/index.html">Get Started</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="home-ecosystem" aria-label="DDS data distribution and developer tools">
+    <div class="home-ecosystem-inner">
+      <div class="home-data-panel">
+        <p class="home-eyebrow">Connected by data</p>
+        <h4>Shared topics. Connected endpoints.</h4>
+        <p>DataWriters publish samples on a Topic. Matching DataReaders receive them directly, across your DDS domain.</p>
+        <div class="home-data-visual" id="home-ecosystem-motion">
+          <svg class="home-data-network" viewBox="0 68 800 462" role="img" aria-labelledby="dds-network-title dds-network-desc">
+            <title id="dds-network-title">DDS endpoints on separate PCs share topics</title>
+            <desc id="dds-network-desc">PC labels identify the machines and their DDS entities. A central cloud labelled Domain ID 3 surrounds the logical topic bars. All shown participants belong to DDS domain 3; the cloud is not a broker or server. The Sensor PC has two Publishers, each with one DataWriter. The Temperature Publisher lists partition Sensor-A; the Status Publisher has no explicit partition and uses the default partition. The Controller Subscriber lists Sensor-A and reads Temperature. The Dashboard has two Subscribers: Subscriber 1 uses Sensor-* for its Temperature DataReader; Subscriber 2 has no explicit partition and uses the default partition for its Status DataReader. Partition QoS belongs to Publishers and Subscribers; each writer uses its parent Publisher’s partitions. Two central bars represent the logical topics, not brokers or routing servers. Temperature reaches both Controller and Dashboard. Status reaches the Dashboard through matching default partitions. Matching also depends on compatible QoS.</desc>
+            <g class="home-topic-cloud" transform="translate(0 90)" aria-hidden="true">
+              <path d="M283 305 C252 305 239 285 248 262 C229 242 236 229 251 218 C231 190 242 158 268 151 C261 121 286 97 317 108 C331 77 375 73 397 98 C426 74 466 88 474 117 C506 101 535 125 530 153 C554 165 560 194 545 215 C567 238 552 262 537 269 C549 293 531 307 505 305 Z"/>
+              <text x="400" y="123" text-anchor="middle">Domain ID 3</text>
+              <text class="home-domain-subtitle" x="400" y="140" text-anchor="middle">Global Data Space</text>
+            </g>
+            <g class="home-network-links" fill="none">
+              <path class="home-flow-temperature" d="M205 248 C238 248 237 265 270 265"/>
+              <path class="home-flow-temperature" d="M530 265 C565 265 565 171 600 171"/>
+              <path class="home-flow-temperature" d="M530 265 C575 265 555 348 600 348"/>
+              <path class="home-flow-status" d="M205 330 C235 330 240 335 270 335"/>
+              <path class="home-flow-status" d="M530 335 C565 335 565 430 600 430"/>
+            </g>
+            <g class="home-topic-bars" transform="translate(0 90)" text-anchor="middle">
+              <rect class="home-temperature-bar" x="270" y="149" width="260" height="52" rx="8"/>
+              <text class="home-temperature-label" x="400" y="171">Topic: Temperature</text>
+              <text class="home-topic-type" x="400" y="188">TemperatureData</text>
+              <rect class="home-status-bar" x="270" y="219" width="260" height="52" rx="8"/>
+              <text class="home-status-label" x="400" y="241">Topic: Status</text>
+              <text class="home-topic-type" x="400" y="258">StatusData</text>
+            </g>
+            <g class="home-network-packets" aria-hidden="true">
+              <circle r="4"><animateMotion begin="-1s" dur="2.5s" repeatCount="indefinite" path="M205 248 C238 248 237 265 270 265"/></circle>
+              <circle r="4"><animateMotion begin="-1s" dur="2.8s" repeatCount="indefinite" path="M530 265 C565 265 565 171 600 171"/></circle>
+              <circle r="4"><animateMotion begin="-1s" dur="3.6s" repeatCount="indefinite" path="M530 265 C575 265 555 348 600 348"/></circle>
+              <circle class="home-status-packet" r="4"><animateMotion begin="-1s" dur="2.7s" repeatCount="indefinite" path="M205 330 C235 330 240 335 270 335"/></circle>
+              <circle class="home-status-packet" r="4"><animateMotion begin="-1s" dur="3.1s" repeatCount="indefinite" path="M530 335 C565 335 565 430 600 430"/></circle>
+            </g>
+            <g class="home-network-nodes">
+
+              <text class="home-entity-label" x="125" y="185" text-anchor="middle">DomainParticipant</text>
+              <rect class="home-entity-group" x="35" y="197" width="180" height="90" rx="7"/>
+              <text class="home-group-label" x="45" y="210">Publisher 1</text>
+              <g>
+                <title>Temperature DataWriter — partition inherited from Publisher 1</title>
+                <rect class="home-temperature-endpoint" x="45" y="215" width="160" height="66" rx="5"/>
+                <text x="55" y="230">DataWriter</text>
+                <text class="home-partition-caption" x="55" y="244">Partition</text>
+                <rect class="home-partition-chip" x="53" y="252" width="68" height="21" rx="4"/>
+                <text class="home-partition-chip-text" x="87" y="266" text-anchor="middle">Sensor-A</text>
+              </g>
+              <rect class="home-entity-group" x="35" y="293" width="180" height="64" rx="7"/>
+              <text class="home-group-label" x="45" y="306">Publisher 2</text>
+              <g>
+                <title>Status DataWriter — Publisher 2 uses the default partition</title>
+                <rect class="home-status-endpoint" x="45" y="311" width="160" height="38" rx="5"/>
+                <text x="55" y="326">DataWriter</text>
+              </g>
+
+              <text class="home-entity-label" x="674" y="105" text-anchor="middle">DomainParticipant</text>
+              <rect class="home-entity-group" x="589" y="115" width="179" height="96" rx="7"/>
+              <text class="home-group-label" x="600" y="131">Subscriber</text>
+              <g>
+                <title>Temperature DataReader — partition inherited from its Subscriber</title>
+                <rect class="home-temperature-endpoint" x="600" y="136" width="156" height="66" rx="5"/>
+                <text x="610" y="151">DataReader</text>
+                <text class="home-partition-caption" x="610" y="165">Partition</text>
+                <rect class="home-partition-chip" x="608" y="174" width="68" height="21" rx="4"/>
+                <text class="home-partition-chip-text" x="642" y="188" text-anchor="middle">Sensor-A</text>
+              </g>
+
+              <text class="home-entity-label" x="674" y="284" text-anchor="middle">DomainParticipant</text>
+              <rect class="home-entity-group" x="589" y="294" width="179" height="96" rx="7"/>
+              <text class="home-group-label" x="600" y="310">Subscriber 1</text>
+              <g>
+                <title>Temperature DataReader — partition pattern inherited from its Subscriber</title>
+                <rect class="home-temperature-endpoint" x="600" y="315" width="156" height="66" rx="5"/>
+                <text x="610" y="331">DataReader</text>
+                <text class="home-partition-caption" x="610" y="345">Partition</text>
+                <rect class="home-partition-chip" x="608" y="353" width="68" height="21" rx="4"/>
+                <text class="home-partition-chip-text" x="642" y="367" text-anchor="middle">Sensor-*</text>
+              </g>
+              <rect class="home-entity-group" x="589" y="393" width="179" height="64" rx="7"/>
+              <text class="home-group-label" x="600" y="409">Subscriber 2</text>
+              <g>
+                <title>Status DataReader — Subscriber 2 uses the default partition</title>
+                <rect class="home-status-endpoint" x="600" y="414" width="156" height="32" rx="5"/>
+                <text x="610" y="434">DataReader</text>
+              </g>
+            </g>
+            <text class="home-partition-inheritance" x="400" y="502" text-anchor="middle">Partition labels are inherited from the Publisher / Subscriber.</text>
+            <text class="home-partition-inheritance" x="400" y="518" text-anchor="middle">No partition label = default partition.</text>
+          </svg>
+          <div class="home-network-caption"><span><i aria-hidden="true"></i> Topic bars show logical data channels; endpoints communicate directly.</span><button id="home-motion-toggle" type="button" aria-controls="home-ecosystem-motion" hidden>Pause animation</button></div>
+        </div>
+      </div>
+      <div class="home-insight">
+        <div>
+          <p class="home-eyebrow">See your system in action</p>
+          <h4>Cyclone DDS Insight</h4>
+          <p>Discover topics, inspect readers and writers, and spot QoS mismatches in a graphical view of your DDS system.</p>
+          <a class="home-insight-link" href="/content/tools.html">Explore Tools <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <a class="home-insight-preview" href="/images/cyclonedds-insight.png" aria-label="View the Cyclone DDS Insight screenshot at full size"><img src="/images/cyclonedds-insight.png" width="2424" height="1580" alt="Cyclone DDS Insight showing topics, writers and readers"></a>
+      </div>
+    </div>
+  </section>
   <div class="container-fluid section" id="highlights">
     <div class="highlights masthead-followup row m-0 border border-white section" id="row-1">
       <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white section" id="fast-dependable">
@@ -77,5 +184,23 @@
       </div>
     </div>
   </div>
+  <section class="home-languages" aria-labelledby="home-languages-title">
+    <div>
+      <p class="home-eyebrow">One core. Multiple languages.</p>
+      <h4 id="home-languages-title">Native C performance.</h4>
+      <p>A fast, lightweight C core with direct control over memory and resources, plus language bindings for your applications.</p>
+    </div>
+    <nav class="home-language-tree" aria-label="C core and its language bindings">
+      <a class="home-language-core" href="/docs/cyclonedds/latest/getting_started/index.html"><strong>C</strong><span>Cyclone DDS core</span></a>
+      <ul class="home-language-branches">
+        <li><a href="/docs/cyclonedds-cxx/latest/index.html"><strong>C++</strong><span>Binding <span aria-hidden="true">&rarr;</span></span></a></li>
+        <li><a href="/docs/cyclonedds-python/latest/index.html"><strong>Python</strong><span>Binding <span aria-hidden="true">&rarr;</span></span></a></li>
+        <li><a href="https://github.com/eclipse-cyclonedds/cyclonedds-rust"><strong>Rust</strong><span>Binding <span aria-hidden="true">&rarr;</span></span></a></li>
+        <li><span class="home-language-upcoming"><strong>Java</strong><span>Coming soon</span></span></li>
+        <li><span class="home-language-upcoming"><strong>C#</strong><span>Coming soon</span></span></li>
+      </ul>
+    </nav>
+  </section>
 </main>
+<script src="/js/home.js" defer></script>
 {% endblock content %}

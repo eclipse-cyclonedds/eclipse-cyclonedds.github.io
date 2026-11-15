@@ -2,21 +2,55 @@
 {% set title = "Eclipse Cyclone DDS - Blog" %}
 {% extends "_base.html" %}
 
-{% block content %}
-    <main>
-      <div class="container">
-        <div class="row my-1">
-          <h1>Blog</h1>
-        </div>
+{% macro post_date(post) -%}
+  {%- set date = post.meta.get('date', [''])[0] -%}
+  {%- if date -%}
+    {%- set parts = date.split('-') -%}
+    {%- set months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] -%}
+    <time datetime="{{ date }}">{{ parts[2] | int }} {{ months[(parts[1] | int) - 1] }} {{ parts[0] }}</time>
+  {%- endif -%}
+{%- endmacro %}
 
-{% for post in provider.get_all_sort_by_date('blog') %}
-        <div class="row">
-          <div class="col-12 rounded border bg-light my-2 py-2">
-            <a href="{{ post.path }}"><h2 class="mb-2">{{ post.title }}</h2></a>
-            By {{ post.meta.get('author', ['unknown'])[0] }}, posted on {{ post.meta.get('date', ['unknown'])[0] }}.
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/css/blog.css">
+{% endblock head %}
+
+{% block content %}
+{% set posts = provider.get_all_sort_by_date('blog') %}
+<main class="blog-page">
+  <header class="blog-intro blog-container">
+    <div>
+      <p class="blog-eyebrow">The Cyclone DDS blog</p>
+      <h1>Inside Cyclone DDS.</h1>
+      <p class="blog-lead">Ideas, technical deep dives and perspectives from the community building data-centric distributed systems.</p>
+    </div>
+    <a class="blog-intro-link" href="#articles">Explore the articles <span aria-hidden="true">&darr;</span></a>
+  </header>
+
+  <section class="blog-articles blog-container" id="articles" aria-label="Blog articles">
+    <div class="blog-article-list">
+      {% for post in posts -%}
+      <article class="blog-entry">
+        <a class="blog-entry-link" href="{{ post.path }}" aria-labelledby="post-title-{{ loop.index }}">
+          <div class="blog-entry-meta">{{ post_date(post) }}<span class="blog-topic">{{ post.meta.get('topic', ['Article'])[0] }}</span></div>
+          <div class="blog-entry-copy">
+            <h2 id="post-title-{{ loop.index }}">{{ post.title }}</h2>
+            {% if 'summary' in post.meta %}<p class="blog-summary">{{ post.meta['summary'][0] }}</p>{% endif %}
+            {% if 'author' in post.meta %}<p class="blog-author">By {{ post.meta['author'][0] }}</p>{% endif %}
           </div>
-        </div>
-{% endfor %}
-      </div>
-    </main>
+          <span class="blog-entry-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </article>
+      {% else -%}
+      <p>Articles are on their way. In the meantime, explore the documentation and developer tools below.</p>
+      {% endfor -%}
+    </div>
+  </section>
+
+  <aside class="blog-resources blog-container" aria-label="More Cyclone DDS resources">
+    <div><p class="blog-eyebrow">From ideas to practice</p><h2>Put it to work.</h2><p>Explore the documentation or take a closer look at your DDS system.</p></div>
+    <div class="blog-resource-links"><a href="/docs/">Read the documentation <span aria-hidden="true">&rarr;</span></a><a href="/content/tools.html">Explore developer tools <span aria-hidden="true">&rarr;</span></a></div>
+  </aside>
+</main>
 {% endblock content %}

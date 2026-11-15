@@ -1,0 +1,24 @@
+{# Reuse the original Markdown HTML and its complete table of contents verbatim. #}
+{% set parts = content.html.split('<div class="toc">', 1) %}
+{% set rest = parts[1].split('</div>', 1) %}
+<main class="faq-page">
+  <header class="faq-intro faq-container">
+    {{ parts[0] | safe }}
+  </header>
+  <div class="faq-layout faq-container">
+    <aside class="faq-index">
+      <nav aria-label="Frequently Asked Questions">{{ rest[0] | safe }}</nav>
+    </aside>
+    <div class="faq-content">
+      {% for category in rest[1].split('<h3 ')[1:] -%}
+      {% set questions = category.split('<h4 ') -%}
+      <section class="faq-category">
+        {{ ('<h3 ' + questions[0]) | safe }}
+        {% for question in questions[1:] -%}
+        <article class="faq-question">{{ ('<h4 ' + question) | safe }}</article>
+        {% endfor -%}
+      </section>
+      {% endfor -%}
+    </div>
+  </div>
+</main>
